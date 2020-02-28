@@ -1,7 +1,0 @@
-{{ if eq .Params.type "video" }}
-<a href = '{{ .Permalink }}'>Bekijk de video</a>
-{{ else if eq .Params.type "post" }}
-<a href = '{{ .Permalink }}'>Lees verder</a>
-{{ else }}
-<a href = '{{ .Permalink }}'>Bekijk deze tip</a>
-{{ end }}

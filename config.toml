@@ -2,7 +2,6 @@ baseURL = "/"
 languageCode = "en"
 title = "Evagene"
 paginate = 5
-footnoteReturnLinkContents = "Terug naar artikel"
 [markup]
 	defaultMarkdownHandler = "goldmark"
 	[markup.tableOfContents]
