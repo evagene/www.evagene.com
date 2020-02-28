@@ -1,0 +1,7 @@
+{{ define "body_class"}}class="single_post"{{ end }}
+{{ define "main" }}
+<div class = 'contents'>
+  {{ .Content }}
+  {{ partial "others" . }}
+</div>
+{{ end }}

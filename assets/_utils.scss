@@ -1,0 +1,26 @@
+.align{
+  &_center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+.center {
+  text-align: center;
+}
+@for $i from 1 through 6 {
+  $p : $i * 25px;
+  .pbt_#{$i} {
+    padding-top: $p;
+    padding-bottom: $p;
+  }
+  .pb_#{$i} {
+    padding-bottom: $p;
+  }
+  .pt_#{$i} {
+    padding-top: $p;
+  }
+}
+.scrollable {
+  overflow-x: auto;
+}

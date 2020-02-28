@@ -1,0 +1,13 @@
+- name: 'home'
+  url: '/'
+- name: 'benefits'
+  url: '/benefits/'
+- name: 'Process'
+  url: '/process/'
+- name: 'Operations'
+  url: '/operations/'
+- name: 'xiasma'
+  url: '/xiasma/'
+  submenu:
+    - name: 'Terms & Conditions'
+      url: '/terms-conditions/'

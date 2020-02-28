@@ -1,0 +1,515 @@
+.wrap {
+  max-width: 60rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  &_header {
+    width: 100%;
+    top: 0;
+    border-bottom: 1px solid darken($light, 10%);
+    padding-top: 1rem;
+    background: $light;
+    z-index: 99;
+  }
+  &_logo {
+    max-width: 15rem;
+  }
+  &_shadow {
+    box-shadow: 0 0 6rem rgba($dark, 0.27);
+  }
+  &_submenu {
+    position: absolute;
+    min-width: 16rem;
+    background: $light;
+    z-index: 1;
+    box-shadow: 0 0 2rem rgba(0,0,0,0.1);;
+    padding: 1rem 0;
+    left: 0;
+    border-radius: 0.8rem;
+    list-style-type: none;
+    top:3rem;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease-out;
+  }
+  &_parent {
+    position: relative;
+    padding: 0.5rem 0.5rem 0;
+  }
+  &_parent > &_active {
+    &::after {
+      bottom: -0.25rem;
+    }
+  }
+  &_parent:hover &_submenu {
+    opacity: 1;
+    height: initial;
+  }
+  &_item {
+    text-decoration: none;
+    padding: 0.5rem;
+    position: relative;
+    text-transform: uppercase;
+    height: 100%;
+    &:hover {
+      color: $green;
+    }
+  }
+  &_subitem {
+    text-transform: capitalize;
+    padding: 0.5rem 1rem;
+    display: block;
+    text-align: left;
+    &::after {
+      display: none !important;
+    }
+  }
+  &_icon {
+    width: 0.8rem;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+  }
+  &_active {
+    color: $green;
+    &::after {
+      content: "";
+      padding: 1px;
+      width: 100%;
+      left: 0;
+      position: absolute;
+      bottom: -1px;
+      z-index: 1;
+      background: $green;
+    }
+  }
+  &_top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+  }
+  &_search {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    @media screen and (min-width: 769px) {
+      justify-content: flex-end;
+    }
+  }
+  &_toggle {
+    display: none;
+  }
+}
+
+.footer {
+  color: #666;
+  padding: 1rem 0 3rem;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #fafafa;
+  &_item {
+    text-decoration: none;
+    transition: opacity 0.3s ease-out;
+    padding: 0.5rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+}
+
+.form {
+  box-shadow: 0 1rem 4rem rgba($dark, 0.17);
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 1rem 1.5rem 2rem 1.5rem;
+  border-bottom: 0.25rem solid green;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  background-color: $light;
+  &_title {
+    text-align: center;
+    padding-bottom: 1rem;
+    text-transform: uppercase;
+  }
+  &_input {
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    border-radius: 0.33rem;
+    border: 1px solid darken($light, 5%);
+    outline: none;
+    -webkit-appearance: none;
+    &:hover {
+      box-shadow: 0 0 2rem rgba($dark, 0.12);
+    }
+  }
+  &_subscribe {
+    display: grid;
+    grid-gap: 1.5rem;
+    grid-template-columns: 1fr;
+    @media screen and (min-width: 769px) {
+      grid-template-columns: 3fr 3fr 2fr;
+    }
+  }
+  &_submit {
+    border-radius: 1.5rem;
+    background: $green;
+    color: $light;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 0.5rem 2.25rem rgba($green,.05);
+  }
+}
+
+.video{
+  overflow:hidden;
+  padding-bottom:56.25%;
+  position:relative;
+  height:0;
+  margin: 1.5rem 0;
+  border-radius: 1rem;
+  box-shadow: 0 1rem 4rem rgba(0,0,0,0.12);
+  iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+    border: 0;
+    outline: 0;
+  }
+}
+
+.excerpt {
+  box-shadow: 0 0 3rem rgba($dark, 0.12);
+  margin: 0.5rem 0;
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  min-height: 20rem;
+  cursor: pointer;
+  &_first {
+    display: grid;
+    grid-template-columns: 1fr;
+    @media screen and (min-width: 769px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    grid-column: 1/-1;
+  }
+  &_image {
+    background-color: $green;
+    background-position: center;
+    background-size: cover;
+    min-height: 15rem;
+  }
+  &_dull {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      background: rgba($dark, 0.7);
+      z-index: 2;
+    }
+  }
+  &:not(.excerpt_first) {
+    color: $light;
+    // padding: 1rem;
+    background-color: $green;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      background: rgba($dark, 0.7);
+      z-index: 2;
+    }
+  }
+  &_title {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.33rem;
+    a {
+      text-decoration: none;
+      &:hover {
+        text-decoration: initial;
+      }
+    }
+  }
+  &_body {
+    position: relative;
+    z-index: 7;
+    padding: 1.5rem;
+  }
+  &_footer {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+
+.pagination {
+  list-style-type: none;
+  display: flex;
+  margin: 2rem 0;
+  justify-content: center;
+}
+
+.page {
+  &-item {
+    height:1.5rem;
+		line-height:0.8em;
+    width: 1.5rem;
+    margin: 0.5rem;
+    border-radius: 0.2rem;
+    display: inline-grid;
+    align-items: center;
+    text-align: center;
+    &.active {
+      background: $green;
+      color: $light;
+      box-shadow: 0 0 1rem rgba($dark, 0.12);
+    }
+    &.disabled {
+      opacity: 0.5;
+    }
+  }
+  &-link {
+    text-decoration: none;
+    font-size: 0.8rem;
+  }
+} 
+
+.author {
+  display: grid;
+  grid-template-columns: 4rem 8rem 1fr;
+  grid-gap: 1.25rem;
+  margin: 1rem 0 3rem;
+  &_avatar {
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 90%;
+      border-radius: 50%;
+    }
+  }
+  &_title {
+    opacity: 0.5;
+    text-transform: uppercase;
+  }
+  &_bio {
+    @media screen and (max-width: 667px) {
+      grid-column: 1/-1;
+    }
+  }
+}
+
+.button {
+  background-color: $green;
+  color: $light;
+  border-radius: 1.5rem;
+  padding: 0.5rem 1.5rem;
+  display: inline-block;
+  text-decoration: none;
+  width: 12rem;
+  text-align: center;
+  text-transform: uppercase;
+  box-shadow: 0 0.5rem 2.25rem rgba($green,.05)
+}
+
+.review {
+  box-shadow: 0 0 3rem rgba($dark, 0.12);
+  padding: 1rem;
+  border-radius: 1rem;
+  &_header {
+    display: grid;
+    grid-template-columns: 4rem auto;
+    grid-gap: 1rem;
+  }
+  &_author {
+    text-transform: uppercase;
+    font-size: 0.96rem;
+  }
+  &_title {
+    text-transform: uppercase;
+    opacity: 0.9;
+    font-size: 0.8rem;
+  }
+  &_date {
+    opacity: 0.6;
+    font-size: 0.8rem;
+  }
+	&_avatar img {
+		border-radius: 50%;
+	}
+}
+
+.reason {
+  box-shadow: 0 0 3rem rgba($dark, 0.12);
+  padding: 1rem;
+  border-radius: 1rem;
+  text-align: center;
+  &_title {
+    margin: 0.6rem 0;
+  }
+}
+
+.home h1 {
+  @media screen and (min-width: 768px) {
+    font-size: 3.5rem;
+    max-width: 15rem;
+  }
+  @media screen and (max-width: 667px) {
+    margin-top: 6rem;
+  }
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.cell {
+  &_full {
+    grid-column: 1/-1;
+  }
+}
+
+.hero {
+  background-size: cover;
+  margin-bottom: 1.5rem;
+  margin-top: -2rem;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: rgba($dark, 0.6);
+  }
+  &_excerpt {
+    color: $light;
+    min-height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+}
+.search {
+  background-color: transparent;
+  background-image: url(/images/search.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1.25rem;
+  outline: none;
+  border: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 2.5rem;
+  z-index: 2;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.intro {
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: top right;
+  // @media screen and (min-width: 769px) {
+  //   background-size: cover;
+  // }
+}
+
+.welke_mac_form {
+	.help_text {
+		font-size: 80%;
+		font-style:italic;
+	}
+
+	.error_validation_message {
+		color: #CE1818;
+		font-weight: 200;
+	}
+}
+.contents {
+  figure, img {
+    display:block;
+  }
+  figure, table {
+    margin: 1.5rem 0;
+    width: 100%;
+  }
+  figure, figcaption {
+    transform-origin: 50% 50%;
+  }
+  figure{
+    @media screen and (min-width: 1024px) {
+      transform: scale(1.1);
+      margin-top: 5rem;
+      margin-bottom: 5rem;
+    }
+  }
+  figcaption {
+    @media screen and (min-width: 1024px) {
+      transform: scaleX(0.9);
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+	.sales_cta_button {
+		/* center the button */
+		margin:auto;
+		width:214px;
+
+		img {
+			width:auto !important;
+		}
+	}
+}
+
+aside#inline_toc {
+	background-color:rgba($green, 0.07);
+	padding:5px 20px 5px 20px;
+	max-width:70%;
+	border:3px darken($haze, 10%) solid;
+	a {
+		color:#111;
+	}
+
+	ol ol {
+		padding:0rem 0 0rem 1.5rem;
+	}
+
+	#inline_toc_end {
+		// use visiblity:hidden; and not display:none;
+		// because display:none; means this element won't
+		// work as an anchor to jump to, which is the exact
+		// reason we want it actually
+		visibility:hidden;
+	}
+}

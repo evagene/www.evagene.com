@@ -1,0 +1,32 @@
+{{ $url := .RelPermalink }}
+<header class = 'nav_header'>
+  <div class = 'nav_top wrap'>
+    <a class = 'nav_brand' href='/'>
+      <img src = '/images/logo.png' class = 'nav_logo'>
+    </a>
+    <div class = 'nav_toggle'>&#9776;</div>
+  </div>
+  <nav class = 'nav wrap center'>
+    {{ range .Site.Data.nav }}
+    {{ if .submenu }}
+    <div class = 'nav_parent'>
+      <a href = '{{ .url }}' class = 'nav_item {{ if eq $url .url }}nav_active{{ end }}'>{{ .name }}</a>
+      <ul class = 'nav_submenu'>
+        {{ range .submenu }} 
+        <li>
+          <a href = '{{ .url }}' class = 'nav_subitem nav_item {{ if eq $url .url }}nav_active{{ end }}'>
+            {{ with .icon }}<img class = 'nav_icon' src = '/images/{{ . }}'>{{ end }}
+            {{ .name }}
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ else }}
+    <a href = '{{ .url }}' class = 'nav_item {{ if eq $url .url }}nav_active{{ end }}'>
+      {{ .name }}
+    </a>
+    {{ end }}
+    {{ end }}
+  </nav>
+</header>

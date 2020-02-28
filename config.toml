@@ -1,0 +1,16 @@
+baseURL = "/"
+languageCode = "en"
+title = "Evagene"
+paginate = 5
+footnoteReturnLinkContents = "Terug naar artikel"
+[markup]
+	defaultMarkdownHandler = "goldmark"
+	[markup.tableOfContents]
+		endLevel = 3
+		startLevel = 2
+		ordered = true
+  [markup.goldmark]
+		[markup.goldmark.extensions]
+			typographer = false
+    [markup.goldmark.renderer]
+      unsafe = true

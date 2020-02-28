@@ -1,0 +1,7 @@
+{{- $tocPath := "js/toc-show-hide.js" }}
+{{- $toc := resources.Get $tocPath | resources.ExecuteAsTemplate $tocPath . }}
+{{- $mainPath := "js/index.js" }}
+{{- $main := resources.Get $mainPath | resources.ExecuteAsTemplate $mainPath . }}
+
+{{- $bundle := slice $toc $main | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint "sha512" }}
+<script src = '{{ $bundle.Permalink }}'></script>

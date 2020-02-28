@@ -1,0 +1,20 @@
+%grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2.5rem;
+}
+[class*='grid-']{
+  grid-gap: 2.5rem 3.5rem;
+}
+.grid_2, .grid_3 {
+  @extend %grid;
+}
+@media screen and (min-width: 49rem){
+  .grid_2{
+    grid-template-columns: 1fr 1fr;
+  }
+  .grid_3 {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  }
+}
+

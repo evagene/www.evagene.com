@@ -1,0 +1,133 @@
+* {
+  &,
+  &::before,
+  &::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  max-width: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 18px;
+  font-family: 'Metropolis', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.5;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+}
+img {
+  max-width: 100%;
+}
+a {
+	color:inherit;
+}
+p {
+  padding: 0.75rem 0;
+}
+blockquote, ul, ol, p {
+  opacity: 0.7;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+}
+h1 {
+  font-size: 2.25rem;
+}
+h2 {
+  font-weight: 1.75rem;
+}
+main  {
+  padding-bottom: 5rem;
+  padding-top: 2rem;
+  flex: 1;
+  ul, ol {
+    padding: 1rem 0 1rem 1.5rem;
+  }
+  li {
+    padding: 0.33rem 0;
+    line-height: 1.7;
+    p {
+      padding: 0;
+      width: 100% !important;
+    }
+  }
+	blockquote {
+		margin-top: 10px;
+		margin-bottom: 10px;
+		margin-left: 50px;
+		padding-left: 15px;
+		border-left: 3px solid #ccc;
+	}
+	kbd {
+    background:$dark;
+    color:#fff;
+    padding:0 5px;
+	}
+}
+
+hr {
+  color: inherit;
+  opacity: 0.5;
+  border: none;
+  border-bottom: 2px solid #aaa;
+  max-width: 3.6rem;
+  margin: 1rem 0;
+}
+
+figcaption {
+	font-style: italic;
+}
+
+body.single_post {
+	main {
+		a {
+			color: $theme;
+		}
+	}
+}
+
+table {
+  margin: 1.5rem 0;
+  min-width: 100%;
+}
+
+td,
+th {
+  padding: 0.5rem 1rem;
+  text-align: left;
+  font-weight: 400;
+  &:not(:first-child) {
+    padding-left: 1.5rem;
+  }
+}
+th {
+  font-weight: 700;
+}
+
+thead {
+  background: $green;
+  color: $light;
+}
+
+tbody {
+  padding: 0;
+  tr {
+    &:nth-child(even) {
+      background-color: $haze;
+      box-shadow: 0 1rem 0.75rem -0.75rem rgba(0,0,0,0.07);
+    }
+    &:nth-child(odd) {
+      background-color: rgba($green, 0.07);
+    }
+  }
+}
+    

@@ -1,0 +1,28 @@
+{{ if .Params.seo_title }}
+	<title>{{ .Params.seo_title | replaceRE "%%title%%" .Title | replaceRE "%%sitename%%" "Evagene" }}</title>
+{{ else }}
+	<title>{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}</title>
+{{ end }}
+<meta charset='utf-8'>
+<meta name = 'viewport' content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
+<meta http-equiv = 'X-UA-Compatible' content = 'IE=edge'>
+<meta name = 'keywords' content = '{{ .Site.Title }}'>
+{{ if .Params.meta_description }}
+	<meta name="description" content="{{ .Params.meta_description }}">
+{{ end }}
+<meta property = 'og:locale' content = 'en_US' />
+<meta property = 'og:type' content = 'article' />
+<meta property = 'og:title' content = '{{ .Title }}' />
+<meta property = 'og:description' content = '{{ with .Summary}}{{ . | truncate 150 }}{{ else }}{{ .Site.Params.description }}{{ end }}'>
+<meta property = 'og:url' content = '{{ .Permalink }}' />
+{{ if .Params.noindex }}
+	<meta name="robots" content="noindex">
+{{ end }}
+<!-- <link rel=icon href="/images/apple-coach-logo-only.svg" sizes="any" type="image/svg+xml">
+<link rel="apple-touch-icon" sizes="180x180" href = '{{ .Site.BaseURL }}images/icons/apple-touch-icon.png'> -->
+<link rel="icon" type="image/png" sizes="32x32" href = '{{ .Site.BaseURL }}images/icons/favicon.png'>
+<!-- <link rel="icon" type="image/png" sizes="16x16" href= '{{ .Site.BaseURL }}images/icons/favicon-16x16.png'> -->
+<link rel='canonical' href="{{ .Permalink }}">
+{{- $options := (dict "targetPath" "main.css" "outputStyle" "expanded" "enableSourceMap" "true") -}}
+{{- $styles := resources.Get "/main.scss" | resources.ToCSS $options  | resources.Minify | resources.Fingerprint "sha512" }}
+<link rel = 'stylesheet' href = '{{ $styles.Permalink }}' integrity = '{{ $styles.Data.Integrity }}'>

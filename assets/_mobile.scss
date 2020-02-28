@@ -1,0 +1,76 @@
+@media screen and (max-width: 768px){
+  .nav {
+    transform: translateY(-160vh);
+    background: darken($light, 10%);
+    opacity: 0;
+    transition: transform 0.33s $ease;
+    position: fixed;
+    z-index: -1;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    justify-content: flex-start;
+    // color: $light;
+    &_header {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+    &_toggle {
+      display: grid;
+      align-items: center;
+      width: 2rem;
+      text-align: center;
+      cursor: pointer;
+    }
+    &_show {
+      transform: translateY(0);
+      text-align: left;
+      position: absolute;
+      z-index: 10;
+      width: 100%;
+      box-shadow: 0 0 10rem rgba($dark, 0.27);
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      opacity: 1;
+    }
+    &_item {
+      padding-left: 0;
+      display: block;
+      text-align: left;
+    } 
+    &_submenu {
+      position: relative;
+      display: block;
+      opacity: initial;
+      top: initial;
+      padding: 0 0 0 1rem ;
+      height: initial;
+      background-color: transparent;
+      box-shadow: none;
+    }
+    &_parent {
+      padding: 0;
+    }
+    &_search {
+      display: none;
+    }
+    &_toggle {
+      display: inline-grid;
+      align-items: center;
+      font-size: 1.5rem;
+      // text-align: right;
+      position: relative;
+      z-index: 99;
+    }
+    &_top {
+      grid-template-columns: 1fr 1.5rem;
+    }
+  }
+  .footer {
+    &_body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 0.5rem 1.5rem;
+    }
+  }
+}

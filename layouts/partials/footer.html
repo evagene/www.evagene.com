@@ -1,0 +1,8 @@
+{{ $footer := .Site.Data.nav }}
+<footer class = 'footer'>
+  <ul class = 'footer_body wrap'>
+  {{ range $footer }}
+    <a href = '{{ .url }}' class = 'footer_item'>{{ .name }}</a>
+  {{ end }}
+  </ul>
+</footer>

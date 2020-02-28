@@ -1,0 +1,17 @@
+{{ $hero_img := .Params.image }}
+{{ if .Params.hero_image }}
+	{{ $hero_img = .Params.hero_image }}
+{{ end }}
+<div class = 'hero' style='background-image: url(/images/{{ $hero_img }});'>
+  <div class = 'grid_2 wrap'>
+    <section class = 'hero_excerpt'>
+      <h1 class = 'excerpt_title'>
+        {{ .Title }}
+      </h1>
+      <hr>
+      <div class = 'excerpt_date'>
+        {{  dateFormat "02.01.2006" .Date }}
+      </div>
+    </section>
+  </div>
+</div>

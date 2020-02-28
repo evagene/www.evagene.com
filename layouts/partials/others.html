@@ -1,0 +1,13 @@
+<br>
+<hr>
+<h3>Other Links</h3>
+<ul>
+{{ $link := .Permalink }}
+{{ range .Site.RegularPages }}
+{{ if ne .Permalink $link }}
+  <li>
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+  </li>
+{{ end }}
+{{ end }}
+</ul>
