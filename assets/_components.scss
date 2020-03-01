@@ -93,14 +93,17 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 1rem;
-  }
-  &_search {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    align-items: center;
     @media screen and (min-width: 769px) {
-      justify-content: flex-end;
+      grid-template-columns: 1fr 0;
+      grid-gap: 0;
+    }
+  }
+  &_brand {
+    @media screen and (min-width: 769px) {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      align-items: center;
     }
   }
   &_toggle {

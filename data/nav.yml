@@ -8,6 +8,6 @@
   url: '/operations/'
 - name: 'xiasma'
   url: '/xiasma/'
-  submenu:
-    - name: 'Terms & Conditions'
-      url: '/terms-conditions/'
+  # submenu:
+  #   - name: 'Terms & Conditions'
+  #     url: '/terms-conditions/'
