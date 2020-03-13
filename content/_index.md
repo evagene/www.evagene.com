@@ -3,9 +3,11 @@ title = "Evagene"
 +++
 
 
-# Evagene is now FREE - no strings attached
-## No need to sign up, just download, unzip and use it.
+## Evagene is now FREE - no strings attached
+### No need to sign up, just download, unzip and use it.
 https://github.com/evagene/www.evagene.com/blob/master/assets/Evagene.zip
+
+
 
 ### Family tree drawing and pedigree management
 
@@ -33,7 +35,7 @@ If you have filing cabinets full of family tree diagrams, patient records and no
 
 _Evagene helps you to share pedigree and study data and collaborate on important work. Present only the information important to you and reduce complexity without compromise_
 
-### Trusted risk analysis from bayes-mendel is integrated and ready to use
+### Trusted risk analysis from Bayes-Mendel is integrated and ready to use
     
 As soon as you have drawn your first pedigree, Evagene is ready to apply the peer-reviewed, trusted analyses of Bayes-Mendel and the established tools used by genetics professionals every day
 
@@ -63,7 +65,7 @@ Evagene software does not require a team of IT professionals to install and conf
 
 ### Works with your existing office and pedigree software: gedcom, word, excel, powerpoint and infopath
 
-Evagene has been designed to belong alongside the best productivity software to reduce the gradient of the learning curve. Whether you prefer to use icons or keyboard shortcuts, everything is laid out in logical, familiar patterns. You don't need to understand computer jargon, databases or server to carry out any operations in Evagene.
+Evagene has been designed to belong alongside the best productivity software to reduce the gradient of the learning curve. Whether you prefer to use icons or keyboard short-cuts, everything is laid out in logical, familiar patterns. You don't need to understand computer jargon, databases or server to carry out any operations in Evagene.
 
 ![](/images/image-home-4.png)
 
