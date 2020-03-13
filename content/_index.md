@@ -3,6 +3,9 @@ title = "Evagene"
 +++
 
 
+# Evagene is now FREE - no strings attached
+## No need to sign up, just download, unzip and use it.
+https://github.com/evagene/www.evagene.com/blob/master/assets/Evagene.zip
 
 ### Family tree drawing and pedigree management
 
