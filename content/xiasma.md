@@ -20,6 +20,11 @@ Xiasma is the parent company of [Robotica ML](https://robotica.ml/)
 {{< column >}}
 ![](/images/image-asset.jpg)
 
+## Robotica and Robotica Machine Learning are trading names of Xiasma Limited
+Robotica is the first UK value-added reseller of the world's finest automated AI [DataRobot](https://www.datarobot.com/)
+
+If you are looking for Robotica Machine Learning Limited, take a look [here.](https://robotica.ml/)
+
 ### MEMBERSHIPS AND GROUPS
 
 Microsoft Registered Partner
