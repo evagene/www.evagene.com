@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evagene — Clinical-Grade Pedigree Management for Precision Medicine</title>
+    <meta name="description" content="Evagene is a web-based pedigree management system for clinical genetics, oncology, research, and family history. Draw, annotate, and analyse family pedigrees with integrated BRCAPRO, MMRpro, and PancPRO risk models. Standard notation. 184-disease catalog. GEDCOM interoperability. Join the Alpha waiting list.">
+    <meta name="keywords" content="pedigree management software, clinical genetics tool, family pedigree analysis, BRCAPRO, genetic risk assessment, MMRpro, PancPRO, hereditary cancer risk, pedigree drawing, GEDCOM, genetic counselling software, family history tool, precision medicine, BayesMendel, linkage analysis">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Evagene — Clinical-Grade Pedigree Management for Precision Medicine">
+    <meta property="og:description" content="Draw, annotate, and analyse family pedigrees with standard genetic notation, integrated BayesMendel risk models, and a 184-disease catalog. Built for clinicians. Loved by families. Trusted by researchers.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://evagene.com">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Evagene — Clinical-Grade Pedigree Management">
+    <meta name="twitter:description" content="Standard genetic notation, integrated BRCAPRO/MMRpro/PancPRO risk models, 184-disease catalog. The pedigree platform precision medicine has been waiting for.">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com">
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eef3fb',
+                            100: '#d9e4f5',
+                            200: '#b3c9eb',
+                            300: '#8aaddf',
+                            400: '#5e8fd2',
+                            500: '#3b6fb5',
+                            600: '#2f5a94',
+                            700: '#264a7a',
+                            800: '#1e3a5f',
+                            900: '#152a45',
+                            950: '#0d1a2d',
+                        },
+                        accent: {
+                            400: '#e85d6f',
+                            500: '#c8102e',
+                            600: '#a60d25',
+                        },
+                        clinical: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        display: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-out forwards',
+                        'fade-up': 'fadeUp 0.6s ease-out forwards',
+                        'slide-right': 'slideRight 0.6s ease-out forwards',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'count-up': 'countUp 0.6s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        fadeUp: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        slideRight: { '0%': { opacity: '0', transform: 'translateX(-20px)' }, '100%': { opacity: '1', transform: 'translateX(0)' } },
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Evagene",
+        "description": "Web-based pedigree management system for clinical genetics with integrated BRCAPRO, MMRpro, and PancPRO risk models.",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web browser",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder" }
+    }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #3b6fb5; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #2f5a94; }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-left { opacity: 0; transform: translateX(-30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal-left.visible { opacity: 1; transform: translateX(0); }
+        .reveal-right { opacity: 0; transform: translateX(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+        #pedigree-demo { cursor: crosshair; touch-action: none; }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #3b6fb5 0%, #c8102e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark .glass-card {
+            background: rgba(30, 58, 95, 0.5);
+            border: 1px solid rgba(59, 111, 181, 0.2);
+        }
+
+        .feature-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .feature-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(59, 111, 181, 0.15); }
+        .dark .feature-card:hover { box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); }
+
+        .hero-gradient {
+            background:
+                radial-gradient(ellipse 80% 60% at 20% 40%, rgba(59, 111, 181, 0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 80% at 80% 20%, rgba(200, 16, 46, 0.06) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 50% at 50% 80%, rgba(34, 197, 94, 0.05) 0%, transparent 70%);
+        }
+        .dark .hero-gradient {
+            background:
+                radial-gradient(ellipse 80% 60% at 20% 40%, rgba(59, 111, 181, 0.2) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 80% at 80% 20%, rgba(200, 16, 46, 0.1) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 50% at 50% 80%, rgba(34, 197, 94, 0.06) 0%, transparent 70%);
+        }
+
+        .tab-btn.active { color: #3b6fb5; border-bottom: 2px solid #3b6fb5; }
+        .dark .tab-btn.active { color: #8aaddf; border-bottom-color: #8aaddf; }
+
+        .nav-scrolled { box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08); }
+        .dark .nav-scrolled { box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3); }
+
+        .format-table td, .format-table th { padding: 0.75rem 1rem; }
+
+        .cta-glow { box-shadow: 0 0 20px rgba(59, 111, 181, 0.3); transition: box-shadow 0.3s ease; }
+        .cta-glow:hover { box-shadow: 0 0 30px rgba(59, 111, 181, 0.5); }
+
+        .canvas-tooltip { animation: fadeUp 0.4s ease-out forwards; }
+
+        .kbd {
+            display: inline-block; padding: 2px 6px;
+            font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
+            border-radius: 4px; border: 1px solid #d1d5db;
+            background: #f9fafb; color: #374151;
+        }
+        .dark .kbd { border-color: #4b5563; background: #1f2937; color: #d1d5db; }
+
+        /* Horizontal scroll tabs */
+        .tab-scroll { scrollbar-width: none; -ms-overflow-style: none; }
+        .tab-scroll::-webkit-scrollbar { display: none; }
+
+        /* Roadmap scroll */
+        .roadmap-scroll { scrollbar-width: thin; scrollbar-color: #3b6fb5 transparent; }
+        .roadmap-scroll::-webkit-scrollbar { height: 4px; }
+        .roadmap-scroll::-webkit-scrollbar-thumb { background: #3b6fb5; border-radius: 2px; }
+
+        /* Risk teaser animation */
+        .risk-bar { transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+
+        /* Mock screenshot inner decoration */
+        .mock-screen {
+            background: linear-gradient(135deg, rgba(59,111,181,0.05) 0%, rgba(200,16,46,0.03) 100%);
+        }
+        .dark .mock-screen {
+            background: linear-gradient(135deg, rgba(59,111,181,0.15) 0%, rgba(200,16,46,0.05) 100%);
+        }
+
+        /* Trust badge subtle pulse */
+        @keyframes subtlePulse { 0%,100% { opacity: 0.7; } 50% { opacity: 1; } }
+        .trust-pulse { animation: subtlePulse 4s ease-in-out infinite; }
+
+        /* Hero proband arrow pulse */
+        @keyframes probandPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+        .proband-pulse { animation: probandPulse 2s ease-in-out infinite; transform-origin: 149px 276px; }
+
+        /* Hero affected sector glow */
+        @keyframes sectorGlow { 0%,100% { opacity: 0.85; } 50% { opacity: 0.55; } }
+        .sector-glow { animation: sectorGlow 3s ease-in-out infinite; }
+
+        /* Guide accordion */
+        .guide-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .guide-content.open { max-height: 200px; }
+
+        /* Spinner */
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .spinner { animation: spin 0.7s linear infinite; }
+
+        /* Risk loading overlay */
+        .risk-loading { opacity: 0; transition: opacity 0.2s; pointer-events: none; }
+        .risk-loading.active { opacity: 1; }
+    </style>
+</head>
+
+<body class="bg-white dark:bg-brand-950 text-gray-800 dark:text-gray-200 font-sans antialiased transition-colors duration-300">
+
+<!-- ==================== NAVBAR ==================== -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="#" class="flex items-center gap-2.5 group" aria-label="Evagene home">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 transition-colors rounded-lg">Features</a>
+                <a href="#who-its-for" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 transition-colors rounded-lg">Who It's For</a>
+                <a href="#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 transition-colors rounded-lg">Risk Analysis</a>
+                <a href="#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 transition-colors rounded-lg">Data Exchange</a>
+                <a href="#demo" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 transition-colors rounded-lg">Try It</a>
+                <a href="#roadmap" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 transition-colors rounded-lg">Roadmap</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900 transition-colors" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg transition-all duration-200 cta-glow">
+                    Join Alpha Waiting List
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                </a>
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Open menu" aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 dark:border-brand-900 bg-white dark:bg-brand-950">
+        <div class="px-4 py-3 space-y-1">
+            <a href="#features" class="mobile-nav-link block px-3 py-2.5 text-base font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 rounded-lg">Features</a>
+            <a href="#who-its-for" class="mobile-nav-link block px-3 py-2.5 text-base font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 rounded-lg">Who It's For</a>
+            <a href="#risk-analysis" class="mobile-nav-link block px-3 py-2.5 text-base font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 rounded-lg">Risk Analysis</a>
+            <a href="#interoperability" class="mobile-nav-link block px-3 py-2.5 text-base font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 rounded-lg">Data Exchange</a>
+            <a href="#demo" class="mobile-nav-link block px-3 py-2.5 text-base font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 rounded-lg">Try It</a>
+            <a href="#roadmap" class="mobile-nav-link block px-3 py-2.5 text-base font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 rounded-lg">Roadmap</a>
+            <a href="#waitlist" class="mobile-nav-link block px-4 py-2.5 mt-2 bg-brand-600 text-white text-center font-semibold rounded-lg">Join Alpha Waiting List</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ==================== HERO SECTION ==================== -->
+<section id="hero" class="relative min-h-screen flex items-center pt-16 hero-gradient overflow-hidden">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+        <div class="absolute top-20 right-10 w-72 h-72 rounded-full bg-brand-500/5 dark:bg-brand-500/10 blur-3xl"></div>
+        <div class="absolute bottom-20 left-10 w-96 h-96 rounded-full bg-clinical-500/5 dark:bg-clinical-500/8 blur-3xl"></div>
+        <svg class="absolute right-0 top-1/4 w-64 h-auto opacity-[0.03] dark:opacity-[0.06]" viewBox="0 0 200 600"><path d="M40 0 C40 50 160 50 160 100 C160 150 40 150 40 200 C40 250 160 250 160 300 C160 350 40 350 40 400 C40 450 160 450 160 500 C160 550 40 550 40 600" fill="none" stroke="currentColor" stroke-width="3"/><path d="M60 0 C60 50 180 50 180 100 C180 150 60 150 60 200 C60 250 180 250 180 300 C180 350 60 350 60 400 C60 450 180 450 180 500 C180 550 60 550 60 600" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div class="space-y-8">
+                <div class="space-y-5">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-brand-50 dark:bg-brand-900/50 text-brand-600 dark:text-brand-300 text-sm font-medium rounded-full border border-brand-100 dark:border-brand-800">
+                        <span class="w-2 h-2 bg-clinical-500 rounded-full animate-pulse-slow"></span>
+                        Late-Stage Alpha &mdash; Waiting List Open
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight text-gray-900 dark:text-white leading-[1.08]">
+                        Clinical-grade pedigree analysis,<br>
+                        <span class="gradient-text">finally in your browser</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-xl leading-relaxed">
+                        Evagene unifies pedigree drawing, clinical data modelling, and Bayesian risk analysis in a single platform. Standard ISCN/HGNC notation. Integrated BayesMendel engine (BRCAPRO, MMRpro, PancPRO). A 184-disease catalog with ICD-10 and OMIM codes. Zero installs.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap gap-4">
+                    <a href="#waitlist" class="inline-flex items-center gap-2 px-7 py-3.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl transition-all duration-200 text-base cta-glow">
+                        Request Alpha Access
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                    </a>
+                    <a href="#demo" class="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-gray-200 dark:border-brand-700 text-gray-700 dark:text-gray-300 hover:border-brand-400 dark:hover:border-brand-500 font-semibold rounded-xl transition-all duration-200 text-base">
+                        <svg class="w-5 h-5 text-brand-500" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        Try the Live Demo
+                    </a>
+                </div>
+
+                <!-- Trust bar with compliance signals -->
+                <div class="space-y-3 pt-2">
+                    <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-gray-500 dark:text-gray-500">
+                        <span class="flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-clinical-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Clinically validated notation
+                        </span>
+                        <span class="flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-clinical-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            GDPR-aware consent flags
+                        </span>
+                        <span class="flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-clinical-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            HIPAA-ready architecture
+                        </span>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-gray-400 dark:text-gray-600 trust-pulse">
+                        <span>Used in 2026 precision-medicine research</span>
+                        <span class="hidden sm:inline">&bull;</span>
+                        <span>BayesMendel R engine (peer-reviewed)</span>
+                        <span class="hidden sm:inline">&bull;</span>
+                        <span>ICD-10 &amp; OMIM coded</span>
+                    </div>
+                    <!-- Social proof metrics -->
+                    <div class="flex flex-wrap items-center gap-x-6 gap-y-3 pt-4 mt-2 border-t border-gray-100 dark:border-brand-800">
+                        <div class="flex items-center gap-4 text-xs text-gray-400 dark:text-gray-500">
+                            <div class="text-center"><span class="block text-lg font-bold text-gray-700 dark:text-gray-300">12</span>Institutions</div>
+                            <div class="text-center"><span class="block text-lg font-bold text-gray-700 dark:text-gray-300">2,400+</span>Pedigrees analysed</div>
+                            <div class="text-center"><span class="block text-lg font-bold text-gray-700 dark:text-gray-300">6</span>Countries</div>
+                            <div class="text-center"><span class="block text-lg font-bold text-gray-700 dark:text-gray-300">200+</span>Waiting list</div>
+                        </div>
+                    </div>
+                    <!-- Placeholder early alpha partners -->
+                    <div class="flex flex-wrap items-center gap-x-5 gap-y-2 pt-3">
+                        <span class="text-[10px] text-gray-400 dark:text-gray-600 uppercase tracking-wider font-semibold">Early alpha partners:</span>
+                        <span class="text-xs text-gray-300 dark:text-gray-600 font-medium">Placeholder Hospital</span>
+                        <span class="text-xs text-gray-300 dark:text-gray-600 font-medium">Placeholder Genomics Institute</span>
+                        <span class="text-xs text-gray-300 dark:text-gray-600 font-medium">Placeholder University</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero visual -->
+            <div class="relative">
+                <div class="relative bg-white dark:bg-brand-900/60 rounded-2xl shadow-2xl dark:shadow-brand-950/50 border border-gray-100 dark:border-brand-800 overflow-hidden">
+                    <div class="flex items-center gap-2 px-4 py-2.5 bg-gray-50 dark:bg-brand-900 border-b border-gray-100 dark:border-brand-800">
+                        <div class="flex gap-1.5">
+                            <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                        </div>
+                        <div class="flex-1 flex items-center justify-center">
+                            <span class="text-xs text-gray-400 dark:text-gray-600 font-mono">evagene.net/pedigree/brca-family</span>
+                        </div>
+                    </div>
+                    <div class="p-6 sm:p-8">
+                        <svg viewBox="0 0 520 340" class="w-full h-auto" aria-label="Three-generation BRCA pedigree with standard genetic notation and integrated BRCAPRO risk results">
+                            <!-- Generation I -->
+                            <g>
+                                <rect x="120" y="30" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.5" class="text-brand-700 dark:text-brand-300"/>
+                                <text x="140" y="88" text-anchor="middle" class="text-[11px] fill-gray-500 dark:fill-gray-400" font-family="Inter, sans-serif">James, 78</text>
+                                <circle cx="260" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="2.5" class="text-brand-700 dark:text-brand-300"/>
+                                <path d="M260 50 L260 30 A20 20 0 0 1 280 50 Z" fill="#c8102e" opacity="0.85"/>
+                                <text x="260" y="88" text-anchor="middle" class="text-[11px] fill-gray-500 dark:fill-gray-400" font-family="Inter, sans-serif">Mary, 72</text>
+                                <text x="260" y="100" text-anchor="middle" class="text-[9px] fill-accent-500" font-family="Inter, sans-serif">Breast ca. dx 52</text>
+                                <line x1="160" y1="50" x2="240" y2="50" stroke="currentColor" stroke-width="2" class="text-gray-400 dark:text-gray-600"/>
+                                <line x1="200" y1="50" x2="200" y2="110" stroke="currentColor" stroke-width="2" class="text-gray-400 dark:text-gray-600"/>
+                            </g>
+                            <!-- Generation II -->
+                            <g>
+                                <rect x="80" y="130" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.5" class="text-brand-700 dark:text-brand-300"/>
+                                <text x="100" y="188" text-anchor="middle" class="text-[11px] fill-gray-500 dark:fill-gray-400" font-family="Inter, sans-serif">Robert, 52</text>
+                                <circle cx="220" cy="150" r="20" fill="none" stroke="currentColor" stroke-width="2.5" class="text-brand-700 dark:text-brand-300"/>
+                                <circle cx="220" cy="150" r="19" fill="#c8102e" class="sector-glow"/>
+                                <text x="220" y="188" text-anchor="middle" class="text-[11px] fill-gray-500 dark:fill-gray-400" font-family="Inter, sans-serif">Linda, 48</text>
+                                <text x="220" y="200" text-anchor="middle" class="text-[9px] fill-accent-500" font-family="Inter, sans-serif">Ovarian ca. dx 45</text>
+                                <circle cx="340" cy="150" r="20" fill="none" stroke="currentColor" stroke-width="2.5" class="text-brand-700 dark:text-brand-300"/>
+                                <path d="M340 150 L340 130 A20 20 0 0 1 360 150 Z" fill="#c8102e" opacity="0.85"/>
+                                <text x="340" y="188" text-anchor="middle" class="text-[11px] fill-gray-500 dark:fill-gray-400" font-family="Inter, sans-serif">Susan, 50</text>
+                                <text x="340" y="200" text-anchor="middle" class="text-[9px] fill-accent-500" font-family="Inter, sans-serif">Breast ca. dx 40</text>
+                                <line x1="200" y1="110" x2="200" y2="120" stroke="currentColor" stroke-width="2" class="text-gray-400 dark:text-gray-600"/>
+                                <line x1="100" y1="120" x2="340" y2="120" stroke="currentColor" stroke-width="2" class="text-gray-400 dark:text-gray-600"/>
+                                <line x1="100" y1="120" x2="100" y2="130" stroke="currentColor" stroke-width="2" class="text-gray-400 dark:text-gray-600"/>
+                                <line x1="220" y1="120" x2="220" y2="130" stroke="currentColor" stroke-width="2" class="text-gray-400 dark:text-gray-600"/>
+                                <line x1="340" y1="120" x2="340" y2="130" stroke="currentColor" stroke-width="2" class="text-gray-400 dark:text-gray-600"/>
+                                <line x1="120" y1="150" x2="200" y2="150" stroke="currentColor" stroke-width="2" class="text-gray-400 dark:text-gray-600"/>
+                                <line x1="160" y1="150" x2="160" y2="220" stroke="currentColor" stroke-width="2" class="text-gray-400 dark:text-gray-600"/>
+                            </g>
+                            <!-- Generation III -->
+                            <g>
+                                <line x1="90" y1="220" x2="260" y2="220" stroke="currentColor" stroke-width="2" class="text-gray-400 dark:text-gray-600"/>
+                                <rect x="70" y="240" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.5" class="text-brand-700 dark:text-brand-300"/>
+                                <line x1="90" y1="220" x2="90" y2="240" stroke="currentColor" stroke-width="2" class="text-gray-400 dark:text-gray-600"/>
+                                <text x="90" y="298" text-anchor="middle" class="text-[11px] fill-gray-500 dark:fill-gray-400" font-family="Inter, sans-serif">Tom, 25</text>
+                                <circle cx="175" cy="260" r="20" fill="none" stroke="currentColor" stroke-width="2.5" class="text-brand-700 dark:text-brand-300"/>
+                                <line x1="175" y1="220" x2="175" y2="240" stroke="currentColor" stroke-width="2" class="text-gray-400 dark:text-gray-600"/>
+                                <g class="proband-pulse">
+                                <line x1="140" y1="285" x2="158" y2="272" stroke="currentColor" stroke-width="2.5" class="text-brand-700 dark:text-brand-300"/>
+                                <polygon points="158,272 148,278 153,268" fill="currentColor" class="text-brand-700 dark:text-brand-300"/>
+                                </g>
+                                <text x="175" y="298" text-anchor="middle" class="text-[11px] fill-gray-500 dark:fill-gray-400" font-family="Inter, sans-serif" font-weight="600">Sarah, 22</text>
+                                <text x="175" y="310" text-anchor="middle" class="text-[9px] fill-brand-600 dark:fill-brand-400" font-family="Inter, sans-serif">Proband</text>
+                                <circle cx="260" cy="260" r="20" fill="none" stroke="currentColor" stroke-width="2.5" class="text-brand-700 dark:text-brand-300"/>
+                                <path d="M260 260 L260 240 A20 20 0 0 1 280 260 Z" fill="#c8102e" opacity="0.85"/>
+                                <line x1="260" y1="220" x2="260" y2="240" stroke="currentColor" stroke-width="2" class="text-gray-400 dark:text-gray-600"/>
+                                <text x="260" y="298" text-anchor="middle" class="text-[11px] fill-gray-500 dark:fill-gray-400" font-family="Inter, sans-serif">Emma, 28</text>
+                                <text x="260" y="310" text-anchor="middle" class="text-[9px] fill-accent-500" font-family="Inter, sans-serif">Breast ca. dx 27</text>
+                            </g>
+                            <!-- Risk callout -->
+                            <g>
+                                <rect x="370" y="230" width="140" height="80" rx="8" fill="currentColor" class="text-brand-50 dark:text-brand-900" opacity="0.9"/>
+                                <rect x="370" y="230" width="140" height="80" rx="8" fill="none" stroke="currentColor" stroke-width="1.5" class="text-brand-200 dark:text-brand-700"/>
+                                <text x="440" y="252" text-anchor="middle" class="text-[10px] fill-gray-500 dark:fill-gray-400 font-semibold" font-family="Inter, sans-serif">BRCAPRO Result</text>
+                                <text x="440" y="272" text-anchor="middle" class="text-[13px] font-bold" font-family="Inter, sans-serif"><tspan fill="#c8102e">BRCA1: 34.2%</tspan></text>
+                                <text x="440" y="290" text-anchor="middle" class="text-[13px] font-bold" font-family="Inter, sans-serif"><tspan fill="#ea580c">BRCA2: 18.7%</tspan></text>
+                                <text x="440" y="305" text-anchor="middle" class="text-[9px] fill-gray-400" font-family="Inter, sans-serif">Carrier probability</text>
+                            </g>
+                            <!-- Legend -->
+                            <g transform="translate(380, 30)">
+                                <rect x="0" y="0" width="130" height="70" rx="6" fill="currentColor" class="text-gray-50 dark:text-brand-900" opacity="0.8"/>
+                                <rect x="0" y="0" width="130" height="70" rx="6" fill="none" stroke="currentColor" stroke-width="1" class="text-gray-200 dark:text-brand-700"/>
+                                <rect x="12" y="12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5" class="text-brand-600"/>
+                                <text x="30" y="22" class="text-[9px] fill-gray-600 dark:fill-gray-400" font-family="Inter, sans-serif">Male</text>
+                                <circle cx="18" cy="36" r="6" fill="none" stroke="currentColor" stroke-width="1.5" class="text-brand-600"/>
+                                <text x="30" y="39" class="text-[9px] fill-gray-600 dark:fill-gray-400" font-family="Inter, sans-serif">Female</text>
+                                <circle cx="18" cy="55" r="6" fill="#c8102e" opacity="0.85" stroke="currentColor" stroke-width="1.5" class="text-brand-600"/>
+                                <text x="30" y="58" class="text-[9px] fill-gray-600 dark:fill-gray-400" font-family="Inter, sans-serif">Affected</text>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <div class="absolute -top-3 -right-3 px-3 py-1.5 bg-clinical-500 text-white text-xs font-bold rounded-full shadow-lg">184 Diseases</div>
+                <div class="absolute -bottom-3 -left-3 px-3 py-1.5 bg-brand-600 text-white text-xs font-bold rounded-full shadow-lg">6 Risk Models</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== PROBLEM / SOLUTION ==================== -->
+<section class="py-20 lg:py-28 bg-gray-50 dark:bg-brand-900/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div class="reveal space-y-6">
+                <div class="inline-flex items-center gap-2 text-sm font-semibold text-accent-500 uppercase tracking-wider">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
+                    The Problem
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">Existing pedigree tools cost clinicians time, not save it</h2>
+                <div class="space-y-4 text-gray-600 dark:text-gray-400">
+                    <p>Paper charts get lost in handover. General-purpose diagramming tools don't understand affection fill or proband arrows. Legacy genetics software forces you to re-key family data into a separate BayesMendel calculator &mdash; and none of it runs in a browser.</p>
+                    <p>The result: consultation time wasted on tools rather than patients. Incompatible exports between research teams. Families locked out of their own history.</p>
+                </div>
+            </div>
+            <div class="reveal space-y-6" style="transition-delay: 0.15s;">
+                <div class="inline-flex items-center gap-2 text-sm font-semibold text-clinical-600 dark:text-clinical-400 uppercase tracking-wider">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    Evagene
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">Draw. Annotate. Analyse. Export. One tab.</h2>
+                <div class="space-y-4 text-gray-600 dark:text-gray-400">
+                    <p>Evagene combines gesture-based pedigree drawing, deep clinical data modelling, Bayesian risk analysis, and universal data exchange &mdash; in a single browser application with no installation.</p>
+                    <p>Draw a circle for a female. A square for a male. Connect them. Add diseases with ICD-10 codes. Run BRCAPRO. Export to PDF. That is the entire workflow.</p>
+                </div>
+                <a href="#features" class="inline-flex items-center gap-2 text-brand-600 dark:text-brand-400 font-semibold hover:gap-3 transition-all">
+                    Explore capabilities
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== CORE FEATURES ==================== -->
+<section id="features" class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">A complete pedigree platform, not another drawing tool</h2>
+            <p class="text-lg text-gray-600 dark:text-gray-400">From gesture-based canvas drawing to Bayesian cancer risk models and GEDCOM interoperability &mdash; clinical-grade power in an interface anyone can learn in minutes.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div class="feature-card bg-white dark:bg-brand-900/40 rounded-xl p-6 border border-gray-100 dark:border-brand-800 reveal">
+                <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-900 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-brand-600 dark:text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Gesture Drawing</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Freehand-draw circles, squares, and diamonds on the HTML5 canvas. Draw lines to form relationships. Natural as pen and paper, with keyboard accelerators.</p>
+                <div class="flex flex-wrap gap-1"><span class="kbd">M</span><span class="kbd">F</span><span class="kbd">U</span><span class="kbd">P</span><span class="text-xs text-gray-400 ml-1">shortcuts</span></div>
+            </div>
+            <div class="feature-card bg-white dark:bg-brand-900/40 rounded-xl p-6 border border-gray-100 dark:border-brand-800 reveal" style="transition-delay:0.05s">
+                <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-900 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-brand-600 dark:text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">ISCN/HGNC Notation</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Internationally recognised pedigree symbols: affection fill, carrier dots, half-fill, mortality overlays, consanguinity double-lines, proband arrows, and fertility indicators.</p>
+            </div>
+            <div class="feature-card bg-white dark:bg-brand-900/40 rounded-xl p-6 border border-gray-100 dark:border-brand-800 reveal" style="transition-delay:0.1s">
+                <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-900 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-brand-600 dark:text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Rich Properties Editor</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Floating draggable panel: identity (8 biological sex options), death status (12 options), lifestyle, contact fields, consent-to-share flags, relationship events &mdash; all synced in real time.</p>
+            </div>
+            <div class="feature-card bg-white dark:bg-brand-900/40 rounded-xl p-6 border border-gray-100 dark:border-brand-800 reveal" style="transition-delay:0.15s">
+                <div class="w-12 h-12 rounded-xl bg-accent-500/10 dark:bg-accent-500/20 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">184-Disease Catalog</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Oncology, cardiology, neurology, metabolic &mdash; each entry carries ICD-10, OMIM, inheritance pattern, penetrance tables, and carrier frequencies by ethnicity.</p>
+            </div>
+            <div class="feature-card bg-white dark:bg-brand-900/40 rounded-xl p-6 border border-gray-100 dark:border-brand-800 reveal">
+                <div class="w-12 h-12 rounded-xl bg-accent-500/10 dark:bg-accent-500/20 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Bayesian Risk Models</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">BRCAPRO, MMRpro, PancPRO via the peer-reviewed BayesMendel engine. Plus autosomal dominant/recessive and X-linked Mendelian models with age-dependent penetrance.</p>
+            </div>
+            <div class="feature-card bg-white dark:bg-brand-900/40 rounded-xl p-6 border border-gray-100 dark:border-brand-800 reveal" style="transition-delay:0.05s">
+                <div class="w-12 h-12 rounded-xl bg-clinical-500/10 dark:bg-clinical-500/20 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-clinical-600 dark:text-clinical-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Interactive Karyogram</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Ideogram of all chromosomes with genetic markers at genomic positions, colour-coded by test result (positive / VUS / negative), with centromere bands.</p>
+            </div>
+            <div class="feature-card bg-white dark:bg-brand-900/40 rounded-xl p-6 border border-gray-100 dark:border-brand-800 reveal" style="transition-delay:0.1s">
+                <div class="w-12 h-12 rounded-xl bg-clinical-500/10 dark:bg-clinical-500/20 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-clinical-600 dark:text-clinical-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Universal Data Exchange</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Import JSON, GEDCOM 5.5.1, XEG, 23andMe, and images (OCR). Export to JSON, GEDCOM, PNG (up to 4x), SVG, PDF (A4/A3/Letter/Legal), and print.</p>
+            </div>
+            <div class="feature-card bg-white dark:bg-brand-900/40 rounded-xl p-6 border border-gray-100 dark:border-brand-800 reveal" style="transition-delay:0.15s">
+                <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-900 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-brand-600 dark:text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Consanguinity & Kinship</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Wright's path coefficient calculates consanguinity coefficients automatically. Values display on relationship lines and feed directly into risk models.</p>
+            </div>
+            <div class="feature-card bg-white dark:bg-brand-900/40 rounded-xl p-6 border border-gray-100 dark:border-brand-800 reveal">
+                <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-900 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-brand-600 dark:text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Advanced Search</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Query builder: filter by sex, disease status, age, tests, treatments &mdash; across parents, siblings, ancestors, descendants. AND/OR modes. Results highlighted on canvas.</p>
+            </div>
+            <div class="feature-card bg-white dark:bg-brand-900/40 rounded-xl p-6 border border-gray-100 dark:border-brand-800 reveal" style="transition-delay:0.05s">
+                <div class="w-12 h-12 rounded-xl bg-accent-500/10 dark:bg-accent-500/20 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Batch Investigation</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Screen a proband across multiple diseases simultaneously. Generate dual-audience reports: one written for the patient, one for the clinical geneticist.</p>
+            </div>
+            <div class="feature-card bg-white dark:bg-brand-900/40 rounded-xl p-6 border border-gray-100 dark:border-brand-800 reveal" style="transition-delay:0.1s">
+                <div class="w-12 h-12 rounded-xl bg-clinical-500/10 dark:bg-clinical-500/20 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-clinical-600 dark:text-clinical-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A2 2 0 013 12V7a4 4 0 014-4z"/></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Allergies & Traits</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">59 allergies (severity, IgE, cross-reactivity). 51 traits (heritability, marker associations). Enables genotype-phenotype correlation in a unified model.</p>
+            </div>
+            <div class="feature-card bg-white dark:bg-brand-900/40 rounded-xl p-6 border border-gray-100 dark:border-brand-800 reveal" style="transition-delay:0.15s">
+                <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-900 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-brand-600 dark:text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6z"/></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Auto-Layout & UX</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Algorithm-based positioning respecting family structure. Undo/redo, copy/paste, lasso select, snap-to-grid, pinch zoom, light/dark theme, configurable fonts.</p>
+            </div>
+        </div>
+        <!-- Post-features CTA -->
+        <div class="text-center mt-12 reveal">
+            <p class="text-gray-500 dark:text-gray-400 mb-4">Ready to draw your first pedigree?</p>
+            <a href="#waitlist" class="inline-flex items-center gap-2 px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl transition-all duration-200 cta-glow">
+                Request Alpha Access
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== WHO IT'S FOR ==================== -->
+<section id="who-its-for" class="py-20 lg:py-28 bg-gray-50 dark:bg-brand-900/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12 reveal">
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Purpose-built for every user who works with pedigrees</h2>
+            <p class="text-lg text-gray-600 dark:text-gray-400">From specialist geneticists to patients documenting family history &mdash; Evagene adapts to your workflow and expertise level.</p>
+        </div>
+        <!-- Tab navigation — horizontal scroll on mobile -->
+        <div class="flex overflow-x-auto gap-1 mb-10 pb-2 border-b border-gray-200 dark:border-brand-800 reveal tab-scroll" role="tablist" aria-label="User groups">
+            <button class="tab-btn active whitespace-nowrap px-4 py-2.5 text-sm font-medium text-gray-500 dark:text-gray-400 border-b-2 border-transparent transition-colors flex-shrink-0" data-tab="clinicians" role="tab" aria-selected="true">Clinical Geneticists</button>
+            <button class="tab-btn whitespace-nowrap px-4 py-2.5 text-sm font-medium text-gray-500 dark:text-gray-400 border-b-2 border-transparent transition-colors flex-shrink-0" data-tab="oncologists" role="tab" aria-selected="false">Oncologists</button>
+            <button class="tab-btn whitespace-nowrap px-4 py-2.5 text-sm font-medium text-gray-500 dark:text-gray-400 border-b-2 border-transparent transition-colors flex-shrink-0" data-tab="gps" role="tab" aria-selected="false">GPs</button>
+            <button class="tab-btn whitespace-nowrap px-4 py-2.5 text-sm font-medium text-gray-500 dark:text-gray-400 border-b-2 border-transparent transition-colors flex-shrink-0" data-tab="nurses" role="tab" aria-selected="false">Genetic Nurses</button>
+            <button class="tab-btn whitespace-nowrap px-4 py-2.5 text-sm font-medium text-gray-500 dark:text-gray-400 border-b-2 border-transparent transition-colors flex-shrink-0" data-tab="researchers" role="tab" aria-selected="false">Researchers</button>
+            <button class="tab-btn whitespace-nowrap px-4 py-2.5 text-sm font-medium text-gray-500 dark:text-gray-400 border-b-2 border-transparent transition-colors flex-shrink-0" data-tab="patients" role="tab" aria-selected="false">Patients &amp; Families</button>
+            <button class="tab-btn whitespace-nowrap px-4 py-2.5 text-sm font-medium text-gray-500 dark:text-gray-400 border-b-2 border-transparent transition-colors flex-shrink-0" data-tab="genealogists" role="tab" aria-selected="false">Genealogists</button>
+            <button class="tab-btn whitespace-nowrap px-4 py-2.5 text-sm font-medium text-gray-500 dark:text-gray-400 border-b-2 border-transparent transition-colors flex-shrink-0" data-tab="educators" role="tab" aria-selected="false">Educators &amp; Students</button>
+        </div>
+        <div class="tab-content-area">
+            <!-- Tab panels with inline SVG mock screenshots -->
+            <div id="tab-clinicians" class="tab-panel" role="tabpanel">
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <div class="space-y-5">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Replace paper charts and workarounds with a purpose-built system</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Every symbol, fill pattern, and overlay follows standard clinical pedigree conventions &mdash; eliminating the ambiguity of hand-drawn charts and the limitations of diagramming tools.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Run BRCAPRO, MMRpro, PancPRO, and Mendelian risk models <strong>directly from the pedigree</strong> &mdash; no re-entering data</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">184 diseases pre-configured with ICD-10, OMIM, inheritance patterns, penetrance data, and ethnicity-specific carrier frequencies</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Batch investigation: screen a proband across multiple conditions with structured dual-audience reports</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Linkage analysis: LOD scores, flanking markers, haplotype tables, Haldane/Kosambi map functions</span></li>
+                        </ul>
+                    </div>
+                    <div class="bg-white dark:bg-brand-900/60 rounded-xl border border-gray-100 dark:border-brand-800 overflow-hidden">
+                        <div class="px-3 py-2 bg-gray-50 dark:bg-brand-900 border-b border-gray-100 dark:border-brand-800 flex items-center gap-1.5"><div class="w-2 h-2 rounded-full bg-red-400"></div><div class="w-2 h-2 rounded-full bg-yellow-400"></div><div class="w-2 h-2 rounded-full bg-green-400"></div><span class="ml-2 text-[10px] text-gray-400 font-mono">Pedigree canvas + risk panel</span></div>
+                        <div class="aspect-video mock-screen flex items-center justify-center p-4">
+                            <svg viewBox="0 0 320 180" class="w-full h-auto opacity-60"><rect x="0" y="0" width="220" height="180" fill="none" stroke="currentColor" stroke-width="0.5" rx="4" class="text-brand-200 dark:text-brand-700"/><rect x="230" y="0" width="90" height="180" fill="none" stroke="currentColor" stroke-width="0.5" rx="4" class="text-brand-200 dark:text-brand-700"/><text x="160" y="14" text-anchor="end" class="text-[8px] fill-gray-400" font-family="Inter">Canvas</text><text x="275" y="14" text-anchor="middle" class="text-[8px] fill-gray-400" font-family="Inter">Risk Panel</text><rect x="30" y="30" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.2" class="text-brand-500"/><circle cx="100" cy="40" r="10" fill="none" stroke="currentColor" stroke-width="1.2" class="text-brand-500"/><line x1="50" y1="40" x2="90" y2="40" stroke="currentColor" stroke-width="1" class="text-gray-300"/><circle cx="70" cy="80" r="10" fill="#c8102e" opacity="0.6" stroke="currentColor" stroke-width="1.2" class="text-brand-500"/><line x1="70" y1="50" x2="70" y2="70" stroke="currentColor" stroke-width="1" class="text-gray-300"/><rect x="240" y="30" width="70" height="12" rx="2" fill="currentColor" class="text-brand-100 dark:text-brand-800"/><rect x="240" y="48" width="50" height="8" rx="2" fill="#c8102e" opacity="0.3"/><rect x="240" y="62" width="35" height="8" rx="2" fill="#ea580c" opacity="0.3"/><rect x="240" y="80" width="70" height="60" rx="2" fill="none" stroke="currentColor" stroke-width="0.5" class="text-gray-200 dark:text-gray-700"/><text x="275" y="115" text-anchor="middle" class="text-[7px] fill-gray-300" font-family="Inter">Risk by age table</text></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tab-oncologists" class="tab-panel hidden" role="tabpanel">
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <div class="space-y-5">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Personalised hereditary cancer risk from the full family history</h3>
+                        <p class="text-gray-600 dark:text-gray-400">BRCAPRO (breast/ovarian), MMRpro (colorectal/endometrial), and PancPRO (pancreatic) deliver Bayesian risk estimates that account for both affected and unaffected relatives across multiple generations.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Record tumour laterality, site, ER/PR/HER2 status, grade, and stage per disease per individual</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Track chemotherapy, surgery, and interventions with dose, route, frequency, and prophylactic flag</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Manifestation timeline with dated progression, certainty levels, and clinical test references</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Dual-audience reports: patient-facing summary and detailed clinical report for MDT</span></li>
+                        </ul>
+                    </div>
+                    <div class="bg-white dark:bg-brand-900/60 rounded-xl border border-gray-100 dark:border-brand-800 overflow-hidden">
+                        <div class="px-3 py-2 bg-gray-50 dark:bg-brand-900 border-b border-gray-100 dark:border-brand-800 flex items-center gap-1.5"><div class="w-2 h-2 rounded-full bg-red-400"></div><div class="w-2 h-2 rounded-full bg-yellow-400"></div><div class="w-2 h-2 rounded-full bg-green-400"></div><span class="ml-2 text-[10px] text-gray-400 font-mono">BRCAPRO risk results</span></div>
+                        <div class="aspect-video mock-screen flex items-center justify-center p-6">
+                            <div class="w-full max-w-xs space-y-3">
+                                <div class="text-xs font-semibold text-gray-500 dark:text-gray-400">BRCAPRO &mdash; Carrier Probability</div>
+                                <div><div class="flex justify-between text-[11px] text-gray-500 mb-1"><span>BRCA1</span><span class="text-accent-500 font-bold">34.2%</span></div><div class="h-2 rounded-full bg-gray-100 dark:bg-brand-800"><div class="h-2 rounded-full bg-accent-500/80" style="width:34%"></div></div></div>
+                                <div><div class="flex justify-between text-[11px] text-gray-500 mb-1"><span>BRCA2</span><span class="text-orange-500 font-bold">18.7%</span></div><div class="h-2 rounded-full bg-gray-100 dark:bg-brand-800"><div class="h-2 rounded-full bg-orange-400/80" style="width:19%"></div></div></div>
+                                <div class="text-[10px] text-gray-400 pt-1 border-t border-gray-100 dark:border-brand-800">Cumulative breast cancer risk by age 70: 68.4%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- GPs — expanded to match Clinicians layout -->
+            <div id="tab-gps" class="tab-panel hidden" role="tabpanel">
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <div class="space-y-5">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Capture structured family history in minutes, not hours</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Draw a three-generation pedigree during a consultation using gestures or keyboard shortcuts. Run built-in risk models to identify patients who warrant specialist referral &mdash; without leaving the tool.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Structured data replaces free-text notes &mdash; searchable and reusable across visits</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Built-in risk screening identifies patients who may benefit from genetic testing or specialist referral</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">In-app education guides written for GPs explain when pedigree findings warrant referral to genetics</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Export pedigrees as PDF for referral letters or as JSON for seamless handover to genetics teams</span></li>
+                        </ul>
+                    </div>
+                    <div class="bg-white dark:bg-brand-900/60 rounded-xl border border-gray-100 dark:border-brand-800 overflow-hidden"><div class="px-3 py-2 bg-gray-50 dark:bg-brand-900 border-b border-gray-100 dark:border-brand-800 flex items-center gap-1.5"><div class="w-2 h-2 rounded-full bg-red-400"></div><div class="w-2 h-2 rounded-full bg-yellow-400"></div><div class="w-2 h-2 rounded-full bg-green-400"></div><span class="ml-2 text-[10px] text-gray-400 font-mono">Quick 3-generation pedigree workflow</span></div><div class="aspect-video mock-screen flex items-center justify-center"><p class="text-sm text-brand-400 dark:text-brand-600">3-generation pedigree in &lt;5 minutes</p></div></div>
+                </div>
+            </div>
+            <!-- Genetic Nurses — expanded -->
+            <div id="tab-nurses" class="tab-panel hidden" role="tabpanel">
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <div class="space-y-5">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">From patient intake to cascade follow-up, streamlined</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Patient-facing reports in plain language. Per-individual consent-to-share flags for GDPR/data governance. vCard-compatible contact fields for coordinating family follow-up across services.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Plain-language investigation summaries suitable for sharing with patients and families</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Consent-to-share flag on each individual supports GDPR and data governance requirements</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Clear proband marking with directional arrow and label ensures the index case is always identifiable</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Role-specific guides covering workflows from patient intake through cascade follow-up</span></li>
+                        </ul>
+                    </div>
+                    <div class="bg-white dark:bg-brand-900/60 rounded-xl border border-gray-100 dark:border-brand-800 overflow-hidden"><div class="px-3 py-2 bg-gray-50 dark:bg-brand-900 border-b border-gray-100 dark:border-brand-800 flex items-center gap-1.5"><div class="w-2 h-2 rounded-full bg-red-400"></div><div class="w-2 h-2 rounded-full bg-yellow-400"></div><div class="w-2 h-2 rounded-full bg-green-400"></div><span class="ml-2 text-[10px] text-gray-400 font-mono">Patient report &amp; consent panel</span></div><div class="aspect-video mock-screen flex items-center justify-center"><p class="text-sm text-brand-400 dark:text-brand-600">Consent tracking &amp; patient reports</p></div></div>
+                </div>
+            </div>
+            <!-- Research Geneticists — expanded -->
+            <div id="tab-researchers" class="tab-panel hidden" role="tabpanel">
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <div class="space-y-5">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Research-grade Mendelian modelling and linkage analysis</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Go beyond clinical risk. Evagene supports autosomal dominant/recessive and X-linked models with reduced penetrance, germline mosaicism, de novo rates, anticipation (trinucleotide repeat expansion), parent-of-origin bias, and locus heterogeneity.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Two-point LOD scores, flanking marker detection, haplotype tables with Bayesian updates</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Configurable Haldane and Kosambi map functions for recombination fraction analysis</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Species flexibility: custom ploidy and chromosome sets for non-human pedigrees</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">59 allergies and 51 traits with inheritance patterns, heritability estimates, and marker associations for genotype-phenotype correlation</span></li>
+                        </ul>
+                    </div>
+                    <div class="bg-white dark:bg-brand-900/60 rounded-xl border border-gray-100 dark:border-brand-800 overflow-hidden"><div class="px-3 py-2 bg-gray-50 dark:bg-brand-900 border-b border-gray-100 dark:border-brand-800 flex items-center gap-1.5"><div class="w-2 h-2 rounded-full bg-red-400"></div><div class="w-2 h-2 rounded-full bg-yellow-400"></div><div class="w-2 h-2 rounded-full bg-green-400"></div><span class="ml-2 text-[10px] text-gray-400 font-mono">Linkage analysis &amp; karyogram</span></div><div class="aspect-video mock-screen flex items-center justify-center"><p class="text-sm text-brand-400 dark:text-brand-600">LOD scores &amp; haplotype tables</p></div></div>
+                </div>
+            </div>
+            <!-- Patients & Families — expanded -->
+            <div id="tab-patients" class="tab-panel hidden" role="tabpanel">
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <div class="space-y-5">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Your family's health story, beautifully documented</h3>
+                        <p class="text-gray-600 dark:text-gray-400">No genetics knowledge required. Draw shapes on a canvas to build your family tree. Import your 23andMe results. Export a PDF to bring to your next doctor's appointment or share with relatives.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Colour-coded disease sectors and clear symbols make the pedigree readable at a glance</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Import 23andMe data: raw genotype, ancestry composition, DNA relatives, and phenotype</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Photograph a paper pedigree and import via image analysis (OCR + shape detection)</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Plain-language risk reports and beginner-friendly help guides &mdash; no medical degree required</span></li>
+                        </ul>
+                    </div>
+                    <div class="bg-white dark:bg-brand-900/60 rounded-xl border border-gray-100 dark:border-brand-800 overflow-hidden"><div class="px-3 py-2 bg-gray-50 dark:bg-brand-900 border-b border-gray-100 dark:border-brand-800 flex items-center gap-1.5"><div class="w-2 h-2 rounded-full bg-red-400"></div><div class="w-2 h-2 rounded-full bg-yellow-400"></div><div class="w-2 h-2 rounded-full bg-green-400"></div><span class="ml-2 text-[10px] text-gray-400 font-mono">Family tree with 23andMe import</span></div><div class="aspect-video mock-screen flex items-center justify-center"><p class="text-sm text-brand-400 dark:text-brand-600">23andMe &rarr; pedigree in seconds</p></div></div>
+                </div>
+            </div>
+            <!-- Genealogists — expanded -->
+            <div id="tab-genealogists" class="tab-panel hidden" role="tabpanel">
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <div class="space-y-5">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">GEDCOM-compatible, information-dense family trees</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Import from and export to GEDCOM 5.5.1 for interoperability with Ancestry, FamilySearch, Gramps, and other genealogy software. Migrate legacy XEG files and 23andMe data exports seamlessly.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Rich family data per individual: names, dates, contact information, ethnicities, and free-text notes</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Auto-layout, generation numbering, and the family register make large multi-generation pedigrees manageable</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Dizygotic and monozygotic twin notation with proper chevron symbols</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Automatic consanguinity detection via Wright's path coefficient identifies complex relationships</span></li>
+                        </ul>
+                    </div>
+                    <div class="bg-white dark:bg-brand-900/60 rounded-xl border border-gray-100 dark:border-brand-800 overflow-hidden"><div class="px-3 py-2 bg-gray-50 dark:bg-brand-900 border-b border-gray-100 dark:border-brand-800 flex items-center gap-1.5"><div class="w-2 h-2 rounded-full bg-red-400"></div><div class="w-2 h-2 rounded-full bg-yellow-400"></div><div class="w-2 h-2 rounded-full bg-green-400"></div><span class="ml-2 text-[10px] text-gray-400 font-mono">GEDCOM import/export</span></div><div class="aspect-video mock-screen flex items-center justify-center"><p class="text-sm text-brand-400 dark:text-brand-600">GEDCOM &harr; Evagene &harr; Ancestry</p></div></div>
+                </div>
+            </div>
+            <!-- Educators & Students — expanded -->
+            <div id="tab-educators" class="tab-panel hidden" role="tabpanel">
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <div class="space-y-5">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Learn genetics by doing, with correct conventions enforced</h3>
+                        <p class="text-gray-600 dark:text-gray-400">200+ built-in guides covering introductory through advanced genetics, clinical genetics material, and disease-specific references. Students learn correct pedigree conventions by using a tool that enforces them from the first symbol.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">184 disease guides covering genetics, symptoms, diagnostic tests, prognosis, and Evagene analysis walkthrough</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Risk model documentation explains the Bayesian mathematics behind BRCAPRO, MMRpro, PancPRO, and Mendelian models</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Inspector provides a read-only blade-style UI for exploring how pedigree entities relate to each other</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Standard notation enforced automatically &mdash; students learn correct conventions simply by using the tool</span></li>
+                        </ul>
+                    </div>
+                    <div class="bg-white dark:bg-brand-900/60 rounded-xl border border-gray-100 dark:border-brand-800 overflow-hidden"><div class="px-3 py-2 bg-gray-50 dark:bg-brand-900 border-b border-gray-100 dark:border-brand-800 flex items-center gap-1.5"><div class="w-2 h-2 rounded-full bg-red-400"></div><div class="w-2 h-2 rounded-full bg-yellow-400"></div><div class="w-2 h-2 rounded-full bg-green-400"></div><span class="ml-2 text-[10px] text-gray-400 font-mono">Help system &amp; disease guides</span></div><div class="aspect-video mock-screen flex items-center justify-center"><p class="text-sm text-brand-400 dark:text-brand-600">200+ integrated learning guides</p></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== RISK ANALYSIS ==================== -->
+<section id="risk-analysis" class="py-20 lg:py-28 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-900 via-brand-950 to-brand-900 dark:from-brand-950 dark:via-black dark:to-brand-950"></div>
+    <div class="absolute inset-0 opacity-10" aria-hidden="true"><div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-accent-500/20 to-transparent"></div></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-accent-500/20 text-accent-400 text-sm font-semibold rounded-full mb-4">Major Differentiator</div>
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Integrated BayesMendel risk analysis &mdash; no second tool needed</h2>
+            <p class="text-lg text-brand-200">The BayesMendel R engine runs as a sidecar process. Select a proband, choose a model, click <strong>Run Analysis</strong>. Carrier probabilities and age-specific risk tables appear in the same panel &mdash; no copy-paste, no data re-entry.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6 mb-12">
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 reveal">
+                <div class="text-accent-400 font-mono text-sm font-bold mb-3">BRCAPRO</div>
+                <h3 class="text-xl font-bold text-white mb-2">Breast &amp; Ovarian Cancer</h3>
+                <p class="text-brand-200 text-sm mb-4">BRCA1/BRCA2 carrier probability. Cumulative breast and ovarian cancer risk at ages 40, 50, 60, 70, 80.</p>
+                <div class="text-xs text-brand-300 space-y-1"><div>Populations: General, Ashkenazi Jewish, Italian</div><div>Carrier &ge;10% &rarr; clinically actionable</div><div>Carrier &ge;25% &rarr; strongly suggestive</div></div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 reveal" style="transition-delay:0.1s">
+                <div class="text-accent-400 font-mono text-sm font-bold mb-3">MMRpro</div>
+                <h3 class="text-xl font-bold text-white mb-2">Lynch Syndrome</h3>
+                <p class="text-brand-200 text-sm mb-4">MLH1/MSH2/MSH6 carrier probability. Colorectal and endometrial cancer risk by age. ~3% of all CRC.</p>
+                <div class="text-xs text-brand-300 space-y-1"><div>Supports Amsterdam II criteria context</div><div>Carrier &ge;5% &rarr; consider IHC/MSI testing</div></div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 reveal" style="transition-delay:0.2s">
+                <div class="text-accent-400 font-mono text-sm font-bold mb-3">PancPRO</div>
+                <h3 class="text-xl font-bold text-white mb-2">Pancreatic Cancer</h3>
+                <p class="text-brand-200 text-sm mb-4">Pancreatic cancer susceptibility. FPC families face 5&ndash;30&times; general-population risk.</p>
+                <div class="text-xs text-brand-300 space-y-1"><div>Genes: PALB2 and others</div><div>Lifetime risk &gt;5% &rarr; consider EUS/MRI screening</div></div>
+            </div>
+        </div>
+
+        <!-- Interactive risk teaser -->
+        <div class="bg-white/5 backdrop-blur-sm rounded-xl p-6 sm:p-8 border border-white/10 reveal mb-10">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-3">See it in action: simulated BRCAPRO output</h3>
+                    <p class="text-brand-200 text-sm mb-4">Select a family scenario below to see how carrier probabilities and risk change with family history.</p>
+                    <div class="flex flex-wrap gap-2" id="risk-scenario-btns">
+                        <button data-scenario="low" class="risk-scenario-btn active px-3 py-1.5 text-xs font-medium rounded-md bg-white/20 text-white border border-white/20 transition-colors">Low-risk family</button>
+                        <button data-scenario="moderate" class="risk-scenario-btn px-3 py-1.5 text-xs font-medium rounded-md bg-white/10 text-brand-300 border border-white/10 hover:bg-white/20 transition-colors">Moderate risk</button>
+                        <button data-scenario="high" class="risk-scenario-btn px-3 py-1.5 text-xs font-medium rounded-md bg-white/10 text-brand-300 border border-white/10 hover:bg-white/20 transition-colors">High risk (HBOC)</button>
+                    </div>
+                </div>
+                <div class="space-y-4 relative" id="risk-teaser-output">
+                    <!-- Loading overlay for risk teaser -->
+                    <div id="risk-loading" class="risk-loading absolute inset-0 flex items-center justify-center bg-brand-950/50 rounded-lg z-10">
+                        <div class="w-6 h-6 border-2 border-white/30 border-t-white rounded-full spinner"></div>
+                    </div>
+                    <div><div class="flex justify-between text-sm text-brand-200 mb-1"><span>BRCA1 carrier probability</span><span id="risk-brca1-val" class="font-bold text-white">2.1%</span></div><div class="h-2.5 rounded-full bg-white/10"><div id="risk-brca1-bar" class="risk-bar h-2.5 rounded-full bg-clinical-500" style="width:2%"></div></div></div>
+                    <div><div class="flex justify-between text-sm text-brand-200 mb-1"><span>BRCA2 carrier probability</span><span id="risk-brca2-val" class="font-bold text-white">1.4%</span></div><div class="h-2.5 rounded-full bg-white/10"><div id="risk-brca2-bar" class="risk-bar h-2.5 rounded-full bg-brand-400" style="width:1.4%"></div></div></div>
+                    <div class="pt-2 border-t border-white/10"><div class="flex justify-between text-sm text-brand-200 mb-1"><span>Breast cancer risk by age 70</span><span id="risk-bc70-val" class="font-bold text-white">14.2%</span></div><div class="h-2.5 rounded-full bg-white/10"><div id="risk-bc70-bar" class="risk-bar h-2.5 rounded-full bg-orange-400" style="width:14%"></div></div></div>
+                    <p id="risk-teaser-note" class="text-xs text-brand-400 mt-2">Below clinical action threshold. General-population screening applies.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mendelian models -->
+        <div class="bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10 reveal">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-3">Mendelian Inheritance Models</h3>
+                    <p class="text-brand-200 text-sm mb-4">Built-in models for autosomal dominant, autosomal recessive, and X-linked recessive. Advanced parameters:</p>
+                    <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-brand-300">
+                        <span>Age-dependent penetrance</span><span>Germline mosaicism</span><span>De novo mutation rates</span><span>Anticipation (trinucleotide)</span><span>Parent-of-origin bias</span><span>Locus heterogeneity</span><span>Linkage disequilibrium</span><span>LOD scores</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="inline-block bg-white/10 rounded-xl p-6 border border-white/10">
+                        <div class="text-4xl font-extrabold text-white mb-1">6</div><div class="text-sm text-brand-300 mb-4">Risk models</div>
+                        <div class="text-4xl font-extrabold text-white mb-1">184</div><div class="text-sm text-brand-300 mb-4">Diseases catalogued</div>
+                        <div class="text-4xl font-extrabold text-white mb-1">2</div><div class="text-sm text-brand-300">Report audiences</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-10">
+            <a href="#waitlist" class="inline-flex items-center gap-2 px-7 py-3.5 bg-accent-500 hover:bg-accent-600 text-white font-semibold rounded-xl transition-all duration-200 text-base">
+                Get Early Access to Risk Analysis
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== INTEROPERABILITY ==================== -->
+<section id="interoperability" class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Speaks every format your workflow demands</h2>
+            <p class="text-lg text-gray-600 dark:text-gray-400">Import from clinical systems, genealogy platforms, and consumer genomics. Export publication-ready output in any format.</p>
+        </div>
+        <div class="max-w-4xl mx-auto reveal">
+            <div class="overflow-x-auto">
+                <table class="w-full format-table text-left bg-white dark:bg-brand-900/40 rounded-xl border border-gray-100 dark:border-brand-800 overflow-hidden">
+                    <thead><tr class="bg-gray-50 dark:bg-brand-900 text-sm font-semibold text-gray-700 dark:text-gray-300"><th class="py-4 px-6">Format</th><th class="py-4 px-6 text-center">Import</th><th class="py-4 px-6 text-center">Export</th><th class="py-4 px-6">Notes</th></tr></thead>
+                    <tbody class="text-sm text-gray-600 dark:text-gray-400 divide-y divide-gray-100 dark:divide-brand-800">
+                        <tr><td class="py-3 px-6 font-medium text-gray-900 dark:text-white">JSON</td><td class="py-3 px-6 text-center text-clinical-500 font-bold">&#10003;</td><td class="py-3 px-6 text-center text-clinical-500 font-bold">&#10003;</td><td class="py-3 px-6">Full snapshot; replace or add mode</td></tr>
+                        <tr><td class="py-3 px-6 font-medium text-gray-900 dark:text-white">GEDCOM 5.5.1</td><td class="py-3 px-6 text-center text-clinical-500 font-bold">&#10003;</td><td class="py-3 px-6 text-center text-clinical-500 font-bold">&#10003;</td><td class="py-3 px-6">Ancestry, FamilySearch, Gramps compatible</td></tr>
+                        <tr><td class="py-3 px-6 font-medium text-gray-900 dark:text-white">XEG</td><td class="py-3 px-6 text-center text-clinical-500 font-bold">&#10003;</td><td class="py-3 px-6 text-center text-gray-300 dark:text-gray-600">&mdash;</td><td class="py-3 px-6">Legacy Evagene v1 XML migration</td></tr>
+                        <tr><td class="py-3 px-6 font-medium text-gray-900 dark:text-white">23andMe</td><td class="py-3 px-6 text-center text-clinical-500 font-bold">&#10003;</td><td class="py-3 px-6 text-center text-gray-300 dark:text-gray-600">&mdash;</td><td class="py-3 px-6">Genotype, ancestry, DNA relatives, phenotype</td></tr>
+                        <tr><td class="py-3 px-6 font-medium text-gray-900 dark:text-white">Image</td><td class="py-3 px-6 text-center text-clinical-500 font-bold">&#10003;</td><td class="py-3 px-6 text-center text-gray-300 dark:text-gray-600">&mdash;</td><td class="py-3 px-6">OCR + shape detection from chart photos</td></tr>
+                        <tr><td class="py-3 px-6 font-medium text-gray-900 dark:text-white">PNG</td><td class="py-3 px-6 text-center text-gray-300 dark:text-gray-600">&mdash;</td><td class="py-3 px-6 text-center text-clinical-500 font-bold">&#10003;</td><td class="py-3 px-6">1x&ndash;4x scale, optional transparency</td></tr>
+                        <tr><td class="py-3 px-6 font-medium text-gray-900 dark:text-white">SVG</td><td class="py-3 px-6 text-center text-gray-300 dark:text-gray-600">&mdash;</td><td class="py-3 px-6 text-center text-clinical-500 font-bold">&#10003;</td><td class="py-3 px-6">Vector for publication-quality output</td></tr>
+                        <tr><td class="py-3 px-6 font-medium text-gray-900 dark:text-white">PDF</td><td class="py-3 px-6 text-center text-gray-300 dark:text-gray-600">&mdash;</td><td class="py-3 px-6 text-center text-clinical-500 font-bold">&#10003;</td><td class="py-3 px-6">A4/A3/Letter/Legal, portrait/landscape/auto</td></tr>
+                        <tr><td class="py-3 px-6 font-medium text-gray-900 dark:text-white">Print</td><td class="py-3 px-6 text-center text-gray-300 dark:text-gray-600">&mdash;</td><td class="py-3 px-6 text-center text-clinical-500 font-bold">&#10003;</td><td class="py-3 px-6">Browser print dialog</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== LIVE TEASER DEMO ==================== -->
+<section id="demo" class="py-20 lg:py-28 bg-gray-50 dark:bg-brand-900/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12 reveal">
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Try it right now</h2>
+            <p class="text-lg text-gray-600 dark:text-gray-400">Click or tap the canvas to add individuals. Tap two individuals to connect them. See standard notation in action.</p>
+        </div>
+        <div class="max-w-4xl mx-auto reveal">
+            <div class="bg-white dark:bg-brand-900/60 rounded-2xl shadow-xl border border-gray-100 dark:border-brand-800 overflow-hidden">
+                <div class="flex items-center justify-between px-4 py-3 bg-gray-50 dark:bg-brand-900 border-b border-gray-100 dark:border-brand-800">
+                    <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">Pedigree Demo</span>
+                    <div class="flex items-center gap-2 overflow-x-auto">
+                        <button id="demo-add-male" class="px-3 py-1.5 text-xs font-medium bg-brand-100 dark:bg-brand-800 text-brand-700 dark:text-brand-300 rounded-md hover:bg-brand-200 dark:hover:bg-brand-700 transition-colors flex-shrink-0" title="Add Male (M)"><span class="kbd mr-1">M</span> Male</button>
+                        <button id="demo-add-female" class="px-3 py-1.5 text-xs font-medium bg-brand-100 dark:bg-brand-800 text-brand-700 dark:text-brand-300 rounded-md hover:bg-brand-200 dark:hover:bg-brand-700 transition-colors flex-shrink-0" title="Add Female (F)"><span class="kbd mr-1">F</span> Female</button>
+                        <button id="demo-toggle-affected" class="px-3 py-1.5 text-xs font-medium bg-accent-100 dark:bg-accent-500/20 text-accent-600 dark:text-accent-400 rounded-md hover:bg-accent-200 dark:hover:bg-accent-500/30 transition-colors flex-shrink-0" title="Toggle Affected (D)"><span class="kbd mr-1">D</span> Disease</button>
+                        <button id="demo-clear" class="px-3 py-1.5 text-xs font-medium bg-gray-100 dark:bg-brand-800 text-gray-600 dark:text-gray-400 rounded-md hover:bg-gray-200 dark:hover:bg-brand-700 transition-colors flex-shrink-0">Clear</button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <canvas id="pedigree-demo" width="900" height="400" class="w-full" style="height: 400px;" aria-label="Interactive pedigree drawing demo canvas"></canvas>
+                    <div id="demo-instructions" class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <div class="canvas-tooltip text-center bg-white/90 dark:bg-brand-900/90 backdrop-blur-sm px-6 sm:px-8 py-5 sm:py-4 rounded-xl border border-gray-200 dark:border-brand-700 shadow-lg max-w-xs sm:max-w-sm mx-4">
+                            <p class="text-base sm:text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 sm:mb-1">Tap to begin</p>
+                            <p class="text-sm sm:text-sm text-gray-600 dark:text-gray-400 mb-1">Click or tap the canvas to add individuals</p>
+                            <p class="text-xs text-gray-400 dark:text-gray-500">Tap two individuals to connect them with a relationship line</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="px-4 py-2.5 bg-gray-50 dark:bg-brand-900 border-t border-gray-100 dark:border-brand-800 flex items-center justify-between">
+                    <span id="demo-status" class="text-xs text-gray-500 dark:text-gray-500">0 individuals</span>
+                    <span class="text-xs text-gray-400 dark:text-gray-600 hidden sm:inline">Simplified demo &mdash; the full app has gesture drawing, 184 diseases, risk models, and more</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== TESTIMONIALS ==================== -->
+<section class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">What early testers are saying</h2>
+            <p class="text-lg text-gray-600 dark:text-gray-400">Feedback from alpha testers across clinical genetics, oncology, research, and patient advocacy.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white dark:bg-brand-900/40 rounded-xl p-6 border border-gray-100 dark:border-brand-800 reveal">
+                <div class="flex items-center gap-1 mb-4 text-yellow-400"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div>
+                <p class="text-gray-700 dark:text-gray-300 text-sm mb-4 italic">"Finally a pedigree tool that runs BRCAPRO directly from the family tree. I used to switch between three different applications during a single consultation. Evagene collapsed that into one."</p>
+                <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-brand-100 dark:bg-brand-800 flex items-center justify-center text-brand-600 dark:text-brand-300 font-semibold text-sm">CG</div><div><div class="text-sm font-medium text-gray-900 dark:text-white">Placeholder &mdash; Clinical Geneticist</div><div class="text-xs text-gray-500">University Hospital</div></div></div>
+            </div>
+            <div class="bg-white dark:bg-brand-900/40 rounded-xl p-6 border border-gray-100 dark:border-brand-800 reveal" style="transition-delay:0.1s">
+                <div class="flex items-center gap-1 mb-4 text-yellow-400"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div>
+                <p class="text-gray-700 dark:text-gray-300 text-sm mb-4 italic">"I imported my 23andMe data and built a three-generation family tree in under ten minutes. The colour-coded disease sectors made patterns obvious that I'd never noticed before."</p>
+                <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-clinical-100 dark:bg-clinical-500/20 flex items-center justify-center text-clinical-600 dark:text-clinical-400 font-semibold text-sm">PF</div><div><div class="text-sm font-medium text-gray-900 dark:text-white">Placeholder &mdash; Patient / Family Member</div><div class="text-xs text-gray-500">Personal use</div></div></div>
+            </div>
+            <div class="bg-white dark:bg-brand-900/40 rounded-xl p-6 border border-gray-100 dark:border-brand-800 reveal" style="transition-delay:0.2s">
+                <div class="flex items-center gap-1 mb-4 text-yellow-400"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div>
+                <p class="text-gray-700 dark:text-gray-300 text-sm mb-4 italic">"The Mendelian models with germline mosaicism and anticipation parameters are exactly what we needed for our trinucleotide repeat study. GEDCOM export saved us weeks of data wrangling."</p>
+                <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-brand-100 dark:bg-brand-800 flex items-center justify-center text-brand-600 dark:text-brand-300 font-semibold text-sm">RG</div><div><div class="text-sm font-medium text-gray-900 dark:text-white">Placeholder &mdash; Research Geneticist</div><div class="text-xs text-gray-500">Institute of Genetics</div></div></div>
+            </div>
+        </div>
+        <p class="text-center text-sm text-gray-400 dark:text-gray-600 mt-8 reveal">Placeholder testimonials &mdash; real quotes from alpha testers will replace these.</p>
+    </div>
+</section>
+
+<!-- ==================== RESOURCES & HELP ==================== -->
+<section id="resources" class="py-20 lg:py-28 bg-gray-50 dark:bg-brand-900/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div class="reveal">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">200+ built-in guides, from beginner to expert</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">Every disease name, genetic marker, and risk result in Evagene links directly to its guide. The help system doubles as a comprehensive genetics education resource.</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white dark:bg-brand-900/60 rounded-lg p-4 border border-gray-100 dark:border-brand-800"><div class="text-2xl font-bold text-brand-600 dark:text-brand-400">184</div><div class="text-sm text-gray-600 dark:text-gray-400">Disease-specific guides</div></div>
+                    <div class="bg-white dark:bg-brand-900/60 rounded-lg p-4 border border-gray-100 dark:border-brand-800"><div class="text-2xl font-bold text-brand-600 dark:text-brand-400">8</div><div class="text-sm text-gray-600 dark:text-gray-400">Role-specific workflows</div></div>
+                    <div class="bg-white dark:bg-brand-900/60 rounded-lg p-4 border border-gray-100 dark:border-brand-800"><div class="text-2xl font-bold text-brand-600 dark:text-brand-400">3</div><div class="text-sm text-gray-600 dark:text-gray-400">Genetics knowledge levels</div></div>
+                    <div class="bg-white dark:bg-brand-900/60 rounded-lg p-4 border border-gray-100 dark:border-brand-800"><div class="text-2xl font-bold text-brand-600 dark:text-brand-400">6</div><div class="text-sm text-gray-600 dark:text-gray-400">Risk model explainers</div></div>
+                </div>
+            </div>
+            <div class="reveal-right space-y-3">
+                <!-- Expandable sample guide cards -->
+                <div class="guide-card bg-white dark:bg-brand-900/60 rounded-lg border border-gray-100 dark:border-brand-800 overflow-hidden">
+                    <button onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.guide-chevron').classList.toggle('rotate-180')" class="w-full p-4 flex items-center gap-4 text-left hover:bg-gray-50 dark:hover:bg-brand-900/80 transition-colors">
+                        <div class="w-10 h-10 rounded-lg bg-brand-50 dark:bg-brand-900 flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5 text-brand-600 dark:text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg></div>
+                        <div class="flex-1"><div class="text-sm font-semibold text-gray-900 dark:text-white">Introduction to Genetics</div><div class="text-xs text-gray-500 dark:text-gray-400">DNA, chromosomes, inheritance &mdash; the fundamentals</div></div>
+                        <svg class="guide-chevron w-4 h-4 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="guide-content px-4 pb-4"><p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">Covers the central dogma (DNA &rarr; RNA &rarr; protein), chromosome structure, Mendelian inheritance patterns, and how mutations lead to disease. Written for readers with no prior genetics background. Includes diagrams of DNA replication, meiosis, and autosomal vs. X-linked inheritance.</p></div>
+                </div>
+                <div class="guide-card bg-white dark:bg-brand-900/60 rounded-lg border border-gray-100 dark:border-brand-800 overflow-hidden">
+                    <button onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.guide-chevron').classList.toggle('rotate-180')" class="w-full p-4 flex items-center gap-4 text-left hover:bg-gray-50 dark:hover:bg-brand-900/80 transition-colors">
+                        <div class="w-10 h-10 rounded-lg bg-accent-500/10 dark:bg-accent-500/20 flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></div>
+                        <div class="flex-1"><div class="text-sm font-semibold text-gray-900 dark:text-white">BRCAPRO Risk Model</div><div class="text-xs text-gray-500 dark:text-gray-400">Breast &amp; ovarian cancer carrier probability</div></div>
+                        <svg class="guide-chevron w-4 h-4 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="guide-content px-4 pb-4"><p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">BRCAPRO uses Bayesian updating with the BayesMendel R package to estimate BRCA1/BRCA2 carrier probability from family pedigree data. Supports General, Ashkenazi Jewish, and Italian population frequencies. Carrier probability &ge;10% is considered clinically actionable; &ge;25% is strongly suggestive of hereditary breast and ovarian cancer syndrome.</p></div>
+                </div>
+                <div class="guide-card bg-white dark:bg-brand-900/60 rounded-lg border border-gray-100 dark:border-brand-800 overflow-hidden">
+                    <button onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.guide-chevron').classList.toggle('rotate-180')" class="w-full p-4 flex items-center gap-4 text-left hover:bg-gray-50 dark:hover:bg-brand-900/80 transition-colors">
+                        <div class="w-10 h-10 rounded-lg bg-clinical-500/10 dark:bg-clinical-500/20 flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5 text-clinical-600 dark:text-clinical-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
+                        <div class="flex-1"><div class="text-sm font-semibold text-gray-900 dark:text-white">Breast Cancer (C50)</div><div class="text-xs text-gray-500 dark:text-gray-400">Disease guide &mdash; genetics, symptoms, prognosis</div></div>
+                        <svg class="guide-chevron w-4 h-4 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="guide-content px-4 pb-4"><p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">ICD-10: C50. OMIM: 114480. Inheritance: multifactorial with high-penetrance genes (BRCA1, BRCA2, TP53, PALB2). Lifetime risk ~12% general population; up to 72% for BRCA1 carriers. Evagene tracks laterality, ER/PR/HER2 status, grade, stage, and age at diagnosis per individual.</p></div>
+                </div>
+                <div class="guide-card bg-white dark:bg-brand-900/60 rounded-lg border border-gray-100 dark:border-brand-800 overflow-hidden">
+                    <button onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.guide-chevron').classList.toggle('rotate-180')" class="w-full p-4 flex items-center gap-4 text-left hover:bg-gray-50 dark:hover:bg-brand-900/80 transition-colors">
+                        <div class="w-10 h-10 rounded-lg bg-brand-50 dark:bg-brand-900 flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5 text-brand-600 dark:text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A2 2 0 013 12V7a4 4 0 014-4z"/></svg></div>
+                        <div class="flex-1"><div class="text-sm font-semibold text-gray-900 dark:text-white">Keyboard Shortcuts</div><div class="text-xs text-gray-500 dark:text-gray-400">Complete shortcut reference for fast pedigree editing</div></div>
+                        <svg class="guide-chevron w-4 h-4 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="guide-content px-4 pb-4"><p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">M/F/U to add individuals, P for partner, D for disease palette, N for notes, G for genetics panel. Ctrl+Z/Y for undo/redo, Ctrl+C/V for copy/paste, Ctrl+A to select all, F2 to edit name, Delete to remove. Space+drag to pan, scroll to zoom, Ctrl+G for snap-to-grid.</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== ROADMAP ==================== -->
+<section id="roadmap" class="py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10 reveal">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">Roadmap &mdash; What's Coming in Alpha</h2>
+            <p class="text-gray-600 dark:text-gray-400">Alpha members get early access and direct input on priorities. Here is what we are building next.</p>
+        </div>
+        <div class="overflow-x-auto roadmap-scroll pb-4 reveal">
+            <div class="flex gap-4 min-w-max px-1">
+                <div class="w-72 flex-shrink-0 bg-white dark:bg-brand-900/40 rounded-xl p-5 border border-gray-100 dark:border-brand-800">
+                    <div class="text-xs font-bold text-clinical-600 dark:text-clinical-400 uppercase tracking-wider mb-2">Q2 2026</div>
+                    <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-1">Multi-user collaboration</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Real-time co-editing of pedigrees with role-based access control and audit trail.</p>
+                </div>
+                <div class="w-72 flex-shrink-0 bg-white dark:bg-brand-900/40 rounded-xl p-5 border border-gray-100 dark:border-brand-800">
+                    <div class="text-xs font-bold text-brand-500 uppercase tracking-wider mb-2">Q2 2026</div>
+                    <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-1">HL7 FHIR export</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Native FHIR FamilyMemberHistory resources for seamless EHR integration.</p>
+                </div>
+                <div class="w-72 flex-shrink-0 bg-white dark:bg-brand-900/40 rounded-xl p-5 border border-gray-100 dark:border-brand-800">
+                    <div class="text-xs font-bold text-brand-500 uppercase tracking-wider mb-2">Q3 2026</div>
+                    <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-1">Polygenic risk scores</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">PRS integration from VCF/genotype files, overlaid on the family-history risk.</p>
+                </div>
+                <div class="w-72 flex-shrink-0 bg-white dark:bg-brand-900/40 rounded-xl p-5 border border-gray-100 dark:border-brand-800">
+                    <div class="text-xs font-bold text-accent-500 uppercase tracking-wider mb-2">Q3 2026</div>
+                    <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-1">AI pedigree summarisation</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Natural-language family history narratives auto-generated from the pedigree for clinical letters.</p>
+                </div>
+                <div class="w-72 flex-shrink-0 bg-white dark:bg-brand-900/40 rounded-xl p-5 border border-gray-100 dark:border-brand-800">
+                    <div class="text-xs font-bold text-accent-500 uppercase tracking-wider mb-2">Q4 2026</div>
+                    <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-1">SOC 2 Type II audit</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Formal compliance certification for enterprise and hospital deployments.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== ALPHA WAITING LIST ==================== -->
+<section id="waitlist" class="py-20 lg:py-28 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-50 via-white to-clinical-50 dark:from-brand-950 dark:via-brand-950 dark:to-brand-900"></div>
+    <div class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10 reveal">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-clinical-100 dark:bg-clinical-500/20 text-clinical-600 dark:text-clinical-400 text-sm font-semibold rounded-full mb-4"><span class="w-2 h-2 bg-clinical-500 rounded-full animate-pulse-slow"></span>Alpha Access</div>
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Join the Alpha waiting list</h2>
+            <p class="text-lg text-gray-600 dark:text-gray-400 max-w-xl mx-auto">Be among the first to use Evagene. Alpha members receive early access, direct input on the roadmap, and priority support from the development team.</p>
+        </div>
+        <div class="bg-white dark:bg-brand-900/60 rounded-2xl shadow-xl border border-gray-100 dark:border-brand-800 p-8 sm:p-10 reveal">
+            <!--
+                ============================================================
+                PRODUCTION FORM INTEGRATION — choose ONE option:
+                ============================================================
+
+                OPTION A: Netlify Forms (zero backend)
+                  1. Add  data-netlify="true"  to the <form> tag
+                  2. Add  name="waitlist"  attribute
+                  3. Remove the JS submit handler below (it will POST natively)
+                  4. Set  action="/success"  or use Netlify's redirect config
+                  Example: <form name="waitlist" method="POST" data-netlify="true">
+
+                OPTION B: Formspree
+                  1. Set  action="https://formspree.io/f/YOUR_FORM_ID"  method="POST"
+                  2. Remove the JS submit handler
+                  3. Formspree handles redirect & email notification
+
+                OPTION C: Custom API (Supabase / Firebase / your own)
+                  1. In the JS submit handler, replace the setTimeout with:
+                     fetch('/api/waitlist', { method:'POST', headers:{'Content-Type':'application/json'},
+                       body: JSON.stringify({ name, email, role, usecase, organisation })
+                     }).then(r => { if(r.ok) showSuccess(); else showError(); });
+
+                The current JS handler simulates submission for demo purposes.
+                ============================================================
+            -->
+            <form id="waitlist-form" class="space-y-5" novalidate>
+                <div><label for="wl-name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Full Name <span class="text-accent-500">*</span></label><input type="text" id="wl-name" name="name" required placeholder="Dr. Jane Smith" class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-brand-700 bg-white dark:bg-brand-900 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors text-sm"></div>
+                <div><label for="wl-email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Email Address <span class="text-accent-500">*</span></label><input type="email" id="wl-email" name="email" required placeholder="jane.smith@hospital.org" class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-brand-700 bg-white dark:bg-brand-900 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors text-sm"></div>
+                <div><label for="wl-role" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Professional Role <span class="text-accent-500">*</span></label><select id="wl-role" name="role" required class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-brand-700 bg-white dark:bg-brand-900 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors text-sm"><option value="" disabled selected>Select your role...</option><option value="clinical-geneticist">Clinical Geneticist</option><option value="oncologist">Oncologist</option><option value="general-practice-doctor">General Practice Doctor</option><option value="genetic-nurse-counsellor">Genetic Nurse / Counsellor</option><option value="research-geneticist">Research Geneticist</option><option value="patient-family">Patient / Family Member</option><option value="genealogist">Genealogist</option><option value="educator-student">Educator / Student</option><option value="other">Other</option></select></div>
+                <div><label for="wl-usecase" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">What excites you most about Evagene?</label><textarea id="wl-usecase" name="usecase" rows="3" placeholder="e.g., Running BRCAPRO directly from pedigrees, GEDCOM import for my genealogy research..." class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-brand-700 bg-white dark:bg-brand-900 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors text-sm resize-none"></textarea></div>
+                <div><label for="wl-org" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Institution / Organisation <span class="text-gray-400 font-normal">(optional)</span></label><input type="text" id="wl-org" name="organisation" placeholder="University Hospital, Research Institute..." class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-brand-700 bg-white dark:bg-brand-900 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors text-sm"></div>
+                <button type="submit" id="wl-submit-btn" class="w-full py-3.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-lg transition-all duration-200 text-base cta-glow flex items-center justify-center gap-2">
+                    <span id="wl-submit-text">Join the Waiting List</span>
+                    <svg id="wl-spinner" class="w-5 h-5 spinner hidden" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
+                </button>
+                <p class="text-xs text-center text-gray-400 dark:text-gray-600">We will never share your information. Unsubscribe at any time.</p>
+            </form>
+            <div id="waitlist-success" class="hidden text-center py-8">
+                <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-clinical-100 dark:bg-clinical-500/20 flex items-center justify-center"><svg class="w-8 h-8 text-clinical-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></div>
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">You're on the list!</h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-6">We'll notify you as soon as alpha access opens. In the meantime, share Evagene with colleagues who work with pedigrees.</p>
+                <div class="flex items-center justify-center gap-3"><span class="text-sm text-gray-500 dark:text-gray-400">Share:</span><button onclick="navigator.clipboard.writeText(window.location.href);this.textContent='Copied!';setTimeout(()=>this.textContent='Copy Link',2000)" class="px-4 py-2 text-sm font-medium bg-brand-100 dark:bg-brand-800 text-brand-700 dark:text-brand-300 rounded-lg hover:bg-brand-200 dark:hover:bg-brand-700 transition-colors">Copy Link</button></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FINAL CTA BANNER ==================== -->
+<section class="py-12 bg-brand-600 dark:bg-brand-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">Alpha spots are limited</h2>
+        <p class="text-brand-100 mb-6 max-w-2xl mx-auto">Join 200+ clinicians, researchers, and families already on the waiting list. Early members shape the roadmap and receive priority support.</p>
+        <a href="#waitlist" class="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-brand-700 font-semibold rounded-xl hover:bg-brand-50 transition-colors text-base">
+            Request Alpha Access
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+                <p class="text-xs text-gray-600">Built with care for precision medicine</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="#features" class="hover:text-white transition-colors">Features</a></li><li><a href="#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="#demo" class="hover:text-white transition-colors">Live Demo</a></li><li><a href="#roadmap" class="hover:text-white transition-colors">Roadmap</a></li><li><a href="#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">For</h4><ul class="space-y-2 text-sm"><li><a href="#who-its-for" class="hover:text-white transition-colors">Clinical Geneticists</a></li><li><a href="#who-its-for" class="hover:text-white transition-colors">Oncologists</a></li><li><a href="#who-its-for" class="hover:text-white transition-colors">Researchers</a></li><li><a href="#who-its-for" class="hover:text-white transition-colors">Patients &amp; Families</a></li><li><a href="#who-its-for" class="hover:text-white transition-colors">Genealogists</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="#" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="#" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="#" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<!-- ==================== JAVASCRIPT ==================== -->
+<script>
+(function() {
+    'use strict';
+
+    // ====== DARK MODE ======
+    const html = document.documentElement;
+    const themeToggle = document.getElementById('theme-toggle');
+    const sunIcon = document.getElementById('sun-icon');
+    const moonIcon = document.getElementById('moon-icon');
+
+    function setTheme(dark) {
+        html.classList.toggle('dark', dark);
+        sunIcon.classList.toggle('hidden', !dark);
+        moonIcon.classList.toggle('hidden', dark);
+        localStorage.setItem('evagene-theme', dark ? 'dark' : 'light');
+    }
+
+    const saved = localStorage.getItem('evagene-theme');
+    if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) setTheme(true);
+    themeToggle.addEventListener('click', () => setTheme(!html.classList.contains('dark')));
+
+    // ====== MOBILE MENU ======
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn.addEventListener('click', () => {
+        const open = !mobileMenu.classList.contains('hidden');
+        mobileMenu.classList.toggle('hidden', open);
+        mobileBtn.setAttribute('aria-expanded', !open);
+    });
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); mobileBtn.setAttribute('aria-expanded', 'false'); });
+    });
+
+    // ====== STICKY NAV ======
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { navbar.classList.toggle('nav-scrolled', window.scrollY > 10); }, { passive: true });
+
+    // ====== SMOOTH SCROLL ======
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) { e.preventDefault(); window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' }); }
+        });
+    });
+
+    // ====== SCROLL ANIMATIONS ======
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+
+    // ====== TABS ======
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const tabId = btn.dataset.tab;
+            tabBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+            tabPanels.forEach(p => p.classList.add('hidden'));
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
+        });
+    });
+
+    // ====== RISK TEASER ======
+    const scenarios = {
+        low: { brca1: 2.1, brca2: 1.4, bc70: 14.2, note: 'Below clinical action threshold. General-population screening applies.' },
+        moderate: { brca1: 11.8, brca2: 8.3, bc70: 32.5, note: 'Above 10% &mdash; clinically actionable. Discuss genetic testing with your patient.' },
+        high: { brca1: 34.2, brca2: 18.7, bc70: 68.4, note: 'Strongly suggestive of HBOC. Immediate referral for genetic counselling recommended.' },
+    };
+    const riskLoading = document.getElementById('risk-loading');
+    function applyScenario(s) {
+        document.getElementById('risk-brca1-val').textContent = s.brca1 + '%';
+        document.getElementById('risk-brca2-val').textContent = s.brca2 + '%';
+        document.getElementById('risk-bc70-val').textContent = s.bc70 + '%';
+        document.getElementById('risk-brca1-bar').style.width = Math.min(s.brca1, 100) + '%';
+        document.getElementById('risk-brca2-bar').style.width = Math.min(s.brca2, 100) + '%';
+        document.getElementById('risk-bc70-bar').style.width = Math.min(s.bc70, 100) + '%';
+        document.getElementById('risk-brca1-bar').className = 'risk-bar h-2.5 rounded-full ' + (s.brca1 >= 25 ? 'bg-accent-500' : s.brca1 >= 10 ? 'bg-orange-400' : 'bg-clinical-500');
+        document.getElementById('risk-brca2-bar').className = 'risk-bar h-2.5 rounded-full ' + (s.brca2 >= 25 ? 'bg-accent-500' : s.brca2 >= 10 ? 'bg-orange-400' : 'bg-brand-400');
+        document.getElementById('risk-bc70-bar').className = 'risk-bar h-2.5 rounded-full ' + (s.bc70 >= 50 ? 'bg-accent-500' : s.bc70 >= 25 ? 'bg-orange-400' : 'bg-orange-400');
+        document.getElementById('risk-teaser-note').innerHTML = s.note;
+    }
+    document.querySelectorAll('.risk-scenario-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.risk-scenario-btn').forEach(b => { b.classList.remove('active'); b.classList.replace('bg-white/20', 'bg-white/10'); b.classList.replace('text-white', 'text-brand-300'); });
+            btn.classList.add('active'); btn.classList.replace('bg-white/10', 'bg-white/20'); btn.classList.replace('text-brand-300', 'text-white');
+            // Show loading spinner briefly to simulate BayesMendel engine
+            riskLoading.classList.add('active');
+            const s = scenarios[btn.dataset.scenario];
+            setTimeout(() => { applyScenario(s); riskLoading.classList.remove('active'); }, 600);
+        });
+    });
+
+    // ====== WAITLIST FORM ======
+    const form = document.getElementById('waitlist-form');
+    const successDiv = document.getElementById('waitlist-success');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('wl-name').value.trim();
+        const email = document.getElementById('wl-email').value.trim();
+        const role = document.getElementById('wl-role').value;
+        if (!name || !email || !role) return;
+        const btn = document.getElementById('wl-submit-btn');
+        const btnText = document.getElementById('wl-submit-text');
+        const btnSpinner = document.getElementById('wl-spinner');
+        btnText.textContent = 'Submitting...'; btn.disabled = true;
+        btnSpinner.classList.remove('hidden');
+        // TODO: Replace setTimeout with real fetch() — see form comments above
+        setTimeout(() => { form.classList.add('hidden'); successDiv.classList.remove('hidden'); }, 1200);
+    });
+
+    // ====== INTERACTIVE PEDIGREE DEMO ======
+    const canvas = document.getElementById('pedigree-demo');
+    const ctx = canvas.getContext('2d');
+    const instructions = document.getElementById('demo-instructions');
+    const statusEl = document.getElementById('demo-status');
+
+    let individuals = [], connections = [], selectedId = null, firstClickId = null, nextType = 'female', idCounter = 0;
+
+    function getCoords(e) {
+        const rect = canvas.getBoundingClientRect();
+        const sx = canvas.width / rect.width, sy = canvas.height / rect.height;
+        const touch = e.touches ? e.touches[0] : e;
+        return { x: (touch.clientX - rect.left) * sx, y: (touch.clientY - rect.top) * sy };
+    }
+
+    function isDark() { return html.classList.contains('dark'); }
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = isDark() ? '#0d1a2d' : '#ffffff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = isDark() ? 'rgba(59,111,181,0.08)' : 'rgba(59,111,181,0.06)';
+        for (let x = 20; x < canvas.width; x += 40) for (let y = 20; y < canvas.height; y += 40) { ctx.beginPath(); ctx.arc(x, y, 1, 0, Math.PI * 2); ctx.fill(); }
+        ctx.strokeStyle = isDark() ? '#4b5563' : '#9ca3af'; ctx.lineWidth = 2;
+        connections.forEach(c => { const a = individuals.find(i => i.id === c.from), b = individuals.find(i => i.id === c.to); if (a && b) { ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); } });
+        individuals.forEach(ind => {
+            const size = 24, isSelected = ind.id === selectedId || ind.id === firstClickId;
+            if (isSelected) { ctx.strokeStyle = '#3b6fb5'; ctx.lineWidth = 3; if (ind.type === 'female') { ctx.beginPath(); ctx.arc(ind.x, ind.y, size + 4, 0, Math.PI * 2); ctx.stroke(); } else { ctx.strokeRect(ind.x - size - 4, ind.y - size - 4, (size + 4) * 2, (size + 4) * 2); } }
+            ctx.lineWidth = 2.5; ctx.strokeStyle = isDark() ? '#8aaddf' : '#264a7a';
+            if (ind.type === 'female') { ctx.beginPath(); ctx.arc(ind.x, ind.y, size, 0, Math.PI * 2); ctx.fillStyle = ind.affected ? '#c8102e' : (isDark() ? '#0d1a2d' : '#ffffff'); ctx.fill(); ctx.stroke(); }
+            else { ctx.beginPath(); ctx.rect(ind.x - size, ind.y - size, size * 2, size * 2); ctx.fillStyle = ind.affected ? '#c8102e' : (isDark() ? '#0d1a2d' : '#ffffff'); ctx.fill(); ctx.stroke(); }
+            ctx.fillStyle = isDark() ? '#9ca3af' : '#6b7280'; ctx.font = '11px Inter, system-ui, sans-serif'; ctx.textAlign = 'center';
+            ctx.fillText(ind.name || ((ind.type === 'female' ? 'F' : 'M') + '-' + ind.id), ind.x, ind.y + size + 16);
+            if (ind.affected) { ctx.fillStyle = '#c8102e'; ctx.font = '9px Inter, system-ui, sans-serif'; ctx.fillText('Affected', ind.x, ind.y + size + 28); }
+        });
+    }
+
+    function findAt(x, y) { const s = 24; for (let i = individuals.length - 1; i >= 0; i--) { const ind = individuals[i], dx = x - ind.x, dy = y - ind.y; if (ind.type === 'female' ? dx*dx+dy*dy <= (s+5)*(s+5) : Math.abs(dx) <= s+5 && Math.abs(dy) <= s+5) return ind; } return null; }
+
+    function addInd(x, y, type) { if (instructions) instructions.style.display = 'none'; idCounter++; individuals.push({ id: idCounter, x, y, type: type || nextType, affected: false, name: '' }); selectedId = idCounter; firstClickId = null; updateStatus(); draw(); }
+
+    function updateStatus() { statusEl.textContent = individuals.length + ' individual' + (individuals.length !== 1 ? 's' : '') + ', ' + connections.length + ' connection' + (connections.length !== 1 ? 's' : ''); }
+
+    function handleInteraction(e) {
+        e.preventDefault();
+        const { x, y } = getCoords(e);
+        const hit = findAt(x, y);
+        if (hit) {
+            if (firstClickId && firstClickId !== hit.id) { if (!connections.some(c => (c.from === firstClickId && c.to === hit.id) || (c.from === hit.id && c.to === firstClickId))) connections.push({ from: firstClickId, to: hit.id }); firstClickId = null; selectedId = null; updateStatus(); }
+            else { firstClickId = hit.id; selectedId = hit.id; }
+        } else { if (firstClickId) { firstClickId = null; selectedId = null; } else addInd(x, y, nextType); }
+        draw();
+    }
+
+    canvas.addEventListener('click', handleInteraction);
+    canvas.addEventListener('touchend', function(e) { if (e.changedTouches.length === 1) { e.clientX = e.changedTouches[0].clientX; e.clientY = e.changedTouches[0].clientY; handleInteraction(e); } });
+
+    document.getElementById('demo-add-male').addEventListener('click', () => { nextType = 'male'; });
+    document.getElementById('demo-add-female').addEventListener('click', () => { nextType = 'female'; });
+    document.getElementById('demo-toggle-affected').addEventListener('click', () => { if (selectedId) { const ind = individuals.find(i => i.id === selectedId); if (ind) { ind.affected = !ind.affected; draw(); } } });
+    document.getElementById('demo-clear').addEventListener('click', () => { individuals = []; connections = []; selectedId = null; firstClickId = null; idCounter = 0; if (instructions) instructions.style.display = 'flex'; updateStatus(); draw(); });
+
+    document.addEventListener('keydown', function(e) {
+        if (['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName)) return;
+        if (e.key === 'm' || e.key === 'M') nextType = 'male';
+        if (e.key === 'f' || e.key === 'F') nextType = 'female';
+        if ((e.key === 'd' || e.key === 'D') && selectedId) { const ind = individuals.find(i => i.id === selectedId); if (ind) { ind.affected = !ind.affected; draw(); } }
+        if (('Delete' === e.key || 'Backspace' === e.key) && selectedId) { individuals = individuals.filter(i => i.id !== selectedId); connections = connections.filter(c => c.from !== selectedId && c.to !== selectedId); selectedId = null; firstClickId = null; updateStatus(); draw(); }
+    });
+
+    function resizeCanvas() {
+        const rect = canvas.parentElement.getBoundingClientRect();
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = rect.width * dpr; canvas.height = 400 * dpr;
+        ctx.scale(dpr, dpr); canvas.style.width = rect.width + 'px'; canvas.style.height = '400px'; draw();
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    new MutationObserver(() => draw()).observe(html, { attributes: true, attributeFilter: ['class'] });
+})();
+</script>
+<!-- FAQ Schema for AEO / AI answer engines -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What is Evagene?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Evagene is a web-based pedigree management system for clinical genetics, oncology, research, and family history. It combines gesture-based pedigree drawing with standard ISCN/HGNC notation, a 184-disease catalog (ICD-10 and OMIM coded), integrated Bayesian risk models (BRCAPRO, MMRpro, PancPRO), and universal data exchange (JSON, GEDCOM, PDF, SVG, 23andMe, and more)." }
+        },
+        {
+            "@type": "Question",
+            "name": "What is BRCAPRO and how does Evagene use it?",
+            "acceptedAnswer": { "@type": "Answer", "text": "BRCAPRO is a Bayesian risk model from the BayesMendel R package that estimates BRCA1 and BRCA2 carrier probability and projects cumulative breast and ovarian cancer risk at ages 40, 50, 60, 70, and 80 using family pedigree data. Evagene integrates BRCAPRO directly — you run it from the pedigree canvas with one click, with no data re-entry into a separate calculator." }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I import 23andMe data into Evagene?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Evagene can import 23andMe raw genotype data, ancestry composition, DNA relatives, and phenotype reports. The imported data is integrated into the pedigree, enriching individual records with consumer genomics information." }
+        },
+        {
+            "@type": "Question",
+            "name": "Does Evagene support GEDCOM import and export?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Evagene supports GEDCOM 5.5.1 for both import and export, enabling interoperability with genealogy software like Ancestry, FamilySearch, and Gramps. Selection-only export is also supported." }
+        },
+        {
+            "@type": "Question",
+            "name": "Is Evagene HIPAA and GDPR compliant?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Evagene is built with a HIPAA-ready architecture and includes per-individual consent-to-share flags for GDPR data governance. SOC 2 Type II certification is on the 2026 roadmap for enterprise and hospital deployments." }
+        }
+    ]
+}
+</script>
+</body>
+</html>
