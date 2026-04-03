@@ -192,13 +192,6 @@
         @keyframes subtlePulse { 0%,100% { opacity: 0.7; } 50% { opacity: 1; } }
         .trust-pulse { animation: subtlePulse 4s ease-in-out infinite; }
 
-        /* Hero proband arrow pulse */
-        @keyframes probandPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15); } }
-        .proband-pulse { animation: probandPulse 2s ease-in-out infinite; transform-origin: 149px 276px; }
-
-        /* Hero affected sector glow */
-        @keyframes sectorGlow { 0%,100% { opacity: 0.85; } 50% { opacity: 0.55; } }
-        .sector-glow { animation: sectorGlow 3s ease-in-out infinite; }
 
         /* Guide accordion */
         .guide-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
@@ -341,80 +334,8 @@
                             <span class="text-xs text-gray-400 dark:text-gray-600 font-mono">evagene.net/pedigree/brca-family</span>
                         </div>
                     </div>
-                    <div class="p-6 sm:p-8">
-                        <svg viewBox="0 0 520 340" class="w-full h-auto" aria-label="Three-generation BRCA pedigree with standard genetic notation and integrated BRCAPRO risk results">
-                            <!-- Generation I -->
-                            <g>
-                                <rect x="120" y="30" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.5" class="text-brand-700 dark:text-brand-300"/>
-                                <text x="140" y="88" text-anchor="middle" class="text-[11px] fill-gray-500 dark:fill-gray-400" font-family="Inter, sans-serif">James, 78</text>
-                                <circle cx="260" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="2.5" class="text-brand-700 dark:text-brand-300"/>
-                                <path d="M260 50 L260 30 A20 20 0 0 1 280 50 Z" fill="#c8102e" opacity="0.85"/>
-                                <text x="260" y="88" text-anchor="middle" class="text-[11px] fill-gray-500 dark:fill-gray-400" font-family="Inter, sans-serif">Mary, 72</text>
-                                <text x="260" y="100" text-anchor="middle" class="text-[9px] fill-accent-500" font-family="Inter, sans-serif">Breast ca. dx 52</text>
-                                <line x1="160" y1="50" x2="240" y2="50" stroke="currentColor" stroke-width="2" class="text-gray-400 dark:text-gray-600"/>
-                                <line x1="200" y1="50" x2="200" y2="110" stroke="currentColor" stroke-width="2" class="text-gray-400 dark:text-gray-600"/>
-                            </g>
-                            <!-- Generation II -->
-                            <g>
-                                <rect x="80" y="130" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.5" class="text-brand-700 dark:text-brand-300"/>
-                                <text x="100" y="188" text-anchor="middle" class="text-[11px] fill-gray-500 dark:fill-gray-400" font-family="Inter, sans-serif">Robert, 52</text>
-                                <circle cx="220" cy="150" r="20" fill="none" stroke="currentColor" stroke-width="2.5" class="text-brand-700 dark:text-brand-300"/>
-                                <circle cx="220" cy="150" r="19" fill="#c8102e" class="sector-glow"/>
-                                <text x="220" y="188" text-anchor="middle" class="text-[11px] fill-gray-500 dark:fill-gray-400" font-family="Inter, sans-serif">Linda, 48</text>
-                                <text x="220" y="200" text-anchor="middle" class="text-[9px] fill-accent-500" font-family="Inter, sans-serif">Ovarian ca. dx 45</text>
-                                <circle cx="340" cy="150" r="20" fill="none" stroke="currentColor" stroke-width="2.5" class="text-brand-700 dark:text-brand-300"/>
-                                <path d="M340 150 L340 130 A20 20 0 0 1 360 150 Z" fill="#c8102e" opacity="0.85"/>
-                                <text x="340" y="188" text-anchor="middle" class="text-[11px] fill-gray-500 dark:fill-gray-400" font-family="Inter, sans-serif">Susan, 50</text>
-                                <text x="340" y="200" text-anchor="middle" class="text-[9px] fill-accent-500" font-family="Inter, sans-serif">Breast ca. dx 40</text>
-                                <line x1="200" y1="110" x2="200" y2="120" stroke="currentColor" stroke-width="2" class="text-gray-400 dark:text-gray-600"/>
-                                <line x1="100" y1="120" x2="340" y2="120" stroke="currentColor" stroke-width="2" class="text-gray-400 dark:text-gray-600"/>
-                                <line x1="100" y1="120" x2="100" y2="130" stroke="currentColor" stroke-width="2" class="text-gray-400 dark:text-gray-600"/>
-                                <line x1="220" y1="120" x2="220" y2="130" stroke="currentColor" stroke-width="2" class="text-gray-400 dark:text-gray-600"/>
-                                <line x1="340" y1="120" x2="340" y2="130" stroke="currentColor" stroke-width="2" class="text-gray-400 dark:text-gray-600"/>
-                                <line x1="120" y1="150" x2="200" y2="150" stroke="currentColor" stroke-width="2" class="text-gray-400 dark:text-gray-600"/>
-                                <line x1="160" y1="150" x2="160" y2="220" stroke="currentColor" stroke-width="2" class="text-gray-400 dark:text-gray-600"/>
-                            </g>
-                            <!-- Generation III -->
-                            <g>
-                                <line x1="90" y1="220" x2="260" y2="220" stroke="currentColor" stroke-width="2" class="text-gray-400 dark:text-gray-600"/>
-                                <rect x="70" y="240" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.5" class="text-brand-700 dark:text-brand-300"/>
-                                <line x1="90" y1="220" x2="90" y2="240" stroke="currentColor" stroke-width="2" class="text-gray-400 dark:text-gray-600"/>
-                                <text x="90" y="298" text-anchor="middle" class="text-[11px] fill-gray-500 dark:fill-gray-400" font-family="Inter, sans-serif">Tom, 25</text>
-                                <circle cx="175" cy="260" r="20" fill="none" stroke="currentColor" stroke-width="2.5" class="text-brand-700 dark:text-brand-300"/>
-                                <line x1="175" y1="220" x2="175" y2="240" stroke="currentColor" stroke-width="2" class="text-gray-400 dark:text-gray-600"/>
-                                <g class="proband-pulse">
-                                <line x1="140" y1="285" x2="158" y2="272" stroke="currentColor" stroke-width="2.5" class="text-brand-700 dark:text-brand-300"/>
-                                <polygon points="158,272 148,278 153,268" fill="currentColor" class="text-brand-700 dark:text-brand-300"/>
-                                </g>
-                                <text x="175" y="298" text-anchor="middle" class="text-[11px] fill-gray-500 dark:fill-gray-400" font-family="Inter, sans-serif" font-weight="600">Sarah, 22</text>
-                                <text x="175" y="310" text-anchor="middle" class="text-[9px] fill-brand-600 dark:fill-brand-400" font-family="Inter, sans-serif">Proband</text>
-                                <circle cx="260" cy="260" r="20" fill="none" stroke="currentColor" stroke-width="2.5" class="text-brand-700 dark:text-brand-300"/>
-                                <path d="M260 260 L260 240 A20 20 0 0 1 280 260 Z" fill="#c8102e" opacity="0.85"/>
-                                <line x1="260" y1="220" x2="260" y2="240" stroke="currentColor" stroke-width="2" class="text-gray-400 dark:text-gray-600"/>
-                                <text x="260" y="298" text-anchor="middle" class="text-[11px] fill-gray-500 dark:fill-gray-400" font-family="Inter, sans-serif">Emma, 28</text>
-                                <text x="260" y="310" text-anchor="middle" class="text-[9px] fill-accent-500" font-family="Inter, sans-serif">Breast ca. dx 27</text>
-                            </g>
-                            <!-- Risk callout -->
-                            <g>
-                                <rect x="370" y="230" width="140" height="80" rx="8" fill="currentColor" class="text-brand-50 dark:text-brand-900" opacity="0.9"/>
-                                <rect x="370" y="230" width="140" height="80" rx="8" fill="none" stroke="currentColor" stroke-width="1.5" class="text-brand-200 dark:text-brand-700"/>
-                                <text x="440" y="252" text-anchor="middle" class="text-[10px] fill-gray-500 dark:fill-gray-400 font-semibold" font-family="Inter, sans-serif">BRCAPRO Result</text>
-                                <text x="440" y="272" text-anchor="middle" class="text-[13px] font-bold" font-family="Inter, sans-serif"><tspan fill="#c8102e">BRCA1: 34.2%</tspan></text>
-                                <text x="440" y="290" text-anchor="middle" class="text-[13px] font-bold" font-family="Inter, sans-serif"><tspan fill="#ea580c">BRCA2: 18.7%</tspan></text>
-                                <text x="440" y="305" text-anchor="middle" class="text-[9px] fill-gray-400" font-family="Inter, sans-serif">Carrier probability</text>
-                            </g>
-                            <!-- Legend -->
-                            <g transform="translate(380, 30)">
-                                <rect x="0" y="0" width="130" height="70" rx="6" fill="currentColor" class="text-gray-50 dark:text-brand-900" opacity="0.8"/>
-                                <rect x="0" y="0" width="130" height="70" rx="6" fill="none" stroke="currentColor" stroke-width="1" class="text-gray-200 dark:text-brand-700"/>
-                                <rect x="12" y="12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5" class="text-brand-600"/>
-                                <text x="30" y="22" class="text-[9px] fill-gray-600 dark:fill-gray-400" font-family="Inter, sans-serif">Male</text>
-                                <circle cx="18" cy="36" r="6" fill="none" stroke="currentColor" stroke-width="1.5" class="text-brand-600"/>
-                                <text x="30" y="39" class="text-[9px] fill-gray-600 dark:fill-gray-400" font-family="Inter, sans-serif">Female</text>
-                                <circle cx="18" cy="55" r="6" fill="#c8102e" opacity="0.85" stroke="currentColor" stroke-width="1.5" class="text-brand-600"/>
-                                <text x="30" y="58" class="text-[9px] fill-gray-600 dark:fill-gray-400" font-family="Inter, sans-serif">Affected</text>
-                            </g>
-                        </svg>
+                    <div class="p-4 sm:p-6">
+                        <img src="./images/pedigrees/brca.png" alt="Three-generation BRCA pedigree with standard genetic notation and integrated BRCAPRO risk results" class="w-full h-auto rounded" />
                     </div>
                 </div>
                 <div class="absolute -top-3 -right-3 px-3 py-1.5 bg-clinical-500 text-white text-xs font-bold rounded-full shadow-lg">184 Diseases</div>
