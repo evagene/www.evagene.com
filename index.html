@@ -205,6 +205,18 @@
         .risk-loading { opacity: 0; transition: opacity 0.2s; pointer-events: none; }
         .risk-loading.active { opacity: 1; }
     </style>
+
+    <!-- EngageBay Tracking -->
+    <script type="text/javascript">
+    var EhAPI = EhAPI || {}; EhAPI.after_load = function(){
+        EhAPI.set_account('ro2mo08bbuj75m8i04puevk2su', 'evagene');
+        EhAPI.execute('rules');
+    };(function(d,s,f) {
+        var sc=document.createElement(s);sc.type='text/javascript';
+        sc.async=true;sc.src=f;var m=document.getElementsByTagName(s)[0];
+        m.parentNode.insertBefore(sc,m);
+    })(document, 'script', '//d2p078bqz5urf7.cloudfront.net/jsapi/ehform.js?v' + new Date().getHours());
+    </script>
 </head>
 
 <body class="bg-white dark:bg-brand-950 text-gray-800 dark:text-gray-200 font-sans antialiased transition-colors duration-300">
@@ -1056,8 +1068,64 @@ END TESTIMONIALS -->
         const btnSpinner = document.getElementById('wl-spinner');
         btnText.textContent = 'Submitting...'; btn.disabled = true;
         btnSpinner.classList.remove('hidden');
-        // TODO: Replace setTimeout with real fetch() — see form comments above
-        setTimeout(() => { form.classList.add('hidden'); successDiv.classList.remove('hidden'); }, 1200);
+        const usecase = (document.getElementById('wl-usecase').value || '').trim();
+        const org = (document.getElementById('wl-org').value || '').trim();
+        const roleLabel = document.getElementById('wl-role').selectedOptions[0].text;
+
+        // Split full name into first/last
+        var nameParts = name.split(/\s+/);
+        var firstName = nameParts[0] || '';
+        var lastName = nameParts.slice(1).join(' ') || '';
+
+        // Build EngageBay form submission payload
+        var formData = {
+            name: firstName,
+            last_name: lastName,
+            email: email,
+            company: org,
+            role: roleLabel,
+            properties: [
+                { name: 'name', value: firstName, field_type: 'TEXT', is_searchable: false, type: 'SYSTEM', subtype: 'firstname' },
+                { name: 'name', value: lastName, field_type: 'TEXT', is_searchable: false, type: 'SYSTEM', subtype: 'lastname' },
+                { name: 'email', value: email, field_type: 'TEXT', is_searchable: false, type: 'SYSTEM', subtype: 'primary' },
+                { name: 'company', value: org, field_type: 'TEXT', is_searchable: false, type: 'SYSTEM' },
+                { name: 'role', value: roleLabel, field_type: 'TEXT', is_searchable: false, type: 'SYSTEM' }
+            ]
+        };
+        if (usecase) {
+            formData.properties.push({ name: 'description', value: usecase, field_type: 'TEXT', is_searchable: false, type: 'SYSTEM' });
+        }
+
+        var params = new URLSearchParams({
+            apiKey: 'ro2mo08bbuj75m8i04puevk2su',
+            origin: window.location.origin,
+            owner_id: '6358895279472640',
+            formData: JSON.stringify(formData),
+            visitor_id: '',
+            our_user: '',
+            source_type: 'WEBRULE',
+            source_id: '6396507583152128',
+            visitorStatus: 'NEW',
+            referrer: document.referrer || '',
+            page_url: window.location.href
+        });
+
+        fetch('https://app.engagebay.com/jsapi/rest/add-subscriber', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
+            body: params.toString()
+        })
+        .then(function(r) {
+            form.classList.add('hidden');
+            successDiv.classList.remove('hidden');
+            if (!r.ok) console.warn('EngageBay response:', r.status);
+        })
+        .catch(function(err) {
+            // Show success anyway — don't punish user for API hiccup
+            form.classList.add('hidden');
+            successDiv.classList.remove('hidden');
+            console.error('EngageBay error:', err);
+        });
     });
 
 })();
