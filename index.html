@@ -911,6 +911,7 @@ END TESTIMONIALS -->
                 <div><label for="wl-role" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Professional Role <span class="text-accent-500">*</span></label><select id="wl-role" name="role" required class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-brand-700 bg-white dark:bg-brand-900 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors text-sm"><option value="" disabled selected>Select your role...</option><option value="clinical-geneticist">Clinical Geneticist</option><option value="oncologist">Oncologist</option><option value="general-practice-doctor">General Practice Doctor</option><option value="genetic-nurse-counsellor">Genetic Nurse / Counsellor</option><option value="research-geneticist">Research Geneticist</option><option value="patient-family">Patient / Family Member</option><option value="genealogist">Genealogist</option><option value="educator-student">Educator / Student</option><option value="other">Other</option></select></div>
                 <div><label for="wl-usecase" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">What excites you most about Evagene?</label><textarea id="wl-usecase" name="usecase" rows="3" placeholder="e.g., Running BRCAPRO directly from pedigrees, GEDCOM import for my genealogy research..." class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-brand-700 bg-white dark:bg-brand-900 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors text-sm resize-none"></textarea></div>
                 <div><label for="wl-org" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Institution / Organisation <span class="text-gray-400 font-normal">(optional)</span></label><input type="text" id="wl-org" name="organisation" placeholder="University Hospital, Research Institute..." class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-brand-700 bg-white dark:bg-brand-900 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors text-sm"></div>
+                <div><label for="wl-country" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Country <span class="text-gray-400 font-normal">(optional)</span></label><input type="text" id="wl-country" name="country" placeholder="e.g., United Kingdom, Australia..." class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-brand-700 bg-white dark:bg-brand-900 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors text-sm"></div>
                 <button type="submit" id="wl-submit-btn" class="w-full py-3.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-lg transition-all duration-200 text-base cta-glow flex items-center justify-center gap-2">
                     <span id="wl-submit-text">Join the Waiting List</span>
                     <svg id="wl-spinner" class="w-5 h-5 spinner hidden" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
@@ -1070,6 +1071,7 @@ END TESTIMONIALS -->
         btnSpinner.classList.remove('hidden');
         const usecase = (document.getElementById('wl-usecase').value || '').trim();
         const org = (document.getElementById('wl-org').value || '').trim();
+        const country = (document.getElementById('wl-country').value || '').trim();
         const roleLabel = document.getElementById('wl-role').selectedOptions[0].text;
 
         // Split full name into first/last
@@ -1084,12 +1086,14 @@ END TESTIMONIALS -->
             email: email,
             company: org,
             role: roleLabel,
+            country: country,
             properties: [
                 { name: 'name', value: firstName, field_type: 'TEXT', is_searchable: false, type: 'SYSTEM', subtype: 'firstname' },
                 { name: 'name', value: lastName, field_type: 'TEXT', is_searchable: false, type: 'SYSTEM', subtype: 'lastname' },
                 { name: 'email', value: email, field_type: 'TEXT', is_searchable: false, type: 'SYSTEM', subtype: 'primary' },
                 { name: 'company', value: org, field_type: 'TEXT', is_searchable: false, type: 'SYSTEM' },
-                { name: 'role', value: roleLabel, field_type: 'TEXT', is_searchable: false, type: 'SYSTEM' }
+                { name: 'role', value: roleLabel, field_type: 'TEXT', is_searchable: false, type: 'SYSTEM' },
+                { name: 'country', value: country, field_type: 'TEXT', is_searchable: false, type: 'SYSTEM' }
             ]
         };
         if (usecase) {
