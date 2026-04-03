@@ -1,0 +1,207 @@
+# Evagene — Full Documentation for AI Systems
+
+> Clinical-grade pedigree management for precision medicine
+
+## About Evagene
+
+Evagene is a web-based pedigree management system that lets users draw, annotate, and analyse family pedigrees using standard genetic notation. It combines an intuitive canvas editor with deep clinical data modelling, genetic risk analysis, and interoperability with genealogy and genomics formats.
+
+- Website: https://evagene.com
+- Application: https://evagene.net
+- Help centre: https://evagene.net/help
+- Status: Alpha programme (free access via waiting list at https://evagene.com)
+
+---
+
+## Core Features
+
+### Intuitive Pedigree Drawing
+
+Users create pedigrees by drawing directly on an HTML5 canvas. Freehand-draw a circle to create a female, a square for a male, or a diamond for unknown sex. Draw a line between two individuals to create a relationship, and draw from a relationship down to an individual to establish parentage. Twin groups are created by drawing chevrons between siblings, with a horizontal bar to indicate monozygotic twins.
+
+Keyboard shortcuts accelerate common actions: m/f/u to add individuals, p for partner, d for disease palette, n for notes, Delete to remove, Ctrl+A to select all, and F2 to edit the selected individual's name.
+
+### Standard Pedigree Notation
+
+Symbols are rendered using internationally recognised pedigree conventions:
+- Base shapes: circle (female), square (male), diamond (unknown), triangle (miscarriage)
+- Affection fill: solid fill for affected, dot pattern for carrier, half-fill for heterozygous
+- Disease sectors: colour-coded pie sectors showing per-disease affection status
+- Mortality overlays: diagonal slash for deceased, X for stillborn
+- Proband arrow: configurable compass-direction arrow to identify the index case
+- Relationship lines: double lines for consanguineous unions with kinship coefficient
+- Adopted/fostered: square brackets around individuals
+
+### Properties Editor
+
+Clicking any individual, relationship, or offspring opens a floating panel for detailed editing:
+- Identity: display name, given/family names, prefix/suffix, biological sex (8 options)
+- Clinical status: death status (12 options), affection status (11 options), fertility status
+- Physical: height, weight
+- Lifestyle: smoking type and quantity, alcohol units per week
+- Contact: phone, email, address, organisation, title, notes (vCard-compatible)
+- Consent: consent-to-share flag for data governance
+- Relationships: consanguinity coefficient, events (marriage, divorce, separation, partnership)
+
+### Disease Management
+
+Catalogue of 184 diseases spanning oncology, cardiology, neurology, metabolic disorders, and more. Each disease entry includes:
+- ICD-10 code and OMIM ID
+- Colour coding and categorisation
+- Inheritance pattern (autosomal dominant/recessive, X-linked, mitochondrial, multifactorial)
+- Genetic parameters: penetrance, age-dependent penetrance tables, homozygous lethality, anticipation, germline mosaicism rate, de novo rate, carrier frequencies by ethnicity, biological fitness
+- Marker associations for linkage analysis
+
+Users assign diseases to individuals with per-disease affection status, laterality, tumour site, tumour properties (ER/PR/HER2 status, grade, stage), and manifestation tracking with date ranges, certainty levels, and clinical test references.
+
+### Allergies & Traits
+
+- 59 allergies across 6 categories with severity, IgE-mediated classification, reaction type, cross-reactivity lists, and prevalence data
+- 51 traits across 6 categories with possible values, units, inheritance patterns, heritability estimates, and expression levels
+- Both can be associated with genetic markers for genotype-phenotype correlation
+
+### Genetic Data
+
+- Genetic markers: allele pairs, zygosity, chromosome band positions, mapped to species-specific genome
+- Genetic tests: gene name, result (positive/negative/VUS/not tested), method, and date
+- Karyogram viewer: interactive ideogram displaying all chromosomes with markers plotted at genomic positions
+- Ethnicity proportions: hierarchical ethnicity catalogue with proportion recording per individual
+
+### Clinical Tests & Treatments
+
+- Clinical tests: test types with reference ranges, LOINC codes, specimen types, results
+- Treatments: medication and intervention tracking with dose, frequency, route, date ranges, disease association, prophylactic flag, and status
+
+### Risk Analysis
+
+Evagene provides Bayesian risk models for hereditary cancer and Mendelian disease:
+
+**Cancer Risk Models (via BayesMendel R sidecar):**
+- BRCAPRO: breast and ovarian cancer risk via BRCA1/BRCA2 carrier probability
+- MMRpro: colorectal and endometrial cancer risk (Lynch syndrome) via MLH1/MSH2/MSH6
+- PancPRO: pancreatic cancer risk
+
+**Mendelian Models (built-in):**
+- Autosomal dominant (with reduced penetrance, age-dependent penetrance, anticipation)
+- Autosomal recessive (with Hardy-Weinberg, genetic test adjustment, population-specific carrier frequencies)
+- X-linked recessive (with hemizygosity, mutation rates, biological fitness)
+
+Advanced features include age-dependent penetrance tables, germline mosaicism, de novo mutation rates, anticipation, parent-of-origin bias, locus heterogeneity, and linkage disequilibrium haplotyping.
+
+Results include carrier probabilities, genotype probabilities, future risk by age, per-member risk breakdown, joint outcome probabilities, LOD scores, and flanking marker information.
+
+A batch investigation mode screens a proband across multiple diseases simultaneously and produces dual-audience reports — one for the patient, one for the clinical geneticist.
+
+### Consanguinity & Kinship
+
+Wright's path coefficient method calculates consanguinity coefficients for all relationships. Coefficients are displayed on relationship lines, cached for performance, and fed into risk calculations.
+
+### Advanced Search
+
+A query builder allows filtering individuals by sex, disease affection status, death status, age range, genetic test results, clinical test results, treatments, and events. Searches support relational scope (parents, siblings, children, ancestors, descendants) with AND/OR match modes.
+
+### Data Exchange
+
+| Format | Import | Export | Notes |
+|--------|--------|--------|-------|
+| JSON | Yes | Yes | Full pedigree snapshot |
+| GEDCOM 5.5.1 | Yes | Yes | Genealogy interoperability |
+| XEG | Yes | — | Legacy Evagene v1 migration |
+| 23andMe | Yes | — | Raw genotype, ancestry, relatives, phenotype |
+| Image | Yes | — | OCR and shape detection from pedigree chart images |
+| PNG | — | Yes | Configurable scale (1x–4x) |
+| SVG | — | Yes | Vector output |
+| PDF | — | Yes | A4/A3/Letter/Legal, portrait/landscape |
+
+---
+
+## Who Evagene Is For
+
+### Clinical Geneticists
+Replaces paper-based and general-purpose diagramming tools with purpose-built pedigree management. Accurate notation, integrated risk models, comprehensive clinical data capture, batch investigation, and linkage analysis.
+
+### Oncologists
+Cancer risk assessment with BRCAPRO, MMRpro, and PancPRO. Tumour characterisation (laterality, ER/PR/HER2, grade, stage). Treatment tracking. Manifestation timelines. Dual-audience reports.
+
+### General Practice Doctors
+Quick three-generation pedigree drawing. Built-in risk screening for referral decisions. Structured family history capture. In-app education on when to refer.
+
+### Genetic Nurses & Counsellors
+Patient-facing reports in plain language. Consent tracking. Contact information management. Proband identification. Role-specific workflow guides.
+
+### Research Geneticists
+Mendelian modelling with full parameter control. Linkage analysis with LOD scores, flanking markers, haplotype tables. Marker management. Species flexibility. Genotype-phenotype correlation. GEDCOM export.
+
+### Patients & Families
+Easy gesture-based drawing. Visual clarity with colour-coded disease sectors. 23andMe data import. Image import from paper pedigrees. PNG/SVG/PDF export for sharing. Plain-language reports.
+
+### Genealogists
+GEDCOM 5.5.1 import/export for Ancestry, FamilySearch, Gramps compatibility. Rich family data capture. Multi-generation support. Twin documentation. Automatic consanguinity detection.
+
+### Educators & Students
+200+ educational guides from introductory to advanced level. 184 disease-specific guides. Interactive exploration. Standard notation enforcement. Risk model documentation.
+
+---
+
+## Help & Documentation
+
+Evagene includes 221+ help guides accessible at https://evagene.net/help:
+
+### Educational Guides
+- Introduction to Genetics — DNA, genes, chromosomes, inheritance patterns, pedigree charts, genetic testing, cancer genetics, consanguinity, twins, ethnicity, pharmacogenomics, genomic data
+- Intermediate Genetics — Mendelian inheritance in depth, linkage, population genetics, cytogenetics, epigenetics, multifactorial inheritance, prenatal genetics
+- Advanced Genetics — Molecular genetics, genomics, statistical genetics
+- Clinical Genetics for Patients — Plain-language guide to genetic services
+- Clinical Genetics for Medical Professionals — Clinical genetics reference
+
+### Role-Specific Workflow Guides
+- Clinical Geneticist (basic + advanced)
+- Oncologist (basic + advanced)
+- General Practice Doctor (basic + advanced)
+- Genetic Nurse / Counsellor (basic + advanced)
+- Research Geneticist (basic + advanced)
+- Genealogist (basic + advanced)
+- Patient / Family Member (basic + advanced)
+
+### Reference Documentation
+- Features & Benefits — Complete feature overview
+- Risk Models — BRCAPRO, MMRpro, PancPRO, Mendelian models, linkage analysis
+- Disease Catalogue — 184 diseases with ICD-10, OMIM, inheritance patterns
+- Allergy Catalogue — 59 allergies across 6 categories
+- Trait Catalogue — 51 traits across 6 categories
+- Clinical Test Catalogue — Test types and reference ranges
+- Intervention Catalogue — Treatment and medication categories
+- Keyboard Shortcuts — Complete shortcut reference
+
+### Disease-Specific Guides (184 guides)
+Individual guides for each disease in the catalogue, covering genetics, symptoms, testing, prognosis, and how to use Evagene for analysis. Diseases include:
+Achondroplasia, Alagille Syndrome, Alzheimer's Disease (familial), Angelman Syndrome, Breast Cancer (hereditary), Brugada Syndrome, Charcot-Marie-Tooth Disease, Cystic Fibrosis, Down Syndrome, Duchenne Muscular Dystrophy, Ehlers-Danlos Syndrome, Fabry Disease, Familial Adenomatous Polyposis, Familial Hypercholesterolaemia, Fragile X Syndrome, Friedreich's Ataxia, Gaucher Disease, Haemophilia A/B, Hereditary Breast and Ovarian Cancer Syndrome, Huntington's Disease, Hypertrophic Cardiomyopathy, Li-Fraumeni Syndrome, Long QT Syndrome, Lynch Syndrome, Marfan Syndrome, Multiple Endocrine Neoplasia (Type 1 & 2), Myotonic Dystrophy, Neurofibromatosis (Type 1 & 2), Noonan Syndrome, Osteogenesis Imperfecta, Phenylketonuria, Polycystic Kidney Disease, Retinoblastoma, Sickle Cell Disease, Spinal Muscular Atrophy, Tay-Sachs Disease, Thalassaemia, Tuberous Sclerosis, Turner Syndrome, Von Hippel-Lindau Syndrome, Von Willebrand Disease, Williams Syndrome, Wilson's Disease, and 140+ more.
+
+---
+
+## Frequently Asked Questions
+
+### What is Evagene?
+Evagene is a web-based pedigree management system for clinical genetics, oncology, research, and family history. It lets users draw, annotate, and analyse family pedigrees with standard genetic notation, integrated BayesMendel risk models (BRCAPRO, MMRpro, PancPRO), Mendelian inheritance calculators, a 184-disease catalogue, and interoperability with GEDCOM, 23andMe, and other formats.
+
+### What is BRCAPRO and how does Evagene use it?
+BRCAPRO is a Bayesian statistical model that estimates the probability of carrying a BRCA1 or BRCA2 mutation and projects future breast and ovarian cancer risk based on family history. Evagene integrates BRCAPRO via the BayesMendel R package. Users draw a family pedigree, mark cancer diagnoses with ages, and run the model directly within the application.
+
+### Can I import 23andMe data into Evagene?
+Yes. Evagene supports importing 23andMe raw genotype data, ancestry composition, DNA relatives, phenotype information, and computed haplogroups. Imported data is mapped to the genetic marker system and linked to the pedigree.
+
+### Does Evagene support GEDCOM import and export?
+Yes. Evagene supports GEDCOM 5.5.1, the universal genealogy interchange format. You can import pedigrees from Ancestry, FamilySearch, Gramps, and other genealogy software, and export pedigrees back to GEDCOM for sharing.
+
+### Does Evagene support data governance and consent tracking?
+Yes. Each individual in a pedigree has a consent-to-share flag that can be set in the properties panel, supporting clinical data governance requirements.
+
+### Is Evagene free?
+Evagene is currently in alpha and available free of charge via the waiting list at https://evagene.com.
+
+### Who makes Evagene?
+Evagene is developed independently as a specialist tool for clinical genetics and pedigree management.
+
+---
+
+*For the latest information, visit https://evagene.com or https://evagene.net/help*

@@ -1,0 +1,54 @@
+# Evagene
+
+> Clinical-grade pedigree management for precision medicine
+
+Evagene is a web-based pedigree management system for clinical genetics, oncology, research, and family history. It combines an intuitive canvas editor with deep clinical data modelling, genetic risk analysis, and interoperability with genealogy and genomics formats.
+
+## Key Facts
+
+- Website: https://evagene.com
+- Application: https://evagene.net
+- Status: Alpha (free access via waiting list)
+- Type: Web application (browser-based, no installation required)
+- Category: Health / Clinical Genetics / Precision Medicine
+
+## What Evagene Does
+
+- Draw family pedigrees using standard clinical genetic notation (ISCN/HGNC) on an HTML5 canvas with gesture drawing or keyboard shortcuts
+- Annotate individuals with diseases, genetic tests, clinical tests, treatments, allergies, traits, and ethnicity
+- Run integrated Bayesian cancer risk models: BRCAPRO (breast/ovarian), MMRpro (Lynch syndrome), PancPRO (pancreatic)
+- Run Mendelian inheritance risk models: autosomal dominant, autosomal recessive, X-linked recessive
+- Catalogue of 184 genetic diseases with ICD-10 codes, OMIM IDs, and inheritance parameters
+- 59 allergies and 51 traits with genetic marker associations
+- Interactive karyogram viewer with markers plotted at genomic positions
+- Consanguinity detection with Wright's coefficient calculation
+- Advanced search and filtering across pedigree data
+- Import: JSON, GEDCOM 5.5.1, 23andMe, XEG (legacy), pedigree images (OCR)
+- Export: JSON, GEDCOM, PNG, SVG, PDF
+- Batch investigation: screen a proband across multiple diseases simultaneously
+- Dual-audience reports: patient-friendly and clinical versions
+
+## Who It's For
+
+- Clinical geneticists
+- Oncologists
+- General practice doctors
+- Genetic nurses and counsellors
+- Research geneticists
+- Patients and families
+- Genealogists
+- Educators and students
+
+## Help & Documentation
+
+Comprehensive documentation is available at https://evagene.net/help covering:
+- Introductory, intermediate, and advanced genetics guides
+- Role-specific workflow guides for 8 professional groups
+- 184 individual disease guides
+- Risk model documentation (BRCAPRO, MMRpro, PancPRO, Mendelian models)
+- Disease, allergy, trait, clinical test, and intervention catalogues
+- Keyboard shortcut reference
+
+## Optional
+
+- [Full documentation](https://evagene.com/llms-full.txt)
