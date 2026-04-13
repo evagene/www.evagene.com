@@ -15,18 +15,26 @@ Evagene is a web-based pedigree management system for clinical genetics, oncolog
 ## What Evagene Does
 
 - Draw family pedigrees using standard clinical genetic notation (ISCN/HGNC) on an HTML5 canvas with gesture drawing or keyboard shortcuts
-- Annotate individuals with diseases, genetic tests, clinical tests, treatments, allergies, traits, and ethnicity
+- Annotate individuals with diseases, genetic tests, clinical tests, treatments, allergies, traits, and ancestry
 - Run integrated Bayesian cancer risk models: BRCAPRO (breast/ovarian), MMRpro (Lynch syndrome), PancPRO (pancreatic)
 - Run Mendelian inheritance risk models: autosomal dominant, autosomal recessive, X-linked recessive
-- Catalogue of 184 genetic diseases with ICD-10 codes, OMIM IDs, and inheritance parameters
-- 59 allergies and 51 traits with genetic marker associations
-- Interactive karyogram viewer with markers plotted at genomic positions
+- AI-powered clinical interpretation: generate structured reports covering key findings, family implications, data gaps, and screening recommendations
+- Auto-generate pedigree description reports in structured English
+- Catalogue of 180+ genetic diseases with ICD-10 codes, OMIM IDs, and inheritance parameters
+- Disease management dashboard with search, taxonomy views, presets, and custom colours
+- 55+ allergies and 50+ traits with genetic marker associations
+- Blood type (ABO, Rh) and secretor status inference from 23andMe SNP markers
+- Interactive karyogram viewer with hover tooltips, click-to-pin info panels, and canvas embedding
 - Consanguinity detection with Wright's coefficient calculation
+- Ancestry management with auto-calculation
 - Advanced search and filtering across pedigree data
-- Import: JSON, GEDCOM 5.5.1, 23andMe, XEG (legacy), pedigree images (OCR)
+- Import: JSON, GEDCOM 5.5.1, 23andMe (genotype, traits, health history), XEG (legacy), pedigree images (OCR)
 - Export: JSON, GEDCOM, PNG, SVG, PDF
-- Batch investigation: screen a proband across multiple diseases simultaneously
-- Dual-audience reports: patient-friendly and clinical versions
+- Batch risk screening: screen a proband across all diseases simultaneously with configurable thresholds
+- Four report types: patient-friendly, clinical, carrier probability, and AI-generated interpretation
+- Anchored canvas notes that follow individuals when moved
+- Rich text editing with markdown formatting and live preview
+- Pedigree duplication and improved twin/pregnancy management
 
 ## Who It's For
 
@@ -44,7 +52,7 @@ Evagene is a web-based pedigree management system for clinical genetics, oncolog
 Comprehensive documentation is available at https://evagene.net/help covering:
 - Introductory, intermediate, and advanced genetics guides
 - Role-specific workflow guides for 8 professional groups
-- 184 individual disease guides
+- 180+ individual disease guides
 - Risk model documentation (BRCAPRO, MMRpro, PancPRO, Mendelian models)
 - Disease, allergy, trait, clinical test, and intervention catalogues
 - Keyboard shortcut reference
