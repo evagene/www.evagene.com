@@ -57,6 +57,14 @@ Comprehensive documentation is available at https://evagene.net/help covering:
 - Disease, allergy, trait, clinical test, and intervention catalogues
 - Keyboard shortcut reference
 
+## Topic Guides
+
+- [Pedigree Drawing Software](https://evagene.com/pedigree-drawing-software.html) — Complete guide to pedigree drawing, standard notation, and pedigree software comparison
+- [Hereditary Cancer Risk Assessment](https://evagene.com/hereditary-cancer-risk-assessment.html) — BRCAPRO, MMRpro, PancPRO, and Bayesian cancer risk modelling
+- [GEDCOM & Genealogy](https://evagene.com/gedcom-pedigree-software.html) — GEDCOM import/export, 23andMe integration, and genealogy interoperability
+- [Clinical Genetics Pedigree Tool](https://evagene.com/clinical-genetics-pedigree-tool.html) — Pedigree software for clinical geneticists and genetic counsellors
+- [Mendelian Inheritance Calculator](https://evagene.com/mendelian-inheritance-calculator.html) — Autosomal dominant, autosomal recessive, and X-linked inheritance models
+
 ## Optional
 
 - [Full documentation](https://evagene.com/llms-full.txt)

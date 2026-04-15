@@ -237,4 +237,16 @@ Evagene is developed independently as a specialist tool for clinical genetics an
 
 ---
 
+## Topic Guides
+
+Evagene publishes in-depth educational guides on its website:
+
+- [Pedigree Drawing Software](https://evagene.com/pedigree-drawing-software.html) — How to draw a pedigree chart, standard notation, and comparison of pedigree drawing tools
+- [Hereditary Cancer Risk Assessment](https://evagene.com/hereditary-cancer-risk-assessment.html) — Understanding BRCAPRO, MMRpro, PancPRO, and Bayesian cancer risk modelling from family pedigrees
+- [GEDCOM & Genealogy](https://evagene.com/gedcom-pedigree-software.html) — GEDCOM 5.5.1 import/export, 23andMe data integration, and bridging genealogy with clinical genetics
+- [Clinical Genetics Pedigree Tool](https://evagene.com/clinical-genetics-pedigree-tool.html) — What clinical geneticists and genetic counsellors need from pedigree software
+- [Mendelian Inheritance Calculator](https://evagene.com/mendelian-inheritance-calculator.html) — Autosomal dominant, autosomal recessive, and X-linked recessive inheritance models with worked examples
+
+---
+
 *For the latest information, visit https://evagene.com or https://evagene.net/help*

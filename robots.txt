@@ -16,10 +16,19 @@ Allow: /
 User-agent: GPTBot
 Allow: /
 
+User-agent: OAI-SearchBot
+Allow: /
+
 User-agent: ChatGPT-User
 Allow: /
 
 User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchTool
+Allow: /
+
+User-agent: anthropic-ai
 Allow: /
 
 User-agent: Bytespider
@@ -31,6 +40,9 @@ Allow: /
 User-agent: GoogleOther
 Allow: /
 
+User-agent: Google-Extended
+Allow: /
+
 User-agent: Applebot-Extended
 Allow: /
 
@@ -40,7 +52,40 @@ Allow: /
 User-agent: Diffbot
 Allow: /
 
+User-agent: Meta-ExternalAgent
+Allow: /
+
 User-agent: Meta-ExternalFetcher
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Timpibot
+Allow: /
+
+User-agent: ImagesiftBot
+Allow: /
+
+User-agent: omgili
+Allow: /
+
+User-agent: Ai2Bot
+Allow: /
+
+User-agent: Kangaroo Bot
+Allow: /
+
+User-agent: Webzio-Extended
+Allow: /
+
+User-agent: iaskspider/2.0
 Allow: /
 
 Sitemap: https://evagene.com/sitemap.xml

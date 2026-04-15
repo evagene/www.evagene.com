@@ -2,8 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://evagene.com/</loc>
-    <lastmod>2026-04-13</lastmod>
+    <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://evagene.com/pedigree-drawing-software.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://evagene.com/hereditary-cancer-risk-assessment.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://evagene.com/gedcom-pedigree-software.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://evagene.com/clinical-genetics-pedigree-tool.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://evagene.com/mendelian-inheritance-calculator.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://evagene.com/llms.txt</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>

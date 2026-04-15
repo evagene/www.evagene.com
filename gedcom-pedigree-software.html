@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEDCOM Pedigree Software — Genealogy Meets Clinical Genetics | Evagene</title>
+    <meta name="description" content="Learn how GEDCOM pedigree software bridges genealogy and clinical genetics. Import GEDCOM 5.5.1 files, 23andMe data, and ancestry charts into a clinical-grade pedigree tool. Discover how Evagene handles GEDCOM import/export, SNP-based trait inference, and interoperability with Ancestry, FamilySearch, and Gramps.">
+    <meta name="keywords" content="GEDCOM pedigree software, genealogy pedigree tool, import GEDCOM, family tree genetics software, 23andMe pedigree import, ancestry pedigree chart, GEDCOM 5.5.1, clinical pedigree, genetic genealogy, family history genetics">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="GEDCOM Pedigree Software — Genealogy Meets Clinical Genetics | Evagene">
+    <meta property="og:description" content="Bridge genealogy and clinical genetics with GEDCOM pedigree software. Import GEDCOM 5.5.1 files, 23andMe data, and ancestry charts into a clinical-grade pedigree management system.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/gedcom-pedigree-software">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GEDCOM Pedigree Software — Genealogy Meets Clinical Genetics">
+    <meta name="twitter:description" content="Bridge genealogy and clinical genetics with GEDCOM pedigree software. Import GEDCOM files, 23andMe data, and ancestry charts into a clinical-grade pedigree tool.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/gedcom-pedigree-software">
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50: '#eef3fb', 100: '#d9e4f5', 200: '#b3c9eb', 300: '#8aaddf', 400: '#5e8fd2', 500: '#3b6fb5', 600: '#2f5a94', 700: '#264a7a', 800: '#1e3a5f', 900: '#152a45', 950: '#0d1a2d' },
+                        accent: { 400: '#e85d6f', 500: '#c8102e', 600: '#a60d25' },
+                        clinical: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a' }
+                    },
+                    fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'], display: ['Inter', 'system-ui', 'sans-serif'], mono: ['JetBrains Mono', 'Fira Code', 'monospace'] }
+                }
+            }
+        }
+    </script>
+
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD: Article -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "GEDCOM and Pedigree Software: Bridging Genealogy and Clinical Genetics",
+        "description": "A comprehensive guide to GEDCOM pedigree software, covering GEDCOM 5.5.1 import/export, 23andMe data integration, SNP-based trait inference, and interoperability between genealogy platforms and clinical genetics tools.",
+        "author": {
+            "@type": "Organization",
+            "name": "Evagene",
+            "url": "https://evagene.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Evagene",
+            "url": "https://evagene.com",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://evagene.com/logo.png"
+            }
+        },
+        "datePublished": "2026-04-15",
+        "dateModified": "2026-04-15",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://evagene.com/gedcom-pedigree-software"
+        },
+        "keywords": ["GEDCOM", "pedigree software", "genealogy", "clinical genetics", "23andMe", "GEDCOM 5.5.1", "family tree", "ancestry pedigree"]
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://evagene.com"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Resources",
+                "item": "https://evagene.com/#resources"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "GEDCOM Pedigree Software",
+                "item": "https://evagene.com/gedcom-pedigree-software"
+            }
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is a GEDCOM file?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "GEDCOM (Genealogical Data Communication) is a plain-text file format developed by The Church of Jesus Christ of Latter-day Saints for exchanging genealogical data between different software applications. The current widely supported version is GEDCOM 5.5.1, which stores individuals, family relationships, events (births, deaths, marriages), notes, and source citations in a hierarchical tagged structure."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I import a GEDCOM file into pedigree software?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Most pedigree software that supports GEDCOM 5.5.1 can import .ged files exported from genealogy platforms such as Ancestry, FamilySearch, and Gramps. The import process maps GEDCOM individuals and family records to pedigree nodes, preserving names, dates, sex, and family relationships. Clinical details such as diagnoses and genetic test results are not part of the GEDCOM standard and typically require manual entry after import."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What data does GEDCOM 5.5.1 store?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "GEDCOM 5.5.1 stores individual records (INDI) with name, sex, birth, death, and other life events; family records (FAM) linking spouses and children; source citations (SOUR); notes (NOTE); and multimedia references (OBJE). It uses a hierarchical line-based format with numbered levels and three- or four-character tags to identify each data element."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does 23andMe data enhance a pedigree?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "23andMe raw data files contain hundreds of thousands of SNP (single nucleotide polymorphism) genotypes. When imported into pedigree software, these genotypes can be used to infer blood type (ABO and Rh), secretor status, and certain heritable traits. The data can also confirm or refine family relationships and provide ancestry composition estimates that contextualise the pedigree geographically."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What are rs numbers in SNP data?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "rs numbers (Reference SNP cluster IDs) are unique identifiers assigned by the NCBI dbSNP database to specific single nucleotide polymorphisms. For example, rs8176719 is associated with the ABO blood group gene. Each rs number identifies a specific position in the human genome where variation has been catalogued, allowing researchers and clinicians to reference the same variant unambiguously."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I export a clinical pedigree back to GEDCOM?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, many pedigree tools support GEDCOM export. However, clinical data such as diagnoses, genetic test results, and risk scores are not part of the GEDCOM standard and will not transfer. The export typically includes names, dates, sex, and family structure. Some tools offer selection-only export, allowing you to choose which individuals to include when sharing with family members who use genealogy software."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is GEDCOM compatible with Ancestry and FamilySearch?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Both Ancestry and FamilySearch support GEDCOM 5.5.1 import and export. Ancestry allows you to download your tree as a GEDCOM file from the tree settings page, and FamilySearch provides GEDCOM export for the portions of the tree you have contributed. These files can then be imported into clinical pedigree software for medical annotation and risk analysis."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the difference between a family tree and a clinical pedigree?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A family tree is primarily a genealogical record focused on ancestry, names, dates, and historical events. A clinical pedigree is a standardised medical diagram that uses specific symbols (defined by the National Society of Genetic Counselors and the Pedigree Standardization Work Group) to represent individuals, their relationships, and health information including diagnoses, carrier status, genetic test results, and pregnancy outcomes. GEDCOM bridges the two by providing the structural family data that clinical tools can then annotate with medical information."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does Evagene support GEDCOM import?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Evagene supports full GEDCOM 5.5.1 import, parsing individual records, family groups, events, and notes. After import, the family structure is rendered as a clinical pedigree with standard genetic notation. Evagene also supports 23andMe raw data import for SNP-based trait inference, as well as JSON, XEG, and image-based import via OCR."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can blood type be determined from 23andMe data?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Blood type can be inferred from 23andMe raw data by examining specific SNP markers in the ABO gene (e.g., rs8176719, rs8176746, rs8176747) and the RHD gene (e.g., rs590787). The inference determines ABO group (A, B, AB, or O) and Rh factor (positive or negative). Similarly, secretor status can be inferred from FUT2 gene variants (e.g., rs601338). These inferences are probabilistic and should be confirmed with serological testing for clinical purposes."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<!-- Navigation -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 transition-colors rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 transition-colors rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 transition-colors rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 transition-colors rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900 transition-colors" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg transition-all duration-200">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="pt-20 pb-2">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-1.5">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300 transition-colors">Home</a></li>
+                <li class="text-gray-300 dark:text-gray-600">/</li>
+                <li><a href="https://evagene.com/#resources" class="hover:text-brand-600 dark:hover:text-brand-300 transition-colors">Resources</a></li>
+                <li class="text-gray-300 dark:text-gray-600">/</li>
+                <li class="text-gray-700 dark:text-gray-200 font-medium">GEDCOM Pedigree Software</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<!-- Article -->
+<main class="pt-24 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- H1 & Intro -->
+        <header class="mb-12">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">
+                GEDCOM and Pedigree Software: Bridging Genealogy and Clinical Genetics
+            </h1>
+            <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                Genealogy and clinical genetics share a common foundation: the family. For decades, genealogists have meticulously recorded lineages, births, marriages, and migrations. In parallel, clinical geneticists have constructed pedigrees to track the inheritance of disease, assess risk, and guide management decisions. The GEDCOM file format sits at the intersection of these two disciplines, providing a standardised way to exchange family structure data between genealogy platforms and clinical pedigree tools. This article explores what GEDCOM is, how it works, and why it matters for anyone working at the crossroads of family history and genetic medicine.
+            </p>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none
+            prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold
+            prose-p:text-gray-600 dark:prose-p:text-gray-300 prose-p:leading-relaxed
+            prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:no-underline hover:prose-a:underline
+            prose-strong:text-gray-800 dark:prose-strong:text-gray-100
+            prose-li:text-gray-600 dark:prose-li:text-gray-300
+            prose-code:text-brand-700 dark:prose-code:text-brand-300 prose-code:bg-gray-100 dark:prose-code:bg-brand-900 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:font-mono">
+
+            <!-- What Is GEDCOM? -->
+            <section class="mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-4">What Is GEDCOM?</h2>
+                <p>
+                    GEDCOM, an acronym for <strong>Genealogical Data Communication</strong>, is a plain-text file format created in 1984 by The Church of Jesus Christ of Latter-day Saints. Its purpose was straightforward: provide a universal format for exchanging family history information between the growing number of genealogy software applications. Before GEDCOM, transferring a family tree from one programme to another meant re-entering every individual, date, and relationship by hand.
+                </p>
+                <p>
+                    The format evolved through several revisions. GEDCOM 5.5, released in 1996, became the de facto standard. Its successor, <strong>GEDCOM 5.5.1</strong>, published in 1999, refined character encoding rules (adding UTF-8 support), clarified ambiguous tag definitions, and improved handling of multimedia references. Despite being over two decades old, GEDCOM 5.5.1 remains the most widely supported version across genealogy software. A newer specification, GEDCOM 7.0 (sometimes called FamilySearch GEDCOM 7), was released in 2021, but adoption has been gradual and many platforms still export exclusively in 5.5.1.
+                </p>
+                <p>
+                    At its core, a GEDCOM file is a hierarchical text document. Each line begins with a level number (0, 1, 2, etc.), followed by an optional cross-reference identifier, a tag, and an optional value. The primary record types are:
+                </p>
+                <ul>
+                    <li><strong>INDI (Individual)</strong> &mdash; represents a person, storing their name (NAME), sex (SEX), birth event (BIRT), death event (DEAT), and any number of additional events or attributes.</li>
+                    <li><strong>FAM (Family)</strong> &mdash; represents a family unit, linking a husband (HUSB), wife (WIFE), and children (CHIL) through cross-references to INDI records.</li>
+                    <li><strong>SOUR (Source)</strong> &mdash; documents the provenance of information, whether a census record, a birth certificate, or an oral family account.</li>
+                    <li><strong>NOTE</strong> &mdash; free-text annotations that can be attached to any record or sub-record.</li>
+                    <li><strong>OBJE (Object)</strong> &mdash; references to multimedia files such as photographs or scanned documents.</li>
+                </ul>
+                <p>
+                    A typical GEDCOM file for a three-generation family might contain a few dozen INDI records, a handful of FAM records linking them, and associated events. Larger exports from platforms like Ancestry can contain tens of thousands of records spanning many generations and multiple branches.
+                </p>
+            </section>
+
+            <!-- Why GEDCOM Matters for Genetic Pedigrees -->
+            <section class="mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-4">Why GEDCOM Matters for Genetic Pedigrees</h2>
+                <p>
+                    Clinical pedigrees and genealogical family trees capture much of the same structural information: who is related to whom, parent-child and spousal relationships, sex, dates of birth and death. The difference lies in the overlay. A genealogist annotates their tree with historical events, places, occupations, and source citations. A clinical geneticist annotates their pedigree with diagnoses, ages of onset, genetic test results, carrier status, and pregnancy outcomes using <a href="pedigree-drawing-software.html">standardised pedigree notation</a>.
+                </p>
+                <p>
+                    GEDCOM provides the structural scaffold. A family tree exported from Ancestry, FamilySearch, or Gramps as a GEDCOM file already contains the individuals, their sexes, their birth and death dates, and the family relationships that link them. Importing this file into a <a href="clinical-genetics-pedigree-tool.html">clinical pedigree tool</a> saves considerable data entry time, particularly for large or complex families. Instead of manually constructing a pedigree from a patient's verbal account (which is often incomplete or inconsistent), a clinician or genetic counsellor can start with a structurally accurate family tree and then add the clinical information.
+                </p>
+                <p>
+                    This workflow is especially valuable when patients have already invested significant effort in building their family tree on a genealogy platform. Many patients referred for genetic counselling have extensive trees on Ancestry or FamilySearch, sometimes spanning five or more generations. Rather than asking them to recount their family structure verbally, the counsellor can request a GEDCOM export, import it, and focus the consultation on gathering medical history and discussing risk.
+                </p>
+                <p>
+                    The bridge also works in the other direction. After a clinical pedigree has been constructed and annotated, the structural data can be exported back to GEDCOM for the patient to incorporate into their genealogy platform. This is particularly useful for families who wish to maintain a combined record of their ancestry and health history, even though the clinical annotations themselves are not part of the GEDCOM standard.
+                </p>
+            </section>
+
+            <!-- Importing GEDCOM Files into Pedigree Software -->
+            <section class="mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-4">Importing GEDCOM Files into Pedigree Software</h2>
+                <p>
+                    Importing a GEDCOM file into pedigree software is typically a straightforward process, but understanding what transfers well and what does not will help set expectations.
+                </p>
+                <h3 class="text-xl font-semibold mt-6 mb-3 text-gray-800 dark:text-gray-200">What transfers reliably</h3>
+                <ul>
+                    <li><strong>Individual identity</strong> &mdash; names (given name, surname, maiden name), sex, and unique identifiers.</li>
+                    <li><strong>Life events</strong> &mdash; birth date and place, death date and place, marriage date.</li>
+                    <li><strong>Family structure</strong> &mdash; parent-child relationships, spousal links, sibling order (when encoded).</li>
+                    <li><strong>Notes</strong> &mdash; free-text notes attached to individuals or families, which may contain informally recorded health information.</li>
+                </ul>
+                <h3 class="text-xl font-semibold mt-6 mb-3 text-gray-800 dark:text-gray-200">What typically does not transfer</h3>
+                <ul>
+                    <li><strong>Clinical diagnoses</strong> &mdash; GEDCOM has no standard tag for medical conditions, ICD codes, or OMIM numbers.</li>
+                    <li><strong>Genetic test results</strong> &mdash; variant classifications, gene names, and laboratory reports are outside the GEDCOM specification.</li>
+                    <li><strong>Pedigree-specific symbols</strong> &mdash; carrier status, affected status, pregnancy details, and adoption symbols defined by the Pedigree Standardization Work Group have no GEDCOM equivalents.</li>
+                    <li><strong>Risk scores</strong> &mdash; calculated values from models such as <a href="hereditary-cancer-risk-assessment.html">BRCAPRO, MMRpro, or PancPRO</a> are generated within the pedigree tool and are not represented in GEDCOM.</li>
+                </ul>
+                <p>
+                    Some GEDCOM files contain health-related information in NOTE fields or in custom (non-standard) tags. A well-designed import process should surface these notes for review, allowing the user to decide whether to incorporate them as clinical annotations. However, the absence of a structured medical vocabulary within GEDCOM means that any health data found in notes requires manual interpretation and classification.
+                </p>
+                <h3 class="text-xl font-semibold mt-6 mb-3 text-gray-800 dark:text-gray-200">Practical considerations</h3>
+                <p>
+                    Large GEDCOM files can contain many individuals who are genealogically interesting but clinically irrelevant. A pedigree for <a href="mendelian-inheritance-calculator.html">Mendelian risk assessment</a> typically focuses on three to four generations of the patient's direct lineage, not the entire extended tree. Good pedigree software should allow the user to select a proband and extract the relevant subset of the imported tree, pruning distant branches while preserving the core family structure.
+                </p>
+                <p>
+                    Character encoding is another consideration. Older GEDCOM files may use ANSEL or ASCII encoding, whilst newer ones use UTF-8. Importing software needs to handle all three gracefully, particularly for names containing diacritical marks or non-Latin characters, which are common in international family histories.
+                </p>
+            </section>
+
+            <!-- Exporting Pedigrees to GEDCOM -->
+            <section class="mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-4">Exporting Pedigrees to GEDCOM</h2>
+                <p>
+                    Exporting a clinical pedigree to GEDCOM serves a different purpose from importing one. The primary use case is sharing the family structure with a family member who uses genealogy software. A patient might say, "Can I get a copy of my family tree to add to my Ancestry account?" In that context, a GEDCOM export is the natural answer.
+                </p>
+                <p>
+                    The export process maps each individual in the pedigree back to a GEDCOM INDI record, each family unit to a FAM record, and each relevant event (birth, death, marriage) to the appropriate GEDCOM tag. Clinical data, by its nature, does not transfer. This is generally desirable from a privacy perspective: a patient sharing their tree with a cousin likely does not want to include genetic test results, risk assessments, or diagnostic details for other family members.
+                </p>
+                <p>
+                    <strong>Selection-only export</strong> is a useful feature in this context. Rather than exporting the entire pedigree, the user selects specific individuals or branches to include in the GEDCOM file. This allows targeted sharing &mdash; for example, exporting only the maternal lineage for a relative who is researching that side of the family, without exposing the complete pedigree structure.
+                </p>
+                <p>
+                    When exporting, the software must generate valid GEDCOM 5.5.1 syntax, including proper header records (HEAD), submitter records (SUBM), and a trailer (TRLR). Cross-references between INDI and FAM records must be internally consistent, and character encoding should be declared in the header. A poorly formed GEDCOM file will fail to import in the recipient's genealogy software, defeating the purpose of the exchange.
+                </p>
+            </section>
+
+            <!-- 23andMe and Consumer Genomics Data -->
+            <section class="mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-4">23andMe and Consumer Genomics Data</h2>
+                <p>
+                    The rise of consumer genomics has added another dimension to family pedigrees. Services like 23andMe provide customers with raw genotype data files containing hundreds of thousands of SNP (single nucleotide polymorphism) genotypes. These files offer a molecular layer of information that can enrich a pedigree beyond what genealogical records alone can provide.
+                </p>
+                <h3 class="text-xl font-semibold mt-6 mb-3 text-gray-800 dark:text-gray-200">Understanding SNP data and rs numbers</h3>
+                <p>
+                    A SNP is a variation at a single position in the genome. The human genome contains millions of known SNPs, each catalogued in the NCBI's dbSNP database with a unique identifier called an <strong>rs number</strong> (Reference SNP cluster ID). For example, <code>rs8176719</code> is a well-characterised variant in the <em>ABO</em> gene that determines blood type. When 23andMe genotypes a customer, they assay a selected panel of these SNPs and report the results as a tab-delimited text file listing each rs number alongside the customer's genotype at that position.
+                </p>
+                <p>
+                    Each genotype consists of two alleles (one inherited from each parent). For <code>rs8176719</code>, the possible genotypes include <code>--</code> (homozygous deletion, associated with type O), <code>-G</code> (heterozygous), and <code>GG</code> (no deletion). By examining a cluster of SNPs in the <em>ABO</em> gene &mdash; including <code>rs8176746</code> and <code>rs8176747</code> &mdash; it is possible to infer whether the individual has blood type A, B, AB, or O.
+                </p>
+                <h3 class="text-xl font-semibold mt-6 mb-3 text-gray-800 dark:text-gray-200">Blood type inference from SNP markers</h3>
+                <p>
+                    The ABO blood group system is determined by variants in the <em>ABO</em> gene on chromosome 9. The key SNPs are:
+                </p>
+                <ul>
+                    <li><code>rs8176719</code> &mdash; a single-nucleotide deletion that distinguishes the O allele from A and B alleles. The deletion introduces a frameshift that inactivates the glycosyltransferase enzyme.</li>
+                    <li><code>rs8176746</code> and <code>rs8176747</code> &mdash; missense variants that distinguish the A allele from the B allele. The B allele carries specific nucleotide changes that alter the enzyme's substrate specificity.</li>
+                </ul>
+                <p>
+                    By combining the genotypes at these positions, software can infer the ABO blood type with high accuracy. Rh factor (positive or negative) is determined by the <em>RHD</em> gene, with <code>rs590787</code> serving as a proxy SNP on consumer genotyping arrays. Similarly, <strong>secretor status</strong> &mdash; whether ABO antigens are secreted into bodily fluids &mdash; can be inferred from the <em>FUT2</em> gene variant <code>rs601338</code>, where a nonsense mutation (G428A) abolishes secretor activity.
+                </p>
+                <p>
+                    It is important to note that SNP-based inferences are probabilistic. Rare alleles, population-specific variants, and the limited coverage of consumer arrays mean that some inferences may be incorrect. For clinical decision-making, serological confirmation of blood type and Rh status remains the standard of care.
+                </p>
+                <h3 class="text-xl font-semibold mt-6 mb-3 text-gray-800 dark:text-gray-200">Ancestry and trait information</h3>
+                <p>
+                    Beyond blood type, 23andMe data provides ancestry composition estimates (percentage breakdowns of geographic ancestry), haplogroup assignments for maternal (mtDNA) and paternal (Y-DNA) lineages, and trait reports covering characteristics such as earwax type, asparagus metabolite detection, and cilantro aversion. When multiple family members have been genotyped, their data can be cross-referenced within a pedigree to confirm relationships, identify segments of shared DNA, and observe the segregation of specific alleles through generations.
+                </p>
+            </section>
+
+            <!-- How Evagene Handles GEDCOM and Genomics Data -->
+            <section class="mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-4">How Evagene Handles GEDCOM and Genomics Data</h2>
+                <p>
+                    Evagene is a web-based pedigree management system designed to serve both clinical and genealogical use cases. Its approach to GEDCOM and genomics data reflects the dual nature of its user base: genetic counsellors and clinicians who need standardised pedigree notation and risk models, and families who want to understand their health history in the context of their ancestry.
+                </p>
+                <h3 class="text-xl font-semibold mt-6 mb-3 text-gray-800 dark:text-gray-200">GEDCOM 5.5.1 import and export</h3>
+                <p>
+                    Evagene's GEDCOM parser processes the full GEDCOM 5.5.1 specification, including INDI, FAM, SOUR, NOTE, and OBJE records. On import, the parser constructs an internal family graph from the GEDCOM data, resolving cross-references and mapping events to pedigree-relevant fields. Users can select a proband from the imported individuals, and Evagene renders the surrounding family structure as a clinical pedigree with standard notation.
+                </p>
+                <p>
+                    For export, Evagene generates valid GEDCOM 5.5.1 files with proper header declarations, UTF-8 encoding, and internally consistent cross-references. The export supports <strong>selection-only mode</strong>, allowing users to choose specific individuals or branches for inclusion. This is particularly useful when a patient wishes to share their family structure with a relative without exposing the entire pedigree or any clinical annotations.
+                </p>
+                <h3 class="text-xl font-semibold mt-6 mb-3 text-gray-800 dark:text-gray-200">23andMe raw data import</h3>
+                <p>
+                    Evagene accepts 23andMe raw data files (the tab-delimited text format provided when customers download their data). Upon import, the system scans for clinically relevant SNPs and performs automated inferences including ABO blood type, Rh factor, and secretor status. These inferred traits are attached to the corresponding individual in the pedigree and flagged as <em>inferred from SNP data</em> to distinguish them from clinically confirmed values.
+                </p>
+                <h3 class="text-xl font-semibold mt-6 mb-3 text-gray-800 dark:text-gray-200">Conflict resolution</h3>
+                <p>
+                    When importing data from multiple sources (for example, a GEDCOM file and a 23andMe file for the same individual), conflicts may arise. A GEDCOM file might record a different birth date than the one inferred from the 23andMe account, or an existing clinical annotation might disagree with a SNP-inferred blood type. Evagene surfaces these conflicts to the user for resolution, presenting both values side by side and allowing the user to choose which to retain or whether to flag the discrepancy for further investigation.
+                </p>
+                <h3 class="text-xl font-semibold mt-6 mb-3 text-gray-800 dark:text-gray-200">Additional import formats</h3>
+                <p>
+                    Beyond GEDCOM and 23andMe, Evagene supports several other import pathways. <strong>JSON import</strong> allows programmatic data exchange with other clinical systems. <strong>XEG (XML-based Exchange for Genetics)</strong> provides a structured format for pedigree data that includes clinical fields not present in GEDCOM. <strong>Image import via OCR</strong> enables users to upload photographs or scans of hand-drawn pedigrees, which Evagene processes using optical character recognition to extract individuals and relationships. This last feature is particularly valuable for digitising legacy paper pedigrees that exist only as photocopies or faxes in clinical files.
+                </p>
+            </section>
+
+            <!-- Genealogy Software Compatibility -->
+            <section class="mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-4">Genealogy Software Compatibility</h2>
+                <p>
+                    GEDCOM's principal value lies in its universality. The format enables interoperability across a wide range of genealogy platforms, each of which has its own strengths and user base.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Ancestry</strong> &mdash; the largest consumer genealogy platform, with over 30 million users and billions of historical records. Ancestry allows users to export their trees as GEDCOM 5.5.1 files from the tree settings menu. These files include individuals, relationships, events, and notes, but do not include Ancestry-specific features such as DNA matches, hints, or record attachments. The exported GEDCOM can be imported into any compatible pedigree tool for clinical annotation.
+                    </li>
+                    <li>
+                        <strong>FamilySearch</strong> &mdash; a free genealogy platform operated by The Church of Jesus Christ of Latter-day Saints. FamilySearch maintains a single shared world tree, and users can export portions of it as GEDCOM files. Because the tree is collaborative, exported data may include contributions from many users and should be reviewed for accuracy before clinical use.
+                    </li>
+                    <li>
+                        <strong>Gramps</strong> &mdash; an open-source genealogy programme available for Windows, macOS, and Linux. Gramps provides robust GEDCOM 5.5.1 import and export, along with a rich data model that supports custom attributes, which some users employ to record health information. Its open-source nature makes it a popular choice among technically inclined genealogists and researchers.
+                    </li>
+                </ul>
+                <p>
+                    Other platforms that support GEDCOM include RootsMagic, Legacy Family Tree, MyHeritage, and MacFamilyTree. In each case, the GEDCOM file serves as the lingua franca that allows data to move between platforms and, crucially, into clinical pedigree software where it can be annotated with medical information and used for genetic risk assessment.
+                </p>
+            </section>
+
+            <!-- Frequently Asked Questions -->
+            <section class="mb-12" id="faq">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-8">Frequently Asked Questions</h2>
+                <div class="space-y-6">
+                    <details class="group border border-gray-200 dark:border-brand-800 rounded-lg">
+                        <summary class="flex items-center justify-between cursor-pointer px-6 py-4 text-gray-900 dark:text-white font-semibold hover:bg-gray-50 dark:hover:bg-brand-900/50 rounded-lg transition-colors">
+                            <span>What is a GEDCOM file?</span>
+                            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="px-6 pb-4 text-gray-600 dark:text-gray-300">
+                            <p>GEDCOM (Genealogical Data Communication) is a plain-text file format developed by The Church of Jesus Christ of Latter-day Saints for exchanging genealogical data between different software applications. The current widely supported version is GEDCOM 5.5.1, which stores individuals, family relationships, events (births, deaths, marriages), notes, and source citations in a hierarchical tagged structure.</p>
+                        </div>
+                    </details>
+
+                    <details class="group border border-gray-200 dark:border-brand-800 rounded-lg">
+                        <summary class="flex items-center justify-between cursor-pointer px-6 py-4 text-gray-900 dark:text-white font-semibold hover:bg-gray-50 dark:hover:bg-brand-900/50 rounded-lg transition-colors">
+                            <span>Can I import a GEDCOM file into pedigree software?</span>
+                            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="px-6 pb-4 text-gray-600 dark:text-gray-300">
+                            <p>Yes. Most pedigree software that supports GEDCOM 5.5.1 can import <code>.ged</code> files exported from genealogy platforms such as Ancestry, FamilySearch, and Gramps. The import process maps GEDCOM individuals and family records to pedigree nodes, preserving names, dates, sex, and family relationships. Clinical details such as diagnoses and genetic test results are not part of the GEDCOM standard and typically require manual entry after import.</p>
+                        </div>
+                    </details>
+
+                    <details class="group border border-gray-200 dark:border-brand-800 rounded-lg">
+                        <summary class="flex items-center justify-between cursor-pointer px-6 py-4 text-gray-900 dark:text-white font-semibold hover:bg-gray-50 dark:hover:bg-brand-900/50 rounded-lg transition-colors">
+                            <span>What data does GEDCOM 5.5.1 store?</span>
+                            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="px-6 pb-4 text-gray-600 dark:text-gray-300">
+                            <p>GEDCOM 5.5.1 stores individual records (INDI) with name, sex, birth, death, and other life events; family records (FAM) linking spouses and children; source citations (SOUR); notes (NOTE); and multimedia references (OBJE). It uses a hierarchical line-based format with numbered levels and three- or four-character tags to identify each data element.</p>
+                        </div>
+                    </details>
+
+                    <details class="group border border-gray-200 dark:border-brand-800 rounded-lg">
+                        <summary class="flex items-center justify-between cursor-pointer px-6 py-4 text-gray-900 dark:text-white font-semibold hover:bg-gray-50 dark:hover:bg-brand-900/50 rounded-lg transition-colors">
+                            <span>How does 23andMe data enhance a pedigree?</span>
+                            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="px-6 pb-4 text-gray-600 dark:text-gray-300">
+                            <p>23andMe raw data files contain hundreds of thousands of SNP (single nucleotide polymorphism) genotypes. When imported into pedigree software, these genotypes can be used to infer blood type (ABO and Rh), secretor status, and certain heritable traits. The data can also confirm or refine family relationships and provide ancestry composition estimates that contextualise the pedigree geographically.</p>
+                        </div>
+                    </details>
+
+                    <details class="group border border-gray-200 dark:border-brand-800 rounded-lg">
+                        <summary class="flex items-center justify-between cursor-pointer px-6 py-4 text-gray-900 dark:text-white font-semibold hover:bg-gray-50 dark:hover:bg-brand-900/50 rounded-lg transition-colors">
+                            <span>What are rs numbers in SNP data?</span>
+                            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="px-6 pb-4 text-gray-600 dark:text-gray-300">
+                            <p>rs numbers (Reference SNP cluster IDs) are unique identifiers assigned by the NCBI dbSNP database to specific single nucleotide polymorphisms. For example, <code>rs8176719</code> is associated with the ABO blood group gene. Each rs number identifies a specific position in the human genome where variation has been catalogued, allowing researchers and clinicians to reference the same variant unambiguously.</p>
+                        </div>
+                    </details>
+
+                    <details class="group border border-gray-200 dark:border-brand-800 rounded-lg">
+                        <summary class="flex items-center justify-between cursor-pointer px-6 py-4 text-gray-900 dark:text-white font-semibold hover:bg-gray-50 dark:hover:bg-brand-900/50 rounded-lg transition-colors">
+                            <span>Can I export a clinical pedigree back to GEDCOM?</span>
+                            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="px-6 pb-4 text-gray-600 dark:text-gray-300">
+                            <p>Yes, many pedigree tools support GEDCOM export. However, clinical data such as diagnoses, genetic test results, and risk scores are not part of the GEDCOM standard and will not transfer. The export typically includes names, dates, sex, and family structure. Some tools offer selection-only export, allowing you to choose which individuals to include when sharing with family members who use genealogy software.</p>
+                        </div>
+                    </details>
+
+                    <details class="group border border-gray-200 dark:border-brand-800 rounded-lg">
+                        <summary class="flex items-center justify-between cursor-pointer px-6 py-4 text-gray-900 dark:text-white font-semibold hover:bg-gray-50 dark:hover:bg-brand-900/50 rounded-lg transition-colors">
+                            <span>Is GEDCOM compatible with Ancestry and FamilySearch?</span>
+                            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="px-6 pb-4 text-gray-600 dark:text-gray-300">
+                            <p>Yes. Both Ancestry and FamilySearch support GEDCOM 5.5.1 import and export. Ancestry allows you to download your tree as a GEDCOM file from the tree settings page, and FamilySearch provides GEDCOM export for the portions of the tree you have contributed. These files can then be imported into clinical pedigree software for medical annotation and risk analysis.</p>
+                        </div>
+                    </details>
+
+                    <details class="group border border-gray-200 dark:border-brand-800 rounded-lg">
+                        <summary class="flex items-center justify-between cursor-pointer px-6 py-4 text-gray-900 dark:text-white font-semibold hover:bg-gray-50 dark:hover:bg-brand-900/50 rounded-lg transition-colors">
+                            <span>What is the difference between a family tree and a clinical pedigree?</span>
+                            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="px-6 pb-4 text-gray-600 dark:text-gray-300">
+                            <p>A family tree is primarily a genealogical record focused on ancestry, names, dates, and historical events. A clinical pedigree is a standardised medical diagram that uses specific symbols (defined by the National Society of Genetic Counselors and the Pedigree Standardization Work Group) to represent individuals, their relationships, and health information including diagnoses, carrier status, genetic test results, and pregnancy outcomes. GEDCOM bridges the two by providing the structural family data that clinical tools can then annotate with medical information.</p>
+                        </div>
+                    </details>
+
+                    <details class="group border border-gray-200 dark:border-brand-800 rounded-lg">
+                        <summary class="flex items-center justify-between cursor-pointer px-6 py-4 text-gray-900 dark:text-white font-semibold hover:bg-gray-50 dark:hover:bg-brand-900/50 rounded-lg transition-colors">
+                            <span>Does Evagene support GEDCOM import?</span>
+                            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="px-6 pb-4 text-gray-600 dark:text-gray-300">
+                            <p>Yes. Evagene supports full GEDCOM 5.5.1 import, parsing individual records, family groups, events, and notes. After import, the family structure is rendered as a clinical pedigree with standard genetic notation. Evagene also supports 23andMe raw data import for SNP-based trait inference, as well as JSON, XEG, and image-based import via OCR.</p>
+                        </div>
+                    </details>
+
+                    <details class="group border border-gray-200 dark:border-brand-800 rounded-lg">
+                        <summary class="flex items-center justify-between cursor-pointer px-6 py-4 text-gray-900 dark:text-white font-semibold hover:bg-gray-50 dark:hover:bg-brand-900/50 rounded-lg transition-colors">
+                            <span>Can blood type be determined from 23andMe data?</span>
+                            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="px-6 pb-4 text-gray-600 dark:text-gray-300">
+                            <p>Blood type can be inferred from 23andMe raw data by examining specific SNP markers in the <em>ABO</em> gene (e.g., <code>rs8176719</code>, <code>rs8176746</code>, <code>rs8176747</code>) and the <em>RHD</em> gene (e.g., <code>rs590787</code>). The inference determines ABO group (A, B, AB, or O) and Rh factor (positive or negative). Similarly, secretor status can be inferred from <em>FUT2</em> gene variants (e.g., <code>rs601338</code>). These inferences are probabilistic and should be confirmed with serological testing for clinical purposes.</p>
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+            <!-- Related articles -->
+            <section class="mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-4">Related Articles</h2>
+                <ul>
+                    <li><a href="pedigree-drawing-software.html">Pedigree Drawing Software: Standard Notation and Best Practices</a></li>
+                    <li><a href="hereditary-cancer-risk-assessment.html">Hereditary Cancer Risk Assessment with BayesMendel Models</a></li>
+                    <li><a href="clinical-genetics-pedigree-tool.html">Clinical Genetics Pedigree Tool: From Consultation to Report</a></li>
+                    <li><a href="mendelian-inheritance-calculator.html">Mendelian Inheritance Calculator: Carrier Probability and Risk</a></li>
+                </ul>
+            </section>
+
+        </div>
+    </article>
+</main>
+
+<!-- CTA Section -->
+<section class="py-20 bg-gradient-to-br from-brand-600 to-brand-800 dark:from-brand-800 dark:to-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Import Your GEDCOM. Build Your Pedigree.</h2>
+        <p class="text-lg text-brand-100 mb-8 max-w-2xl mx-auto">
+            Evagene bridges genealogy and clinical genetics in a single web-based platform. Import GEDCOM 5.5.1 files, integrate 23andMe data, and annotate your family pedigree with clinical-grade tools. Join the alpha waiting list to get early access.
+        </p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-brand-700 font-bold rounded-lg hover:bg-brand-50 transition-all duration-200 text-lg shadow-lg hover:shadow-xl">
+            Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<!-- Dark Mode Toggle -->
+<script>
+(function() {
+    'use strict';
+    const html = document.documentElement;
+    const themeToggle = document.getElementById('theme-toggle');
+    const sunIcon = document.getElementById('sun-icon');
+    const moonIcon = document.getElementById('moon-icon');
+    function setTheme(dark) {
+        html.classList.toggle('dark', dark);
+        sunIcon.classList.toggle('hidden', !dark);
+        moonIcon.classList.toggle('hidden', dark);
+        localStorage.setItem('evagene-theme', dark ? 'dark' : 'light');
+    }
+    const saved = localStorage.getItem('evagene-theme');
+    if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) setTheme(true);
+    themeToggle.addEventListener('click', () => setTheme(!html.classList.contains('dark')));
+})();
+</script>
+
+</body>
+</html>

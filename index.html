@@ -87,24 +87,89 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- JSON-LD Structured Data -->
+    <!-- JSON-LD: Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Evagene",
+        "url": "https://evagene.com",
+        "logo": "https://evagene.com/logo.png",
+        "description": "Evagene builds clinical-grade pedigree management software for precision medicine, integrating Bayesian cancer risk models, Mendelian inheritance analysis, and AI-powered clinical interpretation.",
+        "foundingDate": "2024",
+        "sameAs": []
+    }
+    </script>
+
+    <!-- JSON-LD: WebSite (enables sitelinks search box in SERPs) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Evagene",
+        "url": "https://evagene.com",
+        "description": "Clinical-grade pedigree management for precision medicine",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Evagene",
+            "url": "https://evagene.com"
+        }
+    }
+    </script>
+
+    <!-- JSON-LD: SoftwareApplication -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "Evagene",
         "url": "https://evagene.com",
-        "description": "Web-based pedigree management system for clinical genetics with integrated BRCAPRO, MMRpro, and PancPRO risk models, AI-powered clinical interpretation, blood type and trait inference from SNP data, and a 180+ disease catalog.",
+        "applicationSubCategory": "Pedigree Management Software",
+        "description": "Web-based pedigree management system for clinical genetics with integrated BRCAPRO, MMRpro, and PancPRO risk models, AI-powered clinical interpretation, Mendelian inheritance calculators, blood type and trait inference from SNP data, consanguinity detection, and a 180+ disease catalog. Supports GEDCOM import/export and 23andMe data import.",
         "applicationCategory": "HealthApplication",
-        "operatingSystem": "Web browser",
+        "operatingSystem": "Web browser (Chrome, Firefox, Safari, Edge)",
         "datePublished": "2026-04-01",
+        "softwareVersion": "Alpha",
         "creator": {
             "@type": "Organization",
             "name": "Evagene",
             "url": "https://evagene.com"
         },
-        "featureList": "Pedigree drawing, BRCAPRO risk model, MMRpro risk model, PancPRO risk model, Mendelian inheritance models, AI clinical interpretation, blood type inference, trait inference from 23andMe, interactive karyogram, 180+ disease catalog, GEDCOM import/export, 23andMe import, linkage analysis, LOD scores, consanguinity detection, ancestry management, disease management dashboard",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder" }
+        "featureList": [
+            "Gesture-based pedigree drawing on HTML5 canvas",
+            "Standard clinical genetic notation (ISCN/HGNC)",
+            "BRCAPRO breast and ovarian cancer risk model",
+            "MMRpro Lynch syndrome risk model",
+            "PancPRO pancreatic cancer risk model",
+            "Mendelian inheritance calculators (autosomal dominant, autosomal recessive, X-linked)",
+            "AI-powered clinical interpretation with structured reports",
+            "Blood type inference from 23andMe SNP markers",
+            "Trait inference from 23andMe genotype data",
+            "Interactive karyogram viewer",
+            "180+ disease catalog with ICD-10 and OMIM codes",
+            "55+ allergies and 50+ traits with genetic marker associations",
+            "Consanguinity detection with Wright's coefficient",
+            "GEDCOM 5.5.1 import and export",
+            "23andMe raw data import",
+            "Pedigree image import via OCR",
+            "Export to PDF, SVG, PNG",
+            "Batch risk screening across all diseases",
+            "Linkage analysis with LOD scores",
+            "220+ built-in educational guides",
+            "Differential diagnosis mode"
+        ],
+        "screenshot": "https://evagene.com/og-image.png",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/PreOrder",
+            "description": "Free alpha access via waiting list"
+        },
+        "audience": {
+            "@type": "Audience",
+            "audienceType": "Clinical geneticists, oncologists, genetic counsellors, research geneticists, genealogists, patients, educators"
+        }
     }
     </script>
 
@@ -1020,13 +1085,14 @@ END TESTIMONIALS -->
 <!-- ==================== FOOTER ==================== -->
 <footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid md:grid-cols-4 gap-8 mb-12">
+        <div class="grid md:grid-cols-5 gap-8 mb-12">
             <div class="md:col-span-2">
                 <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
                 <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
                 <p class="text-xs text-gray-600">Built with care for precision medicine</p>
             </div>
             <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="#features" class="hover:text-white transition-colors">Features</a></li><li><a href="#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li></ul></div>
             <div><h4 class="text-sm font-semibold text-white mb-4">For</h4><ul class="space-y-2 text-sm"><li><a href="#who-its-for" class="hover:text-white transition-colors">Clinical Geneticists</a></li><li><a href="#who-its-for" class="hover:text-white transition-colors">Oncologists</a></li><li><a href="#who-its-for" class="hover:text-white transition-colors">Researchers</a></li><li><a href="#who-its-for" class="hover:text-white transition-colors">Patients &amp; Families</a></li><li><a href="#who-its-for" class="hover:text-white transition-colors">Genealogists</a></li></ul></div>
         </div>
         <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -1220,7 +1286,7 @@ END TESTIMONIALS -->
         {
             "@type": "Question",
             "name": "What is Evagene?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Evagene is a web-based pedigree management system for clinical genetics, oncology, research, and family history. It combines gesture-based pedigree drawing with standard ISCN/HGNC notation, a 180+ disease catalog (ICD-10 and OMIM coded), integrated Bayesian risk models (BRCAPRO, MMRpro, PancPRO), AI-powered clinical interpretation, blood type and trait inference from 23andMe SNP data, and universal data exchange (JSON, GEDCOM, PDF, SVG, 23andMe, and more)." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Evagene is a web-based pedigree management system for clinical genetics, oncology, research, and family history. It combines gesture-based pedigree drawing with standard ISCN/HGNC notation, a 180+ disease catalog (ICD-10 and OMIM coded), integrated Bayesian risk models (BRCAPRO, MMRpro, PancPRO), Mendelian inheritance calculators, AI-powered clinical interpretation, blood type and trait inference from 23andMe SNP data, and universal data exchange (JSON, GEDCOM, PDF, SVG, 23andMe, and more). It runs entirely in the browser with no installation required." }
         },
         {
             "@type": "Question",
@@ -1256,6 +1322,126 @@ END TESTIMONIALS -->
             "@type": "Question",
             "name": "What is the risk screening feature in Evagene?",
             "acceptedAnswer": { "@type": "Answer", "text": "Risk screening lets you designate a proband and screen them against all diseases in your collection simultaneously. Evagene runs the appropriate risk model for each disease (BRCAPRO, MMRpro, PancPRO, or Mendelian models) and produces a unified report with carrier probabilities, colour-coded risk levels, family member risk tables, a risk karyogram showing elevated-risk gene loci, and optional descendant reports." }
+        },
+        {
+            "@type": "Question",
+            "name": "What is the best pedigree drawing software?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The best pedigree drawing software depends on your use case. For clinical genetics with integrated risk analysis, Evagene offers gesture-based pedigree drawing with standard ISCN/HGNC notation, integrated BRCAPRO, MMRpro, and PancPRO risk models, Mendelian inheritance calculators, and AI-powered clinical interpretation — all in a browser with no installation. Other options include Progeny (enterprise, installed software for hospitals), PhenoTips (genomic health records with HPO integration), and TrakGene (cloud-based with HL7 FHIR support). Evagene is unique in combining pedigree drawing, Bayesian risk modelling, Mendelian analysis, 23andMe data import, and GEDCOM interoperability in a single web application." }
+        },
+        {
+            "@type": "Question",
+            "name": "How do I draw a pedigree chart?",
+            "acceptedAnswer": { "@type": "Answer", "text": "A pedigree chart uses standardised symbols: squares for males, circles for females, diamonds for unknown sex, and horizontal lines connecting partners. Vertical lines descend to offspring. Filled symbols indicate affected individuals, diagonal slashes indicate deceased, and arrows mark the proband (index case). You can draw pedigrees by hand, in general diagramming software, or using specialised pedigree software like Evagene, which lets you draw shapes with freehand gestures on a canvas — draw a circle for female, a square for male — and automatically renders them in standard clinical notation with proper spacing and alignment." }
+        },
+        {
+            "@type": "Question",
+            "name": "What software do genetic counsellors use for pedigrees?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Genetic counsellors use specialised pedigree software to draw and analyse family pedigrees during clinical consultations. Common tools include Evagene (web-based, with integrated BRCAPRO/MMRpro/PancPRO risk models and AI clinical interpretation), Progeny (enterprise pedigree software with hospital EHR integration), PhenoTips (genomic health records with pedigree functionality), and TrakGene (cloud-based with automated pedigree generation). The choice depends on whether the counsellor needs integrated risk modelling, EHR integration, GEDCOM export for genealogy, or consumer genomics data import." }
+        },
+        {
+            "@type": "Question",
+            "name": "How do you assess hereditary cancer risk from family history?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Hereditary cancer risk assessment starts with collecting a detailed three-generation family history pedigree, documenting cancer types, ages at diagnosis, and genetic test results. Clinicians then apply validated risk models: BRCAPRO estimates BRCA1/BRCA2 carrier probability for breast and ovarian cancer, MMRpro estimates Lynch syndrome risk for colorectal and endometrial cancer, and PancPRO estimates hereditary pancreatic cancer risk. Evagene integrates all three BayesMendel models directly into the pedigree — clinicians draw the family, mark diagnoses, and run risk models with one click, receiving carrier probabilities and age-specific cumulative risk projections." }
+        },
+        {
+            "@type": "Question",
+            "name": "What is MMRpro and how is it used in Lynch syndrome screening?",
+            "acceptedAnswer": { "@type": "Answer", "text": "MMRpro is a Bayesian risk model from the BayesMendel package that estimates the probability of carrying mutations in MLH1, MSH2, or MSH6 — the mismatch repair genes associated with Lynch syndrome (hereditary nonpolyposis colorectal cancer, HNPCC). It uses family pedigree data including colorectal and endometrial cancer diagnoses with ages of onset. Evagene integrates MMRpro directly, allowing clinicians to run Lynch syndrome risk assessment from the pedigree canvas alongside BRCAPRO and PancPRO." }
+        },
+        {
+            "@type": "Question",
+            "name": "What is a Mendelian inheritance calculator?",
+            "acceptedAnswer": { "@type": "Answer", "text": "A Mendelian inheritance calculator estimates the probability that an individual carries or will manifest a genetic trait based on their family pedigree and the known inheritance pattern of the condition. Evagene includes built-in Mendelian models for autosomal dominant inheritance (with support for reduced penetrance, age-dependent penetrance, and anticipation), autosomal recessive inheritance (with Hardy-Weinberg equilibrium, population-specific carrier frequencies, and genetic test adjustment), and X-linked recessive inheritance (with hemizygosity, mutation rates, and biological fitness parameters)." }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I use GEDCOM files with pedigree software?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. GEDCOM (Genealogical Data Communication) version 5.5.1 is the universal interchange format for genealogy data. Pedigree software like Evagene supports GEDCOM import and export, enabling you to transfer family trees between applications such as Ancestry, FamilySearch, Gramps, and clinical pedigree tools. Evagene preserves family relationships, names, dates, and notes during GEDCOM conversion and also supports selection-only export if you need to share a subset of the pedigree." }
+        },
+        {
+            "@type": "Question",
+            "name": "How do I calculate consanguinity in a pedigree?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Consanguinity (inbreeding) in a pedigree is measured using Wright's path coefficient of inbreeding (F), which calculates the probability that an individual inherits two identical alleles by descent from a common ancestor. For first cousins, F = 1/16; for double first cousins, F = 1/8. Evagene automatically detects consanguineous unions in your pedigree, calculates Wright's coefficient for all relationships, displays the coefficient on relationship lines, and feeds the values into genetic risk calculations." }
+        },
+        {
+            "@type": "Question",
+            "name": "What is a karyogram and how does Evagene use it?",
+            "acceptedAnswer": { "@type": "Answer", "text": "A karyogram (also called an ideogram or karyotype diagram) is a visual representation of an organism's chromosomes arranged by size and centromere position. Evagene includes an interactive karyogram viewer that displays all 23 chromosome pairs with genetic markers plotted at their genomic positions. You can hover over markers to see gene names, variants, rsIDs, and genotypes, click to pin info panels, and embed the karyogram on the pedigree canvas as an anchored chart attached to any individual." }
+        },
+        {
+            "@type": "Question",
+            "name": "What is linkage analysis in genetics?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Linkage analysis is a method for mapping disease genes by tracking how genetic markers co-segregate with a disease phenotype through a family pedigree. It uses LOD (logarithm of odds) scores to measure the statistical evidence for linkage between a marker and a disease locus. Evagene supports linkage analysis with LOD score calculation, flanking marker identification, haplotype tables, and a blade navigation UI for exploring the genome hierarchy from species down to individual markers." }
+        },
+        {
+            "@type": "Question",
+            "name": "How does Evagene compare to Progeny pedigree software?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Evagene and Progeny are both pedigree management tools but serve different use cases. Progeny is established enterprise software (since 1996) focused on hospital EHR integration with installed desktop and cloud versions. Evagene is a modern web-based application that runs entirely in the browser with no installation, offering integrated Bayesian cancer risk models (BRCAPRO, MMRpro, PancPRO), Mendelian inheritance calculators, AI-powered clinical interpretation, 23andMe data import with blood type inference, GEDCOM interoperability, and 220+ built-in educational guides. Evagene targets a broader audience including clinicians, researchers, genealogists, and patients." }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I import a pedigree chart from an image?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Evagene supports pedigree image import using OCR and shape detection. You can upload a photograph or scan of a hand-drawn or printed pedigree chart, and Evagene will detect the symbols (circles, squares, diamonds, lines) and convert them into an editable digital pedigree that you can then annotate with clinical data, run risk models on, and export in standard formats." }
+        },
+        {
+            "@type": "Question",
+            "name": "What diseases does Evagene include in its catalog?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Evagene includes a catalog of 180+ genetic diseases spanning oncology, cardiology, neurology, metabolic disorders, and more. Each disease entry includes ICD-10 codes, OMIM IDs, inheritance patterns (autosomal dominant/recessive, X-linked, mitochondrial, multifactorial), and detailed genetic parameters including penetrance, age-dependent penetrance tables, homozygous lethality, anticipation, germline mosaicism rate, de novo rates, and population-specific carrier frequencies. Diseases include hereditary breast and ovarian cancer, Lynch syndrome, Huntington's disease, cystic fibrosis, Marfan syndrome, sickle cell disease, and 170+ more." }
+        },
+        {
+            "@type": "Question",
+            "name": "Is there a free pedigree maker for genetic counselling?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Evagene is currently in free alpha access and offers clinical-grade pedigree drawing with standard genetic notation, integrated BRCAPRO, MMRpro, and PancPRO risk models, Mendelian inheritance calculators, AI-powered clinical interpretation, a 180+ disease catalog, GEDCOM import/export, and 23andMe data import — all in a browser with no installation required. You can join the waiting list at evagene.com." }
+        },
+        {
+            "@type": "Question",
+            "name": "How do I create a pedigree for a genetics class?",
+            "acceptedAnswer": { "@type": "Answer", "text": "For genetics education, you can use Evagene to draw pedigrees using standard notation (circles for females, squares for males, filled symbols for affected individuals). Evagene includes 220+ built-in educational guides covering introductory, intermediate, and advanced genetics topics, 180+ disease-specific guides, and interactive tools for exploring Mendelian inheritance, consanguinity, and risk analysis. Educators and students can use gesture drawing to quickly create pedigrees on the HTML5 canvas, then annotate them with diseases and run inheritance models to demonstrate genetic principles." }
+        },
+        {
+            "@type": "Question",
+            "name": "What is PancPRO and how does Evagene use it?",
+            "acceptedAnswer": { "@type": "Answer", "text": "PancPRO is a Bayesian risk model from the BayesMendel R package that estimates the probability of hereditary pancreatic cancer based on family pedigree data. It analyses the pattern of pancreatic cancer diagnoses across family members to calculate carrier probabilities and future risk projections. Evagene integrates PancPRO alongside BRCAPRO and MMRpro, allowing clinicians to run all three cancer risk models from the same pedigree canvas." }
+        },
+        {
+            "@type": "Question",
+            "name": "Can Evagene generate clinical reports from a pedigree?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Evagene generates four types of reports: patient-friendly reports in plain language, clinical reports with technical detail, carrier probability reports from risk model results, and AI-powered clinical interpretation reports that analyse the pedigree structure, genetic findings, inheritance patterns, and identified risks. It also includes a pedigree description engine that produces structured English-language narratives of the family structure and genetic findings." }
+        },
+        {
+            "@type": "Question",
+            "name": "What formats can Evagene export pedigrees to?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Evagene exports pedigrees to multiple formats: JSON (full data snapshot), GEDCOM 5.5.1 (genealogy interchange), PNG (raster image at 1x to 4x scale), SVG (vector graphics), and PDF (A4, A3, Letter, or Legal paper sizes in portrait or landscape orientation). For import, Evagene supports JSON, GEDCOM, 23andMe raw data files, XEG (legacy format), and pedigree images via OCR." }
+        },
+        {
+            "@type": "Question",
+            "name": "How does Evagene handle twin pedigrees?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Evagene supports twin documentation in pedigrees using standard genetic notation. Twin groups are created by drawing chevron shapes between siblings on the canvas. Monozygotic (identical) twins are indicated by adding a horizontal bar connecting the twin lines. Dizygotic (fraternal) twins show diverging lines without the connecting bar. Twin status is preserved in GEDCOM export for interoperability with genealogy software." }
+        },
+        {
+            "@type": "Question",
+            "name": "What is differential diagnosis mode in Evagene?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Differential diagnosis mode in Evagene analyses cases where affected siblings are born to unaffected parents. It generates hypotheses including reduced penetrance in a parent, gonadal mosaicism, new (de novo) mutation, and autosomal recessive inheritance. Each hypothesis is assigned a posterior probability based on the disease parameters and family structure, and weighted recurrence risks are calculated to inform genetic counselling." }
+        },
+        {
+            "@type": "Question",
+            "name": "Is Evagene suitable for genealogy research?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Evagene supports genealogy research with GEDCOM 5.5.1 import and export for compatibility with Ancestry, FamilySearch, Gramps, and other genealogy software. It includes rich family data capture (names, dates, events, relationships, notes), multi-generation support, automatic consanguinity detection, twin documentation, 23andMe data import for genetic analysis, and ancestry proportion recording. Genealogists can also use the 180+ disease catalog and genetic risk models to explore health patterns in their family trees." }
+        },
+        {
+            "@type": "Question",
+            "name": "How does Evagene's gesture-based pedigree drawing work?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Evagene uses freehand gesture recognition on an HTML5 canvas. Draw a circle to create a female, a square for a male, a diamond for unknown sex, or a triangle for a miscarriage. Draw a horizontal line between two individuals to create a relationship, and draw a line from a relationship down to an individual to establish parentage. The system recognises your gestures and renders them as properly spaced, aligned clinical pedigree symbols with standard notation. Keyboard shortcuts (m/f/u for individuals, p for partner, d for disease) provide a faster alternative." }
+        },
+        {
+            "@type": "Question",
+            "name": "What is the BayesMendel package and how does Evagene integrate it?",
+            "acceptedAnswer": { "@type": "Answer", "text": "BayesMendel is an R statistical package developed at Johns Hopkins and Harvard that implements Bayesian risk prediction models for hereditary cancer syndromes. It includes BRCAPRO (breast and ovarian cancer via BRCA1/BRCA2), MMRpro (colorectal and endometrial cancer via MLH1/MSH2/MSH6 for Lynch syndrome), and PancPRO (pancreatic cancer). Evagene runs BayesMendel as an R sidecar service, automatically translating your pedigree data into the format the models require and returning carrier probabilities and age-specific cumulative risk projections." }
+        },
+        {
+            "@type": "Question",
+            "name": "Can patients use Evagene to understand their family health history?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Evagene is designed for patients and families alongside clinicians. Its gesture-based drawing makes pedigree creation intuitive without clinical training. Patient-friendly reports explain findings in plain language. 23andMe data import lets patients see their genetic markers and inferred traits (blood type, Rh factor, secretor status). Colour-coded disease sectors provide visual clarity, and PNG/SVG/PDF export makes it easy to share pedigrees with healthcare providers. The 220+ built-in guides include patient-oriented genetics education." }
         }
     ]
 }

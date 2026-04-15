@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hereditary Cancer Risk Assessment — BRCAPRO, MMRpro &amp; PancPRO | Evagene</title>
+    <meta name="description" content="Learn how hereditary cancer risk assessment works with BRCAPRO, MMRpro, and PancPRO models from the BayesMendel framework. Understand breast, ovarian, colorectal, and pancreatic cancer genetics, family pedigree analysis, and carrier probability estimation.">
+    <meta name="keywords" content="hereditary cancer risk assessment, BRCAPRO calculator, MMRpro Lynch syndrome, PancPRO, cancer genetics risk, BayesMendel, breast cancer risk from family history, BRCA1, BRCA2, MLH1, MSH2, MSH6, genetic counselling, pedigree analysis, carrier probability">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Hereditary Cancer Risk Assessment — BRCAPRO, MMRpro & PancPRO | Evagene">
+    <meta property="og:description" content="Comprehensive guide to hereditary cancer risk assessment using BRCAPRO, MMRpro, and PancPRO Bayesian risk models. Family pedigree analysis for breast, ovarian, colorectal, and pancreatic cancer genetics.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/hereditary-cancer-risk-assessment">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hereditary Cancer Risk Assessment — BRCAPRO, MMRpro & PancPRO">
+    <meta name="twitter:description" content="Comprehensive guide to hereditary cancer risk assessment using BRCAPRO, MMRpro, and PancPRO Bayesian risk models from the BayesMendel framework.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/hereditary-cancer-risk-assessment">
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50: '#eef3fb', 100: '#d9e4f5', 200: '#b3c9eb', 300: '#8aaddf', 400: '#5e8fd2', 500: '#3b6fb5', 600: '#2f5a94', 700: '#264a7a', 800: '#1e3a5f', 900: '#152a45', 950: '#0d1a2d' },
+                        accent: { 400: '#e85d6f', 500: '#c8102e', 600: '#a60d25' },
+                        clinical: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a' }
+                    },
+                    fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'], display: ['Inter', 'system-ui', 'sans-serif'], mono: ['JetBrains Mono', 'Fira Code', 'monospace'] }
+                }
+            }
+        }
+    </script>
+
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD: Article -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Hereditary Cancer Risk Assessment: Understanding BRCAPRO, MMRpro, and PancPRO",
+        "description": "A comprehensive guide to hereditary cancer risk assessment using BRCAPRO, MMRpro, and PancPRO Bayesian risk models from the BayesMendel framework.",
+        "author": {
+            "@type": "Organization",
+            "name": "Evagene",
+            "url": "https://evagene.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Evagene",
+            "url": "https://evagene.com",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://evagene.com/logo.png"
+            }
+        },
+        "mainEntityOfPage": "https://evagene.com/hereditary-cancer-risk-assessment",
+        "datePublished": "2025-06-01",
+        "dateModified": "2026-04-15",
+        "keywords": ["hereditary cancer risk assessment", "BRCAPRO", "MMRpro", "PancPRO", "BayesMendel", "cancer genetics", "BRCA1", "BRCA2", "Lynch syndrome", "family pedigree"]
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://evagene.com"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Resources",
+                "item": "https://evagene.com/#resources"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Hereditary Cancer Risk Assessment",
+                "item": "https://evagene.com/hereditary-cancer-risk-assessment"
+            }
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is BRCAPRO and how does it calculate cancer risk?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "BRCAPRO is a Bayesian statistical model developed as part of the BayesMendel framework. It estimates the probability that an individual carries a pathogenic variant in the BRCA1 or BRCA2 genes based on their family history of breast and ovarian cancer. The model uses Bayes' theorem to update prior carrier probabilities with likelihood ratios derived from each relative's cancer status, age of diagnosis, and current age. Outputs include carrier probabilities for BRCA1 and BRCA2 independently, as well as cumulative risk of developing breast or ovarian cancer by specific ages."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the difference between hereditary and sporadic cancer?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Hereditary cancers are caused by germline pathogenic variants inherited from a parent. They typically account for 5-10% of all cancers and often present at younger ages, in bilateral organs, or in multiple family members across generations. Sporadic cancers arise from somatic mutations acquired during a person's lifetime and are not passed to offspring. Identifying hereditary cancer is critical because it affects screening protocols, risk-reducing interventions, and cascade testing of at-risk relatives."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is Lynch syndrome and how does MMRpro detect it?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Lynch syndrome (historically known as hereditary non-polyposis colorectal cancer, or HNPCC) is an autosomal dominant condition caused by pathogenic variants in DNA mismatch repair genes—primarily MLH1, MSH2, and MSH6. It significantly increases the risk of colorectal, endometrial, ovarian, and other cancers. MMRpro is a Bayesian model that estimates the probability of carrying a pathogenic variant in these genes based on family history of relevant cancers, ages of diagnosis, and tumour marker results such as microsatellite instability and immunohistochemistry."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What does PancPRO calculate?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "PancPRO is a Bayesian risk model within the BayesMendel framework that estimates the probability of carrying a hypothetical pancreatic cancer susceptibility gene based on family history. It calculates the carrier probability and projects the future risk of developing pancreatic cancer. PancPRO uses the same Mendelian transmission principles and Bayesian updating approach as BRCAPRO and MMRpro, incorporating information from multiple relatives including their cancer status, age of onset, and current age or age at death."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why is a family pedigree important for cancer risk assessment?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A family pedigree provides a structured, visual representation of family health history across multiple generations. For cancer risk assessment, it captures essential data points: who was affected, what type of cancer they had, at what age they were diagnosed, and their biological relationships. This information is the primary input for Bayesian risk models such as BRCAPRO, MMRpro, and PancPRO. Without an accurate pedigree, risk calculations may be incomplete or misleading. A well-constructed three-generation pedigree is considered the minimum standard for hereditary cancer evaluation."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What information do I need to collect for a cancer risk assessment?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A thorough cancer risk assessment requires a three-generation family history including: all first-, second-, and third-degree relatives; cancer diagnoses with specific types and ages of onset; bilateral or multiple primary cancers; ages of unaffected relatives (to calculate person-years of observation); ancestry and ethnicity (for population-specific allele frequencies); and any prior genetic testing results or tumour marker data. Both maternal and paternal lineages must be evaluated, as cancer predisposition genes can be inherited from either parent."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does Bayesian updating work in cancer risk models?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Bayesian updating in models like BRCAPRO starts with a prior probability of carrying a pathogenic variant, based on population allele frequencies. Each relative in the pedigree contributes a likelihood ratio—the probability of observing their cancer status given the counselee is a carrier versus a non-carrier. The model uses Mendelian transmission probabilities to propagate genotype information through the pedigree. As more relatives' data are incorporated, the posterior probability is refined. This approach naturally accounts for both affected and unaffected relatives, incomplete penetrance, and variable family structure."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can BayesMendel models account for genetic testing results?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. BRCAPRO can incorporate prior genetic testing results for the counselee or any tested relative, including positive, negative, and variant of uncertain significance results. The model adjusts the likelihood calculation based on the sensitivity and specificity of the test. MMRpro can additionally incorporate tumour marker data such as microsatellite instability (MSI) testing and immunohistochemistry (IHC) results for mismatch repair proteins, which serve as intermediate phenotypes that refine carrier probability estimates."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the BayesMendel framework?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "BayesMendel is a statistical framework and open-source R package developed at Johns Hopkins and Harvard for Mendelian risk prediction. It provides a unified mathematical approach to estimating the probability that an individual carries a pathogenic variant in a disease-associated gene, using family history data and Bayesian analysis. The framework includes BRCAPRO (for BRCA1/BRCA2 and breast/ovarian cancer), MMRpro (for MLH1/MSH2/MSH6 and Lynch syndrome cancers), and PancPRO (for pancreatic cancer susceptibility). Each model shares the same core peeling algorithm for efficient pedigree likelihood computation."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does Evagene integrate with BayesMendel risk models?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Evagene integrates BRCAPRO, MMRpro, and PancPRO through an R sidecar process that runs the BayesMendel package directly. Users draw or import a family pedigree on the Evagene canvas, and with a single click, the system extracts the necessary family history data, formats it for the BayesMendel R functions, and returns carrier probabilities and cumulative cancer risk estimates. Results are displayed alongside the pedigree for clinical interpretation. Evagene also supports batch risk screening across multiple pedigrees and provides Mendelian inheritance models for autosomal dominant, autosomal recessive, and X-linked conditions."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 font-sans antialiased text-gray-700 dark:text-gray-300">
+
+<!-- Navigation -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 transition-colors rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 transition-colors rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 transition-colors rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 transition-colors rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900 transition-colors" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg transition-all duration-200">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="pt-20 pb-2 bg-gray-50 dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-500">
+            <ol class="flex items-center gap-1.5">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300 transition-colors">Home</a></li>
+                <li class="text-gray-400 dark:text-gray-600">/</li>
+                <li><a href="https://evagene.com/#resources" class="hover:text-brand-600 dark:hover:text-brand-300 transition-colors">Resources</a></li>
+                <li class="text-gray-400 dark:text-gray-600">/</li>
+                <li class="text-gray-700 dark:text-gray-300">Cancer Risk Assessment</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<!-- Article -->
+<main class="pt-24 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- H1 -->
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">
+                Hereditary Cancer Risk Assessment: Understanding BRCAPRO, MMRpro, and PancPRO
+            </h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">
+                A detailed guide to Bayesian cancer risk models, family pedigree analysis, and how quantitative genetics informs clinical decision-making in oncology and genetic counselling.
+            </p>
+        </header>
+
+        <!-- Intro -->
+        <div class="prose-section mb-12">
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                Cancer remains one of the leading causes of morbidity and mortality worldwide. While the majority of cancers arise sporadically through accumulated somatic mutations over a lifetime, a meaningful subset&mdash;estimated at 5 to 10 percent of all malignancies&mdash;are driven by inherited germline pathogenic variants that dramatically elevate an individual's lifetime risk. Identifying these hereditary cancer syndromes is one of the most impactful achievements of modern genomic medicine, because it enables targeted screening, risk-reducing interventions, and cascade testing of at-risk family members.
+            </p>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                At the centre of hereditary cancer identification lies a deceptively simple tool: the family history. A carefully constructed multi-generational pedigree, annotated with cancer diagnoses, ages of onset, and biological relationships, provides the raw data that statistical models need to estimate carrier probabilities and future cancer risk. Bayesian risk models such as <strong class="text-gray-900 dark:text-white">BRCAPRO</strong>, <strong class="text-gray-900 dark:text-white">MMRpro</strong>, and <strong class="text-gray-900 dark:text-white">PancPRO</strong>&mdash;all part of the <strong class="text-gray-900 dark:text-white">BayesMendel</strong> framework&mdash;represent the gold standard for translating family history into actionable, quantitative risk estimates.
+            </p>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                This article provides a comprehensive overview of hereditary cancer risk assessment: what it involves, how these models work, and how modern pedigree software supports the clinical workflow from data collection to risk interpretation.
+            </p>
+        </div>
+
+        <!-- What Is Hereditary Cancer? -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">What Is Hereditary Cancer?</h2>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                Hereditary cancer syndromes are caused by pathogenic variants in tumour suppressor genes or DNA repair genes that are present in every cell of the body from birth. Because these variants are in the germline, they follow Mendelian inheritance patterns and can be transmitted from parent to child with a defined probability&mdash;typically 50 percent for autosomal dominant conditions.
+            </p>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                The distinction between hereditary and sporadic cancer is clinically critical. Sporadic cancers develop through the stepwise accumulation of somatic mutations in a single cell lineage, usually later in life and without a clear familial pattern. Hereditary cancers, by contrast, tend to present with characteristic features: earlier age of onset, bilateral or multifocal tumours, multiple primary cancers in the same individual, and a recognisable pattern of specific cancer types across generations.
+            </p>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                Several high-penetrance genes are central to the most common hereditary cancer syndromes:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2 mb-4 ml-4">
+                <li><strong class="text-gray-900 dark:text-white">BRCA1 and BRCA2</strong> &mdash; Pathogenic variants in these genes confer substantially elevated lifetime risks of breast cancer (up to 70&ndash;80%) and ovarian cancer (up to 40&ndash;45% for BRCA1, 15&ndash;20% for BRCA2). These genes encode proteins essential for homologous recombination repair of double-strand DNA breaks.</li>
+                <li><strong class="text-gray-900 dark:text-white">MLH1, MSH2, and MSH6</strong> &mdash; These mismatch repair (MMR) genes are responsible for Lynch syndrome, the most common hereditary cause of colorectal cancer. Pathogenic variants increase risk for colorectal cancer (up to 80% lifetime risk), endometrial cancer (up to 60%), and several other malignancies including ovarian, gastric, and urinary tract cancers.</li>
+                <li><strong class="text-gray-900 dark:text-white">Other high-penetrance genes</strong> &mdash; TP53 (Li-Fraumeni syndrome), APC (familial adenomatous polyposis), CDKN2A (familial melanoma and pancreatic cancer), STK11 (Peutz-Jeghers syndrome), and PALB2 (breast and pancreatic cancer) are among the growing list of genes with established clinical actionability.</li>
+            </ul>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                The inheritance pattern for most of these syndromes is autosomal dominant with incomplete penetrance. This means that carrying one copy of the pathogenic variant is sufficient to increase cancer risk substantially, but not every carrier will develop cancer. Penetrance&mdash;the probability of developing the disease given a pathogenic genotype&mdash;varies by gene, specific variant, sex, and modifier genes. This variability is precisely why Bayesian risk models, which account for penetrance functions and family structure, are essential for accurate risk estimation.
+            </p>
+        </section>
+
+        <!-- The Role of Family Pedigrees -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">The Role of Family Pedigrees in Cancer Risk Assessment</h2>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                The family pedigree is the foundational data structure for hereditary cancer risk assessment. It is far more than a diagram: it is a systematic encoding of biological relationships, phenotypic information, and temporal data that risk models require for their calculations. A well-constructed pedigree allows clinicians and genetic counsellors to visually identify inheritance patterns, flag individuals at elevated risk, and determine which quantitative models to run.
+            </p>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                For a pedigree to serve as reliable input for models like BRCAPRO, MMRpro, and PancPRO, it must capture several categories of information:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2 mb-4 ml-4">
+                <li><strong class="text-gray-900 dark:text-white">Family structure</strong> &mdash; All first-, second-, and third-degree relatives on both maternal and paternal sides. This includes parents, siblings, children, grandparents, aunts, uncles, and first cousins. The more complete the pedigree, the more informative the risk calculation.</li>
+                <li><strong class="text-gray-900 dark:text-white">Cancer diagnoses</strong> &mdash; Specific cancer types for each affected individual, not simply "cancer." The distinction between, for example, breast and ovarian cancer is critical for BRCAPRO, just as the distinction between colorectal and endometrial cancer matters for MMRpro.</li>
+                <li><strong class="text-gray-900 dark:text-white">Ages of diagnosis</strong> &mdash; Early-onset cancers carry substantially more weight in risk models because they are more likely to reflect an underlying germline variant. A breast cancer diagnosis at age 35 is far more informative than one at age 72.</li>
+                <li><strong class="text-gray-900 dark:text-white">Current ages of unaffected relatives</strong> &mdash; Unaffected relatives contribute to the risk calculation by providing person-years of observation. A family with many unaffected elderly women is less likely to harbour a BRCA variant than a small family where the absence of cancer may simply reflect limited observation.</li>
+                <li><strong class="text-gray-900 dark:text-white">Vital status and age at death</strong> &mdash; For deceased relatives, the age at death and cause of death help models determine the observation window during which cancer could have been diagnosed.</li>
+                <li><strong class="text-gray-900 dark:text-white">Prior genetic testing results</strong> &mdash; If any family members have undergone genetic testing, these results can be incorporated into the model to refine carrier probability estimates.</li>
+                <li><strong class="text-gray-900 dark:text-white">Ethnicity and ancestry</strong> &mdash; Population-specific allele frequencies affect prior probabilities. For example, Ashkenazi Jewish populations have significantly higher carrier frequencies for specific BRCA1 and BRCA2 founder variants.</li>
+            </ul>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                Professional guidelines from organisations such as the National Comprehensive Cancer Network (NCCN) and the American College of Medical Genetics and Genomics (ACMG) recommend a minimum three-generation pedigree for hereditary cancer evaluation. Importantly, cancer predisposition genes can be inherited from either parent, so both lineages must be evaluated even when the family history appears to cluster on one side.
+            </p>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                Pedigree construction has traditionally been a manual process&mdash;drawn on paper or assembled in standalone desktop applications. Modern <a href="pedigree-drawing-software.html" class="text-brand-600 dark:text-brand-400 hover:underline font-medium">pedigree drawing software</a> has transformed this workflow by providing structured data entry, standard genetic notation, and direct integration with risk models, eliminating the need to manually re-enter family history data into separate calculators.
+            </p>
+        </section>
+
+        <!-- Understanding BRCAPRO -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Understanding BRCAPRO</h2>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                BRCAPRO is the most widely used and extensively validated Bayesian risk model for estimating the probability that an individual carries a pathogenic variant in <strong class="text-gray-900 dark:text-white">BRCA1</strong> or <strong class="text-gray-900 dark:text-white">BRCA2</strong>. Developed as part of the BayesMendel framework at Johns Hopkins and Harvard, it has been cited in thousands of research publications and is recommended in clinical guidelines worldwide.
+            </p>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 mt-6">What BRCAPRO Calculates</h3>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                BRCAPRO produces two primary categories of output. First, it estimates the <strong class="text-gray-900 dark:text-white">posterior carrier probability</strong>: the probability that the counselee carries a pathogenic variant in BRCA1, in BRCA2, or in either gene. These probabilities are independent and sum to less than one (the remainder being the probability of carrying no pathogenic variant in either gene). Second, BRCAPRO calculates <strong class="text-gray-900 dark:text-white">cumulative cancer risk</strong> projections: the probability of developing breast cancer or ovarian cancer by specific ages (e.g., by age 50, 60, 70, or 80), conditional on the estimated carrier status.
+            </p>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 mt-6">How Bayesian Updating Works</h3>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                The mathematical foundation of BRCAPRO is Bayes' theorem, which provides a principled framework for updating beliefs in light of new evidence. The model begins with <strong class="text-gray-900 dark:text-white">prior probabilities</strong> derived from population-specific allele frequencies for BRCA1 and BRCA2 pathogenic variants. For a general European population, the combined carrier frequency is approximately 1 in 400; for Ashkenazi Jewish populations, it is approximately 1 in 40 owing to three common founder variants.
+            </p>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                Each relative in the pedigree contributes a <strong class="text-gray-900 dark:text-white">likelihood ratio</strong> that quantifies how much more (or less) likely their phenotype is if the counselee is a carrier versus a non-carrier. Affected relatives with early-onset breast or ovarian cancer generate high likelihood ratios that increase the posterior carrier probability. Unaffected elderly relatives generate likelihood ratios less than one, pulling the estimate downward by providing evidence against the presence of a high-penetrance variant in the family.
+            </p>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                The model uses <strong class="text-gray-900 dark:text-white">Mendelian transmission probabilities</strong> to propagate genotype information through the pedigree. For each relative, the model considers all possible genotype configurations consistent with the family structure and weights them by their probability. This is computationally achieved through the Elston-Stewart peeling algorithm, which efficiently traverses the pedigree tree without enumerating all possible joint genotype configurations explicitly.
+            </p>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 mt-6">Required Inputs</h3>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                BRCAPRO requires the following data for each individual in the pedigree: sex, relationship to the counselee, breast cancer status and age of diagnosis (if affected), ovarian cancer status and age of diagnosis (if affected), current age (if alive and unaffected), age at death (if deceased), and any prior BRCA genetic testing results. The model also accepts information about bilateral breast cancer, male breast cancer (a strong indicator of BRCA2), and contralateral breast cancer. Ethnicity is used to select the appropriate prior allele frequencies and penetrance functions.
+            </p>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 mt-6">Clinical Utility</h3>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                BRCAPRO results directly inform clinical decisions. A carrier probability above a defined threshold (commonly 10% or greater) may trigger a recommendation for genetic testing. The cumulative risk projections guide screening intensity&mdash;for example, whether to recommend annual breast MRI in addition to mammography&mdash;and inform discussions about risk-reducing mastectomy or oophorectomy. Importantly, BRCAPRO provides a quantitative basis for these decisions, moving beyond qualitative pattern recognition to evidence-based risk stratification.
+            </p>
+        </section>
+
+        <!-- Understanding MMRpro -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Understanding MMRpro and Lynch Syndrome Screening</h2>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                MMRpro extends the BayesMendel framework to address <strong class="text-gray-900 dark:text-white">Lynch syndrome</strong>, previously known as hereditary non-polyposis colorectal cancer (HNPCC). Lynch syndrome is the most common hereditary predisposition to colorectal cancer and is caused by pathogenic variants in the DNA mismatch repair genes <strong class="text-gray-900 dark:text-white">MLH1</strong>, <strong class="text-gray-900 dark:text-white">MSH2</strong>, and <strong class="text-gray-900 dark:text-white">MSH6</strong>.
+            </p>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                Like BRCAPRO, MMRpro is a Bayesian model that computes carrier probabilities and cumulative cancer risks based on family history. However, it addresses a broader spectrum of cancers. Individuals with Lynch syndrome face elevated risks of colorectal cancer (up to 80% lifetime risk depending on the gene), endometrial cancer (up to 60% for MLH1 and MSH2 carriers), and moderate increases in risk for ovarian, gastric, urinary tract, hepatobiliary, small bowel, and brain cancers.
+            </p>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 mt-6">Tumour Marker Integration</h3>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                A distinguishing feature of MMRpro is its ability to incorporate <strong class="text-gray-900 dark:text-white">tumour marker data</strong> as intermediate phenotypes. Microsatellite instability (MSI) testing and immunohistochemistry (IHC) for mismatch repair proteins are routinely performed on colorectal and endometrial tumour specimens. These results provide direct evidence about whether a tumour's mismatch repair machinery is intact. MMRpro uses this information as an additional likelihood layer, substantially refining the carrier probability estimate beyond what family history alone can achieve.
+            </p>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                For example, a colorectal cancer specimen showing high microsatellite instability (MSI-H) and loss of MSH2 protein expression on IHC strongly suggests a germline MSH2 pathogenic variant. Conversely, a microsatellite-stable tumour significantly reduces the likelihood of Lynch syndrome.
+            </p>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 mt-6">Clinical Context</h3>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                Lynch syndrome detection has important implications beyond the index patient. First-degree relatives of confirmed carriers should be offered cascade genetic testing. Those who test positive benefit from enhanced surveillance protocols, including colonoscopy every one to two years starting at age 20 to 25, and consideration of risk-reducing hysterectomy and bilateral salpingo-oophorectomy for women who have completed childbearing.
+            </p>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                Historically, Lynch syndrome was identified using clinical criteria such as the Amsterdam II criteria or the revised Bethesda guidelines. While these criteria remain useful for initial triage, they have limited sensitivity and miss a substantial proportion of carriers. MMRpro provides a more nuanced, quantitative approach that accounts for the full family structure, ages of diagnosis, and tumour marker data, resulting in higher sensitivity for identifying at-risk families.
+            </p>
+        </section>
+
+        <!-- Understanding PancPRO -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Understanding PancPRO</h2>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                Pancreatic cancer carries one of the poorest prognoses of any solid malignancy, with five-year survival rates below 12 percent. Its insidious presentation and rapid progression make early detection and risk stratification especially valuable. While most pancreatic cancers are sporadic, approximately 5 to 10 percent of cases occur in families with a recognisable hereditary pattern.
+            </p>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                <strong class="text-gray-900 dark:text-white">PancPRO</strong> is the BayesMendel model designed to assess familial pancreatic cancer risk. It uses the same Bayesian peeling algorithm as BRCAPRO and MMRpro but models a hypothetical autosomal dominant pancreatic cancer susceptibility gene. The model estimates the probability that an individual carries this susceptibility gene based on their family history of pancreatic cancer, and projects their future cumulative risk of developing the disease.
+            </p>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                PancPRO requires the same categories of input as the other BayesMendel models: the pedigree structure, pancreatic cancer diagnoses with ages of onset, current ages of unaffected individuals, and vital status. The model accounts for the fact that pancreatic cancer is relatively rare in the general population (lifetime risk approximately 1.5%), so even a modest family history&mdash;such as two first-degree relatives with pancreatic cancer&mdash;can substantially elevate the estimated carrier probability.
+            </p>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                Individuals identified as high-risk by PancPRO may be candidates for pancreatic cancer surveillance programmes, which typically involve annual endoscopic ultrasound or MRI of the pancreas. Several genes are now known to contribute to familial pancreatic cancer, including BRCA2, PALB2, CDKN2A, ATM, and STK11, and genetic testing panels can complement the PancPRO risk estimate with specific molecular diagnoses.
+            </p>
+        </section>
+
+        <!-- How Evagene Integrates BayesMendel -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">How Evagene Integrates BayesMendel Risk Models</h2>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                Running BRCAPRO, MMRpro, or PancPRO has traditionally required manual data extraction from a pedigree, formatting the input for the BayesMendel R package, executing the analysis in R, and interpreting the tabular output. This workflow is time-consuming, error-prone, and creates a barrier between pedigree construction and risk analysis.
+            </p>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                <a href="https://evagene.com" class="text-brand-600 dark:text-brand-400 hover:underline font-medium">Evagene</a> eliminates this friction by integrating all three BayesMendel models directly into the <a href="pedigree-drawing-software.html" class="text-brand-600 dark:text-brand-400 hover:underline font-medium">pedigree drawing</a> environment. Family history data entered on the pedigree canvas&mdash;cancer diagnoses, ages, relationships, vital status&mdash;is the same data the risk models need. There is no separate data entry step.
+            </p>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                Technically, Evagene connects to the BayesMendel R package through an <strong class="text-gray-900 dark:text-white">R sidecar process</strong>&mdash;a background R runtime that receives structured pedigree data, executes the requested model functions, and returns results to the web interface. This architecture ensures that the risk calculations are performed by the original, validated BayesMendel code rather than a reimplementation, preserving the statistical rigour and published validation of the models.
+            </p>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                From the user's perspective, the workflow is straightforward: draw or import a pedigree, annotate it with clinical data, select which model to run, and view results alongside the pedigree. Carrier probabilities and cumulative risk estimates are displayed in a structured panel that supports clinical interpretation and documentation.
+            </p>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                Evagene also supports <strong class="text-gray-900 dark:text-white">batch risk screening</strong>, enabling clinicians or researchers to run BRCAPRO, MMRpro, or PancPRO across multiple pedigrees in a single operation. This is particularly valuable in research settings or population health programmes where large numbers of families need to be triaged efficiently.
+            </p>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                Pedigree data can be imported and exported using <a href="gedcom-pedigree-software.html" class="text-brand-600 dark:text-brand-400 hover:underline font-medium">GEDCOM format</a>, ensuring interoperability with genealogical databases, other pedigree tools, and institutional health records. This data exchange capability means that family history information collected elsewhere can be brought into Evagene for risk analysis without manual re-entry.
+            </p>
+        </section>
+
+        <!-- Beyond Cancer: Mendelian Risk Models -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Beyond Cancer: Mendelian Risk Models</h2>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                While cancer risk assessment is a primary use case for pedigree-based risk modelling, the underlying mathematics of Mendelian transmission apply to any heritable condition. Evagene extends beyond the BayesMendel cancer models to provide general-purpose <a href="mendelian-inheritance-calculator.html" class="text-brand-600 dark:text-brand-400 hover:underline font-medium">Mendelian inheritance calculators</a> for three inheritance patterns:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2 mb-4 ml-4">
+                <li><strong class="text-gray-900 dark:text-white">Autosomal dominant</strong> &mdash; Conditions where a single pathogenic allele is sufficient to cause or predispose to disease. Examples include Huntington disease, Marfan syndrome, and most hereditary cancer syndromes.</li>
+                <li><strong class="text-gray-900 dark:text-white">Autosomal recessive</strong> &mdash; Conditions requiring two pathogenic alleles (one from each parent), such as cystic fibrosis, sickle cell disease, and phenylketonuria. Carrier detection is important for reproductive counselling.</li>
+                <li><strong class="text-gray-900 dark:text-white">X-linked recessive</strong> &mdash; Conditions caused by pathogenic variants on the X chromosome, predominantly affecting males. Examples include haemophilia A, Duchenne muscular dystrophy, and G6PD deficiency.</li>
+            </ul>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                These models use the family pedigree to calculate carrier probabilities and recurrence risks for individuals and couples, supporting <a href="clinical-genetics-pedigree-tool.html" class="text-brand-600 dark:text-brand-400 hover:underline font-medium">clinical genetics</a> workflows across a broad range of conditions. The same pedigree drawn for cancer risk assessment can be reused for Mendelian analysis without additional data entry.
+            </p>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">Frequently Asked Questions</h2>
+            <div class="space-y-6">
+
+                <div class="border border-gray-200 dark:border-brand-800 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is BRCAPRO and how does it calculate cancer risk?</h3>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        BRCAPRO is a Bayesian statistical model developed as part of the BayesMendel framework. It estimates the probability that an individual carries a pathogenic variant in the BRCA1 or BRCA2 genes based on their family history of breast and ovarian cancer. The model uses Bayes' theorem to update prior carrier probabilities with likelihood ratios derived from each relative's cancer status, age of diagnosis, and current age. Outputs include carrier probabilities for BRCA1 and BRCA2 independently, as well as cumulative risk of developing breast or ovarian cancer by specific ages.
+                    </p>
+                </div>
+
+                <div class="border border-gray-200 dark:border-brand-800 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is the difference between hereditary and sporadic cancer?</h3>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Hereditary cancers are caused by germline pathogenic variants inherited from a parent. They typically account for 5&ndash;10% of all cancers and often present at younger ages, in bilateral organs, or in multiple family members across generations. Sporadic cancers arise from somatic mutations acquired during a person's lifetime and are not passed to offspring. Identifying hereditary cancer is critical because it affects screening protocols, risk-reducing interventions, and cascade testing of at-risk relatives.
+                    </p>
+                </div>
+
+                <div class="border border-gray-200 dark:border-brand-800 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is Lynch syndrome and how does MMRpro detect it?</h3>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Lynch syndrome (historically known as HNPCC) is an autosomal dominant condition caused by pathogenic variants in DNA mismatch repair genes&mdash;primarily MLH1, MSH2, and MSH6. It significantly increases the risk of colorectal, endometrial, ovarian, and other cancers. MMRpro is a Bayesian model that estimates the probability of carrying a pathogenic variant in these genes based on family history of relevant cancers, ages of diagnosis, and tumour marker results such as microsatellite instability and immunohistochemistry.
+                    </p>
+                </div>
+
+                <div class="border border-gray-200 dark:border-brand-800 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What does PancPRO calculate?</h3>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        PancPRO is a Bayesian risk model within the BayesMendel framework that estimates the probability of carrying a hypothetical pancreatic cancer susceptibility gene based on family history. It calculates the carrier probability and projects the future risk of developing pancreatic cancer. PancPRO uses the same Mendelian transmission principles and Bayesian updating approach as BRCAPRO and MMRpro, incorporating information from multiple relatives including their cancer status, age of onset, and current age or age at death.
+                    </p>
+                </div>
+
+                <div class="border border-gray-200 dark:border-brand-800 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Why is a family pedigree important for cancer risk assessment?</h3>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        A family pedigree provides a structured, visual representation of family health history across multiple generations. For cancer risk assessment, it captures essential data points: who was affected, what type of cancer they had, at what age they were diagnosed, and their biological relationships. This information is the primary input for Bayesian risk models such as BRCAPRO, MMRpro, and PancPRO. Without an accurate pedigree, risk calculations may be incomplete or misleading. A well-constructed three-generation pedigree is considered the minimum standard for hereditary cancer evaluation.
+                    </p>
+                </div>
+
+                <div class="border border-gray-200 dark:border-brand-800 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What information do I need to collect for a cancer risk assessment?</h3>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        A thorough cancer risk assessment requires a three-generation family history including: all first-, second-, and third-degree relatives; cancer diagnoses with specific types and ages of onset; bilateral or multiple primary cancers; ages of unaffected relatives (to calculate person-years of observation); ancestry and ethnicity (for population-specific allele frequencies); and any prior genetic testing results or tumour marker data. Both maternal and paternal lineages must be evaluated, as cancer predisposition genes can be inherited from either parent.
+                    </p>
+                </div>
+
+                <div class="border border-gray-200 dark:border-brand-800 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How does Bayesian updating work in cancer risk models?</h3>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Bayesian updating in models like BRCAPRO starts with a prior probability of carrying a pathogenic variant, based on population allele frequencies. Each relative in the pedigree contributes a likelihood ratio&mdash;the probability of observing their cancer status given the counselee is a carrier versus a non-carrier. The model uses Mendelian transmission probabilities to propagate genotype information through the pedigree. As more relatives' data are incorporated, the posterior probability is refined. This approach naturally accounts for both affected and unaffected relatives, incomplete penetrance, and variable family structure.
+                    </p>
+                </div>
+
+                <div class="border border-gray-200 dark:border-brand-800 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can BayesMendel models account for genetic testing results?</h3>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Yes. BRCAPRO can incorporate prior genetic testing results for the counselee or any tested relative, including positive, negative, and variant of uncertain significance results. The model adjusts the likelihood calculation based on the sensitivity and specificity of the test. MMRpro can additionally incorporate tumour marker data such as microsatellite instability (MSI) testing and immunohistochemistry (IHC) results for mismatch repair proteins, which serve as intermediate phenotypes that refine carrier probability estimates.
+                    </p>
+                </div>
+
+                <div class="border border-gray-200 dark:border-brand-800 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is the BayesMendel framework?</h3>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        BayesMendel is a statistical framework and open-source R package developed at Johns Hopkins and Harvard for Mendelian risk prediction. It provides a unified mathematical approach to estimating the probability that an individual carries a pathogenic variant in a disease-associated gene, using family history data and Bayesian analysis. The framework includes BRCAPRO (for BRCA1/BRCA2 and breast/ovarian cancer), MMRpro (for MLH1/MSH2/MSH6 and Lynch syndrome cancers), and PancPRO (for pancreatic cancer susceptibility). Each model shares the same core peeling algorithm for efficient pedigree likelihood computation.
+                    </p>
+                </div>
+
+                <div class="border border-gray-200 dark:border-brand-800 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How does Evagene integrate with BayesMendel risk models?</h3>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Evagene integrates BRCAPRO, MMRpro, and PancPRO through an R sidecar process that runs the BayesMendel package directly. Users draw or import a family pedigree on the Evagene canvas, and with a single click, the system extracts the necessary family history data, formats it for the BayesMendel R functions, and returns carrier probabilities and cumulative cancer risk estimates. Results are displayed alongside the pedigree for clinical interpretation. Evagene also supports batch risk screening across multiple pedigrees and provides Mendelian inheritance models for autosomal dominant, autosomal recessive, and X-linked conditions.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Related Resources -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Related Resources</h2>
+            <div class="grid sm:grid-cols-2 gap-4">
+                <a href="pedigree-drawing-software.html" class="block p-5 rounded-xl border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-600 transition-colors group">
+                    <h3 class="text-base font-semibold text-gray-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors mb-1">Pedigree Drawing Software</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-500">Standard genetic notation, intuitive canvas, and clinical-grade pedigree construction.</p>
+                </a>
+                <a href="gedcom-pedigree-software.html" class="block p-5 rounded-xl border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-600 transition-colors group">
+                    <h3 class="text-base font-semibold text-gray-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors mb-1">GEDCOM &amp; Genealogy Integration</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-500">Import and export family data with universal GEDCOM interoperability.</p>
+                </a>
+                <a href="clinical-genetics-pedigree-tool.html" class="block p-5 rounded-xl border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-600 transition-colors group">
+                    <h3 class="text-base font-semibold text-gray-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors mb-1">Clinical Genetics Pedigree Tool</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-500">Built for clinicians and genetic counsellors with a 180+ disease catalogue.</p>
+                </a>
+                <a href="mendelian-inheritance-calculator.html" class="block p-5 rounded-xl border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-600 transition-colors group">
+                    <h3 class="text-base font-semibold text-gray-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors mb-1">Mendelian Inheritance Calculator</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-500">Autosomal dominant, autosomal recessive, and X-linked carrier probability models.</p>
+                </a>
+            </div>
+        </section>
+
+    </article>
+</main>
+
+<!-- CTA Section -->
+<section class="bg-brand-50 dark:bg-brand-900/30 py-16">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Run BRCAPRO, MMRpro, and PancPRO from Your Pedigree</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
+            Evagene integrates BayesMendel cancer risk models directly into the pedigree canvas. Draw, annotate, and analyse&mdash;all in one place. Join the alpha waiting list to get early access.
+        </p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-3.5 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-brand-600/25">
+            Join Evagene Alpha
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<!-- Dark Mode Toggle -->
+<script>
+(function() {
+    'use strict';
+    const html = document.documentElement;
+    const themeToggle = document.getElementById('theme-toggle');
+    const sunIcon = document.getElementById('sun-icon');
+    const moonIcon = document.getElementById('moon-icon');
+    function setTheme(dark) {
+        html.classList.toggle('dark', dark);
+        sunIcon.classList.toggle('hidden', !dark);
+        moonIcon.classList.toggle('hidden', dark);
+        localStorage.setItem('evagene-theme', dark ? 'dark' : 'light');
+    }
+    const saved = localStorage.getItem('evagene-theme');
+    if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) setTheme(true);
+    themeToggle.addEventListener('click', () => setTheme(!html.classList.contains('dark')));
+})();
+</script>
+
+</body>
+</html>
