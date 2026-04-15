@@ -633,7 +633,7 @@
         </div>
         <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
-            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
         </div>
     </div>
 </footer>
@@ -655,6 +655,47 @@
     const saved = localStorage.getItem('evagene-theme');
     if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) setTheme(true);
     themeToggle.addEventListener('click', () => setTheme(!html.classList.contains('dark')));
+})();
+</script>
+
+<!-- Cookie Consent Banner -->
+<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-[100] hidden">
+    <div class="bg-gray-900 dark:bg-black border-t border-gray-700 dark:border-gray-800 shadow-2xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-5">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                <div class="flex-1 text-sm text-gray-300 leading-relaxed">
+                    <p>We use cookies to analyse site traffic and improve your experience. See our <a href="https://evagene.com/privacy-policy.html" class="text-brand-400 hover:text-brand-300 underline">Privacy Policy</a> for details.</p>
+                </div>
+                <div class="flex items-center gap-3 shrink-0">
+                    <button id="cookie-reject" class="px-4 py-2 text-sm font-medium text-gray-400 hover:text-white border border-gray-600 hover:border-gray-400 rounded-lg transition-colors">Reject All</button>
+                    <button id="cookie-accept" class="px-5 py-2 text-sm font-semibold text-white bg-brand-600 hover:bg-brand-700 rounded-lg transition-colors">Accept All</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+(function() {
+    var CONSENT_KEY = 'evagene-cookie-consent';
+    var banner = document.getElementById('cookie-banner');
+    var consent = localStorage.getItem(CONSENT_KEY);
+    function loadAnalytics() {
+        var s = document.createElement('script'); s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-8GQLEPQ47C';
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date()); gtag('config', 'G-8GQLEPQ47C');
+        (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,'clarity','script','wc26ock5ta');
+    }
+    if (consent === 'accepted') loadAnalytics();
+    else if (consent !== 'rejected') banner.classList.remove('hidden');
+    document.getElementById('cookie-accept').addEventListener('click', function() {
+        localStorage.setItem(CONSENT_KEY, 'accepted'); banner.classList.add('hidden'); loadAnalytics();
+    });
+    document.getElementById('cookie-reject').addEventListener('click', function() {
+        localStorage.setItem(CONSENT_KEY, 'rejected'); banner.classList.add('hidden');
+    });
 })();
 </script>
 

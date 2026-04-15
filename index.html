@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQLEPQ47C"></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8GQLEPQ47C');</script>
-    <!-- Microsoft Clarity -->
-    <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wc26ock5ta");</script>
+    <!-- Analytics are loaded ONLY after cookie consent — see loadAnalytics() in the consent banner script -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evagene — Clinical-Grade Pedigree Management for Precision Medicine</title>
@@ -286,17 +282,7 @@
         .risk-loading.active { opacity: 1; }
     </style>
 
-    <!-- EngageBay Tracking -->
-    <script type="text/javascript">
-    var EhAPI = EhAPI || {}; EhAPI.after_load = function(){
-        EhAPI.set_account('ro2mo08bbuj75m8i04puevk2su', 'evagene');
-        EhAPI.execute('rules');
-    };(function(d,s,f) {
-        var sc=document.createElement(s);sc.type='text/javascript';
-        sc.async=true;sc.src=f;var m=document.getElementsByTagName(s)[0];
-        m.parentNode.insertBefore(sc,m);
-    })(document, 'script', '//d2p078bqz5urf7.cloudfront.net/jsapi/ehform.js?v' + new Date().getHours());
-    </script>
+    <!-- EngageBay tracking is loaded ONLY after cookie consent — see loadAnalytics() -->
 </head>
 
 <body class="bg-white dark:bg-brand-950 text-gray-800 dark:text-gray-200 font-sans antialiased transition-colors duration-300">
@@ -1059,6 +1045,10 @@ END TESTIMONIALS -->
                 <div><label for="wl-usecase" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">What excites you most about Evagene?</label><textarea id="wl-usecase" name="usecase" rows="3" placeholder="e.g., Running BRCAPRO directly from pedigrees, GEDCOM import for my genealogy research..." class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-brand-700 bg-white dark:bg-brand-900 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors text-sm resize-none"></textarea></div>
                 <div><label for="wl-org" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Institution / Organisation <span class="text-gray-400 font-normal">(optional)</span></label><input type="text" id="wl-org" name="organisation" placeholder="University Hospital, Research Institute..." class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-brand-700 bg-white dark:bg-brand-900 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors text-sm"></div>
                 <div><label for="wl-country" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Country <span class="text-gray-400 font-normal">(optional)</span></label><input type="text" id="wl-country" name="country" placeholder="e.g., United Kingdom, Australia..." class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-brand-700 bg-white dark:bg-brand-900 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors text-sm"></div>
+                <div class="flex items-start gap-3">
+                    <input type="checkbox" id="wl-consent" name="consent" required class="mt-1 h-4 w-4 rounded border-gray-300 dark:border-brand-700 text-brand-600 focus:ring-brand-500 shrink-0">
+                    <label for="wl-consent" class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">I agree to the <a href="privacy-policy.html" class="text-brand-600 dark:text-brand-400 hover:underline">Privacy Policy</a> and consent to Evagene storing my information to contact me about the alpha programme. <span class="text-accent-500">*</span></label>
+                </div>
                 <button type="submit" id="wl-submit-btn" class="w-full py-3.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-lg transition-all duration-200 text-base cta-glow flex items-center justify-center gap-2">
                     <span id="wl-submit-text">Join the Waiting List</span>
                     <svg id="wl-spinner" class="w-5 h-5 spinner hidden" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
@@ -1102,7 +1092,7 @@ END TESTIMONIALS -->
         </div>
         <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
-            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="#" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="#" class="hover:text-gray-400 transition-colors">Contact</a></div>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
         </div>
     </div>
 </footer>
@@ -1211,7 +1201,9 @@ END TESTIMONIALS -->
         const name = document.getElementById('wl-name').value.trim();
         const email = document.getElementById('wl-email').value.trim();
         const role = document.getElementById('wl-role').value;
+        const consentBox = document.getElementById('wl-consent');
         if (!name || !email || !role) return;
+        if (!consentBox.checked) { consentBox.focus(); return; }
         const btn = document.getElementById('wl-submit-btn');
         const btnText = document.getElementById('wl-submit-text');
         const btnSpinner = document.getElementById('wl-spinner');
@@ -1450,6 +1442,87 @@ END TESTIMONIALS -->
         }
     ]
 }
+</script>
+
+<!-- ==================== COOKIE CONSENT BANNER ==================== -->
+<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-[100] hidden">
+    <div class="bg-gray-900 dark:bg-black border-t border-gray-700 dark:border-gray-800 shadow-2xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-5">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                <div class="flex-1 text-sm text-gray-300 leading-relaxed">
+                    <p>We use cookies and similar technologies to analyse site traffic and improve your experience. Analytics cookies (Google Analytics, Microsoft Clarity) and marketing tools (EngageBay) are only activated with your consent. See our <a href="privacy-policy.html" class="text-brand-400 hover:text-brand-300 underline">Privacy Policy</a> for details.</p>
+                </div>
+                <div class="flex items-center gap-3 shrink-0">
+                    <button id="cookie-reject" class="px-4 py-2 text-sm font-medium text-gray-400 hover:text-white border border-gray-600 hover:border-gray-400 rounded-lg transition-colors">
+                        Reject All
+                    </button>
+                    <button id="cookie-accept" class="px-5 py-2 text-sm font-semibold text-white bg-brand-600 hover:bg-brand-700 rounded-lg transition-colors">
+                        Accept All
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    'use strict';
+
+    // ====== COOKIE CONSENT ======
+    var CONSENT_KEY = 'evagene-cookie-consent';
+    var banner = document.getElementById('cookie-banner');
+    var consent = localStorage.getItem(CONSENT_KEY);
+
+    function loadAnalytics() {
+        // Google Analytics
+        var gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-8GQLEPQ47C';
+        document.head.appendChild(gaScript);
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-8GQLEPQ47C');
+
+        // Microsoft Clarity
+        (function(c,l,a,r,i,t,y) {
+            c[a] = c[a] || function() { (c[a].q = c[a].q || []).push(arguments); };
+            t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, 'clarity', 'script', 'wc26ock5ta');
+
+        // EngageBay tracking
+        var EhAPI = window.EhAPI || {};
+        EhAPI.after_load = function() {
+            EhAPI.set_account('ro2mo08bbuj75m8i04puevk2su', 'evagene');
+            EhAPI.execute('rules');
+        };
+        window.EhAPI = EhAPI;
+        var ebScript = document.createElement('script');
+        ebScript.async = true;
+        ebScript.src = '//d2p078bqz5urf7.cloudfront.net/jsapi/ehform.js?v' + new Date().getHours();
+        document.head.appendChild(ebScript);
+    }
+
+    if (consent === 'accepted') {
+        loadAnalytics();
+    } else if (consent !== 'rejected') {
+        // No choice yet — show banner
+        banner.classList.remove('hidden');
+    }
+
+    document.getElementById('cookie-accept').addEventListener('click', function() {
+        localStorage.setItem(CONSENT_KEY, 'accepted');
+        banner.classList.add('hidden');
+        loadAnalytics();
+    });
+
+    document.getElementById('cookie-reject').addEventListener('click', function() {
+        localStorage.setItem(CONSENT_KEY, 'rejected');
+        banner.classList.add('hidden');
+    });
+})();
 </script>
 </body>
 </html>
