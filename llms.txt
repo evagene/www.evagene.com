@@ -57,6 +57,19 @@ Comprehensive documentation is available at https://evagene.net/help covering:
 - Disease, allergy, trait, clinical test, and intervention catalogues
 - Keyboard shortcut reference
 
+## Platform & Integrations
+
+Evagene includes a platform layer for programmatic access and third-party integration:
+
+- REST API with scoped, rate-limited API keys (format: evg_<43 chars>, SHA-256 hashed at rest, read/write/analyse scopes)
+- Bring Your Own Key (BYOK) LLM support for Anthropic (Claude) and OpenAI (GPT), encrypted at rest with Fernet
+- Webhooks with HMAC-SHA256 signed payloads for 8 event types (pedigree/individual CRUD, analysis completed, import completed)
+- Analysis Templates: reusable custom AI prompt templates with variable injection ({{pedigree_description}}, {{proband_name}}, etc.)
+- MCP Server: 11 pedigree tools via the Model Context Protocol for Claude Desktop, Claude Code, and other AI agents
+- Embeddable Pedigree Viewer: iframe, raw SVG, or JavaScript snippet for patient portals, research dashboards, and EHR integration
+
+Full platform documentation: https://evagene.net/help/platform_overview
+
 ## Topic Guides
 
 - [Pedigree Drawing Software](https://evagene.com/pedigree-drawing-software.html) — Complete guide to pedigree drawing, standard notation, and pedigree software comparison
@@ -64,6 +77,7 @@ Comprehensive documentation is available at https://evagene.net/help covering:
 - [GEDCOM & Genealogy](https://evagene.com/gedcom-pedigree-software.html) — GEDCOM import/export, 23andMe integration, and genealogy interoperability
 - [Clinical Genetics Pedigree Tool](https://evagene.com/clinical-genetics-pedigree-tool.html) — Pedigree software for clinical geneticists and genetic counsellors
 - [Mendelian Inheritance Calculator](https://evagene.com/mendelian-inheritance-calculator.html) — Autosomal dominant, autosomal recessive, and X-linked inheritance models
+- [Platform & Integrations](https://evagene.com/platform.html) — API keys, BYOK LLM, webhooks, analysis templates, MCP server, embeddable viewer
 
 ## Optional
 

@@ -167,6 +167,32 @@ GEDCOM 5.5.1 import/export for Ancestry, FamilySearch, Gramps compatibility. Ric
 
 ---
 
+## Platform & Integrations
+
+Evagene includes a platform layer that turns pedigree intelligence into infrastructure for external systems and AI agents.
+
+### API Keys
+Long-lived, scoped, rate-limited keys for programmatic access to the full REST API. Format: evg_<43 characters> (256-bit entropy). SHA-256 hashed at rest. Three scopes: read, write, analyse (write and analyse imply read). Configurable per-minute (default 60) and per-day (default 10,000) rate limits with sliding window enforcement. Maximum 20 keys per user. Optional expiry dates. Authentication via X-API-Key header or ?api_key= query parameter.
+
+### Bring Your Own Key (BYOK) LLM
+Users can supply their own Anthropic (Claude) or OpenAI (GPT) API key for all AI interpretation and template execution. Supported providers: Anthropic (default model claude-sonnet-4-20250514) and OpenAI (default model gpt-4o). Keys are encrypted at rest using Fernet (AES-128-CBC + HMAC-SHA256), keyed from the server's JWT secret. When configured, BYOK bypasses the standard rolling 24-hour quota. Users can override the default model to use any model their provider supports.
+
+### Webhooks
+Push HMAC-SHA256 signed HTTP POST notifications when pedigree data changes. Eight event types: pedigree.created, pedigree.updated, pedigree.deleted, individual.created, individual.updated, individual.deleted, analysis.completed, import.completed. Each webhook has a unique secret for signature verification. Payloads include X-Evagene-Event, X-Evagene-Signature-256, and X-Evagene-Delivery headers. Maximum 20 webhooks per user. Delivery history tracks the last 20 attempts per webhook.
+
+### Analysis Templates
+Reusable custom AI prompt templates with variable injection. Templates have a system prompt (AI role) and a user prompt template with placeholders: {{pedigree_description}}, {{proband_name}}, {{proband_sex}}, {{disease_list}}, {{risk_summary}}. Variables are replaced with computed values at execution time. Templates can be shared publicly. Maximum 50 per user. Execution uses BYOK key or server default (subject to quota).
+
+### MCP Server (Model Context Protocol)
+Stdio-mode MCP server exposing 11 pedigree tools to AI agents: list_pedigrees, get_pedigree, create_pedigree, add_individual, update_individual, add_relationship, add_offspring, describe_pedigree, get_pedigree_summary, export_gedcom, import_gedcom. Authenticated via EVAGENE_API_KEY environment variable. Connects directly to SQLite database (no HTTP roundtrip). Compatible with Claude Desktop, Claude Code, and any MCP-capable client. Changes are immediately visible in the web UI.
+
+### Embeddable Pedigree Viewer
+Drop-in pedigree diagrams for third-party websites via three methods: (1) Full HTML page via iframe at /api/embed/{pedigree_id}, (2) Raw SVG at /api/embed/{pedigree_id}/svg, (3) JavaScript snippet at /api/embed/snippet.js that auto-discovers data-evagene-pedigree attributes. SVG uses standard pedigree notation: square=male, circle=female, diamond=unknown, solid fill=affected, centre dot=carrier, diagonal line=deceased, arrow=proband. Authentication via API key or public pedigree flag. Responsive SVG with viewBox scaling (max 1200x900).
+
+Full platform documentation: https://evagene.net/help/platform_overview
+
+---
+
 ## Help & Documentation
 
 Evagene includes 220+ help guides accessible at https://evagene.net/help:
@@ -246,6 +272,7 @@ Evagene publishes in-depth educational guides on its website:
 - [GEDCOM & Genealogy](https://evagene.com/gedcom-pedigree-software.html) — GEDCOM 5.5.1 import/export, 23andMe data integration, and bridging genealogy with clinical genetics
 - [Clinical Genetics Pedigree Tool](https://evagene.com/clinical-genetics-pedigree-tool.html) — What clinical geneticists and genetic counsellors need from pedigree software
 - [Mendelian Inheritance Calculator](https://evagene.com/mendelian-inheritance-calculator.html) — Autosomal dominant, autosomal recessive, and X-linked recessive inheritance models with worked examples
+- [Platform & Integrations](https://evagene.com/platform.html) — API keys, BYOK LLM, webhooks, analysis templates, MCP server, and embeddable pedigree viewer
 
 ---
 

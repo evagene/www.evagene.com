@@ -157,7 +157,13 @@
             "Batch risk screening across all diseases",
             "Linkage analysis with LOD scores",
             "220+ built-in educational guides",
-            "Differential diagnosis mode"
+            "Differential diagnosis mode",
+            "REST API with scoped, rate-limited API keys",
+            "Bring Your Own Key (BYOK) LLM integration for Anthropic and OpenAI",
+            "Webhooks with HMAC-SHA256 signed payloads for EHR/LIMS integration",
+            "Custom AI analysis templates with variable injection",
+            "MCP server for AI agent access via the Model Context Protocol",
+            "Embeddable pedigree viewer (iframe, SVG, JavaScript snippet)"
         ],
         "screenshot": "https://evagene.com/og-image.png",
         "offers": {
@@ -300,6 +306,7 @@
                 <a href="#who-its-for" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 transition-colors rounded-lg">Who It's For</a>
                 <a href="#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 transition-colors rounded-lg">Risk Analysis</a>
                 <a href="#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 transition-colors rounded-lg">Data Exchange</a>
+                <a href="#platform" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 transition-colors rounded-lg">Platform</a>
                 <a href="#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 transition-colors rounded-lg">Resources</a>
             </div>
             <div class="flex items-center gap-3">
@@ -323,6 +330,7 @@
             <a href="#who-its-for" class="mobile-nav-link block px-3 py-2.5 text-base font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 rounded-lg">Who It's For</a>
             <a href="#risk-analysis" class="mobile-nav-link block px-3 py-2.5 text-base font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 rounded-lg">Risk Analysis</a>
             <a href="#interoperability" class="mobile-nav-link block px-3 py-2.5 text-base font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 rounded-lg">Data Exchange</a>
+            <a href="#platform" class="mobile-nav-link block px-3 py-2.5 text-base font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 rounded-lg">Platform</a>
             <a href="#resources" class="mobile-nav-link block px-3 py-2.5 text-base font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 rounded-lg">Resources</a>
             <a href="#waitlist" class="mobile-nav-link block px-4 py-2.5 mt-2 bg-brand-600 text-white text-center font-semibold rounded-lg">Join Alpha Waiting List</a>
         </div>
@@ -918,6 +926,72 @@
     </div>
 </section>
 
+<!-- ==================== PLATFORM & INTEGRATIONS ==================== -->
+<section id="platform" class="py-20 lg:py-28 relative overflow-hidden bg-brand-950 dark:bg-black">
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full bg-brand-600/10 blur-3xl"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">An open platform, not a closed tool</h2>
+            <p class="text-lg text-brand-200">Build integrations, connect AI agents, push data to external systems, and embed pedigree diagrams in your own applications. Evagene's platform layer turns pedigree intelligence into infrastructure.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <div class="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-brand-400/30 transition-all duration-300 reveal">
+                <div class="w-12 h-12 rounded-xl bg-brand-500/20 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-brand-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-white mb-2">API Keys</h3>
+                <p class="text-sm text-brand-200">Long-lived, scoped, rate-limited keys for programmatic access to the full Evagene API. SHA-256 hashed at rest. Configurable per-minute and per-day limits.</p>
+            </div>
+            <div class="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-brand-400/30 transition-all duration-300 reveal" style="transition-delay:0.05s">
+                <div class="w-12 h-12 rounded-xl bg-clinical-500/20 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-clinical-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-white mb-2">Bring Your Own LLM</h3>
+                <p class="text-sm text-brand-200">Supply your own Anthropic or OpenAI API key for AI analysis. Encrypted at rest with Fernet. No quota limits. Choose your provider and model.</p>
+            </div>
+            <div class="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-brand-400/30 transition-all duration-300 reveal" style="transition-delay:0.1s">
+                <div class="w-12 h-12 rounded-xl bg-accent-500/20 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-white mb-2">Webhooks</h3>
+                <p class="text-sm text-brand-200">Push HMAC-SHA256 signed notifications when pedigrees change. Connect to EHR systems, LIMS, Slack, or any endpoint that accepts HTTP POST.</p>
+            </div>
+            <div class="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-brand-400/30 transition-all duration-300 reveal" style="transition-delay:0.15s">
+                <div class="w-12 h-12 rounded-xl bg-brand-500/20 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-brand-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-white mb-2">Analysis Templates</h3>
+                <p class="text-sm text-brand-200">Reusable custom AI prompt templates with variable injection. Design analyses for pharmacogenomics, reproductive risk, research data extraction, or patient-friendly summaries.</p>
+            </div>
+            <div class="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-brand-400/30 transition-all duration-300 reveal" style="transition-delay:0.2s">
+                <div class="w-12 h-12 rounded-xl bg-clinical-500/20 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-clinical-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-white mb-2">MCP Server</h3>
+                <p class="text-sm text-brand-200">Let AI agents work with pedigrees via the Model Context Protocol. 11 tools for Claude Desktop, custom agents, or any MCP-compatible client. Direct database access, no HTTP overhead.</p>
+            </div>
+            <div class="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-brand-400/30 transition-all duration-300 reveal" style="transition-delay:0.25s">
+                <div class="w-12 h-12 rounded-xl bg-accent-500/20 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-white mb-2">Embeddable Viewer</h3>
+                <p class="text-sm text-brand-200">Drop-in pedigree diagrams for patient portals, research dashboards, or any website. Three embedding modes: iframe, raw SVG, or a JavaScript snippet.</p>
+            </div>
+        </div>
+        <div class="text-center reveal">
+            <a href="platform.html" class="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl transition-all duration-200 border border-white/20 text-sm mr-3">
+                Explore the Platform
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+            <a href="#waitlist" class="inline-flex items-center gap-2 px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl transition-all duration-200 cta-glow text-sm">
+                Request Alpha Access
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+        </div>
+    </div>
+</section>
 
 <!-- TESTIMONIALS — hidden until we have real quotes
 <section class="py-20 lg:py-28">
@@ -1086,7 +1160,7 @@ END TESTIMONIALS -->
                 <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
                 <p class="text-xs text-gray-600">Built with care for precision medicine</p>
             </div>
-            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="#features" class="hover:text-white transition-colors">Features</a></li><li><a href="#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="#resources" class="hover:text-white transition-colors">Resources</a></li><li><a href="https://evagene.net/help" class="hover:text-white transition-colors">Help Centre</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="#features" class="hover:text-white transition-colors">Features</a></li><li><a href="#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="platform.html" class="hover:text-white transition-colors">Platform</a></li><li><a href="#resources" class="hover:text-white transition-colors">Resources</a></li><li><a href="https://evagene.net/help" class="hover:text-white transition-colors">Help Centre</a></li></ul></div>
             <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li></ul></div>
             <div><h4 class="text-sm font-semibold text-white mb-4">For</h4><ul class="space-y-2 text-sm"><li><a href="#who-its-for" class="hover:text-white transition-colors">Clinical Geneticists</a></li><li><a href="#who-its-for" class="hover:text-white transition-colors">Oncologists</a></li><li><a href="#who-its-for" class="hover:text-white transition-colors">Researchers</a></li><li><a href="#who-its-for" class="hover:text-white transition-colors">Patients &amp; Families</a></li><li><a href="#who-its-for" class="hover:text-white transition-colors">Genealogists</a></li></ul></div>
         </div>
@@ -1424,6 +1498,31 @@ END TESTIMONIALS -->
             "@type": "Question",
             "name": "Is Evagene suitable for genealogy research?",
             "acceptedAnswer": { "@type": "Answer", "text": "Yes. Evagene supports genealogy research with GEDCOM 5.5.1 import and export for compatibility with Ancestry, FamilySearch, Gramps, and other genealogy software. It includes rich family data capture (names, dates, events, relationships, notes), multi-generation support, automatic consanguinity detection, twin documentation, 23andMe data import for genetic analysis, and ancestry proportion recording. Genealogists can also use the 180+ disease catalog and genetic risk models to explore health patterns in their family trees." }
+        },
+        {
+            "@type": "Question",
+            "name": "Does Evagene have an API for pedigree data?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Evagene provides a full REST API secured with scoped, rate-limited API keys. Keys use the format evg_<43 characters> and support three permission scopes: read (fetch pedigrees), write (create and modify), and analyse (run AI interpretation and risk models). Keys are SHA-256 hashed at rest and support configurable per-minute and per-day rate limits. The API covers all pedigree operations including creating individuals, managing relationships, running risk models, importing/exporting GEDCOM, and generating pedigree descriptions." }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I connect AI agents to Evagene using MCP?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Evagene includes an MCP (Model Context Protocol) server that exposes 11 pedigree tools to AI agents. Compatible with Claude Desktop, custom agents, and any MCP client. Tools include list_pedigrees, get_pedigree, create_pedigree, add_individual, update_individual, add_relationship, add_offspring, describe_pedigree, get_pedigree_summary, export_gedcom, and import_gedcom. The MCP server authenticates via API key, connects directly to the SQLite database, and runs alongside the web application." }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I embed Evagene pedigree diagrams in my own website?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. The embeddable pedigree viewer supports three modes: a self-contained HTML page via iframe, a raw SVG image endpoint, and a JavaScript snippet that auto-detects data-evagene-pedigree attributes. Pedigrees are rendered as standard SVG with recognised notation (squares for males, circles for females, filled symbols for affected, carrier dots, diagonal lines for deceased). Authentication is via API key or by marking a pedigree as public. The viewer is responsive and suitable for patient portals, research dashboards, and EHR integrations." }
+        },
+        {
+            "@type": "Question",
+            "name": "Does Evagene support webhooks for EHR integration?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Evagene supports webhooks that send HMAC-SHA256 signed HTTP POST notifications when pedigree data changes. Supported events include pedigree.created, pedigree.updated, pedigree.deleted, individual.created, individual.updated, individual.deleted, analysis.completed, and import.completed. Each webhook has a unique secret for signature verification. This enables integration with EHR systems, LIMS, Slack, and other external systems that need to react to pedigree changes in real time." }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I use my own AI model with Evagene?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Evagene's BYOK (Bring Your Own Key) feature lets you supply your own Anthropic (Claude) or OpenAI (GPT) API key for AI interpretation and analysis template execution. Your key is encrypted at rest using Fernet (AES-128-CBC + HMAC-SHA256). When configured, BYOK bypasses the standard per-user quota, and you can override the default model to use any model your provider supports — such as Claude Opus for maximum quality or GPT-4o-mini for speed." }
         },
         {
             "@type": "Question",
