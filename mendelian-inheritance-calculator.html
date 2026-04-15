@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mendelian Inheritance Calculator &mdash; Autosomal &amp; X-Linked Models | Evagene</title>
+    <meta name="description" content="Learn how Mendelian inheritance calculators model autosomal dominant, autosomal recessive, and X-linked inheritance patterns. Understand Punnett squares, Bayesian carrier probabilities, penetrance, and how Evagene integrates clinical-grade inheritance models into pedigree analysis.">
+    <meta name="keywords" content="mendelian inheritance calculator, autosomal dominant calculator, autosomal recessive carrier probability, X-linked inheritance, genetic inheritance patterns, pedigree inheritance analysis, Punnett square calculator, carrier frequency, Hardy-Weinberg, penetrance, genetic risk calculator">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Mendelian Inheritance Calculator — Autosomal & X-Linked Models | Evagene">
+    <meta property="og:description" content="Comprehensive guide to Mendelian inheritance calculations: autosomal dominant, autosomal recessive, and X-linked models. Includes Bayesian updating, penetrance, carrier probabilities, and clinical pedigree analysis.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/mendelian-inheritance-calculator">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mendelian Inheritance Calculator — Autosomal & X-Linked Models">
+    <meta name="twitter:description" content="Comprehensive guide to Mendelian inheritance calculations: autosomal dominant, autosomal recessive, and X-linked models with clinical pedigree analysis.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/mendelian-inheritance-calculator">
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50: '#eef3fb', 100: '#d9e4f5', 200: '#b3c9eb', 300: '#8aaddf', 400: '#5e8fd2', 500: '#3b6fb5', 600: '#2f5a94', 700: '#264a7a', 800: '#1e3a5f', 900: '#152a45', 950: '#0d1a2d' },
+                        accent: { 400: '#e85d6f', 500: '#c8102e', 600: '#a60d25' },
+                        clinical: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a' }
+                    },
+                    fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'], display: ['Inter', 'system-ui', 'sans-serif'], mono: ['JetBrains Mono', 'Fira Code', 'monospace'] }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD: Article -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Mendelian Inheritance Calculator: Understanding Genetic Inheritance Patterns",
+        "description": "A comprehensive guide to Mendelian inheritance calculations including autosomal dominant, autosomal recessive, and X-linked models, with Bayesian updating, penetrance, and clinical pedigree analysis.",
+        "author": {
+            "@type": "Organization",
+            "name": "Evagene",
+            "url": "https://evagene.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Evagene",
+            "url": "https://evagene.com",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://evagene.com/logo.png"
+            }
+        },
+        "datePublished": "2026-04-15",
+        "dateModified": "2026-04-15",
+        "mainEntityOfPage": "https://evagene.com/mendelian-inheritance-calculator",
+        "image": "https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://evagene.com" },
+            { "@type": "ListItem", "position": 2, "name": "Mendelian Inheritance Calculator", "item": "https://evagene.com/mendelian-inheritance-calculator" }
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is a Mendelian inheritance calculator?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A Mendelian inheritance calculator is a tool that computes the probability of offspring inheriting a genetic trait or disorder based on the known genotypes or phenotypes of family members. It applies Mendel's laws of segregation and independent assortment, along with Bayesian probability updating, to determine carrier status, affected status, and recurrence risks for autosomal dominant, autosomal recessive, and X-linked conditions."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I calculate the probability that an unaffected child is a carrier for an autosomal recessive condition?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "When both parents are carriers (heterozygous) for an autosomal recessive condition, the unconditional genotype probabilities for each child are: 1/4 affected (homozygous), 2/4 carrier (heterozygous), and 1/4 non-carrier (homozygous normal). If you know a child is unaffected, you eliminate the 1/4 affected outcome and re-normalise: the probability that the unaffected child is a carrier becomes 2/3, and the probability of being a non-carrier is 1/3. This is a classic application of Bayesian updating."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the difference between autosomal dominant and autosomal recessive inheritance?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "In autosomal dominant inheritance, a single copy of the mutant allele is sufficient to cause the phenotype; affected individuals typically have one affected parent and the condition appears in every generation. In autosomal recessive inheritance, two copies of the mutant allele are required; both parents are usually unaffected carriers, the condition often appears to skip generations, and siblings of affected individuals have a 2/3 probability of being carriers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does X-linked recessive inheritance differ from autosomal recessive inheritance?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "X-linked recessive conditions are caused by mutations on the X chromosome. Because males have only one X chromosome (hemizygous), a single mutant allele is sufficient to cause the phenotype. Females, with two X chromosomes, are typically unaffected carriers. Key pedigree features include: predominantly affected males, no male-to-male transmission, carrier females may transmit to sons (50% risk), and affected males transmit the carrier state to all daughters."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is reduced penetrance and how does it affect inheritance calculations?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Penetrance is the proportion of individuals carrying a disease-causing genotype who actually manifest the phenotype. Reduced (incomplete) penetrance means that not everyone with the mutation will develop the condition. For example, BRCA1 mutations have age-dependent penetrance of approximately 70-80% lifetime risk for breast cancer. Inheritance calculators must account for penetrance to avoid overestimating or underestimating risk; an unaffected individual carrying a dominant mutation with 80% penetrance has a 20% probability of never manifesting the condition."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the Hardy-Weinberg equilibrium and why does it matter for carrier frequency calculations?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The Hardy-Weinberg equilibrium describes the relationship between allele frequencies and genotype frequencies in a population: p² + 2pq + q² = 1, where p is the normal allele frequency and q is the disease allele frequency. If the incidence of an autosomal recessive condition is 1 in 2,500 (q² = 1/2500), then q = 1/50, and the carrier frequency (2pq) is approximately 1 in 25. This principle is essential for estimating the prior probability that a partner from the general population is a carrier."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does consanguinity affect the risk of autosomal recessive conditions?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Consanguinity (mating between related individuals) increases the probability that both parents carry the same recessive allele inherited from a common ancestor. The coefficient of inbreeding (F) quantifies this increased risk. For example, first cousins share 1/8 of their genes, giving F = 1/16. The risk of an autosomal recessive condition for offspring of first cousins is approximately q/16 + q²(15/16), which is substantially higher than the population risk of q² alone, particularly for rare conditions."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can Mendelian inheritance calculators account for de novo mutations?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. De novo (new) mutations arise spontaneously in the egg, sperm, or early embryo and are not inherited from a parent. Advanced inheritance calculators incorporate de novo mutation rates, which vary by gene and condition. For example, approximately one-third of Duchenne muscular dystrophy cases arise from de novo mutations. Accounting for de novo rates is critical for accurate recurrence risk counselling, as a confirmed de novo mutation in a child significantly reduces (but does not eliminate) the recurrence risk for future pregnancies, due to the possibility of germline mosaicism."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is Bayesian analysis in genetic counselling?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Bayesian analysis in genetic counselling is a method for updating prior genetic risk estimates based on new evidence. It combines prior probabilities (from pedigree analysis and population data) with conditional probabilities (from test results, reproductive history, or clinical findings) to produce posterior probabilities. For example, a woman with a 50% prior probability of carrying an X-linked recessive allele who has three unaffected sons has her carrier risk reduced to approximately 1 in 9 by Bayesian updating."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does Evagene support Mendelian inheritance calculations within pedigrees?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Evagene includes three built-in Mendelian inheritance models: autosomal dominant (with reduced and age-dependent penetrance, anticipation), autosomal recessive (with Hardy-Weinberg carrier frequency estimation and population-specific allele frequencies), and X-linked recessive (with hemizygosity and mutation rate modelling). Evagene also integrates BRCAPRO, MMRpro, and PancPRO for empirical cancer-specific risk assessment. These models run directly within the pedigree, allowing clinicians to visualise and compare inheritance patterns across the family."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 font-sans antialiased text-gray-700 dark:text-gray-300 transition-colors duration-300">
+
+<!-- Navigation -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 transition-colors rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 transition-colors rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 transition-colors rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 transition-colors rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900 transition-colors" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg transition-all duration-200">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="pt-20 pb-2 bg-gray-50 dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-500">
+            <ol class="flex items-center gap-1.5">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Home</a></li>
+                <li class="text-gray-400 dark:text-gray-600">/</li>
+                <li class="text-gray-700 dark:text-gray-300">Mendelian Inheritance Calculator</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<!-- Article -->
+<main class="pt-24 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- H1 -->
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Mendelian Inheritance Calculator: Understanding Genetic Inheritance Patterns</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+                In 1865, Gregor Mendel published his observations on the inheritance of traits in pea plants, laying the foundation for what we now call Mendelian genetics. More than 160 years later, his principles remain the cornerstone of clinical genetics, underpinning everything from recurrence risk counselling to predictive testing for hereditary disease. A Mendelian inheritance calculator applies these principles systematically&mdash;computing the probability that an individual carries a specific genotype, will develop a particular phenotype, or will transmit a disease allele to offspring&mdash;given the known information within a family pedigree. Whether you are a genetic counsellor estimating carrier risk for cystic fibrosis, an oncologist assessing a family for hereditary breast cancer, or a clinical geneticist evaluating an X-linked pedigree, understanding how these calculations work is fundamental to accurate risk assessment and informed patient care.
+            </p>
+        </header>
+
+        <!-- Mendel's Laws of Inheritance -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-5">Mendel's Laws of Inheritance</h2>
+
+            <p class="mb-4 leading-relaxed">
+                Mendel's experimental work with <em>Pisum sativum</em> led to three foundational principles that govern how genetic traits pass from parents to offspring. Although originally described for discrete plant characteristics, these laws apply directly to single-gene (monogenic) disorders in humans.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">The Law of Segregation</h3>
+            <p class="mb-4 leading-relaxed">
+                Every individual carries two alleles for each autosomal gene&mdash;one inherited from each parent. During the formation of gametes (meiosis), these two alleles separate so that each gamete carries only one allele. This means that each parent transmits exactly one of their two alleles to each offspring, with equal probability. The law of segregation is the basis for Punnett square analysis and for calculating the 50% transmission probability that underpins virtually all Mendelian risk assessments.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">The Law of Independent Assortment</h3>
+            <p class="mb-4 leading-relaxed">
+                Alleles for different genes assort independently of one another during gamete formation, provided the genes are located on different chromosomes (or are sufficiently far apart on the same chromosome). In clinical genetics, this principle means that the inheritance of one condition does not, in general, influence the inheritance of another. Exceptions occur when genes are closely linked on the same chromosome, which is exploited in linkage analysis for gene mapping and carrier detection.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">The Principle of Dominance</h3>
+            <p class="mb-4 leading-relaxed">
+                When two different alleles are present in a heterozygous individual, one allele (dominant) may mask the expression of the other (recessive). In the context of human disease, this determines whether a single mutant allele is sufficient to produce the phenotype (dominant inheritance) or whether two mutant alleles are required (recessive inheritance). It is worth noting that dominance is a property of the phenotype, not the allele itself: the same allele may behave as dominant for one trait and recessive for another, depending on the molecular mechanism involved.
+            </p>
+
+            <p class="leading-relaxed">
+                These three principles, together with our understanding of sex-linked inheritance (genes carried on the X or Y chromosomes), form the framework within which all Mendelian inheritance calculators operate. The challenge in clinical genetics is that real families rarely present textbook patterns. Reduced penetrance, variable expressivity, de novo mutations, and genetic heterogeneity all complicate the analysis&mdash;which is precisely why rigorous probabilistic calculation matters.
+            </p>
+        </section>
+
+        <!-- Autosomal Dominant Inheritance -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-5">Autosomal Dominant Inheritance</h2>
+
+            <p class="mb-4 leading-relaxed">
+                In autosomal dominant inheritance, a single copy of the disease-causing allele is sufficient to produce the phenotype. The gene is located on one of the 22 autosomes (non-sex chromosomes), so the condition affects males and females with equal frequency. A heterozygous affected individual partnered with an unaffected homozygous individual has a 50% probability of transmitting the mutation to each offspring.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">Recognising Autosomal Dominant Patterns in Pedigrees</h3>
+            <p class="mb-4 leading-relaxed">
+                The hallmarks of autosomal dominant inheritance in a pedigree include: the condition appears in every generation (vertical transmission); affected individuals have at least one affected parent (barring de novo mutations or reduced penetrance); approximately half of the offspring of an affected individual are affected; unaffected individuals do not transmit the condition to their children; and both sexes are affected in roughly equal proportions. Male-to-male transmission is possible, which distinguishes autosomal dominant from X-linked dominant inheritance.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">Penetrance and Age-Dependent Expression</h3>
+            <p class="mb-4 leading-relaxed">
+                Not all autosomal dominant conditions exhibit complete penetrance. <strong>Penetrance</strong> is the proportion of individuals carrying the disease genotype who manifest the phenotype. A condition with 80% penetrance means that 20% of mutation carriers remain unaffected. This has profound implications for pedigree interpretation: an apparently unaffected individual in a dominant pedigree may still carry the mutation and transmit it to offspring.
+            </p>
+            <p class="mb-4 leading-relaxed">
+                Many dominant conditions also show <strong>age-dependent penetrance</strong>&mdash;the probability of manifesting the phenotype increases with age. Huntington disease, for example, has near-zero penetrance before age 20 but approaches complete penetrance by age 70. A Mendelian inheritance calculator must account for the current age of each individual when estimating their probability of carrying the mutation: a 25-year-old unaffected individual from a Huntington family has a very different residual risk than a 65-year-old unaffected individual.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">Anticipation</h3>
+            <p class="mb-4 leading-relaxed">
+                In conditions caused by trinucleotide repeat expansions (such as Huntington disease and myotonic dystrophy), the mutation may expand in successive generations, leading to earlier onset and more severe disease&mdash;a phenomenon called <strong>anticipation</strong>. Inheritance calculators that model anticipation must consider not only the probability of transmitting the mutation but also the likelihood of repeat expansion during transmission, which can depend on the sex of the transmitting parent.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">Clinical Examples</h3>
+            <p class="mb-4 leading-relaxed">
+                Common autosomal dominant conditions include <strong>Huntington disease</strong> (trinucleotide repeat expansion in <em>HTT</em>, with age-dependent penetrance and anticipation), <strong>Marfan syndrome</strong> (<em>FBN1</em> mutations, with significant variable expressivity), <strong>hereditary breast and ovarian cancer</strong> due to <em>BRCA1</em> and <em>BRCA2</em> mutations (with sex-dependent, age-dependent penetrance), <strong>familial hypercholesterolaemia</strong> (<em>LDLR</em>, <em>APOB</em>, or <em>PCSK9</em> mutations), and <strong>neurofibromatosis type 1</strong> (<em>NF1</em> mutations, with almost complete penetrance but marked variable expressivity). Each of these conditions illustrates why a simple 50% transmission risk is insufficient for clinical counselling&mdash;penetrance, expressivity, and modifying factors must all be integrated.
+            </p>
+        </section>
+
+        <!-- Autosomal Recessive Inheritance -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-5">Autosomal Recessive Inheritance</h2>
+
+            <p class="mb-4 leading-relaxed">
+                Autosomal recessive conditions require two copies of the disease-causing allele for the phenotype to manifest. Carriers&mdash;individuals heterozygous for one normal and one mutant allele&mdash;are typically unaffected. When two carriers reproduce, the probability for each pregnancy is: 1/4 affected, 2/4 carrier, 1/4 non-carrier. This 1:2:1 genotype ratio is the foundation of recessive inheritance calculations.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">Carrier Frequency and Hardy-Weinberg Equilibrium</h3>
+            <p class="mb-4 leading-relaxed">
+                To estimate the probability that an individual from the general population is a carrier for a recessive condition, we use the <strong>Hardy-Weinberg equilibrium</strong>. If the disease incidence is q² (where q is the frequency of the disease allele), then the carrier frequency is 2pq, where p = 1 &minus; q. For example, cystic fibrosis affects approximately 1 in 2,500 individuals of Northern European ancestry, so q = 1/50, and the carrier frequency is approximately 2 &times; (49/50) &times; (1/50) &approx; 1 in 25. This is a critical input for any inheritance calculator: when a partner has no family history of the condition, the prior probability that they are a carrier is derived from population carrier frequency.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">Population-Specific Carrier Frequencies</h3>
+            <p class="mb-4 leading-relaxed">
+                Carrier frequencies vary significantly between populations due to founder effects, genetic drift, and selective pressures. <strong>Cystic fibrosis</strong> carrier frequency is approximately 1 in 25 in Northern Europeans but much lower in East Asian populations. <strong>Sickle cell disease</strong> has carrier frequencies as high as 1 in 4 in parts of Sub-Saharan Africa, reflecting the heterozygote advantage against malaria. <strong>Tay-Sachs disease</strong> has a carrier frequency of approximately 1 in 30 in Ashkenazi Jewish populations compared to 1 in 300 in the general population. A clinically useful inheritance calculator must allow the user to specify or select the relevant population to ensure accurate carrier probability estimation.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">Consanguinity and Increased Recessive Risk</h3>
+            <p class="mb-4 leading-relaxed">
+                Consanguinity&mdash;the union of individuals descended from a common ancestor&mdash;increases the probability that both partners carry the same recessive allele inherited <em>identical by descent</em>. The coefficient of inbreeding (F) quantifies this risk. First cousins, for example, have F = 1/16. For a rare recessive condition with disease allele frequency q, the risk to offspring of first cousins is approximately q/16 + q<sup>2</sup>(15/16), which for rare alleles is dominated by the q/16 term&mdash;potentially many times higher than the general population risk of q<sup>2</sup>. This is why consanguineous families have a disproportionately higher incidence of rare autosomal recessive conditions.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">Recognising Autosomal Recessive Patterns in Pedigrees</h3>
+            <p class="mb-4 leading-relaxed">
+                In pedigrees, autosomal recessive conditions characteristically affect siblings rather than parents (horizontal pattern); the condition appears to skip generations; parents of affected children are usually unaffected carriers; consanguinity in the parents increases suspicion; and both sexes are affected equally. A key rule for interpreting recessive pedigrees: an unaffected sibling of an affected individual (when both parents are confirmed carriers) has a 2/3 probability of being a carrier, not 1/2. This is because we condition on the observation that they are unaffected, eliminating the 1/4 probability of being homozygous affected.
+            </p>
+        </section>
+
+        <!-- X-Linked Inheritance -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-5">X-Linked Inheritance</h2>
+
+            <p class="mb-4 leading-relaxed">
+                X-linked inheritance involves genes located on the X chromosome. Because males have only one X chromosome (hemizygous), a single mutant allele on the X chromosome is sufficient to produce the phenotype in males. Females, with two X chromosomes, are typically carriers when heterozygous for the mutant allele and are usually unaffected (though manifesting carriers do exist, owing to skewed X-inactivation or other mechanisms).
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">X-Linked Recessive Inheritance</h3>
+            <p class="mb-4 leading-relaxed">
+                X-linked recessive is the most common X-linked inheritance pattern encountered in clinical genetics. The key features are: predominantly males are affected; there is no male-to-male transmission (fathers transmit their Y chromosome to sons, not their X); carrier females transmit the mutation to 50% of sons (who will be affected) and 50% of daughters (who will be carriers); affected males transmit the carrier state to all of their daughters and none of their sons.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">Bayesian Updating for Carrier Status in X-Linked Pedigrees</h3>
+            <p class="mb-4 leading-relaxed">
+                One of the most powerful applications of Bayesian analysis in genetics is the updating of X-linked carrier risk based on family observations. Consider a woman whose mother is a confirmed carrier of haemophilia A. Her prior probability of being a carrier is 1/2. If she has three unaffected sons, each son provides conditional evidence against her being a carrier. The posterior probability of her being a carrier, given three unaffected sons, is calculated as:
+            </p>
+            <div class="bg-gray-50 dark:bg-brand-900/50 border border-gray-200 dark:border-brand-800 rounded-xl p-6 my-6 font-mono text-sm leading-relaxed">
+                <p class="text-gray-800 dark:text-gray-200">Prior(carrier) = 1/2</p>
+                <p class="text-gray-800 dark:text-gray-200">P(3 unaffected sons | carrier) = (1/2)<sup>3</sup> = 1/8</p>
+                <p class="text-gray-800 dark:text-gray-200">P(3 unaffected sons | non-carrier) = 1</p>
+                <p class="text-gray-800 dark:text-gray-200 mt-3">Posterior(carrier) = (1/2 &times; 1/8) / (1/2 &times; 1/8 + 1/2 &times; 1) = (1/16) / (1/16 + 1/2) = 1/9</p>
+            </div>
+            <p class="mb-4 leading-relaxed">
+                Her carrier risk drops from 50% to approximately 11%. Each additional unaffected son further reduces the risk. This is a routine calculation in genetic counselling, and an inheritance calculator automates it across the entire pedigree.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">Clinical Examples</h3>
+            <p class="mb-4 leading-relaxed">
+                Well-known X-linked recessive conditions include <strong>haemophilia A</strong> (factor VIII deficiency, <em>F8</em> gene) and <strong>haemophilia B</strong> (factor IX deficiency, <em>F9</em> gene), <strong>Duchenne muscular dystrophy</strong> (<em>DMD</em> gene, with approximately one-third of cases arising from de novo mutations), <strong>red-green colour blindness</strong> (<em>OPN1LW/OPN1MW</em> genes), and <strong>glucose-6-phosphate dehydrogenase (G6PD) deficiency</strong>. The high de novo mutation rate in Duchenne muscular dystrophy is particularly important for inheritance calculations: a mother of a single affected son with no other family history has a carrier probability of approximately 2/3 (not 1), because one-third of cases are de novo.
+            </p>
+        </section>
+
+        <!-- Beyond Simple Mendelian: Complex Inheritance -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-5">Beyond Simple Mendelian: Complex Inheritance</h2>
+
+            <p class="mb-4 leading-relaxed">
+                While Mendel's laws provide the framework, human genetics is rarely as straightforward as a textbook Punnett square. Several phenomena complicate the simple Mendelian picture, and a robust inheritance calculator must account for as many of these as possible.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">Reduced Penetrance and Variable Expressivity</h3>
+            <p class="mb-4 leading-relaxed">
+                <strong>Reduced penetrance</strong> means that some individuals who carry a disease genotype never develop the associated phenotype. <strong>Variable expressivity</strong> means that among those who do manifest the condition, the severity and specific features can vary widely. Both phenomena make pedigree interpretation more challenging: an apparently unaffected individual in a dominant pedigree may carry the mutation (reduced penetrance), and two affected family members may have very different clinical presentations (variable expressivity). Neurofibromatosis type 1, for example, shows almost complete penetrance but striking variable expressivity&mdash;even within the same family.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">Germline Mosaicism</h3>
+            <p class="mb-4 leading-relaxed">
+                Germline (gonadal) mosaicism occurs when a mutation arises during early embryonic development and is present in a proportion of the individual's germ cells but not in somatic cells. The parent may be clinically unaffected (the mutation is not detectable in blood) yet have a recurrence risk that is substantially higher than the general population de novo rate. Germline mosaicism has been documented for conditions including Duchenne muscular dystrophy, osteogenesis imperfecta, and achondroplasia. Inheritance calculators typically model this as a small but non-negligible recurrence risk (often cited as 3&ndash;5% for some conditions) even when parental testing is negative.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">De Novo Mutations</h3>
+            <p class="mb-4 leading-relaxed">
+                De novo mutations are new genetic changes that arise in a gamete or early embryo and are not present in either parent's germline. They are a significant source of autosomal dominant conditions: approximately 50% of neurofibromatosis type 1 cases and approximately one-third of Duchenne muscular dystrophy cases arise de novo. The importance for inheritance calculators is twofold. First, the absence of family history does not rule out a genetic condition. Second, when a de novo mutation is confirmed in a child, the recurrence risk for siblings is low (typically 1&ndash;5%, reflecting the possibility of germline mosaicism) rather than the 50% risk that would apply if a parent carried the mutation constitutionally.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">Anticipation and Parent-of-Origin Effects</h3>
+            <p class="mb-4 leading-relaxed">
+                <strong>Anticipation</strong>&mdash;the tendency for certain conditions to become more severe or present at an earlier age in successive generations&mdash;is a hallmark of trinucleotide repeat disorders. The direction of anticipation can depend on the sex of the transmitting parent: large expansions in Huntington disease tend to occur during paternal transmission, whereas congenital myotonic dystrophy almost exclusively results from maternal transmission of a greatly expanded repeat.
+            </p>
+            <p class="mb-4 leading-relaxed">
+                <strong>Genomic imprinting</strong> is a separate parent-of-origin effect in which the expression of certain genes depends on whether they were inherited from the mother or the father. The classic examples are Prader-Willi syndrome (loss of paternally expressed genes at 15q11-q13) and Angelman syndrome (loss of the maternally expressed <em>UBE3A</em> gene at the same locus). These conditions do not follow standard Mendelian patterns and require specialised inheritance models.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">Locus Heterogeneity and Multifactorial Inheritance</h3>
+            <p class="mb-4 leading-relaxed">
+                <strong>Locus heterogeneity</strong> occurs when the same clinical phenotype can be caused by mutations in different genes. Hereditary hearing loss, for example, can result from mutations in any of over 100 genes. This complicates recurrence risk calculation: two affected individuals from different families may carry mutations in different genes, meaning their offspring would be obligate carriers for both but affected for neither (assuming recessive inheritance at each locus). A comprehensive inheritance calculator considers the differential diagnosis and allows the user to specify or test for specific loci.
+            </p>
+            <p class="leading-relaxed">
+                Many common conditions&mdash;heart disease, type 2 diabetes, most cancers&mdash;result from the combined effects of multiple genes and environmental factors (<strong>multifactorial</strong> or <strong>polygenic</strong> inheritance). These conditions do not follow simple Mendelian patterns. While Mendelian inheritance calculators are not designed for polygenic risk, they remain essential for the subset of families in which a high-penetrance single-gene variant is responsible. For hereditary cancer syndromes, empirical models such as BRCAPRO and MMRpro blend Mendelian genetics with population-level data to provide accurate risk estimates.
+            </p>
+        </section>
+
+        <!-- How to Calculate Inheritance Probabilities -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-5">How to Calculate Inheritance Probabilities</h2>
+
+            <p class="mb-4 leading-relaxed">
+                Mendelian inheritance calculations fundamentally rely on two techniques: <strong>Punnett square analysis</strong> for determining genotype probabilities in straightforward crosses, and <strong>Bayesian updating</strong> for incorporating additional evidence (such as phenotypic observations, test results, or reproductive history) to refine those probabilities.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">Punnett Squares</h3>
+            <p class="mb-4 leading-relaxed">
+                A Punnett square is a grid that maps all possible combinations of parental alleles in offspring. For a cross between two carriers of an autosomal recessive condition (genotype Aa &times; Aa):
+            </p>
+
+            <!-- Punnett Square -->
+            <div class="overflow-x-auto my-6">
+                <table class="mx-auto border-collapse text-center">
+                    <thead>
+                        <tr>
+                            <th class="w-20 h-12 border border-gray-300 dark:border-brand-700 bg-gray-100 dark:bg-brand-900 text-gray-500 dark:text-gray-500 text-sm"></th>
+                            <th class="w-20 h-12 border border-gray-300 dark:border-brand-700 bg-brand-50 dark:bg-brand-900 text-brand-700 dark:text-brand-300 font-semibold">A</th>
+                            <th class="w-20 h-12 border border-gray-300 dark:border-brand-700 bg-brand-50 dark:bg-brand-900 text-brand-700 dark:text-brand-300 font-semibold">a</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="w-20 h-14 border border-gray-300 dark:border-brand-700 bg-brand-50 dark:bg-brand-900 text-brand-700 dark:text-brand-300 font-semibold">A</td>
+                            <td class="w-20 h-14 border border-gray-300 dark:border-brand-700 text-gray-900 dark:text-white font-medium">AA</td>
+                            <td class="w-20 h-14 border border-gray-300 dark:border-brand-700 text-gray-900 dark:text-white font-medium">Aa</td>
+                        </tr>
+                        <tr>
+                            <td class="w-20 h-14 border border-gray-300 dark:border-brand-700 bg-brand-50 dark:bg-brand-900 text-brand-700 dark:text-brand-300 font-semibold">a</td>
+                            <td class="w-20 h-14 border border-gray-300 dark:border-brand-700 text-gray-900 dark:text-white font-medium">Aa</td>
+                            <td class="w-20 h-14 border border-gray-300 dark:border-brand-700 bg-accent-500/10 text-accent-500 dark:text-accent-400 font-bold">aa</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-center text-sm text-gray-500 dark:text-gray-500 mt-3">Punnett square for Aa &times; Aa cross. Outcome: 1/4 AA, 2/4 Aa, 1/4 aa.</p>
+            </div>
+
+            <p class="mb-4 leading-relaxed">
+                The result: 1/4 (25%) probability of being homozygous normal (AA), 2/4 (50%) carrier (Aa), and 1/4 (25%) affected (aa).
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">Bayesian Updating: A Worked Example</h3>
+            <p class="mb-4 leading-relaxed">
+                One of the most frequently encountered questions in genetic counselling is: <em>&ldquo;If both parents are carriers for cystic fibrosis, what is the probability that their unaffected child is a carrier?&rdquo;</em>
+            </p>
+            <p class="mb-4 leading-relaxed">
+                From the Punnett square, the unconditional genotype probabilities for each child are:
+            </p>
+            <ul class="list-disc pl-6 mb-4 space-y-1 leading-relaxed">
+                <li><strong>AA (non-carrier):</strong> 1/4</li>
+                <li><strong>Aa (carrier):</strong> 2/4</li>
+                <li><strong>aa (affected):</strong> 1/4</li>
+            </ul>
+            <p class="mb-4 leading-relaxed">
+                We know the child is <em>unaffected</em>, which eliminates the aa outcome. We apply Bayes' theorem by conditioning on the observation &ldquo;unaffected&rdquo;:
+            </p>
+
+            <div class="bg-gray-50 dark:bg-brand-900/50 border border-gray-200 dark:border-brand-800 rounded-xl p-6 my-6 font-mono text-sm leading-relaxed">
+                <p class="text-gray-800 dark:text-gray-200">P(carrier | unaffected) = P(unaffected | carrier) &times; P(carrier) / P(unaffected)</p>
+                <p class="text-gray-800 dark:text-gray-200 mt-2">P(unaffected) = P(AA) + P(Aa) = 1/4 + 2/4 = 3/4</p>
+                <p class="text-gray-800 dark:text-gray-200 mt-2">P(carrier | unaffected) = (1 &times; 2/4) / (3/4) = (2/4) / (3/4) = <strong class="text-brand-600 dark:text-brand-400">2/3</strong></p>
+            </div>
+
+            <p class="mb-4 leading-relaxed">
+                The answer is <strong>2/3</strong> (approximately 67%). This result is counterintuitive to many patients (and some clinicians): the probability of being a carrier is <em>higher</em> than the naive 50% because we have excluded the possibility of being affected but not the possibility of being a carrier. This type of Bayesian updating is central to genetic counselling and is one of the most common operations a Mendelian inheritance calculator performs.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">Integrating Genetic Test Results</h3>
+            <p class="mb-4 leading-relaxed">
+                Bayesian analysis becomes even more powerful when molecular test results are available. If an individual's carrier probability is 2/3 based on pedigree analysis, and they then undergo a carrier screening test with 95% mutation detection rate that returns negative, the posterior carrier probability can be updated:
+            </p>
+            <div class="bg-gray-50 dark:bg-brand-900/50 border border-gray-200 dark:border-brand-800 rounded-xl p-6 my-6 font-mono text-sm leading-relaxed">
+                <p class="text-gray-800 dark:text-gray-200">Prior P(carrier) = 2/3</p>
+                <p class="text-gray-800 dark:text-gray-200">P(negative test | carrier) = 0.05 (5% of carrier mutations not detected)</p>
+                <p class="text-gray-800 dark:text-gray-200">P(negative test | non-carrier) = 1</p>
+                <p class="text-gray-800 dark:text-gray-200 mt-3">Posterior P(carrier | negative) = (2/3 &times; 0.05) / (2/3 &times; 0.05 + 1/3 &times; 1)</p>
+                <p class="text-gray-800 dark:text-gray-200">= (0.0333) / (0.0333 + 0.3333) = <strong class="text-brand-600 dark:text-brand-400">0.091 (approximately 1 in 11)</strong></p>
+            </div>
+            <p class="leading-relaxed">
+                The negative test result dramatically reduces the carrier probability from 67% to about 9%. This illustrates why inheritance calculators that integrate both pedigree data and molecular results are far more useful than either approach alone.
+            </p>
+        </section>
+
+        <!-- How Evagene Models Mendelian Inheritance -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-5">How Evagene Models Mendelian Inheritance</h2>
+
+            <p class="mb-4 leading-relaxed">
+                <a href="https://evagene.com" class="text-brand-600 dark:text-brand-400 hover:underline">Evagene</a> is a web-based clinical-grade pedigree management system that integrates Mendelian inheritance calculations directly into the pedigree. Rather than requiring clinicians to perform manual Bayesian calculations or use separate probability tools, Evagene runs the models automatically across the family structure, propagating probabilities from known genotypes and phenotypes to every individual in the pedigree.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">Three Built-In Mendelian Models</h3>
+            <p class="mb-4 leading-relaxed">
+                Evagene includes three Mendelian inheritance models, each configurable to the specific condition under evaluation:
+            </p>
+
+            <div class="grid gap-4 sm:grid-cols-3 my-6">
+                <div class="bg-brand-50 dark:bg-brand-900/40 border border-brand-200 dark:border-brand-800 rounded-xl p-5">
+                    <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Autosomal Dominant</h4>
+                    <p class="text-sm leading-relaxed">Supports reduced penetrance, age-dependent penetrance curves, and anticipation modelling. Clinicians specify the penetrance parameters appropriate to the condition (e.g., BRCA1 age-penetrance data), and Evagene computes carrier probabilities across the pedigree, accounting for each individual's current age and affection status.</p>
+                </div>
+                <div class="bg-brand-50 dark:bg-brand-900/40 border border-brand-200 dark:border-brand-800 rounded-xl p-5">
+                    <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Autosomal Recessive</h4>
+                    <p class="text-sm leading-relaxed">Incorporates Hardy-Weinberg equilibrium for carrier frequency estimation, with population-specific allele frequencies for accurate prior probabilities. Models consanguinity through inbreeding coefficients. Computes carrier probabilities and affected probabilities for all family members, including unborn offspring.</p>
+                </div>
+                <div class="bg-brand-50 dark:bg-brand-900/40 border border-brand-200 dark:border-brand-800 rounded-xl p-5">
+                    <h4 class="font-semibold text-gray-900 dark:text-white mb-2">X-Linked Recessive</h4>
+                    <p class="text-sm leading-relaxed">Correctly handles hemizygosity in males, carrier probability updating in females based on offspring observations, and de novo mutation rates. Automatically performs Bayesian updating across the pedigree to refine carrier risk for all females in the family.</p>
+                </div>
+            </div>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">Differential Diagnosis Mode</h3>
+            <p class="mb-4 leading-relaxed">
+                When the inheritance pattern is uncertain, Evagene's differential diagnosis mode allows clinicians to evaluate multiple inheritance models simultaneously against the same pedigree data. This is particularly useful in families with limited pedigree information, where it may not be clear whether a condition follows autosomal dominant with reduced penetrance, autosomal recessive, or X-linked inheritance. The models can be compared side by side, helping guide further investigation and testing.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">Cancer-Specific Empirical Models</h3>
+            <p class="mb-4 leading-relaxed">
+                For hereditary cancer syndromes, Mendelian models alone may not capture the full complexity of risk. Evagene integrates the BayesMendel suite of empirical models: <strong>BRCAPRO</strong> for hereditary breast and ovarian cancer (<em>BRCA1</em>/<em>BRCA2</em>), <strong>MMRpro</strong> for Lynch syndrome (mismatch repair gene mutations), and <strong>PancPRO</strong> for familial pancreatic cancer. These models combine Mendelian transmission genetics with population-level cancer incidence data, sensitivity/specificity of molecular tests, and phenocopy rates to produce calibrated carrier and cancer risk predictions. For more on hereditary cancer risk assessment, see our <a href="hereditary-cancer-risk-assessment.html" class="text-brand-600 dark:text-brand-400 hover:underline">guide to hereditary cancer risk assessment</a>.
+            </p>
+
+            <p class="leading-relaxed">
+                For detailed documentation on Evagene's risk analysis capabilities and how to configure inheritance models within pedigrees, visit the <a href="https://evagene.net/help" class="text-brand-600 dark:text-brand-400 hover:underline" rel="noopener">Evagene help centre</a>.
+            </p>
+        </section>
+
+        <!-- Frequently Asked Questions -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">Frequently Asked Questions</h2>
+
+            <div class="space-y-6">
+                <div class="border border-gray-200 dark:border-brand-800 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">What is a Mendelian inheritance calculator?</h3>
+                    <p class="leading-relaxed">A Mendelian inheritance calculator is a tool that computes the probability of offspring inheriting a genetic trait or disorder based on the known genotypes or phenotypes of family members. It applies Mendel's laws of segregation and independent assortment, along with Bayesian probability updating, to determine carrier status, affected status, and recurrence risks for autosomal dominant, autosomal recessive, and X-linked conditions.</p>
+                </div>
+
+                <div class="border border-gray-200 dark:border-brand-800 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">How do I calculate the probability that an unaffected child is a carrier for an autosomal recessive condition?</h3>
+                    <p class="leading-relaxed">When both parents are carriers, the unconditional genotype probabilities for each child are 1/4 affected, 2/4 carrier, and 1/4 non-carrier. If you know the child is unaffected, eliminate the affected outcome and re-normalise: the probability of being a carrier is 2/3, and the probability of being a non-carrier is 1/3. This is Bayesian updating in action.</p>
+                </div>
+
+                <div class="border border-gray-200 dark:border-brand-800 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">What is the difference between autosomal dominant and autosomal recessive inheritance?</h3>
+                    <p class="leading-relaxed">In autosomal dominant inheritance, a single copy of the mutant allele causes the phenotype, and affected individuals typically have an affected parent. In autosomal recessive inheritance, two copies are required; both parents are usually unaffected carriers, and the condition often appears to skip generations.</p>
+                </div>
+
+                <div class="border border-gray-200 dark:border-brand-800 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">How does X-linked recessive inheritance differ from autosomal recessive inheritance?</h3>
+                    <p class="leading-relaxed">X-linked recessive conditions predominantly affect males because they are hemizygous for the X chromosome. Key differences from autosomal recessive: there is no male-to-male transmission, carrier females transmit to 50% of sons, affected males transmit the carrier state to all daughters, and the condition shows a characteristic pattern of affected males connected through unaffected carrier females.</p>
+                </div>
+
+                <div class="border border-gray-200 dark:border-brand-800 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">What is reduced penetrance and how does it affect inheritance calculations?</h3>
+                    <p class="leading-relaxed">Penetrance is the proportion of individuals with a disease genotype who manifest the phenotype. Reduced penetrance means some mutation carriers remain unaffected. For example, BRCA1 mutations have approximately 70&ndash;80% lifetime penetrance for breast cancer. Inheritance calculators must incorporate penetrance data to produce accurate risk estimates; without it, the calculator would assume all carriers are or will become affected, leading to incorrect probabilities.</p>
+                </div>
+
+                <div class="border border-gray-200 dark:border-brand-800 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">What is the Hardy-Weinberg equilibrium and why does it matter for carrier frequency?</h3>
+                    <p class="leading-relaxed">The Hardy-Weinberg equilibrium relates allele frequencies to genotype frequencies: p&sup2; + 2pq + q&sup2; = 1. If the incidence of an autosomal recessive condition is q&sup2;, the carrier frequency is approximately 2q (for rare alleles). For cystic fibrosis (incidence 1/2,500 in Northern Europeans), q = 1/50 and the carrier frequency is approximately 1/25. This is used to assign prior carrier probabilities to individuals marrying into a family.</p>
+                </div>
+
+                <div class="border border-gray-200 dark:border-brand-800 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">How does consanguinity affect the risk of autosomal recessive conditions?</h3>
+                    <p class="leading-relaxed">Consanguinity increases the probability that both parents carry the same recessive allele inherited from a common ancestor. First cousins (F = 1/16) have a substantially elevated risk for rare recessive conditions. The risk to offspring is approximately q/16 + q&sup2;(15/16), which for rare alleles is dominated by the q/16 term and can be many times the population risk.</p>
+                </div>
+
+                <div class="border border-gray-200 dark:border-brand-800 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Can Mendelian inheritance calculators account for de novo mutations?</h3>
+                    <p class="leading-relaxed">Yes. Advanced calculators incorporate gene-specific de novo mutation rates. For Duchenne muscular dystrophy, approximately one-third of cases arise de novo. When a de novo mutation is confirmed in a child, the sibling recurrence risk is low (typically 1&ndash;5%, reflecting possible germline mosaicism) rather than the 50% that would apply if a parent carried the mutation constitutionally.</p>
+                </div>
+
+                <div class="border border-gray-200 dark:border-brand-800 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">What is Bayesian analysis in genetic counselling?</h3>
+                    <p class="leading-relaxed">Bayesian analysis combines prior probabilities (from pedigree and population data) with conditional probabilities (from test results, reproductive history, or clinical observations) to produce refined posterior probabilities. For example, a woman with a 50% prior carrier risk for an X-linked condition who has three unaffected sons has her risk reduced to approximately 1/9 through Bayesian updating.</p>
+                </div>
+
+                <div class="border border-gray-200 dark:border-brand-800 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Does Evagene support Mendelian inheritance calculations within pedigrees?</h3>
+                    <p class="leading-relaxed">Yes. Evagene includes three built-in Mendelian models (autosomal dominant, autosomal recessive, X-linked recessive) that run directly within the pedigree, propagating probabilities across the family. It also integrates BRCAPRO, MMRpro, and PancPRO for cancer-specific empirical risk assessment. See the <a href="https://evagene.net/help" class="text-brand-600 dark:text-brand-400 hover:underline">Evagene help centre</a> for full documentation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cross-Links -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-5">Related Resources</h2>
+            <div class="grid gap-3 sm:grid-cols-2">
+                <a href="pedigree-drawing-software.html" class="flex items-center gap-3 p-4 rounded-xl border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-600 transition-colors group">
+                    <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Pedigree Drawing Software</span>
+                </a>
+                <a href="hereditary-cancer-risk-assessment.html" class="flex items-center gap-3 p-4 rounded-xl border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-600 transition-colors group">
+                    <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Hereditary Cancer Risk Assessment</span>
+                </a>
+                <a href="gedcom-pedigree-software.html" class="flex items-center gap-3 p-4 rounded-xl border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-600 transition-colors group">
+                    <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">GEDCOM &amp; Pedigree Software</span>
+                </a>
+                <a href="clinical-genetics-pedigree-tool.html" class="flex items-center gap-3 p-4 rounded-xl border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-600 transition-colors group">
+                    <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Clinical Genetics Pedigree Tool</span>
+                </a>
+            </div>
+        </section>
+
+    </article>
+</main>
+
+<!-- CTA Section -->
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Run Mendelian Inheritance Models Inside Your Pedigrees</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">Evagene integrates autosomal dominant, autosomal recessive, and X-linked inheritance calculators directly into a clinical-grade pedigree management system. Standard notation. Bayesian probability propagation. No manual calculations required.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-3.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl transition-all duration-200 text-lg shadow-lg shadow-brand-600/25">
+            Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<!-- Dark Mode Toggle -->
+<script>
+(function() {
+    'use strict';
+    const html = document.documentElement;
+    const themeToggle = document.getElementById('theme-toggle');
+    const sunIcon = document.getElementById('sun-icon');
+    const moonIcon = document.getElementById('moon-icon');
+    function setTheme(dark) {
+        html.classList.toggle('dark', dark);
+        sunIcon.classList.toggle('hidden', !dark);
+        moonIcon.classList.toggle('hidden', dark);
+        localStorage.setItem('evagene-theme', dark ? 'dark' : 'light');
+    }
+    const saved = localStorage.getItem('evagene-theme');
+    if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) setTheme(true);
+    themeToggle.addEventListener('click', () => setTheme(!html.classList.contains('dark')));
+})();
+</script>
+
+</body>
+</html>
