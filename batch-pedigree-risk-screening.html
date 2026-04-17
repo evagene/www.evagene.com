@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batch Pedigree Risk Screening — Screen All Catalogued Conditions | Evagene</title>
+    <meta name="description" content="Batch risk screening: one proband, the full disease catalogue, configurable thresholds. Clinical utility, workflow, pitfalls, and Evagene's implementation that inverts the usual 'clinician suspects condition, runs model' into 'software flags conditions to consider'.">
+    <meta name="keywords" content="batch pedigree risk screening, screen all diseases pedigree, pedigree risk automation, risk screening clinical genetics, proband risk screening">
+
+    <meta property="og:title" content="Batch Pedigree Risk Screening | Evagene">
+    <meta property="og:description" content="Screen the pedigree against the full disease catalogue in a single pass.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/batch-pedigree-risk-screening">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Batch Pedigree Risk Screening">
+    <meta name="twitter:description" content="Screen the pedigree against the full disease catalogue.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/batch-pedigree-risk-screening">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"Batch Pedigree Risk Screening: Screen All Catalogued Conditions",
+        "description":"Screening the pedigree against the full disease catalogue in a single pass: clinical utility, workflow, pitfalls, and Evagene's implementation.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/batch-pedigree-risk-screening"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Resources","item":"https://evagene.com/#resources"},
+            {"@type":"ListItem","position":3,"name":"Batch Pedigree Risk Screening","item":"https://evagene.com/batch-pedigree-risk-screening"}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"What is batch pedigree risk screening?","acceptedAnswer":{"@type":"Answer","text":"Batch risk screening is the process of running a risk or inheritance analysis across the entire disease catalogue for a single proband in one pass, with configurable thresholds to surface only those conditions where the family history signals a meaningful elevated probability. It inverts the usual workflow of 'clinician suspects a condition and runs the appropriate model' into 'software flags conditions the clinician might not have considered.' It is a triage and discovery tool, not a replacement for focused assessment."}},
+            {"@type":"Question","name":"Why is batch screening clinically useful?","acceptedAnswer":{"@type":"Answer","text":"Clinicians cannot hold every Mendelian condition in active memory during every consultation. A batch screen brings the full catalogue to the pedigree, surfaces conditions where the family history crosses a risk threshold, and reduces the risk that a relevant inherited condition is missed because it did not happen to come to mind. It also supports standardisation across clinicians and services: the same pedigree run through the same screen produces the same set of flags regardless of who is using the tool."}},
+            {"@type":"Question","name":"What models does the screen use?","acceptedAnswer":{"@type":"Answer","text":"The screen combines validated Bayesian risk models for cancer (BRCAPRO, MMRpro, PancPRO) with Mendelian inheritance calculators for autosomal dominant, autosomal recessive, and X-linked recessive conditions, applied against the catalogued set of 180+ diseases with standard inheritance patterns. For each condition, the appropriate model is used and a probability or a threshold-based flag is produced. The clinician reviews the flags and decides which, if any, warrant a deeper dive."}},
+            {"@type":"Question","name":"What are the pitfalls?","acceptedAnswer":{"@type":"Answer","text":"Two main pitfalls. First, prior-probability calibration: for rare conditions, a positive flag can reflect real risk or a probabilistic artefact of a small family. Interpreting flags requires keeping population prevalence in mind. Second, false positives on small families: with few informative relatives, Bayesian models become noisier, and the screen may flag conditions that would not be flagged in a larger family. Configurable thresholds and clinical review mitigate both, but do not eliminate them."}},
+            {"@type":"Question","name":"When should I not use batch screening?","acceptedAnswer":{"@type":"Answer","text":"When a focused assessment is the right tool for the case. If a patient is referred specifically for BRCA evaluation, running BRCAPRO directly is clearer than running the full catalogue and picking out BRCAPRO. If the pedigree is too small or too incomplete for meaningful screening (e.g., the proband is the first relative about whom information is known), the screen will produce noise rather than signal. Batch screening is most useful for discovery — when the clinician is not sure what to suspect — or for quality assurance — to catch conditions that a focused assessment might have missed."}},
+            {"@type":"Question","name":"How does Evagene implement batch screening?","acceptedAnswer":{"@type":"Answer","text":"Evagene supports configurable thresholds for each of its integrated risk models (BRCAPRO, MMRpro, PancPRO) and for its Mendelian inheritance calculator. A single run sweeps the 180+ disease catalogue and produces a flagged list with the calculated risk or carrier probability, the threshold used, and the evidence from the pedigree that drove the flag. The clinician reviews the flagged list and can drill into any condition for a deeper view. The full screen is also available via the REST API and through the MCP server for AI-agent orchestration."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="https://evagene.com/#resources" class="hover:text-brand-600 dark:hover:text-brand-300">Resources</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">Batch Pedigree Risk Screening</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Batch pedigree risk screening: one proband, the whole catalogue, one pass</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A clinical overview of batch risk screening — what it is, why it is useful, how it should be used, where it can mislead — and how Evagene implements it across 180+ catalogued conditions with configurable thresholds and integrated Bayesian and Mendelian models.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>12 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> Traditional risk modelling is used one condition at a time: a clinician suspects a specific condition, runs the relevant model, and interprets the output. Batch risk screening inverts this: the software sweeps the entire catalogued disease list for the proband, computes the appropriate model for each, applies configurable thresholds, and surfaces only the conditions where the family history crosses a meaningful threshold. It is a discovery and triage tool — a way to reduce the chance that a relevant condition is missed because it did not happen to come to mind — rather than a replacement for focused assessment. Evagene implements batch screening across its 180+ catalogue with BayesMendel and Mendelian models, configurable thresholds, and programmatic access via REST API and MCP.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What batch risk screening is and is not</h2>
+
+            <p>"Batch" here does not mean "multiple probands at once" — though that is a separate use case. It means "all catalogued conditions at once for a single proband." A single pedigree, with its annotated diagnoses, ethnicity, consanguinity, and family structure, goes through the full set of risk and inheritance analyses in a single run. Each condition is scored with its own model and compared against a threshold. Conditions below threshold are silent; conditions above threshold surface as flags the clinician reviews.</p>
+
+            <p>It is not a new statistical method. The risk models themselves — BRCAPRO, MMRpro, PancPRO, Mendelian inheritance calculators — are the same as those used in focused assessment. What is new is the orchestration: applying the full catalogue to the pedigree in one pass and presenting a triaged output, rather than asking the clinician to choose a model per condition.</p>
+
+            <p>It is also not an unsupervised diagnostic system. Every flag is reviewed by a clinician, who decides whether to act on it (deeper modelling, phenotyping, testing, referral) or to dismiss it in context.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Why batch screening matters clinically</h2>
+
+            <p>Three reasons account for most of the clinical value.</p>
+
+            <p><strong>Catalogue breadth exceeds clinician memory.</strong> A well-prepared clinical geneticist holds a mental catalogue of perhaps a few hundred Mendelian conditions, with the most common or the most recently read occupying the most space. The full landscape of Mendelian disease is larger than any single clinician can actively consider during any single consultation. Batch screening widens the aperture without requiring recall.</p>
+
+            <p><strong>Family-history signals cluster in non-obvious ways.</strong> A pedigree may have features that, considered singly, do not point anywhere, but that combined suggest a specific condition. A grandmother with colorectal cancer at 52, an aunt with endometrial cancer at 45, and a second cousin with an early colorectal tumour might not individually prompt Lynch syndrome thinking; together they often should. Batch screening applies the combination test rather than the individual test.</p>
+
+            <p><strong>Standardisation across clinicians.</strong> Different clinicians working in the same service have different mental catalogues. A screen run by one clinician produces the same flags as a screen run by another, so the minimum floor of consideration is consistent across the team.</p>
+
+            <p>None of this replaces focused expertise. When a clinician knows what to suspect, they should run the appropriate model directly. Batch screening is a safety net, not a primary workflow.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Models used in a batch screen</h2>
+
+            <p>Evagene's batch screen combines validated Bayesian risk models for cancer with Mendelian inheritance calculators for non-cancer monogenic conditions.</p>
+
+            <ul>
+                <li><strong>BRCAPRO.</strong> Bayesian model for BRCA1 and BRCA2 variant probability, based on breast, ovarian, pancreatic, and male breast cancer in the pedigree. See our <a href="hereditary-cancer-risk-assessment.html">hereditary cancer risk assessment</a> guide for the underlying method.</li>
+                <li><strong>MMRpro.</strong> Bayesian model for MLH1, MSH2, and MSH6 variant probability in Lynch syndrome, based on colorectal, endometrial, and Lynch-spectrum cancers in the family.</li>
+                <li><strong>PancPRO.</strong> Bayesian model for familial pancreatic cancer.</li>
+                <li><strong>Mendelian inheritance calculator.</strong> Autosomal dominant, autosomal recessive, and X-linked recessive carrier and affection probabilities for conditions in the 180+ catalogue. See the <a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculator guide</a> for details.</li>
+            </ul>
+
+            <p>Each condition is scored with the most appropriate model for its inheritance class. The output for each condition includes the probability, the threshold used, and the pedigree evidence that drove the calculation.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Thresholds: the art of calibration</h2>
+
+            <p>The choice of threshold is the pivot of the screen. Too permissive and the screen produces a long list of low-signal flags that the clinician has to triage anyway; too strict and the screen risks missing conditions that warranted a second look. A few practical principles:</p>
+
+            <ul>
+                <li><strong>Different conditions warrant different thresholds.</strong> A 10% BRCA carrier probability might flag for genetic testing; a 10% probability for a very rare Mendelian condition might reflect a thin family history rather than genuine elevated risk. Thresholds should be set per-condition, not globally.</li>
+                <li><strong>Testing-eligibility criteria are natural thresholds.</strong> Many services use published eligibility criteria (NICE guidelines, NCCN, local policy) as the threshold for surfacing a flag. Evagene allows thresholds aligned to testing-eligibility criteria where those are established.</li>
+                <li><strong>Small families need higher thresholds.</strong> A pedigree with few informative relatives is noisier; models are more prior-driven and more prone to false positives. Raising the threshold for small families reduces the noise.</li>
+                <li><strong>Thresholds should be reviewed periodically.</strong> A service that runs batch screening routinely should revisit its thresholds as new evidence and new testing guidelines are published.</li>
+            </ul>
+
+            <p>Evagene supports configurable thresholds per model and per condition, with reasonable defaults that can be tuned for a service's local context.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">A disciplined workflow</h2>
+
+            <p>The value of batch screening is realised only when its outputs are reviewed with discipline. A good workflow looks like this.</p>
+
+            <ul>
+                <li><strong>Construct the pedigree carefully.</strong> Batch screening amplifies whatever is in the pedigree, so errors or omissions are amplified too. A thin or inaccurate pedigree produces misleading output, whether screened or not.</li>
+                <li><strong>Set thresholds in advance.</strong> Decide the service's thresholds before running the screen, not after seeing the output. Thresholds chosen in response to output drift toward confirming what the clinician already expected.</li>
+                <li><strong>Run the screen.</strong> In Evagene, this is a single action; the screen runs across the catalogue and returns a flagged list.</li>
+                <li><strong>Review the flagged list.</strong> For each flag, examine the evidence: which relatives drove the probability, whether ages of onset are consistent, whether the ethnicity and consanguinity inputs are correct. Dismiss flags that are artefacts (e.g., a small family where the Bayesian prior dominates).</li>
+                <li><strong>Deep-dive where warranted.</strong> For flags that survive review, run the focused model (BRCAPRO, MMRpro, PancPRO) on its own, discuss with the patient, and consider testing or referral.</li>
+                <li><strong>Record the screen outcome.</strong> Keep a record of the screen run, the thresholds used, and the decisions taken. This protects the service if the screen is revisited later, and supports quality improvement.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">Pitfalls to watch for</h2>
+
+            <p><strong>Prior-probability calibration.</strong> For very rare conditions, Bayesian models use population prior probabilities that may not match the population in front of the clinician. A flag in a specific ethnic group should be interpreted with that group's known prevalence in mind.</p>
+
+            <p><strong>False positives on small families.</strong> A pedigree of seven individuals produces noisier output than one of seventy. Small families are more prone to both false positives (flags driven by the prior rather than the data) and false negatives (real risk masked by limited information).</p>
+
+            <p><strong>Over-reliance on the screen.</strong> Batch screening does not replace clinical history-taking, phenotyping, and judgement. A pedigree that misses a key second-degree relative will produce misleading output however sophisticated the screen. The clinician's scrutiny of the pedigree itself matters more than the screen.</p>
+
+            <p><strong>Threshold gaming.</strong> Tightening thresholds to reduce the review workload can mask genuine signals; loosening them to catch more can overwhelm the clinician. Choose thresholds deliberately and revisit them with evidence.</p>
+
+            <p><strong>Polygenic and complex conditions.</strong> Many common diseases have substantial polygenic contributions that Bayesian Mendelian models do not capture. Batch screening across a Mendelian catalogue is not a substitute for polygenic risk assessment where that is relevant.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene implements batch screening</h2>
+
+            <p>Evagene's batch risk screening sweeps the 180+ disease catalogue against the active pedigree in a single run. For each condition it uses the appropriate model — BRCAPRO, MMRpro, or PancPRO for cancer conditions within their scope; Mendelian inheritance calculation for autosomal dominant, autosomal recessive, and X-linked recessive conditions; and Bayesian priors for conditions in the catalogue. Configurable thresholds per model and per condition let a service calibrate to local testing-eligibility criteria and population context.</p>
+
+            <p>The output is a flagged list, with each flag showing the calculated probability, the threshold used, and the specific pedigree evidence that drove the flag (which relatives, which diagnoses, which ages of onset). Clicking into a flag produces a deeper view of the model output, including confidence intervals where relevant. The clinician can mark each flag as actioned, dismissed, or deferred, producing an audit trail of the screen's contribution to the case.</p>
+
+            <p>Batch screening is available through the Evagene interface, through the <a href="platform.html">REST API</a>, and through the MCP server, so it can be embedded in a clinical agent workflow or an automated review process. AI interpretation (via bring-your-own-key LLMs) can be applied to the screen output to draft a narrative summary for inclusion in a clinic letter. As with every Evagene feature, the screen output is a drafting aid, not a clinical decision.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is batch pedigree risk screening?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Running a risk or inheritance analysis across the full disease catalogue for a single proband in one pass, with configurable thresholds to surface only conditions where the family history meets a meaningful level.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Why is it clinically useful?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">It widens the aperture beyond the clinician's active memory, catches conditions where combined signals in the pedigree would not trigger any single one on its own, and standardises the minimum floor of consideration across a team.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What models does the screen use?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">BRCAPRO, MMRpro, and PancPRO for cancer; Mendelian inheritance calculators for AD, AR, and XR conditions; applied across the 180+ catalogued diseases using the appropriate model per condition.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What are the pitfalls?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Prior-probability calibration for rare conditions; false positives on small families; over-reliance on the screen at the expense of clinical history-taking; threshold gaming; limited applicability to polygenic conditions.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">When should I not use batch screening?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">When a focused assessment is the right tool for the specific question, or when the pedigree is too thin to produce meaningful signal. Batch screening is a discovery and triage tool, not a primary workflow.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How does Evagene implement it?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Configurable thresholds per model and per condition, a single-run sweep across the 180+ catalogue, a flagged output with the evidence that drove each flag, and programmatic access via REST API and MCP for AI-agent orchestration.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="hereditary-cancer-risk-assessment.html">Hereditary cancer risk assessment</a></li>
+                <li><a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculator</a></li>
+                <li><a href="rare-disease-pedigree-software.html">Rare disease pedigree software</a></li>
+                <li><a href="hereditary-cardiac-pedigree.html">Hereditary cardiac pedigree</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tool</a></li>
+                <li><a href="platform.html">Evagene platform: API, webhooks, MCP, embeddable viewer</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene's batch risk screening</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. Free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

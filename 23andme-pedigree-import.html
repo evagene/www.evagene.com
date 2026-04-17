@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23andMe Pedigree Import — Genotype, Traits, Health | Evagene</title>
+    <meta name="description" content="How to import 23andMe raw data, trait reports, and health-predisposition information into a clinical pedigree. Evagene's 23andMe pipeline explained — SNP-based blood type and secretor inference, trait annotations, and disease cross-reference.">
+    <meta name="keywords" content="23andMe pedigree, import 23andMe, 23andMe family tree clinical, 23andMe raw data, SNP pedigree, consumer genomics pedigree">
+
+    <meta property="og:title" content="23andMe Pedigree Import — Genotype, Traits, Health | Evagene">
+    <meta property="og:description" content="How to bring 23andMe raw data, traits, and health predispositions into a clinical pedigree. Evagene's pipeline explained.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/23andme-pedigree-import">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="23andMe Pedigree Import — Evagene">
+    <meta name="twitter:description" content="Import 23andMe genotype, traits, and health data into a clinical pedigree.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/23andme-pedigree-import">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'], mono:['JetBrains Mono','Fira Code','monospace'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"23andMe Pedigree Import: Genotype, Traits, and Health",
+        "description":"How to bring 23andMe raw data, trait reports, and health-predisposition information into a clinical pedigree, with a focus on Evagene's import pipeline.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/23andme-pedigree-import"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Resources","item":"https://evagene.com/#resources"},
+            {"@type":"ListItem","position":3,"name":"23andMe Pedigree Import","item":"https://evagene.com/23andme-pedigree-import"}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"What does 23andMe actually export?","acceptedAnswer":{"@type":"Answer","text":"23andMe allows customers to export a tab-delimited raw genotype file containing the SNP positions assayed on the consumer array (around 600,000 to 700,000 SNPs depending on chip version), each with the customer's genotype. Where a customer has access to reports, they can additionally export (or view) trait reports, ancestry composition, and — in markets where it is available — health predisposition reports. The raw genotype file is the most useful single export for downstream pedigree tools because it contains the underlying SNP data rather than interpretations."}},
+            {"@type":"Question","name":"How do I export my 23andMe data?","acceptedAnswer":{"@type":"Answer","text":"Log in to your 23andMe account, open the Settings page, find the 23andMe Data section, and request a download of your raw genotype data. 23andMe sends a confirmation email, after which you can download a zipped tab-delimited text file. For trait and ancestry reports, printing each report to PDF from the browser is the simplest route. Health reports, where available, are similarly viewable and printable from within the 23andMe interface."}},
+            {"@type":"Question","name":"Is 23andMe data a clinical test?","acceptedAnswer":{"@type":"Answer","text":"No. 23andMe uses a consumer SNP array, not clinical-grade sequencing. It interrogates a pre-selected set of variants across the genome, with known population-specific gaps in coverage. Results are suitable for consumer-level insight and research and can usefully enrich a pedigree, but they are not a substitute for clinical genetic testing. Any finding with potential clinical consequence should be confirmed by an accredited laboratory before acting on it."}},
+            {"@type":"Question","name":"What can be inferred from 23andMe raw data?","acceptedAnswer":{"@type":"Answer","text":"From the raw SNP file it is possible to infer ABO blood type (from variants in the ABO gene including rs8176719, rs8176746, and rs8176747), Rh factor (from rs590787 and other RHD markers on consumer arrays), secretor status (from the FUT2 variant rs601338), and a range of consumer-trait information (cilantro taste, asparagus metabolite detection, earwax type). Ancestry estimates come from population-reference panels. Health predisposition inferences depend on a small number of specific variants (for example, three BRCA1/2 founder variants that 23andMe reports in certain markets)."}},
+            {"@type":"Question","name":"How does Evagene handle 23andMe import?","acceptedAnswer":{"@type":"Answer","text":"Evagene parses the tab-delimited raw genotype file and scans for clinically relevant SNPs. It infers ABO and Rh blood group, secretor status, and a set of consumer traits. Inferred values are attached to the individual in the pedigree and flagged as inferred from SNP data to distinguish them from clinically confirmed values. Where a conflict arises with previously entered data, the conflict is surfaced for review. The import does not send the raw genotype off-platform; it runs within Evagene."}},
+            {"@type":"Question","name":"Can I import 23andMe data for multiple family members?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can import raw genotype files for any member of the pedigree, with their consent. This is especially useful when multiple relatives have tested: segregation of alleles across generations becomes observable, and relationships inferred from shared DNA can be cross-checked against the structural pedigree. The consent requirement matters — your relatives' genetic data remains their data and should be handled accordingly."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="https://evagene.com/#resources" class="hover:text-brand-600 dark:hover:text-brand-300">Resources</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">23andMe Pedigree Import</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">23andMe pedigree import: turning consumer genotype data into clinical family-history context</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">What 23andMe exports, how to export it, what can be inferred from a consumer SNP array, and how Evagene brings genotype, traits, and health predispositions into a clinical pedigree — with clear limits on what the data can and cannot tell you.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>12 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300 prose-code:text-brand-700 dark:prose-code:text-brand-300 prose-code:bg-gray-100 dark:prose-code:bg-brand-900 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm">
+
+            <p><strong>Short version.</strong> 23andMe customers can export a tab-delimited raw genotype file containing several hundred thousand SNPs, plus trait and, where available, health-predisposition reports. Imported into a clinical pedigree platform, this data enriches the pedigree with SNP-inferred blood type and secretor status, trait annotations, and — where relevant — disease-related variants that can cross-reference with the disease catalogue. It is not a clinical test, and its findings do not replace accredited laboratory results, but it adds real signal to a family-history workflow. Evagene's 23andMe import pipeline is designed around that principle: infer what can be inferred, label it clearly as inferred, and let a clinician decide what to do with each flag.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What 23andMe exports</h2>
+
+            <p>Three kinds of export are available from a standard 23andMe account.</p>
+
+            <p><strong>Raw genotype data.</strong> A tab-delimited text file listing each SNP assayed on the array — identified by its rs number — alongside the customer's genotype at that position. Depending on the chip version in use when the sample was processed, the file contains between approximately 600,000 and 700,000 rows. This is the richest and most reusable of the three exports because it contains the underlying data, not any interpretation; any downstream tool can recompute its own inferences from it.</p>
+
+            <p><strong>Trait reports.</strong> A set of prose and visual reports covering consumer-oriented traits: bitter taste perception, cilantro aversion, asparagus metabolite detection, earwax type, lactose tolerance, muscle composition, and several dozen others. These are calls computed by 23andMe from the raw genotype plus their proprietary reference population data.</p>
+
+            <p><strong>Health predisposition and carrier-status reports.</strong> Where available by market — coverage varies by country and by a customer's service tier — 23andMe reports a selected set of disease-related variants. This includes three BRCA1/2 founder variants common in people of Ashkenazi Jewish ancestry, MUTYH-associated polyposis markers, several hereditary haemochromatosis variants, Gaucher, and others. These reports are variant-specific rather than comprehensive: the absence of a positive result for "BRCA1/2" in a 23andMe report means the three founder variants were not detected, not that BRCA1 and BRCA2 have been sequenced exhaustively.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How to export your 23andMe data</h2>
+
+            <p>The process is straightforward and takes under five minutes of active time, with a short wait for 23andMe to prepare the file.</p>
+
+            <ul>
+                <li>Sign in to your 23andMe account in a browser.</li>
+                <li>Open the account settings page and find the 23andMe Data section.</li>
+                <li>Select the option to download your raw genotype data. 23andMe will confirm by email when the file is ready — typically within a few minutes, occasionally longer.</li>
+                <li>Download the zipped tab-delimited text file when the email arrives. Keep it somewhere safe; the file is your personal genetic data.</li>
+                <li>For trait and ancestry reports, open each report in the browser and print to PDF if you want a static copy.</li>
+                <li>For health reports, view them within the 23andMe interface; the detailed PDF export option, where present, is reached from the individual report page.</li>
+            </ul>
+
+            <p>The raw genotype file is the only export you strictly need to bring into a pedigree platform. Trait and health inferences can be recomputed from the raw file using the same underlying SNPs, and often with more flexibility than the original report allows.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What you can and cannot infer from a consumer SNP array</h2>
+
+            <p>A consumer SNP array is not a sequencer. It assays a preselected set of variants chosen for their population frequency, medical relevance, or ancestry-informativeness. Within that set, genotype calls are usually accurate; outside that set, the array is silent. A few implications follow.</p>
+
+            <h3>Things that can be inferred well</h3>
+
+            <ul>
+                <li><strong>Common polymorphisms.</strong> Blood type, secretor status, and many consumer traits rely on a small number of well-characterised SNPs that are reliably included on every consumer array. Evagene uses this set directly.</li>
+                <li><strong>Ancestry composition.</strong> Population reference panels combined with hundreds of thousands of SNPs produce robust geographic ancestry estimates, especially for populations well-represented in the reference.</li>
+                <li><strong>Relationship verification.</strong> Two people on 23andMe who have both tested can be matched for shared DNA; the sharing pattern confirms or refines pedigree-inferred relationships.</li>
+                <li><strong>Specific founder mutations.</strong> Where a variant is explicitly assayed on the array, its absence or presence can be called. This is the basis of the 23andMe BRCA1/2 founder report and of several carrier-status findings.</li>
+            </ul>
+
+            <h3>Things that cannot be inferred reliably</h3>
+
+            <ul>
+                <li><strong>Gene coverage.</strong> The array genotypes selected SNPs, not whole genes. Absence of a reported variant in a gene does not mean the gene has been sequenced.</li>
+                <li><strong>Rare mutations.</strong> Any variant not on the array is invisible. Most disease-causing mutations in most hereditary cancer or cardiac genes are not on consumer arrays.</li>
+                <li><strong>Structural variation.</strong> Copy-number variants, large deletions, and rearrangements are beyond the array's design.</li>
+                <li><strong>Polygenic risk at clinical scale.</strong> Polygenic risk scores can be computed from consumer genotype, but their clinical utility remains an active research area and their population calibration is limited for non-European ancestries.</li>
+            </ul>
+
+            <p>A good pedigree platform will make these limits explicit to the user rather than presenting inferences as clinical findings. Evagene flags each SNP-inferred value in the pedigree as <em>inferred from SNP data</em> so a clinician reading the tree knows the provenance of every entry.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Evagene's 23andMe import pipeline</h2>
+
+            <p>Evagene's import pipeline has four stages: parse, map, infer, and annotate.</p>
+
+            <h3>1. Parse</h3>
+
+            <p>The tab-delimited raw genotype file is parsed row-by-row. Each row contains an rs number (or an internal 23andMe identifier, for a small number of variants), a chromosome, a position, and the customer's genotype at that position (two alleles, concatenated). Evagene handles all commercial chip versions that 23andMe has released.</p>
+
+            <h3>2. Map SNPs to features</h3>
+
+            <p>Evagene maintains an internal mapping from SNPs to features — blood type, secretor status, consumer traits, and a set of catalogued disease-related variants. The mapping uses rs numbers as the primary key so the same entry works across chip versions. Where a customer's chip omits a specific SNP, that feature is marked as unavailable rather than computed from an incomplete set.</p>
+
+            <h3>3. Infer</h3>
+
+            <p>For each feature, Evagene computes an inference from the relevant SNP cluster:</p>
+
+            <ul>
+                <li><strong>ABO blood type.</strong> A deletion variant <code>rs8176719</code> distinguishes O from A/B; missense variants <code>rs8176746</code> and <code>rs8176747</code> distinguish A from B. Combining genotypes yields the ABO group (A, B, AB, or O).</li>
+                <li><strong>Rh factor.</strong> <code>rs590787</code> and surrounding SNPs in the RHD gene region inform Rh positive/negative status. Rh inference is probabilistic because the underlying biology includes a gene deletion that consumer arrays assay indirectly.</li>
+                <li><strong>Secretor status.</strong> <code>rs601338</code> in FUT2: a nonsense mutation at position 428 (G428A) abolishes secretor activity. Homozygous mutation gives non-secretor, heterozygous gives secretor, and homozygous wild-type gives secretor. Secretor status is relevant to norovirus susceptibility, certain infection risks, and (in ongoing research) microbiome composition.</li>
+                <li><strong>Consumer traits.</strong> A curated set of over 50 traits, computed from the trait's underlying SNP cluster.</li>
+                <li><strong>Allergies and specific disease variants.</strong> Where a variant in the disease catalogue is directly assayed, a match is flagged for clinician review.</li>
+            </ul>
+
+            <h3>4. Annotate</h3>
+
+            <p>Each inferred value is attached to the individual in the pedigree and tagged as inferred from SNP data, with the source rs numbers recorded so any clinician can audit how the inference was made. Where the same field already has a clinically confirmed value — from serological blood-typing, say — Evagene surfaces a conflict for the user to resolve rather than overwriting.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Where the SNP layer adds value to a pedigree</h2>
+
+            <p>The most obvious benefit is data enrichment. A pedigree with blood type, Rh, secretor status, and ancestry data on multiple individuals tells a richer story than one without. Blood type is routinely clinically useful; secretor status and ancestry can be relevant in specific contexts.</p>
+
+            <p>A less obvious benefit is the ability to cross-reference with the disease catalogue. Where the pedigree already records a phenotype — say, early-onset colorectal cancer in a first-degree relative — and 23andMe data reveals a carrier finding for MUTYH, the two data points together prompt a different clinical conversation than either alone. Evagene's AI interpretation engine can flag such combinations automatically using <a href="platform.html">its analysis templates</a>.</p>
+
+            <p>A third benefit is polygenic context. Several common conditions — type 2 diabetes, coronary artery disease, inflammatory bowel disease, certain cancers — have a polygenic component that a monogenic pedigree does not capture. A pedigree platform that also holds consumer genotype data can contextualise the family history with an individual polygenic signal, even if that signal remains research-grade rather than clinical-grade. Evagene does not currently report polygenic risk scores clinically, but the underlying data is imported and available for downstream analysis.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What the 23andMe data is not</h2>
+
+            <p>It is worth restating three limits explicitly because they are often misunderstood.</p>
+
+            <p><strong>It is not a clinical genetic test.</strong> A positive finding in a 23andMe report should be confirmed in an accredited laboratory before any clinical decision is made. A negative finding does not rule out a condition because most disease-causing variants are not on the array. Clinicians receiving 23andMe-derived information from a patient should treat it as a signal to consider proper testing, not as a result in itself.</p>
+
+            <p><strong>It is not a full genome.</strong> Even at over 600,000 SNPs, a consumer array covers a tiny fraction of the three billion base pairs of the human genome. Most of the variation that matters clinically is not on the array.</p>
+
+            <p><strong>It is not equally informative across ancestries.</strong> Consumer arrays were originally designed with European reference populations in mind, and while coverage has improved, performance on some variants in African, East Asian, South Asian, and admixed populations is weaker than in European-ancestry samples. Ancestry estimates and polygenic scores carry similar caveats.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene supports 23andMe import</h2>
+
+            <p>Evagene accepts the raw genotype file directly. You upload the .txt file (or the zipped version), pick the individual in the pedigree to whom the data belongs, and the pipeline runs locally within the platform — the raw genotype file is not forwarded off-platform. The inferences Evagene computes include ABO blood group, Rh factor, secretor status, and the curated set of consumer traits. Where a variant from the 180+ disease catalogue is assayed on the array, it is checked and flagged for clinician review.</p>
+
+            <p>Each inferred value is labelled <em>inferred from SNP data</em> with the source rs numbers recorded on the individual. This distinguishes SNP-derived values from clinically confirmed ones and lets a clinician understand how any given entry came into the pedigree. Conflicts between SNP-inferred values and existing data are surfaced for resolution, not silently overwritten.</p>
+
+            <p>Beyond 23andMe, Evagene accepts <a href="gedcom-pedigree-software.html">GEDCOM 5.5.1</a>, JSON, XEG, and <a href="pedigree-ocr.html">pedigree image OCR</a>, with the same conflict-resolution discipline applied. All imports feed the same internal pedigree model, which in turn drives the <a href="hereditary-cancer-risk-assessment.html">BayesMendel risk models</a> and the <a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculator</a>.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What does 23andMe actually export?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">A tab-delimited raw genotype file of the SNPs on the consumer array (around 600,000 to 700,000 depending on chip version), plus trait and, where available, health-predisposition reports. The raw genotype file is the most useful single export for a downstream pedigree tool.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How do I export my 23andMe data?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">From the 23andMe account settings, request a raw genotype download. 23andMe confirms by email when the file is ready; you download a zipped .txt file. Trait and ancestry reports can be printed to PDF from the browser.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is 23andMe data a clinical test?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">No. It is a consumer SNP array, not clinical-grade sequencing. Results usefully enrich a pedigree but are not a substitute for accredited genetic testing. Confirm any finding of clinical consequence in a certified laboratory.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What can be inferred from 23andMe raw data?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">ABO blood group, Rh factor, secretor status, a wide set of consumer traits, ancestry composition, and specific founder variants that are directly assayed on the array. Most disease-causing variants in most hereditary-condition genes are not on the array.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How does Evagene handle 23andMe import?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">The raw genotype file is parsed and mapped against a catalogue of relevant SNPs. Blood type, Rh, secretor status, traits, and catalogued disease variants are inferred and attached to the individual as <em>inferred from SNP data</em>. Conflicts with existing values are surfaced for review.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can I import data for multiple family members?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes, with their consent. Multiple relatives' genotype data allows segregation observation and relationship cross-checking against the structural pedigree.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="gedcom-pedigree-software.html">GEDCOM pedigree software: genealogy meets clinical genetics</a></li>
+                <li><a href="family-health-history-online.html">Family health history online</a></li>
+                <li><a href="medical-family-tree.html">Medical family tree: record your health history</a></li>
+                <li><a href="pedigree-drawing-software.html">Pedigree drawing software: standard notation and best practice</a></li>
+                <li><a href="hereditary-cancer-risk-assessment.html">Hereditary cancer risk assessment</a></li>
+                <li><a href="platform.html">Evagene platform: API, webhooks, MCP, and embeddable viewer</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Import your 23andMe data into a clinical pedigree</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. Free access during Alpha for patients, families, clinicians, and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

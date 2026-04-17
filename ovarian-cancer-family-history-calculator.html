@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ovarian Cancer Family History Calculator — Hereditary Ovarian Cancer Risk from a Pedigree | Evagene</title>
+    <meta name="description" content="A clinical guide to ovarian cancer and genetics: HBOC (BRCA1/BRCA2), Lynch syndrome overlap, risk-reducing salpingo-oophorectomy, pedigree red flags, and how Evagene integrates BRCAPRO for carrier probability.">
+    <meta name="keywords" content="ovarian cancer family history risk, ovarian cancer risk calculator, hereditary ovarian cancer, BRCA1, BRCA2, HBOC, Lynch ovarian cancer, risk-reducing salpingo-oophorectomy, BRCAPRO, MMRpro">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ovarian Cancer Family History Calculator — Hereditary Ovarian Cancer Risk from a Pedigree">
+    <meta property="og:description" content="Ovarian cancer genetics, HBOC and Lynch overlap, pedigree red flags, risk-reducing surgery, and Evagene's integrated BRCAPRO workflow.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/ovarian-cancer-family-history-calculator">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ovarian Cancer Family History Calculator — Hereditary Ovarian Cancer Risk">
+    <meta name="twitter:description" content="From a pedigree to an ovarian cancer risk decision: red flags, genetics, and surgery conversations.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/ovarian-cancer-family-history-calculator">
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD: Article -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"Ovarian Cancer Family History Calculator: Hereditary Ovarian Cancer Risk from a Pedigree",
+        "description":"A clinical guide to hereditary ovarian cancer genetics, pedigree red flags, and risk calculation.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/ovarian-cancer-family-history-calculator"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Risk Analysis","item":"https://evagene.com/#risk-analysis"},
+            {"@type":"ListItem","position":3,"name":"Ovarian Cancer Family History Calculator","item":"https://evagene.com/ovarian-cancer-family-history-calculator"}
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"How much ovarian cancer is hereditary?","acceptedAnswer":{"@type":"Answer","text":"A substantial proportion of high-grade serous ovarian cancer is associated with pathogenic germline variants, with BRCA1 and BRCA2 being the most common contributors. Current guidelines recommend offering germline testing to all non-mucinous epithelial ovarian cancer cases regardless of family history, because pedigree alone misses a meaningful fraction of carriers. Lynch syndrome and other hereditary cancer syndromes contribute additional cases."}},
+            {"@type":"Question","name":"What is hereditary breast and ovarian cancer (HBOC)?","acceptedAnswer":{"@type":"Answer","text":"HBOC is the clinical syndrome caused by pathogenic variants in BRCA1 or BRCA2. Carriers face substantially elevated lifetime risks of breast and ovarian cancer, with characteristic features including early-onset disease, bilateral breast cancer, male breast cancer, and cascade of breast and ovarian cases across generations. Other genes — PALB2, RAD51C, RAD51D, BRIP1 — also contribute to hereditary ovarian cancer risk, typically at lower penetrance than BRCA1/BRCA2."}},
+            {"@type":"Question","name":"Is ovarian cancer part of Lynch syndrome?","acceptedAnswer":{"@type":"Answer","text":"Yes. Lynch syndrome includes ovarian cancer in its tumour spectrum, typically at moderate lifetime risk and with a younger onset than sporadic ovarian cancer. In a kindred with colorectal or endometrial cancer plus ovarian cancer, Lynch syndrome should always be in the differential alongside HBOC."}},
+            {"@type":"Question","name":"What are the red-flag ovarian cancer family history patterns?","acceptedAnswer":{"@type":"Answer","text":"Any first-degree relative with ovarian cancer, particularly epithelial ovarian cancer; ovarian cancer in the same family as breast cancer; male breast cancer in the family; Ashkenazi Jewish heritage with any ovarian or breast cancer; pancreatic or aggressive prostate cancer coexisting; early-onset endometrial or colorectal cancer suggesting Lynch syndrome; and any personal history of breast cancer under 50 with ovarian cancer in relatives."}},
+            {"@type":"Question","name":"What is risk-reducing salpingo-oophorectomy?","acceptedAnswer":{"@type":"Answer","text":"Bilateral salpingo-oophorectomy removes both ovaries and fallopian tubes. In BRCA1 and BRCA2 carriers, it substantially reduces ovarian cancer risk and also reduces breast cancer risk. Timing is individualised, typically recommended after childbearing is complete and at an age that balances cancer risk reduction against the effects of surgical menopause. Recent approaches increasingly consider staged surgery — early salpingectomy followed by delayed oophorectomy — although evidence is still evolving."}},
+            {"@type":"Question","name":"How is ovarian cancer risk calculated from family history?","acceptedAnswer":{"@type":"Answer","text":"BRCAPRO estimates BRCA1/BRCA2 carrier probability and derives ovarian risk from the penetrance functions. BOADICEA (CanRisk) extends to additional genes and polygenic factors. MMRpro handles the Lynch syndrome contribution to ovarian risk. For an ovarian-family-history consultation, these tools are complementary: BRCAPRO for HBOC, MMRpro for Lynch, and a broader tool such as BOADICEA for comprehensive assessment."}},
+            {"@type":"Question","name":"How does Evagene support ovarian cancer risk workflows?","acceptedAnswer":{"@type":"Answer","text":"Evagene integrates BRCAPRO and MMRpro directly on the pedigree canvas, with batch risk screening that runs both across the 180+ disease catalogue in one operation. For a pedigree with ovarian plus colorectal cancer, the Lynch signal is surfaced automatically rather than depending on the clinician remembering to run MMRpro. AI-drafted clinical reports use bring-your-own-key LLMs, and programmatic access is via the REST API and MCP server."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<!-- Navigation -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="https://evagene.com/#risk-analysis" class="hover:text-brand-600 dark:hover:text-brand-300">Risk Analysis</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">Ovarian Cancer Family History Calculator</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Ovarian cancer family history calculator: hereditary ovarian cancer risk from a pedigree</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A clinical guide for gynaecological oncology, breast surgery, and genetic counselling services — the genetics of ovarian cancer, the HBOC and Lynch syndromes that dominate hereditary risk, the red-flag pedigree patterns, risk-reducing surgery, and how Evagene's integrated BRCAPRO and MMRpro workflow supports the clinical decision.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>12 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> Ovarian cancer, particularly high-grade serous ovarian cancer, has a substantial hereditary component. BRCA1 and BRCA2 are the dominant drivers; Lynch syndrome is an important secondary contributor; several other genes — PALB2, RAD51C, RAD51D, BRIP1 — add to the picture. Current guidelines recommend germline testing for all non-mucinous epithelial ovarian cancer cases irrespective of family history, because relying on pedigree alone misses carriers. For women unaffected but with a suggestive family history, BRCAPRO and MMRpro quantify pre-test carrier probability and inform decisions about testing, surveillance (limited but available), and risk-reducing salpingo-oophorectomy. Evagene integrates both models on the pedigree canvas and runs them alongside PancPRO and Mendelian analyses in a single workflow.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Ovarian cancer and genetics</h2>
+
+            <p>Ovarian cancer sits at an unusual intersection of genetics and clinical pathology. Compared with many other cancers, a strikingly high proportion of cases — particularly the dominant high-grade serous subtype — carry pathogenic germline variants in hereditary cancer genes. This is why current NICE and NCCN guidance recommends offering germline testing to <strong>every woman with non-mucinous epithelial ovarian cancer</strong>, regardless of family history. Family history alone is not a sensitive screen: roughly half of BRCA-associated ovarian cancers occur in women whose pedigrees do not obviously meet family-history-based testing criteria.</p>
+
+            <p>For women who are unaffected themselves but who carry a concerning family history, the task is different: estimate their pre-test carrier probability, decide whether testing is indicated, and plan the appropriate surveillance and risk-reduction conversations.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">HBOC: BRCA1 and BRCA2</h2>
+
+            <p>Hereditary breast and ovarian cancer (HBOC) syndrome is caused by pathogenic germline variants in <strong>BRCA1</strong> or <strong>BRCA2</strong>. Both genes encode proteins essential for homologous recombination repair of double-strand DNA breaks. Loss of one functional copy in the germline, followed by loss of the second copy in a somatic cell, produces the elevated cancer risk characteristic of the syndrome.</p>
+
+            <p>The ovarian cancer risks conferred by BRCA1 and BRCA2 are substantial, with BRCA1 generally carrying the higher lifetime ovarian risk. Specific numbers vary by study cohort, ethnicity, and ascertainment bias, and should be taken from current published penetrance functions rather than specific figures memorised and quoted. The important clinical point is that both genes confer sufficient ovarian risk to warrant risk-reducing salpingo-oophorectomy discussions once childbearing is complete.</p>
+
+            <p>Beyond BRCA1 and BRCA2, several moderate-penetrance genes contribute to hereditary ovarian cancer: <strong>PALB2</strong>, <strong>RAD51C</strong>, <strong>RAD51D</strong>, and <strong>BRIP1</strong>. Each confers a smaller but still meaningfully elevated ovarian cancer risk, and each is included on contemporary hereditary ovarian cancer gene panels.</p>
+
+            <p>Ashkenazi Jewish heritage substantially elevates the prior probability of carrying a BRCA1 or BRCA2 pathogenic variant, driven by three well-characterised founder variants. Referral criteria are correspondingly more permissive in Ashkenazi Jewish women.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Lynch syndrome and ovarian cancer</h2>
+
+            <p>Ovarian cancer is part of the Lynch syndrome tumour spectrum. Lynch-associated ovarian cancers tend to occur at younger ages than sporadic ovarian cancer and often have histology distinct from the high-grade serous pattern associated with BRCA-driven disease — endometrioid or clear-cell histology is more common in Lynch than BRCA.</p>
+
+            <p>In a kindred where ovarian cancer co-occurs with colorectal, endometrial, gastric, urothelial, or other Lynch-spectrum cancers, Lynch syndrome belongs in the differential alongside HBOC. A family history of endometrial cancer in the mother and ovarian cancer in the daughter, for example, should prompt consideration of both HBOC and Lynch — and running both BRCAPRO and MMRpro rather than one or the other. See our <a href="lynch-syndrome-risk-calculator.html">Lynch syndrome risk calculator</a> and <a href="mmrpro-calculator.html">MMRpro calculator</a> pages for detail.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Red-flag pedigree patterns for ovarian cancer</h2>
+
+            <p>In a family history evaluation where ovarian cancer is part of the presenting picture, or where its emergence is the concern, the features that raise the suspicion of a hereditary syndrome include:</p>
+
+            <ul>
+                <li><strong>Any first-degree relative with epithelial ovarian cancer.</strong> In most jurisdictions, this alone is sufficient to trigger specialist referral.</li>
+                <li><strong>Ovarian cancer in the same family as breast cancer.</strong> The classic HBOC pattern.</li>
+                <li><strong>Early-onset ovarian cancer.</strong> Younger ages at diagnosis raise the hereditary suspicion.</li>
+                <li><strong>Male breast cancer in the family.</strong> A strong signal for BRCA2, which also confers ovarian risk.</li>
+                <li><strong>Ashkenazi Jewish heritage with any breast or ovarian cancer.</strong></li>
+                <li><strong>Pancreatic cancer or aggressive early-onset prostate cancer coexisting.</strong> Both are part of the BRCA2-associated spectrum.</li>
+                <li><strong>Endometrial or colorectal cancer coexisting with ovarian cancer.</strong> Lynch syndrome differential.</li>
+                <li><strong>Multiple primary cancers in one individual, particularly breast and ovarian.</strong></li>
+                <li><strong>Personal history of breast cancer before 50 with any ovarian cancer in relatives.</strong></li>
+            </ul>
+
+            <p>These are referral triggers under NICE CG164 and NCCN. Formal risk calculation follows the specialist consultation.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Calculating ovarian cancer risk from family history</h2>
+
+            <p>Several tools contribute to ovarian cancer risk estimation, depending on which hereditary syndrome is in the differential and which clinical question is being answered.</p>
+
+            <ul>
+                <li><strong>BRCAPRO.</strong> Estimates BRCA1 and BRCA2 carrier probability from pedigree data, and derives projected cumulative ovarian cancer risk from the estimated carrier status using published penetrance functions. See our <a href="brcapro-calculator.html">BRCAPRO calculator guide</a>.</li>
+                <li><strong>BOADICEA (CanRisk).</strong> Broader coverage — includes the moderate-penetrance ovarian cancer genes PALB2, RAD51C, RAD51D, and BRIP1, and integrates polygenic risk. See our <a href="boadicea-alternative.html">BOADICEA alternative page</a>.</li>
+                <li><strong>MMRpro.</strong> Estimates the Lynch syndrome contribution to ovarian cancer risk via MLH1, MSH2, and MSH6 carrier probability. Particularly important in kindreds with ovarian plus colorectal or endometrial burden.</li>
+                <li><strong>Clinical criteria.</strong> NICE and NCCN referral criteria capture many of the high-yield ovarian family-history patterns without requiring a quantitative model. Criteria plus models together provide a robust decision basis.</li>
+            </ul>
+
+            <p>For an ovarian-focused consultation, running BRCAPRO and MMRpro in the same session, from the same pedigree, is typically what the clinical question warrants. Either syndrome could be present; either would change management substantially.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Screening, risk reduction, and treatment implications</h2>
+
+            <p>Unlike breast cancer, where imaging-based surveillance is well established for high-risk women, <strong>ovarian cancer surveillance is limited</strong>. Transvaginal ultrasound and CA-125 monitoring in high-risk women have not been shown to meaningfully reduce ovarian cancer mortality in the randomised evidence to date. This limitation shapes the clinical conversation with BRCA1 and BRCA2 carriers materially.</p>
+
+            <p><strong>Risk-reducing bilateral salpingo-oophorectomy (RRSO)</strong> is the primary intervention offered to BRCA1 and BRCA2 carriers for ovarian cancer risk reduction. The procedure substantially reduces ovarian cancer risk — and, if performed before natural menopause, also reduces breast cancer risk in most observational cohorts (although the magnitude of breast risk reduction has been revised downward in more recent analyses). Timing is individualised. Typical guidance recommends RRSO between ages 35 and 40 for BRCA1 carriers and between 40 and 45 for BRCA2 carriers, after childbearing is complete, balancing cancer risk reduction against the effects of surgical menopause (cardiovascular, cognitive, bone health, quality-of-life considerations).</p>
+
+            <p>Recent clinical research has explored <strong>staged risk-reducing surgery</strong> — bilateral salpingectomy at a younger age followed by delayed oophorectomy — reflecting evidence that many high-grade serous ovarian cancers originate in the fallopian tubes. The evidence base is still evolving; surveillance and risk-reducing surgery decisions should be made with a specialist multidisciplinary team aware of current guidance.</p>
+
+            <p>For Lynch syndrome carriers, risk-reducing hysterectomy with bilateral salpingo-oophorectomy is offered once childbearing is complete, addressing both endometrial and ovarian cancer risks.</p>
+
+            <p>Confirmed ovarian cancer in a BRCA1 or BRCA2 carrier has direct treatment implications. PARP inhibitors show substantial efficacy in BRCA-associated ovarian cancer, and are now a standard component of many first-line and maintenance regimens. Germline testing of all newly diagnosed ovarian cancer patients is therefore not only about cascade risk in relatives — it directly shapes the patient's own oncological management.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene integrates ovarian cancer risk workflows</h2>
+
+            <p>Evagene is a browser-based clinical pedigree management platform that integrates BRCAPRO and MMRpro from the BayesMendel suite directly on the pedigree canvas. For ovarian cancer workflows specifically, this integration matters because the two syndromes that dominate hereditary ovarian risk — HBOC and Lynch — require different models, and manually running both is work that tends to get skipped.</p>
+
+            <p><strong>Batch risk screening</strong> addresses this directly. From a single pedigree, Evagene can run BRCAPRO, MMRpro, PancPRO, and Mendelian analyses across the 180-plus disease catalogue in one operation. A pedigree with ovarian plus colorectal burden has MMRpro run automatically — the Lynch signal is surfaced without depending on the clinician remembering to suspect it. A pedigree with ovarian plus pancreatic history has PancPRO run alongside BRCAPRO, because BRCA2 sits at the intersection of both.</p>
+
+            <p>The pedigree itself is drawn once on a clinical canvas with standard notation, gesture drawing, and disease annotation using ICD-10 and OMIM codes. Ovarian, breast, colorectal, endometrial, pancreatic, and other relevant cancers are all natively supported. The pedigree data is the same data risk models need, so there is no re-entry step. BRCAPRO and MMRpro run in an R sidecar process invoking the validated BayesMendel package.</p>
+
+            <p><strong>AI interpretation</strong> uses bring-your-own-key large language models (Anthropic Claude or OpenAI GPT) to draft structured clinical summaries combining pedigree findings with risk model output. Ovarian-cancer-relevant framing — HBOC versus Lynch differential, implications for RRSO timing, data gaps that would change management — is part of the drafted output, which a clinician reviews and edits. Traffic goes directly to your contracted LLM provider; no Evagene-hosted model handles clinical text.</p>
+
+            <p>For programmatic use, risk results are available through the REST API and MCP server. GEDCOM 5.5.1 export supports handoff to external tools such as CanRisk where polygenic risk or moderate-penetrance gene coverage is required. Documentation is at <a href="https://evagene.net/help">evagene.net/help</a>. Evagene is free during Alpha via <a href="https://evagene.com/#waitlist">the waiting list</a>, with zero install required.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How much ovarian cancer is hereditary?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">A substantial fraction, particularly of high-grade serous ovarian cancer. BRCA1 and BRCA2 are the most common drivers. Current guidelines recommend germline testing for all non-mucinous epithelial ovarian cancer regardless of family history.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is HBOC?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Hereditary breast and ovarian cancer syndrome, caused by pathogenic variants in BRCA1 or BRCA2. Moderate-penetrance genes PALB2, RAD51C, RAD51D, and BRIP1 contribute additional ovarian cancer risk.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is ovarian cancer part of Lynch syndrome?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes — part of the Lynch tumour spectrum, often with endometrioid or clear-cell histology and younger onset than sporadic cases.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What are the red-flag patterns?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Any first-degree ovarian cancer; ovarian plus breast; male breast cancer in the family; Ashkenazi Jewish heritage; pancreatic or prostate cancer coexisting; endometrial or colorectal cancer coexisting.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is risk-reducing salpingo-oophorectomy?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Bilateral removal of ovaries and fallopian tubes. The primary intervention for ovarian cancer risk reduction in BRCA carriers. Timing individualised by gene and life stage.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How is ovarian risk calculated from family history?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">BRCAPRO for BRCA1/2 carrier probability and ovarian risk; MMRpro for Lynch contribution; BOADICEA for comprehensive multi-gene coverage.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How does Evagene help?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">BRCAPRO and MMRpro integrated on the pedigree, batch screening across diseases catches HBOC and Lynch signals together, AI-drafted clinical reports, and GEDCOM export to external tools.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="brcapro-calculator.html">BRCAPRO calculator</a></li>
+                <li><a href="mmrpro-calculator.html">MMRpro calculator</a></li>
+                <li><a href="lynch-syndrome-risk-calculator.html">Lynch syndrome risk calculator</a></li>
+                <li><a href="boadicea-alternative.html">BOADICEA alternative</a></li>
+                <li><a href="tyrer-cuzick-alternative.html">Tyrer-Cuzick alternative</a></li>
+                <li><a href="breast-cancer-family-history-calculator.html">Breast cancer family history calculator</a></li>
+                <li><a href="hereditary-cancer-risk-assessment.html">Hereditary cancer risk assessment</a></li>
+                <li><a href="pedigree-drawing-software.html">Pedigree drawing software</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tool</a></li>
+                <li><a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculator</a></li>
+                <li><a href="gedcom-pedigree-software.html">GEDCOM pedigree software</a></li>
+                <li><a href="phenotips-vs-evagene.html">Phenotips vs Evagene comparison</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<!-- CTA -->
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Calculate ovarian cancer risk from your pedigree</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. Browser-based, zero install, free during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

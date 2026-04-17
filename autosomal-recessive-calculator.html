@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autosomal Recessive Calculator — Carrier Probability, 25% Rule & Consanguinity | Evagene</title>
+    <meta name="description" content="An educational guide to autosomal recessive inheritance: the carrier-by-carrier 25/50/25 rule, Bayesian carrier probability, consanguinity as a risk amplifier, and clinical examples from cystic fibrosis to SMA.">
+    <meta name="keywords" content="autosomal recessive calculator, carrier probability calculator, autosomal recessive inheritance, 25 percent risk, cystic fibrosis inheritance, sickle cell inheritance, SMA carrier, Tay-Sachs carrier, PKU inheritance, consanguinity carrier risk, pseudodominance">
+
+    <meta property="og:title" content="Autosomal Recessive Calculator — Carrier Probability, 25% Rule & Consanguinity">
+    <meta property="og:description" content="How autosomal recessive inheritance works, the carrier-carrier 25/50/25 rule, and how to calculate carrier risk from pedigree and population data.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/autosomal-recessive-calculator">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Autosomal Recessive Calculator — Carrier Probability, 25% Rule & Consanguinity">
+    <meta name="twitter:description" content="A clinical guide to autosomal recessive inheritance calculations.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/autosomal-recessive-calculator">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"Autosomal Recessive Calculator: Carrier Probability and Recurrence Risk",
+        "description":"A clinical guide to autosomal recessive inheritance calculations including the 25/50/25 carrier-carrier rule, Bayesian updating, population carrier frequencies, and consanguinity.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/autosomal-recessive-calculator"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Inheritance Calculators","item":"https://evagene.com/mendelian-inheritance-calculator"},
+            {"@type":"ListItem","position":3,"name":"Autosomal Recessive Calculator","item":"https://evagene.com/autosomal-recessive-calculator"}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"What is the recurrence risk for an autosomal recessive condition when both parents are carriers?","acceptedAnswer":{"@type":"Answer","text":"When both parents are heterozygous carriers, each pregnancy has a 1/4 probability of an affected (homozygous) child, a 2/4 probability of a carrier (heterozygous) child, and a 1/4 probability of a non-carrier child. This 25/50/25 split applies independently to each pregnancy."}},
+            {"@type":"Question","name":"If an autosomal recessive sibling is unaffected, what is their carrier probability?","acceptedAnswer":{"@type":"Answer","text":"Given that the sibling is unaffected, the affected 1/4 outcome is excluded and the remaining outcomes re-normalise. The probability of being a carrier becomes 2/3 and the probability of being a non-carrier becomes 1/3. This is a standard Bayesian conditioning step."}},
+            {"@type":"Question","name":"How does consanguinity change autosomal recessive risk?","acceptedAnswer":{"@type":"Answer","text":"Consanguinity increases the probability that both parents share an allele inherited from a common ancestor. The coefficient of inbreeding F quantifies this effect. For first cousins F is approximately 1/16. The risk of a recessive disease in offspring rises above the population baseline, and the effect is largest for rare conditions."}},
+            {"@type":"Question","name":"What is pseudodominance?","acceptedAnswer":{"@type":"Answer","text":"Pseudodominance is an autosomal recessive condition that appears to follow a dominant pattern on a pedigree because an affected individual partners with an unrelated carrier. The disease seems to pass vertically, but the underlying inheritance is recessive. It is more likely with high-frequency recessive alleles and in consanguineous families."}},
+            {"@type":"Question","name":"How do population carrier frequencies enter the calculation?","acceptedAnswer":{"@type":"Answer","text":"When one member of a couple has a known family history of a recessive condition and the partner has no family history, the partner's prior carrier probability comes from the general or population-specific carrier frequency. Hardy-Weinberg equilibrium gives a convenient link between disease incidence and carrier frequency for rare alleles."}},
+            {"@type":"Question","name":"Does Evagene support autosomal recessive calculations?","acceptedAnswer":{"@type":"Answer","text":"Yes. Evagene's Mendelian calculator evaluates autosomal recessive transmission for 180+ catalogued conditions and automatically detects consanguinity in the pedigree, calculating Wright's coefficient of relationship to incorporate into recessive risk estimates."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="mendelian-inheritance-calculator.html" class="hover:text-brand-600 dark:hover:text-brand-300">Inheritance Calculators</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">Autosomal Recessive Calculator</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Autosomal recessive calculator: carrier probability, the 25% rule, and consanguinity</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A working guide to calculating autosomal recessive risk from a pedigree: carrier-by-carrier matings, Bayesian updating after unaffected siblings, population carrier frequencies, and the effect of consanguinity.</p>
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">Examples include cystic fibrosis, sickle cell disease, spinal muscular atrophy, Tay-Sachs disease, and phenylketonuria. Written for genetic counsellors and clinical geneticists doing day-to-day carrier screening and reproductive risk assessment.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>13 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> In autosomal recessive (AR) inheritance, two copies of the disease allele are needed to manifest the phenotype. Carriers (heterozygotes) are typically unaffected. When two carriers have a child, each pregnancy has a 25% probability of being affected, a 50% probability of being a carrier, and a 25% probability of being a non-carrier. When one member of a couple has a known carrier status and the other does not, the partner's prior carrier probability is drawn from population data and the couple risk is calculated as the product of per-parent carrier probabilities multiplied by the 25% transmission from a carrier-carrier cross. Consanguinity amplifies recessive risk by increasing the probability that both parents share an ancestral allele; this is quantified by Wright's inbreeding coefficient F.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What "autosomal recessive" means</h2>
+
+            <p>An autosomal recessive condition is caused by mutations on both copies of an autosomal gene. Heterozygotes (carriers) carry one mutant and one wild-type allele and are typically unaffected because the wild-type allele provides sufficient protein function. Homozygotes or compound heterozygotes have two non-functional or reduced-function alleles and manifest the phenotype.</p>
+
+            <p>The canonical AR family has two unaffected carrier parents. Each parent produces gametes that are 50% mutant and 50% wild-type. The cross of two such gametes yields the classic Punnett square: 25% affected (AA), 50% carrier (Aa), and 25% non-carrier (aa), where A is the mutant allele by convention for this discussion. Because carriers are unaffected, AR conditions often appear to "skip" generations, manifesting only when two carriers happen to partner.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Pedigree features that suggest a recessive pattern</h2>
+
+            <p>Look for these features on the pedigree:</p>
+
+            <ul>
+                <li><strong>Affected siblings with unaffected parents</strong>: the single most characteristic pattern.</li>
+                <li><strong>Both sexes affected</strong> in similar numbers, since the gene is autosomal.</li>
+                <li><strong>Horizontal pattern</strong> within a sibship rather than vertical transmission across generations.</li>
+                <li><strong>No male-to-male transmission restriction</strong>: fathers can transmit to sons, distinguishing from X-linked.</li>
+                <li><strong>Consanguinity in the family</strong>: uncle-niece, first-cousin, or more distant unions increase prior probability of AR disease and should trigger careful pedigree review.</li>
+                <li><strong>Specific ancestry</strong>: several AR conditions have elevated allele frequency in particular populations (cystic fibrosis in Northern Europeans, sickle cell in sub-Saharan African and Mediterranean populations, Tay-Sachs and several others in Ashkenazi Jewish populations).</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">The core calculation: carrier by carrier</h2>
+
+            <p>For a couple both confirmed as carriers (for example, both tested as <em>CFTR</em> F508del heterozygotes), each pregnancy has:</p>
+
+            <ul>
+                <li>1/4 probability of an affected child (homozygous or compound heterozygous)</li>
+                <li>2/4 probability of a carrier child (heterozygous, unaffected)</li>
+                <li>1/4 probability of a non-carrier child</li>
+            </ul>
+
+            <p>This 25/50/25 ratio holds independently for each pregnancy. Three unaffected children do not change the per-pregnancy risk for a fourth, although observing three unaffected children will update the posterior <em>carrier</em> probability of a given unaffected child through Bayesian conditioning.</p>
+
+            <p>Specifically, if an offspring is known to be unaffected, the 1/4 affected outcome is ruled out, and the remaining probabilities re-normalise to 2/3 carrier and 1/3 non-carrier. This is a classic application of Bayes' theorem and is the basis for sibling carrier counselling: the unaffected sibling of an affected individual with two carrier parents has a 2/3 prior probability of being a carrier themselves before any testing.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">When only one parent's carrier status is known</h2>
+
+            <p>The more common scenario is that one partner has a family history (a known affected relative) while the other does not. The couple risk then depends on the prior probability that each partner is a carrier, multiplied by the 1/4 transmission conditional on both being carriers.</p>
+
+            <p>For the partner with family history, the prior carrier probability comes from pedigree analysis. An unaffected sibling of an affected individual (both parents being carriers) has a 2/3 prior carrier probability. The uncle or aunt of an affected individual has a 1/2 prior carrier probability (each of the affected individual's parents is a carrier; each of their siblings has a 1/2 chance of having inherited the carrier allele from the shared grandparent who is an obligate carrier, conditional on only one grandparent being the carrier). A first cousin once removed is 1/4, and so on.</p>
+
+            <p>For the partner with no family history, the prior carrier probability comes from population carrier frequency data. Hardy-Weinberg equilibrium gives q<sup>2</sup> = disease incidence, 2pq &asymp; carrier frequency for rare alleles. If cystic fibrosis has an incidence of roughly 1 in 2,500 in Northern Europeans, the carrier frequency is approximately 1 in 25. Note that carrier frequencies vary by ancestry and by gene; consult current population data for the specific condition.</p>
+
+            <p>The couple risk is then: P(partner A is carrier) &times; P(partner B is carrier) &times; 1/4. For a 2/3 &times; 1/25 &times; 1/4 example, this is approximately 1 in 150 per pregnancy.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Consanguinity as a risk amplifier</h2>
+
+            <p>Consanguinity — partnership between related individuals — increases the probability that both partners share a rare recessive allele inherited from a common ancestor. The coefficient of inbreeding <strong>F</strong> measures the probability that the two alleles at a locus in the offspring are identical by descent from a recent common ancestor. For first cousins, F is approximately 1/16; for second cousins, F is approximately 1/64; for uncle-niece or double first cousins, F is higher. See our <a href="consanguinity-calculator.html">consanguinity calculator guide</a> for the detailed relationships.</p>
+
+            <p>For a rare recessive condition with allele frequency q, the risk of affected offspring is approximately Fq + (1-F)q<sup>2</sup>. For very small q, the Fq term dominates: consanguinity substantially increases recessive disease risk for rare alleles, while the absolute risk remains modest for common alleles. This asymmetry explains why consanguinity counselling emphasises family-specific recessive risks and cascade testing rather than a single generic risk figure.</p>
+
+            <p>Consanguinity also increases the prior probability of pseudodominance: an affected proband partnering a carrier cousin can appear to transmit vertically.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Worked clinical examples</h2>
+
+            <div class="not-prose my-10 overflow-x-auto">
+                <table class="w-full text-sm border-collapse">
+                    <thead class="bg-brand-50 dark:bg-brand-900/50">
+                        <tr>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Condition</th>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Population with elevated carrier frequency</th>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Counselling note</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 dark:text-gray-300">
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Cystic fibrosis (CFTR)</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Northern European</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Carrier screening is routine in reproductive genetics; many pathogenic variants on panel.</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Sickle cell disease (HBB)</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Sub-Saharan African, Mediterranean, Middle Eastern, South Asian</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Newborn screening in many settings; heterozygotes have sickle cell trait.</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Spinal muscular atrophy (SMN1)</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Pan-ethnic</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Carrier screening increasingly offered pre-conceptually; SMN2 modifies severity.</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Tay-Sachs disease (HEXA)</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Ashkenazi Jewish, French Canadian, Cajun</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Classic target of ancestry-based carrier screening.</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Phenylketonuria (PAH)</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Variable across Europe and the Middle East</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Identified via newborn screening; dietary treatment highly effective.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>In each of these, the core calculation is the same: identify each partner's carrier probability, multiply, and apply the 1/4 transmission term. What differs is the population from which the carrier frequency is drawn, the sensitivity of the available carrier screening assay, and the residual risk after a negative test.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Pseudodominance and other pitfalls</h2>
+
+            <p><strong>Pseudodominance</strong> arises when an affected homozygote partners with an unrelated carrier. The offspring of such a union have a 50% probability of being affected, mimicking an autosomal dominant pattern. The condition remains recessive at the gene level; only the phenotype pattern looks dominant. Pseudodominance is most likely with high-frequency alleles (for example haemochromatosis in Northern Europeans) and in consanguineous families where carrier frequency within the kinship is elevated.</p>
+
+            <p>Other traps to watch for:</p>
+
+            <ul>
+                <li><strong>Compound heterozygosity</strong>: affected individuals may carry two different pathogenic variants rather than the same variant twice. Molecular testing must be interpreted accordingly.</li>
+                <li><strong>Genetic heterogeneity</strong>: apparently similar phenotypes may be caused by mutations in different genes (Usher syndrome, autosomal recessive deafness, and congenital disorders of glycosylation are notable examples).</li>
+                <li><strong>Reduced penetrance in AR conditions</strong>: less common than for dominants but occurs (hereditary haemochromatosis being a widely discussed example).</li>
+                <li><strong>Carrier screening sensitivity</strong>: a negative panel test reduces but does not eliminate carrier probability. Residual risk depends on panel coverage for the patient's ancestry.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene supports this</h2>
+
+            <p>Evagene's <a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculator</a> evaluates autosomal recessive transmission on the pedigree, using ICD-10 and OMIM-coded disease annotation across the 180+ catalogued conditions. When a condition annotated on the pedigree is consistent with AR inheritance, the calculator applies the 25/50/25 carrier-by-carrier rule and propagates carrier and affected probabilities through the pedigree. Unaffected siblings of an affected proband are assigned the 2/3 posterior carrier probability automatically.</p>
+
+            <p>Evagene's automatic <strong>consanguinity detection</strong> flags related parents on the pedigree and calculates <a href="consanguinity-calculator.html">Wright's coefficient of relationship and inbreeding coefficient F</a>. The recessive-risk calculation incorporates F, so offspring of consanguineous couples receive a correctly amplified risk estimate without requiring manual adjustment. For ancestry-stratified conditions, ancestry auto-calculation from 23andMe imports or manual entry allows the calculator to select an appropriate population carrier frequency.</p>
+
+            <p>Batch risk screening applies this analysis across the full disease catalogue for a given proband, surfacing recessive conditions where family history or consanguinity crosses a counselling threshold — a useful backstop when a clinician might not otherwise have suspected a particular condition.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is the risk when both parents are carriers?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">1/4 affected, 2/4 carrier, 1/4 non-carrier per pregnancy, independently.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is an unaffected sibling's carrier probability?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">2/3, after excluding the affected outcome through Bayesian conditioning.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How does consanguinity affect recessive risk?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">It raises the probability that both parents carry the same ancestral allele. For rare alleles the effect is dominated by the inbreeding coefficient F multiplied by the allele frequency.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is pseudodominance?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">An AR condition that looks autosomal dominant because an affected homozygote partners a carrier. Pattern, not mechanism.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Where do carrier frequencies come from?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Population data and Hardy-Weinberg estimation. Frequencies are population-specific; use the patient's relevant ancestry.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does Evagene support recessive calculations?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes, with automatic consanguinity detection and Wright's coefficient integration.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculator overview</a></li>
+                <li><a href="autosomal-dominant-calculator.html">Autosomal dominant calculator</a></li>
+                <li><a href="x-linked-recessive-calculator.html">X-linked recessive calculator</a></li>
+                <li><a href="carrier-probability-calculator.html">Carrier probability calculator</a></li>
+                <li><a href="consanguinity-calculator.html">Consanguinity calculator</a></li>
+                <li><a href="inheritance-pattern-identifier.html">Identifying inheritance patterns</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tools</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

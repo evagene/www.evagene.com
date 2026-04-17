@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedigree REST API — Endpoints, Scoped Keys, Webhooks, Worked Examples (2026) | Evagene</title>
+    <meta name="description" content="A technical reference for Evagene's pedigree REST API: scoped API keys with read/write/analyse scopes, authentication format, rate limits, core pedigree and individual endpoints, analysis triggers, webhooks, and worked integration examples.">
+    <meta name="keywords" content="pedigree API, REST API for pedigree, genetic pedigree API, clinical pedigree REST API, pedigree software API, genomics REST API, pedigree programmatic access, pedigree data API, evagene API, scoped API keys genetics">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Pedigree REST API — Endpoints, Scoped Keys, Worked Examples">
+    <meta property="og:description" content="A technical reference for the Evagene pedigree REST API: scopes, authentication, core endpoints, webhooks, and use cases.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/pedigree-api">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pedigree REST API — Evagene">
+    <meta name="twitter:description" content="Scoped keys, endpoints, webhooks, and worked examples for the Evagene pedigree REST API.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/pedigree-api">
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'], mono:['JetBrains Mono','Fira Code','monospace'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD: Article -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"Pedigree REST API: Endpoints, Scoped Keys, Webhooks, Worked Examples",
+        "description":"A technical reference for Evagene's pedigree REST API, covering authentication, scopes, rate limits, core endpoints, webhooks, and worked integration examples.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/pedigree-api"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Platform","item":"https://evagene.com/platform"},
+            {"@type":"ListItem","position":3,"name":"Pedigree API","item":"https://evagene.com/pedigree-api"}
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"How do I authenticate to the Evagene API?","acceptedAnswer":{"@type":"Answer","text":"Generate an API key in Account > API Keys. Keys have the format evg_<43 chars>, are SHA-256 hashed at rest, and are shown only once on creation. Attach the key to requests via the X-API-Key header. Each key carries one or more of three scopes: read, write, and analyse. Requests that need a scope the key does not hold are rejected."}},
+            {"@type":"Question","name":"What scopes does the API support?","acceptedAnswer":{"@type":"Answer","text":"Three scopes. Read covers fetching pedigree, individual, relationship, and analysis data; write covers create/update/delete of pedigrees and individuals and import/export; analyse covers running risk models and AI interpretation. Grant the minimum scopes needed by each integration — an embeddable viewer needs only read, a research data loader might use read + write without analyse."}},
+            {"@type":"Question","name":"What are the rate limits?","acceptedAnswer":{"@type":"Answer","text":"Configurable, tier-based per-minute and per-day limits applied at the API-key level. Limits scale with the account tier and can be adjusted for integration accounts. When you exceed a limit the API returns a standard 429 response. Build clients that back off on 429 and surface rate-limit headers for observability."}},
+            {"@type":"Question","name":"What can I do with the API?","acceptedAnswer":{"@type":"Answer","text":"Core operations cover pedigree CRUD, individual CRUD, relationship management, risk analysis triggers (BRCAPRO, MMRpro, PancPRO, Mendelian, batch screening), AI interpretation, import (JSON, GEDCOM, 23andMe, XEG, image OCR), and export (JSON, GEDCOM, PNG, SVG, PDF). Combined with webhooks, this is enough to build EHR integrations, research pipelines, patient-portal embeds, and AI-agent tooling."}},
+            {"@type":"Question","name":"How do webhooks work?","acceptedAnswer":{"@type":"Answer","text":"You subscribe a URL to one or more of eight event types (pedigree.created/updated/deleted, individual.created/updated/deleted, analysis.completed, import.completed). Evagene POSTs an HMAC-SHA256-signed JSON payload to your URL when the event fires. You verify the signature using the per-webhook secret, and usually re-read definitive state from the REST API before acting."}},
+            {"@type":"Question","name":"Where is the full API reference?","acceptedAnswer":{"@type":"Answer","text":"The live platform documentation at https://evagene.net/help/platform_overview covers the full endpoint list, payload shapes, and worked examples. This page describes the overall shape and design; the docs are the source of truth for exact endpoint paths and fields."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<!-- Navigation -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="platform.html" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Platform</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="platform.html" class="hover:text-brand-600 dark:hover:text-brand-300">Platform</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">Pedigree API</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Pedigree REST API: endpoints, scoped keys, webhooks, and worked examples</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A technical reference to the Evagene pedigree REST API for developers building EHR integrations, research pipelines, patient-portal embeds, and AI-agent tooling on top of clinical-grade pedigree data.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>14 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300 prose-code:text-brand-700 dark:prose-code:text-brand-300 prose-pre:bg-gray-900 prose-pre:text-gray-100">
+
+            <p><strong>Short version.</strong> Evagene exposes a scoped, rate-limited REST API for programmatic access to pedigree data. API keys use the format <code>evg_&lt;43 chars&gt;</code>, are SHA-256 hashed at rest, and can carry any combination of three scopes: <code>read</code>, <code>write</code>, and <code>analyse</code>. Authentication is via the <code>X-API-Key</code> header. Rate limits are configurable and tier-based. Core endpoints cover pedigree CRUD, individual and relationship management, analysis (BRCAPRO, MMRpro, PancPRO, Mendelian, AI interpretation), and import / export in JSON, GEDCOM 5.5.1, 23andMe, XEG, image OCR, PNG, SVG, and PDF. HMAC-SHA256-signed webhooks for eight event types complete the picture. This page documents the shape of the API; <a href="https://evagene.net/help/platform_overview">evagene.net/help/platform_overview</a> is the source of truth for exact endpoint paths and fields.</p>
+
+            <p>If you are evaluating Evagene's API for a production integration, start here for the mental model, then head to the live documentation for the definitive contract.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Design principles</h2>
+
+            <p>The API follows a few consistent principles that make integrations predictable:</p>
+
+            <ul>
+                <li><strong>Scoped keys.</strong> Every API key is scoped. A viewer embed holds a <code>read</code> key; a data-loading pipeline holds <code>read + write</code>; an AI-agent integration that runs models holds <code>analyse</code>. Least-privilege by default.</li>
+                <li><strong>Explicit resources.</strong> Pedigrees, individuals, relationships, analyses, imports, exports, templates, and webhooks are all first-class resources.</li>
+                <li><strong>JSON everywhere.</strong> All payloads are JSON, with deterministic field ordering, snake_case keys, and ISO-8601 timestamps.</li>
+                <li><strong>Event-driven extensions.</strong> Long-running operations (imports, AI interpretation, batch risk screens) emit webhooks on completion; the API never asks you to long-poll.</li>
+                <li><strong>Honest error surface.</strong> Standard HTTP status codes, machine-parseable <code>error.code</code> strings, and human-readable <code>error.message</code> fields.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">Authentication and scopes</h2>
+
+            <p>Generate an API key from the Evagene dashboard under <em>Account &gt; API Keys</em>. Keys are created with a human-readable name, one or more scopes, and an optional rate-limit override. The plaintext key is shown once on creation — Evagene stores only the SHA-256 hash, so recovering a lost key is impossible by design; you rotate it.</p>
+
+            <pre><code class="language-http">GET /api/pedigrees HTTP/1.1
+Host: your-evagene-instance.example.org
+X-API-Key: evg_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Accept: application/json
+</code></pre>
+
+            <p>The three scopes map to coarse capabilities:</p>
+
+            <ul>
+                <li><code>read</code> — list and fetch pedigrees, individuals, relationships, analyses, templates.</li>
+                <li><code>write</code> — create, update, delete; import from GEDCOM/JSON/23andMe/XEG/images; export.</li>
+                <li><code>analyse</code> — run risk models (BRCAPRO, MMRpro, PancPRO, Mendelian, batch screen) and AI interpretation templates.</li>
+            </ul>
+
+            <p>Keys can also carry metadata such as expiry timestamps and IP allow-lists. Keys without the scope required by a request are rejected with HTTP 403.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Rate limiting</h2>
+
+            <p>Rate limits are enforced per API key on both a per-minute and per-day basis, with values that scale with the account tier and can be adjusted for integration accounts. When you exceed a limit, the API returns <code>HTTP 429 Too Many Requests</code>. Build clients that:</p>
+
+            <ul>
+                <li>Respect the standard <code>Retry-After</code> header and back off accordingly.</li>
+                <li>Read rate-limit headers on every response so dashboards can surface how close integrations are to their budget.</li>
+                <li>Batch bulk operations (for example, loading many individuals) to reduce request count.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">Core endpoints</h2>
+
+            <p>The endpoint taxonomy is intentionally boring — the API does not try to be clever. Conceptually:</p>
+
+            <pre><code class="language-text">Pedigrees
+  GET    /api/pedigrees                  list pedigrees
+  POST   /api/pedigrees                  create pedigree
+  GET    /api/pedigrees/{id}             fetch pedigree
+  PATCH  /api/pedigrees/{id}             update pedigree metadata
+  DELETE /api/pedigrees/{id}             delete pedigree
+
+Individuals (nested under a pedigree)
+  GET    /api/pedigrees/{id}/individuals
+  POST   /api/pedigrees/{id}/individuals
+  GET    /api/pedigrees/{id}/individuals/{ind_id}
+  PATCH  /api/pedigrees/{id}/individuals/{ind_id}
+  DELETE /api/pedigrees/{id}/individuals/{ind_id}
+
+Relationships
+  POST   /api/pedigrees/{id}/relationships
+  DELETE /api/pedigrees/{id}/relationships/{rel_id}
+
+Analysis
+  POST   /api/pedigrees/{id}/analyses    trigger BRCAPRO/MMRpro/PancPRO/Mendelian/AI
+  GET    /api/pedigrees/{id}/analyses/{analysis_id}
+
+Import / export
+  POST   /api/pedigrees/{id}/export      format: gedcom|json|png|svg|pdf
+  POST   /api/pedigrees/import           format: gedcom|json|23andme|xeg|image
+</code></pre>
+
+            <p>The exact paths in your deployment may vary; the live documentation at <a href="https://evagene.net/help/platform_overview">evagene.net/help/platform_overview</a> is authoritative.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Triggering risk analysis</h2>
+
+            <p>Risk analysis is a POST that creates an analysis record and returns a reference. For fast models (BRCAPRO, MMRpro, PancPRO, Mendelian) the computation completes synchronously; for batch screens across all catalogued diseases, and for AI interpretation, the operation is asynchronous and you receive an <code>analysis.completed</code> webhook when ready.</p>
+
+            <pre><code class="language-http">POST /api/pedigrees/ped_9f2b.../analyses  HTTP/1.1
+X-API-Key: evg_xxx...
+Content-Type: application/json
+
+{
+  "type": "brcapro",
+  "proband_id": "ind_1a3c...",
+  "options": { "race": "non-Ashkenazi", "model_year": "current" }
+}
+</code></pre>
+
+            <p>Analysis types supported include <code>brcapro</code>, <code>mmrpro</code>, <code>pancpro</code>, <code>mendelian</code>, <code>batch_screen</code>, and <code>ai_interpretation</code>. AI interpretation accepts an Analysis Template ID; see <a href="llm-pedigree-analysis.html">LLM pedigree analysis</a> for how templates structure the prompt.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Webhooks</h2>
+
+            <p>Eight event types cover the lifecycle of pedigree data:</p>
+
+            <ul>
+                <li><code>pedigree.created</code>, <code>pedigree.updated</code>, <code>pedigree.deleted</code></li>
+                <li><code>individual.created</code>, <code>individual.updated</code>, <code>individual.deleted</code></li>
+                <li><code>analysis.completed</code></li>
+                <li><code>import.completed</code></li>
+            </ul>
+
+            <p>Each delivery is signed using a per-webhook secret:</p>
+
+            <pre><code class="language-text">X-Evagene-Signature: sha256=&lt;hmac_sha256(secret, raw_body)&gt;
+X-Evagene-Delivery:  &lt;unique delivery id&gt;
+X-Evagene-Event:     analysis.completed
+</code></pre>
+
+            <p>Verify signatures before trusting the payload, store the delivery ID for idempotency, and re-read canonical state from the API before acting. Webhooks are hints, not ledger entries.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Use cases</h2>
+
+            <h3 class="text-2xl mt-8 mb-4">Research cohort analysis</h3>
+            <p>A research team loads hundreds of pedigrees from existing GEDCOM archives into Evagene using the import endpoint, triggers a batch BRCAPRO screen across the cohort, and consumes the <code>analysis.completed</code> webhook to feed results into a downstream analytics pipeline. Scopes: <code>read + write + analyse</code>.</p>
+
+            <h3 class="text-2xl mt-8 mb-4">Patient-portal embed</h3>
+            <p>A patient portal team issues a read-scope key per institution, embeds Evagene's viewer in the portal's family-history tab, and uses the API to fetch structured disease annotations for the portal's own narrative display. Scopes: <code>read</code> only.</p>
+
+            <h3 class="text-2xl mt-8 mb-4">Cascade-testing tracker</h3>
+            <p>A clinical service tracks which relatives of each proband have been offered, accepted, and completed genetic testing. The service polls the API for updates, writes testing status back as structured annotations on individuals, and uses webhooks to notify schedulers when new individuals appear in the pedigree. Scopes: <code>read + write</code>.</p>
+
+            <h3 class="text-2xl mt-8 mb-4">AI-agent integration</h3>
+            <p>An internal clinical AI agent uses the API through the <a href="pedigree-mcp-server.html">Evagene MCP server</a> rather than calling endpoints directly. The MCP server sits on the API and exposes 11 tools to Claude Desktop, Claude Code, or any MCP-capable AI client. Scopes: as required by the specific tools exposed.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How this works in Evagene</h2>
+
+            <p>The API is the surface on top of which all other Evagene platform capabilities are built:</p>
+
+            <ul>
+                <li>The <a href="embeddable-pedigree-viewer.html">embeddable pedigree viewer</a> is an API client that renders SVG.</li>
+                <li>The <a href="pedigree-mcp-server.html">MCP server</a> is an API client that exposes 11 tools to AI agents.</li>
+                <li>The webhook dispatcher is the API's event-driven counterpart.</li>
+                <li>BYOK LLM support, Analysis Templates, and AI interpretation are all exposed through the API surface.</li>
+            </ul>
+
+            <p>This matters because whatever Evagene adds at the platform layer — native FHIR endpoints on the roadmap, additional analysis types, new import formats — is available through the same REST surface without a second auth system or a second URL space.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How do I authenticate?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Generate a key in Account &gt; API Keys, attach it via the X-API-Key header. Keys are evg_ prefixed, SHA-256 hashed at rest, and only shown once.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What scopes does the API support?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Three: read, write, analyse. Grant only what the integration needs.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What are the rate limits?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Configurable, tier-based per-minute and per-day limits at the key level. Respect 429 and Retry-After.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What can I do with the API?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Pedigree, individual, and relationship CRUD; risk analysis; AI interpretation; import and export in JSON, GEDCOM, 23andMe, XEG, image OCR, PNG, SVG, PDF; webhooks for events.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How do webhooks work?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Subscribe a URL to one or more of eight events; receive HMAC-SHA256-signed JSON on occurrence.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Where is the full reference?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed"><a href="https://evagene.net/help/platform_overview">evagene.net/help/platform_overview</a>.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="platform.html">Evagene platform overview</a></li>
+                <li><a href="embeddable-pedigree-viewer.html">Embeddable pedigree viewer</a></li>
+                <li><a href="pedigree-mcp-server.html">Pedigree MCP server</a></li>
+                <li><a href="ehr-pedigree-integration.html">EHR pedigree integration</a></li>
+                <li><a href="hl7-fhir-pedigree.html">HL7 FHIR and pedigree data</a></li>
+                <li><a href="gedcom-pedigree-software.html">GEDCOM pedigree software</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<!-- CTA -->
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

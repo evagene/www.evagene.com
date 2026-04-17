@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedigree Symbols Reference — Complete NSGC Standard Guide (2026) | Evagene</title>
+    <meta name="description" content="A comprehensive reference of standard pedigree chart symbols: sex, affected status, proband, pregnancy, adoption, twins, consanguinity, carriers and more. Based on NSGC Bennett 1995/2008/2022 standards.">
+    <meta name="keywords" content="pedigree symbols, pedigree chart symbols, genetic pedigree symbols guide, NSGC symbols, standard pedigree notation, pedigree legend">
+
+    <meta property="og:title" content="Pedigree Symbols Reference — Complete NSGC Standard Guide">
+    <meta property="og:description" content="All standard pedigree symbols in one reference: sex, affected status, proband, twins, consanguinity, adoption and more.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/pedigree-symbols-reference">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pedigree Symbols Reference — NSGC Standards">
+    <meta name="twitter:description" content="Complete reference of standard pedigree chart symbols for clinical genetics.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/pedigree-symbols-reference">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"Pedigree Symbols Reference: Complete NSGC Standard Guide",
+        "description":"A comprehensive reference of standard pedigree chart symbols based on NSGC Bennett 1995/2008/2022 standards.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/pedigree-symbols-reference"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Guides","item":"https://evagene.com/guides"},
+            {"@type":"ListItem","position":3,"name":"Pedigree Symbols Reference","item":"https://evagene.com/pedigree-symbols-reference"}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"What are the standard pedigree symbols for male and female?","acceptedAnswer":{"@type":"Answer","text":"A square represents a male individual and a circle represents a female individual. In the 2022 NSGC update (Bennett et al., Journal of Genetic Counseling), a diamond is used where sex is unknown, not disclosed, or where the individual is gender non-conforming and a sex assigned at birth is not recorded. Shapes are drawn identically in size for all individuals on the same generation line."}},
+            {"@type":"Question","name":"How do you show the proband on a pedigree?","acceptedAnswer":{"@type":"Answer","text":"The proband (also called index case or propositus) is marked with an arrow pointing to the lower-left corner of the shape. If a different family member is the consultand (the person who sought genetic counselling but is not the first-ascertained affected individual), the letter P is placed next to the arrow or the consultand is labelled separately."}},
+            {"@type":"Question","name":"What does a filled-in shape mean on a pedigree?","acceptedAnswer":{"@type":"Answer","text":"A fully filled (blackened) shape means the individual is affected by the condition being tracked. When multiple conditions are plotted on the same pedigree, the shape is divided into quadrants and each quadrant is filled according to a key shown on the chart. A dot in the centre denotes a known heterozygous carrier for a recessive condition."}},
+            {"@type":"Question","name":"How are twins drawn on a pedigree?","acceptedAnswer":{"@type":"Answer","text":"Twins are drawn as two shapes connected by lines that meet at a single point on the sibship line. Monozygotic (identical) twins share a horizontal bar joining them below the meeting point. Dizygotic (fraternal) twins are shown without the connecting bar. Unknown zygosity is indicated with a question mark above the meeting point."}},
+            {"@type":"Question","name":"What does a double horizontal line between parents mean?","acceptedAnswer":{"@type":"Answer","text":"A double horizontal line between two individuals indicates a consanguineous union — the partners share one or more recent common ancestors. Consanguinity is clinically relevant because it increases the prior probability of autosomal recessive conditions in offspring, and Evagene automatically computes Wright's coefficient of inbreeding where consanguinity is marked."}},
+            {"@type":"Question","name":"Which NSGC update is current?","acceptedAnswer":{"@type":"Answer","text":"The most recent is Bennett et al. 2022 in the Journal of Genetic Counseling, which updated the 2008 standards primarily to add gender-inclusive symbols (diamond for non-disclosed or non-binary sex, transgender annotations) and to clarify terminology around reproductive loss. The 1995 paper by Bennett, Steinhaus and colleagues remains the foundational source."}},
+            {"@type":"Question","name":"Why do pedigree standards matter in the clinic?","acceptedAnswer":{"@type":"Answer","text":"Standardised symbols are the lingua franca between a genetic counsellor, a clinical geneticist, a laboratory scientist, and a downstream colleague reading the chart years later. Deviation creates clinical risk: a miscommunicated affected status or a misread proband arrow can change testing decisions. Using NSGC notation is a patient safety measure."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="guides.html" class="hover:text-brand-600 dark:hover:text-brand-300">Guides</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">Pedigree Symbols Reference</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Pedigree symbols reference: a complete guide to standard notation</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">Every symbol you will encounter on a clinical pedigree, with worked ASCII diagrams, the rules for combining them, and the NSGC standards history behind each convention.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>15 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> A clinical pedigree uses a small, tightly-defined vocabulary of symbols: squares for male individuals, circles for female, diamonds for unknown or non-disclosed sex, filled shapes for affected status, a centre dot for known carriers of a recessive condition, an arrow for the proband, brackets for adoption, a double horizontal line for consanguineous unions, and specific conventions for twins, pregnancy, and reproductive loss. The reference below covers every symbol in the 2022 National Society of Genetic Counselors (NSGC) standard (Bennett et al.), with ASCII diagrams and notes on the clinical situations each symbol encodes.</p>
+
+            <p>The canonical sources are Bennett, Steinhaus, Uhrich, O'Sullivan, Resta et al. (1995) <em>American Journal of Human Genetics</em>; Bennett, French, Resta, and Doyle (2008) <em>Journal of Genetic Counseling</em>; and Bennett, French, Resta, and Austin (2022) <em>Journal of Genetic Counseling</em>. The 2022 update introduced gender-inclusive symbols and clarified terminology around reproductive loss without deprecating the established core vocabulary.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Individual symbols: sex and identity</h2>
+
+            <p>Every individual on a pedigree is drawn as a geometric shape whose form encodes sex or gender status, whose fill encodes affected status, and whose position encodes generation and sibship. The three shapes in common use are the square, the circle, and the diamond.</p>
+
+            <pre class="bg-gray-100 dark:bg-brand-900 p-4 rounded-lg text-sm overflow-x-auto"><code>  Male            Female          Unknown / Non-disclosed
+  ┌───┐             ╭───╮                  ◇
+  │   │            │     │                ╱ ╲
+  └───┘             ╰───╯                ◇   ◇
+</code></pre>
+
+            <p>The diamond is used for (a) an individual whose sex is not known to the informant (common in distant relatives), (b) an individual who does not disclose sex or gender, or (c) an unborn fetus whose sex has not been determined. In reproductive and fetal-loss documentation, a smaller diamond denotes a pregnancy loss; a larger diamond denotes a living individual.</p>
+
+            <p>Transgender status, when clinically relevant, is marked by recording the sex assigned at birth with a small inner shape and the current gender identity with the outer shape, or by annotation. The 2022 NSGC update provides language for these conventions and emphasises that documentation should follow the individual's preference where possible.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Affected status and multiple conditions</h2>
+
+            <p>Affected status is shown by filling the shape. A fully filled (black) shape means the individual is affected by the index condition. An unfilled shape means the individual is unaffected or of unknown status (the two are sometimes distinguished by a question mark inside the shape where status is explicitly unknown).</p>
+
+            <pre class="bg-gray-100 dark:bg-brand-900 p-4 rounded-lg text-sm overflow-x-auto"><code>  Unaffected       Affected         Carrier (heterozygote)
+  ┌───┐            ■■■■■               ┌───┐
+  │   │            ■■■■■               │ ● │
+  └───┘            ■■■■■               └───┘
+
+  Multiple conditions (shape divided into quadrants):
+       ┌─┬─┐     Upper-left  = cancer
+       │■│ │     Upper-right = mental health
+       ├─┼─┤     Lower-left  = cardiovascular
+       │ │■│     Lower-right = metabolic
+       └─┴─┘     (Key always shown on chart)
+</code></pre>
+
+            <p>A centre dot denotes a <em>known heterozygous carrier</em> of an autosomal recessive condition. For X-linked conditions, a centre dot in a female shape denotes an obligate or known carrier. An obligate carrier may also be inferred from pedigree structure (the daughter of an affected X-linked recessive father is obligately a carrier), in which case some services annotate with "OC".</p>
+
+            <p>Where a pedigree tracks two or more conditions, the shape is subdivided into quadrants and a legend on the chart maps each quadrant to a condition. Four is the practical maximum; beyond that, affected conditions are recorded in the individual's annotation pane rather than visually.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Deceased, proband, and consultand</h2>
+
+            <p>A deceased individual is marked with a diagonal line through the shape, typically from upper-right to lower-left. The age at death and cause of death, if known, are recorded beneath the shape.</p>
+
+            <pre class="bg-gray-100 dark:bg-brand-900 p-4 rounded-lg text-sm overflow-x-auto"><code>  Deceased              Proband              Consultand
+  ┌───┐                  ┌───┐                 ┌───┐
+  │ ╲ │                  │   │                 │   │
+  └───┘                  └───┘                 └───┘
+     ╲                   ↙                      ↙ P
+                      (arrow)                (arrow + P)
+  d. 2014 / MI       III-4 (proband)       III-6 (consultand)
+</code></pre>
+
+            <p>The <strong>proband</strong> (index case) is the first affected individual to come to medical attention in the family — marked by an arrow pointing to the lower-left of the shape. The <strong>consultand</strong> is the person who sought genetic counselling, who may or may not be the proband. Where consultand and proband differ, the arrow marks the proband and the consultand is marked separately, often with the letter P.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Reproductive outcomes: pregnancy, loss, termination</h2>
+
+            <p>Reproductive outcomes require specific symbols because the clinical interpretation — recurrence risk counselling, karyotype inference, preventive management — depends on reading them correctly.</p>
+
+            <div class="not-prose my-10 overflow-x-auto">
+                <table class="w-full text-sm border-collapse">
+                    <thead class="bg-brand-50 dark:bg-brand-900/50">
+                        <tr>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Outcome</th>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Symbol</th>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 dark:text-gray-300">
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Pregnancy (current)</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Standard sex shape with "P" beneath; gestational age annotated</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Use circle/square if fetal sex known, diamond if not.</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Spontaneous abortion (before 20 weeks)</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Small triangle</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Gestational age recorded beneath; point-down orientation is conventional.</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Stillbirth (after 20 weeks)</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Standard sex shape with "SB" beneath, diagonal line through shape</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Gestational age recorded; sex drawn if known.</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Elective termination</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Triangle with diagonal line (or shape with "TOP" beneath)</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Reason for termination may be clinically relevant (e.g., diagnosed anomaly) and should be annotated.</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Neonatal death</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Standard sex shape with diagonal line, age annotated (e.g., "d. 2 days")</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Distinguish from stillbirth by age annotation.</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">No children (by choice)</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Double vertical line below couple</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Distinguish from infertility; annotate reason where clinically useful.</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Infertility</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Double vertical line with cause beneath</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Known aetiology (e.g., "tubal factor") annotated where relevant.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <pre class="bg-gray-100 dark:bg-brand-900 p-4 rounded-lg text-sm overflow-x-auto"><code>  Spontaneous       Stillbirth         Termination       No children
+  abortion
+      ▽              ┌───┐                 ▽                  ─┬─
+                     │ ╲ │                ╱ ╲                  ║
+   (12 wks)          └───┘               ─────                 ║
+                  SB 36 wks          TOP 14 wks / T21
+</code></pre>
+
+            <h2 class="text-3xl mt-16 mb-6">Twins and multiple births</h2>
+
+            <p>Twin pairs branch from a single point on the sibship line. The shape of the branching encodes zygosity.</p>
+
+            <pre class="bg-gray-100 dark:bg-brand-900 p-4 rounded-lg text-sm overflow-x-auto"><code>  Monozygotic twins     Dizygotic twins     Zygosity unknown
+         │                     │                   │ ?
+         •                     •                   •
+        ╱ ╲                   ╱ ╲                 ╱ ╲
+      ┌───┐┌───┐            ┌───┐┌───┐         ┌───┐┌───┐
+      │   ├┤   │            │   ││   │         │   ││   │
+      └───┘└───┘            └───┘└───┘         └───┘└───┘
+     (horizontal         (no connector)     (? above vertex)
+      bar joining)
+</code></pre>
+
+            <p>Monozygotic twins are joined by a horizontal bar between their shapes. Dizygotic twins are drawn without the bar. When zygosity has not been determined, a question mark is placed above the meeting point. Higher-order multiples (triplets, quadruplets) extend the same convention — three or four lines meeting at a single point.</p>
+
+            <p>An <em>evaluated twin</em> — the twin whose clinical phenotype is the reason for the consult — is marked with a small "e" or labelled in the annotation pane, particularly in discordant monozygotic twin studies.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Relationships: mating, consanguinity, separation</h2>
+
+            <p>Horizontal lines connect individuals in a partnered relationship. Vertical lines descend from the relationship line to a sibship line, from which individual shapes branch. The specific style of the horizontal line carries meaning.</p>
+
+            <pre class="bg-gray-100 dark:bg-brand-900 p-4 rounded-lg text-sm overflow-x-auto"><code>  Mating (couple)        Consanguineous           Separated
+  ┌───┐───╭───╮         ┌───┐═══╭───╮         ┌───┐─╱─╭───╮
+  │   │   │   │         │   │   │   │         │   │   │   │
+  └───┘   ╰───╯         └───┘   ╰───╯         └───┘   ╰───╯
+
+  Divorced              No children
+  ┌───┐─╱╱─╭───╮        ┌───┐───╭───╮
+  │   │    │   │        │   │   │   │
+  └───┘    ╰───╯        └───┘   ╰───╯
+                            ═══  (double line below; "no children by choice")
+</code></pre>
+
+            <p>A <strong>double horizontal line</strong> between two partners denotes consanguinity — the partners share one or more recent common ancestors. This is clinically critical because consanguineous unions carry a higher prior probability of autosomal recessive conditions in offspring. A single slash across the mating line denotes separation; a double slash denotes divorce. An <em>unknown</em> parent is drawn as a diamond without connection to a wider family structure.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Adoption: biological versus adoptive relationships</h2>
+
+            <p>Adoption is shown with brackets around the adopted individual's shape. The lines connecting the shape to the rest of the family distinguish biological from adoptive relationships.</p>
+
+            <pre class="bg-gray-100 dark:bg-brand-900 p-4 rounded-lg text-sm overflow-x-auto"><code>  Adopted into family       Adopted out of family
+      [┌───┐]                    [┌───┐]
+      [│   │]                    [│   │]
+      [└───┘]                    [└───┘]
+        │ ┆                        │ ┆
+     (solid to           (solid to biological
+      adoptive;              parents;
+      dashed to             dashed to adoptive)
+      biological)
+</code></pre>
+
+            <p>The convention is: <strong>solid lines connect biological relationships</strong>, <strong>dashed lines connect adoptive relationships</strong>. Brackets around a shape indicate that individual was adopted. When both sets of parents are shown, the two lines (biological and adoptive) clearly distinguish which is which. For clinical purposes, recurrence risks are calculated from the biological line; adoptive relationships are recorded for family context but do not propagate genetic risk.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Complete symbol table: quick reference</h2>
+
+            <div class="not-prose my-10 overflow-x-auto">
+                <table class="w-full text-sm border-collapse">
+                    <thead class="bg-brand-50 dark:bg-brand-900/50">
+                        <tr>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Category</th>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Symbol</th>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 dark:text-gray-300">
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Sex</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Square</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Male</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Sex</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Circle</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Female</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Sex</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Diamond</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Unknown or non-disclosed sex; prenatal unknown</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Affected status</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Fully filled shape</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Affected with tracked condition</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Affected status</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Quadrant fill</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Multiple conditions per legend</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Affected status</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Centre dot</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Known heterozygous carrier</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Identity</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Arrow lower-left</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Proband (index case)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Identity</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Arrow + "P"</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Consultand (may differ from proband)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Vital status</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Diagonal line through shape</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Deceased</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Pregnancy</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Shape with "P"</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Current pregnancy</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Pregnancy</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Small triangle</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Spontaneous abortion &lt; 20 weeks</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Pregnancy</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Triangle with diagonal</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Termination of pregnancy</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Pregnancy</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Shape + "SB"</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Stillbirth &ge; 20 weeks</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Twins</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">V-split with connecting bar</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Monozygotic twins</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Twins</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">V-split, no bar</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Dizygotic twins</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Twins</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">V-split with "?"</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Twins, zygosity unknown</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Relationships</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Double horizontal line</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Consanguineous union</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Relationships</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Single slash on mating line</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Separated</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Relationships</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Double slash on mating line</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Divorced</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Relationships</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Double vertical line below couple</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">No children (by choice or infertility)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Adoption</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Brackets around shape</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Adopted individual</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Adoption</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Solid line to parents</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Biological relationship</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Adoption</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Dashed line to parents</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Adoptive relationship</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Common annotations: what goes next to each shape</h2>
+
+            <p>Alongside the symbol itself, short annotations record clinically critical information. Conventions differ between services, but a widely used ordering is:</p>
+
+            <ul>
+                <li><strong>Line 1 (inside the shape):</strong> generation-individual identifier, e.g. III-4</li>
+                <li><strong>Line 2 (below shape):</strong> name or initials</li>
+                <li><strong>Line 3:</strong> current age, or "d." with age at death</li>
+                <li><strong>Line 4:</strong> affected status phenotype, age at onset, e.g. "BrCa, dx 47"</li>
+                <li><strong>Line 5:</strong> test results and variant nomenclature where reported, e.g. "BRCA1 c.5266dupC, pathogenic"</li>
+            </ul>
+
+            <p>Age of onset is clinically critical for age-dependent penetrance calculations in Bayesian risk models. BRCAPRO, for instance, weights an unaffected older female relative quite differently from an unaffected younger relative, and the model cannot do its job without that age annotation. See our <a href="hereditary-cancer-risk-assessment.html">cancer risk assessment guide</a> for how ages propagate through the models.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene supports this</h2>
+
+            <p>Evagene enforces NSGC 2022 symbol conventions automatically — users do not select or pick from a symbol palette. When a clinician records the sex of an individual, the shape is chosen; when they record affected status for a condition, the fill is applied according to the condition's legend entry; when they record a consanguineous relationship, the line is doubled; when twins are recorded with known zygosity, the correct branching style is drawn. This removes a category of notation errors that arise when users are given a drag-and-drop palette of pre-drawn symbols.</p>
+
+            <p>For services that record multiple conditions on a single pedigree, Evagene's quadrant-fill logic scales with the 180+ disease catalogue and emits a consistent legend per chart. Where an individual is affected by more than four conditions, the additional conditions are recorded in the individual's annotation pane and cross-referenced to the chart legend. Consanguinity is detected automatically from pedigree structure where individuals are entered as related, and Wright's coefficient of inbreeding is computed in the background for any downstream use in recessive-disease risk calculations.</p>
+
+            <p>Exported pedigrees (PDF, PNG, SVG, GEDCOM) retain NSGC-compliant notation. For embedded usage via the iframe or SVG viewer, the same rules apply — an embedded chart shown in a patient portal uses the same symbols a clinician would draw. Our <a href="pedigree-drawing-software.html">pedigree drawing software</a> guide describes the live-drawing interface in more depth.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What are the standard pedigree symbols for male and female?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">A square for male, a circle for female, and a diamond where sex is unknown, not disclosed, or not yet determined (for example, a fetus whose sex has not been ascertained). Shapes are drawn identically in size across the chart.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How do you show the proband on a pedigree?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">With an arrow pointing to the lower-left corner of the shape. If the consultand differs from the proband, the consultand is marked separately with the letter P.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What does a filled-in shape mean on a pedigree?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">A fully filled shape means the individual is affected by the condition being tracked. With multiple conditions, the shape is divided into quadrants, each filled according to a key shown on the chart. A centre dot denotes a known carrier of a recessive condition.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How are twins drawn on a pedigree?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Two shapes joined at a single point on the sibship line. Monozygotic twins have a horizontal bar between them; dizygotic twins do not; zygosity unknown uses a question mark.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What does a double horizontal line between parents mean?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Consanguinity — the partners share recent common ancestors. This raises the prior probability of autosomal recessive conditions in offspring, and Evagene computes Wright's coefficient automatically in that case.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Which NSGC update is current?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Bennett et al. 2022 in the Journal of Genetic Counseling, which added gender-inclusive symbols and clarified reproductive-loss language. Bennett et al. 1995 and 2008 remain the foundational references.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Why do pedigree standards matter in the clinic?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Because a pedigree is read by multiple people over years, standardised symbols are a patient safety measure. A miscommunicated proband arrow or mis-filled shape can change testing decisions and downstream management.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="standard-pedigree-nomenclature.html">Standard pedigree nomenclature and the NSGC timeline</a></li>
+                <li><a href="pedigree-chart-examples.html">Pedigree chart examples with inheritance patterns</a></li>
+                <li><a href="pedigree-chart-5-steps.html">How to make a pedigree chart in 5 steps</a></li>
+                <li><a href="pedigree-drawing-software.html">Pedigree drawing software</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tools</a></li>
+                <li><a href="hereditary-cancer-risk-assessment.html">Hereditary cancer risk assessment</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evagene for Patients and Families — Know Your Family Health History | Evagene</title>
+    <meta name="description" content="Evagene for patients and families: build and own your family health history before your genetics appointment. Import from 23andMe, draw a family tree, share with your clinician as PDF or link. Plain language, clinically respectable.">
+    <meta name="keywords" content="family health history tool, know my family history, patient family tree genetics, 23andMe family pedigree, pre-visit family history, family medical tree app">
+
+    <meta property="og:title" content="Evagene for Patients and Families">
+    <meta property="og:description" content="Know and own your family health history. Build a family tree, import 23andMe data, share with your clinician.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/for-patients-families">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Evagene for Patients and Families">
+    <meta name="twitter:description" content="Know and own your family health history.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/for-patients-families">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"Evagene for patients and families",
+        "description":"A plain-language guide to using Evagene to build and own your family health history before a genetics appointment — with 23andMe import, simple family-tree drawing, and sharing with clinicians.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/for-patients-families"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"For Patients and Families","item":"https://evagene.com/for-patients-families"}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"Do I need to be a clinician to use Evagene?","acceptedAnswer":{"@type":"Answer","text":"No. Evagene is usable by anyone who wants to build and own their family health history. It is designed to be clinically respectable — the pedigrees it produces meet clinical standards — but the interface is simple enough for a non-clinician to use. The interpretation of what the pedigree means for your health remains a clinician's job, not yours and not the software's."}},
+            {"@type":"Question","name":"Is my family data private?","acceptedAnswer":{"@type":"Answer","text":"Evagene uses appropriate baseline security — encrypted AI keys, signed webhooks, hashed API keys, audit trails. Your pedigree is yours. For a complete understanding of what is stored and where, read the Privacy Policy and consider the implications of recording information about relatives who have not consented. Many families decide to keep their pedigree private and only share it with a clinician at the point of consultation."}},
+            {"@type":"Question","name":"Can I import my 23andMe data?","acceptedAnswer":{"@type":"Answer","text":"Yes. Evagene imports 23andMe raw SNP files, traits reports, and health reports. The platform infers blood type, secretor status, and traits from your SNPs and links them to your record in the pedigree. If several family members have tested, their files can be imported too."}},
+            {"@type":"Question","name":"Does Evagene tell me whether I have a genetic condition?","acceptedAnswer":{"@type":"Answer","text":"No. Evagene is a preparation and record-keeping tool; it is not a diagnostic instrument. The software can calculate risk probabilities using published risk models (BRCAPRO, MMRpro, PancPRO) and flag patterns that may be worth discussing with a clinician, but any clinical interpretation and decision about testing, screening, or treatment belongs with a qualified genetic counsellor or clinical geneticist."}},
+            {"@type":"Question","name":"How do I share my pedigree with my clinician?","acceptedAnswer":{"@type":"Answer","text":"Export the pedigree as PDF and attach it to an email or print it for the appointment. If your clinician's service uses Evagene, you can share the pedigree directly. The pedigree is in standard medical notation so any clinician will read it without explanation."}},
+            {"@type":"Question","name":"What if I don't know much about my family history?","acceptedAnswer":{"@type":"Answer","text":"That is extremely common. Start with what you know — your parents, siblings, and children. Add aunts, uncles, and grandparents if you can. If you do not know a relative's cause of death or age, leave it blank; a partial pedigree is still useful to a clinician and better than no structured history at all."}},
+            {"@type":"Question","name":"Is Evagene free for patients?","acceptedAnswer":{"@type":"Answer","text":"Yes. During Alpha, Evagene is free for everyone via the waiting list — no credit card required."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">For Patients and Families</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Evagene for patients and families</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">Build and own your family health history before your next genetics appointment. Draw a simple family tree, add what you know about relatives' health, import 23andMe data if you have it, and share with your clinician in a format they will read immediately.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>10 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p>Most of what clinicians know about your family's health comes from what you tell them, in the first ten or fifteen minutes of a consultation. You sit down, they open a notebook or a screen, and they ask about your mother, your father, your siblings, your grandparents. In a rushed appointment, you remember some of it and forget some of it. A great-aunt who died of "something in the stomach"; a cousin who was "always unwell"; a grandfather who died before you were born and whom nobody in your generation knows much about. The details slip, and the clinician's picture is shaped by whatever happens to surface in the conversation.</p>
+
+            <p>Evagene is a tool that lets you own that picture. It is a simple web-based family tree for health — browser-based, no installation, free during Alpha — where you build a structured version of your family's health history once, at your own pace, and bring it with you to every appointment. It is designed so that the output looks like a medical pedigree (which is what your clinician will read fastest), even though the process of building it looks more like making a family tree.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">The patient and family workflow</h2>
+
+            <p>Most people come to family history for one of a few reasons. A close relative has been diagnosed with a hereditary condition and you have been told you should consider testing. You have been referred to a clinical genetics service and want to prepare. A direct-to-consumer genetic test (23andMe, AncestryDNA) came back with a flagged variant and you want to understand it. You have noticed a pattern in the family — several relatives with breast cancer, or several with colon cancer — and you want to have a sensible conversation with your GP about it. You are simply health-curious and want to create a record while older relatives can still tell you what they remember.</p>
+
+            <p>The work, in each case, is to gather what you know, record it in a form that a clinician can read, and be honest about what you do not know. That usually means a phone call or two with an older relative to clarify who had what; a dig through family records for causes of death; a look at any genetic test results that are already in the family. It is a couple of evenings of work, not a research project, and the goal is not completeness — it is a useful starting point for the clinician.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What patients and families need from a family health history tool</h2>
+
+            <ul>
+                <li><strong>Simple enough to use</strong> — without a manual, in a few hours spread over a couple of evenings.</li>
+                <li><strong>Respectful of uncertainty</strong> — allows you to leave fields blank where you do not know, without the tool complaining.</li>
+                <li><strong>Clinically readable</strong> — produces a pedigree a clinician will recognise and use, not an idiosyncratic diagram.</li>
+                <li><strong>Private</strong> — your family's health history stays yours; sharing happens on your terms.</li>
+                <li><strong>Interoperable with 23andMe</strong> — if you or a relative has a direct-to-consumer genetic test, you can bring it in.</li>
+                <li><strong>Shareable</strong> — export as PDF or share a link to the clinician before or during the appointment.</li>
+                <li><strong>Free at point of use</strong> — because patients should not be the ones paying for this.</li>
+                <li><strong>Honest about limits</strong> — the tool helps you prepare; it does not diagnose or replace a clinician.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene supports patients and families</h2>
+
+            <h3 class="text-2xl mt-10 mb-4">Drawing a family tree in plain steps</h3>
+
+            <p>Building your pedigree in Evagene is a step-by-step process. You start with yourself and add your parents, then siblings, then children. You add aunts, uncles, and grandparents if you know them. For each relative you can record their sex, whether they are still alive, their age or age at death, and any conditions you know about. You do not need to understand clinical pedigree notation — Evagene applies the correct symbols automatically. A square is a man; a circle is a woman; a filled symbol is an affected relative; a line through the symbol is a relative who has died.</p>
+
+            <p>Because Evagene is a clinical tool in the background, the pedigree you end up with is technically correct even though building it felt like building a family tree. When you share it with your clinician, they read it immediately — they do not need to translate your diagram into theirs.</p>
+
+            <h3 class="text-2xl mt-10 mb-4">Recording health information in plain language</h3>
+
+            <p>For each affected relative you select their condition from a list of 180+ common conditions. The list includes cancers (breast, ovarian, colorectal, prostate, pancreatic and others), cardiac conditions (heart problems of various kinds), diabetes, neurological conditions, and many more. If you only know the condition in general terms ("heart trouble," "bowel cancer"), that is a starting point; a clinician can refine it at your appointment. You can record age at diagnosis and age at death. You can also record cause of death for deceased relatives, and a list of known allergies.</p>
+
+            <p>If you do not know a detail, leave it blank. A partial pedigree is much more useful to a clinician than none, and the software will not force you to fill in fields you are guessing at.</p>
+
+            <h3 class="text-2xl mt-10 mb-4">Importing 23andMe data</h3>
+
+            <p>If you (or a relative) have taken a 23andMe test, you can bring the results into Evagene. The raw SNP file, the traits report, and the health report all import. For the individual whose test you are importing, the software works out blood type and secretor status from the relevant SNPs and pulls across the 50+ traits covered in 23andMe's reports. If several relatives have tested, you can import each of their files against their record in the pedigree.</p>
+
+            <p>This is useful for two reasons. First, it saves you typing: information that is already structured in the 23andMe export appears in the pedigree without re-entry. Second, it links the direct-to-consumer genetic dimension of your family to the family structure, which is much more informative than either on its own.</p>
+
+            <h3 class="text-2xl mt-10 mb-4">What clinical interpretation still needs a clinician</h3>
+
+            <p>Evagene can run published risk models on your pedigree — BRCAPRO for hereditary breast and ovarian cancer, MMRpro for Lynch syndrome, PancPRO for pancreatic cancer. It can also generate a written interpretation using AI. It is important to be honest about what these outputs are and are not.</p>
+
+            <p>They are: published models, applied to the family structure you have entered, producing numerical and narrative outputs. These can be useful starting points for a conversation with your clinician, and the software will flag patterns worth discussing.</p>
+
+            <p>They are not: a clinical diagnosis, a recommendation to test, or a substitute for a qualified clinician's interpretation. A genetic counsellor or clinical geneticist reviews your pedigree in the context of your personal history, your clinical examination, and the latest guidelines; that is the layer of judgement the software cannot replace. If anything in the tool's outputs concerns you, the right response is to make an appointment to discuss it, not to act on the numbers directly.</p>
+
+            <h3 class="text-2xl mt-10 mb-4">Sharing with your clinician</h3>
+
+            <p>When you have built your pedigree to a useful state, you can share it with your clinician in several ways. Export the pedigree as PDF and email it or bring a printed copy to your appointment. Export the full record as a PDF report for the medical file. If your clinician's service uses Evagene, you can share the pedigree directly through the platform. The embedded pedigree viewer (a small piece of software your clinician can put in their own system) can also display your live pedigree.</p>
+
+            <p>Because the pedigree is in standard medical notation, any clinician will read it in seconds. This saves time at the appointment — time that can go into discussion rather than re-taking the family history.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">A typical patient session in Evagene</h2>
+
+            <p><strong>Step 1. Sign up for Alpha.</strong> Join the waiting list at evagene.com. Free during Alpha; no credit card.</p>
+
+            <p><strong>Step 2. Start with yourself.</strong> Add yourself as the proband (the starting point). Enter your sex and age.</p>
+
+            <p><strong>Step 3. Add immediate family.</strong> Parents, siblings, children. For each, add what you know — alive or deceased, age or age at death, conditions. Leave blanks where you do not know.</p>
+
+            <p><strong>Step 4. Extend to extended family if you can.</strong> Grandparents, aunts, uncles, cousins. This may require a phone call to older relatives; that conversation is often useful in itself.</p>
+
+            <p><strong>Step 5. Import 23andMe data if you have it.</strong> For any relatives with a direct-to-consumer test, bring the files in.</p>
+
+            <p><strong>Step 6. Export and share.</strong> Export as PDF; bring to your appointment or email in advance.</p>
+
+            <p><strong>Step 7. Keep it up to date.</strong> New diagnoses, new births, new information from older relatives — add them as they come.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Do I need to be a clinician to use Evagene?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">No. The tool is usable by anyone; the interpretation of what the pedigree means for your health remains a clinician's role.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is my family data private?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Your pedigree is yours; sharing happens on your terms. Read the Privacy Policy for details.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can I import my 23andMe data?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. Raw SNP, traits report, and health report.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does Evagene tell me whether I have a genetic condition?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">No. It is a preparation and record-keeping tool; clinical interpretation belongs with a qualified clinician.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How do I share my pedigree with my clinician?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Export as PDF; email or print for the appointment. Or share directly if your clinician uses Evagene.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What if I don't know much about my family history?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Start with what you know; leave blanks where you do not. A partial pedigree is still useful.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is Evagene free for patients?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes, during Alpha, via the waiting list.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Further reading</h2>
+
+            <ul>
+                <li><a href="for-genealogists.html">Evagene for genealogists exploring medical family history</a></li>
+                <li><a href="for-genetic-counsellors.html">Evagene for genetic counsellors</a></li>
+                <li><a href="for-clinical-geneticists.html">Evagene for clinical geneticists</a></li>
+                <li><a href="hereditary-cancer-risk-assessment.html">Hereditary cancer risk assessment</a></li>
+                <li><a href="gedcom-pedigree-software.html">GEDCOM pedigree software</a></li>
+                <li><a href="pedigree-drawing-software.html">Pedigree drawing software</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Start your family health history today</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Free during Alpha. Join the waiting list and start building your family tree in a format your clinician will read the moment you share it.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PedigreeTool vs Evagene — Clinical Pedigree Software Comparison (2026) | Evagene</title>
+    <meta name="description" content="A detailed, honest comparison of PedigreeTool (Stanford-backed, HPO/MONDO, GA4GH Phenopackets v2) and Evagene (clinical-grade, BayesMendel risk models, AI interpretation). Standards-first versus clinical-grade.">
+    <meta name="keywords" content="pedigreetool vs evagene, pedigreetool alternative, phenopackets pedigree, HPO MONDO pedigree software, Stanford pedigree tool, clinical pedigree software comparison, GA4GH phenopackets v2">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="PedigreeTool vs Evagene — Clinical Pedigree Software Comparison (2026)">
+    <meta property="og:description" content="PedigreeTool leads on FAIR standards (HPO, MONDO, Phenopackets v2); Evagene leads on clinical workflow (risk models, AI, MCP). Honest comparison.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/pedigreetool-vs-evagene">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PedigreeTool vs Evagene — Clinical Pedigree Software Comparison">
+    <meta name="twitter:description" content="Standards-first PedigreeTool versus clinical-grade Evagene: where each wins, and how to choose.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/pedigreetool-vs-evagene">
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD: Article -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"PedigreeTool vs Evagene: Clinical Pedigree Software Comparison",
+        "description":"An honest side-by-side comparison of PedigreeTool and Evagene. PedigreeTool is standards-first (HPO, MONDO, Phenopackets v2); Evagene is clinical-grade (risk models, AI, MCP).",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/pedigreetool-vs-evagene"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Compare","item":"https://evagene.com/compare"},
+            {"@type":"ListItem","position":3,"name":"PedigreeTool vs Evagene","item":"https://evagene.com/pedigreetool-vs-evagene"}
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"Is PedigreeTool certified for clinical diagnostics?","acceptedAnswer":{"@type":"Answer","text":"No. PedigreeTool's own website states explicitly that it is not certified for clinical diagnostics. It is designed as a research and educational tool with an emphasis on FAIR data standards (HPO, MONDO, GA4GH Phenopackets v2). For clinical-grade use, a purpose-built clinical pedigree platform such as Evagene is the more appropriate choice."}},
+            {"@type":"Question","name":"Does Evagene support GA4GH Phenopackets v2 like PedigreeTool?","acceptedAnswer":{"@type":"Answer","text":"Not as a first-class export today. This is a genuine advantage PedigreeTool holds: GA4GH Phenopackets v2 is a FAIR-aligned specification for sharing phenotype and pedigree data across research consortia, and PedigreeTool exports it natively. Evagene exports GEDCOM 5.5.1, JSON, PNG, SVG, and PDF. For services whose workflow depends on Phenopackets-native interchange, PedigreeTool is today's better fit. Evagene's roadmap on this is worth confirming with the vendor."}},
+            {"@type":"Question","name":"What pedigree drawing features do the two products share?","acceptedAnswer":{"@type":"Answer","text":"Both are browser-based, both support NSGC-standard pedigree notation, both include gender-inclusive symbols, and both support PNG, SVG, and PDF exports. Both offer cloud storage. The drawing interaction differs: PedigreeTool emphasises drag-and-drop on a canvas; Evagene adds a gesture drawing mode intended for live use during consultations."}},
+            {"@type":"Question","name":"Does PedigreeTool have risk models and AI interpretation?","acceptedAnswer":{"@type":"Answer","text":"PedigreeTool's own site notes that clinical features are delayed to 2026 and that auto-layout for complex families is still in development. Public documentation does not advertise BRCAPRO, MMRpro, PancPRO, or an AI clinical interpretation engine. Evagene ships all of these: the BayesMendel trio plus Mendelian calculators, and AI interpretation using bring-your-own-key LLMs (Anthropic Claude and OpenAI GPT)."}},
+            {"@type":"Question","name":"What does PedigreeTool cost?","acceptedAnswer":{"@type":"Answer","text":"PedigreeTool is in free beta through March 2026; PedigreeTool's website describes a subsequent tiered model (Research, Professional, Institutional) from April 2026 onward, with equity pricing for low-income countries. Exact numbers should be confirmed on the PedigreeTool pricing page, which supersedes this article if anything has since changed. Evagene is in Alpha and free via a waiting list at evagene.com."}},
+            {"@type":"Question","name":"Can I move pedigrees between PedigreeTool and Evagene?","acceptedAnswer":{"@type":"Answer","text":"Yes, using shared formats. PedigreeTool exports SVG, PNG, PDF, CSV, PED, JSON, and Phenopackets v2. Evagene imports GEDCOM 5.5.1, JSON, XEG, 23andMe, and pedigree images via OCR. For structural pedigree data, JSON or PED-converted-to-GEDCOM are the clean routes. HPO/MONDO annotations from PedigreeTool will need mapping to Evagene's ICD-10 / OMIM disease model."}},
+            {"@type":"Question","name":"Which is better for research versus clinical use?","acceptedAnswer":{"@type":"Answer","text":"For research services that prioritise FAIR-compliant phenotype interchange (HPO, MONDO, Phenopackets v2) and cross-institution data sharing, PedigreeTool is the stronger fit today. For clinical genetics services that need validated risk models, AI-assisted reporting, and programmatic integration with EHRs and patient portals, Evagene is the stronger fit."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<!-- Navigation -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="compare.html" class="hover:text-brand-600 dark:hover:text-brand-300">Compare</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">PedigreeTool vs Evagene</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">PedigreeTool vs Evagene: standards-first versus clinical-grade</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A careful comparison of PedigreeTool (Stanford-backed, HPO/MONDO/Phenopackets v2) and Evagene (clinical-grade pedigree management with BayesMendel risk models and AI interpretation). We say where each one wins — and where each one does not.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>14 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> PedigreeTool is a Stanford-backed browser pedigree application that positions itself as offering "the speed of sketching with standard scientific labels." Its strengths are NSGC-standard nomenclature with gender-inclusive symbols, ontology-linked search against HPO and MONDO, a rich export surface including GA4GH Phenopackets v2, and cloud storage — a set of capabilities that align very well with FAIR data principles and cross-institution research sharing. PedigreeTool's own website states plainly that it is not certified for clinical diagnostics, that auto-layout for complex families is still in development, and that clinical features are delayed to 2026. Evagene is a clinical-grade pedigree platform: BRCAPRO / MMRpro / PancPRO risk models, Mendelian calculators, AI-powered clinical interpretation with bring-your-own-key LLMs, a REST/webhook/MCP platform layer, and a 180+ disease catalogue with ICD-10 and OMIM coding. Neither product is strictly a superset of the other. If you are a research group whose data has to round-trip through GA4GH Phenopackets and HPO/MONDO repositories, PedigreeTool is a strong answer today. If you are a clinical service that needs validated risk numbers, clinical-grade reports, and a real integration platform, Evagene is the more appropriate tool.</p>
+
+            <p>This comparison is drawn from PedigreeTool's public website and documentation as of April 2026. If anything has since changed on their side, the PedigreeTool product pages supersede this article.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How the two products position themselves</h2>
+
+            <p><strong>PedigreeTool</strong> describes itself as combining "the speed of sketching with standard scientific labels." The product emphasises four things prominently: drag-and-drop canvas drawing, NSGC-standard nomenclature with gender-inclusive symbols, ontology-linked search against HPO (Human Phenotype Ontology) and MONDO (the Mondo Disease Ontology), and a broad export set (SVG, PNG, PDF, CSV, PED, JSON) including GA4GH Phenopackets v2. The Phenopackets alignment is meaningful — it places PedigreeTool inside the GA4GH FAIR-compliant data-sharing ecosystem, which matters for research consortia, collaborative rare-disease networks, and any group whose outputs need to flow into tools like Exomiser or LIRICAL.</p>
+
+            <p>PedigreeTool is also commendably honest about its current scope. Its own product pages state that auto-layout for complex family structures is still in development, that its clinical feature set is "delayed to 2026," that assisted-reproduction labelling is limited, and that the product is "not certified for clinical diagnostics." That is the kind of statement we always want to see on a research/clinical boundary product; it avoids ambiguity that could mislead a clinical buyer.</p>
+
+            <p><strong>Evagene</strong> positions itself as <a href="clinical-genetics-pedigree-tool.html">clinical-grade pedigree management for precision medicine</a>. Its emphasis is on the pedigree as a clinical document that has to be produced at consultation speed, annotated with ICD-10 and OMIM-coded diseases from a curated 180+ catalogue, run through validated risk models (BRCAPRO, MMRpro, PancPRO, plus Mendelian AD/AR/XR), and then surfaced to downstream systems through a real platform: a scoped REST API, webhooks, an MCP server for AI agents, and an embeddable viewer. Evagene's AI layer is bring-your-own-key — you use your own Anthropic Claude or OpenAI GPT account (Fernet-encrypted at rest), so interpretation traffic goes where your information-governance process has already approved.</p>
+
+            <p>The headline difference is orientation. PedigreeTool orients to FAIR research data standards. Evagene orients to clinical service workflows. They share a browser, NSGC notation, and ontology-linked disease annotation; they diverge sharply on risk modelling, AI interpretation, and platform surfaces.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Feature-by-feature comparison</h2>
+
+            <p>The matrix below summarises publicly advertised capabilities as of April 2026. A tick means the vendor publicly documents the feature. A dash means the feature is not publicly listed — it does not necessarily mean the feature is absent, especially on a beta product where documentation can lag the build.</p>
+
+            <div class="not-prose my-10 overflow-x-auto">
+                <table class="w-full text-sm border-collapse">
+                    <thead class="bg-brand-50 dark:bg-brand-900/50">
+                        <tr>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Capability</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">PedigreeTool</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Evagene</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 dark:text-gray-300">
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Browser-based, zero install</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">NSGC-standard nomenclature</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Gender-inclusive symbols</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Drag-and-drop drawing</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Gesture drawing for live consultations</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">HPO phenotype annotation</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">MONDO disease ontology annotation</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">ICD-10 disease annotation</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">OMIM disease annotation</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Curated disease catalogue</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓ (180+)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">GA4GH Phenopackets v2 export</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">BRCAPRO / MMRpro / PancPRO risk models</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Mendelian inheritance calculators</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Batch risk screening</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Karyogram viewer</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Consanguinity detection (Wright's F)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">AI clinical interpretation</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">BYOK LLM (Anthropic, OpenAI)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Analysis Templates</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">MCP server for AI agents</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓ (11 tools)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">REST API (scoped, rate-limited)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Webhooks (HMAC-SHA256)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Embeddable pedigree viewer</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Cloud storage</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">PED format export</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">via conversion</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">GEDCOM 5.5.1 import/export</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">23andMe import</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Pedigree image OCR import</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">PNG / SVG / PDF export</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Certified for clinical diagnostics</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">— (explicitly not)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">clinical-grade (confirm certifications with vendor)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-sm text-gray-500 dark:text-gray-400">Matrix compiled from publicly available product pages and documentation as of April 2026. "—" indicates the capability is not publicly advertised; it does not necessarily mean the feature is absent, particularly on a beta product.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Where PedigreeTool is stronger</h2>
+
+            <p>It is fair to state this up front. PedigreeTool's alignment with the GA4GH FAIR data stack — HPO, MONDO, Phenopackets v2 — is a genuine advantage that Evagene does not currently match. If your service works with the Global Alliance for Genomics and Health ecosystem, shares phenotype and family-history data across research collaborations, or feeds downstream variant-interpretation pipelines that consume Phenopackets, PedigreeTool is the more immediately useful tool. The HPO-linked search in particular fits well into undiagnosed-rare-disease workflows where phenotype deep-capture drives candidate-gene prioritisation.</p>
+
+            <p>PedigreeTool also ships with an academic credibility that matters in some procurement conversations. Its Stanford backing, explicit non-certification statement, and transparent roadmap (Research/Professional/Institutional tiers from April 2026, equity pricing for low-income countries) are signals of a serious, honest project. We respect that.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Where Evagene is stronger</h2>
+
+            <p>Evagene is designed around clinical-grade outputs, and that shows in several places PedigreeTool does not currently advertise. The integrated <a href="hereditary-cancer-risk-assessment.html">BayesMendel risk models (BRCAPRO, MMRpro, PancPRO)</a> run directly on the pedigree data and give a clinician a risk number they can discuss with a patient — without re-entering family history in a separate model runner. The Mendelian inheritance calculators cover autosomal dominant, autosomal recessive, and X-linked recessive patterns for monogenic conditions. Batch risk screening inverts the workflow: rather than "clinician suspects condition X, runs model," Evagene screens across the catalogue and flags conditions where family history crosses a threshold. None of this is advertised by PedigreeTool; PedigreeTool's own site says clinical features are delayed to 2026.</p>
+
+            <p>The AI interpretation layer is the second large gap. Evagene's BYOK LLM support (Anthropic Claude and OpenAI GPT, Fernet-encrypted), Analysis Templates with variable injection, and the MCP server exposing 11 pedigree tools to Claude Desktop, Claude Code, and any other MCP-compatible AI agent put Evagene in a different conversation for services that are starting to use AI as part of clinical reporting. If you just want a pedigree drawing you can export as Phenopackets, this does not matter. If you want AI to help draft the report, it does.</p>
+
+            <p>The third gap is the platform layer. Evagene's REST API (scoped <code>evg_</code> keys, SHA-256 hashed at rest, rate-limited, read/write/analyse scopes), webhooks (HMAC-SHA256 signed), and embeddable viewer (iframe/SVG/JavaScript) make Evagene usable from other systems without bespoke integration work. PedigreeTool's export surface is strong for file-based interchange; Evagene's platform surface is stronger for live system integration.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Standards, ontologies, and honest gaps</h2>
+
+            <p>This is the section where we have to be frank. Evagene does not today offer native GA4GH Phenopackets v2 export. If that is a requirement — and for some research-leaning services it is — PedigreeTool is the right answer today, and Evagene is not. We would rather say so clearly than let a buyer discover the gap after commitment. Evagene's roadmap on FAIR standards (Phenopackets, HPO-native capture, MONDO alongside OMIM) is worth confirming with the vendor at procurement time. Similarly, PedigreeTool's certification status is, by the vendor's own words, not "clinical diagnostic"; that cuts the other way for services whose governance requires clinical-grade tooling.</p>
+
+            <p>A reasonable compromise for some services is to run both: PedigreeTool for research and FAIR-compliant export into downstream variant interpretation pipelines; Evagene for the clinical workflow, risk calculation, and reporting side. The shared ground is standard pedigree structure, which travels well via JSON and via PED-to-GEDCOM conversion.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Pricing and deployment</h2>
+
+            <p>PedigreeTool is in free beta through March 2026. From April 2026, PedigreeTool's own site describes a tiered commercial model — Research (non-commercial), Professional (clinical/commercial), Institutional (admin dashboard) — with equity pricing for low-income countries. Exact numbers should be confirmed on PedigreeTool's pricing page, which supersedes this article. Deployment is cloud SaaS with no credit card required during beta.</p>
+
+            <p>Evagene is in Alpha and free via a waiting list at evagene.com. Pricing for general availability has not been published. Deployment is browser-based cloud; the platform surface (REST, webhooks, MCP, embedded viewer) means Evagene can sit inside another clinical system rather than being the only place the pedigree is accessed from.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">When to choose PedigreeTool</h2>
+
+            <ul>
+                <li>Your output needs to be GA4GH Phenopackets v2 for downstream variant-interpretation pipelines (Exomiser, LIRICAL, consortium repositories).</li>
+                <li>Your workflow is HPO-first: phenotype deep capture driving candidate-gene prioritisation.</li>
+                <li>You use MONDO as your disease ontology.</li>
+                <li>You are a research service and need FAIR-compliant interchange, not validated clinical risk numbers.</li>
+                <li>Your institution values Stanford-adjacent academic backing and the explicit non-clinical-certification posture.</li>
+                <li>Your pedigree needs are simpler (straightforward family structures, not complex multi-generational consanguinity).</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">When to choose Evagene</h2>
+
+            <ul>
+                <li>You run a clinical genetics service and need validated risk models (BRCAPRO, MMRpro, PancPRO, Mendelian) rather than phenotype export.</li>
+                <li>AI-assisted report drafting using your own LLM keys is part of how your service wants to work.</li>
+                <li>You need programmatic pedigree access via REST API, webhooks, MCP, or an embeddable viewer for EHR and patient-portal integration.</li>
+                <li>You build pedigrees live during consultation and want gesture drawing.</li>
+                <li>You need consanguinity detection, a karyogram viewer, and batch risk screening across a curated disease catalogue.</li>
+                <li>You want a vendor whose public posture is explicitly clinical-grade rather than explicitly non-diagnostic.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">Migrating from PedigreeTool to Evagene</h2>
+
+            <p>PedigreeTool exports JSON, CSV, PED, PNG, SVG, PDF, and Phenopackets v2. Evagene imports GEDCOM 5.5.1, JSON, XEG, 23andMe genotype/traits/health, and pedigree images via OCR. The practical migration path is JSON-to-JSON (a short schema mapping where individual/parent relationships transfer one-for-one), or PED-to-GEDCOM (the pedsuite R package has utilities for this, or a hand-written converter is a few dozen lines). HPO and MONDO annotations from PedigreeTool will need to be mapped to Evagene's ICD-10 / OMIM disease catalogue, which is a clinical-knowledge step rather than a data-conversion step — an Evagene clinician can typically do it in a few minutes per case.</p>
+
+            <p>For services running both tools in parallel, Evagene's <a href="gedcom-pedigree-software.html">GEDCOM import</a> makes a weekly or monthly bulk sync practical. For services that have never used Evagene but want to try, the pedigree-image OCR feature means you can bring an existing PNG or SVG from PedigreeTool directly into Evagene without any conversion step at all.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is PedigreeTool certified for clinical diagnostics?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">No — PedigreeTool's own site states this explicitly. It is designed as a research and educational tool with FAIR data standards.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does Evagene support GA4GH Phenopackets v2?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Not as a first-class export today. This is a genuine advantage PedigreeTool currently holds.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What drawing features do the two products share?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Browser-based, NSGC-standard nomenclature, gender-inclusive symbols, PNG/SVG/PDF export, cloud storage. Evagene adds gesture drawing for live consultation use.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does PedigreeTool have risk models and AI?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Not publicly as of April 2026; PedigreeTool's own site says clinical features are delayed to 2026. Evagene ships BRCAPRO, MMRpro, PancPRO, Mendelian calculators, and BYOK AI interpretation.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What does PedigreeTool cost?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Free beta through March 2026; tiered (Research, Professional, Institutional) from April 2026 per its own site. Confirm numbers on their pricing page.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can I move pedigrees between the two?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes — via JSON or PED-to-GEDCOM. HPO/MONDO annotations need remapping to ICD-10/OMIM.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Which is better for research versus clinical use?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Research with FAIR interchange: PedigreeTool. Clinical service with risk models and AI reporting: Evagene.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related comparisons and reading</h2>
+
+            <ul>
+                <li><a href="phenotips-vs-evagene.html">Phenotips vs Evagene</a></li>
+                <li><a href="progeny-vs-evagene.html">Progeny vs Evagene</a></li>
+                <li><a href="quickped-vs-evagene.html">QuickPed vs Evagene</a></li>
+                <li><a href="pedigree-drawing-software.html">Pedigree drawing software: a field guide</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tools</a></li>
+                <li><a href="hereditary-cancer-risk-assessment.html">Hereditary cancer risk assessment</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<!-- CTA -->
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

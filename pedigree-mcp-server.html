@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedigree MCP Server — Model Context Protocol for Claude and AI Agents (2026) | Evagene</title>
+    <meta name="description" content="A technical guide to Evagene's pedigree MCP server: 11 pedigree tools exposed via Anthropic's Model Context Protocol for Claude Desktop, Claude Code, and any MCP-compatible AI client. Setup, tool inventory, and clinician workflow examples.">
+    <meta name="keywords" content="pedigree MCP server, Model Context Protocol pedigree, Claude pedigree integration, AI agent pedigree tools, MCP clinical genetics, Claude Desktop pedigree, Claude Code pedigree, MCP server genetics, pedigree AI tooling">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Pedigree MCP Server — Model Context Protocol for Claude and AI Agents">
+    <meta property="og:description" content="11 pedigree tools exposed via MCP for Claude Desktop, Claude Code, and other AI clients. Setup and workflow examples.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/pedigree-mcp-server">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pedigree MCP Server — Evagene">
+    <meta name="twitter:description" content="MCP tools for pedigree management from Claude Desktop, Claude Code, and AI agents.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/pedigree-mcp-server">
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'], mono:['JetBrains Mono','Fira Code','monospace'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD: Article -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"Pedigree MCP Server: Model Context Protocol for Claude and AI Agents",
+        "description":"A technical guide to Evagene's pedigree MCP server, which exposes 11 pedigree tools via Anthropic's Model Context Protocol for use inside Claude Desktop, Claude Code, and other AI clients.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/pedigree-mcp-server"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Platform","item":"https://evagene.com/platform"},
+            {"@type":"ListItem","position":3,"name":"Pedigree MCP Server","item":"https://evagene.com/pedigree-mcp-server"}
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"What is MCP?","acceptedAnswer":{"@type":"Answer","text":"MCP (Model Context Protocol) is an open protocol developed by Anthropic that lets AI assistants interact with external tools, data sources, and systems in a standardised way. An MCP server exposes a set of tools; any MCP-compatible AI client (Claude Desktop, Claude Code, and a growing ecosystem) can discover and call those tools. It is the AI-agent equivalent of a REST API: a published, discoverable tool surface."}},
+            {"@type":"Question","name":"What tools does Evagene expose via MCP?","acceptedAnswer":{"@type":"Answer","text":"Eleven pedigree tools covering list, create, and get pedigree; add and update individuals; add relationships and offspring; describe pedigree and get summary; and GEDCOM import and export. Collectively these let an AI agent read, construct, and export pedigrees without leaving the AI workspace."}},
+            {"@type":"Question","name":"Which AI clients are compatible?","acceptedAnswer":{"@type":"Answer","text":"Claude Desktop and Claude Code are the primary clients today. Any MCP-compatible client that speaks the stdio transport will work; the MCP ecosystem includes implementations for additional AI assistants and autonomous agent frameworks."}},
+            {"@type":"Question","name":"How is authentication handled?","acceptedAnswer":{"@type":"Answer","text":"The MCP server runs locally on the clinician's machine (stdio transport) and authenticates to Evagene using a scoped API key that you configure in the Claude Desktop or Claude Code configuration file. The key uses the standard evg_ format with read/write/analyse scopes. Treat the configuration file as a credential — grant only the scopes needed for the intended workflow."}},
+            {"@type":"Question","name":"Is this safe for clinical use?","acceptedAnswer":{"@type":"Answer","text":"The MCP server is a tool surface for AI agents; clinical safety is a property of the workflow, not the server itself. Use it for drafting, exploration, and interpretation support, not for unsupervised clinical decisions. AI outputs should always be reviewed by a qualified clinician before becoming part of a clinical record, and BYOK keeps traffic within your organisation's existing LLM data-processing agreements."}},
+            {"@type":"Question","name":"Can I extend the MCP server with custom tools?","acceptedAnswer":{"@type":"Answer","text":"The current MCP server exposes a fixed set of 11 tools matched to the Evagene data model. Custom tools would typically sit in a wrapper MCP server you run yourself that composes Evagene tools with your own business logic. The underlying REST API is the escape hatch for anything the MCP tools do not cover."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<!-- Navigation -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="platform.html" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Platform</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="platform.html" class="hover:text-brand-600 dark:hover:text-brand-300">Platform</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">Pedigree MCP Server</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Pedigree MCP server: Model Context Protocol for Claude and AI agents</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A technical guide for clinicians and developers on how Anthropic's Model Context Protocol lets AI assistants read and modify pedigrees directly, how Evagene's 11 MCP tools work, and how to wire Claude Desktop or Claude Code up to your pedigree data.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>13 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300 prose-code:text-brand-700 dark:prose-code:text-brand-300 prose-pre:bg-gray-900 prose-pre:text-gray-100">
+
+            <p><strong>Short version.</strong> MCP (Model Context Protocol) is Anthropic's open protocol for letting AI agents call external tools in a standardised, discoverable way. Evagene ships an MCP server that exposes 11 pedigree tools — list, create, get pedigree; add and update individuals; add relationships and offspring; describe and summarise pedigrees; GEDCOM import and export — to any MCP-capable AI client. In practice that means Claude Desktop and Claude Code today, with a growing ecosystem beyond. Setup is a few lines in the client's configuration file pointing at the MCP server binary with your Evagene API key. Once connected, a clinician can draft a clinical letter in Claude and, in the same conversation, ask it to update the pedigree accordingly — without leaving the AI workspace.</p>
+
+            <p>This page explains what MCP is, why it matters for clinical genetics, what the 11 tools do, how to configure Claude Desktop and Claude Code, and where the sensible limits sit for clinical use.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What MCP is and why it matters</h2>
+
+            <p>Model Context Protocol is an open specification published by Anthropic for how AI assistants discover and call external tools. Its conceptual ancestor is the function-calling interface common to modern chat-completion APIs, but with a key shift: instead of the developer wiring tools into each individual AI application, MCP lets tools live in standalone servers that any compatible AI client can connect to. The result is a loosely-coupled ecosystem where a pedigree tool, a calendar tool, and a PubMed tool can all be mixed and matched into the same AI workspace.</p>
+
+            <p>For clinical genetics, this matters because the work involves pulling together information from multiple structured sources (the pedigree, the guidelines, the variant database, the clinical record) and producing structured output (an interpretation, a letter, an updated record). MCP lets an AI assistant take on that glue work without every tool needing to re-implement the AI integration.</p>
+
+            <p>Why Evagene ships an MCP server specifically: the pedigree is the clinical artefact around which a lot of genetics reasoning happens. Making it directly accessible from inside the clinician's AI workspace means the AI can ground its reasoning in actual family-history data rather than a summary the clinician had to re-type.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">The 11 tools</h2>
+
+            <p>Evagene's MCP server exposes these tools. Tool names and behaviours are stable; arguments map directly to REST API fields, so workflows transfer cleanly between programmatic and AI-driven use.</p>
+
+            <ul>
+                <li><code>list_pedigrees</code> — list pedigrees accessible to the current API key.</li>
+                <li><code>get_pedigree</code> — fetch a pedigree and its individuals.</li>
+                <li><code>create_pedigree</code> — create a new pedigree with a name and optional metadata.</li>
+                <li><code>add_individual</code> — add a person with sex, date of birth/death, disease annotations.</li>
+                <li><code>update_individual</code> — modify an existing individual's attributes.</li>
+                <li><code>add_relationship</code> — add a couple or sibling relationship.</li>
+                <li><code>add_offspring</code> — add a child to an existing couple or single parent.</li>
+                <li><code>describe_pedigree</code> — return a structured natural-language description suitable for use in LLM prompts.</li>
+                <li><code>get_pedigree_summary</code> — return a compact summary (counts, diseases, notable findings).</li>
+                <li><code>export_gedcom</code> — export the pedigree as GEDCOM 5.5.1.</li>
+                <li><code>import_gedcom</code> — create a pedigree from GEDCOM input.</li>
+            </ul>
+
+            <p>Risk analysis and AI interpretation endpoints live in the REST API rather than the MCP tool list today; an AI client that needs to trigger BRCAPRO, MMRpro, PancPRO, Mendelian, or AI interpretation for a pedigree it has just edited via MCP can call those via a thin HTTP tool alongside the MCP tools. A future revision may fold analysis tools directly into the MCP tool list.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How the protocol wires up</h2>
+
+            <p>MCP uses a stdio transport by default: the AI client launches the MCP server as a subprocess and exchanges JSON-RPC messages over stdin/stdout. The server stays running for the duration of the session. For Evagene, the server authenticates to the backend using the API key you configure, so all tool calls are scoped by that key's permissions.</p>
+
+            <pre><code class="language-text">Claude Desktop / Claude Code
+        |
+   (JSON-RPC over stdio)
+        |
+Evagene MCP server process
+        |
+   (HTTPS with X-API-Key)
+        |
+  Evagene REST API
+</code></pre>
+
+            <p>The AI client discovers the tool list on connection, reads each tool's schema, and exposes the tools to the model. When the model decides to call <code>add_individual</code>, the client serialises the call, the MCP server executes it against the REST API, and the result flows back into the conversation.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Setup: Claude Desktop</h2>
+
+            <p>Add the Evagene MCP server to your <code>claude_desktop_config.json</code> file. The file lives in your user configuration directory (Library/Application Support on macOS, %APPDATA% on Windows). Shape:</p>
+
+            <pre><code class="language-json">{
+  "mcpServers": {
+    "evagene": {
+      "command": "evagene-mcp",
+      "args": [],
+      "env": {
+        "EVAGENE_API_KEY": "evg_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "EVAGENE_BASE_URL": "https://your-evagene-instance.example.org"
+      }
+    }
+  }
+}
+</code></pre>
+
+            <p>Restart Claude Desktop; the Evagene tool icon appears in the available tools panel. Ask the model "list my pedigrees" to verify the connection. The exact binary name and invocation may differ for your installation; check <a href="https://evagene.net/help/platform_overview">evagene.net/help/platform_overview</a> for current installation instructions.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Setup: Claude Code</h2>
+
+            <p>Claude Code reads MCP server definitions from its own configuration. The structure mirrors Claude Desktop. Once configured, MCP tools are available inside any Claude Code session and can be combined with the editor's file-system and shell tools for mixed workflows — for example, drafting a GEDCOM file in the editor, importing it via MCP, and iterating on the resulting pedigree in the same conversation.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Workflow examples</h2>
+
+            <h3 class="text-2xl mt-8 mb-4">Clinician drafts interpretation in Claude</h3>
+            <p>A clinical geneticist is writing a letter for a family referred for hereditary breast and ovarian cancer assessment. They ask Claude "get the pedigree for the Smith family (ID ped_9f2b...) and describe it." Claude calls <code>get_pedigree</code> and <code>describe_pedigree</code>, summarises family history, and drafts the interpretation. The clinician spots a missed cousin who was diagnosed last month and asks "add maternal second cousin Jane Smith, dob 1981, breast cancer at 42." Claude calls <code>add_individual</code> and <code>add_relationship</code> with the appropriate arguments. The pedigree updates in Evagene immediately; the clinician re-generates the narrative with the corrected family structure.</p>
+
+            <h3 class="text-2xl mt-8 mb-4">Research data review in Claude Code</h3>
+            <p>A researcher loads a directory of GEDCOM files into a project, opens Claude Code, and asks it to import each one using the <code>import_gedcom</code> tool. Claude loops through the files, creating one pedigree per GEDCOM, reporting issues (duplicate IDs, unsupported tags) as it goes. The researcher reviews the summary at the end and re-runs problematic imports with corrections.</p>
+
+            <h3 class="text-2xl mt-8 mb-4">Triage and summarisation</h3>
+            <p>A genetic counsellor asks Claude to summarise all pedigrees with more than three affected individuals in the catalogue. Claude calls <code>list_pedigrees</code>, then <code>get_pedigree_summary</code> on each, and produces a sortable list for triage review. No new pedigree data is created; this is a read-only analytical workflow.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How this works in Evagene</h2>
+
+            <p>The MCP server is a thin wrapper over the <a href="pedigree-api.html">REST API</a>. Everything it can do, the REST API can do — MCP just packages the operations as discoverable tools with schemas the model can reason about. Important consequences:</p>
+
+            <ul>
+                <li><strong>Scopes flow through.</strong> The API key configured in <code>claude_desktop_config.json</code> defines what tools can actually do. A read-scope key means Claude can describe pedigrees but not modify them. Use this for cautious rollouts.</li>
+                <li><strong>Audit trails are the same.</strong> Every MCP tool call hits the REST API, which logs key usage, so AI-driven actions are visible in the same place as human API usage.</li>
+                <li><strong>BYOK applies to AI interpretation, not MCP.</strong> The MCP server does not call an LLM itself; the AI client's own model is doing the reasoning. BYOK matters when you use Evagene's server-side AI interpretation (via <a href="llm-pedigree-analysis.html">Analysis Templates</a>). For Claude Desktop / Claude Code, your existing Anthropic subscription is already the model provider.</li>
+                <li><strong>Webhooks still fire.</strong> If Claude adds an individual, the <code>individual.created</code> webhook fires to your other integrations exactly as it would for a REST API call.</li>
+            </ul>
+
+            <p>This is a deliberate design: AI-agent access is not a separate integration surface, it is the same surface with a different client.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Clinical-safety considerations</h2>
+
+            <p>A few practical notes that matter in clinical settings:</p>
+
+            <ul>
+                <li><strong>AI is a draft, not a decision.</strong> MCP makes it fast and natural for an AI agent to modify pedigree data. The clinical review of those modifications sits with the clinician, as it does for any clinical documentation.</li>
+                <li><strong>Start read-only.</strong> A read-scope API key is a safe default for exploring MCP-driven workflows. Add <code>write</code> only when your team is confident in the review process.</li>
+                <li><strong>Session boundaries.</strong> MCP sessions are local to a machine. Do not configure shared workstations with a single shared key; issue per-user keys so audit trails reflect who acted.</li>
+                <li><strong>Patient data and model providers.</strong> Claude Desktop and Claude Code send conversation content — which may include pedigree data — to Anthropic's model. Make sure your organisation's Anthropic agreements cover this usage before rolling MCP out clinically.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is MCP?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Anthropic's open protocol for letting AI agents discover and call external tools in a standardised way. The AI-agent equivalent of a REST API.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What tools does Evagene expose?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">11 tools: list/create/get pedigree, add/update individual, add relationship and offspring, describe/summarise, GEDCOM import/export.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Which AI clients work?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Claude Desktop and Claude Code primarily. Any MCP-compatible client over stdio will work.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How is authentication handled?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Scoped Evagene API key in the client's MCP configuration file. Scopes are enforced server-side.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is it safe for clinical use?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">MCP is a tool surface; clinical safety is a property of the workflow. Use for drafting and exploration with clinician review; ensure LLM provider agreements cover patient data.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can I extend it with custom tools?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Write a wrapper MCP server that composes Evagene tools with your own logic; the REST API is the escape hatch.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="platform.html">Evagene platform overview</a></li>
+                <li><a href="pedigree-api.html">Pedigree REST API reference</a></li>
+                <li><a href="llm-pedigree-analysis.html">LLM pedigree analysis and AI interpretation</a></li>
+                <li><a href="embeddable-pedigree-viewer.html">Embeddable pedigree viewer</a></li>
+                <li><a href="gedcom-pedigree-software.html">GEDCOM pedigree software</a></li>
+                <li><a href="phenotips-vs-evagene.html">Phenotips vs Evagene</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<!-- CTA -->
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

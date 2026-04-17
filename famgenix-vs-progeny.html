@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FamGenix vs Progeny Clinical: an honest comparison (2026) | Evagene</title>
+    <meta name="description" content="A neutral, honest head-to-head comparison of FamGenix (modern 2021 cancer-risk-breadth platform) and Progeny Clinical (in use since 1996, Ambry-owned, mature EHR integration). Features, risk models, deployment, pricing.">
+    <meta name="keywords" content="famgenix vs progeny, progeny vs famgenix, famgenix cancer risk, progeny clinical, cancer genetics pedigree, clinical pedigree software comparison">
+
+    <meta property="og:title" content="FamGenix vs Progeny Clinical: an honest comparison (2026)">
+    <meta property="og:description" content="A neutral head-to-head comparison of FamGenix and Progeny Clinical for cancer genetics services.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/famgenix-vs-progeny">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FamGenix vs Progeny Clinical: an honest comparison">
+    <meta name="twitter:description" content="A neutral head-to-head of FamGenix and Progeny Clinical.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/famgenix-vs-progeny">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"FamGenix vs Progeny Clinical: An Honest Comparison",
+        "description":"A neutral head-to-head comparison of FamGenix and Progeny Clinical, two clinical cancer-genetics-capable pedigree platforms with different design eras.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/famgenix-vs-progeny"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Compare","item":"https://evagene.com/compare"},
+            {"@type":"ListItem","position":3,"name":"FamGenix vs Progeny","item":"https://evagene.com/famgenix-vs-progeny"}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"What is the core difference between FamGenix and Progeny Clinical?","acceptedAnswer":{"@type":"Answer","text":"FamGenix is a modern cancer-risk-focused pedigree platform that launched in 2021, running BOADICEA v6, Tyrer-Cuzick v8, BayesMendel variants, Gail, Claus, and QRISK3 simultaneously on one family history. Progeny Clinical is a long-established clinical pedigree platform in use since 1996, owned by Ambry Genetics, with broader clinical feature depth including EHR integration, test ordering, and letter generation. FamGenix is modern and cancer-risk-first; Progeny is mature and broadly clinical."}},
+            {"@type":"Question","name":"Which is better for cancer risk modelling?","acceptedAnswer":{"@type":"Answer","text":"FamGenix explicitly lists BOADICEA v6, Tyrer-Cuzick v8, multiple BayesMendel variants, Gail, Claus, and QRISK3, run simultaneously on a single family history. Progeny Clinical has integrated cancer risk models with a long track record but does not publish its exact model set as explicitly. For services that want a publicly enumerated risk-model stack and simultaneous execution as a core workflow feature, FamGenix is the closer fit."}},
+            {"@type":"Question","name":"Which has better EHR integration?","acceptedAnswer":{"@type":"Answer","text":"Progeny Clinical has three decades of EHR integration experience and advertises integration, test ordering, and letter generation as part of its platform. FamGenix's integration capability is narrower on the public site. If your requirement is deep institutional EHR integration delivered by the vendor, Progeny's heritage is an advantage."}},
+            {"@type":"Question","name":"Does either have a free tier?","acceptedAnswer":{"@type":"Answer","text":"FamGenix offers a free Individual tier. Progeny offers Progeny Cloud as a free, stripped-down cloud edition. Both are meaningfully different from each other: FamGenix's Individual tier is aimed at individual users exploring their family history, whereas Progeny Cloud is a genuine clinical pedigree application with a free forever tier."}},
+            {"@type":"Question","name":"Is there a third option worth considering?","acceptedAnswer":{"@type":"Answer","text":"Evagene is a browser-based clinical pedigree platform with BayesMendel risk models, Mendelian inheritance analysis, bring-your-own-key AI interpretation, a REST API, webhooks, an MCP server for AI agents, and an embeddable pedigree viewer. It is in Alpha and free via waiting list. For services that want modern AI and programmable access at the pedigree layer, it is worth evaluating alongside FamGenix and Progeny."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="compare.html" class="hover:text-brand-600 dark:hover:text-brand-300">Compare</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">FamGenix vs Progeny</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">FamGenix vs Progeny Clinical: an honest comparison</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A neutral head-to-head for cancer genetics services choosing between a modern cancer-risk-breadth platform and a long-established clinical pedigree system — with a brief note at the end on a third option worth considering.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>13 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p>This page is a head-to-head comparison of <strong>FamGenix</strong> and <strong>Progeny Clinical</strong>. Teams searching "famgenix vs progeny" typically want a plain-English summary of which is the better fit for their cancer genetics service. That is what this page provides. Evagene is briefly introduced at the end as a third option; this article is genuinely about FamGenix and Progeny first. All product claims are drawn from each vendor's public website and documentation as of April 2026.</p>
+
+            <p><strong>Short version.</strong> Choose <strong>FamGenix</strong> if you want the most modern cancer-risk-breadth on the market: BOADICEA v6, Tyrer-Cuzick v8, BayesMendel variants, Gail, Claus, and QRISK3 run simultaneously on a single family history, with regional data for US/CA/UK-EU/AU. It launched in 2021, is in 4 of the top 10 US cancer centres, and is cancer-first by design. Choose <strong>Progeny Clinical</strong> if you want the deepest operational track record — in use since 1996, 800+ genetics institutions, owned by Ambry Genetics — and need mature EHR integration, test ordering, letter generation, and the option of on-premise deployment. Both handle cancer genetics competently; one is the modern specialist and the other is the well-worn generalist.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How FamGenix and Progeny position themselves</h2>
+
+            <p><strong>FamGenix</strong> is a modern cancer-risk-focused platform launched in 2021. Its headline is the breadth and simultaneity of cancer risk models: BOADICEA v6 (the current CanRisk engine for breast and ovarian cancer), Tyrer-Cuzick v8, several BayesMendel family members, Gail (breast), Claus (breast), and QRISK3 (cardiovascular, used in some UK settings alongside cancer screening decisions), all run on one family history without re-entry. It ships regional data for the US, Canada, UK/EU, and Australia, which matters for local incidence rates and guideline alignment. Its customer references include 4 of the top 10 US cancer centres. It is HIPAA and GINA compliant, and offers a free Individual tier alongside institutional pricing.</p>
+
+            <p><strong>Progeny Clinical</strong> is the professional edition of a clinical pedigree product that has been in use since 1996, owned by Ambry Genetics since 2018. Its installed base is 800+ genetics institutions. It supports both cloud and on-premise deployment, integrated cancer risk modelling, deep EHR integration, test ordering, and letter generation. Cancer genetics is its heritage use case — the product has served US cancer centres for decades — though it is also used for rare disease, reproductive genetics, and general clinical genetics. Progeny is HIPAA-compliant. Pricing is not published; procurement is via quote. User feedback over the years has flagged friction points: moving family members can be awkward, complex features can be unintuitive, and some customers have reported rising prices.</p>
+
+            <p>The choice is a classic modern-specialist-vs-incumbent-generalist decision. FamGenix is the 2021-vintage product built explicitly for the cancer genetics use case. Progeny is the 1996-vintage platform that has grown with the field.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Feature comparison</h2>
+
+            <p>The matrix below compares features each vendor publishes. A tick means the capability is publicly advertised; a dash means it is not publicly listed. Evagene appears as a third column.</p>
+
+            <div class="not-prose my-10 overflow-x-auto">
+                <table class="w-full text-sm border-collapse">
+                    <thead class="bg-brand-50 dark:bg-brand-900/50">
+                        <tr>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Capability</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">FamGenix</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Progeny Clinical</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Evagene</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 dark:text-gray-300">
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Launch year</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">2021</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">1996</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">Alpha (2026)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Installed base</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">4 of top 10 US cancer centres</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">800+ institutions</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">Alpha waitlist</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Browser-based / cloud</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">On-premise deployment</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">BOADICEA v6 / CanRisk</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">check vendor</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Tyrer-Cuzick v8</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">check vendor</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">BayesMendel variants (BRCAPRO, MMRpro, PancPRO)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">integrated (check set)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Gail / Claus / QRISK3</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">partial (check vendor)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Simultaneous risk model execution</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003; (core)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">integrated</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Regional data (US/CA/UK-EU/AU)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Deep EHR integration</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">partial</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003; (heritage)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">via API</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Letter generation</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">partial</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">via AI / templates</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Test ordering workflow</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Patient Family History Questionnaire</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003; (FHQ)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">HIPAA / GINA compliance</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">HIPAA</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">confirm with vendor</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Vendor ownership</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">independent</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">Ambry Genetics (lab)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">independent</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">AI clinical interpretation (BYOK)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">MCP server for AI agents</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003; (11 tools)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Public REST API</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Embeddable pedigree viewer</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Free tier</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">Individual</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">Progeny Cloud</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003; (Alpha)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Published pricing</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-sm text-gray-500 dark:text-gray-400">Matrix compiled from publicly available product pages and documentation as of April 2026. "&mdash;" indicates the capability is not publicly advertised and does not necessarily mean it is absent.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Cancer risk modelling: breadth vs heritage</h2>
+
+            <p>This is the axis most cancer genetics services care about. FamGenix publishes a specific, current model stack — BOADICEA v6, Tyrer-Cuzick v8, BayesMendel variants, Gail, Claus, QRISK3 — and its central selling point is running them all on one family history so the clinician can compare results and select the model (or combination) appropriate to the case and the guideline. The product is modern enough that its models are on their current major versions and its regional data explicitly tracks incidence differences by country.</p>
+
+            <p>Progeny Clinical has integrated cancer risk modelling with a long operational track record. The specific models available in a particular Progeny deployment may depend on the contract tier and the version, and the product does not publish an exhaustive list on the public site. In practice, most Progeny cancer genetics customers have the models they need; customers evaluating Progeny should ask for a current list and confirm which versions are in use. The three-decade operational record is itself a capability, because institutions need pedigree systems whose behaviour they can rely on year over year.</p>
+
+            <p>If model-set transparency is a critical procurement criterion, FamGenix gives you more upfront. If long-run operational stability is the criterion, Progeny's heritage is hard to match.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">EHR integration, letter generation, and test ordering</h2>
+
+            <p>Progeny Clinical's public materials emphasise EHR integration, test ordering, and letter generation as part of the cancer genetics workflow. Letter generation in particular — the clinician's summary letter to the referring physician, the family, and the patient — is where a lot of clinical time lives, and having it integrated saves hours per week per clinician. Progeny's heritage makes it likely that any EHR-integration question has been asked and answered before in some form.</p>
+
+            <p>FamGenix's integration story is narrower on the public site. The platform is modern and browser-first, but deep institutional EHR integration delivered by the vendor as part of standard deployment is not advertised at the same depth. For a small clinic this is not a problem; for a large hospital wanting a vendor-managed Epic or Cerner integration, Progeny's model is the more recognisable one.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Vendor independence and lab-referral concerns</h2>
+
+            <p>Progeny Clinical is owned by Ambry Genetics, a clinical diagnostic laboratory. There is no public evidence that Progeny steers ordering inappropriately; the product long predated the Ambry acquisition. But institutions with strict conflict-of-interest policies — or that simply prefer not to have their pedigree tool under the ownership of a testing vendor — sometimes prefer an independent software vendor. This is a preference, not a scandal, and it affects only a subset of procurement committees.</p>
+
+            <p>FamGenix is an independent vendor and does not bundle test ordering, which for some institutions makes vendor-neutrality easier to demonstrate. For others this is not a factor.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Pricing and free access</h2>
+
+            <p>Both products offer a form of free access, but they are meaningfully different. FamGenix's free Individual tier is aimed at individual users exploring their own family history — useful for patient self-use, and useful for clinicians who want to see the product's UX without a contract. Progeny Cloud is a free, stripped-down cloud edition of Progeny Clinical, targeted at small clinics and new services as a genuine clinical tool (with advanced features gated behind paid Progeny Clinical).</p>
+
+            <p>Neither institutional tier is publicly priced. Budget planning should include a vendor quote from each.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">When to choose FamGenix</h2>
+
+            <ul>
+                <li>You want modern cancer-risk breadth (BOADICEA v6, Tyrer-Cuzick v8, BayesMendel variants, Gail, Claus, QRISK3) run simultaneously on a single family history.</li>
+                <li>You value regional data for US, Canada, UK/EU, or Australia and NCCN-aligned workflow.</li>
+                <li>You want a product that launched in 2021 and is actively developed on a modern cadence.</li>
+                <li>You prefer a vendor that is independent of clinical diagnostic laboratories.</li>
+                <li>Your institution does not require deep vendor-managed EHR integration, test ordering, and letter generation at the depth a long-established vendor would ship.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">When to choose Progeny Clinical</h2>
+
+            <ul>
+                <li>You value a 30-year operational track record and 800+ genetics institution installed base.</li>
+                <li>Your institution requires mature, vendor-managed EHR integration, test ordering, and letter generation.</li>
+                <li>You need on-premise deployment, or the option of it, alongside cloud.</li>
+                <li>Your team is comfortable with the fact that Progeny is owned by Ambry Genetics (a clinical diagnostic laboratory).</li>
+                <li>You want a clear upgrade path from the free Progeny Cloud to paid Progeny Clinical as your clinic grows.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">A third option to consider: Evagene</h2>
+
+            <p>FamGenix and Progeny Clinical are both credible cancer genetics platforms. For services whose requirements include modern AI integration, a public REST API, and an MCP server for AI agents — capabilities neither FamGenix nor Progeny publicly prioritise — <strong>Evagene</strong> is worth evaluating alongside them.</p>
+
+            <p>Evagene is a browser-based clinical pedigree management platform with <a href="pedigree-drawing-software.html">gesture drawing</a>, a 180+ disease catalogue coded to ICD-10 and OMIM, integrated <a href="hereditary-cancer-risk-assessment.html">BayesMendel cancer risk models</a> (BRCAPRO, MMRpro, PancPRO), <a href="mendelian-inheritance-calculator.html">Mendelian inheritance analysis</a> for AD/AR/XR patterns, karyogram viewing, and consanguinity detection via Wright's coefficient. Evagene's cancer risk coverage is narrower than FamGenix's — if your service depends on BOADICEA v6 or Tyrer-Cuzick v8 specifically, FamGenix is a better fit today — but Evagene covers the core BayesMendel set cleanly and adds a batch risk screening feature that sweeps across all 180+ catalogued diseases for a given proband.</p>
+
+            <p>Evagene's AI layer is bring-your-own-key: the service provides its own Anthropic Claude or OpenAI GPT credentials, encrypted at rest with Fernet. Analysis Templates codify house style of report writing with variable injection. The MCP server exposes 11 pedigree tools to Claude Desktop, Claude Code, and any other MCP-compatible AI agent, so clinicians can ask their AI assistant to read, modify, or analyse a pedigree directly. The integration surface comprises a scoped, rate-limited REST API with keys in the format <code>evg_</code> followed by 43 characters (SHA-256 hashed at rest), HMAC-SHA256-signed webhooks, and an embeddable pedigree viewer (iframe / SVG / JavaScript). Imports cover <a href="gedcom-pedigree-software.html">GEDCOM 5.5.1</a>, JSON, 23andMe, XEG, and pedigree image OCR.</p>
+
+            <p>Evagene is in Alpha and free via waiting list at <a href="https://evagene.com/#waitlist">evagene.com</a>. It does not replace FamGenix's cancer-risk-breadth or Progeny's EHR-integration depth for institutions that need those today. It offers a credible modern alternative for services whose priorities are AI-assisted interpretation and programmable integration.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Which is better for cancer risk modelling, FamGenix or Progeny?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">FamGenix publishes a current, specific model stack (BOADICEA v6, Tyrer-Cuzick v8, BayesMendel variants, Gail, Claus, QRISK3). Progeny Clinical has integrated cancer risk modelling with a longer heritage but less explicit public disclosure of the exact set. For model-set transparency, FamGenix; for operational heritage, Progeny.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Which has better EHR integration?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Progeny. Its three decades of deployment experience and public emphasis on EHR integration, test ordering, and letter generation make it the stronger choice for deep institutional EHR integration.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does either offer on-premise deployment?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Progeny Clinical offers cloud and on-premise. FamGenix is cloud-first on its public site.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What about vendor ownership?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">FamGenix is an independent vendor. Progeny is owned by Ambry Genetics, a clinical diagnostic laboratory. Some institutions prefer independent vendors on conflict-of-interest grounds; many do not see this as a material factor.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Which has a free tier?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">FamGenix has a free Individual tier aimed at individual users. Progeny offers Progeny Cloud as a free, stripped-down cloud edition of Progeny Clinical. Evagene is free during Alpha via waiting list.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can I migrate between them?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Both support standard export formats to varying degrees. GEDCOM 5.5.1 is the common interchange format. Confirm available export options with your contract tier.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="famgenix-vs-evagene.html">FamGenix vs Evagene</a></li>
+                <li><a href="progeny-vs-evagene.html">Progeny vs Evagene</a></li>
+                <li><a href="famgenix-vs-phenotips.html">FamGenix vs Phenotips</a></li>
+                <li><a href="phenotips-vs-progeny.html">Phenotips vs Progeny</a></li>
+                <li><a href="pedigree-drawing-software.html">Pedigree drawing software: a practical guide</a></li>
+                <li><a href="compare.html">All Evagene comparisons</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

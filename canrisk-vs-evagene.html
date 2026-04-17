@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CanRisk vs Evagene — Cancer Risk Calculator and Clinical Pedigree Comparison (2026) | Evagene</title>
+    <meta name="description" content="An honest comparison of CanRisk (University of Cambridge BOADICEA/CanRisk-Prostate) and Evagene (clinical pedigree management with BRCAPRO, AI interpretation). Why many services use both — complementary, not competitive.">
+    <meta name="keywords" content="canrisk vs evagene, canrisk alternative, boadicea calculator, brcapro vs boadicea, cancer risk assessment software, cambridge canrisk, nice canrisk, breast cancer risk tool comparison">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="CanRisk vs Evagene — Cancer Risk Calculator and Clinical Pedigree Comparison">
+    <meta property="og:description" content="CanRisk is the gold standard for BOADICEA. Evagene is an integrated clinical pedigree system with BRCAPRO. They work well together.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/canrisk-vs-evagene">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CanRisk vs Evagene — Cancer Risk and Clinical Pedigree Comparison">
+    <meta name="twitter:description" content="CanRisk for BOADICEA; Evagene for integrated pedigree workflow. How they complement each other.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/canrisk-vs-evagene">
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD: Article -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"CanRisk vs Evagene: Cancer Risk Calculator and Clinical Pedigree Comparison",
+        "description":"A respectful comparison of CanRisk (Cambridge, BOADICEA, NICE-endorsed) and Evagene (clinical pedigree management, BRCAPRO, AI interpretation).",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/canrisk-vs-evagene"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Compare","item":"https://evagene.com/compare"},
+            {"@type":"ListItem","position":3,"name":"CanRisk vs Evagene","item":"https://evagene.com/canrisk-vs-evagene"}
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"Is Evagene a replacement for CanRisk?","acceptedAnswer":{"@type":"Answer","text":"No. CanRisk is the University of Cambridge's authoritative front end to BOADICEA for breast and ovarian cancer risk and to CanRisk-Prostate for prostate cancer risk. It is the risk-model tool endorsed by NICE, NCCN, ESMO, Cancer Care Ontario, eviQ, and the UK Cancer Genetics Group. Evagene does not implement BOADICEA or CanRisk-Prostate. Evagene is a broader clinical pedigree management system — pedigree construction, disease annotation across 180+ conditions, BRCAPRO/MMRpro/PancPRO from the BayesMendel suite, Mendelian calculators, AI interpretation, and a REST/MCP platform layer. Many services use both tools: CanRisk for authoritative BOADICEA numbers, Evagene for the wider workflow."}},
+            {"@type":"Question","name":"What is the difference between BRCAPRO and BOADICEA?","acceptedAnswer":{"@type":"Answer","text":"Both estimate the probability that an individual carries a high-risk cancer-susceptibility gene and their future risk of cancer, but they use different models. BRCAPRO is a Bayesian model from the BayesMendel suite that uses family history of breast and ovarian cancer and published penetrance estimates for BRCA1 and BRCA2. BOADICEA (the model behind CanRisk) is a more comprehensive model that combines family history, rare mutations in multiple high- and moderate-risk genes, polygenic risk scores, mammographic density, and other lifestyle and hormonal factors. BOADICEA is generally considered the more complete contemporary model; BRCAPRO remains widely used and validated and is built into Evagene."}},
+            {"@type":"Question","name":"Can Evagene feed a pedigree into CanRisk?","acceptedAnswer":{"@type":"Answer","text":"CanRisk accepts the CanRisk file format (CSV-based) for pedigree and tumour-pathology input. Evagene exports pedigrees as GEDCOM 5.5.1 and JSON. A short conversion step — or manual re-entry for small pedigrees — takes the family structure from Evagene to CanRisk. Affected-status and age-at-diagnosis fields transfer well; full BOADICEA input (polygenic scores, mammographic density, genotypes) is typically entered directly in CanRisk."}},
+            {"@type":"Question","name":"Is CanRisk free?","acceptedAnswer":{"@type":"Answer","text":"CanRisk is free for healthcare professionals after registration. It requires a login. It is backed by the University of Cambridge, Cancer Research UK, Wellcome Trust, and Genome Canada. Evagene is also currently free during its Alpha via a waiting list at evagene.com."}},
+            {"@type":"Question","name":"Does Evagene do polygenic risk scores and mammographic density like BOADICEA?","acceptedAnswer":{"@type":"Answer","text":"Not today. Polygenic risk scoring and mammographic density integration are strengths of BOADICEA/CanRisk that Evagene does not replicate. Services that need these inputs in their risk calculation should use CanRisk for those cases, optionally alongside Evagene for the pedigree management side of the workflow."}},
+            {"@type":"Question","name":"Why would a service use both?","acceptedAnswer":{"@type":"Answer","text":"Because they do different jobs very well. CanRisk gives an authoritative, endorsed BOADICEA risk number with full modern inputs. Evagene manages the wider clinical pedigree — Lynch syndrome and pancreatic cancer models (not BOADICEA's scope), Mendelian conditions for non-cancer families, AI-drafted interpretation, clinical reports, EHR-ready APIs, and cascade-testing workflow. Many UK and international cancer genetics services already run both CanRisk and a separate pedigree management tool; Evagene is intended to be a good fit in that second slot."}},
+            {"@type":"Question","name":"What does NICE recommend?","acceptedAnswer":{"@type":"Answer","text":"NICE guidance for familial breast cancer (CG164 and subsequent updates) refers clinicians to validated risk-assessment tools including BOADICEA and Tyrer-Cuzick. CanRisk is the authoritative web front end to BOADICEA. NICE does not mandate a specific pedigree management platform; the choice there is a service-level decision about workflow, interoperability, and governance."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<!-- Navigation -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="compare.html" class="hover:text-brand-600 dark:hover:text-brand-300">Compare</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">CanRisk vs Evagene</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">CanRisk vs Evagene: risk calculator versus integrated pedigree platform</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A respectful comparison of CanRisk — the University of Cambridge tool behind BOADICEA and CanRisk-Prostate, endorsed by NICE and NCCN — and Evagene, a clinical-grade pedigree management platform. They do different things, and most serious cancer genetics services will use both.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>14 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> CanRisk is the authoritative University of Cambridge web front end to BOADICEA (breast and ovarian cancer) and CanRisk-Prostate. It is backed by Cambridge, Cancer Research UK, the Wellcome Trust, and Genome Canada, and endorsed by NICE, NCCN, ESMO, Cancer Care Ontario, eviQ, and the UK Cancer Genetics Group. It is the tool that clinical services reach for when they need a defensible, current, endorsed BOADICEA risk number — and that is a capability Evagene does not and should not try to replace. Evagene is a clinical pedigree management system whose cancer-risk layer is built on BRCAPRO, MMRpro, and PancPRO from the BayesMendel suite, alongside Mendelian calculators, AI-assisted interpretation, and a platform surface for EHR and AI-agent integration. Positioned honestly, CanRisk and Evagene are complementary: CanRisk runs BOADICEA; Evagene manages the pedigree workflow, runs other models, drafts the interpretation, and hands the data on to the rest of the clinical system. Most cancer genetics services already run CanRisk alongside a separate pedigree platform; Evagene is designed to sit in that second slot.</p>
+
+            <p>This article is a careful, respectful comparison written for service leads evaluating tooling in 2026. All claims about CanRisk are drawn from the canrisk.org public website, the BOADICEA/CanRisk peer-reviewed literature, and the official endorsements listed on the CanRisk site as of April 2026.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How the two products position themselves</h2>
+
+            <p><strong>CanRisk</strong> describes itself as an online tool that enables healthcare professionals to calculate an individual's future risks of developing breast, ovarian, or prostate cancer. The emphasis is explicitly on risk calculation. The tooling sits behind a professional registration wall — authorised healthcare professionals only — which is appropriate given the clinical sensitivity of the numbers it produces. Its model stack is serious and current: BOADICEA (Breast and Ovarian Analysis of Disease Incidence and Carrier Estimation Algorithm) for breast and ovarian risk, CanRisk-Prostate for prostate risk, with polygenic risk scoring, mammographic density integration, family history, and results from genetic testing. The tool is available in seven languages. It enjoys NICE, NCCN, ESMO, Cancer Care Ontario, eviQ, and UK Cancer Genetics Group endorsement — the most comprehensive endorsement set of any tool in this space, and one that reflects the weight of the Cambridge academic work behind BOADICEA over two decades.</p>
+
+            <p>What CanRisk is not, by its own positioning, is a general-purpose pedigree management system. It is a risk calculator with a pedigree input. The pedigree there is a means to the end of producing a risk number; it is not where you manage ongoing clinical notes, batch-screen for non-cancer conditions, cascade test across a family, or draft a clinical letter. Those things are done elsewhere. The clinical-service norm is to run CanRisk at the risk-assessment moment and run a separate pedigree tool for the rest of the workflow.</p>
+
+            <p><strong>Evagene</strong> is that separate pedigree tool. It positions itself as <a href="clinical-genetics-pedigree-tool.html">clinical-grade pedigree management for precision medicine</a>: a gesture-drawing canvas for consultation-speed construction, NSGC/ISCN-standard notation, a curated 180+ disease catalogue annotated with ICD-10 and OMIM codes, and validated risk calculators for conditions outside BOADICEA's scope (Lynch syndrome via MMRpro, pancreatic cancer via PancPRO, and Mendelian AD/AR/XR for monogenic non-cancer conditions). On top of that sit the modern capabilities that make Evagene useful as a platform: AI-powered clinical interpretation using bring-your-own-key (BYOK) LLMs (Anthropic Claude, OpenAI GPT, Fernet-encrypted at rest), Analysis Templates, a REST API with scoped <code>evg_</code> keys, webhooks (HMAC-SHA256), an MCP server exposing 11 pedigree tools to AI agents like Claude Desktop and Claude Code, and an embeddable pedigree viewer.</p>
+
+            <p>The headline difference is of shape. CanRisk is a deep, authoritative, narrow-scope calculator for specific cancers. Evagene is a broad clinical pedigree platform that happens to include risk models for conditions BOADICEA does not cover.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Feature-by-feature comparison</h2>
+
+            <p>The matrix below is arranged by capability. A tick means the feature is publicly documented. Because CanRisk and Evagene overlap only partially, many rows will have the tick on one side and a dash on the other; that is a feature of the comparison, not a flaw. The point is to show that the two products complement each other cleanly.</p>
+
+            <div class="not-prose my-10 overflow-x-auto">
+                <table class="w-full text-sm border-collapse">
+                    <thead class="bg-brand-50 dark:bg-brand-900/50">
+                        <tr>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Capability</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">CanRisk</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Evagene</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 dark:text-gray-300">
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">BOADICEA breast/ovarian risk</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓ (authoritative)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">CanRisk-Prostate risk</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Polygenic risk score integration</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Mammographic density input</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Genetic test result input</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓ (via annotation)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">BRCAPRO risk model</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">MMRpro (Lynch syndrome)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">PancPRO (pancreatic)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Mendelian (AD/AR/XR) calculators</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Batch risk screening (all diseases)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">NICE / NCCN / ESMO endorsement</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Academic / peer-reviewed</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓ (Cambridge)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">— (BayesMendel upstream)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Multi-language UI</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓ (7 languages)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Pedigree construction (gesture drawing)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">NSGC / ISCN standard notation</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">partial</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Curated disease catalogue (180+)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">ICD-10 + OMIM coding</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">AI clinical interpretation (BYOK)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Analysis Templates</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">MCP server for AI agents</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓ (11 tools)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">REST API</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">— (not public)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Webhooks</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Embeddable pedigree viewer</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">CanRisk file format I/O</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓ (native)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">via conversion</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">GEDCOM 5.5.1 import/export</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">23andMe import</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Pedigree image OCR</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Clinical reports (PDF)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓ (risk summary)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓ (4 report types)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Free for healthcare professionals</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓ (registration required)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓ (Alpha waiting list)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Public pricing for commercial use</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-sm text-gray-500 dark:text-gray-400">Matrix compiled from canrisk.org and Evagene public product pages as of April 2026. A dash does not imply absence; it indicates the capability is not publicly advertised.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">BOADICEA and BRCAPRO: different models, both valid</h2>
+
+            <p>A frank word on the risk models. BOADICEA — the engine behind CanRisk — and BRCAPRO — integrated in Evagene — are both peer-reviewed models for estimating breast and ovarian cancer risk and BRCA1/BRCA2 mutation probability. They differ in design. BRCAPRO is a Bayesian family-history-driven model from the BayesMendel suite; it uses family history of breast and ovarian cancer with published penetrance estimates for BRCA1 and BRCA2. It is validated, widely used in US practice, and computationally tractable. BOADICEA is a more comprehensive model that integrates family history, mutations in multiple high- and moderate-risk genes, polygenic scoring, mammographic density, and hormonal/lifestyle factors. BOADICEA is generally regarded as the more complete modern model; it is what NICE, NCCN, ESMO, and others point clinicians toward.</p>
+
+            <p>Evagene does not attempt to re-implement BOADICEA. Doing so would be an enormous piece of work, and the clinical-equivalence validation work that Cambridge has done over two decades cannot be casually reproduced. The honest statement is: if your service needs BOADICEA numbers, you use CanRisk. Evagene's BRCAPRO output is complementary — useful for cross-checking, useful in services where BOADICEA is not the standard, useful for services in jurisdictions where BRCAPRO is the referenced model — but it is not a substitute for the gold-standard endorsed tool.</p>
+
+            <p>Where Evagene adds value on the cancer side is in the conditions BOADICEA does not cover. Lynch syndrome risk, handled in Evagene by <a href="hereditary-cancer-risk-assessment.html">MMRpro</a>, sits outside BOADICEA's scope. Pancreatic cancer risk, handled in Evagene by PancPRO, sits outside BOADICEA's scope. And non-cancer monogenic conditions — covered in Evagene by Mendelian AD/AR/XR calculators — sit outside CanRisk entirely, because CanRisk is a cancer tool.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Pedigree management: where CanRisk stops</h2>
+
+            <p>CanRisk is authoritative on the risk number but deliberately narrow on the workflow around it. It does not aim to be a pedigree management system; it does not store a family's clinical history over time, draft correspondence, manage cascade testing across relatives, batch-screen a proband against a wider disease catalogue, or expose the pedigree to other systems via an API. Clinical services that use CanRisk typically pair it with a pedigree tool — historically Progeny, Phenotips, TrakGene, FamGenix, a spreadsheet, or a paper chart — and move the family structure between tools via the CanRisk file format or manual re-entry.</p>
+
+            <p>Evagene is designed to be the pedigree tool in that pairing. Its gesture drawing mode supports live construction during consultation. Its 180+ disease catalogue covers cancer and non-cancer conditions, so a single pedigree covers the family's full history rather than just the BOADICEA-relevant fields. Its AI interpretation layer drafts the narrative paragraphs a clinician will later adapt and sign, leaving the BOADICEA risk number (pulled from CanRisk) to be pasted alongside. Its REST API, webhooks, and MCP server mean the pedigree is visible to other systems — a patient portal, an EHR, an AI agent — without bespoke integration work.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Using CanRisk and Evagene together</h2>
+
+            <p>The intended workflow is simple. The counsellor builds the pedigree in Evagene during consultation — gesture drawing, live annotation, disease coding against ICD-10 and OMIM. At the risk-assessment moment, the relevant pedigree structure and tumour pathology are transferred to CanRisk (CanRisk file format from Evagene export, or manual re-entry for small families). CanRisk produces the authoritative BOADICEA / CanRisk-Prostate risk number. That number goes into the Evagene case notes alongside the BRCAPRO, MMRpro, and PancPRO results from Evagene's own engine. The AI interpretation layer drafts the report, cross-referencing the CanRisk BOADICEA figure as the authoritative breast-ovarian risk. The clinician reviews, edits, and signs the final report in Evagene; that report is exported to the EHR via the REST API or a webhook.</p>
+
+            <p>For services that are already CanRisk-fluent, this is a small change. You add Evagene alongside your existing CanRisk workflow; CanRisk's role is unchanged. What Evagene replaces is whatever you are currently using for the pedigree itself — Progeny, Phenotips, TrakGene, FamGenix, or a spreadsheet. See our comparisons with each of those tools for specifics: <a href="progeny-vs-evagene.html">Progeny</a>, <a href="phenotips-vs-evagene.html">Phenotips</a>, <a href="trakgene-vs-evagene.html">TrakGene</a>, and <a href="famgenix-vs-evagene.html">FamGenix</a>.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">When to choose CanRisk (and only CanRisk)</h2>
+
+            <ul>
+                <li>Your service's central question is the BOADICEA risk number, and the pedigree is a means to that end.</li>
+                <li>You are working in breast, ovarian, or prostate cancer risk only.</li>
+                <li>You need polygenic risk score integration, mammographic density, or current BOADICEA methodology.</li>
+                <li>Your institutional protocol references BOADICEA / CanRisk-Prostate specifically (per NICE or other guideline).</li>
+                <li>You are comfortable managing the wider pedigree workflow (notes, cascade, correspondence) in your existing tooling.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">When to choose Evagene (alongside CanRisk)</h2>
+
+            <ul>
+                <li>You need a pedigree platform that covers cancer and non-cancer conditions, not just BOADICEA-relevant fields.</li>
+                <li>You want BRCAPRO / MMRpro / PancPRO running directly on the pedigree as a complement to CanRisk.</li>
+                <li>AI-assisted report drafting using your own LLM keys is part of how your service wants to work.</li>
+                <li>You need programmatic pedigree access (REST, webhooks, MCP, embeddable viewer) for EHR and patient-portal integration.</li>
+                <li>You want GEDCOM, JSON, 23andMe, and image-OCR import to move data in and out of the pedigree freely.</li>
+                <li>You need batch risk screening across a 180+ disease catalogue for non-BRCA workflows.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">Migration path: bringing pedigrees between the tools</h2>
+
+            <p>CanRisk uses its own CanRisk file format (a structured CSV) for pedigree and tumour-pathology input. Evagene exports GEDCOM 5.5.1 and JSON. A conversion between JSON or GEDCOM and the CanRisk file format is short to write and can be automated; for occasional use, manual re-entry of the relevant subset (individuals, sex, year of birth, affected status, cancer type and age of diagnosis) is practical for small pedigrees. Polygenic score, mammographic density, and explicit genotype fields are typically entered directly in CanRisk because they are BOADICEA-specific. The <a href="gedcom-pedigree-software.html">GEDCOM pedigree software guide</a> explains the format-conversion landscape in more detail.</p>
+
+            <p>Going the other way — from CanRisk to Evagene — is also practical. The CanRisk file format can be parsed to extract the pedigree structure, which Evagene's JSON import accepts. Tumour-pathology fields map to Evagene's disease annotations with ICD-10 coding; cancer diagnoses with age at diagnosis translate cleanly.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is Evagene a replacement for CanRisk?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">No. CanRisk is the authoritative BOADICEA and CanRisk-Prostate tool; Evagene does not implement those models. They are complementary.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is the difference between BRCAPRO and BOADICEA?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">BRCAPRO is a Bayesian family-history model from BayesMendel. BOADICEA is the more comprehensive Cambridge model with PRS, mammographic density, and multi-gene inputs. Evagene uses BRCAPRO; CanRisk uses BOADICEA.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can Evagene feed a pedigree into CanRisk?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes, via conversion from Evagene's GEDCOM or JSON export to the CanRisk file format, or via manual re-entry for small pedigrees.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is CanRisk free?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes, free for registered healthcare professionals.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does Evagene do PRS and mammographic density?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Not today; those are CanRisk strengths.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Why would a service use both?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">CanRisk for authoritative BOADICEA numbers; Evagene for wider pedigree workflow, non-BRCA models, AI interpretation, and EHR-ready APIs.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What does NICE recommend?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">NICE guidance refers to validated risk tools including BOADICEA and Tyrer-Cuzick; CanRisk is the authoritative BOADICEA front end. Pedigree platform choice is a service-level decision.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related comparisons and reading</h2>
+
+            <ul>
+                <li><a href="phenotips-vs-evagene.html">Phenotips vs Evagene</a></li>
+                <li><a href="progeny-vs-evagene.html">Progeny vs Evagene</a></li>
+                <li><a href="famgenix-vs-evagene.html">FamGenix vs Evagene</a></li>
+                <li><a href="trakgene-vs-evagene.html">TrakGene vs Evagene</a></li>
+                <li><a href="hereditary-cancer-risk-assessment.html">Hereditary cancer risk assessment</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tools</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<!-- CTA -->
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

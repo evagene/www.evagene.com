@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Draw a Pedigree Chart — Step-by-Step Clinical Tutorial | Evagene</title>
+    <meta name="description" content="A ten-step tutorial for drawing a clinically useful pedigree: identify the proband, record the core family structure, add partners and children in birth order, annotate affected status, extend to three generations, add pregnancy outcomes, consanguinity, validate, and export.">
+    <meta name="keywords" content="how to draw a pedigree chart, drawing a family pedigree, pedigree drawing tutorial, clinical pedigree tutorial, proband, consultand, pedigree birth order, pedigree export, pedigree live consultation">
+
+    <meta property="og:title" content="How to Draw a Pedigree Chart — Step-by-Step Tutorial">
+    <meta property="og:description" content="Ten-step clinical tutorial for drawing a standards-compliant pedigree chart.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/how-to-draw-a-pedigree-chart">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Draw a Pedigree Chart — Step-by-Step Tutorial">
+    <meta name="twitter:description" content="Clinical pedigree drawing tutorial.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/how-to-draw-a-pedigree-chart">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"HowTo",
+        "name":"How to draw a pedigree chart",
+        "description":"A ten-step tutorial for drawing a clinically useful pedigree in standard notation.",
+        "author":{"@type":"Organization","name":"Evagene"},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "step":[
+            {"@type":"HowToStep","name":"Identify the proband","text":"Mark the individual through whom the family is ascertained with an arrow."},
+            {"@type":"HowToStep","name":"Record core family","text":"Draw the proband's parents and siblings in birth order."},
+            {"@type":"HowToStep","name":"Add partner and children","text":"Extend the pedigree to the proband's partner and their children in birth order."},
+            {"@type":"HowToStep","name":"Annotate affected status","text":"Fill or shade symbols to indicate affected status; add age of onset and relevant notes."},
+            {"@type":"HowToStep","name":"Extend to three generations","text":"Add grandparents and extended relatives to at least three generations."},
+            {"@type":"HowToStep","name":"Add pregnancy outcomes","text":"Mark spontaneous abortions, terminations, and stillbirths using standard symbols."},
+            {"@type":"HowToStep","name":"Add consanguinity","text":"Use a double horizontal line for consanguineous unions."},
+            {"@type":"HowToStep","name":"Validate","text":"Check notation consistency, generations, ages, and affected status."},
+            {"@type":"HowToStep","name":"Run analyses","text":"Apply inheritance pattern analysis and risk models as appropriate."},
+            {"@type":"HowToStep","name":"Export","text":"Export to PNG, SVG, or PDF for the record and for sharing."}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Pedigree Drawing","item":"https://evagene.com/pedigree-drawing-software"},
+            {"@type":"ListItem","position":3,"name":"How to Draw a Pedigree Chart","item":"https://evagene.com/how-to-draw-a-pedigree-chart"}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"How do I start drawing a pedigree?","acceptedAnswer":{"@type":"Answer","text":"Start with the proband, the individual through whom the family is being assessed, and mark them with an arrow. Then draw the proband's parents above, the proband's siblings alongside, and extend outward to at least three generations."}},
+            {"@type":"Question","name":"How many generations should I include?","acceptedAnswer":{"@type":"Answer","text":"Three generations is the clinical minimum. Cancer risk models and inheritance pattern analysis work best with at least three generations of data including first-degree and second-degree relatives."}},
+            {"@type":"Question","name":"Should I draw during the consultation or afterwards?","acceptedAnswer":{"@type":"Answer","text":"Both approaches have merit. Drawing during the consultation captures information in real time and allows the patient to correct mistakes. Drawing afterwards from notes can be more orderly but risks omissions. Gesture drawing interfaces in modern software are designed to allow live drawing without breaking conversation flow."}},
+            {"@type":"Question","name":"What if I don't know a relative's exact age?","acceptedAnswer":{"@type":"Answer","text":"Record approximate age or age range if that is all that is available. Indicate uncertainty explicitly. Ages matter for age-dependent penetrance calculations, so a range is more useful than a blank field."}},
+            {"@type":"Question","name":"How do I export a pedigree for the clinical record?","acceptedAnswer":{"@type":"Answer","text":"Modern pedigree software exports to PNG, SVG, or PDF. For the clinical record, a PDF embedded in the patient file is typical. For ongoing use and interoperability, export as GEDCOM or JSON where possible so the structured data are preserved."}},
+            {"@type":"Question","name":"Does Evagene support gesture drawing?","acceptedAnswer":{"@type":"Answer","text":"Yes. Evagene includes a gesture drawing mode designed for live consultation, letting clinicians build a pedigree while talking to the patient without breaking conversational flow."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="pedigree-drawing-software.html" class="hover:text-brand-600 dark:hover:text-brand-300">Pedigree Drawing</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">How to Draw a Pedigree Chart</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">How to draw a pedigree chart: step-by-step clinical tutorial</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A practical ten-step workflow for drawing a standards-compliant pedigree chart in clinical genetics: from identifying the proband and recording the core family structure, through annotating affected status and reproductive history, to validating the diagram and exporting for the record.</p>
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">Written for genetic counsellors and clinical geneticists, and useful as a teaching aid for medical students and trainees. Covers both live-consultation drawing and post-hoc data entry from notes.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>12 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> Draw a pedigree by identifying the proband, then working outward through core family structure, partners, and children in birth order. Extend to at least three generations, annotate affected status and reproductive outcomes, add consanguinity where it exists, validate the notation, run any relevant inheritance or risk analyses, and export. Live drawing during consultation beats post-hoc reconstruction for accuracy because the patient can correct you in real time; modern software supports gesture drawing for exactly this purpose.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Step 1 — Identify the proband</h2>
+
+            <p>The proband is the individual through whom the family was ascertained for clinical evaluation. They are marked on the pedigree with an arrow, usually labelled P. If the individual seeking counselling is distinct from the proband (for example, a sibling of an affected person), they are the <em>consultand</em> and are labelled separately.</p>
+
+            <p>Start the pedigree with the proband centred in the appropriate generation. For reproductive-risk consultations, the proband is often the person seeking counselling themselves; for a diagnostic workup, it is the first affected family member to come to attention.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Step 2 — Record the core family structure</h2>
+
+            <p>Draw the proband's parents above, connected by a horizontal mating line. Draw a vertical line down from the mating line to a horizontal sibship line, and draw each of the proband's siblings along that line in birth order, left to right. Use standard symbols: squares for male sex assigned at birth, circles for female, diamonds for unknown or non-binary. Include the proband's partner (if any) alongside the proband, connected by a horizontal mating line.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Step 3 — Add partners and children in birth order</h2>
+
+            <p>Extend downward to the proband's children. Draw each child in birth order along a horizontal sibship line. Add partners for children and grandchildren as relevant. Maintain generational alignment: every individual in the same generation sits on the same horizontal row, numbered with Roman numerals (I, II, III) from top to bottom.</p>
+
+            <p>Within a generation, individuals are numbered left to right with Arabic numerals, so a specific individual can be referenced by their generation and position (for example, III-2 for the second individual in the third generation).</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Step 4 — Annotate affected status, age of onset, and clinical notes</h2>
+
+            <p>For each affected individual, shade or fill the symbol (fully shaded = affected; half-shaded = carrier; central dot = obligate carrier). Where multiple conditions are tracked on the same pedigree, use quadrant shading with a clear legend.</p>
+
+            <p>Record age at assessment (current age or age at death) below each symbol. For affected individuals, record age at onset of the condition if known, and annotate with the diagnosis — use ICD-10 or OMIM codes where available for consistency. Include test results (for example, a BRCA1 variant identified on family sequencing) against the individual who was tested.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Step 5 — Extend to at least three generations</h2>
+
+            <p>A three-generation pedigree (proband, parents, grandparents) is the clinical minimum for inheritance pattern analysis and for running cancer risk models. See our <a href="three-generation-family-history.html">three-generation family history</a> page for what to record at each level. Include first-degree and second-degree relatives systematically rather than selectively, and ask about maternal and paternal sides equally.</p>
+
+            <p>For hereditary cancer risk assessment, extend further where possible, including affected individuals identified in the third or fourth generation. Empirical risk models work best with more information; missing relatives are treated as unknowns rather than as non-carriers.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Step 6 — Add pregnancy outcomes and reproductive history</h2>
+
+            <p>Reproductive history is clinically important, particularly for recessive-disease counselling and for families with repeated losses. Record:</p>
+
+            <ul>
+                <li>Ongoing pregnancies (P inside the symbol), with estimated gestational age.</li>
+                <li>Spontaneous abortions (small triangle), with gestational age if known.</li>
+                <li>Termination of pregnancy (triangle with diagonal line), with reason if clinically relevant.</li>
+                <li>Stillbirths (small filled symbol with SB), with gestational age.</li>
+                <li>Assisted reproductive technology (donor gametes, surrogacy) with appropriate conventions.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">Step 7 — Annotate deceased individuals and adoptions</h2>
+
+            <p>Deceased individuals are marked with a diagonal line through the symbol. Record age and cause of death beneath the symbol. For adopted individuals, enclose the symbol in brackets ("[in]" for adopted into the family, "[out]" for adopted out), and distinguish biological from social relationships. Donor-conceived and surrogate-born children have specific conventions; record biological ancestry accurately because it is biology, not social relationship, that drives inheritance.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Step 8 — Add consanguinity</h2>
+
+            <p>Consanguineous unions are drawn with a double horizontal line between partners. Where the shared ancestry is known, draw it explicitly so <a href="consanguinity-calculator.html">Wright's coefficient of relationship and the inbreeding coefficient F</a> can be calculated. If the family is known to have consanguinity further back than is being drawn, annotate this with a note.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Step 9 — Validate the diagram</h2>
+
+            <p>Before considering the pedigree complete, check:</p>
+
+            <ul>
+                <li>Proband arrow is present and points to the correct individual.</li>
+                <li>Generational alignment is consistent.</li>
+                <li>All relevant first- and second-degree relatives are included.</li>
+                <li>Affected status is consistent with recorded diagnosis.</li>
+                <li>Ages and dates are plausible.</li>
+                <li>A legend accompanies any non-standard notation.</li>
+                <li>Pregnancy history is complete rather than only live births.</li>
+                <li>Consanguinity is marked where present.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">Step 10 — Run analyses and export</h2>
+
+            <p>Once the pedigree is complete, apply the analyses your service needs: inheritance pattern identification (see our <a href="inheritance-pattern-identifier.html">inheritance pattern identifier</a>), Mendelian risk calculations for annotated conditions, cancer risk models (BRCAPRO, MMRpro, PancPRO) where relevant, and consanguinity flagging. Export to PDF for the clinical record, to PNG or SVG for inclusion in reports, and to GEDCOM or JSON for structured data exchange with other systems.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Live consultation vs post-hoc entry</h2>
+
+            <p>Drawing during the consultation is usually the better approach:</p>
+
+            <ul>
+                <li><strong>Real-time correction</strong>: the patient can see the pedigree taking shape and correct errors as they arise.</li>
+                <li><strong>No memory loss</strong>: notes taken from memory after a consultation inevitably lose detail.</li>
+                <li><strong>Patient engagement</strong>: a visible pedigree is a strong anchor for family discussion.</li>
+            </ul>
+
+            <p>The practical obstacle is that traditional click-and-drag drawing tools break conversational flow. This is the specific design problem that gesture drawing interfaces solve: keyboard shortcuts and continuous gestures let the clinician build the pedigree without looking away from the patient.</p>
+
+            <p>Where live drawing is not possible — a complex multi-branch hereditary cancer pedigree with fifty individuals, say — a hybrid approach works: live sketching of the core family, post-hoc structured entry of extended relatives, and verification at the next appointment.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene supports this</h2>
+
+            <p>Evagene is designed for both live-consultation drawing and post-hoc structured entry. The gesture drawing mode uses keyboard shortcuts and continuous gestures so a clinician can draw a pedigree while talking to the patient; symbols are applied automatically based on recorded sex, affected status, and other annotations. The NSGC symbol set is enforced consistently, so the pedigree is visually uniform regardless of who drew it.</p>
+
+            <p>Structured entry — via imported GEDCOM 5.5.1, JSON, 23andMe genotype files, XEG, or OCR from an existing pedigree image — is also supported for cases where the pedigree is best built from existing records rather than drawn from scratch. Once built, the pedigree feeds directly into Evagene's <a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculator</a>, BRCAPRO/MMRpro/PancPRO, consanguinity detection, and AI-assisted interpretation (using your own Anthropic or OpenAI LLM key, encrypted at rest). Export to PDF, PNG, SVG, GEDCOM, and JSON preserves the notation and structured data for the clinical record and for sharing.</p>
+
+            <p>The embeddable viewer — available as an iframe, raw SVG, or JavaScript snippet — lets the completed pedigree appear in patient portals, research dashboards, or EHR integration layers without additional tooling.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How do I start?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">With the proband marked by an arrow.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How many generations?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Three generations is the clinical minimum.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Live or post-hoc?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Live during the consultation is preferred; modern gesture drawing tools make it feasible without interrupting conversation.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What if I don't know exact ages?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Record approximate ages or ranges; flag the uncertainty explicitly.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How do I export?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">PNG or PDF for the record; GEDCOM or JSON for structured data exchange.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does Evagene support gesture drawing?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes, designed specifically for live consultation use.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="pedigree-drawing-software.html">Pedigree drawing software</a></li>
+                <li><a href="nsgc-pedigree-notation.html">NSGC pedigree notation</a></li>
+                <li><a href="iscn-pedigree-symbols.html">ISCN pedigree symbols</a></li>
+                <li><a href="three-generation-family-history.html">Three-generation family history</a></li>
+                <li><a href="gender-inclusive-pedigree-drawing.html">Gender-inclusive pedigree drawing</a></li>
+                <li><a href="pedigree-chart-template.html">Pedigree chart template</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tools</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

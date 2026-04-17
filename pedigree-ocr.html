@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedigree OCR — Scan a Pedigree Chart into Structured Data | Evagene</title>
+    <meta name="description" content="Pedigree image OCR as a data recovery feature: how to digitise a scanned or photographed pedigree, the accuracy limits of AI extraction, and the workflow for clinician review. Evagene's pedigree OCR explained.">
+    <meta name="keywords" content="pedigree OCR, pedigree image to data, scan pedigree chart, digitise pedigree, pedigree image import, pedigree recognition">
+
+    <meta property="og:title" content="Pedigree OCR — Scan a Pedigree Chart into Structured Data | Evagene">
+    <meta property="og:description" content="Digitising pedigree images with OCR: workflow, accuracy limits, and Evagene's image import pipeline.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/pedigree-ocr">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pedigree OCR">
+    <meta name="twitter:description" content="Scan a pedigree chart into structured clinical data.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/pedigree-ocr">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"Pedigree OCR: Scan a Pedigree Chart into Structured Data",
+        "description":"Pedigree image OCR as a data recovery feature, workflow, accuracy caveats, and clinician review.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/pedigree-ocr"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Resources","item":"https://evagene.com/#resources"},
+            {"@type":"ListItem","position":3,"name":"Pedigree OCR","item":"https://evagene.com/pedigree-ocr"}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"What is pedigree OCR?","acceptedAnswer":{"@type":"Answer","text":"Pedigree OCR (optical character recognition, in its loose sense for this context) is the process of extracting structured pedigree data — individuals, relationships, diagnoses — from an image of a pedigree. The image can be a photograph of a hand-drawn pedigree on paper, a scan of a pedigree in an archived clinical letter, a PDF extracted from an older pedigree software system, or a fax. Modern pedigree OCR combines computer vision for shape and relationship detection with AI vision models for text labels and annotations."}},
+            {"@type":"Question","name":"Why would I need pedigree OCR?","acceptedAnswer":{"@type":"Answer","text":"Many clinical pedigrees still live as images: hand-drawn sketches in paper notes, PDF exports from legacy software that no longer runs, scans of letters sent between specialties, faxes from referring services. For these, re-entering the pedigree by hand is slow and error-prone. OCR provides a way to recover the structural and annotation data in a structured form so it can be used by modern software, risk models, and reporting tools. It is a data-recovery feature rather than a routine input method."}},
+            {"@type":"Question","name":"How accurate is pedigree OCR?","acceptedAnswer":{"@type":"Answer","text":"Accuracy varies with image quality, drawing style, and annotation density. Clear printed pedigrees with standard NSGC symbols are extracted more reliably than hand-drawn sketches with idiosyncratic conventions. Standard shapes, relationships, and basic labels are typically recovered with good accuracy; fine detail such as twin type, precise ages of onset, affected-status nuances, and handwritten notes is where errors concentrate. All extracted pedigrees require clinician review and correction before clinical use."}},
+            {"@type":"Question","name":"What is the workflow?","acceptedAnswer":{"@type":"Answer","text":"The typical workflow is: upload the image, allow the AI vision model to extract candidate structure and annotations, review the result against the source image, correct any errors, and save as a structured pedigree. Evagene's implementation presents the extracted pedigree alongside the uploaded image so the clinician can scan for discrepancies in one view. The clinician is the final arbiter of what enters the record."}},
+            {"@type":"Question","name":"Is OCR a substitute for clinical review?","acceptedAnswer":{"@type":"Answer","text":"No. OCR is a time-saver for data entry, not a replacement for the clinician's judgement. AI can miss a shaded individual, misread a twin bar, transpose a relationship, or miscount generations. Any pedigree extracted from an image must be reviewed and corrected by a clinician before being used for risk analysis or reporting. The saving is in the proportion of the pedigree that transfers correctly, not in the elimination of review."}},
+            {"@type":"Question","name":"What image formats and quality does Evagene accept?","acceptedAnswer":{"@type":"Answer","text":"Evagene accepts common image formats (PNG, JPEG, TIFF) and PDF. Higher-resolution images produce better results; a sharp photograph taken in good light typically works as well as a scan. Evagene surfaces the extracted structure alongside the original image for side-by-side review and correction. The extracted pedigree is saved in the same data model as a pedigree built from scratch, so all downstream analysis (risk models, AI interpretation, exports) applies equally."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="https://evagene.com/#resources" class="hover:text-brand-600 dark:hover:text-brand-300">Resources</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">Pedigree OCR</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Pedigree OCR: scanning a pedigree chart into structured clinical data</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">What pedigree image OCR does, when it is the right tool, how accurate it is, and how Evagene's image import pipeline helps recover pedigrees from hand-drawn sketches, PDFs, scans, and faxes — always with clinician review at the end.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>10 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> A great deal of clinical pedigree data still lives as images: hand-drawn sketches in paper notes, scanned PDFs of older clinical letters, PDF exports from legacy pedigree software that no longer runs, and faxes. Pedigree OCR is the data-recovery feature that turns these images into structured data that a modern clinical platform can analyse, annotate, and integrate with risk models. It is not a replacement for clinician review — AI vision models make errors that a clinician can miss even in a careful reading — but it collapses most of the manual re-entry work and lets the clinician focus on verification rather than transcription. Evagene's implementation treats it as one import pathway among several (<a href="gedcom-pedigree-software.html">GEDCOM</a>, JSON, 23andMe, XEG, image), with a consistent review step.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Why pedigree images still matter</h2>
+
+            <p>Clinical genetics has a long history in written notes and hand-drawn diagrams. Many pedigrees that a modern service inherits are not in a structured data format: they are ink on paper, or scans of ink on paper, or screenshots from older software. Examples include:</p>
+
+            <ul>
+                <li><strong>Hand-drawn pedigrees in paper notes.</strong> Ten or twenty years of notes from a service that predates digital pedigree tools.</li>
+                <li><strong>Scanned pedigrees in referral letters.</strong> A cardiology clinic letter attaches a sketched pedigree; the clinical geneticist receives a PDF.</li>
+                <li><strong>Legacy software exports.</strong> A service that used to run an older pedigree program has PDF printouts but no way to read the native file format in 2026.</li>
+                <li><strong>Pedigrees in publications.</strong> A family description in a paper has a pedigree figure that a researcher wants to bring into a modern workspace.</li>
+                <li><strong>Patient-provided pedigrees.</strong> A patient brings a pedigree they drew themselves on a piece of paper.</li>
+            </ul>
+
+            <p>For each of these, manually redrawing the pedigree in a modern tool is the default, but it is slow, error-prone, and a source of avoidable variation. Pedigree OCR aims to get the clinician past the transcription step and into the review step directly.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What "OCR" means in this context</h2>
+
+            <p>Traditional OCR (optical character recognition) reads text. Pedigree OCR is better thought of as <em>pedigree recognition</em>: recovering both text labels and graphical structure from an image. Modern implementations combine two kinds of model:</p>
+
+            <ul>
+                <li><strong>Computer vision for shapes and relationships.</strong> Detecting circles and squares (and diamonds, triangles, lines through shapes), identifying partner lines and child bars, segmenting affected status from shading, detecting twin lines.</li>
+                <li><strong>AI vision and text models for annotations.</strong> Reading names, ages, diagnoses, notes, and free text associated with individuals.</li>
+            </ul>
+
+            <p>The overall output is a structured pedigree with nodes, edges, and annotations that matches — as closely as possible — the pedigree depicted in the image. The closer the input matches standard NSGC notation, the better the output.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Accuracy and its limits</h2>
+
+            <p>Pedigree OCR works well when the input is clear and standard; it works less well when the input is idiosyncratic, low-resolution, or heavily annotated with free-text labels. It is worth being explicit about where errors concentrate.</p>
+
+            <p><strong>Typical good results.</strong> Basic family structure — number of individuals per generation, parent-child relationships, sex of each individual — is typically recovered with high accuracy when the pedigree uses standard shapes. Standard legend annotations (filled = affected for one condition, hatched = carrier, and so on) transfer well when the legend is present on the image.</p>
+
+            <p><strong>Where errors concentrate.</strong> Twins in the pedigree — monozygotic vs dizygotic, connected via a single line descending to both individuals vs separate lines — are often misread. Complex consanguineous loops can confuse the structure detector. Multiple shading patterns for multiple conditions can be conflated. Handwritten labels in small or unusual scripts are less reliably read. Ages at diagnosis written in abbreviations (e.g. "Dx 42" or "BrCa 45y") can be misinterpreted.</p>
+
+            <p><strong>Implications.</strong> A good pedigree OCR result is not a finished pedigree. It is a starting point that a clinician reviews against the source image and corrects as needed. The time saving is in the 70-90% of the pedigree that transfers cleanly, not in eliminating the review step.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">A practical workflow</h2>
+
+            <p>A disciplined workflow turns pedigree OCR from a novelty into a reliable clinical tool.</p>
+
+            <ul>
+                <li><strong>Capture a clean image.</strong> A sharp photograph taken in good light, a high-resolution scan, or a PDF export works best. Avoid shadows, glare, and low-resolution phone screenshots where possible.</li>
+                <li><strong>Upload and extract.</strong> The software runs the image through its vision pipeline and returns a candidate structured pedigree.</li>
+                <li><strong>Compare side-by-side.</strong> A good implementation shows the extracted pedigree next to the original image so the clinician can scan for discrepancies without switching tabs.</li>
+                <li><strong>Correct methodically.</strong> Work through the extracted pedigree one generation at a time, checking structure first, then sex and affected status, then annotations. Use the original image to resolve any ambiguity.</li>
+                <li><strong>Save as a structured pedigree.</strong> Once reviewed, save the pedigree in the normal data model; downstream analysis (risk models, AI interpretation, exports) applies as to any other pedigree.</li>
+                <li><strong>Keep the source image.</strong> Attach the original image to the pedigree for provenance. A future clinician should be able to trace any entry back to its source.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">When pedigree OCR is not the right tool</h2>
+
+            <p>For routine clinical work on current cases, OCR is overkill. Drawing a new pedigree directly in a modern tool using gesture drawing or keyboard shortcuts is usually faster and always more accurate than drawing-then-photographing-then-extracting. Pedigree OCR is best reserved for one of two scenarios.</p>
+
+            <p><strong>Data recovery.</strong> Where the pedigree exists only as an image — paper, scan, PDF, fax — and no structured export is available. Here OCR is genuinely time-saving and often the only practical path.</p>
+
+            <p><strong>Patient-supplied pedigrees.</strong> Where a patient brings a pedigree they drew themselves. Scanning it in, reviewing, and correcting is usually faster than asking them to recite the family structure while the clinician draws.</p>
+
+            <p>For new pedigrees being constructed from consultation, live drawing in a modern tool is the better default.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Data privacy considerations</h2>
+
+            <p>A pedigree image may contain identifying information about the proband and their relatives. Treat it with the same privacy discipline as any other clinical document. Check where the image is uploaded, how the extraction pipeline handles it, whether the image is retained, and for how long. A good platform will retain the image only as long as you need it and will encrypt it at rest.</p>
+
+            <p>For particularly sensitive documents — research pedigrees, forensic or medico-legal material — consider redacting identifiers before upload and re-adding them in the reviewed pedigree.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene supports pedigree OCR</h2>
+
+            <p>Evagene accepts pedigree images (PNG, JPEG, TIFF, PDF) through the same import interface that handles <a href="gedcom-pedigree-software.html">GEDCOM</a>, JSON, 23andMe raw data, and XEG. The image is processed through a vision pipeline that extracts candidate structure, affected status, and annotations, and the result is presented alongside the uploaded image for review. Once the clinician is satisfied, the pedigree is saved in the same structured data model as any other Evagene pedigree and is available to all downstream analysis: BayesMendel risk models (BRCAPRO, MMRpro, PancPRO), the <a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculator</a>, AI interpretation, and <a href="batch-pedigree-risk-screening.html">batch risk screening</a>.</p>
+
+            <p>The original image is attached to the saved pedigree for provenance, so any clinician revisiting the record can see what the extraction was based on. The data is encrypted at rest and in transit, and follows the same access controls as any other pedigree in Evagene. OCR, like every other import pathway, ends with clinician review; Evagene does not commit extracted data to a pedigree without explicit save by the user.</p>
+
+            <p>For services inheriting a backlog of paper or scanned pedigrees, this can translate into a substantial time saving across a data-recovery project, without compromising the discipline of clinician verification.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is pedigree OCR?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Extraction of structured pedigree data (individuals, relationships, diagnoses) from an image — hand-drawn paper, scan, PDF, fax. Combines computer vision for shape and relationship detection with AI vision models for text labels.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Why would I need pedigree OCR?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">To recover pedigrees that exist only as images, without re-entering them by hand. It is a data-recovery feature rather than a routine input method.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How accurate is it?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Varies with image quality and drawing style. Structure is typically recovered well; twins, consanguineous loops, multiple-condition shading, and handwritten notes are where errors concentrate. Clinician review is always required.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is the workflow?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Upload image, AI extracts candidate pedigree, clinician reviews alongside the source image, corrects errors, saves as a structured pedigree. The original image is retained for provenance.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is OCR a substitute for clinical review?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">No. OCR is a time-saver for data entry, not a replacement for clinician judgement. Any extracted pedigree must be reviewed before clinical use.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What formats does Evagene accept?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">PNG, JPEG, TIFF, and PDF. Higher resolution produces better results. The extracted pedigree enters the same data model as a pedigree drawn from scratch.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="gedcom-pedigree-software.html">GEDCOM pedigree software</a></li>
+                <li><a href="23andme-pedigree-import.html">23andMe pedigree import</a></li>
+                <li><a href="pedigree-drawing-software.html">Pedigree drawing software</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tool</a></li>
+                <li><a href="rare-disease-pedigree-software.html">Rare disease pedigree software</a></li>
+                <li><a href="platform.html">Evagene platform: API and embeddable viewer</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene's pedigree import</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. Free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

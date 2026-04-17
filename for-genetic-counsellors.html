@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evagene for Genetic Counsellors — Live Pedigree, Consent, Patient Letters | Evagene</title>
+    <meta name="description" content="Evagene for genetic counsellors: gesture pedigree drawing during consultation, pre-visit questionnaires, consent flags, multi-session pedigree refinement, patient-friendly letter generation, and cascade tracking.">
+    <meta name="keywords" content="genetic counsellor software, pedigree tool for genetic counsellors, counselling family history, genetic counsellor pedigree, patient letter pedigree, consent genetic counselling">
+
+    <meta property="og:title" content="Evagene for Genetic Counsellors">
+    <meta property="og:description" content="A pedigree tool built for the way genetic counsellors actually work — live drawing, consent, multi-session refinement, and patient-friendly letters.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/for-genetic-counsellors">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Evagene for Genetic Counsellors">
+    <meta name="twitter:description" content="A pedigree tool built for the way genetic counsellors actually work.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/for-genetic-counsellors">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"Evagene for genetic counsellors",
+        "description":"How Evagene supports the genetic counselling workflow — pre-visit questionnaires, live pedigree construction, consent and data governance, multi-session refinement, and patient-friendly letter generation.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/for-genetic-counsellors"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"For Genetic Counsellors","item":"https://evagene.com/for-genetic-counsellors"}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"Can I draw the pedigree live during a consultation in Evagene?","acceptedAnswer":{"@type":"Answer","text":"Yes. Evagene is designed around gesture drawing and keyboard shortcuts for live consultation use. Symbols are applied automatically based on recorded sex; affected shading updates as you annotate conditions; deceased status, proband designation, and consanguinity are single-action operations. The intent is that by the end of the family history interview, the pedigree is complete and standards-compliant, with no post-consultation data entry."}},
+            {"@type":"Question","name":"Does Evagene enforce NSGC/ISCN notation?","acceptedAnswer":{"@type":"Answer","text":"Yes. Pedigrees drawn in Evagene use standardised pedigree nomenclature as codified by the NSGC and aligned with ISCN recommendations. Sex symbols, affected shading, deceased markers, pregnancy symbols, carrier dots, consanguinity, and proband designation are applied automatically. Non-standard symbols are not supported — standards are enforced by design rather than by policy."}},
+            {"@type":"Question","name":"How does Evagene handle consent and data governance?","acceptedAnswer":{"@type":"Answer","text":"A pedigree contains health information about many individuals, most of whom have not consented to its recording. Evagene supports consent-to-share flags at the individual level, audit trails of changes, and role-based access where applicable. For compliance status in specific jurisdictions (GDPR, HIPAA, DSP Toolkit, etc.) confirm with the vendor at the point of procurement."}},
+            {"@type":"Question","name":"Can patients complete a pre-visit questionnaire?","acceptedAnswer":{"@type":"Answer","text":"Evagene supports importing family history data collected ahead of the consultation — via GEDCOM, JSON, 23andMe exports, pedigree-image OCR, or via the REST API from a pre-visit intake form. The clinician or counsellor can then refine the imported pedigree during the consultation."}},
+            {"@type":"Question","name":"Does Evagene generate patient-friendly letters?","acceptedAnswer":{"@type":"Answer","text":"Yes. Evagene generates patient-friendly summary letters alongside clinical reports. Analysis Templates let you define the tone and structure your service uses for patient correspondence, so every letter is consistent. AI interpretation drafts are reviewable and editable before they are finalised."}},
+            {"@type":"Question","name":"How does Evagene support multi-session pedigree refinement?","acceptedAnswer":{"@type":"Answer","text":"The pedigree is a persistent document. Across multiple sessions — initial triage, first consultation, follow-up, results disclosure, cascade — you keep adding, editing, and annotating. Evagene tracks changes over time and all exports (PDF, SVG, PNG, JSON, GEDCOM) reflect the current state."}},
+            {"@type":"Question","name":"Can I export pedigrees to include in my own dictation system or EHR?","acceptedAnswer":{"@type":"Answer","text":"Yes. Pedigrees export as PNG, SVG, PDF, JSON, and GEDCOM 5.5.1. The embeddable pedigree viewer (iframe, SVG, or JavaScript) can display a live pedigree inside a patient portal or internal system."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">For Genetic Counsellors</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Evagene for genetic counsellors</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A pedigree platform designed for how genetic counsellors actually spend their day — live drawing during consultation, consent and data governance, multi-session refinement, and patient-friendly letter generation.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>12 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p>Genetic counselling sits at the place where a family's story becomes clinical information. The job is simultaneously conversational, technical, and emotional. You listen carefully to a patient who may be grieving a relative or anxious about a test, translate what they say into structured family history, check that history against recognised clinical patterns, explain what the patterns mean in plain language, and write a letter that the patient will read at home three weeks later. Your software should respect all four of those activities.</p>
+
+            <p>Evagene is a pedigree platform built around the counselling session. It is browser-based with nothing to install, uses gesture drawing so that pedigrees can be constructed while you are talking to a patient, enforces NSGC/ISCN standard notation automatically, supports consent flags and multi-session refinement, and generates patient-friendly letters alongside clinical reports. You can bring in family history collected ahead of the visit, refine it in the consultation, and finalise documentation afterwards, all in one place.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">The genetic counsellor workflow</h2>
+
+            <p>Your week tends to be shaped by a handful of recurring session types. The new-patient visit: forty-five to sixty minutes to take a three- or four-generation family history, explain inheritance and testing, discuss implications, agree consent, and leave the patient with a written summary. The results-disclosure visit: fifteen to thirty minutes to return a variant result, explore the patient's understanding, discuss implications for relatives, and initiate cascade testing. The follow-up and psychological support visit: flexible, often triggered by a specific event — a new diagnosis, a pregnancy, a bereavement.</p>
+
+            <p>Behind each visit sits work the patient never sees. You review the referral letter, request records from other institutions, send pre-visit questionnaires, contact relatives where the proband has consented, prepare draft risk calculations, and pre-populate pedigrees with what you already know. After the visit you write letters — to the referrer, to the patient, sometimes to other institutions — and you update the pedigree with anything that emerged during the conversation. You schedule the follow-up, you flag the case for MDT, you request genetic testing.</p>
+
+            <p>In a complex family, the pedigree evolves across several sessions. A grandmother's cause of death is confirmed after a death certificate arrives. A cousin who was "not in touch" gets in touch and provides a testing result from another country. A pregnancy is declared; a miscarriage is recorded; a new first-degree relative with a late-onset condition surfaces years after the proband was first seen. The pedigree in your software has to be a living document that you can trust to reflect the current understanding of the family.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What genetic counsellors need from pedigree software</h2>
+
+            <ul>
+                <li><strong>Live drawing during consultation</strong> — an interface that keeps pace with a conversation, not one that pulls your attention away from the patient.</li>
+                <li><strong>Enforced standard notation</strong> — NSGC/ISCN symbols applied automatically so that every pedigree you produce is clinically correct without extra effort.</li>
+                <li><strong>Pre-visit data import</strong> — ability to start from a family tree the patient has assembled, a questionnaire response, a GEDCOM from a genealogy site, or a 23andMe export.</li>
+                <li><strong>Multi-session refinement</strong> — a persistent pedigree that evolves across visits, with a clear record of what changed and when.</li>
+                <li><strong>Consent and governance</strong> — individual-level consent-to-share flags, audit trails, and sensible defaults for handling information about relatives who have not been seen.</li>
+                <li><strong>Patient-friendly letter generation</strong> — structured output in accessible language, customisable to your service's tone.</li>
+                <li><strong>Risk model outputs you can explain</strong> — not just a number, but the underlying inputs and the interpretive language you will use with the patient.</li>
+                <li><strong>Cascade tracking</strong> — a way to track which relatives have been contacted, offered testing, consented, tested, and counselled.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene supports genetic counsellors</h2>
+
+            <h3 class="text-2xl mt-10 mb-4">Gesture drawing during live consultation</h3>
+
+            <p>The canvas is designed so that when a patient says "my mother had breast cancer at 48, her sister at 52, and their mother died of something the family thought was ovarian at about 60," you can capture all four assertions in the time it takes the patient to pause for breath. Gesture drawing adds the three generations; keyboard shortcuts add the affected shading, the diagnoses from Evagene's 180+ disease catalogue (ICD-10 and OMIM), the ages at diagnosis, and the death annotation. You never lose eye contact for long, and you never have to apologise for the interface getting in the way.</p>
+
+            <p>A deeper treatment of pedigree interaction design lives in our <a href="pedigree-drawing-software.html">pedigree drawing software</a> guide; the important point for counsellors is that the interface is built for consultation speed, not for demo-video clarity.</p>
+
+            <h3 class="text-2xl mt-10 mb-4">Pre-visit questionnaires and import</h3>
+
+            <p>Many services ask patients to return a family history questionnaire before the first visit. Evagene does not force you into a particular intake form — instead, it supports multiple ways of getting pre-visit data into the system. You can import a GEDCOM from a genealogy site the patient used to build their tree; you can import a 23andMe export if the patient has one; you can OCR a hand-drawn pedigree scanned into a PDF; you can push structured responses into a pedigree via the REST API from whatever intake form your service already uses. Whichever route, the pedigree arrives in Evagene already partly built, and the consultation time goes into refinement and clinical reasoning rather than data entry from scratch.</p>
+
+            <h3 class="text-2xl mt-10 mb-4">Standard notation, enforced</h3>
+
+            <p>Every pedigree uses NSGC/ISCN symbols, applied automatically. Sex determines the symbol shape; affected status shades it; deceased status adds the diagonal line; the proband arrow is a single action; pregnancy symbols, miscarriage triangles, adoption brackets, and consanguinity double-lines are built in. Carrier status appears as a central dot for autosomal recessive conditions. You cannot accidentally produce a non-standard pedigree; the software will not let you. That means every export you send to a colleague — in PDF, PNG, SVG, or GEDCOM — is immediately interpretable by any trained reader.</p>
+
+            <h3 class="text-2xl mt-10 mb-4">Consent flags and audit</h3>
+
+            <p>A counsellor is often the person in the service most attuned to the delicacy of recording information about relatives who have not themselves been seen. Evagene supports consent-to-share flags at the individual level, so you can mark family members whose information should not be exported or displayed outside the clinical team. Pedigree changes are audited; you can see when a record was added, modified, or deleted, and by whom. For specific regulatory positions in your jurisdiction — GDPR, HIPAA, the NHS DSP Toolkit, Australia's Privacy Act — confirm compliance documentation directly with the vendor at procurement.</p>
+
+            <h3 class="text-2xl mt-10 mb-4">Patient-friendly letter generation</h3>
+
+            <p>Evagene generates four report types from a single pedigree: clinical letter, patient-friendly summary, risk report, and AI interpretation. The patient-friendly letter is a first-class output, not an afterthought. Analysis Templates let you author the structure and tone your service uses with patients — the opening paragraph, the way you explain inheritance, the closing paragraph about next steps — and reuse it across cases. AI drafts arrive in that template; you review, edit, and sign off. The AI is a drafting aid, not a clinical authority.</p>
+
+            <h3 class="text-2xl mt-10 mb-4">Multi-session refinement and cascade tracking</h3>
+
+            <p>The pedigree persists across visits. When a death certificate arrives six weeks after the new-patient visit, you open the pedigree, update the cause of death, and the affected shading follows automatically. When a predictive test result comes back for a maternal aunt, you annotate her record and the carrier dot appears. Batch risk screening runs against the updated family in a click. For cascade management, the pedigree shows who has been offered testing, who has been tested, and what the result was, at a glance.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">A typical genetic counsellor session in Evagene</h2>
+
+            <p><strong>Before the visit.</strong> A pre-visit questionnaire response is pushed into Evagene via the REST API, or imported from GEDCOM / 23andMe / a scanned pedigree. You open the pedigree ten minutes before the patient is due and scan it for what you already know and what you need to ask.</p>
+
+            <p><strong>During the visit.</strong> You share your screen (or position a second monitor) and narrate the pedigree as you update it. The patient can see the family appearing on screen; often this prompts them to remember additional relatives or details. You annotate affected status, ages, deaths, and genetic test results already in the family. You discuss inheritance, risk, and testing using the pedigree as a shared reference.</p>
+
+            <p><strong>End of visit.</strong> You run BRCAPRO or MMRpro if relevant, or a batch screen across the disease catalogue for a less focused referral. You apply your service's Analysis Template to generate a draft AI interpretation. You review and edit the draft, then export the clinical letter, the patient-friendly summary, and the pedigree as PDF and SVG.</p>
+
+            <p><strong>After the visit.</strong> When new information arrives — death certificate, test result, additional relative — you open the pedigree, update the record, regenerate reports as needed, and the case is ready for the next touchpoint. For cascade testing, you annotate each relative as they are contacted and tested.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can I draw the pedigree live during a consultation?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. Evagene uses gesture drawing and keyboard shortcuts specifically so pedigrees can be constructed in the flow of a conversation. Symbols, shading, deceased markers, and proband designation are single-action operations.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does Evagene enforce NSGC/ISCN notation?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. Standards are enforced by design. Sex, affected status, deceased markers, pregnancy symbols, carrier dots, adoption brackets, consanguinity, and proband are applied automatically.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How does Evagene handle consent?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Individual-level consent-to-share flags, audit trails, and role-based access where applicable. Specific regulatory compliance should be confirmed with the vendor at procurement.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can patients provide family history before the visit?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. Import via GEDCOM, JSON, 23andMe, pedigree-image OCR, or the REST API from a pre-visit intake form.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does Evagene generate patient-friendly letters?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. Patient-friendly summaries are a first-class report type, customisable via Analysis Templates so that every letter follows your service's tone.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How does Evagene support multi-session work?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">The pedigree persists across visits; updates are audited; exports always reflect the current state of the family.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can I export pedigrees for my dictation system or EHR?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. PNG, SVG, PDF, JSON, and GEDCOM 5.5.1 exports, plus an embeddable viewer for live display in portals or internal systems.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Further reading</h2>
+
+            <ul>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tools: a field guide</a></li>
+                <li><a href="pedigree-drawing-software.html">Pedigree drawing software</a></li>
+                <li><a href="hereditary-cancer-risk-assessment.html">Hereditary cancer risk assessment</a></li>
+                <li><a href="for-clinical-geneticists.html">Evagene for clinical geneticists</a></li>
+                <li><a href="for-genetic-nurses.html">Evagene for genetic nurses and specialist genetic counsellors</a></li>
+                <li><a href="for-patients-families.html">Evagene for patients and families</a></li>
+                <li><a href="platform.html">The Evagene platform</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

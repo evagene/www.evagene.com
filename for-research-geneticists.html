@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evagene for Research Geneticists — API, MCP, GEDCOM, Batch Analysis | Evagene</title>
+    <meta name="description" content="Evagene for research geneticists: import pedigrees via GEDCOM / JSON / PED, script via REST API and MCP, batch analysis across cohorts, publication-quality SVG/PDF exports, and reproducible interpretation via Analysis Templates.">
+    <meta name="keywords" content="pedigree software for research, genetic research pedigree tool, research pedigree API, GEDCOM research genetics, batch pedigree analysis, reproducible pedigree interpretation, MCP research genetics">
+
+    <meta property="og:title" content="Evagene for Research Geneticists">
+    <meta property="og:description" content="Programmatic access and data portability for research workflows — REST API, MCP, GEDCOM, batch analysis, and reproducible interpretation.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/for-research-geneticists">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Evagene for Research Geneticists">
+    <meta name="twitter:description" content="Programmatic pedigree access for research — API, MCP, GEDCOM, batch analysis.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/for-research-geneticists">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"Evagene for research geneticists",
+        "description":"How Evagene supports research workflows: GEDCOM / JSON / PED import, REST API and MCP scripting, batch analysis across cohorts, publication-quality exports, and reproducible interpretation via Analysis Templates.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/for-research-geneticists"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"For Research Geneticists","item":"https://evagene.com/for-research-geneticists"}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"Can I import large pedigrees from existing data files?","acceptedAnswer":{"@type":"Answer","text":"Yes. Evagene supports GEDCOM 5.5.1, JSON, and 23andMe imports, plus XEG (a legacy pedigree format) and pedigree-image OCR. For research cohorts stored as GEDCOM trees, the import is direct; for data in plain tabular formats such as PED, convert to GEDCOM or JSON and import. The REST API also supports programmatic creation of pedigrees at scale."}},
+            {"@type":"Question","name":"Does Evagene have a REST API?","acceptedAnswer":{"@type":"Answer","text":"Yes. Evagene exposes a scoped REST API with keys in the format evg_ followed by 43 characters, SHA-256 hashed at rest, rate-limited, and with read, write, and analyse scopes. The API covers pedigree CRUD, individual CRUD, relationships, disease annotations, risk analysis, report generation, and import/export. HMAC-SHA256-signed webhooks cover eight event types for downstream integration."}},
+            {"@type":"Question","name":"Does Evagene integrate with Claude Desktop or Claude Code?","acceptedAnswer":{"@type":"Answer","text":"Yes. Evagene runs an MCP (Model Context Protocol) server exposing 11 pedigree tools to Claude Desktop, Claude Code, and any other MCP-compatible client. Researchers can query, modify, and analyse pedigrees directly from their AI workspace, which is particularly useful for agentic cohort analysis and bespoke interpretation pipelines."}},
+            {"@type":"Question","name":"Can I generate publication-quality figures?","acceptedAnswer":{"@type":"Answer","text":"Yes. Pedigrees export as SVG (vector, editable in illustration tools), PNG (raster), and PDF. The SVG output is suitable for direct inclusion in manuscripts and slide decks, and remains editable for any final typographic adjustments."}},
+            {"@type":"Question","name":"How does Evagene support reproducible interpretation?","acceptedAnswer":{"@type":"Answer","text":"Analysis Templates are parameterised AI prompts with variable injection (for example, pedigree_description, proband_name, inheritance_pattern). A research group can author a template that codifies its interpretation methodology and apply it consistently across every pedigree in a cohort. Combined with the REST API, this yields a reproducible interpretation pipeline."}},
+            {"@type":"Question","name":"Is Evagene data portable?","acceptedAnswer":{"@type":"Answer","text":"Yes. Pedigrees export as GEDCOM 5.5.1, JSON, PNG, SVG, and PDF. Reports export as PDF. All data a researcher puts into Evagene can be extracted, which supports data preservation, journal deposit, and onward use in other tools."}},
+            {"@type":"Question","name":"Does Evagene support interoperability with phenopackets or HL7 FHIR?","acceptedAnswer":{"@type":"Answer","text":"Evagene uses structured disease annotation with ICD-10 and OMIM, which map cleanly to broader healthcare interoperability standards. Direct phenopacket and FHIR outputs are not core export formats today; the REST API provides the data in JSON form which researchers can transform to the target schema of their choice."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">For Research Geneticists</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Evagene for research geneticists</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A programmatic pedigree platform for research workflows — GEDCOM / JSON / PED import, REST API and MCP scripting, batch analysis across cohorts, publication-quality exports, and reproducible interpretation pipelines via Analysis Templates.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>13 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p>Research genetics sits at a different point on the workflow spectrum from clinical practice. Your cases arrive as cohorts rather than one-off consultations; your outputs are figures, tables, and interpretive statements that support a hypothesis rather than letters that support a patient's care plan; your pedigrees are often inherited from a collaborator's file, not drawn from scratch while talking to a proband. Your software requirements reflect that: you need programmatic access, reproducibility, data portability, and publication-quality visual output at least as much as you need a fast drawing canvas.</p>
+
+            <p>Evagene is built as a platform as well as an application. Underneath the browser UI sit a scoped REST API, HMAC-signed webhooks, an MCP server for AI-agent integration, and a full suite of imports and exports. For a research geneticist, this means you can script against Evagene the same way you script against Biopython or GATK — build a cohort, run analyses across it, persist outputs, and reproduce the pipeline when a reviewer asks. The application remains available when you want a graphical view.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">The research geneticist workflow</h2>
+
+            <p>A typical research genetics project begins with a cohort: a family-based study of a rare disease, a population cohort with consented genealogy linking, a retrospective audit of clinically-captured pedigrees, or an ascertainment of extended kindreds from a biobank. The pedigrees arrive as files — GEDCOM from a genealogical source, a custom JSON export from a clinical system, PED files from a linkage analysis, occasionally images that require OCR. Your first task is to get them into a form you can work with.</p>
+
+            <p>Then comes analysis. Depending on the question, this might be inheritance pattern classification across the cohort, carrier probability estimation using BayesMendel models, batch risk screening for specific conditions, identification of consanguinity, or extraction of standardised phenotype annotations for downstream genotype-phenotype association analysis. You want to run these analyses across hundreds or thousands of pedigrees, not one at a time. You want the results in tabular form so you can join them to your genotype data or statistical models.</p>
+
+            <p>At the end of the project, you need outputs. Publication-quality pedigree figures for the manuscript, structured data for the supplementary tables, standardised interpretations that can be audited by collaborators and reproduced by reviewers, and a data deposit in a format that will survive beyond the life of the project.</p>
+
+            <p>Every step of that pipeline benefits from programmatic access, file format portability, and reproducibility of interpretation.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What research geneticists need from pedigree software</h2>
+
+            <ul>
+                <li><strong>Bulk import</strong> from GEDCOM, JSON, PED (via GEDCOM conversion), 23andMe, and pedigree images.</li>
+                <li><strong>Programmatic API</strong> — scripted pedigree creation, modification, analysis, and export.</li>
+                <li><strong>Batch analysis</strong> — BRCAPRO, MMRpro, PancPRO, Mendelian inheritance, and batch risk screening across a cohort.</li>
+                <li><strong>Publication-quality export</strong> — SVG (vector, editable), PNG, and PDF.</li>
+                <li><strong>Reproducible interpretation</strong> — parameterised templates that produce consistent outputs across cases.</li>
+                <li><strong>Data portability</strong> — export in the same standards used for import, so the pipeline is not locked in.</li>
+                <li><strong>Agentic AI integration</strong> — MCP tools so that AI assistants can be part of the research workflow without custom glue code.</li>
+                <li><strong>Standard disease annotation</strong> — ICD-10 / OMIM coding that interoperates with downstream analytical tools.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene supports research geneticists</h2>
+
+            <h3 class="text-2xl mt-10 mb-4">Bulk import from multiple formats</h3>
+
+            <p>Evagene imports GEDCOM 5.5.1 (the de facto standard for pedigree exchange), JSON (for cleanly-structured modern data), 23andMe exports (for cohorts with direct-to-consumer genotype and trait data), XEG (a legacy pedigree format still in use in some settings), and pedigree images via OCR (for archival cohorts where only a scanned figure survives). For PED and LINKAGE-style tabular inputs, the recommended route is to convert to GEDCOM using any of the widely-available open-source converters, then import. A detailed discussion of GEDCOM in a genetics context lives in our <a href="gedcom-pedigree-software.html">GEDCOM pedigree software</a> guide.</p>
+
+            <p>For a study with 500 pedigrees, you might loop over GEDCOM files in a directory, call the REST API import endpoint for each, and have the cohort loaded into Evagene in minutes. Imports are idempotent at the pedigree level; re-running an import against the same file updates rather than duplicates.</p>
+
+            <h3 class="text-2xl mt-10 mb-4">REST API and MCP for scripting</h3>
+
+            <p>The REST API covers the full lifecycle of pedigree data. Endpoints exist for pedigree CRUD, individual CRUD, relationships, disease annotations, 23andMe genotype import, risk analysis (all BayesMendel models and Mendelian inheritance), batch screening, report generation, and export. API keys are in the format <code>evg_</code> followed by 43 characters, SHA-256 hashed at rest, with read, write, and analyse scopes. Rate limiting prevents runaway scripts from destabilising your own instance. Webhooks signed with HMAC-SHA256 fire on eight event types — pedigree and individual CRUD, analysis completion, import completion — so a research pipeline can react to events rather than polling.</p>
+
+            <p>The MCP server is an alternative route into the same capabilities. If your research workflow already involves an AI assistant in Claude Desktop or Claude Code, the MCP tools (11 of them) let the assistant read pedigrees, add individuals, run analysis, and generate reports directly. For exploratory cohort analysis — "find me the families in this dataset that cross the BRCA testing threshold and summarise their pedigree patterns" — this is substantially faster than writing the equivalent script.</p>
+
+            <h3 class="text-2xl mt-10 mb-4">Batch analysis across cohorts</h3>
+
+            <p>Risk analysis in Evagene runs on the pedigree data without re-entry. For a single pedigree this is routine; for a cohort, it is the difference between an afternoon and a month. Scripting against the REST API, you loop over the cohort, invoke the batch screen endpoint on each proband, and persist the structured JSON results — carrier probabilities, lifetime cancer risks, threshold flags — to a research database alongside the genotype data. The <a href="mendelian-inheritance-calculator.html">Mendelian inheritance analysis</a> endpoint does the equivalent for monogenic conditions.</p>
+
+            <p>Consanguinity detection via Wright's coefficient runs similarly across the cohort: a single endpoint returns the coefficient of inbreeding for any specified individual, allowing you to flag consanguineous unions for subsequent analysis.</p>
+
+            <h3 class="text-2xl mt-10 mb-4">Publication-quality figures</h3>
+
+            <p>Pedigrees export as SVG, PNG, and PDF. The SVG output is vector-based, editable in Inkscape, Illustrator, or any text editor for surgical tweaks before submission. Symbols follow NSGC/ISCN nomenclature — squares, circles, diamonds, shaded affected, diagonal-line deceased, proband arrow — so a reviewer in any subfield of genetics reads the figure correctly. For manuscript figures that need bespoke legends or annotations, the SVG export is the starting point; exporting to PDF produces a cleaner drop-in for LaTeX or Word.</p>
+
+            <h3 class="text-2xl mt-10 mb-4">Reproducible interpretation via Analysis Templates</h3>
+
+            <p>Analysis Templates are parameterised AI prompts with variable injection — placeholders such as <code>{{pedigree_description}}</code>, <code>{{proband_name}}</code>, <code>{{inheritance_pattern}}</code>, <code>{{risk_results}}</code> are replaced with concrete values at runtime. A research group can author a template that codifies its interpretation methodology (how to describe the pedigree, which risk thresholds to emphasise, what caveats to include) and apply it across every pedigree in the cohort. The output is structurally consistent, reviewable, and re-runnable. For a reviewer's reproducibility request, you supply the template, the inputs, and the resulting interpretations; re-running the same template against the same inputs produces the same output (within the determinism of your chosen LLM provider).</p>
+
+            <p>Because Evagene uses a bring-your-own-key model for LLMs, the language model used for interpretation is one your lab has already procured and can document. Encrypted at rest with Fernet; requests go directly to the provider.</p>
+
+            <h3 class="text-2xl mt-10 mb-4">Data portability and deposit</h3>
+
+            <p>Everything you put into Evagene can be extracted. Pedigrees export as GEDCOM 5.5.1 (vendor-neutral, archival-quality), JSON (modern structured), PNG, SVG, and PDF. Reports export as PDF. The REST API returns the same data in JSON form for programmatic access. For a journal requiring supplementary data deposit, GEDCOM is typically the right format; for an institutional repository, a bundle of GEDCOM plus JSON covers both human and machine access.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">A typical research geneticist session in Evagene</h2>
+
+            <p><strong>Step 1. Bulk import the cohort.</strong> A script loops over GEDCOM files, calls the pedigree import endpoint on each, and catches the returned pedigree IDs.</p>
+
+            <p><strong>Step 2. Run batch analyses.</strong> For each pedigree, the script invokes risk analysis endpoints — BRCAPRO, MMRpro, PancPRO, batch screen, inheritance analysis — and persists the JSON outputs into a research database joined to the genotype data.</p>
+
+            <p><strong>Step 3. Apply an Analysis Template.</strong> The lab's interpretation template runs against each pedigree; the structured outputs are stored alongside the numerical risk results for subsequent review.</p>
+
+            <p><strong>Step 4. Export publication figures.</strong> For the kindreds featured in the manuscript, the script exports SVG pedigrees; a graphics tool polishes them for submission.</p>
+
+            <p><strong>Step 5. Deposit.</strong> The cohort exports as GEDCOM plus JSON for the journal's supplementary data; the interpretation templates and analysis scripts are versioned in the lab's repository alongside.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can I import large pedigrees from existing data files?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. GEDCOM 5.5.1, JSON, 23andMe, XEG, and pedigree-image OCR; PED via GEDCOM conversion. Bulk import via the REST API.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does Evagene have a REST API?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. Scoped keys (evg_, SHA-256 hashed), read/write/analyse scopes, rate-limited, HMAC-SHA256-signed webhooks for eight event types.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does Evagene integrate with Claude Desktop or Claude Code?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes, via the MCP server (11 pedigree tools).</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can I generate publication-quality figures?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. SVG (vector, editable), PNG, and PDF exports.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How does Evagene support reproducibility?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Analysis Templates codify interpretation methodology and apply it consistently across a cohort. Combined with the REST API, the pipeline is re-runnable.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is Evagene data portable?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. GEDCOM 5.5.1, JSON, PNG, SVG, PDF exports.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What about phenopackets or FHIR?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">ICD-10 and OMIM annotations map cleanly; the REST API returns JSON that can be transformed to the target schema of your choice.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Further reading</h2>
+
+            <ul>
+                <li><a href="gedcom-pedigree-software.html">GEDCOM pedigree software</a></li>
+                <li><a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculator</a></li>
+                <li><a href="platform.html">The Evagene platform (API, MCP, webhooks)</a></li>
+                <li><a href="hereditary-cancer-risk-assessment.html">Hereditary cancer risk assessment</a></li>
+                <li><a href="for-clinical-geneticists.html">Evagene for clinical geneticists</a></li>
+                <li><a href="for-educators-students.html">Evagene for educators and students</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

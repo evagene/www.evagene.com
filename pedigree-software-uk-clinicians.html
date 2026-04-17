@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedigree Software for UK Clinicians — UKCGG, AGNC &amp; NICE-Aligned Options (2026) | Evagene</title>
+    <meta name="description" content="A UK-specific guide to clinical pedigree software: UKCGG guidance, CanRisk's Cambridge origin and NICE/UKCGG endorsement, AGNC context, Royal College of Pathologists standards, GDPR and UK data residency, and tools with UK adoption.">
+    <meta name="keywords" content="pedigree software UK, UK clinical genetics pedigree, UK genetic counsellor software, UKCGG, AGNC, CanRisk, UK genetics software, UK GDPR pedigree">
+
+    <meta property="og:title" content="Pedigree Software for UK Clinicians — UKCGG, AGNC &amp; NICE-Aligned">
+    <meta property="og:description" content="UK-specific clinical genetics software guidance, standards, and tools with UK adoption.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/pedigree-software-uk-clinicians">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pedigree Software for UK Clinicians">
+    <meta name="twitter:description" content="UK-specific pedigree software guidance.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/pedigree-software-uk-clinicians">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"Pedigree Software for UK Clinicians: UKCGG, AGNC and NICE-Aligned Options",
+        "description":"UK-specific clinical genetics software guidance, standards, and tools with UK adoption.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/pedigree-software-uk-clinicians"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"UK","item":"https://evagene.com/uk"},
+            {"@type":"ListItem","position":3,"name":"Pedigree Software for UK Clinicians","item":"https://evagene.com/pedigree-software-uk-clinicians"}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"What pedigree software do UK genetic counsellors use?","acceptedAnswer":{"@type":"Answer","text":"UK genetic counsellors commonly use a combination of CanRisk (Cambridge, for breast and ovarian cancer risk calculation — endorsed by NICE and UKCGG), Phenotips (used at Addenbrooke's among other UK sites), TrakGene (documented NHS customers), Progeny, and FamGenix. For simpler family-history capture in primary care, paper forms, the NHS HEE family-history template, and EHR-embedded family-history modules are common. Evagene is a newer UK-based option currently in free Alpha."}},
+            {"@type":"Question","name":"What is UKCGG?","acceptedAnswer":{"@type":"Answer","text":"The UK Cancer Genetics Group (UKCGG) is the professional association for UK clinicians working in cancer genetics — clinical geneticists, genetic counsellors, oncologists, surgeons, and scientists. UKCGG publishes guidance on cancer risk assessment, testing, and management, and the group's endorsement carries weight for clinical practice and for software tool adoption (CanRisk being the primary example)."}},
+            {"@type":"Question","name":"What is CanRisk?","acceptedAnswer":{"@type":"Answer","text":"CanRisk is a cancer risk prediction tool developed by the University of Cambridge Centre for Cancer Genetic Epidemiology, implementing the BOADICEA breast and ovarian cancer model and related risk models. It is endorsed by NICE and UKCGG for breast cancer risk assessment and is widely used across UK cancer genetics services. CanRisk specialises in the risk calculation step rather than being a full pedigree management platform; many UK services use CanRisk alongside a pedigree management product."}},
+            {"@type":"Question","name":"What is AGNC?","acceptedAnswer":{"@type":"Answer","text":"The Association of Genetic Nurses and Counsellors (AGNC) is the professional body for genetic counsellors and genetic nurses in the UK and Ireland. AGNC sets standards for practice and registration (via the Genomics Counsellor Registration Board of the Academy of Healthcare Science), delivers continuing professional development, and contributes to policy on genomic healthcare."}},
+            {"@type":"Question","name":"Does the Royal College of Pathologists have standards relevant to pedigree software?","acceptedAnswer":{"@type":"Answer","text":"Yes, through its genomic and molecular pathology guidance, clinical laboratory standards, and its contributions to genomic medicine policy. For pedigree software specifically, RCPath's contribution is more indirect — via standards for how genetic test results are reported and how family-history-derived risk assessments are communicated into the clinical record."}},
+            {"@type":"Question","name":"What does UK data residency mean for clinical software?","acceptedAnswer":{"@type":"Answer","text":"UK data residency means that clinical data is stored physically in the United Kingdom, typically in UK-based data centres. For NHS and many UK healthcare procurement frameworks, UK data residency or EEA data residency with appropriate safeguards is expected, supported by UK GDPR compliance. Software vendors that operate globally typically offer a UK (or UK/EU) data region option for UK customers."}},
+            {"@type":"Question","name":"Is Evagene suitable for a UK clinical genetics service?","acceptedAnswer":{"@type":"Answer","text":"Evagene is UK-based, uses UK English throughout, supports ICD-10 (NHS-native), enforces NSGC 2022 pedigree notation, and imports and exports in the standard interoperable formats (GEDCOM, FHIR-compatible structured data). It is currently in free Alpha and does not hold NHS DSP Toolkit or Cyber Essentials Plus certification. For UK services that can use software without those certifications today — training contexts, research prototypes, private genetics services, international research collaborations — Evagene is available. For NHS institutional procurement today, a currently-certified vendor is the right choice."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="uk.html" class="hover:text-brand-600 dark:hover:text-brand-300">UK</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">Pedigree Software for UK Clinicians</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Pedigree software for UK clinicians: UKCGG, AGNC and NICE-aligned options</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A UK-focused guide for clinical geneticists and genetic counsellors: UKCGG and AGNC context, CanRisk's Cambridge origin and endorsements, Royal College of Pathologists standards, UK English and GDPR expectations, and the main tools with UK adoption.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>14 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> UK clinical genetics practice sits within a specific professional ecosystem: UKCGG (UK Cancer Genetics Group), AGNC (Association of Genetic Nurses and Counsellors), the Royal College of Pathologists, NICE guidance, and the Cambridge-led CanRisk team — plus the NHS Genomic Medicine Service's operational structure. For pedigree software, UK clinicians typically combine a pedigree management product (Phenotips at Addenbrooke's, TrakGene across several NHS trusts, FamGenix, Progeny, or similar) with CanRisk for breast and ovarian cancer risk calculation. Evagene is a UK-based option currently in free Alpha with UK English, ICD-10, NSGC 2022 notation, and GEDCOM interoperability — but without the procurement certifications NHS institutional purchase requires. This page maps the landscape.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">The UK clinical genetics ecosystem</h2>
+
+            <p>UK clinical genetics practice is supported by several professional bodies and initiatives that shape expectations for tooling.</p>
+
+            <p><strong>UKCGG (UK Cancer Genetics Group).</strong> The UK professional association for clinicians working in cancer genetics — clinical geneticists, genetic counsellors, oncologists, surgeons, and scientists. UKCGG publishes clinical guidance on cancer risk assessment, genetic testing, and management. Its endorsements matter: UKCGG's backing of CanRisk for breast and ovarian cancer risk assessment is part of why CanRisk has become the de facto tool for that calculation across UK cancer genetics services.</p>
+
+            <p><strong>AGNC (Association of Genetic Nurses and Counsellors).</strong> The professional body for genetic counsellors and genetic nurses in the UK and Ireland. AGNC sets standards for practice and contributes to CPD for the profession. UK genetic counsellors register through the Genomics Counsellor Registration Board of the Academy of Healthcare Science. AGNC's standards influence what UK genetic counsellors expect of clinical tooling — particularly around documentation, patient autonomy, and record-keeping.</p>
+
+            <p><strong>British Society for Genetic Medicine (BSGM).</strong> An umbrella body for UK professional societies in genetic medicine, including the Clinical Genetics Society and AGNC. BSGM supports UK-wide policy and professional coordination.</p>
+
+            <p><strong>Royal College of Pathologists.</strong> The professional body for pathologists including genomic/molecular pathology. Relevant to pedigree software indirectly, through standards for how genetic test results are reported and how family-history-derived risk assessments flow back into the clinical record.</p>
+
+            <p><strong>NICE (National Institute for Health and Care Excellence).</strong> UK NICE guidance shapes clinical practice across many domains including cancer risk assessment. The NICE guideline on familial breast cancer (CG164, updated periodically) defines when family-history-based risk assessment is indicated and what testing thresholds apply. NICE's recognition of CanRisk in this context carries practical weight.</p>
+
+            <p><strong>Genomics England and the Generation Study.</strong> Genomics England (the public company) delivers whole-genome sequencing services to the NHS and runs research programmes including, in its current phase, the Generation Study in newborn sequencing. Its existence shapes the policy and research environment around clinical genetics, though it is not directly a pedigree software purchaser.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">CanRisk and the Cambridge connection</h2>
+
+            <p>CanRisk is a web-based cancer risk prediction tool developed at the University of Cambridge's Centre for Cancer Genetic Epidemiology (CCGE), led historically by Antonis Antoniou and colleagues. It implements BOADICEA (Breast and Ovarian Analysis of Disease Incidence and Carrier Estimation Algorithm) for breast and ovarian cancer risk, plus related risk models.</p>
+
+            <p>CanRisk's position in UK practice is distinctive:</p>
+
+            <ul>
+                <li><strong>Cambridge origin</strong> gives it academic credibility and a direct research pipeline from the BOADICEA model to the clinical tool.</li>
+                <li><strong>NICE recognition</strong> in breast cancer risk-assessment guidance supports its use as part of NHS clinical pathways.</li>
+                <li><strong>UKCGG endorsement</strong> underpins professional community adoption.</li>
+                <li><strong>Free for clinical use</strong> — CanRisk is offered free to clinicians, removing procurement friction.</li>
+            </ul>
+
+            <p>CanRisk is a risk calculator, not a full pedigree management platform. It accepts pedigree input (structured, or via its own form-based interface) and produces a risk report. Many UK services use CanRisk for the calculation step alongside a separate pedigree management product (Phenotips, TrakGene, Progeny, FamGenix, or Evagene) that handles the ongoing family-record workflow.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Tools with documented UK adoption</h2>
+
+            <div class="not-prose my-10 overflow-x-auto">
+                <table class="w-full text-sm border-collapse">
+                    <thead class="bg-brand-50 dark:bg-brand-900/50">
+                        <tr>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Tool</th>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">UK adoption</th>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">UK-facing features</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 dark:text-gray-300">
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Phenotips</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Addenbrooke's (Cambridge) case study; other UK sites</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Enterprise-grade; HPO-driven rare disease focus</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">TrakGene</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Documented NHS customers; UK-marketed</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">NHS-oriented feature set</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">CanRisk</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Cambridge origin; NICE and UKCGG endorsement</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">BOADICEA; free clinical use</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Progeny</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">UK institutional users</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Long-standing clinical pedigree product</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">FamGenix</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">UK and EU customers; UK/EU data-region option</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Clinical pedigree with data residency options</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Evagene</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">UK-based; Alpha free</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">UK English, ICD-10, NSGC 2022, API/MCP, no NHS procurement certs yet</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">UK English, UK date format, UK terminology</h2>
+
+            <p>UK clinical documentation follows UK English throughout — organisation not organization, analyse not analyze, paediatric not pediatric, haematology not hematology, oesophagus not esophagus, foetal not fetal in historical usage (though fetal is acceptable in modern clinical English). Date format is DD Month YYYY (17 April 2026) or DD/MM/YYYY in forms. Clinical terminology uses UK conventions (consultant, registrar, specialty, GP).</p>
+
+            <p>For pedigree software, this matters more than it may seem. A product with US English in the UI, US date format in exports, and US clinical terminology in reports produces clinical documentation that reads as foreign to UK clinicians and patients. Some products offer locale-switching; some do not. UK-based products start UK English by default.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">UK data residency and UK GDPR</h2>
+
+            <p>UK clinical data is subject to UK GDPR (the UK's post-Brexit implementation of GDPR, largely aligned with EU GDPR). For NHS and many UK healthcare procurement frameworks, the expectation is:</p>
+
+            <ul>
+                <li><strong>UK data residency.</strong> Patient-identifiable clinical data stored in the UK, in UK-based cloud regions or data centres.</li>
+                <li><strong>EEA data residency with safeguards</strong> is sometimes acceptable, depending on the data classification and the framework.</li>
+                <li><strong>UK GDPR compliance</strong> including lawful basis, data subject rights, data minimisation, appropriate safeguards, and incident response.</li>
+                <li><strong>Data Processing Agreement (DPA)</strong> between the software vendor and the NHS / healthcare customer defining processor obligations.</li>
+                <li><strong>Subject Access Request (SAR) support</strong> — the vendor must be able to support the customer in producing data for patient subject access requests.</li>
+            </ul>
+
+            <p>Software vendors operating globally typically offer a UK region (or UK/EU region) for UK customers. Smaller or newer vendors may not have regional hosting; for UK healthcare procurement, regional hosting is usually a procurement requirement rather than a nice-to-have.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">GDPR, family data, and the right to know</h2>
+
+            <p>Pedigree data is distinctive under UK GDPR because it describes multiple individuals, most of whom are not the subject of the consultation. The ethical and legal position in UK clinical practice is:</p>
+
+            <ul>
+                <li><strong>Consent from the proband.</strong> The proband consents to family-history documentation as part of the consultation.</li>
+                <li><strong>No separate consent from relatives.</strong> UK practice (consistent with the GMC and professional society guidance) does not require individual consent from relatives for inclusion of their family history in a pedigree, though relatives who come forward themselves become data subjects in their own right.</li>
+                <li><strong>Professional confidentiality and disclosure rules.</strong> The Caldicott principles, the GMC's confidentiality guidance, and the AGNC's standards govern how information is shared within and outside the clinical team.</li>
+                <li><strong>Family relevance and the duty to inform.</strong> Where a genetic finding in one family member has implications for relatives, guidance in UK genetics practice supports sharing in appropriate ways — the Royal College of Physicians and the GMC have addressed this.</li>
+            </ul>
+
+            <p>Software choices should support these principles: clear audit trails for who accessed what, export controls that produce identifiable output only where authorised, and appropriate support for proband-level redaction and selective disclosure where needed.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Where Evagene sits for UK clinicians</h2>
+
+            <p>Evagene is a UK-based product developed with UK clinical genetics practice in mind. The UK-facing features are:</p>
+
+            <ul>
+                <li><strong>UK English throughout.</strong> Product UI, documentation, reports, and exports all use UK English spelling and terminology.</li>
+                <li><strong>UK date format.</strong> 17 April 2026 / 17/04/2026 by default.</li>
+                <li><strong>ICD-10 coding</strong> (NHS-native) plus OMIM for genetic conditions, across the 180+ disease catalogue.</li>
+                <li><strong>NSGC 2022 pedigree notation</strong> enforced automatically.</li>
+                <li><strong>BRCAPRO, MMRpro, PancPRO</strong> cancer risk models (BayesMendel family). CanRisk / BOADICEA is not currently implemented in Evagene; for BOADICEA-specific risk assessment, CanRisk remains the UK tool of choice.</li>
+                <li><strong>GEDCOM 5.5.1 import/export</strong> for cross-system and cross-institution pedigree transfer.</li>
+                <li><strong>BYOK LLM AI interpretation</strong> routing through your own LLM provider contract — supporting UK clinical AI governance expectations.</li>
+                <li><strong>REST API, webhooks, MCP server, embeddable viewer</strong> for UK research and innovation teams building custom workflows.</li>
+            </ul>
+
+            <p>What Evagene does <em>not</em> currently offer for UK institutional procurement:</p>
+
+            <ul>
+                <li><strong>No NHS DSP Toolkit assurance.</strong> Covered in more depth on our <a href="pedigree-software-nhs.html">NHS-facing page</a>.</li>
+                <li><strong>No Cyber Essentials Plus certification.</strong></li>
+                <li><strong>No DTAC completion yet.</strong></li>
+                <li><strong>No MHRA medical device registration.</strong></li>
+                <li><strong>No native BOADICEA / CanRisk integration</strong> at this time — services that need BOADICEA use CanRisk directly.</li>
+            </ul>
+
+            <p>For UK clinicians and allied professionals whose work is in training, research, private-sector genetics, international collaboration, or prototype development — and for those evaluating Evagene for future procurement — the free Alpha provides a practical way to test the product today. For NHS institutional procurement that requires current DSPT or CE+, an established certified vendor is the right choice.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene supports this</h2>
+
+            <p>Evagene's design decisions reflect its UK base: UK English as the default (not a locale option), UK date format, ICD-10 as the primary coding system, NSGC 2022 notation enforcement, and documentation style that matches UK clinical correspondence. The BYOK LLM model for AI interpretation keeps LLM traffic on your organisation's own LLM-provider contract, which aligns with UK clinical AI governance expectations that the clinical software vendor not be a processor of clinical text.</p>
+
+            <p>For UK services that use CanRisk for BOADICEA risk calculation and want a pedigree management product that handles everything around that workflow — record-keeping, family annotation, cross-institution transfer via GEDCOM, AI interpretation, API-driven research pipelines — Evagene is a complementary rather than a competing tool. Pedigrees constructed or imported in Evagene can be exported as structured data or as PDF/PNG/SVG for CanRisk-adjacent use.</p>
+
+            <p>For UK cancer genetics services, reproductive genetics, rare disease diagnostics, and private-sector genetics, Evagene's integrated BayesMendel models (BRCAPRO, MMRpro, PancPRO), Mendelian inheritance analysis, and <a href="hereditary-cancer-risk-assessment.html">batch risk screening</a> cover the risk-assessment workflow where CanRisk / BOADICEA is not required. For services where BOADICEA specifically is needed, combine Evagene for pedigree management with CanRisk for the risk calculation.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What pedigree software do UK genetic counsellors use?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">A combination is common: CanRisk for BOADICEA risk, plus a pedigree management product such as Phenotips, TrakGene, Progeny, or FamGenix. Evagene is a newer UK-based option in free Alpha.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is UKCGG?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">The UK Cancer Genetics Group, the UK professional association for clinicians in cancer genetics. Publishes guidance and endorses tools including CanRisk.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is CanRisk?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">A Cambridge-developed risk calculator implementing BOADICEA, endorsed by NICE and UKCGG for breast and ovarian cancer risk assessment. Free for clinical use.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is AGNC?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">The Association of Genetic Nurses and Counsellors — professional body for UK and Ireland genetic counsellors and nurses.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does the Royal College of Pathologists have standards relevant to pedigree software?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Indirectly — through genetic test reporting standards and clinical laboratory guidance that shape how pedigree-derived risk feeds the record.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What does UK data residency mean for clinical software?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Clinical data stored physically in the UK; UK GDPR compliance; Data Processing Agreement in place. Required or strongly preferred by most NHS procurement.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is Evagene suitable for a UK clinical genetics service?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">UK-based, UK English, ICD-10, NSGC 2022, GEDCOM interop. Currently in free Alpha without NHS DSPT/CE+; for training, research, prototype, and private-sector use, yes; for NHS institutional procurement, currently-certified vendors are the right choice.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="pedigree-software-nhs.html">Pedigree software for the NHS</a></li>
+                <li><a href="phenotips-vs-evagene.html">Phenotips vs Evagene</a></li>
+                <li><a href="trakgene-vs-evagene.html">TrakGene vs Evagene</a></li>
+                <li><a href="famgenix-vs-evagene.html">FamGenix vs Evagene</a></li>
+                <li><a href="hereditary-cancer-risk-assessment.html">Hereditary cancer risk assessment</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tools</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

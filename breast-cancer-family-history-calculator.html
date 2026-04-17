@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast Cancer Family History Calculator — Hereditary Breast Cancer Risk from a Pedigree | Evagene</title>
+    <meta name="description" content="A practical guide to calculating breast cancer risk from family history: red-flag patterns, NICE and NCCN referral criteria, an overview of BRCAPRO, BOADICEA, Tyrer-Cuzick, Gail, and Claus, and how Evagene ties the pedigree to a modern risk workflow.">
+    <meta name="keywords" content="breast cancer family history calculator, family history breast cancer risk, hereditary breast cancer calculator, BRCAPRO, BOADICEA, Tyrer-Cuzick, Gail model, Claus model, NICE familial breast cancer, NCCN breast cancer">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Breast Cancer Family History Calculator — Hereditary Breast Cancer Risk from a Pedigree">
+    <meta property="og:description" content="Red-flag patterns, referral criteria, and the main breast cancer risk models — BRCAPRO, BOADICEA, Tyrer-Cuzick, Gail, Claus — with Evagene's integrated workflow.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/breast-cancer-family-history-calculator">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Breast Cancer Family History Calculator — Hereditary Breast Cancer Risk">
+    <meta name="twitter:description" content="From a family pedigree to a referral decision: red flags, criteria, and risk models.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/breast-cancer-family-history-calculator">
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD: Article -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"Breast Cancer Family History Calculator: Hereditary Breast Cancer Risk from a Pedigree",
+        "description":"A clinician's guide to calculating breast cancer risk from family history, covering red-flag patterns, referral criteria, and the main risk models.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/breast-cancer-family-history-calculator"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Risk Analysis","item":"https://evagene.com/#risk-analysis"},
+            {"@type":"ListItem","position":3,"name":"Breast Cancer Family History Calculator","item":"https://evagene.com/breast-cancer-family-history-calculator"}
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"How does family history affect breast cancer risk?","acceptedAnswer":{"@type":"Answer","text":"Family history is one of the strongest non-modifiable risk factors for breast cancer. The magnitude of the effect depends on which relatives are affected, their ages at diagnosis, whether there is bilateral disease or male breast cancer, and the presence of ovarian cancer in the same family. A first-degree relative with early-onset breast cancer confers substantially elevated lifetime risk, particularly if a hereditary cancer syndrome is involved."}},
+            {"@type":"Question","name":"What are the red-flag family history patterns for hereditary breast cancer?","acceptedAnswer":{"@type":"Answer","text":"Early-onset breast cancer (under 50), bilateral breast cancer, triple-negative breast cancer before age 60, male breast cancer, ovarian cancer in the same family, multiple primary cancers in one individual, Ashkenazi Jewish heritage with any breast or ovarian cancer, and a pedigree pattern compatible with autosomal dominant inheritance across generations are the most commonly flagged features."}},
+            {"@type":"Question","name":"When should someone be referred for genetic testing?","acceptedAnswer":{"@type":"Answer","text":"Referral depends on jurisdiction. NICE CG164 in the UK and NCCN in the US publish referral criteria that typically include patterns such as two or more first-degree relatives with breast or ovarian cancer, one with early onset; a male breast cancer in the family; triple-negative breast cancer under 60; Ashkenazi Jewish heritage with a relevant cancer; or a carrier probability above a defined threshold from a quantitative model."}},
+            {"@type":"Question","name":"What are the main breast cancer risk models?","acceptedAnswer":{"@type":"Answer","text":"BRCAPRO estimates BRCA1/2 carrier probability from family history. BOADICEA (via CanRisk) adds moderate-penetrance genes, polygenic risk, density, and lifestyle factors. Tyrer-Cuzick (IBIS) estimates lifetime breast cancer risk integrating family with hormonal/reproductive factors. Gail estimates 5-year and lifetime risk for women without a strong family history. Claus focuses on family history alone for women without a strong BRCA-suspicion pattern. Clinicians select a model based on the clinical question."}},
+            {"@type":"Question","name":"What does a good breast cancer family history include?","acceptedAnswer":{"@type":"Answer","text":"A three-generation pedigree on both maternal and paternal lineages, with every relative's sex, cancer diagnoses (including site, ages at diagnosis, bilaterality), current age if living, age and cause of death if deceased, Ashkenazi Jewish heritage, and any prior genetic testing results. Pancreatic and prostate cancer should be captured too because both appear in HBOC kindreds."}},
+            {"@type":"Question","name":"How does Evagene support the workflow?","acceptedAnswer":{"@type":"Answer","text":"Evagene is a browser-based clinical pedigree management platform that integrates BRCAPRO directly on the pedigree canvas, with no re-entry. Batch risk screening runs BRCAPRO alongside MMRpro, PancPRO, and Mendelian analyses across the 180+ disease catalogue, catching non-breast signals. AI interpretation drafts structured clinical summaries using bring-your-own-key LLMs. GEDCOM export lets the same pedigree feed external tools such as CanRisk or IBIS."}},
+            {"@type":"Question","name":"Which model should I run first?","acceptedAnswer":{"@type":"Answer","text":"If the clinical question is genetic testing eligibility, BRCAPRO or BOADICEA (for broader gene and polygenic coverage). If it is screening intensity, Tyrer-Cuzick. If the family history is minimal and the question is general risk at population screening age, Gail. Many clinics run more than one to answer different parts of the same consultation."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<!-- Navigation -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="https://evagene.com/#risk-analysis" class="hover:text-brand-600 dark:hover:text-brand-300">Risk Analysis</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">Breast Cancer Family History Calculator</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Breast cancer family history calculator: from pedigree to referral decision</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A practical guide for primary care, breast clinic, and genetic counselling teams — the red flags in a family history, the referral criteria that matter, the main risk models in mainstream use, and how Evagene ties the pedigree to a modern hereditary breast cancer risk workflow.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>12 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> Family history is one of the strongest risk factors for breast cancer. A carefully constructed three-generation pedigree, annotated with cancer type, age of diagnosis, bilaterality, and male-breast or ovarian cancer coexisting, is the input every hereditary breast cancer risk model needs. Red-flag patterns prompt referral under NICE CG164 and NCCN guidelines. Once in specialist care, several models support the decisions that follow — BRCAPRO and BOADICEA for carrier probability and testing eligibility, Tyrer-Cuzick for lifetime risk and screening intensity, Gail and Claus for specific secondary purposes. Evagene runs BRCAPRO directly on the pedigree you draw, with no re-entry, and exports pedigree data cleanly to external tools such as CanRisk and IBIS where those are needed.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Family history as a risk factor</h2>
+
+            <p>Breast cancer clusters in families more than most common cancers. Part of that clustering reflects shared environmental factors and selective reporting biases; part reflects genuine inherited risk. Large epidemiological studies have consistently shown that the relative risk associated with a single affected first-degree relative is roughly doubled compared with no family history, that the risk rises with the number of affected first-degree relatives, and that younger age at diagnosis in the affected relative compounds the effect.</p>
+
+            <p>The clinical task is to distinguish the family histories that suggest a specific hereditary cancer syndrome — most commonly hereditary breast and ovarian cancer (HBOC) driven by BRCA1 or BRCA2, but also Lynch syndrome, Li-Fraumeni, Peutz-Jeghers, Cowden, and others — from those that reflect familial clustering without an identifiable single-gene driver. The first group benefits from targeted genetic testing and management. The second benefits from enhanced risk-based screening without necessarily pursuing testing.</p>
+
+            <p>Risk models exist because this distinction cannot reliably be made by eye. Clinical intuition systematically over- and under-identifies at-risk families in predictable ways. Quantitative models provide a reproducible, guideline-compatible answer to the referral and management questions that follow a family history.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Red-flag patterns</h2>
+
+            <p>Certain features of a family history strongly suggest a hereditary cancer syndrome. These are the signals that should prompt specialist referral and formal risk calculation.</p>
+
+            <ul>
+                <li><strong>Early-onset breast cancer.</strong> Diagnoses under age 50, and particularly under age 40, in first- or second-degree relatives.</li>
+                <li><strong>Bilateral breast cancer.</strong> Especially if the first diagnosis was at a young age.</li>
+                <li><strong>Triple-negative breast cancer under age 60.</strong> Associated with elevated BRCA1 carrier probability regardless of family history.</li>
+                <li><strong>Male breast cancer.</strong> A strong signal for BRCA2 in particular. Any male breast cancer in the family warrants consideration.</li>
+                <li><strong>Ovarian cancer in the same family.</strong> Breast and ovarian cancer co-occurring in a kindred is the classic HBOC pattern. Any ovarian cancer in a first- or second-degree relative is usually referable on its own.</li>
+                <li><strong>Multiple primary cancers in one individual.</strong> Particularly breast and ovarian in the same person.</li>
+                <li><strong>Ashkenazi Jewish heritage.</strong> The BRCA1 and BRCA2 founder variants increase the prior probability of carrier status substantially, and referral criteria are correspondingly more permissive in many jurisdictions.</li>
+                <li><strong>Pedigree pattern of autosomal dominant inheritance.</strong> Cancers across generations with a 50 percent transmission pattern suggest a dominant susceptibility gene.</li>
+                <li><strong>Pancreatic or prostate cancer in the same family.</strong> Pancreatic cancer is part of the BRCA2-associated spectrum; aggressive early-onset prostate cancer is also associated with BRCA2. See our <a href="pancreatic-cancer-family-history.html">pancreatic cancer family history page</a> for detail.</li>
+                <li><strong>Specific syndromic clues.</strong> Features of Cowden syndrome (macrocephaly, hamartomas, trichilemmomas), Li-Fraumeni (childhood cancers, sarcomas, early-onset breast), or Peutz-Jeghers (mucocutaneous pigmentation, hamartomatous polyps) prompt referral regardless of breast family history.</li>
+            </ul>
+
+            <p>The absence of red flags does not always mean an absence of risk — population-based screening exists for good reasons — but their presence materially changes the clinical posture.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Referral criteria: NICE CG164 and NCCN</h2>
+
+            <p>Published criteria translate red-flag patterns into specific referral thresholds. The two most widely cited frameworks are NICE CG164 (UK) and NCCN Breast/Ovarian/Pancreatic guidelines (US). They are not identical but overlap substantially.</p>
+
+            <p><strong>NICE CG164</strong> in the UK categorises family histories into near-population risk, moderate risk (typically equivalent to lifetime breast cancer risk between 17 and 30 percent), and high risk (lifetime risk of 30 percent or more, or a 10 percent or higher BRCA1/2 carrier probability). Moderate-risk women are managed via the breast surveillance pathway with age-adjusted mammography; high-risk women are offered additional MRI surveillance and genetic testing. Specific family-history triggers for specialist referral include two first-degree relatives with breast cancer (one under 50), three first- or second-degree relatives with breast cancer, a male breast cancer, a first-degree relative with bilateral breast cancer, and combinations involving ovarian cancer.</p>
+
+            <p><strong>NCCN</strong> publishes regularly updated criteria for BRCA1/2, Lynch, and other syndromes. Triggers include specific ancestry-enriched variants (Ashkenazi Jewish founder variants in particular), early-onset breast cancer, triple-negative breast cancer under 60, male breast cancer, ovarian cancer, pancreatic cancer in the family for BRCA2 consideration, and defined combinations of affected relatives.</p>
+
+            <p>Both frameworks increasingly reference quantitative model output — a carrier probability above a defined threshold on BRCAPRO, BOADICEA, or equivalent — as an additional route to testing eligibility. The model is not a substitute for the criteria; it is a complementary way to reach the same decision.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">The main breast cancer risk models</h2>
+
+            <p>Five breast cancer risk models come up repeatedly in this clinical space. A short characterisation of each is useful.</p>
+
+            <div class="not-prose my-10 overflow-x-auto">
+                <table class="w-full text-sm border-collapse">
+                    <thead class="bg-brand-50 dark:bg-brand-900/50">
+                        <tr>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Model</th>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Primary output</th>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Inputs</th>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Typical use</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 dark:text-gray-300">
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">BRCAPRO</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">BRCA1/2 carrier probability</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Pedigree, breast/ovarian/male breast, ages, Ashkenazi status, prior tests</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Testing eligibility</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">BOADICEA (CanRisk)</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Multi-gene carrier + lifetime risk</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Pedigree, hormonal/reproductive, density, lifestyle, PRS</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Comprehensive assessment</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Tyrer-Cuzick (IBIS)</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">10-year and lifetime breast risk</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Pedigree, hormonal/reproductive, benign breast disease, density</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Screening intensity, chemoprevention</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Gail (BCRAT)</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">5-year and lifetime risk</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Age, first-degree relatives, hormonal, prior biopsy</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Screening-age women without strong FH</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Claus</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Cumulative risk from FH alone</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">First- and second-degree breast cancer</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Older literature baseline; less used today</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p><strong>BRCAPRO</strong> is the focused BRCA1/BRCA2 carrier probability calculator from the BayesMendel suite. See our <a href="brcapro-calculator.html">BRCAPRO calculator guide</a> for details.</p>
+
+            <p><strong>BOADICEA</strong>, delivered via the CanRisk tool from the University of Cambridge, is the broadest mainstream model — multi-gene, polygenic risk, density, and lifestyle. It is endorsed in NICE and NCCN. See our <a href="boadicea-alternative.html">BOADICEA alternative page</a>.</p>
+
+            <p><strong>Tyrer-Cuzick (IBIS)</strong> estimates lifetime breast cancer risk integrating hormonal and reproductive factors with family history. Widely used in the UK for screening intensity. See our <a href="tyrer-cuzick-alternative.html">Tyrer-Cuzick alternative page</a>.</p>
+
+            <p><strong>Gail (the NCI's Breast Cancer Risk Assessment Tool, BCRAT)</strong> estimates 5-year and lifetime breast cancer risk. It is designed for women without a strong family history and uses limited family-history inputs (first-degree relatives only). For hereditary cancer clinics, Gail is not the primary tool; for screening-age women in primary care, it remains in common use.</p>
+
+            <p><strong>Claus</strong> is a historical family-history-only model that pre-dates BRCAPRO and BOADICEA. Its continued appearance is mostly as a legacy literature reference; most modern services use the newer models.</p>
+
+            <p>The honest summary is that different models answer different clinical questions, and a well-run service selects among them based on the question in front of it.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">From pedigree to referral decision</h2>
+
+            <p>A typical workflow for a breast cancer family history evaluation proceeds as follows. First, construct a three-generation pedigree on both parental lineages, annotated with every cancer diagnosis (type, age, laterality), current age or age at death, and Ashkenazi Jewish heritage. Second, check the pedigree against red-flag patterns and referral criteria. Third, if red flags are present, run a carrier probability model (BRCAPRO or BOADICEA) and a lifetime risk model (Tyrer-Cuzick) as appropriate to the clinical question. Fourth, combine model output with guideline criteria to make the referral, testing, and surveillance decisions.</p>
+
+            <p>Each step depends on the pedigree being accurate. A pedigree that omits the paternal line, records undifferentiated "cancer" without site, or fails to capture ages at diagnosis produces poor model output. Time spent on pedigree quality pays back later in model accuracy and referral precision.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene supports the workflow</h2>
+
+            <p>Evagene is a browser-based clinical pedigree management platform built for exactly this workflow. The pedigree is drawn once on a canvas designed for live-consultation speed — gesture drawing, keyboard shortcuts, standard clinical notation — and is annotated with the cancer diagnoses, ages, and ethnicity information that risk models need. Disease annotation uses ICD-10 and OMIM codes across a 180-plus disease catalogue, with breast, ovarian, and related cancers handled natively.</p>
+
+            <p>From the same pedigree, <strong>BRCAPRO runs directly with no re-entry</strong>. The BayesMendel package runs in an R sidecar process that invokes the validated code, so the calculation is the same one clinical research relies on. Results appear alongside the pedigree. For comprehensive risk with polygenic and lifestyle integration, Evagene supports GEDCOM 5.5.1 export so the pedigree can be taken into CanRisk; for lifetime-risk decisions, the same export and structured JSON feed into IBIS.</p>
+
+            <p>Two additional capabilities are relevant to breast cancer workflows. <strong>Batch risk screening</strong> runs BRCAPRO alongside MMRpro, PancPRO, and Mendelian analyses across the full disease catalogue in one operation, flagging conditions where the pedigree crosses thresholds. A family presenting with breast cancer but also containing a pancreatic case or a colorectal case has those signals surfaced automatically. <strong>AI interpretation</strong> with bring-your-own-key large language models drafts structured clinical summaries combining pedigree findings with risk results, which a clinician reviews. The BYOK model means traffic goes to your contracted LLM provider, not through a Evagene-hosted model.</p>
+
+            <p>For programmatic use, risk results are available through the REST API and MCP server. Documentation is at <a href="https://evagene.net/help">evagene.net/help</a>. Evagene is free during Alpha via <a href="https://evagene.com/#waitlist">the waiting list</a>, with zero install required.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How does family history affect breast cancer risk?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">A first-degree relative with breast cancer roughly doubles baseline risk. Risk rises with more affected relatives and younger age at diagnosis. Combined with ovarian cancer or male breast cancer in the same family, a hereditary cancer syndrome becomes more likely.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What are the red-flag patterns for hereditary breast cancer?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Early-onset, bilateral, triple-negative under 60, male breast cancer, ovarian cancer in the same family, multiple primaries, Ashkenazi Jewish heritage, and autosomal dominant transmission across generations.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">When should someone be referred for genetic testing?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Following NICE CG164 or NCCN criteria, which include specific family-history patterns and quantitative model thresholds. Local commissioning frameworks provide the operational cut-offs.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What are the main breast cancer risk models?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">BRCAPRO (BRCA1/2 carrier probability), BOADICEA (comprehensive multi-gene + polygenic + lifestyle), Tyrer-Cuzick (lifetime breast cancer risk), Gail (screening-age short- and long-term risk), and Claus (historical FH-only).</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What does a good family history include?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Three generations on both parental sides, with cancer site, age of diagnosis, laterality, vital status, ethnicity, and any prior genetic testing results for every relative.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How does Evagene support the workflow?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Pedigree on a single canvas, BRCAPRO running directly on it via BayesMendel, batch screening across all catalogued diseases, AI-drafted reports with BYOK LLMs, and GEDCOM export to external tools.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Which model should I run first?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Depends on the clinical question. Testing eligibility: BRCAPRO or BOADICEA. Screening intensity: Tyrer-Cuzick. General screening-age risk: Gail. Many services run more than one.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="brcapro-calculator.html">BRCAPRO calculator</a></li>
+                <li><a href="boadicea-alternative.html">BOADICEA alternative</a></li>
+                <li><a href="tyrer-cuzick-alternative.html">Tyrer-Cuzick alternative</a></li>
+                <li><a href="ovarian-cancer-family-history-calculator.html">Ovarian cancer family history calculator</a></li>
+                <li><a href="hereditary-cancer-risk-assessment.html">Hereditary cancer risk assessment</a></li>
+                <li><a href="pedigree-drawing-software.html">Pedigree drawing software</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tool</a></li>
+                <li><a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculator</a></li>
+                <li><a href="gedcom-pedigree-software.html">GEDCOM pedigree software</a></li>
+                <li><a href="phenotips-vs-evagene.html">Phenotips vs Evagene comparison</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<!-- CTA -->
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Calculate breast cancer risk from your pedigree</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. Browser-based, zero install, free during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

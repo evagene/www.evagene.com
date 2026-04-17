@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rare Disease Pedigree Software — Diagnostic Odyssey Support | Evagene</title>
+    <meta name="description" content="Pedigree software for rare and undiagnosed disease: why pedigrees matter in the diagnostic odyssey, how HPO and OMIM complement each other, and where Evagene's AI interpretation fits alongside HPO-first tools.">
+    <meta name="keywords" content="rare disease pedigree, undiagnosed disease pedigree, rare disease family history, HPO pedigree, phenotype pedigree, rare disease software">
+
+    <meta property="og:title" content="Rare Disease Pedigree Software — Evagene">
+    <meta property="og:description" content="Pedigrees in the rare disease diagnostic odyssey, HPO and OMIM, AI interpretation, and where different tools fit.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/rare-disease-pedigree-software">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Rare Disease Pedigree Software">
+    <meta name="twitter:description" content="Pedigrees in the rare disease diagnostic odyssey and where Evagene fits.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/rare-disease-pedigree-software">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"Rare Disease Pedigree Software: Supporting the Diagnostic Odyssey",
+        "description":"A practical guide to pedigree software in rare disease diagnosis, covering HPO, OMIM, AI interpretation, and how Evagene sits alongside phenotype-first platforms.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/rare-disease-pedigree-software"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Resources","item":"https://evagene.com/#resources"},
+            {"@type":"ListItem","position":3,"name":"Rare Disease Pedigree Software","item":"https://evagene.com/rare-disease-pedigree-software"}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"Why is a pedigree important in rare disease?","acceptedAnswer":{"@type":"Answer","text":"Rare disease is, by definition, unfamiliar to most clinicians; pattern-recognition from the pedigree supplements pattern-recognition from the individual. An accurate three- to four-generation pedigree reveals consanguinity (a strong pointer to autosomal recessive disease), affected-sibling patterns, early deaths from the same cause, and phenotype clustering across relatives. It also anchors subsequent molecular analysis: without the pedigree, a variant of uncertain significance is harder to interpret; with it, segregation analysis becomes possible."}},
+            {"@type":"Question","name":"What is the Human Phenotype Ontology (HPO)?","acceptedAnswer":{"@type":"Answer","text":"HPO is a structured vocabulary of over 15,000 clinical phenotype terms, organised in a hierarchy, that supports precise description of a patient's clinical features. In rare disease diagnosis, HPO terms are used to define the proband's phenotype in a machine-readable form, which tools can then match against known phenotype-genotype associations to suggest candidate genes. HPO is maintained by the Monarch Initiative and is the standard phenotype vocabulary in rare disease research and clinical translation."}},
+            {"@type":"Question","name":"How do OMIM and HPO differ?","acceptedAnswer":{"@type":"Answer","text":"OMIM (Online Mendelian Inheritance in Man) is a catalogue of Mendelian disorders with gene associations and clinical summaries, maintained at Johns Hopkins. HPO is a vocabulary of the individual phenotypic features a patient might have. OMIM answers 'what diseases are known?' and HPO answers 'what features does this patient show?'. The two are connected: HPO maintains mappings from phenotype terms to OMIM diseases so that a cluster of HPO features can be matched to candidate OMIM entries."}},
+            {"@type":"Question","name":"When is Phenotips a better fit than Evagene for rare disease?","acceptedAnswer":{"@type":"Answer","text":"Phenotips's strength is deep HPO-driven phenotype capture with an established phenotype-to-gene suggestion pipeline. If your service's workflow is phenotype-first — for example, undiagnosed-disease programmes that rely on comprehensive HPO phenotyping to prioritise candidate genes — Phenotips is a strong fit. Evagene does not currently offer native HPO phenotype capture at the same depth."}},
+            {"@type":"Question","name":"When is Evagene a better fit than Phenotips for rare disease?","acceptedAnswer":{"@type":"Answer","text":"Evagene is stronger when the workflow is pedigree-first, when integrated BayesMendel risk models and Mendelian inheritance calculators are central, when AI-assisted clinical interpretation with bring-your-own-key LLMs matters, or when programmatic access via REST API, webhooks, MCP, or an embeddable viewer is valuable. For services that want a modern platform with a curated 180+ disease catalogue keyed to ICD-10 and OMIM, Evagene's data model is a good match."}},
+            {"@type":"Question","name":"Can Evagene and an HPO-first tool be used together?","acceptedAnswer":{"@type":"Answer","text":"Yes. Structural pedigree data can move between tools via GEDCOM or JSON. HPO terms attached to individuals can be carried forward into disease annotations or AI-interpretation prompts within Evagene. Services that want HPO depth and AI interpretation breadth sometimes use an HPO-first tool for phenotype capture and Evagene for pedigree-centred analysis and reporting."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="https://evagene.com/#resources" class="hover:text-brand-600 dark:hover:text-brand-300">Resources</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">Rare Disease Pedigree Software</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Rare disease pedigree software: pedigrees in the diagnostic odyssey</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">Why pedigree thinking remains central to rare and undiagnosed disease practice, how HPO and OMIM complement each other, and where Evagene sits alongside the phenotype-first tools that dominate the HPO workflow.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>13 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> In rare disease diagnosis, the pedigree is a tool for pattern-recognition that complements molecular analysis rather than replacing it. Consanguinity, affected-sibling patterns, and phenotype clustering across relatives narrow the candidate-gene space before sequencing; segregation analysis refines it after sequencing. Modern rare disease software supports either a phenotype-first workflow (HPO at the centre, with tools such as Phenotips) or a pedigree-first workflow (disease and family structure at the centre, with tools such as Evagene). This guide explains why the pedigree matters in rare disease, how HPO and OMIM complement each other, and where Evagene fits for teams whose workflow is pedigree-first or who want integrated AI-assisted interpretation.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">The diagnostic odyssey and the role of the pedigree</h2>
+
+            <p>"Diagnostic odyssey" is the term used across rare disease medicine for the long journey many patients and families undergo before reaching a diagnosis. It is not a single consultation, a single test, or a single specialty; it is often years of intermittent contact with a shifting set of services, tests that narrow candidates without confirming, and a slow accretion of phenotype detail. For the families living through it, the cost in time, uncertainty, and appropriate management is substantial.</p>
+
+            <p>Within that odyssey, the pedigree is one of the few tools that remains useful throughout. Early on, it helps triage: is this a one-off phenotype in an otherwise unremarkable family, or part of a pattern that suggests Mendelian inheritance? Mid-odyssey, it anchors molecular analysis: segregation of a candidate variant with disease across relatives strengthens or weakens the case for pathogenicity. Late in the odyssey, even when a molecular diagnosis is reached, the pedigree supports cascade testing and clinical management of relatives who may be affected, carriers, or at risk.</p>
+
+            <p>A precise, detailed, three- to four-generation pedigree also protects against cognitive shortcuts. Rare diseases are, individually, uncommon; clinicians rarely see two families with the same condition. The pedigree forces a clinician to confront the data rather than fit the family into an assumed pattern. Consanguinity detection, for example, is easy to miss in a quick history; a well-drawn pedigree surfaces it immediately and changes the differential toward autosomal recessive disease.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What a rare disease pedigree should capture</h2>
+
+            <p>Beyond the usual elements of any clinical pedigree, rare disease practice benefits from several specific capture points.</p>
+
+            <ul>
+                <li><strong>Consanguinity.</strong> First-cousin, second-cousin, or closer relationships between the proband's parents, grandparents, or earlier ancestors. Evagene detects consanguinity automatically using Wright's coefficient of inbreeding, which matters because the coefficient drives the prior probability of homozygosity at any given locus.</li>
+                <li><strong>Founder-population ancestry.</strong> Ethnic groups with founder mutations (Ashkenazi Jewish, French Canadian, Finnish, Old Order Amish, Afrikaner, and others) shift the pre-test probability for specific conditions. Record all four grandparents' ethnic origins.</li>
+                <li><strong>Affected-sibling patterns.</strong> Two affected siblings in a family with unaffected parents is a strong pointer to autosomal recessive inheritance. One affected parent and one or more affected children raises the probability of autosomal dominant inheritance, with reduced penetrance as a possibility.</li>
+                <li><strong>Ages of onset.</strong> Age at first feature, age at diagnosis, and progression notes. Many rare diseases have characteristic age-of-onset distributions.</li>
+                <li><strong>Early deaths.</strong> Stillbirths, neonatal deaths, infant deaths, childhood deaths. These sometimes represent unrecognised relatives with the same condition.</li>
+                <li><strong>Phenotype across relatives.</strong> Even subtle features in relatives — short stature, hearing loss, learning difficulty, unusual facial features — can cluster into a recognisable pattern that any one feature on its own does not.</li>
+                <li><strong>Reproductive history.</strong> Miscarriages, terminations for fetal abnormality, fertility difficulties.</li>
+            </ul>
+
+            <p>All of this is structured data. A pedigree drawn on paper captures some of it; a clinical pedigree platform captures it in a form that drives downstream analysis and reporting.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">HPO: the phenotype vocabulary of rare disease</h2>
+
+            <p>The Human Phenotype Ontology (HPO) is the standard vocabulary for describing a rare disease phenotype in a machine-readable form. Maintained by the Monarch Initiative, it contains over 15,000 terms organised in a hierarchy that ranges from broad ("Abnormality of the nervous system") to specific ("Cerebellar atrophy," "Pontine hypoplasia"). Each term has a stable identifier (HP:0000001 for the root, for example) and defined parents in the hierarchy, so tools can reason about specificity.</p>
+
+            <p>The practical value of HPO is that it lets software match a patient's features against known phenotype-gene and phenotype-disease associations. A patient with ten HPO terms attached to their record can be queried against OMIM and Orphanet to suggest which Mendelian diseases best fit the combination. Tools such as Phenotips are built around this workflow: capture HPO terms during the consultation, generate a ranked candidate list for the clinical geneticist to review, and iterate as new phenotype detail emerges.</p>
+
+            <p>HPO and OMIM complement each other. OMIM is the catalogue of diseases with gene associations; HPO is the vocabulary that describes what patients look like clinically. HPO maintains explicit mappings from phenotype terms to OMIM entries so that phenotype-first tools can present candidate diagnoses. A good rare disease workflow uses both vocabularies — HPO to describe the patient, OMIM to enumerate candidate conditions — and structures the pedigree around both.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Phenotype-first vs pedigree-first workflows</h2>
+
+            <p>In practice, rare disease services cluster around one of two centres of gravity.</p>
+
+            <p><strong>Phenotype-first workflows</strong> start with the patient's features. The clinician elicits, codes, and refines HPO terms; the software suggests candidate genes or diseases; the family history and molecular results are layered on top. This is the workflow championed by tools such as Phenotips and is particularly strong in undiagnosed-disease programmes, paediatric rare disease services, and research settings where phenotyping depth is the rate-limiting step.</p>
+
+            <p><strong>Pedigree-first workflows</strong> start with the family structure. The clinician builds a precise three- to four-generation pedigree with diagnoses, ages of onset, consanguinity, and ethnicity; the software flags inheritance patterns and computes risk; the phenotype is recorded as part of the proband's entry. This is the workflow of most cancer genetics services, cardiogenetics services, and reproductive genetics services, and it is the centre of gravity for Evagene.</p>
+
+            <p>Neither workflow is universally better. An undiagnosed-disease unit probably benefits more from HPO-first depth; a cancer genetics service probably benefits more from pedigree-first integration. Many rare disease services need both, and use one tool for each while keeping structural pedigree data in sync through <a href="gedcom-pedigree-software.html">GEDCOM</a> or JSON.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Where Evagene fits in rare disease</h2>
+
+            <p>Evagene is a pedigree-first platform. Its data model centres on the family structure, the disease catalogue (180+ conditions keyed to ICD-10 and OMIM), ethnicity, consanguinity, and the risk and inheritance analyses that run from those inputs. It does not currently offer native HPO phenotype capture at the depth of a dedicated phenotype-first tool; services whose rare disease workflow is HPO-centric will typically use a tool such as Phenotips for that layer.</p>
+
+            <p>Where Evagene adds value in rare disease is in three places.</p>
+
+            <p><strong>Disease catalogue and Mendelian analysis.</strong> The curated catalogue of 180+ diseases with ICD-10 and OMIM codes maps directly to OMIM entries, so rare Mendelian conditions can be annotated in a structured form. The <a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculator</a> computes carrier and affection probabilities for autosomal dominant, autosomal recessive, and X-linked recessive conditions across the pedigree, which is the bread and butter of rare disease counselling.</p>
+
+            <p><strong>AI-assisted clinical interpretation.</strong> Evagene's AI interpretation engine, driven by bring-your-own-key LLMs (Anthropic Claude, OpenAI GPT), generates structured interpretations that highlight features of the pedigree a clinician might want to consider — consanguinity, affected-sibling patterns, early deaths, features clustering across relatives. This is not a replacement for clinical judgement, and not a phenotype-to-gene engine in the HPO sense, but it is a drafting aid that helps a clinician work through a complex pedigree faster.</p>
+
+            <p><strong>Modern platform surfaces.</strong> A REST API, webhooks, an MCP server with pedigree tools for Claude Desktop and Claude Code, and an embeddable viewer let a rare disease service build the pedigree into downstream workflows: research dashboards, multidisciplinary team tooling, patient portals. For a service building its own AI agents or tooling, Evagene's platform layer is unusually accessible.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Comparing rare disease tools: a short orientation</h2>
+
+            <p>The rare disease pedigree software space clusters into three broad categories.</p>
+
+            <ul>
+                <li><strong>HPO-first platforms.</strong> Phenotips is the leading example. Deep HPO phenotype capture, phenotype-to-gene suggestion, enterprise EHR integration. Best fit: undiagnosed-disease programmes and phenotype-driven rare disease diagnostics.</li>
+                <li><strong>Pedigree-first clinical platforms.</strong> Evagene, Progeny, TrakGene, and others. Family structure, disease catalogue, integrated risk models, reporting. Best fit: services where pedigree construction and disease-by-disease analysis dominate the workflow.</li>
+                <li><strong>Research and exploratory tools.</strong> Exomiser, AMELIE, and similar variant-prioritisation pipelines. Not pedigree software in the clinical sense, but commonly used in combination with pedigree data in rare disease research.</li>
+            </ul>
+
+            <p>In practice, many rare disease services combine tools rather than using one exclusively. See <a href="phenotips-vs-evagene.html">our Phenotips vs Evagene comparison</a> for a detailed side-by-side on one common pairing.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene supports rare disease workflows</h2>
+
+            <p>For pedigree-first rare disease services, Evagene offers gesture drawing for fast pedigree construction during consultations, automatic <strong>consanguinity detection</strong> using Wright's coefficient of inbreeding, a curated <strong>180+ disease catalogue</strong> keyed to ICD-10 and OMIM, and AI-assisted clinical interpretation using your own LLM keys. The Mendelian inheritance calculator supports autosomal dominant, autosomal recessive, and X-linked recessive conditions and surfaces affected-sibling and carrier patterns automatically. <a href="batch-pedigree-risk-screening.html">Batch risk screening</a> can sweep the pedigree against the full disease catalogue with configurable thresholds, which is useful when the family presentation suggests a pattern but the clinician has not yet narrowed the differential.</p>
+
+            <p>Evagene also imports <a href="gedcom-pedigree-software.html">GEDCOM</a> files from genealogy platforms, 23andMe raw data for SNP-based trait inference, and <a href="pedigree-ocr.html">legacy pedigree images</a> via OCR, so a rare disease service can bring in data from previous clinicians or from families' own records. Exports (PDF, PNG, SVG, GEDCOM) and four report types support onward communication with colleagues, laboratories, and families.</p>
+
+            <p>For services whose rare disease practice is primarily HPO-driven, a phenotype-first platform such as Phenotips will be a better day-to-day fit; Evagene can complement such a platform through shared structural data. For services whose practice is primarily pedigree-first, whose disease catalogue spans a broad set of conditions (not only those with deep HPO descriptions), or who want AI-assisted interpretation with bring-your-own-key LLMs, Evagene is built to be the primary tool.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Why is a pedigree important in rare disease?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">The pedigree anchors pattern-recognition: consanguinity, affected-sibling patterns, early deaths, and phenotype clustering across relatives narrow the candidate-gene space before sequencing and support segregation analysis after it.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is HPO?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">The Human Phenotype Ontology is a structured vocabulary of over 15,000 clinical phenotype terms used to describe a rare disease patient in machine-readable form, driving phenotype-to-gene and phenotype-to-disease matching.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How do OMIM and HPO differ?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">OMIM catalogues Mendelian diseases and their gene associations; HPO names the individual phenotypic features. HPO maintains mappings from phenotype terms to OMIM diseases so the two complement each other in a rare disease workflow.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">When is Phenotips a better fit?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">For phenotype-first workflows with deep HPO phenotyping, Phenotips is a strong fit. Evagene does not currently offer native HPO capture at the same depth.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">When is Evagene a better fit?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">For pedigree-first workflows, integrated BayesMendel and Mendelian risk models, AI-assisted interpretation with bring-your-own-key LLMs, and modern platform surfaces (REST API, webhooks, MCP, embeddable viewer).</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can they be used together?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. Structural data can move between tools via GEDCOM or JSON, and HPO terms can be carried into Evagene's disease annotations and AI-interpretation prompts.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="phenotips-vs-evagene.html">Phenotips vs Evagene: clinical pedigree software comparison</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tool: from consultation to report</a></li>
+                <li><a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculator</a></li>
+                <li><a href="batch-pedigree-risk-screening.html">Batch pedigree risk screening</a></li>
+                <li><a href="hereditary-cardiac-pedigree.html">Hereditary cardiac pedigree</a></li>
+                <li><a href="karyogram-viewer.html">Karyogram viewer online</a></li>
+                <li><a href="pedigree-ocr.html">Pedigree OCR</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for rare disease practice</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. Free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

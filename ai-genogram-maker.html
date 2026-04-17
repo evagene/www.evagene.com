@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Genogram Maker — The Emerging AI Category (2026) | Evagene</title>
+    <meta name="description" content="AI-assisted genogram makers (GenogramAI, Cloudairy AI, ConceptViz) generate charts from natural language. AI clinical interpretation (Evagene) generates findings from the chart. Two different classes of AI — explained.">
+    <meta name="keywords" content="AI genogram maker, AI genogram, auto genogram generator, AI pedigree, AI family tree, AI family diagram, genogram AI">
+
+    <meta property="og:title" content="AI Genogram Maker — The Emerging AI Category">
+    <meta property="og:description" content="AI-generated charts versus AI-generated clinical interpretation: two different classes of AI in pedigree and genogram tools.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/ai-genogram-maker">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Genogram Maker">
+    <meta name="twitter:description" content="AI for genograms and pedigrees — two different categories.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/ai-genogram-maker">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"AI Genogram Maker: The Emerging AI Category",
+        "description":"A survey of AI-assisted genogram tools and the distinction from AI clinical interpretation.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/ai-genogram-maker"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Guides","item":"https://evagene.com/guides"},
+            {"@type":"ListItem","position":3,"name":"AI Genogram Maker","item":"https://evagene.com/ai-genogram-maker"}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"What is an AI genogram maker?","acceptedAnswer":{"@type":"Answer","text":"A tool that uses artificial intelligence, typically a large language model (LLM) or a purpose-built model, to generate a genogram chart from input — usually a natural-language description of a family, a transcript, or a questionnaire. Examples include GenogramAI, Cloudairy AI, and ConceptViz. The output is a visual chart showing family structure with annotations for the information the input described."}},
+            {"@type":"Question","name":"Are AI genograms clinically accurate?","acceptedAnswer":{"@type":"Answer","text":"Accuracy depends on the quality of the input and the specific tool. AI-generated genograms are useful for rapid sketching and for drafting a starting chart that a clinician then edits. They should not be relied on as the final clinical record without human review — the same rule that applies to any AI-generated clinical content. For clinical genetics use where inheritance patterns drive testing decisions, the standard of care remains clinician-drawn and clinician-reviewed pedigrees."}},
+            {"@type":"Question","name":"What is the difference between AI that makes a genogram and AI that reads a pedigree?","acceptedAnswer":{"@type":"Answer","text":"They are different classes of AI. AI genogram makers turn a description into a chart — input is text, output is a diagram. AI clinical interpretation (Evagene) takes an existing pedigree and generates a clinical narrative — input is a structured chart, output is a draft report covering findings, family implications, and recommendations. Both use large language models, but they serve different parts of the clinical workflow."}},
+            {"@type":"Question","name":"Can I use an AI genogram maker in a clinical setting?","acceptedAnswer":{"@type":"Answer","text":"For note-taking and drafting, yes — many clinicians sketch with AI tools in preparation for a consultation or as a rapid way to capture a family from a referral letter. For the final clinical record, the chart should be reviewed and validated in a clinical pedigree tool that supports NSGC notation and feeds downstream risk analysis. Do not send patient-identifiable information to a consumer AI tool without confirming your service's data governance allows it."}},
+            {"@type":"Question","name":"What are the limits of AI-generated genograms?","acceptedAnswer":{"@type":"Answer","text":"Ambiguous inputs produce ambiguous charts — a family description that says 'my grandmother had cancer' does not specify which grandmother or which cancer, and the AI will make a guess. AI tools vary in how faithfully they implement NSGC notation; some use generic family-tree symbols rather than clinical ones. Privacy is a concern for patient-identifiable input. Clinical interpretation of the chart (not just drawing it) is still a clinician's job."}},
+            {"@type":"Question","name":"Does Evagene have an AI genogram maker?","acceptedAnswer":{"@type":"Answer","text":"Evagene offers two AI surfaces that both differ from a pure AI genogram maker. First, pedigree-image OCR — upload a scanned or photographed pedigree and Evagene reconstructs it as structured data. Second, AI clinical interpretation with bring-your-own-key LLMs — given a constructed pedigree, Evagene generates a structured clinical narrative covering key findings, family implications, data gaps, and screening recommendations. Evagene does not currently offer generation of a pedigree from free-text family description; that is a design choice to keep the chart under clinician control."}},
+            {"@type":"Question","name":"What is BYOK and why does it matter for clinical AI?","acceptedAnswer":{"@type":"Answer","text":"BYOK — bring-your-own-key — means the clinical software sends AI requests using your own LLM provider account (Anthropic, OpenAI, or similar) rather than routing through the software vendor's account. Your organisation's contract with the LLM provider governs data handling, data residency, retention, and audit. This is important in clinical settings because it means the vendor of the clinical software is not a processor of your clinical text; the model provider is, under your existing contract."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="guides.html" class="hover:text-brand-600 dark:hover:text-brand-300">Guides</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">AI Genogram Maker</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">AI genogram maker: the emerging AI category</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">AI-assisted genogram tools have emerged rapidly alongside large language models. They fall into two distinct classes that are often conflated: AI that generates a chart from text input, and AI that generates a clinical interpretation from an existing chart. This page explains both, the main tools in each, and where the limits are.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>12 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> "AI genogram" means two different things. (1) <em>AI-generated charts</em>: tools like GenogramAI, Cloudairy AI, and ConceptViz take a natural-language description of a family and produce a visual diagram. Useful for rapid sketching, limited by the quality of the input. (2) <em>AI-generated clinical interpretation</em>: a tool takes an existing structured pedigree and generates a narrative clinical report — key findings, family implications, data gaps, recommendations. Evagene offers the second class with bring-your-own-key LLM support. Both are useful; neither replaces clinician judgement, and the clinical setting determines which matters more to your workflow.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Two different classes of AI</h2>
+
+            <p>AI for pedigrees and genograms in 2026 divides into two distinct problems:</p>
+
+            <div class="not-prose my-10 overflow-x-auto">
+                <table class="w-full text-sm border-collapse">
+                    <thead class="bg-brand-50 dark:bg-brand-900/50">
+                        <tr>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Class</th>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Input</th>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Output</th>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Representative tools</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 dark:text-gray-300">
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Chart generation</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Free-text family description, transcript, questionnaire</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">A visual diagram with shapes and relationships</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">GenogramAI, Cloudairy AI, ConceptViz</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Clinical interpretation</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Structured pedigree data</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">A clinical narrative (findings, implications, recommendations)</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Evagene AI interpretation</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Image recognition</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Scanned or photographed pedigree image</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Structured pedigree data reconstructed from the image</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Evagene pedigree OCR</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Agent integration</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">LLM agent request (Claude, GPT)</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Read / modify / analyse pedigree via tool calls</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Evagene MCP server (11 tools)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>These solve different problems. An AI chart generator makes the first draft of a diagram. An AI clinical interpreter reads a drawn chart and writes a clinical narrative. An image-recognition pipeline reconstructs a structured record from an existing picture. An AI agent integration lets an external AI assistant read or modify the pedigree as part of a larger workflow. They are not substitutes for each other.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">AI chart generation: how it works</h2>
+
+            <p>AI chart generators — GenogramAI, Cloudairy AI, ConceptViz, and increasingly also general-purpose tools like Claude and ChatGPT with diagram plugins — accept a free-text family description and produce a chart. Typical input:</p>
+
+            <blockquote>
+                <p>"My mother's side of the family has a lot of breast cancer. Her mother died of breast cancer at 52. Her aunt (my great-aunt) had ovarian cancer in her 60s. My mother's sister had bilateral breast cancer at 45. I am 38, female, with no breast cancer diagnosis but I have noticed a lump. I also have two brothers, one older and one younger."</p>
+            </blockquote>
+
+            <p>The AI parses the text, extracts individuals and relationships, and emits a diagram. The better tools use standard pedigree notation; less specialised tools fall back to generic family-tree shapes. The quality varies with input completeness, ambiguity, and whether the target chart is a therapy genogram (emotional relationships) or a clinical pedigree (affected status and age of onset).</p>
+
+            <p><strong>Strengths.</strong> Speed. A working first draft in seconds from a referral letter, session transcript, or patient questionnaire. Useful for teaching, for quick case notes, and for pre-consultation sketching.</p>
+
+            <p><strong>Limits.</strong> Ambiguous input produces ambiguous charts. "My grandmother had cancer" — which grandmother, which cancer, at what age? The AI guesses. Standard-notation fidelity varies between tools. Privacy matters: sending patient-identifiable family history to a consumer AI tool requires the same data-governance checks as any clinical text. Most AI chart generators do not feed downstream clinical risk models; the chart is a visual artefact, not a structured data record.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">AI clinical interpretation: a different problem</h2>
+
+            <p>The second class of AI — clinical interpretation — starts with an existing, structured pedigree (drawn by a clinician in a clinical pedigree tool) and generates a clinical narrative. The input is not free text; it is the structured data underlying the chart (individuals, relationships, affected status, age of onset, test results). The output is a draft report section covering key findings, inheritance pattern hypotheses, family implications, data gaps, and screening or testing recommendations.</p>
+
+            <p>This is a much more constrained problem than chart generation. The AI is not inferring who is related to whom; that is already known. The AI is reading the pedigree and articulating what a clinician would say about it, in a format suitable to be edited and sent into a clinical report.</p>
+
+            <p>Evagene implements this with <strong>bring-your-own-key (BYOK) LLM support</strong>. Your service provides its own Anthropic or OpenAI API credentials; Evagene sends the structured pedigree and its analysis prompts to your chosen model; the narrative returns to you. The Evagene vendor is not a processor of your clinical text — the LLM provider is, under your existing contract with them. See our <a href="hereditary-cancer-risk-assessment.html">cancer risk assessment guide</a> for how AI interpretation sits alongside Bayesian risk models in Evagene's workflow.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Image recognition: reconstructing a pedigree from a picture</h2>
+
+            <p>The third class — pedigree OCR — addresses a common real-world problem: a paper pedigree or a scanned image exists, and the service wants it in the clinical pedigree software as structured data. Evagene's pedigree OCR reconstructs the chart: parsing shapes, recognising affected status, reading annotations, and rebuilding the family structure in Evagene's data model.</p>
+
+            <p>This is an image-recognition problem with clinical-notation prior knowledge, not pure LLM generation. It complements the other AI classes — once the chart is structured, AI interpretation can run on it, AI agents can query it, and the chart lives in the same data store as pedigrees drawn from scratch.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Agent integration: MCP and the "AI assistant reads my pedigree" workflow</h2>
+
+            <p>A newer class again is <strong>agent integration</strong>: exposing pedigree tools to an AI agent like Claude Desktop or Claude Code via the Model Context Protocol (MCP) so that the clinician's AI assistant can read, modify, and analyse a pedigree directly. Evagene ships an MCP server with 11 pedigree tools. A clinician asks their AI assistant something like:</p>
+
+            <blockquote>
+                <p>"Look at the pedigree for the Smith family in Evagene. What inheritance patterns are compatible with the phenotype distribution? Draft a paragraph for the clinical letter."</p>
+            </blockquote>
+
+            <p>The AI assistant calls the Evagene MCP tools to fetch the pedigree, runs the pattern identifier, and drafts the paragraph. This is a different clinical AI surface from a direct "AI interpretation" button — it puts the pedigree at the disposal of a broader AI workflow that the clinician manages.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Main AI chart-generation tools</h2>
+
+            <ul>
+                <li><strong>GenogramAI.</strong> Purpose-built AI genogram generator aimed at family therapists. Emphasises genogram-style emotional-relationship vocabulary. Accepts text descriptions and produces a genogram chart with annotations.</li>
+                <li><strong>Cloudairy AI.</strong> General-purpose AI diagram tool that includes genogram and family-tree modes. Broader diagramming capability beyond genograms.</li>
+                <li><strong>ConceptViz.</strong> AI visualisation tool that includes family-tree and pedigree generation among other diagram types. Useful for teaching contexts.</li>
+                <li><strong>General LLMs (Claude, ChatGPT).</strong> Describe a family and ask for a genogram in text form (ASCII diagram or description that can be drawn in a pedigree tool). Fast for sketching, limited by the LLM's symbol knowledge.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">Where the limits are</h2>
+
+            <p><strong>Clinical accuracy.</strong> AI chart generation is a drafting tool, not a replacement for clinician-drawn pedigrees. For teaching, for rapid note-taking, for drafting a chart that a clinician will then edit, it is useful. For the clinical record on which testing decisions are based, the chart should be constructed or verified in a clinical pedigree tool with structured data and NSGC notation enforcement.</p>
+
+            <p><strong>Privacy.</strong> AI services handle input text according to their own data policies. Consumer AI tools may or may not train on user input; vendor AI tools under enterprise agreements generally do not. Before sending patient-identifiable family history to an AI tool, confirm: (a) your organisation's data governance policy permits it; (b) the AI vendor's contract covers clinical data handling appropriately; (c) the input is minimised to what the AI needs.</p>
+
+            <p><strong>Standard notation.</strong> Tools vary in how faithfully they implement NSGC pedigree notation versus generic family-tree symbols. For clinical use, NSGC-compliant output is expected; general-purpose AI tools may not meet that bar without specific prompting.</p>
+
+            <p><strong>Clinical interpretation versus chart drawing.</strong> An AI that drew the chart did not interpret it clinically. Inheritance pattern, cancer risk, variant classification, testing recommendation — these require clinician judgement or, with appropriate safeguards, AI clinical interpretation tools that run on the structured chart.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene supports this</h2>
+
+            <p>Evagene's AI strategy is different in class from the chart-generation tools. Rather than generating a chart from text, Evagene provides three AI surfaces that each serve a structured-data workflow:</p>
+
+            <ul>
+                <li><strong>Pedigree image OCR.</strong> Upload a scanned or photographed pedigree, Evagene reconstructs it as structured data. The chart becomes a first-class record, not a static image.</li>
+                <li><strong>AI clinical interpretation with BYOK LLMs.</strong> Given a constructed pedigree, Evagene generates a structured clinical narrative covering key findings, family implications, data gaps, and screening recommendations. BYOK means your LLM account (Anthropic, OpenAI) handles the traffic under your existing contract; Evagene stores keys encrypted at rest with Fernet. <strong>Analysis Templates</strong> let a service codify its house style of report-writing and reuse across cases.</li>
+                <li><strong>MCP server with 11 pedigree tools.</strong> AI assistants (Claude Desktop, Claude Code, and any MCP-compatible agent) can read, modify, and analyse Evagene pedigrees as part of broader clinician workflows. A clinician can ask their AI to pull a case, run a pattern check, and draft a report section — without leaving their AI assistant.</li>
+            </ul>
+
+            <p>Evagene does not currently offer AI generation of a pedigree from free-text family description. This is a deliberate design choice: for the clinical record, the chart should be clinician-constructed (or OCR-reconstructed from a clinician-drawn original), not LLM-inferred from ambiguous text. For teaching, drafting, or pre-consultation sketching, dedicated AI chart-generation tools are the right choice and the chart can be imported into Evagene via OCR once finalised.</p>
+
+            <p>For services whose clinical AI needs centre on <em>interpretation</em> rather than <em>drawing</em>, Evagene's combination of BYOK clinical interpretation, Analysis Templates, and MCP agent integration covers most practical cases. For services whose needs centre on rapid text-to-chart sketching — particularly in therapy and teaching contexts — a dedicated AI genogram maker complements rather than competes with Evagene.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is an AI genogram maker?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">A tool that uses AI, typically a large language model, to generate a genogram chart from a natural-language description or other input. Examples include GenogramAI, Cloudairy AI, and ConceptViz.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Are AI genograms clinically accurate?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Useful for rapid sketching and drafting; should not replace clinician-drawn charts in the final clinical record without review. Accuracy depends on input quality.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is the difference between AI that makes a genogram and AI that reads a pedigree?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Chart generation turns text into a diagram. Clinical interpretation turns a diagram into a narrative report. Different classes of AI for different parts of the workflow.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can I use an AI genogram maker in a clinical setting?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">For note-taking and drafting, yes. For the final clinical record, chart should be reviewed in a clinical pedigree tool. Confirm patient-data governance before sending identifiable info to a consumer AI.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What are the limits of AI-generated genograms?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Ambiguous input produces ambiguous charts. Standard-notation fidelity varies. Privacy requires governance. Clinical interpretation remains a clinician's job.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does Evagene have an AI genogram maker?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Evagene offers AI clinical interpretation (BYOK), pedigree-image OCR, and MCP agent integration — not text-to-chart generation.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is BYOK and why does it matter for clinical AI?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Bring-your-own-key. Your own LLM account handles the traffic; the clinical software vendor is not a processor of your clinical text. Important for clinical data governance.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="genogram-vs-pedigree.html">Genogram vs pedigree</a></li>
+                <li><a href="medical-genogram-software.html">Medical genogram software</a></li>
+                <li><a href="hereditary-cancer-risk-assessment.html">Hereditary cancer risk assessment</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tools</a></li>
+                <li><a href="pedigree-drawing-software.html">Pedigree drawing software</a></li>
+                <li><a href="compare.html">Compare pedigree products</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

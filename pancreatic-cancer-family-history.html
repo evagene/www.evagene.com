@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pancreatic Cancer Family History — Hereditary Pancreatic Cancer Risk and Surveillance | Evagene</title>
+    <meta name="description" content="A clinical guide to pancreatic cancer family history: epidemiology, familial pancreatic cancer (FPC), associated syndromes (HBOC, Lynch, FAMMM, Peutz-Jeghers, hereditary pancreatitis), CAPS surveillance, PancPRO, and Evagene integration.">
+    <meta name="keywords" content="pancreatic cancer family history, familial pancreatic cancer risk, hereditary pancreatic cancer, FPC, PancPRO, CAPS surveillance, BRCA2 pancreatic cancer, PALB2, CDKN2A, STK11, Peutz-Jeghers, hereditary pancreatitis">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Pancreatic Cancer Family History — Hereditary Pancreatic Cancer Risk and Surveillance">
+    <meta property="og:description" content="A clinician's guide to pancreatic cancer family history, hereditary syndromes, CAPS surveillance, and pedigree-based risk calculation.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/pancreatic-cancer-family-history">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pancreatic Cancer Family History — Hereditary Pancreatic Cancer Risk">
+    <meta name="twitter:description" content="FPC, hereditary syndromes, CAPS surveillance, and how to calculate pedigree-based risk.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/pancreatic-cancer-family-history">
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD: Article -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"Pancreatic Cancer Family History: Hereditary Pancreatic Cancer Risk and Surveillance",
+        "description":"A clinical guide to pancreatic cancer family history, hereditary syndromes, CAPS surveillance, PancPRO, and Evagene's integrated workflow.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/pancreatic-cancer-family-history"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Risk Analysis","item":"https://evagene.com/#risk-analysis"},
+            {"@type":"ListItem","position":3,"name":"Pancreatic Cancer Family History","item":"https://evagene.com/pancreatic-cancer-family-history"}
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"How common is pancreatic cancer?","acceptedAnswer":{"@type":"Answer","text":"Pancreatic cancer is relatively uncommon compared with breast, colorectal, or lung cancer, but it is one of the most lethal cancers. Lifetime risk in the general population is approximately 1 to 2 percent in most high-income countries. Incidence rises steeply with age and is higher in men. Prognosis is poor: five-year survival has historically sat in single digits, although it is slightly higher in selected recent cohorts."}},
+            {"@type":"Question","name":"What is familial pancreatic cancer (FPC)?","acceptedAnswer":{"@type":"Answer","text":"FPC is a kindred with at least two first-degree relatives diagnosed with pancreatic ductal adenocarcinoma in the absence of another recognised hereditary cancer syndrome. FPC kindreds have substantially elevated pancreatic cancer risk compared with the general population, with risk rising with the number of affected first-degree relatives."}},
+            {"@type":"Question","name":"Which hereditary syndromes include pancreatic cancer?","acceptedAnswer":{"@type":"Answer","text":"Hereditary breast and ovarian cancer (BRCA1, BRCA2, PALB2), Lynch syndrome (MLH1, MSH2, MSH6, PMS2), familial atypical multiple mole melanoma (FAMMM, CDKN2A), Peutz-Jeghers syndrome (STK11), hereditary pancreatitis (PRSS1, SPINK1, CFTR), and Li-Fraumeni syndrome (TP53). ATM is also recognised as a contributor."}},
+            {"@type":"Question","name":"What are the red-flag family history patterns?","acceptedAnswer":{"@type":"Answer","text":"Two or more first-degree relatives with pancreatic cancer; any combination of pancreatic cancer with breast, ovarian, colorectal, endometrial, or melanoma in a kindred; early-onset pancreatic cancer (under 50); Ashkenazi Jewish heritage with pancreatic cancer; personal or family history of hereditary pancreatitis; and pedigree features suggesting Peutz-Jeghers or FAMMM syndromes."}},
+            {"@type":"Question","name":"What surveillance is offered to high-risk individuals?","acceptedAnswer":{"@type":"Answer","text":"The CAPS consortium publishes recommendations for surveillance of defined high-risk groups, typically annual endoscopic ultrasound or MRI/MRCP of the pancreas, starting at an age determined by genetic background and family history. Surveillance is resource-intensive and is best delivered within a multidisciplinary high-risk pancreatic clinic, ideally as part of a registered programme."}},
+            {"@type":"Question","name":"What is PancPRO?","acceptedAnswer":{"@type":"Answer","text":"PancPRO is a Bayesian risk calculator from the BayesMendel suite that estimates the probability of carrying a hypothetical autosomal dominant pancreatic cancer susceptibility gene, and projects future pancreatic cancer risk, from a family pedigree. PancPRO complements — rather than replaces — gene-specific panel testing for the specific genes now known to contribute."}},
+            {"@type":"Question","name":"How does Evagene support the workflow?","acceptedAnswer":{"@type":"Answer","text":"Evagene integrates PancPRO alongside BRCAPRO and MMRpro on the pedigree canvas, running all three directly on the same data in a batch-risk-screening operation. This means Lynch and HBOC patterns that coexist with pancreatic burden are surfaced automatically rather than requiring the clinician to remember to suspect them."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<!-- Navigation -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="https://evagene.com/#risk-analysis" class="hover:text-brand-600 dark:hover:text-brand-300">Risk Analysis</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">Pancreatic Cancer Family History</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Pancreatic cancer family history: hereditary pancreatic cancer risk and surveillance</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A clinical overview for hereditary cancer teams, gastroenterologists, and genetic counsellors — the epidemiology of pancreatic cancer, the FPC phenotype, the hereditary syndromes that include pancreatic cancer, CAPS surveillance guidance, and how Evagene's integrated PancPRO workflow fits.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>12 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> Pancreatic cancer carries one of the worst cancer prognoses and a correspondingly high value on early detection for those at elevated risk. Most pancreatic cancer is sporadic, but approximately 5 to 10 percent of cases cluster in families with recognisable hereditary patterns. Familial pancreatic cancer (FPC) is defined as two or more first-degree relatives with pancreatic ductal adenocarcinoma without another identified hereditary syndrome. Known syndromes include HBOC (BRCA2, BRCA1, PALB2), Lynch syndrome, FAMMM (CDKN2A), Peutz-Jeghers (STK11), hereditary pancreatitis (PRSS1 and others), and Li-Fraumeni. High-risk individuals may be candidates for CAPS-guided surveillance. Evagene integrates PancPRO alongside BRCAPRO and MMRpro on a single pedigree canvas, with batch risk screening catching overlapping syndromes automatically.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Pancreatic cancer: epidemiology and the clinical stakes</h2>
+
+            <p>Pancreatic ductal adenocarcinoma (PDAC) is uncommon relative to breast, colorectal, or lung cancer, but it is one of the most lethal cancers. Lifetime risk in the general population sits around 1 to 2 percent in most high-income countries. Incidence rises steeply with age; most diagnoses are in individuals over 60. Prognosis is poor: five-year survival has historically been in single digits, although contemporary cohort data put it slightly higher for cases diagnosed at early stages where curative surgical resection is possible.</p>
+
+            <p>The clinical consequence of this combination — common enough to matter, lethal enough that early detection is of disproportionate value — is that identifying the individuals and families at elevated risk is a high-yield task. Surveillance in unselected populations is not supported by current evidence; surveillance in specifically identified high-risk individuals is supported, and is where CAPS-guided programmes focus.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Familial pancreatic cancer (FPC)</h2>
+
+            <p><strong>Familial pancreatic cancer</strong> is the research-grade definition of a pancreatic cancer kindred: at least two first-degree relatives with pancreatic ductal adenocarcinoma, in the absence of another recognised hereditary cancer syndrome. Kindreds meeting this definition have substantially elevated pancreatic cancer risk over the general population baseline, and the magnitude of the excess risk scales with the number of affected first-degree relatives.</p>
+
+            <p>The qualitative pattern is that a single affected first-degree relative confers a modest multiplicative increase in lifetime risk over baseline; two affected first-degree relatives produce a larger increase; three or more produce substantial elevation, particularly when at least one diagnosis was at a young age. Precise figures should be drawn from published cohort data such as the NFPTR (National Familial Pancreas Tumour Registry) and European FPC registries, rather than committed to memory.</p>
+
+            <p>Importantly, the FPC phenotype is heterogeneous at the molecular level. Some FPC kindreds are driven by identifiable hereditary cancer syndrome genes (BRCA2 being the most common). Others have no identified pathogenic variant even on contemporary panels, suggesting that a meaningful fraction of the genetic architecture of hereditary pancreatic cancer remains to be characterised. This is one of the reasons PancPRO — a family-history-based model — remains clinically useful alongside gene-panel testing.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Hereditary syndromes that include pancreatic cancer</h2>
+
+            <p>Several well-recognised hereditary cancer syndromes include pancreatic cancer in their tumour spectrum. The common and clinically actionable contributors are as follows.</p>
+
+            <ul>
+                <li><strong>Hereditary breast and ovarian cancer (HBOC).</strong> BRCA2 pathogenic variants are the single most frequently identified genetic cause in FPC kindreds. BRCA1 and PALB2 also contribute. Families with pancreatic cancer alongside breast, ovarian, or aggressive prostate cancer should be evaluated for HBOC. See our <a href="brcapro-calculator.html">BRCAPRO calculator</a> and <a href="breast-cancer-family-history-calculator.html">breast cancer family history</a> pages.</li>
+                <li><strong>Lynch syndrome.</strong> Pancreatic cancer is part of the Lynch tumour spectrum. Kindreds with colorectal or endometrial plus pancreatic cancer should be evaluated for Lynch. See our <a href="lynch-syndrome-risk-calculator.html">Lynch syndrome risk calculator</a> and <a href="mmrpro-calculator.html">MMRpro calculator</a>.</li>
+                <li><strong>Familial atypical multiple mole melanoma (FAMMM).</strong> Caused by pathogenic variants in CDKN2A, this syndrome combines melanoma predisposition with elevated pancreatic cancer risk. A family with melanoma plus pancreatic cancer should raise FAMMM in the differential.</li>
+                <li><strong>Peutz-Jeghers syndrome.</strong> Caused by STK11 pathogenic variants, with mucocutaneous pigmentation and hamartomatous polyps as distinctive features. Peutz-Jeghers carries elevated risk of pancreatic, breast, gastrointestinal, and gynaecological cancers.</li>
+                <li><strong>Hereditary pancreatitis.</strong> Caused predominantly by PRSS1 pathogenic variants (autosomal dominant), with contributions from SPINK1 and CFTR. Chronic pancreatic inflammation from childhood onwards elevates pancreatic cancer risk over decades, with particularly high risk in long-standing smokers from affected kindreds.</li>
+                <li><strong>Li-Fraumeni syndrome.</strong> Rare in FPC but occasionally identified, associated with TP53 pathogenic variants.</li>
+                <li><strong>ATM.</strong> Heterozygous ATM pathogenic variants confer moderately elevated pancreatic cancer risk and are included on contemporary panels.</li>
+            </ul>
+
+            <p>A contemporary hereditary pancreatic cancer gene panel typically covers BRCA1, BRCA2, PALB2, ATM, CDKN2A, STK11, TP53, the Lynch mismatch repair genes, and the hereditary pancreatitis genes. Even with a comprehensive panel, a substantial fraction of FPC kindreds have no identified pathogenic variant.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Red-flag family history patterns</h2>
+
+            <p>The features in a family history that should prompt referral and formal hereditary pancreatic cancer evaluation include:</p>
+
+            <ul>
+                <li>Two or more first-degree relatives with pancreatic cancer.</li>
+                <li>Any first-degree relative with pancreatic cancer combined with breast, ovarian, colorectal, endometrial, or melanoma in the kindred.</li>
+                <li>Early-onset pancreatic cancer (under 50) in any relative.</li>
+                <li>Ashkenazi Jewish heritage with any pancreatic cancer in the family.</li>
+                <li>Personal or family history of hereditary pancreatitis, particularly long-standing chronic pancreatitis from childhood.</li>
+                <li>Pedigree features of Peutz-Jeghers (mucocutaneous pigmentation, hamartomatous polyps).</li>
+                <li>Pedigree features of FAMMM (multiple atypical melanocytic naevi, melanoma, pancreatic cancer).</li>
+                <li>Known pathogenic variant in BRCA1, BRCA2, PALB2, CDKN2A, STK11, ATM, or a Lynch gene in a first-degree relative.</li>
+            </ul>
+
+            <p>These patterns are triggers for specialist referral. Formal quantitative risk assessment and panel testing follow.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">CAPS surveillance: who, when, how</h2>
+
+            <p>The <strong>International Cancer of the Pancreas Screening (CAPS) consortium</strong> publishes and updates consensus recommendations for pancreatic cancer surveillance in defined high-risk groups. The groups for whom surveillance is considered include FPC kindred members meeting defined criteria, carriers of specific hereditary cancer syndrome genes with or without a family history of pancreatic cancer, individuals with hereditary pancreatitis, and individuals with Peutz-Jeghers syndrome.</p>
+
+            <p>The typical surveillance programme is annual imaging with endoscopic ultrasound (EUS) or MRI/MRCP of the pancreas, starting at an age determined by the specific genetic background and family history. For example, surveillance may start earlier in Peutz-Jeghers or hereditary pancreatitis than in FPC kindreds without an identified gene. The specific age cut-offs and surveillance intervals are set by the prevailing CAPS consensus and local commissioning — services should follow current published guidance rather than committed figures.</p>
+
+            <p>Surveillance carries real costs. It is resource-intensive, requires specific endoscopic and radiological expertise, and can generate findings of uncertain significance (small cystic lesions, for example) that lead to invasive follow-up. CAPS and equivalent guidance emphasise that surveillance should be delivered within a multidisciplinary high-risk pancreatic clinic, ideally linked to a registry programme, with clear informed consent about the uncertainties.</p>
+
+            <p>PancPRO contributes to surveillance decisions by quantifying family-history-based risk in families without an identified gene, or by complementing gene-panel results where one is found. See our <a href="pancpro-calculator.html">PancPRO calculator guide</a> for the underlying methodology.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Modifiable risk factors</h2>
+
+            <p>Hereditary pancreatic cancer risk sits on top of an environmental baseline that is partially modifiable. Key modifiable factors are:</p>
+
+            <ul>
+                <li><strong>Smoking.</strong> The single most consequential modifiable risk factor for pancreatic cancer. It interacts multiplicatively with inherited risk, and in hereditary pancreatitis kindreds in particular, smoking cessation is of disproportionate value.</li>
+                <li><strong>Heavy alcohol use.</strong> Associated with chronic pancreatitis which itself elevates pancreatic cancer risk.</li>
+                <li><strong>Obesity and long-standing diabetes.</strong> Both are associated with modestly elevated risk.</li>
+                <li><strong>Chronic pancreatitis</strong> of any cause, not only hereditary.</li>
+            </ul>
+
+            <p>Risk counselling in high-risk individuals should address these factors alongside genetic counselling and surveillance planning.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">From family history to clinical action: the workflow</h2>
+
+            <p>A typical workflow for a hereditary pancreatic cancer evaluation proceeds in stages. First, construct a three-generation pedigree on both parental lineages, annotated with every cancer (pancreatic, breast, ovarian, colorectal, endometrial, melanoma, stomach, prostate, and others), ages at diagnosis, vital status, and ethnicity. Capture personal and family history of chronic pancreatitis explicitly because the hereditary pancreatitis differential can be missed otherwise.</p>
+
+            <p>Second, identify the candidate syndromes. Pancreatic plus breast or ovarian suggests HBOC. Pancreatic plus colorectal or endometrial suggests Lynch. Pancreatic plus melanoma suggests FAMMM. Pancreatic with mucocutaneous pigmentation or childhood polyps suggests Peutz-Jeghers. Pancreatic with childhood-onset recurrent pancreatitis suggests hereditary pancreatitis.</p>
+
+            <p>Third, run the appropriate quantitative models. BRCAPRO for HBOC, MMRpro for Lynch, PancPRO for family-history-weighted pancreatic susceptibility. Ideally these run on the same pedigree in a single operation.</p>
+
+            <p>Fourth, proceed with appropriate gene-panel testing for identified candidates. Where a pathogenic variant is found, cascade testing of first-degree relatives follows.</p>
+
+            <p>Fifth, for individuals identified as high-risk by PancPRO or by a confirmed gene finding, discuss surveillance within a multidisciplinary high-risk pancreatic clinic per CAPS guidance.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene integrates pancreatic cancer risk workflows</h2>
+
+            <p>Evagene is designed for exactly this multi-syndrome evaluation. The pedigree is drawn once on a browser-based canvas using standard clinical notation, with disease annotation against ICD-10 and OMIM codes across a 180-plus disease catalogue that includes pancreatic adenocarcinoma, the various melanoma subtypes, the Lynch spectrum, hereditary pancreatitis, Peutz-Jeghers and FAMMM in its own right, and more.</p>
+
+            <p>From the same pedigree, <strong>batch risk screening</strong> runs BRCAPRO (for HBOC / BRCA2 pancreatic contribution), MMRpro (for Lynch pancreatic contribution), PancPRO (for family-history-weighted pancreatic susceptibility), and Mendelian inheritance analyses across the full disease catalogue — all in one operation, with configurable thresholds that flag conditions for clinician attention. A pedigree where the clinician's initial suspicion was pancreatic but which actually fits an FAMMM pattern, or a Peutz-Jeghers pattern, has that suspicion raised automatically rather than depending on the clinician remembering to consider it.</p>
+
+            <p>The BayesMendel models (BRCAPRO, MMRpro, PancPRO) run in an R sidecar process that invokes the validated upstream R package, so the underlying calculations are the same as those in peer-reviewed research and clinical guidelines. Mendelian inheritance calculators cover autosomal dominant, autosomal recessive, and X-linked recessive conditions — useful when the differential widens beyond the cancer syndromes (hereditary pancreatitis's autosomal dominant inheritance, for example).</p>
+
+            <p><strong>AI interpretation</strong> with bring-your-own-key large language models (Anthropic Claude, OpenAI GPT) drafts structured clinical summaries combining pedigree findings with risk results, framing the candidate syndromes, suggesting panels, and surfacing data gaps. Traffic goes directly to the LLM provider you contract with; Evagene's role is orchestration and prompt templating, not intermediating clinical text.</p>
+
+            <p>For programmatic use, all of the above is available through the REST API and MCP server, supporting EHR integrations, research pipelines, and AI agents. Documentation is at <a href="https://evagene.net/help">evagene.net/help</a>. Evagene is browser-based, zero install, and free during Alpha via <a href="https://evagene.com/#waitlist">the waiting list</a>.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How common is pancreatic cancer?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Lifetime risk in the general population is roughly 1 to 2 percent in most high-income countries. Incidence rises with age. Prognosis is poor; five-year survival has historically been in single digits.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is FPC?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Familial pancreatic cancer: two or more first-degree relatives with pancreatic ductal adenocarcinoma in the absence of another identified hereditary syndrome. Risk scales with the number of affected first-degree relatives.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Which hereditary syndromes include pancreatic cancer?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">HBOC (BRCA2, BRCA1, PALB2), Lynch syndrome, FAMMM (CDKN2A), Peutz-Jeghers (STK11), hereditary pancreatitis (PRSS1, SPINK1, CFTR), and Li-Fraumeni. ATM is also recognised as a contributor.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What are the red-flag patterns?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Two or more first-degree pancreatic cancer cases; pancreatic plus breast/ovarian/colorectal/endometrial/melanoma; early-onset pancreatic cancer; Ashkenazi Jewish heritage; hereditary pancreatitis history; features of Peutz-Jeghers or FAMMM.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What surveillance is offered?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">CAPS-guided annual endoscopic ultrasound or MRI/MRCP for defined high-risk groups, delivered within a multidisciplinary clinic. Starting age depends on genetic background.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is PancPRO?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">A Bayesian family-history-based pancreatic cancer susceptibility calculator from the BayesMendel suite. Complementary to gene-panel testing.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How does Evagene support the workflow?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">PancPRO, BRCAPRO, and MMRpro integrated on the pedigree canvas, run together in batch screening across a 180+ disease catalogue, with AI-drafted reports and REST API / MCP programmatic access.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="pancpro-calculator.html">PancPRO calculator</a></li>
+                <li><a href="brcapro-calculator.html">BRCAPRO calculator</a></li>
+                <li><a href="mmrpro-calculator.html">MMRpro calculator</a></li>
+                <li><a href="lynch-syndrome-risk-calculator.html">Lynch syndrome risk calculator</a></li>
+                <li><a href="breast-cancer-family-history-calculator.html">Breast cancer family history calculator</a></li>
+                <li><a href="ovarian-cancer-family-history-calculator.html">Ovarian cancer family history calculator</a></li>
+                <li><a href="hereditary-cancer-risk-assessment.html">Hereditary cancer risk assessment</a></li>
+                <li><a href="pedigree-drawing-software.html">Pedigree drawing software</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tool</a></li>
+                <li><a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculator</a></li>
+                <li><a href="gedcom-pedigree-software.html">GEDCOM pedigree software</a></li>
+                <li><a href="phenotips-vs-evagene.html">Phenotips vs Evagene comparison</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<!-- CTA -->
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate pancreatic cancer family history from a single pedigree</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. Browser-based, zero install, free during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

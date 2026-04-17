@@ -79,6 +79,72 @@ Full platform documentation: https://evagene.net/help/platform_overview
 - [Mendelian Inheritance Calculator](https://evagene.com/mendelian-inheritance-calculator.html) — Autosomal dominant, autosomal recessive, and X-linked inheritance models
 - [Platform & Integrations](https://evagene.com/platform.html) — API keys, BYOK LLM, webhooks, analysis templates, MCP server, embeddable viewer
 
+## Comparisons & Alternatives
+
+Honest side-by-side and alternatives guides for every major clinical pedigree platform. Claims about competitors are drawn from their public websites as of April 2026.
+
+- [Compare Evagene](https://evagene.com/compare.html) — hub listing every Evagene-vs-X comparison
+- [Alternatives field guides](https://evagene.com/alternatives.html) — "alternatives-to-X" guides (Phenotips, Progeny, TrakGene, FamGenix, CanRisk, GenoPro, PedigreeTool, QuickPed)
+- [BOADICEA vs BRCAPRO](https://evagene.com/boadicea-vs-brcapro.html) — the two leading BRCA risk models compared honestly
+
+## Best-of Guides
+
+- [Best pedigree software 2026](https://evagene.com/best-pedigree-software-2026.html)
+- [Best free pedigree makers](https://evagene.com/best-free-pedigree-makers.html)
+- [Best pedigree software for genetic counsellors](https://evagene.com/best-pedigree-software-for-genetic-counsellors.html)
+- [Best pedigree software for hospitals](https://evagene.com/best-pedigree-software-for-hospitals.html)
+- [Best pedigree software for oncology](https://evagene.com/best-pedigree-software-for-oncology.html)
+- [Best pedigree software for research](https://evagene.com/best-pedigree-software-for-research.html)
+- [Best hereditary cancer risk tools](https://evagene.com/best-hereditary-cancer-risk-tools.html)
+- [Best clinical genetics software](https://evagene.com/best-clinical-genetics-software.html)
+
+## Risk & Inheritance Calculators
+
+- [BRCAPRO calculator](https://evagene.com/brcapro-calculator.html) · [MMRpro](https://evagene.com/mmrpro-calculator.html) · [PancPRO](https://evagene.com/pancpro-calculator.html)
+- [Lynch syndrome risk calculator](https://evagene.com/lynch-syndrome-risk-calculator.html)
+- [Breast cancer family history calculator](https://evagene.com/breast-cancer-family-history-calculator.html) · [Ovarian](https://evagene.com/ovarian-cancer-family-history-calculator.html) · [Pancreatic](https://evagene.com/pancreatic-cancer-family-history.html)
+- [Tyrer-Cuzick alternative](https://evagene.com/tyrer-cuzick-alternative.html) · [BOADICEA alternative](https://evagene.com/boadicea-alternative.html)
+- [Autosomal dominant](https://evagene.com/autosomal-dominant-calculator.html) · [Autosomal recessive](https://evagene.com/autosomal-recessive-calculator.html) · [X-linked recessive](https://evagene.com/x-linked-recessive-calculator.html)
+- [Carrier probability](https://evagene.com/carrier-probability-calculator.html) · [Consanguinity / Wright's coefficient](https://evagene.com/consanguinity-calculator.html)
+- [Inheritance pattern identifier](https://evagene.com/inheritance-pattern-identifier.html)
+
+## For Specific Users
+
+- [For clinical geneticists](https://evagene.com/for-clinical-geneticists.html)
+- [For genetic counsellors](https://evagene.com/for-genetic-counsellors.html)
+- [For oncologists](https://evagene.com/for-oncologists.html)
+- [For general practitioners](https://evagene.com/for-general-practitioners.html)
+- [For research geneticists](https://evagene.com/for-research-geneticists.html)
+- [For genetic nurses](https://evagene.com/for-genetic-nurses.html)
+- [For genealogists](https://evagene.com/for-genealogists.html)
+- [For educators and students](https://evagene.com/for-educators-students.html)
+- [For patients and families](https://evagene.com/for-patients-families.html)
+
+## Platform & Developer Guides
+
+- [Pedigree REST API](https://evagene.com/pedigree-api.html) · [Webhooks & events](https://evagene.com/platform.html)
+- [Pedigree MCP server (Claude Desktop, Claude Code)](https://evagene.com/pedigree-mcp-server.html)
+- [LLM pedigree analysis with BYOK](https://evagene.com/llm-pedigree-analysis.html)
+- [Embeddable pedigree viewer](https://evagene.com/embeddable-pedigree-viewer.html)
+- [HL7 FHIR pedigree](https://evagene.com/hl7-fhir-pedigree.html) · [EHR integration](https://evagene.com/ehr-pedigree-integration.html)
+- [GEDCOM to pedigree converter](https://evagene.com/gedcom-to-pedigree-converter.html) · [Phenopackets](https://evagene.com/phenopackets-pedigree.html)
+
+## Notation & Tutorial References
+
+- [How to draw a pedigree chart](https://evagene.com/how-to-draw-a-pedigree-chart.html) · [5 simple steps](https://evagene.com/pedigree-chart-5-steps.html)
+- [Pedigree symbols reference](https://evagene.com/pedigree-symbols-reference.html) · [Pedigree chart examples](https://evagene.com/pedigree-chart-examples.html)
+- [NSGC pedigree notation](https://evagene.com/nsgc-pedigree-notation.html) · [ISCN pedigree symbols](https://evagene.com/iscn-pedigree-symbols.html) · [Standard pedigree nomenclature](https://evagene.com/standard-pedigree-nomenclature.html)
+- [Three-generation family history](https://evagene.com/three-generation-family-history.html) · [Gender-inclusive pedigree drawing](https://evagene.com/gender-inclusive-pedigree-drawing.html)
+
+## Specialised & Country Guides
+
+- [Rare disease pedigree software](https://evagene.com/rare-disease-pedigree-software.html) · [Hereditary cardiac pedigree](https://evagene.com/hereditary-cardiac-pedigree.html)
+- [Karyogram viewer](https://evagene.com/karyogram-viewer.html) · [Pedigree OCR](https://evagene.com/pedigree-ocr.html) · [Batch risk screening](https://evagene.com/batch-pedigree-risk-screening.html)
+- [Genogram vs pedigree](https://evagene.com/genogram-vs-pedigree.html) · [Medical genogram software](https://evagene.com/medical-genogram-software.html)
+- [23andMe pedigree import](https://evagene.com/23andme-pedigree-import.html) · [Medical family tree](https://evagene.com/medical-family-tree.html) · [Family health history online](https://evagene.com/family-health-history-online.html)
+- [Pedigree software for the NHS](https://evagene.com/pedigree-software-nhs.html) · [Pedigree software for UK clinicians](https://evagene.com/pedigree-software-uk-clinicians.html)
+
 ## Optional
 
 - [Full documentation](https://evagene.com/llms-full.txt)
+- [XML sitemap](https://evagene.com/sitemap.xml) — complete list of all indexable pages

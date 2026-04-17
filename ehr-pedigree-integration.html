@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EHR Pedigree Integration: Epic, Cerner, SMART-on-FHIR, Embed Patterns (2026) | Evagene</title>
+    <meta name="description" content="A practical guide to integrating pedigree software with EHRs: Epic App Orchard and Oracle Health (Cerner) patterns, SMART-on-FHIR launch, iframe embedding, REST API sync, and webhook-driven updates. Honest about what's enterprise-grade today.">
+    <meta name="keywords" content="EHR pedigree integration, pedigree software Epic, pedigree Cerner, pedigree in EHR, SMART on FHIR pedigree, Epic App Orchard pedigree, Oracle Health genetics, pedigree viewer EHR embed, clinical genetics EHR, pedigree webhook integration">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="EHR Pedigree Integration — Epic, Cerner, SMART-on-FHIR Patterns">
+    <meta property="og:description" content="Integration approaches for pedigree software and EHRs: native app, SMART-on-FHIR, iframe embed, and REST/webhook sync. What's realistic today.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/ehr-pedigree-integration">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="EHR Pedigree Integration — Evagene">
+    <meta name="twitter:description" content="Epic, Cerner, SMART-on-FHIR, iframe, and API patterns for pedigree software in the EHR.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/ehr-pedigree-integration">
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'], mono:['JetBrains Mono','Fira Code','monospace'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD: Article -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"EHR Pedigree Integration: Epic, Cerner, SMART-on-FHIR, and Embed Patterns",
+        "description":"A practical guide to integrating pedigree software with major EHR systems using native apps, SMART-on-FHIR launch, iframe embedding, REST APIs, and webhook-driven synchronisation.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/ehr-pedigree-integration"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Platform","item":"https://evagene.com/platform"},
+            {"@type":"ListItem","position":3,"name":"EHR Pedigree Integration","item":"https://evagene.com/ehr-pedigree-integration"}
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"Can Evagene integrate with Epic?","acceptedAnswer":{"@type":"Answer","text":"Evagene is not currently listed in the Epic App Orchard / Showroom as a pre-packaged SMART-on-FHIR app. Integration today is built using Evagene's REST API and embeddable pedigree viewer, typically by the customer's integration team or by their Epic-side interface developers. The viewer can be embedded inside an Epic hyperspace web-content or Patient Portal (MyChart) context; structured data flows through the REST API; webhook notifications drive event-driven updates."}},
+            {"@type":"Question","name":"Can Evagene integrate with Oracle Health (Cerner)?","acceptedAnswer":{"@type":"Answer","text":"Same pattern as Epic. There is no pre-packaged Oracle Health connector today. Integration is via the REST API and embeddable viewer; webhooks push updates when pedigree data changes. Oracle Health's SMART-on-FHIR launch context can be accepted by a small adapter that exchanges the launch token for an Evagene session."}},
+            {"@type":"Question","name":"What does a realistic EHR integration look like day one?","acceptedAnswer":{"@type":"Answer","text":"The fastest path is: (1) embed the Evagene pedigree viewer as an iframe in a hyperspace or Oracle Health web-content frame, scoped to the patient's ID via a query parameter; (2) use the REST API to provision a pedigree when a genetics referral is created; (3) subscribe to the pedigree.updated and analysis.completed webhooks so the EHR can flag new clinical information. Bidirectional structured data sync (importing family history already captured in the EHR, pushing risk assessments back) is built incrementally on top."}},
+            {"@type":"Question","name":"Does Evagene support SMART-on-FHIR launch?","acceptedAnswer":{"@type":"Answer","text":"Not as a turnkey SMART app today. A SMART-on-FHIR-capable launch adapter can be built against Evagene's REST API. The launch context (iss, launch) is exchanged for a FHIR access token by the adapter, which then provisions or fetches the corresponding pedigree via Evagene's API and returns the embeddable viewer. Native SMART-on-FHIR support is on the roadmap."}},
+            {"@type":"Question","name":"What event types does Evagene emit?","acceptedAnswer":{"@type":"Answer","text":"Eight webhook events: pedigree.created, pedigree.updated, pedigree.deleted, individual.created, individual.updated, individual.deleted, analysis.completed, and import.completed. Each payload is HMAC-SHA256 signed with a per-webhook secret so receivers can verify authenticity."}},
+            {"@type":"Question","name":"Is the embeddable viewer secure enough for EHR use?","acceptedAnswer":{"@type":"Answer","text":"The embeddable viewer authenticates via API key (query parameter or header) or by marking a pedigree as public. For EHR use the API-key-authenticated mode is appropriate, combined with Content Security Policy headers, frame-ancestors restrictions, and usually a reverse proxy that scopes the viewer to the patient's session. Institutional governance review is still required; this is a pattern, not a certification."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<!-- Navigation -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="platform.html" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Platform</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="platform.html" class="hover:text-brand-600 dark:hover:text-brand-300">Platform</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">EHR Pedigree Integration</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">EHR pedigree integration: Epic, Cerner, SMART-on-FHIR, and the embed pattern</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A practical guide for clinical genetics IT teams on getting pedigree software into Epic, Oracle Health (Cerner), and similar EHRs, covering native-app, SMART-on-FHIR, iframe embed, and API+webhook patterns — and honest about which ones are realistic day one.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>12 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300 prose-code:text-brand-700 dark:prose-code:text-brand-300 prose-pre:bg-gray-900 prose-pre:text-gray-100">
+
+            <p><strong>Short version.</strong> There are four realistic integration patterns for getting pedigree software into a modern EHR: a native EHR app (Epic App Orchard / Showroom or Oracle Health's equivalent), a SMART-on-FHIR launched app, an embedded iframe inside a hyperspace or portal web-content frame, and a back-office REST API plus webhook synchronisation. Evagene's position today is that the embeddable pedigree viewer plus REST API plus webhooks is the primary integration surface; a SMART-on-FHIR launch adapter can be built on top in a small amount of code. A pre-packaged Epic or Oracle Health connector in their marketplaces is not available as of April 2026. This page walks through each pattern, what it costs to build, and what trade-offs it involves.</p>
+
+            <p>The question "does your pedigree software integrate with our EHR?" is almost never a yes/no — it is a question about which integration pattern fits the organisation's appetite, timeline, and governance constraints. We try to be straightforward about each one.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">The four integration patterns</h2>
+
+            <p>Regardless of vendor, EHR integration for a clinical data product sits on a spectrum:</p>
+
+            <ol>
+                <li><strong>Native EHR app.</strong> The product is published in the EHR's app marketplace (Epic App Orchard / Showroom, Oracle Health's equivalent) and installed by the hospital's IT department using the EHR's approved integration framework. Highest procurement legitimacy, longest lead time, strongest dependency on the EHR vendor's release cycle.</li>
+                <li><strong>SMART-on-FHIR app.</strong> The product accepts a SMART launch context from the EHR, exchanges it for a FHIR access token, and runs in a web frame inside the clinician's session. Good pattern for products that need clinical context (the patient, the encounter, the practitioner) without full EHR app status.</li>
+                <li><strong>Embedded iframe with signed session.</strong> The product runs outside the EHR but is displayed inside an EHR-hosted frame (hyperspace web-content, Oracle Health webframe, portal iframe) with the patient's context passed in via query parameter or signed URL. Simplest to implement; most common for phase-one integrations.</li>
+                <li><strong>Back-office REST API + webhook sync.</strong> No user-facing integration; the EHR and the pedigree platform exchange data through APIs and event notifications, typically wired together by an integration engine (Rhapsody, Mirth, Azure Integration Services, Cloverleaf). Important for data flow even when the UI integration is a simple iframe.</li>
+            </ol>
+
+            <p>In practice, production integrations combine patterns three and four: an iframe gives the clinician the pedigree view, the REST API plus webhooks keeps structured data in sync behind the scenes. Patterns one and two layer on top later.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Epic: App Orchard, Showroom, and hyperspace embedding</h2>
+
+            <p>Epic organises third-party products through its App Orchard / Showroom programme. Vendors listed there have completed Epic's technical and compliance review, and their apps can be installed into a hospital's Epic environment through documented processes. This is the gold-standard path for a pedigree platform that intends to sell to US academic medical centres at scale.</p>
+
+            <p>Evagene is not currently listed in Epic App Orchard or Showroom. Integration with Epic customers today is built using the generic patterns: embed the Evagene pedigree viewer in an Epic hyperspace web-content frame (a common and well-understood mechanism), and wire structured data flow through the REST API. The hyperspace frame passes in a token or identifier that the viewer uses to fetch the correct pedigree; the organisation's Epic interface team controls what context is passed.</p>
+
+            <p>For patient-facing use (MyChart), an iframe pointing at the Evagene viewer, authenticated via a short-lived scoped API key or a public read-only link, is the realistic approach day one. For clinician-facing use inside hyperspace, the same pattern with a write-scope token held server-side is common.</p>
+
+            <p>Being honest: a hospital IT department whose procurement policy requires a native App Orchard listing will not accept an iframe-plus-API integration until that listing exists. For those organisations, the integration is a future state — the roadmap and commercial conversation. For organisations whose procurement policy accepts "app plus documented integration pattern," the iframe-plus-API pattern is production-ready.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Oracle Health (Cerner): same shape, different marketplace</h2>
+
+            <p>Oracle Health (formerly Cerner) runs its own third-party programme with the same basic model: vetted apps in a marketplace, plus open integration via FHIR APIs and web frames. The iframe-plus-API pattern applies unchanged; the webframe and CCL / MPages context differ from Epic's hyperspace but the architectural shape is identical.</p>
+
+            <p>As with Epic, Evagene does not currently ship a pre-packaged Oracle Health connector. Integration with Oracle Health customers uses the REST API, webhooks, and embeddable viewer.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">SMART-on-FHIR: the open-standards middle path</h2>
+
+            <p>SMART-on-FHIR is the open standard for launching web apps from within an EHR with clinical context. A SMART-capable EHR presents the launching app with an <code>iss</code> (the FHIR server URL) and a <code>launch</code> parameter; the app exchanges these at the FHIR authorisation endpoint for an access token, and then queries FHIR resources on the clinician's behalf.</p>
+
+            <p>A SMART-on-FHIR front door for Evagene is a small adapter service. Its job is to accept the SMART launch, exchange the context for a FHIR token, resolve the patient's MRN or FHIR Patient ID to an Evagene pedigree (creating one if none exists via the REST API), and return the embeddable viewer URL in the launch response. In shape:</p>
+
+            <pre><code class="language-text">1. EHR redirects clinician to:
+   https://your-smart-launcher.example.org/launch?
+       iss=https://ehr.example.org/fhir&launch=abc123
+
+2. Launcher exchanges (iss, launch) for an access token via
+   the SMART authorisation server.
+
+3. Launcher fetches Patient/{id} from the EHR FHIR endpoint,
+   resolves MRN -&gt; Evagene pedigree via Evagene REST API.
+
+4. Launcher returns an HTML page that embeds:
+   &lt;iframe src="https://evagene.com/embed/pedigree/{id}
+       ?api_key=evg_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"&gt;
+</code></pre>
+
+            <p>The launcher is the trust boundary. The Evagene API key lives on its server; the iframe URL carries a scoped identifier. A production SMART launcher also handles session expiry, audit logging, and CSP.</p>
+
+            <p>Evagene does not ship this launcher today as a turnkey app, but the REST API and embeddable viewer are the building blocks. Teams that have already built SMART launchers for other apps typically port one in a week or two.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Embedded iframe with signed session</h2>
+
+            <p>For organisations that do not have a SMART-on-FHIR launcher (or do not need one yet), the simplest production pattern is:</p>
+
+            <ol>
+                <li>Clinician opens the patient record in the EHR.</li>
+                <li>A hyperspace web-content frame (or equivalent) is configured to load a URL like <code>https://your-integration.example.org/pedigree?mrn={{MRN}}</code>, where <code>{{MRN}}</code> is a hyperspace token substitution.</li>
+                <li>Your integration service receives the request, looks up the Evagene pedigree for that MRN (creating one via the REST API if none exists), and returns an HTML page containing the Evagene embed.</li>
+                <li>The embed authenticates using an API key held by your integration service — never exposed to the browser.</li>
+            </ol>
+
+            <p>The Evagene embeddable viewer supports three modes: iframe to a self-contained HTML page, a raw SVG endpoint (for lightweight use as an <code>img</code> or <code>object</code> source), and a JavaScript snippet that auto-discovers <code>data-evagene-pedigree</code> attributes on the page. For EHR embed, the iframe mode is the most common; for a read-only audit-log entry or a PDF export pipeline, the SVG mode is useful.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Webhook-driven updates</h2>
+
+            <p>Clinical data products in the EHR do not work well as static embeds. When the pedigree changes — a new affected relative is added, a risk analysis completes, a colleague imports a GEDCOM — downstream systems need to know. Evagene emits HMAC-SHA256-signed webhooks for eight event types:</p>
+
+            <ul>
+                <li><code>pedigree.created</code>, <code>pedigree.updated</code>, <code>pedigree.deleted</code></li>
+                <li><code>individual.created</code>, <code>individual.updated</code>, <code>individual.deleted</code></li>
+                <li><code>analysis.completed</code> (BRCAPRO, MMRpro, PancPRO, Mendelian, AI interpretation)</li>
+                <li><code>import.completed</code> (GEDCOM, 23andMe, XEG, image OCR)</li>
+            </ul>
+
+            <p>A webhook payload's shape (not a copy-paste contract):</p>
+
+            <pre><code class="language-json">POST /hooks/evagene  HTTP/1.1
+X-Evagene-Signature: sha256=3a7b...
+Content-Type: application/json
+
+{
+  "event": "analysis.completed",
+  "occurred_at": "2026-04-17T10:22:44Z",
+  "pedigree_id": "ped_9f2b...",
+  "analysis": {
+    "type": "brcapro",
+    "proband_id": "ind_1a3c...",
+    "result_summary": { ... }
+  }
+}
+</code></pre>
+
+            <p>Verify signatures using the per-webhook secret, dedupe by <code>(event, pedigree_id, occurred_at)</code>, and treat webhooks as hints: always read the definitive state from the REST API before acting, so a lost or reordered webhook does not corrupt state.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How this works in Evagene</h2>
+
+            <p>The practical recipe for an EHR integration with Evagene today:</p>
+
+            <ul>
+                <li><strong>Embed surface</strong>: the Evagene embeddable pedigree viewer (iframe, SVG, or JS snippet) sits inside the EHR's web-content area.</li>
+                <li><strong>Auth</strong>: a server-side scoped API key (<code>evg_&lt;43 chars&gt;</code>, read/write/analyse scopes, SHA-256 hashed at rest) held by the integration service.</li>
+                <li><strong>Data sync</strong>: REST API calls on provisioning (create pedigree on new referral, add individuals from EHR family history, attach disease codes).</li>
+                <li><strong>Events</strong>: webhooks drive downstream actions (file an EHR flowsheet row on <code>analysis.completed</code>, notify the clinician on <code>pedigree.updated</code>).</li>
+                <li><strong>AI</strong>: use Analysis Templates with variable injection (<code>{{pedigree_description}}</code>, <code>{{proband_name}}</code>) to generate a house-style interpretation that the EHR filing pipeline attaches to the record.</li>
+                <li><strong>BYOK</strong>: your organisation's own Anthropic or OpenAI key, encrypted with Fernet at rest, so LLM traffic stays within your data-processing agreements.</li>
+            </ul>
+
+            <p>For MCP-capable clinicians using <a href="pedigree-mcp-server.html">Evagene's MCP server</a> from within Claude Desktop or Claude Code, EHR-side integration is unnecessary for the AI workflow — the clinician operates on the pedigree directly from their AI workspace while the EHR sees the result via webhook.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can Evagene integrate with Epic?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Not as a pre-packaged App Orchard/Showroom app today. Integration is via hyperspace web-content iframe plus Evagene's REST API and webhooks. Institutions whose procurement requires a native listing will need to treat that as roadmap.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can Evagene integrate with Oracle Health (Cerner)?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Same pattern as Epic: iframe plus REST API plus webhooks today, no pre-packaged marketplace connector.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What does a realistic day-one EHR integration look like?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Embed the viewer in a web-content frame, provision pedigrees via REST API on referral, subscribe to pedigree.updated and analysis.completed webhooks. Bidirectional structured sync grows from there.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does Evagene support SMART-on-FHIR launch?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Not as a turnkey SMART app. A SMART launcher adapter sits naturally on top of the REST API; most integration teams build it in a small amount of code. Native SMART support is on the roadmap.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What webhook events does Evagene emit?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Eight: pedigree.* (created, updated, deleted), individual.* (created, updated, deleted), analysis.completed, import.completed. HMAC-SHA256 signed with a per-webhook secret.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is the embeddable viewer EHR-safe?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">The viewer is designed for embedding and supports API-key authentication; institutional governance review and appropriate CSP / frame-ancestors configuration is still your team's responsibility.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="platform.html">Evagene platform overview</a></li>
+                <li><a href="hl7-fhir-pedigree.html">HL7 FHIR and pedigree data</a></li>
+                <li><a href="pedigree-api.html">Pedigree REST API reference and patterns</a></li>
+                <li><a href="embeddable-pedigree-viewer.html">Embeddable pedigree viewer: iframe, SVG, and JS</a></li>
+                <li><a href="pedigree-mcp-server.html">Pedigree MCP server for AI agents</a></li>
+                <li><a href="phenotips-vs-evagene.html">Phenotips vs Evagene</a></li>
+            </ul>
+
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-8">Further reading: Evagene platform documentation at <a href="https://evagene.net/help/platform_overview">evagene.net/help/platform_overview</a>.</p>
+
+        </div>
+    </article>
+</main>
+
+<!-- CTA -->
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

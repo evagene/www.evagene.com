@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Family Tree — Record Your Health History | Evagene</title>
+    <meta name="description" content="A practical guide to recording a medical family tree for yourself, your GP, or a genetics referral. What to capture, how to share it, and how Evagene makes it easy to build a clinically useful health family tree online.">
+    <meta name="keywords" content="medical family tree, health family tree, family medical history tree, family health history, family history template">
+
+    <meta property="og:title" content="Medical Family Tree — Record Your Health History | Evagene">
+    <meta property="og:description" content="How to build a useful medical family tree for yourself, your GP, or a genetics referral — what to capture, how to share, and where Evagene fits.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/medical-family-tree">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Medical Family Tree — Record Your Health History">
+    <meta name="twitter:description" content="What to capture in a medical family tree and how to share it with your clinician.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/medical-family-tree">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"Medical Family Tree: Record Your Health History",
+        "description":"A guide to recording your family health history in a useful form, for yourself, your GP, and a possible genetics referral.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/medical-family-tree"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Resources","item":"https://evagene.com/#resources"},
+            {"@type":"ListItem","position":3,"name":"Medical Family Tree","item":"https://evagene.com/medical-family-tree"}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"What is a medical family tree?","acceptedAnswer":{"@type":"Answer","text":"A medical family tree is a diagram of your biological relatives across at least three generations annotated with health information relevant to you: diagnoses, ages of onset, ages at death, and cause of death where known. It is simpler than a clinical pedigree — which a genetic counsellor would draw using standardised symbols — but carries the same core information and is the most useful single document to take to a GP or genetics appointment."}},
+            {"@type":"Question","name":"Who should make a medical family tree?","acceptedAnswer":{"@type":"Answer","text":"Anyone with a family history of a heritable condition, anyone considering genetic testing, and anyone with a personal interest in their health risk. It is particularly useful before a consultation about unexplained symptoms, before starting a family, before a planned surgery in a familial-risk context, or before a genetics referral. Compiling one in advance saves clinical time and improves the accuracy of the history."}},
+            {"@type":"Question","name":"What should I include in a medical family tree?","acceptedAnswer":{"@type":"Answer","text":"At a minimum: full name, sex, year of birth, year and cause of death for deceased relatives, and any significant diagnoses with the age at onset. Extend to grandparents and great-grandparents where you can, and include siblings, aunts, uncles, and cousins. Record cancers by site and age, heart disease by type, mental health diagnoses, early deaths from any cause, and any known genetic test results or diagnoses in the family."}},
+            {"@type":"Question","name":"Does the NHS have a family health history template?","acceptedAnswer":{"@type":"Answer","text":"Health Education England and Genomics Education Programme have produced a physical family history template card that GPs and patients can use to collect a structured three-generation history. It covers the essentials — relatives, relationships, diagnoses, ages of onset — in a paper form. A digital medical family tree carries the same information and is easier to update, share, and refine over time."}},
+            {"@type":"Question","name":"How do I share a medical family tree with my GP or genetics clinic?","acceptedAnswer":{"@type":"Answer","text":"Print a PDF, email a shareable link, or bring the diagram on a laptop or phone to the appointment. A structured file (GEDCOM or PDF) is usually preferred to a handwritten summary because it is easier to read and scan into the clinical record. If you use Evagene, you can export as PDF, PNG, SVG, or GEDCOM, and you can also generate a short summary report designed for sharing with a clinician."}},
+            {"@type":"Question","name":"Is my family health history data private?","acceptedAnswer":{"@type":"Answer","text":"Your family health history is health information about you and your biological relatives and carries the same privacy expectations as any other health record. A well-designed platform should encrypt your data at rest and in transit, give you clear control over sharing, and let you export and delete your data at any time. Evagene encrypts stored data, gives you control over what you share and with whom, and lets you export in standard formats so your record is portable."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="https://evagene.com/#resources" class="hover:text-brand-600 dark:hover:text-brand-300">Resources</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">Medical Family Tree</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Medical family tree: how to record a useful health history</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A practical guide for patients and anyone preparing for a GP appointment, a genetics referral, or a family-health conversation. What to capture, how to capture it, and how to share it so a clinician can act on it.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>11 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> A medical family tree is a three-generation diagram of your biological relatives annotated with health information. It is simpler than a clinical pedigree drawn by a genetic counsellor, but it carries most of the same information and is the single most useful document you can bring to a GP or genetics clinic. This guide explains what to include, how to gather it, how to present it to a clinician, and how a modern digital tool can make the process easier than a paper template or a spreadsheet.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Why a medical family tree is worth the effort</h2>
+
+            <p>The phrase "family history" is used so often in clinical medicine that its value can be taken for granted. For many conditions — breast, ovarian, bowel, and pancreatic cancer, cardiomyopathy, sudden cardiac death, early-onset dementia, bleeding disorders, and dozens of single-gene diseases — the pattern of disease across relatives is the single most useful predictor a clinician has before they investigate or test. For the adult child of a parent with early-onset breast cancer, for example, knowing whether the cancer occurred in one second-degree relative or four changes the risk calculation substantially.</p>
+
+            <p>The problem is that family history is hard to collect well during a ten-minute appointment. Patients are asked on the spot to recall three generations of diagnoses, most of which they learned about second-hand, sometimes decades ago. The classic result is a partial, inaccurate, and poorly-structured record that under-states risk for some families and over-states it for others. A medical family tree, compiled at leisure in advance, corrects for this. It is accurate, structured, and can be updated as new information comes in from relatives.</p>
+
+            <p>A good medical family tree also helps your future self. If you have not thought much about your family history before a crisis or a new diagnosis, you will be grateful later that the work is already done.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">The difference between a medical family tree and a clinical pedigree</h2>
+
+            <p>A medical family tree and a clinical pedigree carry the same information but for different audiences. A clinical pedigree is drawn by a genetics professional using standardised symbols defined by the NSGC Pedigree Standardization Work Group: filled squares for affected males, filled circles for affected females, a diagonal slash through the shape for deceased, a diamond for a pregnancy loss, a double horizontal line for a consanguineous union, and so on. It is designed to be read by another genetics professional and by pedigree software, and it feeds directly into risk models.</p>
+
+            <p>A medical family tree is the patient-facing version of the same diagram. It uses simpler conventions — often just names, relationships, ages, and diagnoses — and prioritises clarity over notational precision. It is the document you would send to a relative to ask "is this right?" and it is the one you would print for a GP visit. A good digital tool will let you maintain the simpler medical family tree view while generating the full clinical pedigree when you need one for a referral. For the formal view, see our guide to <a href="pedigree-drawing-software.html">pedigree drawing software</a>.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What to include: a minimum useful tree</h2>
+
+            <p>A useful medical family tree does not need to be exhaustive. It needs to be accurate and to cover at least three generations on both sides of the family.</p>
+
+            <ul>
+                <li><strong>The index person (you).</strong> Full name, date of birth, sex at birth, current diagnoses, medications, and any genetic test results.</li>
+                <li><strong>First-degree relatives.</strong> Parents, full siblings, and children. For each: year of birth, year and cause of death if deceased, and any significant diagnoses with age at onset.</li>
+                <li><strong>Second-degree relatives.</strong> Grandparents, aunts, uncles, nieces, nephews, and half-siblings. Reach-back to all four grandparents if possible, with at least their cause of death and approximate age.</li>
+                <li><strong>Third-degree relatives.</strong> First cousins and great-grandparents where known. Include only those with relevant conditions; you do not need to document every cousin.</li>
+                <li><strong>Ancestry.</strong> Ethnic origin of all four grandparents if known. Relevant because several conditions (Ashkenazi Jewish BRCA founder mutations, Mediterranean haemoglobinopathies, African-ancestry G6PD and sickle-cell carrier status, French-Canadian familial hypercholesterolaemia) have elevated frequencies in specific populations.</li>
+                <li><strong>Consanguinity.</strong> Any relationships between the parents (first cousins, second cousins) should be noted. Consanguinity increases the probability of autosomal recessive disease in the children.</li>
+            </ul>
+
+            <p>For each significant diagnosis, record the condition, the age at diagnosis (not just the current age), and any known details. "Breast cancer at 42" is useful. "Breast cancer" on its own is less so. "Died of cancer" is the least useful of all — the site matters.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What conditions to record in particular</h2>
+
+            <p>The conditions most commonly requested by a clinician are:</p>
+
+            <ul>
+                <li><strong>Cancers.</strong> Site (breast, ovarian, colorectal, pancreatic, prostate, melanoma, renal), age at diagnosis, whether bilateral or unilateral, any known mutation.</li>
+                <li><strong>Cardiac disease.</strong> Heart attacks before 60, cardiomyopathy (HCM, DCM, ARVC), channelopathies (LQTS, Brugada), unexplained sudden death, drowning, unexplained road accidents, or unexplained cot deaths.</li>
+                <li><strong>Neurological conditions.</strong> Early-onset dementia, Parkinson's, Huntington's, motor neurone disease, seizure disorders, ataxias.</li>
+                <li><strong>Metabolic and endocrine conditions.</strong> Type 1 and type 2 diabetes, familial hypercholesterolaemia (very high cholesterol from a young age, heart attacks before 55), thyroid disease, adrenal conditions.</li>
+                <li><strong>Developmental and rare conditions.</strong> Any condition diagnosed in childhood, any named syndrome, any condition with a family label ("a heart thing," "a muscle thing," "everyone on that side gets it") even if the precise name is not known.</li>
+                <li><strong>Mental health.</strong> Depression, bipolar disorder, schizophrenia, eating disorders, suicide — relevant both for heritability and for the safety of the wider family.</li>
+                <li><strong>Reproductive history.</strong> Miscarriages, stillbirths, neonatal deaths, infertility, intellectual disability, structural birth differences.</li>
+            </ul>
+
+            <p>When you are unsure what a relative died of, record what you were told and flag the uncertainty. "Cancer, possibly stomach" is better than "cancer" alone; a clinician can work with the uncertainty if it is labelled.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How to gather the information</h2>
+
+            <p>Most people find the gathering stage harder than the diagram itself. A few practical suggestions:</p>
+
+            <ul>
+                <li><strong>Start with the living.</strong> Ask your parents, siblings, aunts, and uncles before asking anyone else. People often know more than they volunteer once you ask systematically rather than in passing.</li>
+                <li><strong>Write down what you hear verbatim first.</strong> Turn it into a structured entry later. "Uncle Brian died of something to do with his bowel in his fifties" becomes a candidate entry for colorectal cancer at 55 until you can confirm.</li>
+                <li><strong>Use death certificates and medical records where you can.</strong> A copy of a grandparent's death certificate is often the difference between "cardiovascular disease" and a specific cause.</li>
+                <li><strong>Update in one place.</strong> If you are using a digital tool, keep the family tree there and not in several places. Two out-of-sync copies quickly become zero reliable copies.</li>
+                <li><strong>Share the draft with family.</strong> Send a simplified view to a relative and ask them to correct and extend it. A shared draft elicits far more information than a cold phone call.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">The HEE NHS family-history template and what it does not cover</h2>
+
+            <p>In the UK, Health Education England and the Genomics Education Programme have produced a physical family history template — a paper card with boxes for three generations of relatives, conditions, and ages of onset. It is designed to be completed before a GP visit. It is a good primer on what to collect. It is also, by design, a one-shot document: a snapshot at a point in time, not a record that can be kept updated, shared with relatives, or exported into a genetics workflow.</p>
+
+            <p>A digital medical family tree carries the same information as the HEE template but removes its limitations. You can update it as new information arrives. You can share a read-only view with a specific relative or clinician. You can export it in a structured format (such as <a href="gedcom-pedigree-software.html">GEDCOM</a>) so a genetics clinic can import rather than re-enter. If your data becomes clinically relevant — because a new cancer is diagnosed in a relative, say — you can regenerate a fresh summary for the next appointment in minutes rather than rebuilding from scratch.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Sharing with your clinician</h2>
+
+            <p>A medical family tree is only useful if it reaches the clinician who needs it. Several practical options work:</p>
+
+            <ul>
+                <li><strong>Printed PDF.</strong> Take it to the appointment. A one-page summary is better than a ten-page family history document.</li>
+                <li><strong>Shared link.</strong> Some tools produce a private shareable link; check your clinician's local policy on third-party documents before relying on this.</li>
+                <li><strong>GEDCOM file.</strong> For a genetics referral, a GEDCOM export can be imported directly into the clinic's pedigree software, saving manual re-entry of every relative.</li>
+                <li><strong>Embedded pedigree.</strong> If you use a tool with an embeddable viewer, you can paste the pedigree into an email or a patient portal message.</li>
+            </ul>
+
+            <p>Whatever channel you use, include a short written summary with the top three or four facts you want the clinician to know: "I have a family history of early-onset breast cancer (maternal aunt at 38, maternal grandmother at 55); no known genetic testing has been done in the family."</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Data privacy: your family history belongs to you</h2>
+
+            <p>A medical family tree contains health information about you and about your biological relatives. Treat it with the same care you would treat any other health record. A well-designed platform will encrypt the data at rest and in transit, will not share it with third parties without your consent, and will let you export and delete your data at any time. Check the privacy policy before uploading.</p>
+
+            <p>For relatives, consider discussing the tree with them before sharing their diagnoses with a clinician. In most cases a brief conversation — "I am compiling the family history for my GP and will include your heart condition; is that all right?" — prevents misunderstandings later.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene supports a medical family tree</h2>
+
+            <p>Evagene is a clinical-grade pedigree platform, but it works well as a digital medical family tree for patients and families too. You can start from scratch in the browser and build the tree one relative at a time, using gesture drawing to sketch a large family in minutes, or you can import an existing genealogy file (GEDCOM 5.5.1 from Ancestry, FamilySearch, or Gramps) and then add health information on top of the genealogical structure. If you have 23andMe raw data, you can import it for SNP-based inferences of blood type, Rh, and secretor status as additional context.</p>
+
+            <p>For each relative you record diagnoses against a curated catalogue of over 180 diseases keyed to ICD-10 and OMIM, over 55 allergies, and over 50 traits. You can export the result as a PDF for the GP, as a PNG or SVG for a presentation, or as a GEDCOM file for a genetics clinic to import. If you eventually need more formal risk analysis — for a BRCA conversation, for example — the same tree supports integrated <a href="hereditary-cancer-risk-assessment.html">BRCAPRO, MMRpro, and PancPRO</a> risk models and <a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculators</a> without re-entering any data.</p>
+
+            <p>Evagene encrypts your data, gives you control over sharing, and lets you export at any time. During the Alpha it is free via a waiting list at <a href="https://evagene.com/#waitlist">evagene.com</a>.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is a medical family tree?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">A three-generation diagram of your biological relatives annotated with health information: diagnoses, ages of onset, and cause of death. It is simpler than a clinical pedigree but carries the same essential information and is the most useful single document to bring to a GP or genetics appointment.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Who should make one?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Anyone with a family history of a heritable condition, anyone considering genetic testing, anyone planning a pregnancy with a known risk, and anyone preparing for a genetics referral. Compiling in advance saves clinical time and improves accuracy.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What should I include?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Name, sex, year of birth, year and cause of death, and diagnoses with age at onset for each relative. Extend back to all four grandparents and out to aunts, uncles, and first cousins where you can. Record cancers by site, heart disease by type, and any known genetic test results.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does the NHS have a template?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Health Education England and the Genomics Education Programme have produced a physical family history template card for use by GPs and patients. A digital alternative carries the same information and is easier to update, share, and export.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How do I share it with my clinician?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">As a printed PDF, a shared link, or a GEDCOM file for a genetics referral. Include a short written summary of the top facts so a clinician can read it at a glance.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="family-health-history-online.html">Family health history online: how and where to record it</a></li>
+                <li><a href="genogram-maker-online.html">Genogram maker online: family therapy and medical genograms</a></li>
+                <li><a href="pedigree-drawing-software.html">Pedigree drawing software: standard notation and best practice</a></li>
+                <li><a href="gedcom-pedigree-software.html">GEDCOM pedigree software: genealogy meets clinical genetics</a></li>
+                <li><a href="hereditary-cancer-risk-assessment.html">Hereditary cancer risk assessment</a></li>
+                <li><a href="23andme-pedigree-import.html">23andMe pedigree import</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Build your family health history online</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. Free access during Alpha for patients, families, clinicians, and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

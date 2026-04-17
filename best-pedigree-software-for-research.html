@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Pedigree Software for Research 2026 — PED, Phenopackets, APIs | Evagene</title>
+    <meta name="description" content="A 2026 guide to the best pedigree software for research — seven tools evaluated on PED format, GA4GH Phenopackets, programmatic access, kinship coefficients, and publication-quality export.">
+    <meta name="keywords" content="best pedigree software for research, research pedigree tool, pedigree software with API, PED format pedigree, GA4GH Phenopackets pedigree, kinship coefficient software, programmatic pedigree">
+
+    <meta property="og:title" content="Best Pedigree Software for Research 2026 — PED, Phenopackets, APIs">
+    <meta property="og:description" content="Seven research pedigree tools evaluated on PED, Phenopackets, API, kinship, and publication-quality export.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/best-pedigree-software-for-research">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Best Pedigree Software for Research 2026">
+    <meta name="twitter:description" content="Research pedigree tools evaluated on PED, Phenopackets, and programmatic access.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/best-pedigree-software-for-research">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"Best Pedigree Software for Research 2026: PED, Phenopackets, APIs",
+        "description":"A 2026 guide to research pedigree software — PED format, GA4GH Phenopackets, programmatic access, kinship coefficients, publication-quality export.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/best-pedigree-software-for-research"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Guides","item":"https://evagene.com/compare"},
+            {"@type":"ListItem","position":3,"name":"Best Pedigree Software for Research","item":"https://evagene.com/best-pedigree-software-for-research"}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"What is the best pedigree software for research?","acceptedAnswer":{"@type":"Answer","text":"For kinship, inbreeding, and identity coefficient computation, QuickPed is the free reference tool (BMC Bioinformatics 2022). For PED format and programmatic pipelines, DrawPed (open-source, NAR 2024). For GA4GH Phenopackets v2, Stanford's PedigreeTool. For REST API plus MCP access and BayesMendel risk models, Evagene. For cohort-level research, f-tree (BMC Medical Genetics 2017). For interactive visualisation, PERSEUS (Oxford Bioinformatics 2024)."}},
+            {"@type":"Question","name":"Which tool supports GA4GH Phenopackets v2?","acceptedAnswer":{"@type":"Answer","text":"Stanford's PedigreeTool explicitly supports HPO, MONDO, and GA4GH Phenopackets v2. Evagene supports GEDCOM 5.5.1 and JSON as primary exchange formats and can be extended to emit Phenopackets via its REST API."}},
+            {"@type":"Question","name":"Which pedigree tool has programmatic access?","acceptedAnswer":{"@type":"Answer","text":"Evagene offers a REST API with scoped keys, webhooks with HMAC-SHA256 signatures, and an MCP server exposing 11 pedigree tools to Claude Desktop and Claude Code. DrawPed is Perl-based and open-source with CLI-style programmatic access. QuickPed is an R Shiny app with R-accessible internals through the pedsuite package."}},
+            {"@type":"Question","name":"Which free tool computes kinship coefficients?","acceptedAnswer":{"@type":"Answer","text":"QuickPed is the reference free tool for kinship, inbreeding, and identity coefficients. Published in BMC Bioinformatics 2022 and GPL3 licensed, built by Magnus Vigeland at Oslo and integrated into the pedsuite R package family."}},
+            {"@type":"Question","name":"Is any clinical pedigree tool usable for research?","acceptedAnswer":{"@type":"Answer","text":"Yes. Progeny Clinical is used at 800+ institutions, many with research programmes. Evagene has a REST API, webhooks, MCP, and AI interpretation with BYOK LLMs — a strong fit for research labs that need programmatic access. Phenotips is used in research consortia for rare disease diagnostics."}},
+            {"@type":"Question","name":"Which tool is best for publication-quality pedigree figures?","acceptedAnswer":{"@type":"Answer","text":"Evagene exports SVG that is directly publication-ready. QuickPed and PERSEUS produce high-quality figures designed for manuscripts. CeGaT Pedigree Chart Designer produces PNG with embedded metadata for archival use."}},
+            {"@type":"Question","name":"Can research tools handle large cohorts?","acceptedAnswer":{"@type":"Answer","text":"Evagene's REST API and batch risk screening support cohort-level workflows. DrawPed's PED-format pipelines are designed for scale. QuickPed handles arbitrarily large pedigrees for coefficient computation. For cohort recruitment and tracking, general research data platforms sit alongside the pedigree tool rather than replacing it."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="compare.html" class="hover:text-brand-600 dark:hover:text-brand-300">Guides</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">For Research</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Best pedigree software for research 2026: PED, Phenopackets, APIs, and reproducibility</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A 2026 guide for statistical geneticists, bioinformaticians, population geneticists, and research labs — evaluating pedigree tools on the dimensions that matter in research: open formats, programmatic access, reproducibility, and publication-quality output.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>15 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> For <em>kinship and identity coefficients</em>, <em>QuickPed</em> is the free reference. For <em>PED-format programmatic pipelines</em>, <em>DrawPed</em>. For <em>GA4GH Phenopackets v2</em>, <em>Stanford's PedigreeTool</em>. For <em>REST API and MCP access plus BayesMendel risk models</em>, <em>Evagene</em>. For <em>cohort research</em>, <em>f-tree</em>. For <em>interactive visualisation</em>, <em>PERSEUS</em> from Oxford. For clinical-scale research alongside a research programme, <em>Progeny Clinical</em> where institutional infrastructure exists. No one tool covers all cases — expect to use two or three.</p>
+
+            <p>Research needs are genuinely different from clinical needs. A clinical tool prioritises workflow speed and compliance; a research tool prioritises format neutrality, reproducibility, programmatic access, and citation-ready output. The same pedigree may need to move between both ecosystems.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How we evaluated</h2>
+
+            <ul>
+                <li><strong>Open formats.</strong> PED, GEDCOM 5.5.1, JSON, GA4GH Phenopackets — can data move freely?</li>
+                <li><strong>Programmatic access.</strong> REST API, CLI, R/Python package, MCP.</li>
+                <li><strong>Reproducibility.</strong> Version control, deterministic output, documented dependencies.</li>
+                <li><strong>Licensing.</strong> Open-source (GPL, CC BY-SA, MIT) vs proprietary with research access.</li>
+                <li><strong>Computation.</strong> Kinship, inbreeding, identity coefficients, BayesMendel, Mendelian probabilities.</li>
+                <li><strong>Visualisation.</strong> Publication-quality SVG or PDF export, large-pedigree rendering.</li>
+                <li><strong>Citation and peer review.</strong> Published in a peer-reviewed venue?</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">The tools, ranked by research fit</h2>
+
+            <h3 class="text-2xl mt-10 mb-3">1. QuickPed — best free tool for kinship mathematics</h3>
+
+            <p><a href="https://magnusdv.github.io/pedsuite/articles/quickped.html" rel="noopener">QuickPed</a> from Magnus Vigeland at Oslo is the reference free tool for computing kinship, inbreeding, and identity coefficients on pedigrees. Published in <em>BMC Bioinformatics</em> (2022). GPL3 licensed. Built in R Shiny; the underlying pedsuite R package family provides programmatic access for reproducible pipelines.</p>
+
+            <p>Where it struggles: deliberately narrow. No clinical features, no disease annotation, no Bayesian cancer risk models, no AI. Its strength is that it does one thing exactly right. For any research question that reduces to "what are the coefficients between these individuals," this is what the field uses. <em>Price:</em> free, open-source. <em>Best for:</em> statistical geneticists, forensic genetics, population genetics.</p>
+
+            <h3 class="text-2xl mt-10 mb-3">2. DrawPed — best open-source PED-format tool</h3>
+
+            <p>DrawPed (Schönberger et al., <em>Nucleic Acids Research</em> 2024) is free, open-source under CC BY-SA 4.0, Perl-based, and uses the PED format. It provides programmatic access and fits into computational genetics pipelines where reproducibility and text-based inputs matter. A genuine open-source research tool with a peer-reviewed publication to cite.</p>
+
+            <p>Where it struggles: Perl-based tooling is not the modern default for new labs; UI is minimal; no clinical features. Best used as a component of a larger pipeline rather than a standalone research application. <em>Price:</em> free, open-source. <em>Best for:</em> computational genetics pipelines, reproducible research, labs already using PED-format infrastructure.</p>
+
+            <h3 class="text-2xl mt-10 mb-3">3. PedigreeTool (Stanford) — best for GA4GH Phenopackets</h3>
+
+            <p><a href="https://app.pedigreetool.com" rel="noopener">PedigreeTool</a> from Stanford supports HPO, MONDO, and GA4GH Phenopackets v2 — the emerging standard for computable phenotype exchange in multi-site rare disease research. Free beta until March 2026; paid tiers launching April 2026. The tool's own site states it is not certified for clinical diagnostics, which is a responsible disclosure for research-tier software.</p>
+
+            <p>Where it struggles: pricing model from April 2026 is not yet public, and the lack of clinical certification means it cannot be used as-is for regulated clinical workflows. For research consortia standardising on Phenopackets for cross-site phenotype exchange, this is currently the clearest fit. <em>Price:</em> free beta through March 2026; paid tiers from April 2026. <em>Best for:</em> GA4GH-aligned research consortia, rare disease research networks, HPO-native cohort studies.</p>
+
+            <h3 class="text-2xl mt-10 mb-3">4. Evagene — best REST API, MCP, and risk-model integration</h3>
+
+            <p>Evagene (our product) offers a scoped, rate-limited REST API, HMAC-SHA256-signed webhooks for eight event types, an MCP server exposing 11 pedigree tools to Claude Desktop and Claude Code, and an embeddable viewer (iframe, SVG, JS). For research pipelines that need to generate pedigrees programmatically, attach AI-driven interpretation, or have agent-based AI tools read and mutate pedigree data, this is the most complete integration surface in any pedigree platform today. BRCAPRO, MMRpro, PancPRO, and Mendelian inheritance models run directly from the pedigree. GEDCOM 5.5.1 import and export. SVG export for publication figures. BYOK LLM support (Anthropic Claude, OpenAI GPT).</p>
+
+            <p>Where we struggle for pure research: Evagene is not open-source. For researchers who require GPL-licensed tooling for reproducibility and long-term preservation, that is a material constraint — use DrawPed or QuickPed instead. Evagene is also Alpha, so institutional archival requirements may not be met yet. <em>Price:</em> free Alpha via <a href="https://evagene.com/#waitlist">waiting list</a>. <em>Best for:</em> translational research labs, AI-agent research pipelines, studies needing BayesMendel with programmatic access.</p>
+
+            <h3 class="text-2xl mt-10 mb-3">5. f-tree — best for cohort studies with questionnaire intake</h3>
+
+            <p><a href="https://holonic-systems.com" rel="noopener">f-tree</a>, developed with Iwate Medical University and published in <em>BMC Medical Genetics</em> (2017), supports Windows, macOS, iPad, and iPhone with a questionnaire-based auto-pedigree approach. NSGC-standard compliant. Free desktop tier with paid features.</p>
+
+            <p>Where it struggles: less internationally visible than the reference tools above. The questionnaire-first design suits cohort recruitment but may be slower for statistical geneticists who work directly from PED. <em>Price:</em> free desktop; paid features. <em>Best for:</em> cohort studies with patient questionnaire intake, Japanese research groups, iPad-based field data capture.</p>
+
+            <h3 class="text-2xl mt-10 mb-3">6. PERSEUS — best for interactive visualisation research</h3>
+
+            <p><a href="https://perseus.ox.ac.uk" rel="noopener">PERSEUS</a> (Oxford, <em>Bioinformatics</em> 2024) is an interactive web-based pedigree visualisation tool. It is specifically positioned for research rather than clinical use, and its peer-reviewed publication makes it citable.</p>
+
+            <p>Where it struggles: newer than the other tools here, so ecosystem adoption and long-term maintenance are still being demonstrated. <em>Price:</em> free. <em>Best for:</em> research groups developing visualisation methods, teaching, interactive cohort exploration.</p>
+
+            <h3 class="text-2xl mt-10 mb-3">7. Progeny Clinical — best clinical platform with research footprint</h3>
+
+            <p><a href="https://www.progenygenetics.com/clinical/" rel="noopener">Progeny Clinical</a> is deployed at 800+ genetics institutions, many with research programmes alongside clinical activity. If your research sits inside an existing Progeny-using institution, extracting clinical pedigree data for research analysis through Progeny's standard export paths may be the most practical route even if the tool itself is not research-primary.</p>
+
+            <p>Where it struggles for research: proprietary, commercial, no public open-source licence, no programmatic research API advertised. Pricing on application. <em>Price:</em> on application. <em>Best for:</em> research embedded in institutions already using Progeny Clinical. See <a href="progeny-vs-evagene.html">Progeny vs Evagene</a>.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Comparison matrix</h2>
+
+            <div class="not-prose my-10 overflow-x-auto">
+                <table class="w-full text-sm border-collapse">
+                    <thead class="bg-brand-50 dark:bg-brand-900/50">
+                        <tr>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-3 py-3 border border-gray-200 dark:border-brand-800">Tool</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-3 py-3 border border-gray-200 dark:border-brand-800">Open-source</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-3 py-3 border border-gray-200 dark:border-brand-800">PED</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-3 py-3 border border-gray-200 dark:border-brand-800">Phenopackets</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-3 py-3 border border-gray-200 dark:border-brand-800">API / MCP</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-3 py-3 border border-gray-200 dark:border-brand-800">Kinship</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-3 py-3 border border-gray-200 dark:border-brand-800">Published</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 dark:text-gray-300">
+                        <tr><td class="px-3 py-2 border border-gray-200 dark:border-brand-800 font-medium">QuickPed</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">GPL3</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">R / pedsuite</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">✓ reference</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">BMC Bioinfo 2022</td></tr>
+                        <tr><td class="px-3 py-2 border border-gray-200 dark:border-brand-800 font-medium">DrawPed</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">CC BY-SA</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">Perl CLI</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">NAR 2024</td></tr>
+                        <tr><td class="px-3 py-2 border border-gray-200 dark:border-brand-800 font-medium">PedigreeTool</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">✓ v2</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">Stanford</td></tr>
+                        <tr><td class="px-3 py-2 border border-gray-200 dark:border-brand-800 font-medium">Evagene</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">GEDCOM</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">via API</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">REST + MCP</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">Wright coefficient</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">—</td></tr>
+                        <tr><td class="px-3 py-2 border border-gray-200 dark:border-brand-800 font-medium">f-tree</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">BMC Med Gen 2017</td></tr>
+                        <tr><td class="px-3 py-2 border border-gray-200 dark:border-brand-800 font-medium">PERSEUS</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">Bioinformatics 2024</td></tr>
+                        <tr><td class="px-3 py-2 border border-gray-200 dark:border-brand-800 font-medium">Progeny Clinical</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-3 py-2 border border-gray-200 dark:border-brand-800">commercial</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Which to choose if...</h2>
+
+            <ul>
+                <li><strong>You compute kinship, inbreeding, or identity coefficients:</strong> QuickPed.</li>
+                <li><strong>You run PED-format programmatic pipelines:</strong> DrawPed.</li>
+                <li><strong>You are in a GA4GH Phenopackets v2 research network:</strong> Stanford PedigreeTool.</li>
+                <li><strong>You need a REST API, MCP server, and BayesMendel integration in one place:</strong> Evagene.</li>
+                <li><strong>You develop novel pedigree visualisations or interactive tools:</strong> PERSEUS.</li>
+                <li><strong>You run cohort studies with questionnaire intake:</strong> f-tree.</li>
+                <li><strong>Your research sits inside a Progeny-using institution:</strong> Progeny Clinical.</li>
+                <li><strong>You want an AI agent (Claude Desktop, Claude Code) to read and edit pedigrees:</strong> Evagene's MCP server is the only public offering.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is the best pedigree software for research?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">QuickPed for kinship, DrawPed for PED pipelines, PedigreeTool for Phenopackets, Evagene for REST API and MCP, f-tree for cohorts, PERSEUS for visualisation.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Which supports GA4GH Phenopackets v2?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Stanford's PedigreeTool explicitly. Evagene via its REST API.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Which has programmatic access?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Evagene (REST API, webhooks, MCP). DrawPed (Perl CLI). QuickPed (R via pedsuite).</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Which free tool computes kinship coefficients?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">QuickPed. GPL3, published in BMC Bioinformatics 2022.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is any clinical tool usable for research?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Progeny Clinical at research-active institutions. Evagene for programmatic access. Phenotips in rare disease consortia.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Best for publication-quality figures?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Evagene (SVG export), QuickPed, PERSEUS.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Large cohorts?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Evagene's REST API, DrawPed's PED pipelines, QuickPed for arbitrary-size coefficient computation.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related guides</h2>
+
+            <ul>
+                <li><a href="best-pedigree-software-2026.html">Best pedigree software 2026</a></li>
+                <li><a href="best-free-pedigree-makers.html">Best free pedigree makers</a></li>
+                <li><a href="best-clinical-genetics-software.html">Best clinical genetics software</a></li>
+                <li><a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculator</a></li>
+                <li><a href="gedcom-pedigree-software.html">GEDCOM pedigree software</a></li>
+                <li><a href="compare.html">All Evagene comparisons</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

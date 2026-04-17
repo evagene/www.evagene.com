@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evagene for Clinical Geneticists — Pedigree, Risk Models, AI Interpretation | Evagene</title>
+    <meta name="description" content="Evagene for clinical geneticists: referral triage to cascade testing in one tool. Gesture pedigree drawing, BRCAPRO/MMRpro/PancPRO, BYOK AI interpretation, Analysis Templates, and MCP server for your AI workspace.">
+    <meta name="keywords" content="clinical geneticist software, pedigree tool for clinical genetics, clinical genetics workflow software, BRCAPRO clinical genetics, MMRpro clinical, pancpro, AI clinical interpretation pedigree, MCP clinical genetics">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Evagene for Clinical Geneticists">
+    <meta property="og:description" content="A clinical-grade pedigree platform built around the clinical geneticist's workflow — from referral triage to cascade testing.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/for-clinical-geneticists">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Evagene for Clinical Geneticists">
+    <meta name="twitter:description" content="A clinical-grade pedigree platform built around the clinical geneticist's workflow — from referral triage to cascade testing.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/for-clinical-geneticists">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD: Article -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"Evagene for clinical geneticists",
+        "description":"How Evagene supports the clinical geneticist's workflow — referral triage, family history intake, pedigree drawing, BayesMendel risk assessment, AI interpretation, clinical reporting, cascade testing.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/for-clinical-geneticists"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"For Clinical Geneticists","item":"https://evagene.com/for-clinical-geneticists"}
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"Does Evagene support BRCAPRO, MMRpro, and PancPRO?","acceptedAnswer":{"@type":"Answer","text":"Yes. Evagene integrates the BayesMendel suite — BRCAPRO for breast and ovarian cancer, MMRpro for Lynch syndrome, and PancPRO for pancreatic cancer — and runs them directly on the pedigree data without re-entry. Mendelian inheritance models for autosomal dominant, autosomal recessive, and X-linked recessive conditions are also available for monogenic work outside the cancer setting."}},
+            {"@type":"Question","name":"Can I use my own LLM provider for AI interpretation?","acceptedAnswer":{"@type":"Answer","text":"Yes. Evagene uses a bring-your-own-key model for large language models. You supply your own Anthropic Claude or OpenAI GPT API key, which is encrypted at rest with Fernet. Interpretation requests are issued from Evagene to the LLM provider you already have a contract with, so no additional third-party model sits in the middle of your clinical text."}},
+            {"@type":"Question","name":"How does Evagene fit into a clinical genetics service that already uses an EHR?","acceptedAnswer":{"@type":"Answer","text":"Evagene exposes a scoped REST API and HMAC-signed webhooks so that a pedigree built in Evagene can be pulled into, pushed to, or synchronised with downstream systems including EHR integration layers. The embeddable pedigree viewer (iframe, SVG, or JavaScript snippet) can be placed inside portals or internal apps. Evagene is designed to be the pedigree and risk engine, rather than a replacement for the broader genomic health record."}},
+            {"@type":"Question","name":"What report types can I generate?","acceptedAnswer":{"@type":"Answer","text":"Evagene generates four report types: a clinical summary for the referring clinician and medical record, a patient-friendly letter, a carrier probability and risk report using BayesMendel outputs, and an AI-assisted interpretation report. Reports export to PDF and the underlying pedigree exports to PNG, SVG, or PDF for inclusion in correspondence."}},
+            {"@type":"Question","name":"Can I customise the AI output to match my service's house style?","acceptedAnswer":{"@type":"Answer","text":"Yes. Analysis Templates let you author custom prompts with variable injection (for example, pedigree_description, proband_name, inheritance_pattern) and reuse them across cases. A service can codify the structure and tone of its clinical reporting, then apply it to every interpretation."}},
+            {"@type":"Question","name":"How does Evagene help with cascade testing?","acceptedAnswer":{"@type":"Answer","text":"The pedigree is a living document. When a pathogenic variant is identified, you annotate carrier status on the relevant individual and the software tracks downstream first- and second-degree relatives as candidates for predictive testing. Batch risk screening identifies at-risk individuals across the family, and the pedigree updates as test results return. Webhooks can notify downstream systems when individual records change."}},
+            {"@type":"Question","name":"Can I run Evagene inside Claude Desktop or Claude Code?","acceptedAnswer":{"@type":"Answer","text":"Yes. Evagene's MCP (Model Context Protocol) server exposes 11 pedigree tools to any MCP-compatible AI workspace, including Claude Desktop and Claude Code. A clinician can ask an AI assistant to read, annotate, or analyse a pedigree directly from the environment they already use for drafting and review."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<!-- Navigation -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">For Clinical Geneticists</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Evagene for clinical geneticists</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A clinical-grade pedigree platform for specialists in inherited disease — from referral triage and live pedigree construction to BayesMendel risk assessment, AI-assisted interpretation, clinical reporting, and cascade testing.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>13 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p>If you are a clinical geneticist, your clinic is defined by a small number of repeating shapes: the 45-minute new-patient slot, the 30-minute follow-up, the multidisciplinary team meeting, the phone call to the laboratory, the dictated letter. What ties these shapes together is a single artefact — the family pedigree — which is simultaneously the data collection instrument you use to capture the family, the reasoning tool you use to form a differential, the input to every risk model you run, and the document you send to the referring clinician. You need software that treats the pedigree with the same seriousness you do.</p>
+
+            <p>Evagene is built around that observation. It is a browser-based pedigree platform for specialists who work at the intersection of family history, Mendelian genetics, and cancer risk. It supports standard NSGC/ISCN notation, integrates BRCAPRO, MMRpro, and PancPRO, and ships with AI interpretation that uses your own LLM keys. It does not try to replace your EHR or your laboratory system; it aims to be the single place your pedigree lives and moves from.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">The clinical geneticist workflow</h2>
+
+            <p>A new referral arrives — a 42-year-old woman sent by her GP, on the basis that her sister, mother, and maternal aunt have all had breast cancer before the age of fifty. Your administrative team triages the letter against your service's referral criteria and books her into a new-patient slot in six weeks. Before the consultation, a nurse or administrator sends a family history questionnaire; the patient returns it with a hand-drawn tree of her maternal side and a note that she cannot reach her paternal cousins. You have a rough picture before she walks in.</p>
+
+            <p>On the day of the consultation, you interview the patient in detail. You confirm the cases she listed, refine the ages at diagnosis, add details she had not thought to volunteer (an ovarian cancer in the maternal grandmother, a male relative with prostate cancer), and record a couple of genetic test results already in the family. The pedigree grows on screen as you talk; you annotate affected status, carrier status where known, deaths, and ages. You also capture consanguinity status, ancestry, and the proband designation.</p>
+
+            <p>At the end of intake, you run formal risk assessment. BRCAPRO tells you the proband's probability of carrying a pathogenic BRCA1 or BRCA2 variant, which you compare against your service's testing threshold. You consider MMRpro even though the family is primarily breast cancer, because a prostate cancer plus a single colorectal case lifts it marginally into "worth checking." You run a batch screen across your disease catalogue to make sure nothing else is crossing a threshold you had not thought to check.</p>
+
+            <p>You draft a clinical letter: a narrative of the pedigree, the risk model results, the recommendation for testing, and the patient-friendly summary to copy to the patient. You consent for testing, complete the request form, and move to your next patient. Six weeks later, a pathogenic BRCA2 variant is reported. The pedigree updates with the genotype, and you begin the cascade — contacting the proband's first-degree relatives, offering predictive testing, annotating each as testing proceeds.</p>
+
+            <p>Every step of that day touches the pedigree. If your software forces you to re-draw it, re-enter family history into a separate risk calculator, or manually copy data into a letter template, friction accumulates across every patient, every clinic, every week. Evagene is designed to remove that friction.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What clinical geneticists need from pedigree software</h2>
+
+            <ul>
+                <li><strong>Standards-compliant notation</strong> — NSGC/ISCN symbols enforced automatically, not offered as an option, so that every pedigree you produce is unambiguous to any colleague who reads it.</li>
+                <li><strong>Live-consultation drawing</strong> — a canvas that keeps pace with a talking patient, without forcing you to break eye contact to hunt through palettes and dialogs.</li>
+                <li><strong>Structured disease annotation</strong> — ICD-10 and OMIM codes applied against a curated catalogue, because free text cannot drive risk models or interoperate with downstream systems.</li>
+                <li><strong>Integrated risk models</strong> — BRCAPRO, MMRpro, PancPRO, and Mendelian inheritance analysis running on the pedigree data you have already entered, with no re-keying.</li>
+                <li><strong>AI-assisted drafting</strong> — narrative interpretation that respects your house style and uses your own LLM provider, not a vendor-mediated model.</li>
+                <li><strong>Multi-audience reporting</strong> — clinical letters for the referrer, patient-friendly summaries for families, numerical reports for MDT, all from a single pedigree.</li>
+                <li><strong>Cascade-testing support</strong> — a pedigree that persists over time, annotates genotype alongside phenotype, and tracks predictive testing status across a growing family.</li>
+                <li><strong>Interoperability</strong> — GEDCOM, JSON, PDF, SVG, PNG, a REST API, and webhooks so data can move between you, the laboratory, the EHR, and any AI workspace you use.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene supports clinical geneticists</h2>
+
+            <h3 class="text-2xl mt-10 mb-4">Gesture drawing during live consultation</h3>
+
+            <p>Evagene's canvas is built for the way you actually talk to patients. Gesture drawing lets you add a mother, a father, a sibling, and their offspring in a few seconds, without leaving the keyboard or switching palettes. Symbols are applied automatically based on recorded sex; affected status shades the symbol in real time as you annotate a condition; deceased status adds the diagonal line when you record a death. Keyboard shortcuts handle the most common actions — add sibling, add partner, add offspring, mark affected, mark deceased, set proband — so your eyes stay on the patient, not on the interface.</p>
+
+            <p>For a new-patient clinic, this usually means that by the time the patient has walked through their maternal and paternal families, the pedigree is complete, standards-compliant, and ready for risk assessment. No post-consultation data entry. No "I'll tidy it up later."</p>
+
+            <h3 class="text-2xl mt-10 mb-4">BayesMendel risk models, with no data re-entry</h3>
+
+            <p>The case for integrated risk models has been made elsewhere — our <a href="hereditary-cancer-risk-assessment.html">hereditary cancer risk assessment guide</a> covers the clinical logic in detail. The practical point here is that Evagene runs BRCAPRO, MMRpro, and PancPRO directly against the pedigree you have just built. You do not retype ages, you do not recount affected relatives, you do not set up a separate input form. Select the proband, pick the model, read the carrier probability and lifetime risk. If your service uses thresholds — for example, a 10% BRCA carrier probability as a testing trigger — you see immediately whether you are above or below.</p>
+
+            <p>Mendelian inheritance models cover the non-cancer monogenic work. Autosomal dominant, autosomal recessive, and X-linked recessive analyses give expected offspring probabilities for reproductive counselling, and batch risk screening lets you run the entire catalogue against a single proband in one click. That last capability is unusual: rather than asking you to suspect a condition and then run the model, it flags conditions the family's pattern crosses thresholds for. You are less likely to miss the Lynch-shaped family mislabelled as a BRCA question, or the Li-Fraumeni-shaped family labelled as breast cancer.</p>
+
+            <h3 class="text-2xl mt-10 mb-4">AI interpretation you can trust</h3>
+
+            <p>Evagene's AI interpretation engine generates a structured clinical interpretation of the pedigree — key findings, family implications, data gaps, screening recommendations — as a drafting aid. Two design decisions make it suitable for clinical genetics specifically.</p>
+
+            <p>First, <strong>bring-your-own-key (BYOK) LLMs</strong>. You supply your own Anthropic Claude or OpenAI GPT API key, encrypted at rest with Fernet. Interpretation runs against the provider you have already risk-assessed, contracted with, and logged under your own information governance. There is no Evagene-hosted model sitting in the middle of your clinical text.</p>
+
+            <p>Second, <strong>Analysis Templates</strong>. You can author a template that describes the structure and tone your service uses when writing interpretations — the headings, the required sections, the variables to inject (pedigree description, proband name, inheritance pattern, risk results). Every interpretation the service generates follows the same shape, whether it is drafted by the consultant, the registrar, or the counsellor. House style becomes reusable infrastructure.</p>
+
+            <h3 class="text-2xl mt-10 mb-4">Clinical reporting in four shapes</h3>
+
+            <p>A consultation produces several documents: a clinical letter for the referrer and the medical record, a patient-friendly summary, a risk assessment report for the MDT or the testing decision, and an AI interpretation draft. Evagene generates all four from a single pedigree. Reports export as PDF for the correspondence system; the pedigree itself exports as PNG, SVG, or PDF for inclusion in any of them. If you need to hand a colleague a pedigree in GEDCOM to pull into a different system, that option is available too.</p>
+
+            <h3 class="text-2xl mt-10 mb-4">Cascade testing and the living pedigree</h3>
+
+            <p>When a pathogenic variant is confirmed, the pedigree becomes a multi-month tracking document. Evagene annotates genotype alongside phenotype, so a relative who has had predictive testing carries both a carrier status flag and the clinical result. Batch risk screening identifies first- and second-degree relatives who should be offered testing; as each is contacted and tested, you update their record and the pedigree reflects the current state of the family. The consanguinity detection (Wright's coefficient) and karyogram viewer handle the less common cases where related unions or chromosomal abnormalities complicate the picture.</p>
+
+            <h3 class="text-2xl mt-10 mb-4">MCP for clinicians who already work in an AI workspace</h3>
+
+            <p>If you already use Claude Desktop or Claude Code to draft letters, review cases, or triage referrals, Evagene's MCP server exposes 11 pedigree tools — read pedigree, list individuals, add relationship, run risk analysis, generate interpretation, and so on — directly inside that workspace. You can ask your AI assistant to "look at this referral, check the pedigree, and tell me whether this patient crosses our BRCA testing threshold" without switching tabs. The same MCP surface is available to any MCP-compatible client.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">A typical clinical geneticist session in Evagene</h2>
+
+            <p><strong>Step 1. Open a new pedigree.</strong> From the dashboard, you create a pedigree for the new-patient clinic slot. Evagene pre-fills proband details from any referral data imported via API or typed in.</p>
+
+            <p><strong>Step 2. Build the family live.</strong> Using gesture drawing and keyboard shortcuts, you add the proband, her parents, siblings, maternal and paternal grandparents, aunts, uncles, cousins. Affected individuals are annotated with ICD-10 / OMIM disease codes from the 180+ condition catalogue; ages at diagnosis and deaths are entered inline.</p>
+
+            <p><strong>Step 3. Run batch risk screening.</strong> One click runs every applicable model against the proband. BRCAPRO returns a carrier probability; MMRpro screens Lynch; PancPRO screens pancreatic. The batch surface flags any additional condition where the family crosses a threshold.</p>
+
+            <p><strong>Step 4. Generate an AI interpretation draft.</strong> You select your service's Analysis Template and issue the interpretation. The draft arrives with headings your service already uses — key findings, inheritance pattern, red flags, screening recommendations. You edit, reject, or accept sections.</p>
+
+            <p><strong>Step 5. Produce the clinical report.</strong> You export the clinical letter as PDF, the patient-friendly summary as a second PDF, and the pedigree as an SVG to include in both. The reports drop into your correspondence system.</p>
+
+            <p><strong>Step 6. Return of results and cascade.</strong> Six weeks later, the laboratory returns a pathogenic BRCA2 result. You update the proband's carrier status in Evagene. Batch screening now runs against the family tree identifying first-degree relatives for predictive testing. As each relative is tested, you update their record; Evagene emits a webhook so the laboratory order management system records the cascade in parallel.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does Evagene support BRCAPRO, MMRpro, and PancPRO?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. Evagene integrates the BayesMendel suite — BRCAPRO for breast and ovarian cancer, MMRpro for Lynch syndrome, and PancPRO for pancreatic cancer — and runs them directly on the pedigree data without re-entry. Mendelian inheritance models for autosomal dominant, autosomal recessive, and X-linked recessive conditions are also available for monogenic work outside the cancer setting.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can I use my own LLM provider for AI interpretation?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. Evagene uses a bring-your-own-key model: your own Anthropic Claude or OpenAI GPT API key is encrypted at rest with Fernet, and interpretation runs against the provider you already have a contract with.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How does Evagene fit alongside the EHR?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Through a scoped REST API (evg_ keys, SHA-256 hashed), HMAC-signed webhooks, and an embeddable pedigree viewer (iframe, SVG, or JavaScript). Evagene is the pedigree and risk engine; downstream systems integrate via the platform surface.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What report types can I generate?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Four: clinical summary for the referrer, patient-friendly letter, carrier probability / risk report, and AI-assisted interpretation. PDF export; the pedigree exports to PNG, SVG, or PDF.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can I customise AI output to match my service's house style?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. Analysis Templates let you author prompts with variable injection and reuse them across cases, so every interpretation follows the same shape.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How does Evagene help with cascade testing?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">The pedigree persists across visits; batch screening identifies at-risk relatives; genotype annotations sit alongside phenotype; webhooks notify downstream systems when records change.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can I use Evagene inside Claude Desktop or Claude Code?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. The MCP server exposes 11 pedigree tools to any MCP-compatible AI workspace, so you can read, annotate, and analyse pedigrees directly from your assistant.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Further reading</h2>
+
+            <ul>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tools: a field guide</a></li>
+                <li><a href="hereditary-cancer-risk-assessment.html">Hereditary cancer risk assessment</a></li>
+                <li><a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculator</a></li>
+                <li><a href="pedigree-drawing-software.html">Pedigree drawing software</a></li>
+                <li><a href="for-genetic-counsellors.html">Evagene for genetic counsellors</a></li>
+                <li><a href="for-oncologists.html">Evagene for oncologists</a></li>
+                <li><a href="platform.html">The Evagene platform</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<!-- CTA -->
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

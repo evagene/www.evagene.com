@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consanguinity Calculator — Wright's Coefficient, Inbreeding F, and Recessive Risk | Evagene</title>
+    <meta name="description" content="A clinical guide to consanguinity calculation: Wright's coefficient of relationship (r), inbreeding coefficient (F), first-cousin and uncle-niece relationships, and the effect on recessive disease risk. Culturally sensitive counselling guidance.">
+    <meta name="keywords" content="consanguinity calculator, inbreeding coefficient, Wright's coefficient, coefficient of relationship, first cousin risk, uncle niece coefficient, half cousin F, consanguinity counselling, recessive disease risk consanguinity">
+
+    <meta property="og:title" content="Consanguinity Calculator — Wright's Coefficient, Inbreeding F, and Recessive Risk">
+    <meta property="og:description" content="Wright's coefficient of relationship and inbreeding coefficient F, with clinical implications for recessive disease risk.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/consanguinity-calculator">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Consanguinity Calculator — Wright's Coefficient and Recessive Risk">
+    <meta name="twitter:description" content="Clinical consanguinity calculation with culturally sensitive counselling guidance.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/consanguinity-calculator">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"Consanguinity Calculator: Wright's Coefficient, Inbreeding F, and Recessive Disease Risk",
+        "description":"A clinical guide to consanguinity calculations using Wright's coefficient of relationship and inbreeding coefficient F, with culturally sensitive counselling guidance.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/consanguinity-calculator"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Inheritance Calculators","item":"https://evagene.com/mendelian-inheritance-calculator"},
+            {"@type":"ListItem","position":3,"name":"Consanguinity Calculator","item":"https://evagene.com/consanguinity-calculator"}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"What is Wright's coefficient of relationship?","acceptedAnswer":{"@type":"Answer","text":"Wright's coefficient of relationship (r) is the expected proportion of alleles shared identical by descent between two individuals. Parent-child and full-sibling r is 1/2; half-siblings and grandparent-grandchild are 1/4; first cousins are 1/8; first cousins once removed are 1/16; second cousins are 1/32."}},
+            {"@type":"Question","name":"What is the inbreeding coefficient F?","acceptedAnswer":{"@type":"Answer","text":"The inbreeding coefficient F is the probability that an individual carries two alleles at a locus that are identical by descent from a recent common ancestor. For the offspring of two related parents, F is half the coefficient of relationship between the parents: for first cousins, F is 1/16; for uncle-niece or double first cousins, F is 1/8."}},
+            {"@type":"Question","name":"By how much does first-cousin marriage increase recessive disease risk?","acceptedAnswer":{"@type":"Answer","text":"For a rare recessive condition with allele frequency q, the risk of affected offspring rises from q^2 (population baseline) to approximately Fq + (1-F)q^2, which for first cousins (F = 1/16) and small q is approximately q/16 plus the baseline. The absolute increase is largest for rare conditions; consanguinity counselling emphasises family-specific and population-specific risks rather than a single generic figure."}},
+            {"@type":"Question","name":"How does consanguinity affect counselling across cultures?","acceptedAnswer":{"@type":"Answer","text":"Consanguineous unions are common in several cultures and carry distinct social, religious, and family considerations. Counselling should be culturally sensitive, factual about the genetic contribution to risk, and avoid framing that stigmatises the couple or their families. Risk figures should be communicated as absolute numbers in addition to relative increases."}},
+            {"@type":"Question","name":"What is the difference between r and F?","acceptedAnswer":{"@type":"Answer","text":"The coefficient of relationship r applies to a pair of individuals and describes the expected fraction of shared alleles by descent. The inbreeding coefficient F applies to the offspring of a consanguineous couple and is the probability that a randomly chosen locus in the offspring has two alleles identical by descent. F for the offspring equals r/2 for the parents (for simple genealogies without additional inbreeding)."}},
+            {"@type":"Question","name":"Does Evagene detect consanguinity automatically?","acceptedAnswer":{"@type":"Answer","text":"Yes. Evagene traces shared ancestry in the pedigree, flags consanguineous unions, and calculates Wright's coefficient of relationship and the inbreeding coefficient F for the offspring. These are applied to recessive-disease risk calculations without requiring manual adjustment."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="mendelian-inheritance-calculator.html" class="hover:text-brand-600 dark:hover:text-brand-300">Inheritance Calculators</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">Consanguinity Calculator</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Consanguinity calculator: Wright's coefficient, inbreeding F, and recessive disease risk</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A clinical guide to consanguinity calculations: how Wright's coefficient of relationship (r) and the inbreeding coefficient (F) are defined and computed, how they translate into elevated recessive disease risk, and how to communicate this to families in a culturally sensitive way.</p>
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">Tables for first cousins, uncle-niece, half cousins, and more distant relationships, plus worked implications for rare and common recessive alleles. Written for genetic counsellors, clinical geneticists, and public-health genetics teams.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>12 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> Consanguinity is partnership between two individuals who share one or more recent common ancestors. It is quantified by two related coefficients: <strong>Wright's coefficient of relationship (r)</strong>, the expected proportion of alleles shared identical by descent between two individuals, and the <strong>inbreeding coefficient (F)</strong>, the probability that an offspring's two alleles at a locus are identical by descent from a common ancestor. For first cousins, r = 1/8 and the offspring's F = 1/16. Consanguinity raises the risk of recessive disease, with the largest relative effect for rare alleles. Clinical counselling should present absolute as well as relative risks and be culturally sensitive.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Defining consanguinity</h2>
+
+            <p>In clinical genetics, "consanguinity" generally refers to unions between individuals related as second cousins or closer (F &ge; 1/64). Unions between more distant relatives have a diminishing effect on genotype probabilities and are not typically the focus of counselling. In population genetics, the same coefficients describe non-random mating in any structured population.</p>
+
+            <p>The clinical concern is straightforward: relatives share alleles inherited from common ancestors. If one of those ancestral alleles is a recessive disease allele, the probability that both partners carry it (and therefore the probability of an affected offspring) is elevated above the population baseline.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Wright's coefficient of relationship (r)</h2>
+
+            <p>Wright's coefficient r is the expected fraction of alleles shared identical by descent between two individuals. For each step of descent along the shortest ancestral path, the allele has a 1/2 probability of being transmitted. The coefficient for two individuals connected by N links through L common ancestors is:</p>
+
+            <p class="text-center"><em>r = &Sigma;(1/2)<sup>L+1</sup></em> summed over all loops through each common ancestor.</p>
+
+            <p>For common relationships:</p>
+
+            <div class="not-prose my-10 overflow-x-auto">
+                <table class="w-full text-sm border-collapse">
+                    <thead class="bg-brand-50 dark:bg-brand-900/50">
+                        <tr>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Relationship</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">r (coefficient of relationship)</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">F for offspring of the couple</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 dark:text-gray-300">
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Monozygotic twins</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">1</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">N/A</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Parent-child, full siblings</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">1/2</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">1/4 (if partnered)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Half siblings, grandparent-grandchild, uncle-niece, aunt-nephew</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">1/4</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">1/8</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">First cousins, half-uncle/niece</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">1/8</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">1/16</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Double first cousins</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">1/4</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">1/8</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">First cousins once removed, half first cousins</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">1/16</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">1/32</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Second cousins</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">1/32</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">1/64</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Third cousins</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">1/128</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">1/256</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>Distantly related unions have F values small enough that the consanguinity contribution to disease risk is generally swamped by the baseline population risk and is not typically discussed in counselling unless a specific founder mutation or small endogamous population is at play.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">The inbreeding coefficient F</h2>
+
+            <p>F measures the probability that at a randomly chosen locus in the offspring, both alleles are identical by descent from a recent common ancestor. For simple genealogies without additional inbreeding in the ancestral line, F for the offspring is half the coefficient of relationship between the parents.</p>
+
+            <p>F has two useful interpretations:</p>
+
+            <ul>
+                <li><strong>Autozygosity fraction</strong>: on average, a proportion F of the genome is expected to be homozygous by descent. Modern genomic tools (runs of homozygosity, ROH) provide an empirical estimate of autozygosity that often correlates with pedigree F but with individual-level variation.</li>
+                <li><strong>Recessive-risk weight</strong>: the increase in homozygous-by-descent probability at any locus, which translates directly into increased probability of autosomal recessive disease for any allele segregating in the shared ancestry.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">Clinical significance: recessive disease risk</h2>
+
+            <p>For a rare autosomal recessive allele with frequency q, the probability that an offspring is homozygous affected is approximately:</p>
+
+            <p class="text-center"><em>P(affected) = Fq + (1 - F)q<sup>2</sup></em></p>
+
+            <p>For small q, the term Fq dominates. For an allele with q = 1/1000 (incidence 1 in 1,000,000 at population baseline), a first-cousin couple (F = 1/16) gives P(affected) &asymp; 1/16000 — a sixty-fold relative increase, but still a low absolute probability per pregnancy.</p>
+
+            <p>For a common allele with q = 1/50 (incidence 1 in 2,500), a first-cousin couple gives P &asymp; 1/16 &times; 1/50 + (15/16) &times; 1/2500 &asymp; 1/780. The relative increase here is smaller (about three-fold) but the absolute risk is higher.</p>
+
+            <p>The clinical upshot: consanguinity raises the risk of <em>any</em> rare recessive condition in the shared ancestry. For a family with known recessive conditions in the pedigree, the risk for that specific condition is further elevated. For a family with no known conditions, an approximate "background" risk increment is often quoted as a few percent above the population baseline for a first-cousin couple's risk of serious congenital or developmental condition in offspring — but empirical estimates vary and should be presented with appropriate uncertainty.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Counselling communication</h2>
+
+            <p>Consanguineous unions are common in several cultures and religious traditions, with historic and contemporary practice across much of the Middle East, North Africa, and South Asia, among other regions. Genetic counselling should:</p>
+
+            <ul>
+                <li><strong>Present absolute as well as relative risks.</strong> "Three-fold increased" is much less informative to a family than "approximately 1 in 40 rather than 1 in 120."</li>
+                <li><strong>Distinguish family-specific from background risk.</strong> A first-cousin couple with a known recessive condition in the shared lineage is in a different risk category from a first-cousin couple with no known conditions.</li>
+                <li><strong>Avoid stigmatising framing.</strong> Consanguinity is a demographic and cultural fact; it is not a "mistake" to be counselled against but a context to be understood.</li>
+                <li><strong>Offer appropriate screening.</strong> Expanded carrier screening panels, targeted testing for conditions with known founder variants in the family's ancestry, and prenatal options (CVS, amniocentesis, NIPT where applicable) should be discussed factually.</li>
+                <li><strong>Acknowledge limitations.</strong> The risk increment is probabilistic; many consanguineous couples have entirely healthy children. The purpose of counselling is to inform, not to direct reproductive decisions.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">Edge cases and complications</h2>
+
+            <p>Several situations complicate the simple Fq calculation:</p>
+
+            <ul>
+                <li><strong>Multiple loops of relatedness</strong>: a couple related through more than one common ancestor (for example, double first cousins) has F summed across each loop. Standard pedigree-tracing software computes this automatically; manual calculation is error-prone.</li>
+                <li><strong>Pre-existing inbreeding</strong>: in families with multiple generations of consanguinity, F is cumulative and can exceed the standard first-cousin value. Empirical autozygosity estimates are helpful.</li>
+                <li><strong>Small endogamous populations</strong>: baseline population structure can create meaningful F values even when no specific consanguinity is reported. Community-specific founder variants may be the dominant consideration.</li>
+                <li><strong>Adopted or donor-conceived relationships</strong>: social relationships are not always biological; consanguinity calculation requires biological ancestry.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene supports this</h2>
+
+            <p>Evagene automatically detects consanguineous unions in a pedigree as it is drawn. When two partners on the canvas are connected through shared ancestors, Evagene traces the ancestral path, calculates Wright's coefficient of relationship r for the couple, and computes the inbreeding coefficient F for any offspring. Multiple loops of relatedness are handled automatically.</p>
+
+            <p>The coefficient is then integrated into the <a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculator</a>: autosomal recessive risk estimates for offspring of consanguineous couples are computed as Fq + (1-F)q<sup>2</sup> using family-specific allele frequency priors and ancestry-appropriate population data. For conditions catalogued in the 180+ disease library, the calculator reports the absolute per-pregnancy risk alongside the relative increase, making the distinction clear in counselling.</p>
+
+            <p>Ancestry can be entered manually or inferred from 23andMe SNP imports where those data are available, so population carrier frequencies are drawn from the relevant reference. The consanguinity flag is also surfaced in batch risk screening, so any condition whose risk is materially elevated by the union is highlighted. AI interpretation drafts a culturally respectful narrative around the identified consanguinity and its specific implications for this family, using your own Anthropic or OpenAI LLM key.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is Wright's coefficient of relationship?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">The expected proportion of alleles shared identical by descent between two individuals.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is the inbreeding coefficient F?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">The probability that both alleles at a locus in the offspring are identical by descent from a recent common ancestor.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is F for first cousins?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">1/16 for the offspring of a first-cousin union.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How much does consanguinity raise recessive risk?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">For a rare allele with frequency q, risk rises from q^2 to approximately Fq plus the baseline. Largest relative effect for the rarest alleles.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How should counselling be approached?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Respectfully and factually, presenting absolute and relative risks, distinguishing family-specific from background risk, and avoiding stigma.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does Evagene detect consanguinity automatically?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes, with automatic Wright's coefficient and F calculation integrated into recessive risk estimates.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculator overview</a></li>
+                <li><a href="autosomal-recessive-calculator.html">Autosomal recessive calculator</a></li>
+                <li><a href="carrier-probability-calculator.html">Carrier probability calculator</a></li>
+                <li><a href="inheritance-pattern-identifier.html">Identifying inheritance patterns</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tools</a></li>
+                <li><a href="three-generation-family-history.html">Three-generation family history</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

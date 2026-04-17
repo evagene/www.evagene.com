@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evagene for Genealogists — GEDCOM Trees with Health and Genetics | Evagene</title>
+    <meta name="description" content="Evagene for genealogists exploring medical family history: import your GEDCOM tree, add health and cause-of-death annotations, ingest 23andMe SNP data, infer traits, and explore medical pedigrees across generations.">
+    <meta name="keywords" content="genealogist medical pedigree, genealogy health history, GEDCOM medical pedigree, family tree with health, 23andMe genealogy, SNP family tree, ancestry medical history">
+
+    <meta property="og:title" content="Evagene for Genealogists Exploring Medical Family History">
+    <meta property="og:description" content="Add health and genetics to the family tree you already have — GEDCOM import, 23andMe SNP ingestion, trait inference, and medical-pedigree analysis.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/for-genealogists">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Evagene for Genealogists Exploring Medical Family History">
+    <meta name="twitter:description" content="Add health and genetics to your existing family tree.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/for-genealogists">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"Evagene for genealogists exploring medical family history",
+        "description":"How Evagene lets genealogists extend their existing family trees with health, cause-of-death, 23andMe SNP data, trait inference, and consanguinity analysis.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/for-genealogists"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"For Genealogists","item":"https://evagene.com/for-genealogists"}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"Can Evagene import my existing GEDCOM file?","acceptedAnswer":{"@type":"Answer","text":"Yes. Evagene imports GEDCOM 5.5.1, the standard export format for Ancestry, MyHeritage, FamilySearch, Gramps, and other genealogy tools. Names, dates, relationships, and place data come in; Evagene adds a layer of structured health annotations on top. Round-trip export back to GEDCOM is supported for re-import into your genealogy software."}},
+            {"@type":"Question","name":"Can I add 23andMe data to my family tree?","acceptedAnswer":{"@type":"Answer","text":"Yes. Evagene imports 23andMe genotype exports (the raw SNP file), traits reports, and health reports, and links them to the individual in your pedigree. From SNPs the software can infer blood type, secretor status, and a range of traits (50+ traits covered)."}},
+            {"@type":"Question","name":"What health information can I record for relatives?","acceptedAnswer":{"@type":"Answer","text":"Evagene has a curated catalogue of 180+ conditions mapped to ICD-10 and OMIM codes, covering the common hereditary and chronic conditions you are likely to encounter: cancer, cardiac conditions, diabetes, neurological disorders, and more. You can also record age at diagnosis, age at death, cause of death, and 55+ allergies and 50+ traits per individual."}},
+            {"@type":"Question","name":"Is Evagene a replacement for my genealogy software?","acceptedAnswer":{"@type":"Answer","text":"No — they are complementary. Genealogy software (Ancestry, MyHeritage, Gramps, Reunion) excels at historical family tree research, sources and citations, date and place tracking, and ancestor discovery. Evagene excels at health and genetic annotation, standardised medical pedigree notation, risk analysis for hereditary conditions, and genetic trait inference. Keep your genealogy software for discovery; use Evagene for the medical layer."}},
+            {"@type":"Question","name":"Can I spot consanguinity in my tree?","acceptedAnswer":{"@type":"Answer","text":"Yes. Evagene's consanguinity detection uses Wright's coefficient of inbreeding to identify related unions anywhere in the tree. For a genealogist working on a tree that goes back several centuries, this is a useful way to find the cousin-marriages that are otherwise easy to miss in large pedigrees."}},
+            {"@type":"Question","name":"Is my family data private?","acceptedAnswer":{"@type":"Answer","text":"Evagene uses appropriate baseline controls for clinical software: encrypted LLM keys (Fernet), HMAC-signed webhooks, SHA-256 hashed API keys, audit trails. Specific certification status (HIPAA, GDPR, etc.) should be confirmed with the vendor at procurement, especially if you intend to share the tree with family members or a clinician."}},
+            {"@type":"Question","name":"Can I share the medical tree with a clinician?","acceptedAnswer":{"@type":"Answer","text":"Yes. Export the pedigree as PDF or PNG (standard medical notation), attach to a letter or email, or share a link to an embedded viewer. If your clinician uses Evagene, you can share the pedigree directly via the platform."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">For Genealogists</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Evagene for genealogists exploring medical family history</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">Bring your GEDCOM tree into a purpose-built medical pedigree tool — add cause-of-death and health annotations, ingest 23andMe SNP data, infer traits and blood type, and see the genetic shape of the family you have researched.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>12 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p>Serious genealogy is a long game. You have spent years chasing parish records, shipping manifests, census returns, and family letters. You have built a five- or six-generation tree with sources and citations, verified dates and places, and resolved the inevitable inconsistencies. Your GEDCOM file is an archive of your family's history, carefully documented and continuously updated. What is missing from most genealogy software is the dimension that sits underneath the names and dates: the medical and genetic shape of the family.</p>
+
+            <p>Evagene is a purpose-built medical pedigree platform that was designed from the start to import GEDCOM, respect the work you have already done, and add a clinical-grade layer of health information, genetic annotation, and analysis. It is not a replacement for your genealogy software — keep Ancestry, MyHeritage, Gramps, or Reunion for discovery and sources — but if you want to explore "what does my family tree look like when I colour in the health and genetic data," Evagene is the tool for that.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">The medically-curious genealogist's workflow</h2>
+
+            <p>You probably started genealogy for historical reasons — curiosity about where your ancestors came from, who they were, how they lived. Over time, medical questions start to surface. A cousin is diagnosed with a hereditary condition; a parent asks about family history of diabetes or heart disease; a sibling sends you their 23andMe results and asks what it means that you share a particular SNP. Your tree has suddenly become relevant to present-day questions.</p>
+
+            <p>At the same time, the raw material for a medical family tree is mostly already in your notes. Causes of death from death certificates; ages at various illnesses from obituaries and family letters; stories passed down about "the family weakness for heart problems." The 23andMe or AncestryDNA genetic test that several of your relatives have taken is a rich source of trait and health data if you know how to ingest it. What you lack is a tool that speaks both genealogy and clinical genetics.</p>
+
+            <p>The workflow tends to be: import the tree, add the health data you already have, ingest any genetic test data available, look at inheritance patterns and consanguinity, and produce a clean export for sharing with family members or (if you are thinking about your own health) with a clinician.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What genealogists need from a medical pedigree tool</h2>
+
+            <ul>
+                <li><strong>GEDCOM import</strong> — a clean, faithful import of the tree you have already built, including names, relationships, dates, and places.</li>
+                <li><strong>Health annotation</strong> — a structured way to record causes of death, ages at illness, and conditions with proper clinical coding.</li>
+                <li><strong>Genetic test ingestion</strong> — import of 23andMe or equivalent raw SNP data for individuals who have tested.</li>
+                <li><strong>Trait inference</strong> — inference of blood type, secretor status, and other traits from SNP data.</li>
+                <li><strong>Inheritance pattern analysis</strong> — a way to see whether a condition in the family is tracking dominantly, recessively, or X-linked.</li>
+                <li><strong>Consanguinity detection</strong> — identification of cousin-unions and other related pairings, which matters for both genealogical accuracy and genetic analysis.</li>
+                <li><strong>Shareable exports</strong> — PDF, PNG, and GEDCOM for sharing with family members or clinicians.</li>
+                <li><strong>Data portability</strong> — everything exports in the same formats it imports from, so you are never locked in.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene supports genealogists</h2>
+
+            <h3 class="text-2xl mt-10 mb-4">GEDCOM as a first-class format</h3>
+
+            <p>Evagene treats GEDCOM 5.5.1 as a first-class format, not an afterthought. Imports handle individuals, families, relationships, dates, places, and source citations. Names flow in; birth, death, and marriage events flow in; the relationship structure reproduces faithfully. Once the tree is in Evagene, NSGC/ISCN medical notation is applied automatically — squares for male, circles for female, diamonds for unknown — so the same tree looks like a genealogical tree in Ancestry and like a medical pedigree in Evagene. A fuller discussion of GEDCOM in a clinical context lives in our <a href="gedcom-pedigree-software.html">GEDCOM pedigree software</a> guide.</p>
+
+            <p>Export back to GEDCOM keeps the original tree structure plus any health annotations you have added in standard places (NOTE fields and custom tags), so re-importing into Ancestry, MyHeritage, or Gramps loses no data — although not all genealogy tools will display the added health fields natively.</p>
+
+            <h3 class="text-2xl mt-10 mb-4">Health and cause-of-death annotation</h3>
+
+            <p>The 180+ condition catalogue covers the majority of what you are likely to encounter in a family history: cancer (breast, ovarian, colorectal, prostate, pancreatic, gastric, and others), cardiac conditions (cardiomyopathies, long QT, familial hypercholesterolaemia), diabetes, neurological disorders (Huntington's, familial Alzheimer's, motor neurone disease), connective tissue disorders, and more. Each condition has an ICD-10 code and, where relevant, an OMIM code. You annotate an individual with their condition, age at diagnosis, and age at death; affected shading is applied to the symbol automatically.</p>
+
+            <p>Cause of death is recorded against the death event; 55+ allergies and 50+ traits can be recorded per individual. For a tree where most of your health data comes from death certificates and family recollection, this covers what you are likely to be able to document.</p>
+
+            <h3 class="text-2xl mt-10 mb-4">23andMe and direct-to-consumer genetic data</h3>
+
+            <p>Several of your relatives may already have tested with 23andMe. Evagene imports three kinds of 23andMe export: the raw SNP genotype file, the traits report, and the health report. For each tested individual, the SNP data is linked to their pedigree record. The platform infers blood type (ABO) and secretor status (FUT2) from the relevant SNPs, and resolves 50+ traits including taste perception, hair and eye characteristics, sleep profile, and metabolic markers.</p>
+
+            <p>If you have genotype files for several relatives, you begin to see the genetic shape of the family — who carries which SNPs, how traits segregate, and where unexpected findings appear. This is not a diagnostic exercise and 23andMe's health reports carry their own interpretation caveats (consult a clinician for anything that concerns you), but it gives the tree a genetic dimension your genealogy software cannot.</p>
+
+            <h3 class="text-2xl mt-10 mb-4">Inheritance analysis and consanguinity</h3>
+
+            <p>When you have annotated a condition across a few relatives, Evagene's <a href="mendelian-inheritance-calculator.html">Mendelian inheritance analysis</a> gives you a handle on whether it is tracking autosomal dominantly, autosomal recessively, or X-linked. For a hereditary cancer family, the BayesMendel suite (BRCAPRO, MMRpro, PancPRO) gives a carrier probability estimate — again with the caveat that this is not a replacement for clinical genetic assessment.</p>
+
+            <p>Consanguinity detection using Wright's coefficient identifies cousin-unions and other related pairings. In a deep tree (especially one from a small geographical community), such unions are easy to miss visually; the coefficient is calculated automatically for any specified individual.</p>
+
+            <h3 class="text-2xl mt-10 mb-4">Ancestry and automatic calculation</h3>
+
+            <p>Evagene supports ancestry annotation on individuals and can auto-calculate descendant ancestry proportions for offspring. If your great-grandmother is recorded as 100% Italian and your great-grandfather as 100% Irish, your grandfather is 50% each, and so on. This is a cosmetic convenience rather than a clinical feature, but it reflects the kind of annotation genealogists typically already do by hand.</p>
+
+            <h3 class="text-2xl mt-10 mb-4">Shareable and portable</h3>
+
+            <p>Exports are PNG, SVG, PDF, JSON, and GEDCOM. Share a PDF with a cousin who wants to see the tree with health annotations; share the GEDCOM with a relative who uses a different genealogy program; share a link to the embeddable viewer with a family WhatsApp group. Everything you put into Evagene can be extracted.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">A typical genealogist session in Evagene</h2>
+
+            <p><strong>Step 1. Import your GEDCOM.</strong> Export your tree from Ancestry, MyHeritage, Gramps, or Reunion as GEDCOM 5.5.1 and import into Evagene. Names, dates, relationships, places, and sources come in.</p>
+
+            <p><strong>Step 2. Annotate health and causes of death.</strong> Working through the tree generation by generation, you add conditions, ages at diagnosis, and causes of death for individuals where you have the data. NSGC/ISCN medical notation applies automatically.</p>
+
+            <p><strong>Step 3. Import 23andMe files.</strong> For any tested relatives, import their 23andMe genotype and reports. The platform infers blood type, secretor status, and traits from the SNPs.</p>
+
+            <p><strong>Step 4. Run analyses.</strong> Use the inheritance analysis to look at any apparent pattern; run consanguinity detection to find cousin-unions you may not have noticed; run BayesMendel for hereditary cancer families.</p>
+
+            <p><strong>Step 5. Export and share.</strong> Export as PDF for family members, GEDCOM for re-import into genealogy software, or share directly via the embeddable viewer.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can Evagene import my existing GEDCOM?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. GEDCOM 5.5.1 import is a core feature; round-trip export is supported.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can I add 23andMe data?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. Raw SNP, traits, and health report imports; inference of blood type, secretor, and 50+ traits.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What health information can I record?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">A 180+ condition catalogue (ICD-10 and OMIM), cause of death, age at diagnosis, age at death, 55+ allergies, 50+ traits.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is Evagene a replacement for my genealogy software?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">No — complementary. Keep your genealogy tool for discovery, sources, and citations; use Evagene for the medical layer.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can I spot consanguinity?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. Wright's coefficient of inbreeding is calculated for any specified individual.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is my family data private?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Baseline controls include Fernet encryption for LLM keys, HMAC-signed webhooks, and SHA-256 API keys. Confirm specific certifications with the vendor.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can I share the medical tree with a clinician?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. Export as PDF / PNG, or share via the embeddable viewer.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Further reading</h2>
+
+            <ul>
+                <li><a href="gedcom-pedigree-software.html">GEDCOM pedigree software</a></li>
+                <li><a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculator</a></li>
+                <li><a href="hereditary-cancer-risk-assessment.html">Hereditary cancer risk assessment</a></li>
+                <li><a href="for-patients-families.html">Evagene for patients and families</a></li>
+                <li><a href="pedigree-drawing-software.html">Pedigree drawing software</a></li>
+                <li><a href="platform.html">The Evagene platform</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Explore the medical dimension of your family tree</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. Free access during Alpha — import your GEDCOM, add health and 23andMe data, and see the genetic shape of the family you have researched.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Pedigree Analysis — AI Clinical Genetics Interpretation with BYOK (2026) | Evagene</title>
+    <meta name="description" content="A technical guide to using large language models for pedigree analysis and clinical genetics interpretation: strengths, limits, hallucination risk, Bring Your Own Key (BYOK) as a trust model, reproducible Analysis Templates, and audit trails for AI outputs.">
+    <meta name="keywords" content="LLM pedigree analysis, AI pedigree interpretation, AI clinical genetics, LLM genetic counselling, BYOK clinical AI, Claude pedigree analysis, GPT clinical genetics, AI pedigree report, LLM clinical interpretation, pedigree AI audit trail">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="LLM Pedigree Analysis — AI Clinical Genetics Interpretation">
+    <meta property="og:description" content="How LLMs assist clinical genetics interpretation, the limits that matter, and how BYOK and Analysis Templates make it reproducible and auditable.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/llm-pedigree-analysis">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LLM Pedigree Analysis — Evagene">
+    <meta name="twitter:description" content="AI clinical genetics interpretation with BYOK, reproducible templates, and audit trails.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/llm-pedigree-analysis">
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'], mono:['JetBrains Mono','Fira Code','monospace'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD: Article -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"LLM Pedigree Analysis: AI Clinical Genetics Interpretation with BYOK",
+        "description":"A technical guide to large language models for pedigree analysis: strengths, limits, BYOK as a trust model, Analysis Templates for reproducibility, and audit trails for AI outputs.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/llm-pedigree-analysis"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Platform","item":"https://evagene.com/platform"},
+            {"@type":"ListItem","position":3,"name":"LLM Pedigree Analysis","item":"https://evagene.com/llm-pedigree-analysis"}
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"Can an LLM interpret a pedigree?","acceptedAnswer":{"@type":"Answer","text":"Modern LLMs can draft structured narratives from a structured pedigree description: summarising family history, flagging patterns consistent with specific inheritance modes, identifying data gaps, and proposing testing considerations. They cannot replace the clinical judgement of a qualified geneticist or counsellor. Treat AI output as a drafting aid, not a decision."}},
+            {"@type":"Question","name":"What are the main limits?","acceptedAnswer":{"@type":"Answer","text":"Three that matter in clinical genetics: hallucination (confident statements not grounded in the data), model drift (different model versions produce materially different outputs for the same input), and clinical liability (AI outputs are not clinically certified regardless of the model's intrinsic quality). Mitigations include grounding prompts in structured pedigree descriptions, pinning model versions, and requiring clinician review of every output before it reaches the clinical record."}},
+            {"@type":"Question","name":"What is BYOK and why does it matter?","acceptedAnswer":{"@type":"Answer","text":"Bring Your Own Key. Your organisation uses its own Anthropic (Claude) or OpenAI (GPT) API key for all LLM calls. Traffic goes directly to the model provider you have already contracted and risk-assessed — no intermediate vendor sits in between handling your clinical text. Keys are encrypted at rest in Evagene using Fernet (AES-128-CBC + HMAC-SHA256). BYOK also bypasses Evagene's standard quota and lets you override the default model per request."}},
+            {"@type":"Question","name":"How do Analysis Templates make interpretation reproducible?","acceptedAnswer":{"@type":"Answer","text":"Analysis Templates are reusable prompt templates with system and user prompts and variable injection ({{pedigree_description}}, {{proband_name}}, {{proband_sex}}, {{disease_list}}, {{risk_summary}}). A template captures the house style of interpretation: the structure, the sections, the caveats, the tone. Running the same template against the same pedigree with the same model and parameters produces reproducible output; running it against many pedigrees enforces consistency across a service."}},
+            {"@type":"Question","name":"What about audit trails?","acceptedAnswer":{"@type":"Answer","text":"Every AI interpretation call is logged against its API key with timestamp, template ID, pedigree ID, model identifier, and the generated output. This lets clinical governance review AI-assisted outputs and reconstruct what the model saw at generation time, which is especially important when model versions change."}},
+            {"@type":"Question","name":"Which models are supported?","acceptedAnswer":{"@type":"Answer","text":"Anthropic Claude and OpenAI GPT via BYOK. The default model is selected by Evagene for reasonable quality and cost; BYOK lets you override this on a per-request basis — for example, selecting Claude Opus for highest quality, or GPT-4o-mini for speed in research cohorts. Model identifiers are recorded in the audit log."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<!-- Navigation -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="platform.html" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Platform</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="platform.html" class="hover:text-brand-600 dark:hover:text-brand-300">Platform</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">LLM Pedigree Analysis</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">LLM pedigree analysis: AI clinical genetics interpretation with BYOK, templates, and audit</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A practical guide for clinicians and platform owners on using large language models to assist clinical genetics interpretation: where they help, where they fail, and how Bring Your Own Key, Analysis Templates, and audit trails make AI use defensible at the service level.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>14 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300 prose-code:text-brand-700 dark:prose-code:text-brand-300 prose-pre:bg-gray-900 prose-pre:text-gray-100">
+
+            <p><strong>Short version.</strong> Modern LLMs are useful for drafting pedigree-based clinical narratives: summarising family history, flagging inheritance patterns consistent with the data, identifying data gaps, and proposing testing considerations. They are not useful as clinical decision-makers; hallucination risk, model drift, and clinical liability are real. Evagene treats AI as a drafting aid and designs around the limits. Bring Your Own Key (BYOK) keeps LLM traffic inside your organisation's existing model-provider agreements — Anthropic Claude and OpenAI GPT are supported, with keys encrypted at rest using Fernet. Analysis Templates with variable injection (<code>{{pedigree_description}}</code>, <code>{{proband_name}}</code>, <code>{{disease_list}}</code>, <code>{{risk_summary}}</code>) make interpretation reproducible across a service. Every AI call is logged with timestamp, template, pedigree, and model identifier so clinical governance can audit outputs when model versions change.</p>
+
+            <p>This page is honest about what LLMs do well in clinical genetics and what they do badly, and explains the platform-level features that help teams use them responsibly.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What LLMs are genuinely good at</h2>
+
+            <p>With a well-structured pedigree description as input, a current-generation LLM (Claude 4, Claude Sonnet, GPT-4o class or better) produces draft content that is useful for clinicians in specific ways:</p>
+
+            <ul>
+                <li><strong>Narrative summarisation.</strong> Turning a structured description of a 60-person family into a short, readable paragraph that highlights the clinically important features for a report.</li>
+                <li><strong>Inheritance-pattern flagging.</strong> Noting that affected individuals in two generations are consistent with autosomal dominant inheritance with likely variable expressivity, or that a male-only affected pattern in maternal uncles is suggestive of X-linked recessive.</li>
+                <li><strong>Data-gap identification.</strong> Spotting that age of onset is missing for three key affected relatives, or that a second-degree relative's cancer type is noted but no age at diagnosis is given.</li>
+                <li><strong>Drafting structured sections.</strong> Producing a first-cut "family history summary", "key findings", "data limitations", and "screening considerations" that a clinician then edits.</li>
+                <li><strong>Translation and simplification.</strong> Generating patient-friendly explanations of a finding at an appropriate reading level.</li>
+            </ul>
+
+            <p>These are drafting tasks. The clinician's job is review and judgement; the model's job is reducing the typing.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What LLMs are bad at (and why it matters clinically)</h2>
+
+            <p>The failure modes that matter in clinical genetics:</p>
+
+            <ul>
+                <li><strong>Hallucination.</strong> The model generates a confident, plausible statement that is not grounded in the input. In clinical interpretation, a hallucinated "Lynch syndrome pattern" or a fabricated quantitative risk figure is dangerous. Mitigation: ground the prompt in the structured pedigree description that Evagene generates deterministically; instruct the model to restrict statements to that input; require clinician review.</li>
+                <li><strong>Model drift.</strong> Upgrading from one model version to another changes outputs for the same input, sometimes subtly. Consistency across a service — a key property of good clinical practice — is affected. Mitigation: pin model versions in Analysis Templates; record the model identifier in the audit log; re-validate templates when model versions change.</li>
+                <li><strong>Clinical liability.</strong> No general-purpose LLM is a certified medical device. Its output is not a clinical decision; it is a draft. Mitigation: make this explicit in the interpretation document, require clinician sign-off, and do not present AI output directly to patients without review.</li>
+                <li><strong>Confident silence.</strong> Models tend to produce output even when they should refuse. If a template is poorly phrased, it can produce an interpretation of a pedigree with insufficient data. Mitigation: prompt templates should include explicit "if data is insufficient, say so" instructions.</li>
+                <li><strong>Prompt injection.</strong> Free-text fields on individuals can in principle contain content that nudges the model. Mitigation: sanitise and structure the data before it reaches the prompt; keep free-text fields clearly quoted and labelled.</li>
+            </ul>
+
+            <p>None of these limits rule out LLM use in clinical genetics. They shape how it should be done.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">BYOK: your keys, your provider</h2>
+
+            <p>Evagene's AI interpretation engine is designed around Bring Your Own Key. Rather than Evagene holding a shared model-provider account and proxying your clinical data through it, each organisation configures its own Anthropic and/or OpenAI API key. The implications:</p>
+
+            <ul>
+                <li><strong>Traffic path.</strong> LLM calls go from Evagene directly to your chosen provider using your key. No intermediate vendor sits in between seeing clinical text.</li>
+                <li><strong>Data-processing agreements.</strong> Your organisation has (or procures) a DPA with Anthropic or OpenAI under your terms. The LLM use is covered by agreements your governance has already reviewed.</li>
+                <li><strong>Model choice and cost.</strong> You choose the model, the rate limits, and the spend. BYOK lets you pick Claude Opus for highest quality when it matters, or GPT-4o-mini for a research cohort where cost dominates.</li>
+                <li><strong>Key handling.</strong> Keys are encrypted at rest in Evagene using Fernet (AES-128-CBC + HMAC-SHA256); the plaintext is never written to disk.</li>
+                <li><strong>Quota bypass.</strong> BYOK bypasses Evagene's standard daily interpretation quota; your own provider quota applies instead.</li>
+            </ul>
+
+            <p>For most clinical services, this is the model that makes AI interpretation procurable. If your organisation cannot risk-assess a new sub-processor just to use AI interpretation, the right question is whether it can re-use an existing Anthropic or OpenAI relationship. With BYOK, it can.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Analysis Templates for reproducible interpretation</h2>
+
+            <p>Evagene's Analysis Templates are reusable prompt templates with two halves — a system prompt (the model's role and guardrails) and a user prompt (the task, with variable injection) — plus model configuration. Their purpose is to codify a service's interpretation style so every clinician gets consistent drafts.</p>
+
+            <p>The injected variables Evagene exposes include:</p>
+
+            <ul>
+                <li><code>{{pedigree_description}}</code> — deterministic natural-language rendering of the pedigree.</li>
+                <li><code>{{proband_name}}</code>, <code>{{proband_sex}}</code>, <code>{{proband_dob}}</code></li>
+                <li><code>{{disease_list}}</code> — structured list of diseases annotated in the pedigree.</li>
+                <li><code>{{risk_summary}}</code> — output of risk models (BRCAPRO, MMRpro, PancPRO, Mendelian) if previously computed.</li>
+            </ul>
+
+            <p>A sketch of a template's shape (not a copy-paste prompt):</p>
+
+            <pre><code class="language-text">[system]
+You are drafting a clinical genetics family history summary for
+a UK genetics service. Structure output as: Family history summary;
+Inheritance pattern assessment; Data limitations; Screening
+considerations. If data is insufficient for any section, say so
+explicitly. Do not invent quantitative risks.
+
+[user]
+Proband: {{proband_name}} (sex: {{proband_sex}}, DOB: {{proband_dob}})
+Diseases annotated: {{disease_list}}
+Risk models computed: {{risk_summary}}
+
+Pedigree description:
+{{pedigree_description}}
+
+Draft the summary now.
+</code></pre>
+
+            <p>Templates are versioned, can be shared across a service, and can be pinned to a specific model version. Running the same template against the same pedigree with the same model produces reproducible output — a material step up from ad-hoc prompting.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Audit trails</h2>
+
+            <p>Every AI interpretation call made through Evagene is logged with the API key, timestamp, template ID and version, pedigree ID, model identifier (including version), token counts, and the generated output. This lets a clinical governance review:</p>
+
+            <ul>
+                <li>Reconstruct exactly what input the model saw and which model version produced the output.</li>
+                <li>Identify and review all AI-assisted interpretations produced under a given template version.</li>
+                <li>Detect whether a model upgrade has shifted outputs in ways clinicians did not expect.</li>
+                <li>Revoke a compromised API key and enumerate which pedigrees were interpreted under it.</li>
+            </ul>
+
+            <p>In a clinical-governance sense, AI use becomes a thing a service can defend: "this letter was drafted by model X version Y on date Z from template T, and reviewed by clinician C."</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How this works in Evagene</h2>
+
+            <p>The moving parts on the Evagene platform:</p>
+
+            <ul>
+                <li><strong>Analysis Templates</strong> let you define system and user prompts with variable injection and pin a model.</li>
+                <li><strong>BYOK</strong> routes LLM calls through your Anthropic or OpenAI key; Fernet-encrypted at rest.</li>
+                <li><strong>Pedigree description generation</strong> produces the deterministic natural-language rendering that <code>{{pedigree_description}}</code> substitutes into prompts.</li>
+                <li><strong>Risk analysis outputs</strong> (BRCAPRO, MMRpro, PancPRO, Mendelian) feed into <code>{{risk_summary}}</code>, so AI interpretation can reference computed risks rather than the model guessing at them.</li>
+                <li><strong>REST API</strong> exposes AI interpretation as a first-class endpoint; responses can be consumed synchronously for short interpretations or subscribed via the <code>analysis.completed</code> webhook.</li>
+                <li><strong>MCP server</strong> does not call LLMs itself — it exposes pedigree tools to your AI client (Claude Desktop, Claude Code), whose own model is doing the reasoning. BYOK applies to Evagene's server-side templates, not to MCP traffic.</li>
+                <li><strong>Audit log</strong> records every interpretation call for governance review.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">Sensible use in a clinical service</h2>
+
+            <p>A starter policy for a service bringing AI interpretation online:</p>
+
+            <ul>
+                <li>Treat AI output as a draft. Every output gets clinician review before reaching the clinical record.</li>
+                <li>Use templates, not ad-hoc prompts. Review and version-control templates at service level.</li>
+                <li>Pin model versions. Upgrade deliberately and re-validate templates against the new version.</li>
+                <li>Use BYOK so AI traffic sits inside your existing provider agreements.</li>
+                <li>Log everything. Make the audit trail part of the governance process.</li>
+                <li>Flag AI involvement in reports that reach patients or referring clinicians.</li>
+            </ul>
+
+            <p>This is similar in spirit to how services adopted speech-to-text transcription in clinical settings: useful tool, known failure modes, workflow redesigned to account for them.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can an LLM interpret a pedigree?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Modern LLMs draft structured narratives, flag inheritance patterns, and identify data gaps. They are drafting aids, not decision-makers.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What are the limits?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Hallucination, model drift, and clinical liability. Mitigated by grounded prompts, pinned model versions, clinician review, and audit.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is BYOK?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Your Anthropic or OpenAI key handles all LLM traffic. Keys are Fernet-encrypted at rest. No intermediate vendor.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How do Analysis Templates help?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">They capture the service's interpretation style in reusable, versioned prompt templates with variable injection. Reproducibility and consistency follow.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What about audit?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Every AI call is logged with timestamp, key, template, pedigree, model identifier, and output. Governance can reconstruct any interpretation.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Which models are supported?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Anthropic Claude and OpenAI GPT via BYOK. Model choice is per-request; model IDs are recorded in the audit log.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="platform.html">Evagene platform overview</a></li>
+                <li><a href="pedigree-mcp-server.html">Pedigree MCP server for AI agents</a></li>
+                <li><a href="pedigree-api.html">Pedigree REST API reference</a></li>
+                <li><a href="hl7-fhir-pedigree.html">HL7 FHIR and pedigree data</a></li>
+                <li><a href="phenopackets-pedigree.html">GA4GH Phenopackets and pedigree data</a></li>
+                <li><a href="phenotips-vs-evagene.html">Phenotips vs Evagene</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<!-- CTA -->
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lynch Syndrome Risk Calculator — Carrier Probability and Hereditary Colon Cancer Risk | Evagene</title>
+    <meta name="description" content="A clinical overview of Lynch syndrome risk calculation: cancers, diagnostic workflow from Amsterdam/Bethesda criteria through MSI/IHC to germline testing, MMRpro for pre-test carrier probability, and surveillance recommendations.">
+    <meta name="keywords" content="Lynch syndrome risk calculator, Lynch syndrome carrier probability, hereditary colon cancer calculator, MMRpro, MLH1, MSH2, MSH6, PMS2, Amsterdam II, Bethesda guidelines, microsatellite instability, IHC mismatch repair">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Lynch Syndrome Risk Calculator — Carrier Probability and Hereditary Colon Cancer Risk">
+    <meta property="og:description" content="A clinician's guide to Lynch syndrome risk calculation, MMR biology, diagnostic criteria, MMRpro, and surveillance.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/lynch-syndrome-risk-calculator">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lynch Syndrome Risk Calculator — Carrier Probability and Hereditary Colon Cancer Risk">
+    <meta name="twitter:description" content="How to calculate Lynch syndrome risk from a pedigree and integrate tumour marker data.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/lynch-syndrome-risk-calculator">
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD: Article -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"Lynch Syndrome Risk Calculator: Carrier Probability and Hereditary Colon Cancer Risk",
+        "description":"A clinical overview of Lynch syndrome, diagnostic workflow, MMRpro, and surveillance recommendations.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/lynch-syndrome-risk-calculator"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Risk Analysis","item":"https://evagene.com/#risk-analysis"},
+            {"@type":"ListItem","position":3,"name":"Lynch Syndrome Risk Calculator","item":"https://evagene.com/lynch-syndrome-risk-calculator"}
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"What is Lynch syndrome?","acceptedAnswer":{"@type":"Answer","text":"Lynch syndrome (historically hereditary non-polyposis colorectal cancer, HNPCC) is an autosomal dominant condition caused by pathogenic germline variants in the DNA mismatch repair genes MLH1, MSH2, MSH6, and PMS2, or by EPCAM deletions that silence MSH2. Carriers face substantially elevated risks of colorectal, endometrial, and several other cancers. It is the most common hereditary cause of colorectal cancer."}},
+            {"@type":"Question","name":"What cancers does Lynch syndrome cause?","acceptedAnswer":{"@type":"Answer","text":"The core Lynch tumour spectrum is colorectal and endometrial cancer. The broader spectrum includes ovarian, gastric, small bowel, urothelial (renal pelvis and ureter), hepatobiliary, pancreatic, brain (glioblastoma), and sebaceous skin tumours (Muir-Torre variant). Risks differ by gene, with MLH1 and MSH2 carriers generally having the highest risks and MSH6 and PMS2 carriers having lower, later-onset risks."}},
+            {"@type":"Question","name":"What are Amsterdam II and revised Bethesda criteria?","acceptedAnswer":{"@type":"Answer","text":"Amsterdam II requires at least three relatives with Lynch-associated cancers across at least two generations, one a first-degree relative of the other two, with one diagnosis under 50. Revised Bethesda guidelines flag individual tumours for MSI or IHC testing based on features such as early-onset colorectal cancer, synchronous or metachronous Lynch cancers, or MSI-suggestive histology. Both are clinical triage tools; MMRpro provides a more sensitive quantitative alternative."}},
+            {"@type":"Question","name":"What is MMRpro?","acceptedAnswer":{"@type":"Answer","text":"MMRpro is a Bayesian risk calculator from the BayesMendel suite that estimates the probability an individual carries a pathogenic variant in an MMR gene, using family history and optionally tumour marker results. It is a more sensitive tool than Amsterdam or Bethesda criteria for identifying families who should be offered germline testing."}},
+            {"@type":"Question","name":"How do MSI and IHC testing fit in?","acceptedAnswer":{"@type":"Answer","text":"Microsatellite instability (MSI) testing and mismatch repair immunohistochemistry (IHC) are tumour-based tests that indicate whether MMR machinery is functioning. MSI-H or loss of specific MMR protein staining strongly suggests underlying MMR deficiency. These results feed into the Lynch diagnostic workflow and can be incorporated directly into MMRpro as intermediate phenotypes."}},
+            {"@type":"Question","name":"What surveillance is recommended for Lynch carriers?","acceptedAnswer":{"@type":"Answer","text":"Colonoscopy every one to two years from early adulthood (the starting age and interval depending on gene and guideline), consideration of risk-reducing hysterectomy and bilateral salpingo-oophorectomy once childbearing is complete, and monitoring for other Lynch-spectrum cancers where indicated. Specifics follow NICE, NCCN, and ESMO guidance which are updated as evidence accrues."}},
+            {"@type":"Question","name":"How does Evagene help with Lynch syndrome risk assessment?","acceptedAnswer":{"@type":"Answer","text":"Evagene integrates MMRpro from the BayesMendel suite directly on the pedigree canvas. The pedigree you draw or import is the input MMRpro needs — no re-entry. Results appear alongside the pedigree and can feed AI-drafted clinical reports with bring-your-own-key LLMs. Batch risk screening runs MMRpro alongside BRCAPRO, PancPRO, and Mendelian analyses across Evagene's disease catalogue."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<!-- Navigation -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="https://evagene.com/#risk-analysis" class="hover:text-brand-600 dark:hover:text-brand-300">Risk Analysis</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">Lynch Syndrome Risk Calculator</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Lynch syndrome risk calculator: carrier probability and hereditary colon cancer risk from a family pedigree</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A clinical guide for colorectal and gynaecological oncology teams, genetic counsellors, and clinical geneticists — what Lynch syndrome is, the diagnostic workflow from family history through tumour markers to germline testing, how MMRpro quantifies pre-test probability, and where surveillance fits.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>13 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> Lynch syndrome is an autosomal dominant condition caused by pathogenic variants in the DNA mismatch repair genes (MLH1, MSH2, MSH6, PMS2) or EPCAM deletions, and is the most common hereditary cause of colorectal cancer. Calculating Lynch risk uses a combination of clinical criteria (Amsterdam II, revised Bethesda), tumour testing (microsatellite instability, mismatch repair IHC), and quantitative models — principally MMRpro from the BayesMendel suite. MMRpro integrates pedigree data and, where available, tumour markers into a posterior carrier probability that is more sensitive than clinical criteria alone. Confirmed carriers enter enhanced surveillance and targeted cascade testing of relatives. Evagene runs MMRpro directly on the pedigree, with no re-entry, alongside BRCAPRO and PancPRO.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Lynch syndrome: clinical overview</h2>
+
+            <p>Lynch syndrome, historically known as hereditary non-polyposis colorectal cancer (HNPCC), is the most common hereditary cause of colorectal cancer. It is an autosomal dominant condition driven by pathogenic germline variants in the DNA mismatch repair genes — primarily <strong>MLH1</strong>, <strong>MSH2</strong>, <strong>MSH6</strong>, and <strong>PMS2</strong> — or by deletions of <strong>EPCAM</strong> that silence <em>MSH2</em> through a read-through transcription mechanism.</p>
+
+            <p>In functional terms, the MMR machinery corrects base-base mismatches and small insertion/deletion loops that arise during DNA replication. Loss of MMR function causes accumulation of microsatellite instability — the clinically observable signature of a tumour developing on a Lynch background — and accelerated carcinogenesis in the tissues where the mutagenic burden is highest.</p>
+
+            <p>Identifying Lynch syndrome matters clinically because the downstream changes are substantial: enhanced colonoscopic surveillance starting in early adulthood, consideration of risk-reducing gynaecological surgery, specific tumour biology (MSI-high tumours respond well to immune checkpoint inhibitors in the metastatic setting), and cascade testing of at-risk relatives who can then be offered the same surveillance.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Cancer risks associated with Lynch syndrome</h2>
+
+            <p>The Lynch tumour spectrum extends well beyond colorectal cancer. The qualitative picture is as follows, recognising that precise lifetime risks differ by gene and by reference cohort.</p>
+
+            <ul>
+                <li><strong>Colorectal cancer.</strong> The defining cancer of the syndrome. Lifetime risk is substantially elevated, particularly for MLH1 and MSH2 carriers. Tumours tend to arise in the proximal colon, present earlier than sporadic cases, and have distinctive histological features such as tumour-infiltrating lymphocytes.</li>
+                <li><strong>Endometrial cancer.</strong> The second sentinel cancer. In many Lynch families, endometrial cancer is the first diagnosis that appears in the pedigree. Lifetime risk is substantial, particularly for MLH1 and MSH2 carriers.</li>
+                <li><strong>Ovarian cancer.</strong> Moderately elevated lifetime risk, often at younger ages than sporadic ovarian cancer. See our <a href="ovarian-cancer-family-history-calculator.html">ovarian cancer family history page</a> for how Lynch overlaps with BRCA-driven ovarian risk.</li>
+                <li><strong>Gastric cancer.</strong> Elevated, particularly intestinal-type adenocarcinoma. Regional baseline rates and dietary factors modulate the observed risk substantially.</li>
+                <li><strong>Small bowel cancer.</strong> Uncommon in the general population, enriched in Lynch kindreds.</li>
+                <li><strong>Urothelial cancer.</strong> Renal pelvis and ureter primarily, more strongly in MSH2 carriers.</li>
+                <li><strong>Hepatobiliary and pancreatic cancers.</strong> Moderately elevated. Pancreatic cancer overlaps with the hereditary pancreatic cancer differential; see our <a href="pancpro-calculator.html">PancPRO guide</a>.</li>
+                <li><strong>Brain cancer.</strong> Particularly glioblastoma in certain Lynch variants.</li>
+                <li><strong>Sebaceous skin tumours.</strong> The Muir-Torre variant of Lynch syndrome features sebaceous adenomas, sebaceous carcinomas, and keratoacanthomas alongside internal malignancy.</li>
+            </ul>
+
+            <p>Risks differ by gene. MLH1 and MSH2 carriers generally have the highest colorectal and endometrial risks. MSH6 carriers have lower but still substantially elevated risks with a tendency towards later onset and a relatively greater endometrial contribution. PMS2 carriers have the lowest of the four gene-specific risks, though still meaningful and warranting surveillance.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">From family history to diagnosis: the clinical workflow</h2>
+
+            <p>Lynch syndrome diagnosis typically proceeds through a layered workflow, each step narrowing down who is tested and with what.</p>
+
+            <div class="not-prose my-10 overflow-x-auto">
+                <table class="w-full text-sm border-collapse">
+                    <thead class="bg-brand-50 dark:bg-brand-900/50">
+                        <tr>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Step</th>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Method</th>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 dark:text-gray-300">
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">1. Pedigree</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Three-generation family history on both lineages</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Identify Lynch-spectrum patterns</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">2. Clinical criteria</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Amsterdam II, revised Bethesda</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Initial triage</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">3. Pre-test probability</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">MMRpro</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Quantitative carrier probability</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">4. Tumour testing</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">MSI and MMR IHC on accessible specimen</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Evidence of MMR deficiency</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">5. Reflex exclusion</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">BRAF V600E or MLH1 promoter methylation in CRC</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Exclude sporadic MLH1 loss</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">6. Germline testing</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Panel covering MLH1, MSH2, MSH6, PMS2, EPCAM</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Confirmatory molecular diagnosis</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">7. Cascade testing</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Targeted variant testing in relatives</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Extend diagnosis through family</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>Not every step is required in every case. A recent tumour showing MSI-high and loss of MSH2/MSH6 on IHC may be enough to proceed directly to germline testing for <em>MSH2</em> and <em>EPCAM</em>. An older family where no tumour specimen is accessible may rely on pedigree plus MMRpro to decide on germline testing eligibility. The workflow is a set of tools to reach for, not a fixed sequence.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Amsterdam II and revised Bethesda: what the criteria are</h2>
+
+            <p><strong>Amsterdam II criteria</strong> require three or more relatives with a Lynch-associated cancer, one a first-degree relative of the other two, spanning at least two successive generations, at least one diagnosis before age 50, and exclusion of familial adenomatous polyposis. Amsterdam II is specific — families that meet it are highly likely to have Lynch — but not sensitive. Many true Lynch kindreds fail Amsterdam II because they are small, because endometrial burden outweighs colorectal, or because older diagnoses lack documentation.</p>
+
+            <p><strong>Revised Bethesda guidelines</strong> are broader and operate at the level of individual tumours. They flag tumours for MSI or IHC testing when features such as early-onset colorectal cancer (under 50), synchronous or metachronous Lynch-associated tumours, MSI-high histological features, or first-degree relatives with Lynch-associated cancer are present. Revised Bethesda is more sensitive than Amsterdam II but less specific, and still misses a meaningful fraction of carriers.</p>
+
+            <p>In modern pathology practice, many services run universal tumour MMR testing (MSI or IHC) on all colorectal and endometrial cancers, bypassing Bethesda as a triage step. This is substantially more sensitive and is now recommended by NICE, NCCN, and equivalent bodies in many jurisdictions.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">MMRpro: quantitative pre-test probability</h2>
+
+            <p>MMRpro is the Bayesian risk calculator in the BayesMendel suite that handles Lynch syndrome. It estimates the posterior probability of carrying a pathogenic variant in MLH1, MSH2, or MSH6 based on the pedigree and, optionally, tumour marker results. PMS2 coverage depends on implementation. See our dedicated <a href="mmrpro-calculator.html">MMRpro calculator guide</a> for the detailed mechanics.</p>
+
+            <p>Clinically, MMRpro is most useful at two points in the workflow. Early, as a <strong>pre-test probability</strong> estimator to decide whether germline testing is indicated: a posterior above a defined threshold (commonly 5 percent, depending on commissioning framework) triggers testing. Later, as a way to <strong>integrate tumour markers</strong> with pedigree: when a tumour has been MSI-tested and IHC-stained, MMRpro combines that evidence with family history to produce a sharper estimate than either source alone.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Surveillance for confirmed carriers</h2>
+
+            <p>Once a Lynch syndrome pathogenic variant is confirmed, surveillance is the core of clinical management. The specific programme depends on gene, age, and guideline, but the core components are consistent.</p>
+
+            <ul>
+                <li><strong>Colonoscopy</strong> every one to two years from early adulthood. Starting age varies by gene — earlier for MLH1 and MSH2 (often 20 to 25), later for MSH6 and PMS2 — and by guideline.</li>
+                <li><strong>Gynaecological surveillance</strong> for women, with consideration of risk-reducing hysterectomy and bilateral salpingo-oophorectomy once childbearing is complete. The evidence base for annual transvaginal ultrasound and endometrial biopsy is weaker than for colonoscopy, and risk-reducing surgery is increasingly the primary strategy.</li>
+                <li><strong>Upper GI surveillance</strong> in selected families or gene-specific settings — typically gastroscopy at defined intervals, particularly in regions with higher baseline gastric cancer rates or where there is a family history of upper GI cancer.</li>
+                <li><strong>Urinary surveillance</strong> in specific settings, particularly for MSH2 carriers.</li>
+                <li><strong>Dermatological review</strong> for sebaceous tumours in Muir-Torre-suggestive kindreds.</li>
+                <li><strong>Chemoprevention</strong> — daily aspirin has randomised evidence for reducing colorectal cancer in Lynch carriers (the CAPP2 trial), and is increasingly recommended in contemporary guidelines with appropriate dose and duration counselling.</li>
+            </ul>
+
+            <p>Cascade testing of first-degree relatives of a confirmed carrier is the other major clinical action, because each first-degree relative has a baseline 50 percent chance of carrying the same variant, and positive results open access to the same surveillance programme.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene integrates Lynch syndrome risk calculation</h2>
+
+            <p>Evagene integrates MMRpro from the BayesMendel suite directly on the pedigree canvas. The same structured pedigree used to draw the family — with colorectal, endometrial, ovarian, gastric, urothelial, and other Lynch-spectrum cancers noted, ages of diagnosis, vital status, and (where available) tumour marker results recorded as annotations — is the input MMRpro needs. The model runs in an R sidecar process that calls the validated BayesMendel package, returning carrier probabilities and projected cancer risks that appear alongside the pedigree in the web interface.</p>
+
+            <p>A distinguishing feature for Lynch workflows is <strong>batch risk screening</strong>. Rather than requiring a clinician to remember to run MMRpro specifically, Evagene can run MMRpro alongside BRCAPRO, PancPRO, and Mendelian analyses across the full 180-plus disease catalogue in a single operation. For a pedigree with predominantly breast cancer plus a single colorectal case, MMRpro is run automatically, so a Lynch signal that might be missed in a breast-focused work-up is surfaced. See our broader <a href="hereditary-cancer-risk-assessment.html">hereditary cancer risk assessment</a> guide for how batch screening fits the wider clinical workflow.</p>
+
+            <p>Evagene also supports <strong>AI interpretation</strong> with bring-your-own-key large language models. Once MMRpro has produced a Lynch posterior, the AI engine can draft a structured clinical summary covering key findings, family implications, data gaps, and screening recommendations — which a clinician reviews, edits, and signs. Traffic goes directly to your contracted LLM provider, not through an Evagene-hosted model, so clinical text handling stays within your existing risk assessment envelope.</p>
+
+            <p>For programmatic use, MMRpro is exposed through Evagene's REST API and MCP server, so downstream EHR integrations, research pipelines, and AI agents can retrieve Lynch carrier probabilities on a pedigree without a human in the loop. Docs are at <a href="https://evagene.net/help">evagene.net/help</a>. Evagene is browser-based, zero install, and free during Alpha via <a href="https://evagene.com/#waitlist">the waiting list</a>.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is Lynch syndrome?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">An autosomal dominant condition caused by pathogenic variants in the mismatch repair genes MLH1, MSH2, MSH6, PMS2, or EPCAM deletions. The most common hereditary cause of colorectal cancer, with a broader tumour spectrum including endometrial, ovarian, gastric, urothelial, and others.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What cancers does Lynch syndrome cause?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Colorectal and endometrial primarily; ovarian, gastric, small bowel, urothelial, hepatobiliary, pancreatic, brain, and sebaceous skin tumours secondarily. Risks differ by gene.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What are Amsterdam II and Bethesda criteria?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Clinical criteria for suspecting Lynch syndrome. Useful for triage but less sensitive than MMRpro or universal tumour testing for identifying carriers.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is MMRpro?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">A Bayesian Lynch syndrome risk calculator from the BayesMendel suite that estimates MMR gene carrier probability from a pedigree, optionally integrated with tumour marker data.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How do MSI and IHC testing fit in?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">As tumour-level evidence of MMR deficiency. Increasingly done universally on colorectal and endometrial specimens, and integrated into MMRpro as intermediate phenotypes.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What surveillance is recommended?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Regular colonoscopy from early adulthood; consideration of risk-reducing gynaecological surgery; gene- and family-specific upper GI, urinary, and dermatological monitoring; aspirin chemoprevention where appropriate.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How does Evagene help?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">MMRpro integrated on the pedigree, with batch screening across diseases, AI-drafted clinical reports via BYOK LLMs, and REST API / MCP programmatic access.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="mmrpro-calculator.html">MMRpro calculator</a></li>
+                <li><a href="hereditary-cancer-risk-assessment.html">Hereditary cancer risk assessment</a></li>
+                <li><a href="brcapro-calculator.html">BRCAPRO calculator</a></li>
+                <li><a href="pancpro-calculator.html">PancPRO calculator</a></li>
+                <li><a href="ovarian-cancer-family-history-calculator.html">Ovarian cancer family history calculator</a></li>
+                <li><a href="pedigree-drawing-software.html">Pedigree drawing software</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tool</a></li>
+                <li><a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculator</a></li>
+                <li><a href="gedcom-pedigree-software.html">GEDCOM pedigree software</a></li>
+                <li><a href="phenotips-vs-evagene.html">Phenotips vs Evagene comparison</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<!-- CTA -->
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Calculate Lynch syndrome risk directly from your pedigree</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. Browser-based, zero install, free during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

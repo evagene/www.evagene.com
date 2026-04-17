@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HL7 FHIR and Pedigree Data: FamilyMemberHistory, Genomics IG, and Evagene (2026) | Evagene</title>
+    <meta name="description" content="A technical guide to HL7 FHIR for pedigree data: the FamilyMemberHistory resource, FHIR Genomics Implementation Guide, Condition and Observation linkage, and how Evagene's REST API serves as a FHIR-ready integration surface for clinical genetics.">
+    <meta name="keywords" content="HL7 FHIR pedigree, FHIR FamilyMemberHistory, FHIR genomics pedigree, FHIR pedigree resource, FHIR clinical genetics, pedigree interoperability, pedigree FHIR mapping, clinical genomics FHIR, FHIR R4 FamilyMemberHistory, Evagene FHIR">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="HL7 FHIR and Pedigree Data — FamilyMemberHistory, Genomics IG, and Evagene">
+    <meta property="og:description" content="How pedigree data maps to FHIR's FamilyMemberHistory resource and the FHIR Genomics IG, and how Evagene's REST API serves as a FHIR-ready integration surface.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/hl7-fhir-pedigree">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HL7 FHIR and Pedigree Data — Evagene">
+    <meta name="twitter:description" content="FamilyMemberHistory, the FHIR Genomics IG, and pedigree-to-FHIR mapping in practice.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/hl7-fhir-pedigree">
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'], mono:['JetBrains Mono','Fira Code','monospace'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD: Article -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"HL7 FHIR and Pedigree Data: FamilyMemberHistory, Genomics IG, and Evagene",
+        "description":"A technical guide to mapping pedigree data onto HL7 FHIR resources and using Evagene's REST API as a FHIR-ready integration surface.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/hl7-fhir-pedigree"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Platform","item":"https://evagene.com/platform"},
+            {"@type":"ListItem","position":3,"name":"HL7 FHIR Pedigree","item":"https://evagene.com/hl7-fhir-pedigree"}
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"Does Evagene speak native FHIR today?","acceptedAnswer":{"@type":"Answer","text":"Not as a first-class resource server. Evagene currently exposes a REST API with JSON payloads and GEDCOM 5.5.1 import/export. A native FHIR endpoint serving FamilyMemberHistory, Patient, Condition, and Observation resources is on the roadmap. In the interim, teams typically wrap Evagene's REST API with a FHIR facade that maps Evagene individuals and relationships onto FHIR FamilyMemberHistory and related resources."}},
+            {"@type":"Question","name":"What is FHIR FamilyMemberHistory?","acceptedAnswer":{"@type":"Answer","text":"FamilyMemberHistory is the FHIR resource that represents significant health events and conditions for a person related to the patient. It captures relationship to the patient, sex, age or date of birth/death, reason not taken, conditions (with onset), and procedure. It is the primary FHIR anchor for pedigree data in healthcare interoperability scenarios."}},
+            {"@type":"Question","name":"What does the FHIR Genomics Implementation Guide add?","acceptedAnswer":{"@type":"Answer","text":"The FHIR Genomics IG profiles Observation, MolecularSequence, and related resources to carry genomic findings, variants, and clinical interpretations. For pedigree workflows it provides the scaffolding for linking variants to individuals and for representing inheritance patterns, though FamilyMemberHistory itself predates and sits outside the Genomics IG."}},
+            {"@type":"Question","name":"How do I map an Evagene pedigree to FHIR?","acceptedAnswer":{"@type":"Answer","text":"Each Evagene individual becomes either a Patient (for the proband) or a FamilyMemberHistory entry referencing the proband. Evagene disease annotations (ICD-10 / OMIM) map onto FamilyMemberHistory.condition with appropriate codings. Risk analysis outputs map onto RiskAssessment. AI interpretation output can be carried as a DocumentReference or a Composition. Evagene's REST API exposes the underlying data; a thin FHIR facade performs the translation."}},
+            {"@type":"Question","name":"How does Evagene compare to TrakGene on FHIR?","acceptedAnswer":{"@type":"Answer","text":"TrakGene advertises native FHIR support as part of its integration story. Evagene does not advertise a native FHIR endpoint today; it exposes a REST API and GEDCOM import/export that can be bridged into FHIR. For services that require a FHIR resource server out of the box for institutional procurement, TrakGene is the more direct fit today. For services that want flexibility to shape their own FHIR facade, Evagene's REST API and webhooks are the building blocks."}},
+            {"@type":"Question","name":"Are there FHIR profiles specifically for pedigree?","acceptedAnswer":{"@type":"Answer","text":"There is no single universally adopted FHIR profile labelled 'Pedigree'. In practice, services use FamilyMemberHistory combined with Patient, Condition, Observation, and (for variants) MolecularSequence and the Genomics IG's reporting profiles. Some national programmes and research networks publish their own pedigree-oriented profiles layered on top of these resources."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<!-- Navigation -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="platform.html" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Platform</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="platform.html" class="hover:text-brand-600 dark:hover:text-brand-300">Platform</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">HL7 FHIR Pedigree</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">HL7 FHIR and pedigree data: FamilyMemberHistory, the Genomics IG, and how Evagene fits</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A technical guide for clinical genetics IT architects on mapping pedigree data onto HL7 FHIR resources, the current state of native FHIR support across pedigree platforms, and how Evagene's REST API serves as a FHIR-ready integration surface.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>13 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300 prose-code:text-brand-700 dark:prose-code:text-brand-300 prose-pre:bg-gray-900 prose-pre:text-gray-100">
+
+            <p><strong>Short version.</strong> FHIR is the dominant healthcare interoperability standard, and the FamilyMemberHistory resource is its primary anchor for pedigree data. The FHIR Genomics Implementation Guide extends it with genomic Observation profiles and MolecularSequence, but there is no single universal "FHIR Pedigree" resource. Evagene does not expose a native FHIR endpoint today; it exposes a scoped REST API with JSON payloads plus GEDCOM 5.5.1 import and export, and webhooks for event-driven sync. Teams that need FHIR today typically build a thin FHIR facade on top of Evagene's REST API, mapping Evagene individuals and conditions onto FamilyMemberHistory, Patient, Condition, and RiskAssessment. Native FHIR is on the roadmap.</p>
+
+            <p>If you are evaluating pedigree platforms against a FHIR procurement requirement, be honest with yourself about what "FHIR support" needs to mean for your service. A FHIR resource server that serves <code>FamilyMemberHistory/{id}</code> natively is one thing. A platform that exposes enough of its data model through a clean API that you can build a FHIR facade in a few days is another. This article walks through both ends of the spectrum, the resources involved, and how Evagene currently fits.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What FHIR actually is (in two minutes)</h2>
+
+            <p>HL7 FHIR (Fast Healthcare Interoperability Resources) is the HL7 International standard for exchanging healthcare information electronically. Its core design is a set of modular <em>resources</em> — Patient, Encounter, Observation, Condition, MedicationRequest, and dozens more — each with a defined JSON and XML representation, a RESTful API for create, read, update, delete, and search, and extension points through profiles. FHIR R4 is the version most production deployments currently use; FHIR R5 and subsequent releases continue to evolve the standard.</p>
+
+            <p>For pedigree data, the resources that matter most are:</p>
+
+            <ul>
+                <li><strong>Patient</strong> — the individual at the centre of the record, typically the proband.</li>
+                <li><strong>FamilyMemberHistory</strong> — a relative of the patient, with relationship, sex, age, conditions, and cause of death.</li>
+                <li><strong>Condition</strong> — a diagnosis or clinical concern attached to the patient (not directly used on relatives within FamilyMemberHistory itself).</li>
+                <li><strong>Observation</strong> — structured clinical findings, including genomic observations under the Genomics IG.</li>
+                <li><strong>RiskAssessment</strong> — a risk estimate for a condition (useful for recording BRCAPRO, MMRpro, and PancPRO outputs).</li>
+                <li><strong>MolecularSequence</strong> — sequence data, primarily under the Genomics IG.</li>
+                <li><strong>DocumentReference</strong> / <strong>Composition</strong> — containers for narrative reports, such as AI-generated clinical interpretation.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">FamilyMemberHistory: the pedigree anchor</h2>
+
+            <p>FamilyMemberHistory is the FHIR resource that represents "significant health events and conditions for a person related to the patient, with their relationship recorded." Each instance corresponds to one relative. Key fields include:</p>
+
+            <ul>
+                <li><code>patient</code> — reference to the proband Patient resource.</li>
+                <li><code>relationship</code> — CodeableConcept using the <code>v3-RoleCode</code> or a similar value set (e.g. MTH for mother, FTH for father, SIS for sister).</li>
+                <li><code>sex</code> — AdministrativeGender.</li>
+                <li><code>bornDate</code> / <code>age</code> — either the date of birth or an age representation.</li>
+                <li><code>deceasedBoolean</code> / <code>deceasedAge</code> / <code>deceasedDate</code> — mortality status and, optionally, age or date at death.</li>
+                <li><code>condition</code> — a backbone element listing diagnoses, each with its own coding (SNOMED CT, ICD-10, or OMIM), optional onset, and an optional outcome concept.</li>
+            </ul>
+
+            <p>The shape of a FamilyMemberHistory resource looks like this:</p>
+
+            <pre><code class="language-json">{
+  "resourceType": "FamilyMemberHistory",
+  "status": "completed",
+  "patient": { "reference": "Patient/proband-123" },
+  "relationship": {
+    "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                 "code": "MTH", "display": "mother" }]
+  },
+  "sex": { "coding": [{ "system": "http://hl7.org/fhir/administrative-gender",
+                        "code": "female" }] },
+  "bornDate": "1952-03-14",
+  "deceasedBoolean": false,
+  "condition": [{
+    "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10",
+                           "code": "C50.9", "display": "Breast cancer" }] },
+    "onsetAge": { "value": 47, "unit": "a" }
+  }]
+}
+</code></pre>
+
+            <p>What FamilyMemberHistory does <em>not</em> capture natively:</p>
+
+            <ul>
+                <li>Relationships between relatives (only to the patient). A sister-of-sister relationship is implied via both sharing MTH/FTH of the proband, not explicitly linked.</li>
+                <li>Pedigree drawing layout (x/y coordinates, symbol choice).</li>
+                <li>Consanguinity loops explicitly; these must be inferred or carried as extensions.</li>
+                <li>Monozygotic twin grouping beyond the standard extensions.</li>
+            </ul>
+
+            <p>Pedigree tools that use FHIR as their interchange format therefore either stay within FamilyMemberHistory's limits or use FHIR extensions and/or the Genomics IG's additional resources to carry the missing information.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">The FHIR Genomics Implementation Guide</h2>
+
+            <p>The FHIR Genomics IG is the main place the standard addresses genomic findings. It profiles Observation for variant, diagnostic implication, molecular consequence, and therapeutic implication; it profiles MolecularSequence for the sequence data itself; and it defines diagnostic report bundles that tie observations, sequences, and interpretation together. For pedigree work, the Genomics IG provides:</p>
+
+            <ul>
+                <li>Profiles for representing genetic variants observed in the proband or in relatives.</li>
+                <li>Links from variants back to Patient resources, which combined with FamilyMemberHistory yields the full pedigree-plus-variants picture.</li>
+                <li>Patterns for inheritance pattern annotation (autosomal dominant, X-linked recessive, etc.).</li>
+            </ul>
+
+            <p>In practice, a clinically useful FHIR representation of a pedigree is a <em>bundle</em>: one Patient (the proband), many FamilyMemberHistory entries, optional RiskAssessment instances carrying BRCAPRO/MMRpro/PancPRO outputs, and Genomics-IG Observations for any molecular findings.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Mapping an Evagene pedigree onto FHIR</h2>
+
+            <p>Evagene's internal data model is a directed graph of individuals and relationships, with structured disease annotation from an ICD-10 / OMIM-backed catalogue of 180+ conditions, risk analysis outputs (BRCAPRO, MMRpro, PancPRO, Mendelian), and AI interpretation documents. Mapping this onto FHIR is mechanical:</p>
+
+            <ul>
+                <li><strong>Evagene proband</strong> -&gt; FHIR <code>Patient</code>. Conditions on the proband become <code>Condition</code> resources referencing the Patient.</li>
+                <li><strong>Evagene relatives</strong> -&gt; FHIR <code>FamilyMemberHistory</code>, one per individual, with the relationship coded against <code>v3-RoleCode</code>. Evagene's disease annotations (ICD-10 / OMIM codes) drop into <code>FamilyMemberHistory.condition.code.coding</code>.</li>
+                <li><strong>Evagene risk analyses</strong> (BRCAPRO etc.) -&gt; FHIR <code>RiskAssessment</code> resources, with <code>basis</code> referencing the relevant FamilyMemberHistory entries and <code>prediction.probabilityDecimal</code> carrying the computed risk.</li>
+                <li><strong>Evagene AI interpretations</strong> -&gt; FHIR <code>DocumentReference</code> pointing to the stored interpretation text, or a <code>Composition</code> for a structured report.</li>
+                <li><strong>Evagene imports/exports</strong> (GEDCOM round-trip) -&gt; the same FHIR bundle structure can be produced or consumed alongside GEDCOM.</li>
+            </ul>
+
+            <p>This mapping is not unique to Evagene — it is the same translation most pedigree systems need to do to speak FHIR, whether natively or through a facade.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Native FHIR vs a FHIR facade: the honest trade-off</h2>
+
+            <p>There are two ways a pedigree platform can "support FHIR":</p>
+
+            <ol>
+                <li><strong>Native FHIR resource server.</strong> The platform exposes endpoints such as <code>/FamilyMemberHistory?patient=123</code> that return FHIR resources directly, conforming to a published CapabilityStatement. TrakGene, for example, advertises native FHIR integration. For institutions whose IT estate is organised around a FHIR gateway, this is the lowest-friction option.</li>
+                <li><strong>REST API plus a thin FHIR facade.</strong> The platform exposes its own well-designed REST API with JSON payloads. A small adapter service (often written by the integrating team in a few hundred lines of Python or Node) translates between the platform's REST surface and FHIR resources. This is how most institutional integrations actually get built, because the facade is where organisation-specific coding conventions, value sets, and extensions live anyway.</li>
+            </ol>
+
+            <p>Evagene today sits firmly in the second camp. It does not advertise a native FHIR resource server. It does expose a scoped, rate-limited REST API (keys in the format <code>evg_&lt;43 chars&gt;</code>, SHA-256 hashed at rest, with read/write/analyse scopes), webhooks with HMAC-SHA256 signed payloads, and GEDCOM 5.5.1 import and export. These are the building blocks a FHIR facade needs.</p>
+
+            <p>Whether that is acceptable for a given procurement depends on the buying organisation. Some hospitals will only accept a native FHIR endpoint; others are comfortable with a facade maintained by the integration team because it gives them control over terminology bindings and extensions. The answer is workflow-specific, not technology-specific.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How this works in Evagene</h2>
+
+            <p>An integrating team building a FHIR facade on top of Evagene typically does the following:</p>
+
+            <ol>
+                <li>Generate a read-scope API key in Evagene's account panel. Store it in the facade's secret manager.</li>
+                <li>Implement the facade as a small service that receives FHIR requests, translates them into Evagene REST API calls, and translates the JSON response back into FHIR resources.</li>
+                <li>Subscribe a webhook on Evagene (<code>pedigree.updated</code>, <code>individual.updated</code>, <code>analysis.completed</code>) so the facade can invalidate caches or push FHIR <code>Subscription</code> notifications downstream when data changes.</li>
+                <li>Embed the Evagene pedigree viewer (iframe, SVG, or JavaScript snippet) inside the EHR or portal's view layer so clinicians see the pedigree visually, while the FHIR layer carries the structured data.</li>
+                <li>Use Evagene Analysis Templates (with variable injection such as <code>{{pedigree_description}}</code>) to produce AI interpretations that are stored as DocumentReferences.</li>
+            </ol>
+
+            <p>A request flowing through the facade looks, in shape, like this:</p>
+
+            <pre><code class="language-http">GET /FamilyMemberHistory?patient=Patient/proband-123
+Accept: application/fhir+json
+
+# Facade translates to:
+GET /api/pedigrees/{pedigree_id}/individuals
+X-API-Key: evg_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+# Evagene returns individuals as JSON
+# Facade maps each non-proband individual to a
+# FamilyMemberHistory resource and returns a Bundle.
+</code></pre>
+
+            <p>For teams with strong FHIR opinions, the facade is where those opinions live: your ValueSets, your extensions, your national IG profile. Evagene stays out of the way.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What is on the roadmap</h2>
+
+            <p>Native FHIR support — a CapabilityStatement, FHIR R4 and R5 resource endpoints for FamilyMemberHistory, Patient, Condition, and RiskAssessment, and Genomics-IG-conformant Observation output — is an active area of platform work. If this is a procurement-blocker for your service today, please raise it via the Alpha waiting list so we can prioritise accordingly and, where useful, share design drafts with early adopters.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does Evagene speak native FHIR today?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Not as a first-class resource server. Evagene exposes a scoped REST API with JSON and GEDCOM 5.5.1. A FHIR facade built on top is the current integration pattern; native FHIR resource endpoints are on the roadmap.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is FHIR FamilyMemberHistory?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">The primary FHIR resource for family health history: relationship to patient, sex, age, conditions with onset, and mortality status. One instance per relative.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What does the Genomics IG add?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Observation, MolecularSequence, and reporting profiles for variants, diagnostic implications, and therapeutic implications. It complements rather than replaces FamilyMemberHistory.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How do I map Evagene to FHIR in practice?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Proband -&gt; Patient; relatives -&gt; FamilyMemberHistory; ICD-10/OMIM annotations -&gt; FamilyMemberHistory.condition; BRCAPRO/MMRpro/PancPRO -&gt; RiskAssessment; AI interpretation -&gt; DocumentReference. A small facade over the REST API performs the translation.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How does this compare to TrakGene's FHIR support?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">TrakGene advertises native FHIR; Evagene provides a REST API and GEDCOM today with a FHIR roadmap. For institutions that require out-of-the-box FHIR, TrakGene is the more direct fit; for teams happy to own the facade, Evagene is more flexible.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is there a standard "Pedigree" FHIR profile?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">No single universal profile. Services use FamilyMemberHistory combined with Patient, Condition, Observation, and the Genomics IG. Some national programmes publish their own pedigree-oriented profiles on top.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="platform.html">Evagene platform overview: API, MCP, webhooks, embeds</a></li>
+                <li><a href="ehr-pedigree-integration.html">EHR pedigree integration: Epic, Cerner, SMART-on-FHIR</a></li>
+                <li><a href="pedigree-api.html">Pedigree REST API: endpoints, auth, and worked examples</a></li>
+                <li><a href="phenopackets-pedigree.html">GA4GH Phenopackets and pedigree data</a></li>
+                <li><a href="gedcom-pedigree-software.html">GEDCOM pedigree software</a></li>
+                <li><a href="phenotips-vs-evagene.html">Phenotips vs Evagene</a></li>
+            </ul>
+
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-8">Further reading: Evagene platform documentation at <a href="https://evagene.net/help/platform_overview">evagene.net/help/platform_overview</a>.</p>
+
+        </div>
+    </article>
+</main>
+
+<!-- CTA -->
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

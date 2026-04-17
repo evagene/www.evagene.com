@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartDraw Pedigree vs Evagene — Generic Diagrammer or Clinical Tool? (2026) | Evagene</title>
+    <meta name="description" content="Honest comparison of SmartDraw's pedigree chart maker and Evagene's clinical pedigree platform. When a general-purpose diagram tool is enough, and when clinical genetics work needs more. Updated 2026.">
+    <meta name="keywords" content="smartdraw pedigree, smartdraw pedigree chart, smartdraw vs evagene, smartdraw pedigree alternative, clinical pedigree software, pedigree chart maker comparison, clinical genetics pedigree, smartdraw medical">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="SmartDraw Pedigree vs Evagene — Generic Diagrammer or Clinical Tool? (2026)">
+    <meta property="og:description" content="When SmartDraw's pedigree chart maker is enough, and when clinical genetics needs a clinical-grade alternative.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/smartdraw-pedigree-vs-evagene">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SmartDraw Pedigree vs Evagene — Generic Diagrammer or Clinical Tool?">
+    <meta name="twitter:description" content="An honest look at where SmartDraw pedigrees fit, and where clinical work needs a clinical tool.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/smartdraw-pedigree-vs-evagene">
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD: Article -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"SmartDraw Pedigree vs Evagene: Generic Diagrammer or Clinical Tool?",
+        "description":"An honest comparison of SmartDraw's pedigree chart maker and Evagene's clinical pedigree platform, with guidance on when each is the right fit.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/smartdraw-pedigree-vs-evagene"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Compare","item":"https://evagene.com/compare"},
+            {"@type":"ListItem","position":3,"name":"SmartDraw Pedigree vs Evagene","item":"https://evagene.com/smartdraw-pedigree-vs-evagene"}
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"Is SmartDraw suitable for clinical pedigree work?","acceptedAnswer":{"@type":"Answer","text":"SmartDraw is a general-purpose diagramming tool that includes pedigree chart templates alongside flowcharts, org charts, floor plans, and hundreds of other diagram types. For clinical genetics, it produces legible pedigree images but does not enforce NSGC or ISCN notation, run risk models, integrate a disease ontology, or offer clinical reporting. For non-clinical family trees, dog or cat breeding diagrams, and simple teaching examples it is perfectly capable. For live clinical work with hereditary cancer risk assessment, rare disease workups, or reproductive genetics counselling, a clinical-grade tool is the better fit."}},
+            {"@type":"Question","name":"Does SmartDraw support standard pedigree notation?","acceptedAnswer":{"@type":"Answer","text":"SmartDraw ships pedigree templates with the familiar square, circle, and line shapes, but the shapes are generic diagram symbols that look like pedigree notation rather than enforced clinical objects. You can move, recolour, or mis-combine them freely. In a clinical tool, an affected female is a structured data object whose symbol is derived automatically from sex and affected status, so that the same pedigree can be drawn, exported, and reasoned about consistently. In SmartDraw, the symbols are decorative: the tool does not know what they mean."}},
+            {"@type":"Question","name":"Can SmartDraw run hereditary cancer risk models like BRCAPRO or MMRpro?","acceptedAnswer":{"@type":"Answer","text":"No. SmartDraw is a diagramming tool and does not run Bayesian carrier or risk models. Evagene integrates BRCAPRO, MMRpro, and PancPRO from the BayesMendel suite, plus Mendelian inheritance calculators for autosomal dominant, autosomal recessive, and X-linked recessive conditions, and runs them directly from pedigree data without re-entry."}},
+            {"@type":"Question","name":"How do I move a pedigree from SmartDraw into Evagene?","acceptedAnswer":{"@type":"Answer","text":"Export the SmartDraw pedigree as PNG, PDF, or SVG, then import it into Evagene using pedigree image OCR. Evagene extracts the family structure from the image and lets you annotate diseases, run risk models, and export a clinical report. If you have GEDCOM or JSON exports from another genealogy tool that was feeding SmartDraw, those import directly."}},
+            {"@type":"Question","name":"Is SmartDraw cheaper than Evagene?","acceptedAnswer":{"@type":"Answer","text":"SmartDraw does not publish pricing on its pedigree page and is sold via free trial then paid subscription. Evagene is currently in Alpha and offers free access via a waiting list. Total cost depends on seat counts and required features; for clinical teams, the more relevant question is whether you are paying for a general diagram tool or for a clinical pedigree platform that includes risk models, a disease catalogue, AI interpretation, and reporting."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<!-- Navigation -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="compare.html" class="hover:text-brand-600 dark:hover:text-brand-300">Compare</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">SmartDraw Pedigree vs Evagene</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">SmartDraw pedigree vs Evagene: generic diagrammer or clinical tool?</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A fair comparison for anyone using SmartDraw to draw pedigrees — from dog breeders and biology teachers to genetic counsellors — and wondering whether a clinical-grade alternative is the right next step.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>13 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> SmartDraw is a general-purpose diagramming product used across flowcharts, org charts, floor plans, engineering schematics, and — among many other use cases — pedigree charts. It is a capable tool for non-clinical pedigrees: dog and cat breeding, hobby family trees, and teaching diagrams. Evagene is a clinical-grade pedigree management platform with standard notation enforcement, an ICD-10 and OMIM disease catalogue, BayesMendel cancer risk models, AI interpretation with bring-your-own-key (BYOK) LLMs, and a full API/MCP/embed surface for clinical integration. For clinical genetics work, the two products are in different categories.</p>
+
+            <p>This article is an honest comparison, not a hit piece. SmartDraw does a lot of things well. But pedigree charts that feed clinical decisions have a different bar than pedigree charts that illustrate a blog post about Labrador retrievers, and the aim of this page is to make that distinction clearly so readers can choose appropriately. All SmartDraw claims are drawn from its public pedigree chart maker page as of April 2026.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What's a clinical pedigree tool for, and where do generic diagrammers fit?</h2>
+
+            <p>A pedigree chart is, at its simplest, a picture of a family. Squares for males, circles for females, lines joining partners and connecting generations, shading to mark who is affected by a condition. That's the visual language, and almost any diagram tool can draw it.</p>
+
+            <p>A <em>clinical</em> pedigree tool is doing something different. The diagram is still the surface, but underneath is a structured data model: each individual is an object with a sex, a date of birth, a vital status, a list of diagnosed diseases (each coded against ICD-10 or OMIM), relationships that the software understands as biological parent, spouse, or twin rather than as "line from A to B," and so on. On top of that structured model sit capabilities that purely visual tools cannot offer: <strong>risk models</strong> that compute a carrier probability or lifetime cancer risk from the family history, <strong>notation enforcement</strong> that prevents a user from producing an inconsistent or ambiguous diagram, <strong>disease ontologies</strong> that let a service look up "hereditary diffuse gastric cancer" and get back a standard code and inheritance pattern, <strong>clinical reporting</strong> that turns the pedigree into a document a clinician can file, and <strong>interoperability</strong> via GEDCOM, FHIR, API, and webhooks so the pedigree can move between systems without being retyped.</p>
+
+            <p>Generic diagrammers like SmartDraw fit at the top of that stack. They give you a canvas, a library of shapes, and good export. If what you need is a picture — to teach, to present, to illustrate, to print for a breeder's pedigree certificate — a generic diagrammer is a reasonable and often excellent choice. If what you need is a clinical artefact that drives risk stratification, testing decisions, and a written report, the tool needs to know what the diagram means, not just what it looks like.</p>
+
+            <p>SmartDraw is honest about its positioning. Its pedigree chart page sits alongside hundreds of other diagram types, from Venn diagrams to network topologies. It is sold to a broad business market — Fortune 500 users, Google Workspace integrators, Word and PowerPoint users exporting for presentations. Clinical genetics is not the centre of gravity, and the product is not pretending otherwise.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How the two products position themselves</h2>
+
+            <p><strong>SmartDraw</strong> calls its offering the "world's best way to make a pedigree chart" and emphasises ease of use: pre-built templates with connected shapes, easy commands for adding generations, collaboration via shared folders or email, and export to Word, Excel, PDF, and PowerPoint. It integrates with Google Workspace, advertises a wide installed base across large enterprises, and its pedigree examples span genealogy, animal breeding (feline and canine pedigrees are featured), consumer family trees, and some medical diagrams. Pricing is not disclosed on the pedigree page; a free trial is offered.</p>
+
+            <p><strong>Evagene</strong> positions itself as clinical-grade pedigree management for precision medicine. The pedigree is the central clinical artefact — drawn fast on a gesture canvas during consultation, annotated from a curated 180-plus disease catalogue coded to ICD-10 and OMIM, analysed by <a href="hereditary-cancer-risk-assessment.html">integrated BayesMendel risk models</a> (BRCAPRO, MMRpro, PancPRO) and Mendelian inheritance calculators, interpreted by AI through your own LLM keys, and delivered as one of four clinical report types. On top of that clinical core sits a developer platform: a scoped REST API, HMAC-signed webhooks, an MCP server exposing 11 pedigree tools to AI agents, and an embeddable viewer for patient portals and EHR integration layers.</p>
+
+            <p>The headline difference is category. SmartDraw is a diagram tool that can draw pedigrees. Evagene is a clinical pedigree platform that also draws pedigrees beautifully. The overlap is the visual surface; everything beneath the surface is different.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Feature-by-feature comparison</h2>
+
+            <p>The matrix below compares publicly advertised capabilities. A tick means the feature is on the vendor's public page or documentation; a dash means it is not publicly listed. "—" does not imply it is impossible, only that it is not advertised as a product feature.</p>
+
+            <div class="not-prose my-10 overflow-x-auto">
+                <table class="w-full text-sm border-collapse">
+                    <thead class="bg-brand-50 dark:bg-brand-900/50">
+                        <tr>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Capability</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">SmartDraw</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Evagene</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 dark:text-gray-300">
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Browser-based, zero install</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Pedigree-specific templates</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">NSGC/ISCN notation enforcement</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">— (template only)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Gesture drawing during consultation</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Structured individual data model</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">ICD-10 disease coding</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">OMIM disease coding</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Curated disease catalogue (180+)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">BRCAPRO / MMRpro / PancPRO risk models</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Mendelian inheritance calculators (AD/AR/XR)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Batch risk screening (all diseases, one proband)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Karyogram viewer</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Consanguinity detection</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">AI clinical interpretation</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">BYOK LLM (Anthropic / OpenAI)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Analysis Templates</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">MCP server for AI agents</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓ (11 tools)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">REST API</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Webhooks (HMAC-SHA256)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Embeddable pedigree viewer</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">GEDCOM 5.5.1 import/export</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">23andMe genotype / traits / health import</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Pedigree image OCR import</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Clinical report generation (4 types)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Word / Excel / PowerPoint export</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">via PDF/PNG</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">PNG / SVG / PDF export</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Google Workspace integration</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">via API</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Non-human pedigree support (dogs, cats, livestock)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">— (human clinical focus)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Clinical data-governance positioning</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓ (encryption, scoped keys, HMAC)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Free tier available today</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">free trial</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓ (Alpha waitlist)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-sm text-gray-500 dark:text-gray-400">Matrix compiled from publicly available product pages and documentation as of April 2026. "—" indicates the capability is not publicly advertised.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Pedigree drawing and symbol enforcement</h2>
+
+            <p>SmartDraw's pedigree templates are straightforwardly good at what they do. You open a template, you get a layout that already looks like a pedigree, and you edit the boxes and circles to match your family. Its "easy commands" add generations with a keystroke, and the connected-shape engine keeps lines attached when you move a person around. For a breeder producing a canine pedigree certificate or a biology teacher preparing a slide, this is efficient and polished.</p>
+
+            <p>What a generic tool cannot do is enforce clinical notation. <a href="pedigree-drawing-software.html">NSGC (National Society of Genetic Counselors) and ISCN (International System for Human Cytogenomic Nomenclature)</a> set out conventions for clinical pedigrees: how an affected individual is shaded, how a carrier is marked, how a deceased individual is slashed, how twins are indicated, how a terminated pregnancy is drawn, and so on. In a clinical tool, these are rules the software applies automatically based on the underlying data — you record that someone is affected by BRCA1-related breast cancer, and the symbol updates accordingly. In SmartDraw, the square and the shading are separate design elements; nothing stops a user from shading an unaffected symbol, using a circle where a square is required, or leaving a crucial annotation off the chart. For informal use that is fine. For a document that will be filed in a medical record or cited in a screening decision, the lack of enforcement is a source of risk.</p>
+
+            <p>Evagene's approach is different. Each individual is a structured object with sex, vital status, date of birth, affected-disease list, and relationships. The symbol is <em>derived</em> from these attributes, not drawn by hand. A user cannot produce an inconsistent pedigree because the rendering layer enforces the notation. That constraint is the point: it means the diagram and the data never drift apart.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">The clinical features that don't exist in a generic diagrammer</h2>
+
+            <p>Once the pedigree is more than a picture, a large set of capabilities opens up that no generic diagram tool offers. The most important for clinical genetics are:</p>
+
+            <ul>
+                <li><strong>Hereditary cancer risk models.</strong> BRCAPRO estimates BRCA1/2 carrier probability and breast/ovarian cancer risk from the family history; MMRpro does the same for Lynch syndrome genes; PancPRO for pancreatic cancer genes. These are peer-reviewed Bayesian models that require structured family data and cannot be approximated with a diagramming tool. See <a href="hereditary-cancer-risk-assessment.html">our overview of hereditary cancer risk assessment</a>.</li>
+                <li><strong>Mendelian inheritance calculators.</strong> For autosomal dominant, autosomal recessive, and X-linked recessive conditions, the probability of inheriting a variant can be computed from the pedigree topology. A <a href="mendelian-inheritance-calculator.html">clinical calculator</a> runs these automatically and flags counsellable probabilities.</li>
+                <li><strong>Disease ontology.</strong> A curated catalogue linking diseases to ICD-10 and OMIM codes means a user can record "Lynch syndrome (OMIM 120435)" as a structured annotation rather than typing free text that downstream systems cannot parse.</li>
+                <li><strong>Batch risk screening.</strong> For a given proband, screen across all catalogued diseases simultaneously, flagging conditions where family history crosses a clinical threshold. This inverts the usual "clinician suspects, software confirms" workflow into "software flags, clinician reviews."</li>
+                <li><strong>Consanguinity detection.</strong> Wright's coefficient of inbreeding, computed from pedigree topology, is material for reproductive counselling in consanguineous families and cannot be eyeballed off a SmartDraw chart.</li>
+                <li><strong>Clinical reporting.</strong> Four distinct report types — family history, risk assessment, AI interpretation, and screening recommendations — designed for inclusion in medical records.</li>
+                <li><strong>GEDCOM and 23andMe interoperability.</strong> The ability to move structured pedigree data in and out without retyping, via standard formats. <a href="gedcom-pedigree-software.html">GEDCOM 5.5.1</a> remains the backbone of multi-institution pedigree exchange.</li>
+            </ul>
+
+            <p>None of these are criticisms of SmartDraw. They are capabilities that are simply outside a diagramming tool's remit. A CAD package is not wrong for failing to run a BRCAPRO calculation; neither is SmartDraw. The point is to know whether your workflow needs them.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">When SmartDraw is genuinely the right tool</h2>
+
+            <p>There are several use cases where SmartDraw (or any capable general diagrammer) is not just acceptable but probably the better choice:</p>
+
+            <ul>
+                <li><strong>Breeders and kennels.</strong> A pedigree certificate for a Labrador, a racehorse, or a pedigree cat needs to be visually clear, printable, and attractive. It does not need a BayesMendel carrier probability. SmartDraw's templates, presentation-ready formatting, and export to Word and PowerPoint are a better fit than a clinical platform.</li>
+                <li><strong>Biology teaching.</strong> A slide explaining autosomal dominant inheritance in a secondary-school classroom, or an undergraduate tutorial example, does not need clinical reporting. SmartDraw (or any diagram tool) is appropriate and inexpensive.</li>
+                <li><strong>Casual genealogy.</strong> Hobbyist family trees, ancestry projects, memoirs. Again, a picture is enough; a clinical platform is overkill.</li>
+                <li><strong>Business diagramming generally.</strong> If pedigrees are one occasional artefact in a wider design workflow — an illustration in a report, a slide in a pitch deck — SmartDraw's breadth pays off. You do not want to procure a clinical platform for a one-off illustration.</li>
+                <li><strong>Visual design handoff.</strong> Where the pedigree is an input to a designer or marketing team that will polish the figure for publication, SmartDraw's Office export chain is convenient.</li>
+            </ul>
+
+            <p>For any of these, the rest of this comparison is academic. Use SmartDraw; it's a good tool.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">When a clinical-grade tool is the right call</h2>
+
+            <p>If any of the following apply, the calculus flips — and the gap between a diagram tool and a clinical platform is not a matter of polish but of category:</p>
+
+            <ul>
+                <li>The pedigree informs a <strong>real clinical decision</strong> — test ordering, screening, surveillance, reproductive counselling, or referral.</li>
+                <li>You need <strong>hereditary cancer risk assessment</strong> with BRCAPRO, MMRpro, or PancPRO, or Mendelian inheritance analysis for monogenic conditions.</li>
+                <li>Your documentation needs to be <strong>filed in a medical record</strong>, cited in referral letters, or included in multidisciplinary team (MDT) meetings.</li>
+                <li>You need a <strong>structured disease catalogue</strong> with ICD-10 and OMIM codes, not free-text annotations that downstream systems cannot parse.</li>
+                <li>You operate under <strong>data-governance requirements</strong> — GDPR, HIPAA, NHS DSP Toolkit, or equivalent — that demand encryption at rest, access controls, and audit logging for genetic family data.</li>
+                <li>You want to <strong>integrate the pedigree into other systems</strong> via REST API, webhooks, FHIR gateway, or an embeddable viewer in a patient portal. See <a href="clinical-genetics-pedigree-tool.html">our clinical genetics pedigree tool field guide</a>.</li>
+                <li>You are using <strong>AI to draft clinical text</strong> and need bring-your-own-key LLM support so your sensitive family data does not pass through a vendor-hosted model.</li>
+                <li>You import <strong>GEDCOM, 23andMe, or legacy pedigree images</strong> from other tools and need structured pedigree data at the end of the import.</li>
+            </ul>
+
+            <p>Where the decision is finely balanced, a practical test is: if your pedigree diagram was printed and handed to a colleague, would they be able to re-enter the data into a different system from the picture alone? In a clinical context, the answer needs to be no — the structured data sits behind the picture and travels with it.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Migrating from SmartDraw to Evagene</h2>
+
+            <p>If you currently use SmartDraw for pedigrees and want to move clinically relevant cases to a clinical tool, the practical path is through image import. Export each pedigree from SmartDraw as PNG, PDF, or SVG — SmartDraw handles all three well — and import into Evagene using pedigree image OCR. The OCR engine extracts family structure (individuals, relationships, affected status where visually encoded) and lets you finish annotation with structured disease codes, dates, and clinical notes. A typical five-to-seven-generation pedigree takes a few minutes to bring across and annotate.</p>
+
+            <p>For pedigrees that originated as GEDCOM files before landing in SmartDraw, Evagene imports GEDCOM 5.5.1 directly, preserving the full family structure without an OCR pass. JSON and 23andMe imports are also supported for cases where the family history lives in one of those formats.</p>
+
+            <p>You do not need to move everything. A reasonable pattern is to keep using SmartDraw for casual or non-clinical pedigrees, and bring across the subset that is clinically relevant. The two tools are not mutually exclusive.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is SmartDraw suitable for clinical pedigree work?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">For non-clinical pedigrees — breeding, genealogy, teaching — SmartDraw is capable. For clinical genetics work involving risk assessment, reporting, or integration with clinical systems, a clinical-grade pedigree platform is the appropriate tool.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does SmartDraw enforce NSGC or ISCN pedigree notation?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">No. SmartDraw supplies pedigree templates with the standard shapes, but the shapes are decorative rather than structured clinical objects. Inconsistencies between shading, sex, and affected status are not prevented by the tool.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can SmartDraw run BRCAPRO or MMRpro?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">No. Bayesian risk models are not part of any general diagramming tool. Evagene integrates BRCAPRO, MMRpro, and PancPRO and runs them directly from pedigree data.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How do I import a SmartDraw pedigree into Evagene?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Export as PNG, PDF, or SVG from SmartDraw, then use Evagene's pedigree image OCR import to bring the family structure in. Finish annotation with ICD-10 / OMIM disease codes.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is SmartDraw cheaper than Evagene?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">SmartDraw does not publish prices on its pedigree page. Evagene is free during Alpha via a waiting list. Compare at parity of capability rather than price alone — the tools are solving different problems.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related comparisons and reading</h2>
+
+            <ul>
+                <li><a href="creately-pedigree-vs-evagene.html">Creately pedigree vs Evagene</a></li>
+                <li><a href="visual-paradigm-pedigree-vs-evagene.html">Visual Paradigm pedigree vs Evagene</a></li>
+                <li><a href="edraw-pedigree-vs-evagene.html">Edraw pedigree vs Evagene</a></li>
+                <li><a href="cloudairy-vs-evagene.html">CloudAiry vs Evagene</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tools: a field guide</a></li>
+                <li><a href="pedigree-drawing-software.html">Pedigree drawing software overview</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<!-- CTA -->
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

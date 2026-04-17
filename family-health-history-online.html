@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Health History Online — Record, Share, Prepare | Evagene</title>
+    <meta name="description" content="A practical guide to recording your family health history online: what to capture, how to share with your GP or genetics clinic, data privacy considerations, and preparing for a genetics consultation. Evagene explained.">
+    <meta name="keywords" content="family health history online, online family medical history, family health history tool, patient family history, genetics consultation preparation">
+
+    <meta property="og:title" content="Family Health History Online — Record, Share, Prepare | Evagene">
+    <meta property="og:description" content="How to record your family health history online, share it safely, and prepare for a genetics consultation.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/family-health-history-online">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Family Health History Online">
+    <meta name="twitter:description" content="Record, share, and prepare your family health history for a genetics appointment.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/family-health-history-online">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"Family Health History Online: Record, Share, Prepare",
+        "description":"A practical guide to recording family health history online for patients preparing for a GP or genetics consultation.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/family-health-history-online"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Resources","item":"https://evagene.com/#resources"},
+            {"@type":"ListItem","position":3,"name":"Family Health History Online","item":"https://evagene.com/family-health-history-online"}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"Why record family health history online?","acceptedAnswer":{"@type":"Answer","text":"A structured online record is easier to update as new information arrives, easier to share with a clinician or family member, and far easier to use than a paper form or a spreadsheet. Digital tools can also generate outputs in several formats (PDF for a GP, GEDCOM for a genetics clinic, shareable link for a relative), and can carry forward across appointments and providers in a way that paper forms do not."}},
+            {"@type":"Question","name":"What should I include?","acceptedAnswer":{"@type":"Answer","text":"Name, sex, year of birth, year and cause of death, and diagnoses with age at onset for each biological relative across three generations. Extend to grandparents and to first cousins, aunts, and uncles where relevant. Include ancestry of all four grandparents and any known consanguinity. Record cancers by site, cardiac disease by type, and any known genetic test results in the family."}},
+            {"@type":"Question","name":"How should I share it with a clinician?","acceptedAnswer":{"@type":"Answer","text":"Export a PDF to bring to a GP appointment, a GEDCOM file for a genetics clinic to import directly, or a shared link if your clinician accepts them. A one-page summary alongside the diagram, listing the top facts, helps the clinician find what they need quickly."}},
+            {"@type":"Question","name":"Who owns the data?","acceptedAnswer":{"@type":"Answer","text":"Your family health history data is yours. A good platform hosts it on your behalf, encrypts it at rest and in transit, lets you export it in standard formats at any time, and deletes it at your request. Evagene follows that model: you own the data, Evagene hosts it, and you can export or delete at any time."}},
+            {"@type":"Question","name":"How do I prepare for a genetics consultation?","acceptedAnswer":{"@type":"Answer","text":"Compile a three-generation family health history in advance, including ages of onset for any significant diagnoses, cause of death where known, and ethnic origin of all four grandparents. Bring a printed PDF or a GEDCOM file for direct import. Write a short summary with the top facts. Prepare a list of questions about screening, testing, and implications for relatives."}},
+            {"@type":"Question","name":"Is my data private?","acceptedAnswer":{"@type":"Answer","text":"Family health history contains sensitive information about you and your relatives. Check any platform's privacy policy before uploading, confirm that it encrypts data at rest and in transit, check whether data is shared with third parties (and if so, what for), and check that you can export and delete your data. Evagene encrypts stored data, does not share with third-party marketers, and supports full export in standard formats."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="https://evagene.com/#resources" class="hover:text-brand-600 dark:hover:text-brand-300">Resources</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">Family Health History Online</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Family health history online: how to record, share, and prepare</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A practical guide for patients and families compiling their health history ahead of a GP visit or a genetics referral — what to capture, how to keep it safe, and how to turn a collection of facts into a document a clinician can act on.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>11 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> Recording your family health history online turns a scattered collection of remembered facts into a single document that you can update, share, and bring to any appointment. This guide walks through what to capture, how to gather it from relatives, how to organise it, how to share it with a clinician, and what to look for in a platform so that your data stays private and portable. It ends with how Evagene supports each step.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Why family health history matters</h2>
+
+            <p>Family health history is the single most powerful piece of information a clinician has before tests are run. For hereditary cancer, cardiac disease, metabolic conditions, neurological conditions, and hundreds of single-gene disorders, the pattern of disease across relatives changes the risk calculation and the choice of investigations. A woman whose mother and maternal aunt both had breast cancer before 50 has a very different pre-test probability of carrying a pathogenic BRCA1 or BRCA2 variant than a woman with no such history; the clinical pathway that follows is different too.</p>
+
+            <p>Yet family history is routinely collected poorly in clinical practice, not through lack of effort but because ten minutes is not enough time to gather three generations of diagnoses from memory. Patients forget details under pressure, clinicians capture only what they can in the time available, and the resulting record is often thin. The fix is to compile the history outside the appointment, at your own pace and with the ability to check with relatives, and to bring the result to the appointment in a readable format.</p>
+
+            <p>Doing this online rather than on paper solves several practical problems at once. A digital record can be updated over time as new information arrives. It can be shared with a specific relative or a specific clinician without creating uncontrolled copies. It can be exported in a structured format (<a href="gedcom-pedigree-software.html">GEDCOM</a>, PDF, PNG) for different audiences. And it can be carried forward across providers, rather than being rebuilt from scratch at every new clinic.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What to capture</h2>
+
+            <p>A useful family health history has more than a list of conditions. It has structure — who is related to whom — and detail — what each person had, at what age.</p>
+
+            <h3>Structure</h3>
+
+            <ul>
+                <li>Yourself (the index person), your full siblings (including half-siblings), your children.</li>
+                <li>Your parents and their full siblings (your aunts and uncles).</li>
+                <li>All four grandparents and, where known, their siblings (your great-aunts and great-uncles).</li>
+                <li>First cousins of interest — particularly those with relevant diagnoses.</li>
+                <li>Any consanguineous relationships in the family (for example, parents who are first cousins).</li>
+            </ul>
+
+            <h3>Core facts for each relative</h3>
+
+            <ul>
+                <li>Full name (or a clear label like "paternal grandmother" if names are unknown or withheld).</li>
+                <li>Sex at birth.</li>
+                <li>Year of birth (approximate is fine).</li>
+                <li>Year and cause of death if deceased.</li>
+                <li>Ethnicity or ancestry — relevant for several conditions with population-specific variants.</li>
+            </ul>
+
+            <h3>Health facts</h3>
+
+            <ul>
+                <li>Significant diagnoses with age at diagnosis. "Breast cancer at 42" is useful; "breast cancer" on its own is less so.</li>
+                <li>Cancers by site (breast, ovarian, colorectal, pancreatic, prostate, melanoma, uterine, kidney, and so on); whether bilateral or unilateral where relevant.</li>
+                <li>Cardiac events: heart attacks before age 60, cardiomyopathy, channelopathies, sudden death, drowning, unexplained accidents.</li>
+                <li>Neurological conditions: early-onset dementia, Parkinson's, Huntington's, motor neurone disease, ataxia, seizures.</li>
+                <li>Metabolic or endocrine conditions: diabetes (type 1 or type 2), familial hypercholesterolaemia, thyroid disease.</li>
+                <li>Known genetic diagnoses or genetic test results in the family.</li>
+                <li>Reproductive history where relevant: miscarriages, stillbirths, neonatal deaths, infertility, intellectual disability, structural birth differences.</li>
+                <li>Mental health where relevant: depression, bipolar disorder, schizophrenia, eating disorders, suicide.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">How to gather information from relatives</h2>
+
+            <p>The gathering stage is almost always harder than the diagramming. A few practical suggestions.</p>
+
+            <p><strong>Start with the easiest source and work outwards.</strong> Your parents usually know more about your grandparents than you do, even if they have never talked about it systematically. A ten-minute conversation with a parent can fill in more boxes than an afternoon of speculation.</p>
+
+            <p><strong>Write down what you hear verbatim first.</strong> Turn it into a structured entry later. "Uncle Brian died of something to do with his bowel in his fifties" is worth capturing as a candidate colorectal cancer at 55 until you can verify.</p>
+
+            <p><strong>Use death certificates, discharge summaries, and letters where you can.</strong> These often carry the specific diagnosis rather than the family's general impression of what happened.</p>
+
+            <p><strong>Flag uncertainty explicitly.</strong> "Maternal grandfather died in his sixties, possibly of a stroke, possibly of a heart attack" is better than a guess one way or the other. Clinicians can work with labelled uncertainty.</p>
+
+            <p><strong>Ask sideways.</strong> Second-degree relatives (aunts, uncles, grandparents) often know more about each other than the proband does. A second-hand account from an aunt confirming that grandmother's cousin had early breast cancer is sometimes the only route to that piece of information.</p>
+
+            <p><strong>Share the work.</strong> Send a draft tree to a relative and ask them to correct and extend. A shared draft elicits much more information than asking questions in the abstract.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How to organise what you have</h2>
+
+            <p>Three formats have persistent value.</p>
+
+            <p><strong>A three-generation diagram.</strong> A visual representation of who is related to whom with shaded or filled shapes for affected individuals. This is the document a clinician can read in seconds. See our guide to <a href="medical-family-tree.html">medical family trees</a> for a practical method of drawing one.</p>
+
+            <p><strong>A text summary.</strong> A short paragraph or three-line list highlighting the facts that matter most: "Paternal family history of early-onset breast cancer (paternal grandmother at 45, paternal aunt at 38); no known genetic testing in the family; Ashkenazi Jewish ancestry on the paternal side." Clinicians usually read the summary first and turn to the diagram for the detail.</p>
+
+            <p><strong>A structured export.</strong> A GEDCOM file or a JSON export that a clinician's pedigree software can import directly. This saves re-entry at the clinic and prevents transcription errors between paper summaries and the clinical record.</p>
+
+            <p>A good platform produces all three from the same underlying data, so you keep one source of truth and generate whichever output format the next appointment needs.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Sharing with your GP or genetics clinic</h2>
+
+            <p>The practical sharing options are:</p>
+
+            <ul>
+                <li><strong>Printed PDF.</strong> Reliable, universal, easy to bring. A one-page summary plus a one-page diagram works for most general practice appointments.</li>
+                <li><strong>Shared link.</strong> Some platforms produce read-only shareable URLs. Check the clinic's local policy on third-party documents before relying on this.</li>
+                <li><strong>GEDCOM file.</strong> For a genetics referral, a structured GEDCOM is the most useful export because the clinic's pedigree software can import rather than re-enter. This is especially valuable for large families.</li>
+                <li><strong>Embedded viewer.</strong> If your platform offers an embeddable viewer and your clinic accepts patient portal messages, pasting in a small embed can be quicker than attaching a PDF.</li>
+            </ul>
+
+            <p>Whatever channel you use, write a one-paragraph summary to accompany the documents. Clinicians are time-poor; they will read a good summary first and use the structured documents for the detail.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Data privacy: you own your family history</h2>
+
+            <p>A family health history is health information about you and about your relatives. Treat it with the care you would treat any other health record. When you choose a platform, check:</p>
+
+            <ul>
+                <li><strong>Encryption.</strong> Is data encrypted at rest and in transit (TLS in browser, and data-at-rest encryption on the server)?</li>
+                <li><strong>Data sharing.</strong> Does the platform share your data with third parties, advertisers, or partner services? If yes, what for and under what consent?</li>
+                <li><strong>Location.</strong> Which country's data protection regime applies? For UK residents, GDPR/UK-GDPR applies wherever the data is stored; the practical question is where enforcement and subject access would happen.</li>
+                <li><strong>Export and deletion.</strong> Can you export your data in a standard format (GEDCOM, JSON) at any time? Can you delete your account and have the data removed?</li>
+                <li><strong>Access control.</strong> Who at the platform can see your data? Is there an audit trail of access?</li>
+                <li><strong>Consent for relatives.</strong> Your tree contains data about people other than you. Have you discussed this with them where it is practical to do so?</li>
+            </ul>
+
+            <p>A well-designed platform will give you clear answers to all of the above in a privacy policy you can actually read.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Preparing for a genetics consultation</h2>
+
+            <p>A good genetics consultation is a focused conversation about one or two specific questions. The better prepared you are, the more the consultation delivers.</p>
+
+            <ul>
+                <li><strong>Compile the three-generation tree in advance.</strong> Include ages of onset for significant diagnoses, not just the diagnoses themselves. Genetic counsellors triage on ages of onset for many conditions.</li>
+                <li><strong>Write out the specific question.</strong> "I want to know if my family history suggests I should be tested for BRCA1 and BRCA2" is a better anchor for the conversation than "I want to know about my cancer risk."</li>
+                <li><strong>Bring any existing genetic test results.</strong> If a relative has been tested, bring the letter. If anyone has 23andMe data, that is usually less directly actionable but can be useful context — see our <a href="23andme-pedigree-import.html">23andMe pedigree import guide</a> for how it fits.</li>
+                <li><strong>Ask about implications for relatives.</strong> Many genetic conditions have implications beyond the individual in the clinic. Know which relatives might benefit from knowing the result.</li>
+                <li><strong>Take notes or bring someone who will.</strong> Genetic consultations contain a lot of information; a second set of ears helps.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene supports family health history online</h2>
+
+            <p>Evagene is a web-based pedigree platform that serves both patient-facing and clinician-facing workflows. For patients, it supports building a three-generation tree directly in the browser, importing an existing family tree from <a href="gedcom-pedigree-software.html">GEDCOM</a> exports from Ancestry, FamilySearch, or Gramps, and enriching the tree with SNP-inferred traits from 23andMe raw data. Diagnoses are recorded against a curated catalogue of over 180 diseases keyed to ICD-10 and OMIM, over 55 allergies, and over 50 traits.</p>
+
+            <p>For sharing, Evagene exports PDF, PNG, and SVG for printing or embedding, GEDCOM for direct import at a genetics clinic, and generates four types of clinical report designed for different audiences. You can also produce an embeddable view for a patient portal message or a shared review with a relative.</p>
+
+            <p>On privacy, your data is encrypted at rest and in transit. You own your data: you can export it in standard formats at any time and delete your account. Evagene does not share your data with third-party marketers. During the Alpha it is free via a waiting list at <a href="https://evagene.com/#waitlist">evagene.com</a>.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Why record family health history online?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">A digital record is easier to update, share, and export than a paper form, and it can be carried forward across providers rather than rebuilt from scratch at each appointment.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What should I include?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Three generations of biological relatives with name, sex, year of birth, year and cause of death, and diagnoses with age at onset. Include ancestry of all four grandparents and any known consanguinity.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How should I share it?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">PDF for a GP, GEDCOM for a genetics clinic, or a shared link where the clinic accepts them. Pair any format with a short summary paragraph of the top facts.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Who owns the data?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">You do. A good platform hosts it on your behalf, encrypts it at rest and in transit, and lets you export or delete at any time.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How do I prepare for a genetics consultation?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Bring a three-generation tree with ages of onset, a written summary of the top facts, any existing genetic test results, and a clear, specific question for the consultation.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is my data private?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">It should be. Check a platform's encryption, data-sharing, export, and deletion policies before uploading. Evagene encrypts data, does not share with marketers, and supports full export and deletion.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="medical-family-tree.html">Medical family tree: record your health history for the GP</a></li>
+                <li><a href="genogram-maker-online.html">Genogram maker online: family therapy and medical genograms</a></li>
+                <li><a href="23andme-pedigree-import.html">23andMe pedigree import</a></li>
+                <li><a href="gedcom-pedigree-software.html">GEDCOM pedigree software: genealogy meets clinical genetics</a></li>
+                <li><a href="hereditary-cancer-risk-assessment.html">Hereditary cancer risk assessment</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tool</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Start your family health history online</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. Free access during Alpha for patients, families, clinicians, and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

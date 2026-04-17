@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Migrating from Genial PedigreeDraw — A Practical Guide for Clinical Teams (2026) | Evagene</title>
+    <meta name="description" content="Genial PedigreeDraw was discontinued in May 2020. This practical guide explains what to export, how to migrate via GEDCOM or image OCR, and how to rebuild disease annotations in a modern clinical pedigree tool.">
+    <meta name="keywords" content="genial pedigree draw, genial pedigree draw discontinued, migrate genial pedigree, rainbow scientific pedigree, genial genetic solutions, pedigree migration guide, clinical pedigree migration, gedcom migration">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Migrating from Genial PedigreeDraw — A Practical Guide for Clinical Teams">
+    <meta property="og:description" content="Genial PedigreeDraw was discontinued in May 2020. Here's how to rescue your pedigrees and move to a modern clinical tool.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/migrating-from-genial-pedigree-draw">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Migrating from Genial PedigreeDraw — A Practical Guide">
+    <meta name="twitter:description" content="Genial PedigreeDraw was discontinued in May 2020. A practical migration guide for stranded clinical teams.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/migrating-from-genial-pedigree-draw">
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD: Article -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"Migrating from Genial PedigreeDraw: a practical guide for clinical teams",
+        "description":"Genial PedigreeDraw was discontinued in May 2020. This guide explains what to export, how to migrate, and how to rebuild disease annotations in a modern clinical pedigree tool.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/migrating-from-genial-pedigree-draw"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Compare","item":"https://evagene.com/compare"},
+            {"@type":"ListItem","position":3,"name":"Migrating from Genial PedigreeDraw","item":"https://evagene.com/migrating-from-genial-pedigree-draw"}
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"Can I still access my Genial PedigreeDraw files?","acceptedAnswer":{"@type":"Answer","text":"Genial PedigreeDraw was discontinued in May 2020. If you still have access to the platform through an archived account or a local backup, export now — the service is no longer being maintained and historical access is not guaranteed. If you exported GEDCOM or images before discontinuation, those files are your migration source. If you only have older PDF printouts or PNG screenshots of pedigrees, modern tools (including Evagene) can reconstruct pedigrees via image OCR."}},
+            {"@type":"Question","name":"What format should I export from Genial as?","acceptedAnswer":{"@type":"Answer","text":"GEDCOM 5.5.1 is the universal interchange format for pedigree and family-history data and is the format Evagene, most modern clinical pedigree tools, and most genealogy tools import. If GEDCOM is available from your Genial archive, use it. Otherwise, fall back to PNG, SVG, or PDF exports; those can be imported into Evagene via pedigree image OCR. For any disease annotations that were free-text in Genial, keep a copy of the rendered image or export a CSV/text dump if you can, so the annotations can be re-entered in structured form in the new system."}},
+            {"@type":"Question","name":"What if I only have printouts or images?","acceptedAnswer":{"@type":"Answer","text":"Evagene supports pedigree image OCR. Upload a PNG, JPG, SVG, or PDF of a pedigree, and Evagene reconstructs the structural pedigree — individuals, sex, relationships, affected status where visible. You then review the result and add disease annotations in structured form (ICD-10 and OMIM). For a large archive, batching through the OCR import is the practical path."}},
+            {"@type":"Question","name":"Will my disease annotations transfer?","acceptedAnswer":{"@type":"Answer","text":"Genial's disease annotations were typically free-text. GEDCOM carries individual and family structure well but does not carry rich clinical annotations in a standardised way. The practical approach is to migrate the structural pedigree via GEDCOM (or image OCR), then re-enter disease annotations in structured form in the new system — Evagene's 180+ disease catalogue with ICD-10 and OMIM coding makes this fast, typically a few minutes per case for a knowledgeable clinician reading from the Genial export as a source."}},
+            {"@type":"Question","name":"Which modern tools support ISCN notation and cloud multi-user access like Genial did?","acceptedAnswer":{"@type":"Answer","text":"Several. Evagene, Phenotips, Progeny, FamGenix, and TrakGene all offer cloud-based or hybrid clinical pedigree tools with standard notation. The comparison table in this article summarises where each differs. Evagene is browser-based, supports ISCN/NSGC notation, and includes validated risk models and AI-assisted interpretation; the alternatives have different emphases (Phenotips for HPO rare disease, Progeny for enterprise EHR pairing, FamGenix for cancer genetics workflow, TrakGene for service management)."}},
+            {"@type":"Question","name":"How do I ensure my migration is clinically safe?","acceptedAnswer":{"@type":"Answer","text":"Treat migration as a clinical task, not an IT task. Have a clinician or genetic counsellor verify every migrated pedigree against a source export (GEDCOM, image, or clinical notes) before it is used for live patient care. Keep the original Genial export (GEDCOM or image) as the canonical historical record. Document the migration — who performed it, when, and with what method — in your audit trail. For a large archive, consider sampling: audit a random 10 per cent in detail, and rely on lightweight spot-checking for the remainder."}},
+            {"@type":"Question","name":"Is there any route to continue using Genial PedigreeDraw itself?","acceptedAnswer":{"@type":"Answer","text":"No. The service was discontinued by Genial Genetic Solutions / Rainbow Scientific in May 2020. The product is not maintained, has no clinical support, and should not be used for live patient care in 2026. Any accessible legacy data should be exported and migrated to a supported platform."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<!-- Navigation -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="compare.html" class="hover:text-brand-600 dark:hover:text-brand-300">Compare</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">Migrating from Genial PedigreeDraw</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Migrating from Genial PedigreeDraw: a practical guide for clinical teams</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">Genial PedigreeDraw was discontinued in May 2020. If you still hold legacy Genial exports or only have printouts, this is the practical guide to rescuing that data and moving to a supported modern clinical pedigree platform.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>14 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> Genial PedigreeDraw was a respectable cloud clinical pedigree tool from Genial Genetic Solutions / Rainbow Scientific with NSGC-compliant symbols, multi-user collaboration, and GEDCOM import/export, priced at around ten pounds per user per month after a sixty-day free trial. It was discontinued in May 2020. That leaves a long tail of clinical services with historical Genial pedigrees — some as GEDCOM exports, many as PDF prints or PNG screenshots, and some still trapped behind expired accounts. This guide explains what to rescue while you still can, how to migrate via GEDCOM or image OCR, how to rebuild free-text disease annotations in a structured modern system, and how to choose between contemporary replacements. Evagene is one option and the one we are best placed to describe in detail; we also summarise Phenotips, Progeny, FamGenix, and TrakGene as points of comparison.</p>
+
+            <p>If you are reading this and your service is still actively using Genial in 2026 — we occasionally hear from clinics that kept a locally-cached instance running — please treat this as urgent. The software is unmaintained, has no clinical support, and should not be used for live patient care.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What Genial PedigreeDraw was</h2>
+
+            <p>Genial PedigreeDraw was a cloud-based clinical pedigree drawing tool developed by Genial Genetic Solutions in collaboration with Rainbow Scientific. It targeted clinical genetics services that needed standards-compliant pedigrees, GEDCOM interchange, and multi-user access without on-premise installation. Its published features included NSGC-compliant pedigree symbols, multi-user collaboration, and GEDCOM import and export. Pricing was roughly ten pounds per user per month after a sixty-day free trial. It was a sensible, mid-market tool that did its job competently for a number of years before the vendor withdrew the service in May 2020. Historical users generally speak of it warmly; it was not discontinued because it was bad software.</p>
+
+            <p>The consequence of that discontinuation, though, is that clinical services that built up years of pedigree work inside Genial were left with three problems at once: the live application gone, the cloud store no longer accessible after grace periods expired, and any local exports (if they exist at all) in whatever format the user happened to choose at the time. In the worst cases, services have little more than printed PDFs in a paper file or PNGs in a network folder. In the best cases, they have GEDCOM archives that were exported before the shutdown.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What to export from Genial before you lose access (if you still can)</h2>
+
+            <p>If by some chance you still have any access to a Genial instance, archived account, or local cache that can be revived, the priority order for export is this:</p>
+
+            <ol>
+                <li><strong>GEDCOM 5.5.1 export for every pedigree.</strong> GEDCOM is the universal interchange format for genealogical and pedigree data. Every modern clinical pedigree tool — Evagene, Phenotips, Progeny, FamGenix, TrakGene — can ingest GEDCOM. Even if you do not decide on your replacement tool yet, a folder of GEDCOMs gives you options.</li>
+                <li><strong>Rendered image export (SVG if available, else PDF or PNG) for every pedigree.</strong> GEDCOM captures structure; the rendered image captures the layout, any annotations, and the clinical interpretation of what was on screen. Both matter. Keep both.</li>
+                <li><strong>Any associated clinical notes, free-text annotations, or case-level metadata.</strong> If Genial exposed a CSV or JSON dump of case records alongside the pedigree, take it. If it only exposed a printable view, save that as PDF. If you can copy-and-paste case notes out, do so — each case should have its free-text clinical context retained somewhere searchable.</li>
+                <li><strong>A local copy of the proband identifiers.</strong> In the worst case, you will need to reconcile Genial files against your EHR. A spreadsheet of "patient ID in Genial, pedigree filename, date drawn, drawn by" is a small artefact that saves significant time later.</li>
+            </ol>
+
+            <p>Treat this as an archival exercise with a deadline: assume access can disappear at any time. If you already have no access at all — and for most services reading this in 2026 that is the honest starting point — skip to the "What if you only have printouts" section further down.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Why GEDCOM 5.5.1 is the universal bridge</h2>
+
+            <p>GEDCOM 5.5.1 is the de facto standard for exchanging pedigree structure between tools. It was designed for genealogy originally — which is why it carries fields like birth place and marriage date gracefully — but its individual/family graph maps cleanly onto clinical pedigree structure: individuals, sex, parent-offspring relationships, partnerships, twins. It does not carry rich clinical annotations well (no built-in ICD-10, OMIM, HPO, or MONDO slots), which is the main reason clinical pedigree data typically requires two-stage migration: GEDCOM for the structure, then manual re-entry or a separate import for the disease annotations.</p>
+
+            <p>Evagene imports GEDCOM 5.5.1 directly. So do Phenotips, Progeny, FamGenix, and most other serious clinical pedigree tools. If you have a GEDCOM folder from Genial, you are not stranded. Our <a href="gedcom-pedigree-software.html">guide to GEDCOM pedigree software</a> goes deeper into what GEDCOM carries and what it does not, and which tools handle the edge cases (twin zygosity, adoption, donor conception) cleanly.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What if you only have printouts or images</h2>
+
+            <p>This is the common case for services that lost access to Genial before remembering to export. Maybe your records are PDF printouts in a paper file. Maybe they are PNGs in a shared folder. Maybe they are photocopies of consultation notes with a hand-annotated pedigree in the margin. The escape hatch is pedigree image OCR.</p>
+
+            <p>Evagene supports pedigree image OCR import: upload a PNG, JPG, SVG, or PDF, and the tool reconstructs the structural pedigree automatically — individuals with inferred sex, parent-offspring links, partnerships, and visible affected status. It is not perfect; you will review the reconstruction and fix any ambiguities (e.g. when the image does not make clear which partner is affected, or when deceased status is coded with a slash you need to confirm). For a large archive, working through a few per day in the clinic's quiet hours is tractable. Disease annotations that were visible as free text in the image are picked up in the OCR text layer; they are then assigned to individuals and mapped to structured ICD-10 / OMIM codes in Evagene's 180+ disease catalogue.</p>
+
+            <p>The practical recommendation is to treat OCR as the second-best migration route, after GEDCOM. Where you have a choice, prefer GEDCOM. Where you don't, OCR is the route that stops your historical pedigrees being effectively lost.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Rebuilding disease annotations</h2>
+
+            <p>Genial's disease annotations were typically free-text — a clinician would type a condition name next to an individual, with variable punctuation and abbreviation. That works fine for a single user who knows the conventions they themselves used; it becomes a problem when the data needs to migrate, because there is no machine-readable link between the label and a structured code.</p>
+
+            <p>The modern approach is to move those labels onto <a href="clinical-genetics-pedigree-tool.html">ICD-10 and OMIM codes</a> during migration. Evagene's 180+ disease catalogue covers most conditions a clinical genetics service annotates routinely; selecting the matching catalogue entry takes a few seconds per individual once a clinician has the Genial label in view. For unusual conditions not in the catalogue, Evagene supports free-text additions with an optional OMIM number for traceability. A clinician working from a GEDCOM + PDF pair (structure from one, labels from the other) can typically annotate a family of ten to fifteen individuals in under five minutes.</p>
+
+            <p>For very large archives — hundreds or thousands of cases — it is worth sampling. Start by migrating the twenty most-active cases in detail as a pilot; the knowledge you gain there (which Genial abbreviations map to which catalogue entries, what your house rule is for ambiguous labels, how to record deceased status and age of diagnosis) then scales across the rest of the archive. Keep a small mapping document — "ALK label 'LS' → OMIM 120435 Lynch syndrome, Amsterdam II positive" — as part of your migration audit trail.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Comparison: Genial (historic) vs modern options</h2>
+
+            <p>For services choosing where to migrate, the table below summarises Genial's historic feature set against contemporary options. We include Evagene — the platform we build — and four other serious options: Phenotips, Progeny, FamGenix, and TrakGene. This is a high-level comparison; each column links to a more detailed comparison page where you can go deeper. The point here is to help you shortlist.</p>
+
+            <div class="not-prose my-10 overflow-x-auto">
+                <table class="w-full text-sm border-collapse">
+                    <thead class="bg-brand-50 dark:bg-brand-900/50">
+                        <tr>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Capability</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Genial (historic)</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Evagene</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Phenotips</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Progeny</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">FamGenix</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">TrakGene</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 dark:text-gray-300">
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Browser-based</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">partial</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">NSGC / ISCN notation</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Multi-user collaboration</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">GEDCOM import / export</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">partial</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Pedigree image OCR</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">ICD-10 + OMIM disease coding</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">partial (free-text)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓ (HPO-first)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">BRCAPRO / MMRpro / PancPRO</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">partial</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">partial</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Mendelian inheritance calculators</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">AI clinical interpretation (BYOK)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">REST API / webhooks</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">via EHR layer</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">via EHR layer</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">partial</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">partial</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">MCP server for AI agents</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓ (11 tools)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Embeddable pedigree viewer</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">HPO deep phenotyping</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓ (core)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Patient pre-visit questionnaire</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Active and supported in 2026</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">— (discontinued May 2020)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓ (Alpha)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-sm text-gray-500 dark:text-gray-400">Historic Genial feature summary compiled from public material prior to May 2020. Modern tools summarised from current public product pages as of April 2026. "—" indicates the capability is not publicly advertised; "partial" indicates limited or conditional support.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene specifically supports Genial-style workflows</h2>
+
+            <p>Evagene is one of several modern options. The reason we can describe it in detail is that we build it, and this guide is hosted on evagene.com. For services that used Genial primarily because it was a browser-based, NSGC-compliant, collaborative, GEDCOM-friendly cloud tool at a sensible price, Evagene is a straightforward continuation of that shape: browser-based, NSGC/ISCN notation, multi-user, GEDCOM in and out, currently free in Alpha.</p>
+
+            <p>Beyond the Genial-comparable baseline, Evagene adds the platform capabilities a 2026 clinical service typically needs: <a href="hereditary-cancer-risk-assessment.html">validated BayesMendel risk models (BRCAPRO, MMRpro, PancPRO)</a>, Mendelian AD/AR/XR calculators for monogenic non-cancer conditions, AI-powered clinical interpretation using bring-your-own-key LLMs (Anthropic Claude, OpenAI GPT, Fernet-encrypted), Analysis Templates for codifying house reporting style, a REST API with scoped <code>evg_</code> keys, webhooks (HMAC-SHA256 signed), an MCP server exposing 11 pedigree tools to Claude Desktop and Claude Code, an embeddable pedigree viewer, karyogram viewer, consanguinity detection, batch risk screening, and four report types. Data portability is substantial — GEDCOM 5.5.1 in and out, JSON in and out, 23andMe imports, pedigree image OCR, and PNG/SVG/PDF exports — so you are not locked in if your needs later change.</p>
+
+            <p>For the migration itself, Evagene's GEDCOM import and pedigree image OCR handle the two realistic Genial data shapes. If you have GEDCOMs, upload them; Evagene reconstructs the family structure, and you annotate diseases from the 180+ catalogue. If you have only PDFs or PNGs, upload those; Evagene's OCR reconstructs structure from the image, you verify, then annotate. For large archives, a short Python or shell script can batch through folders of files against Evagene's REST API — we are happy to help draft something for your specific archive shape.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Migration path: a concrete recipe</h2>
+
+            <p>For a typical Genial migration to Evagene, the recipe looks like this.</p>
+
+            <ol>
+                <li><strong>Inventory your historical archive.</strong> Count pedigrees. Classify by available export (GEDCOM / image / printout-only). Identify high-value cases (active families in ongoing care, families with recent risk assessments, Amsterdam II Lynch cases, complex consanguineous families).</li>
+                <li><strong>Set up Evagene access.</strong> Join the Alpha waiting list at evagene.com. For a pilot, a single clinician account is enough.</li>
+                <li><strong>Pilot with 10-20 high-value cases.</strong> Migrate these in detail: import GEDCOM or image, reconstruct structure, annotate diseases from the 180+ catalogue, record migration provenance in Evagene's notes (source file, date, person migrating). Verify against original clinical notes or current patient records.</li>
+                <li><strong>Refine your migration playbook.</strong> Document your conventions for Genial free-text abbreviations, your house rule for ambiguous cases, and your sampling strategy for audit.</li>
+                <li><strong>Batch the rest.</strong> For GEDCOM archives, use Evagene's REST API to batch-upload; for image archives, use the OCR import in batches. Track progress in a spreadsheet.</li>
+                <li><strong>Audit sample.</strong> Pick a random 10 per cent of migrated cases. Have a second clinician verify structure and annotations against the source. Fix systematic issues if the audit reveals them.</li>
+                <li><strong>Keep the originals.</strong> The Genial GEDCOMs or images remain your source-of-truth historical archive. Do not delete them. Store in your normal clinical archive alongside the new Evagene case records.</li>
+            </ol>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can I still access my Genial PedigreeDraw files?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Genial was discontinued May 2020. If you have local GEDCOM or image exports, those are your migration source. If you have only printouts, pedigree image OCR is the route.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What format should I export from Genial as?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">GEDCOM 5.5.1 if available; PNG, SVG, or PDF otherwise. Keep any associated case notes too.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What if I only have printouts or images?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Use pedigree image OCR. Evagene reconstructs structure from PNG, JPG, SVG, or PDF; you verify and annotate.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Will my disease annotations transfer?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Structure transfers via GEDCOM. Free-text clinical annotations need re-entry as ICD-10/OMIM codes, which is fast against Evagene's 180+ disease catalogue.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Which modern tools support ISCN notation and cloud multi-user like Genial?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Evagene, Phenotips, Progeny, FamGenix, and TrakGene all offer cloud multi-user tools with standard notation. They differ in clinical emphasis — see the comparison table above.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How do I ensure my migration is clinically safe?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Treat it as a clinical task. Verify each migration against source. Keep originals. Audit a sample in detail. Document the process in your audit trail.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is there any route to continue using Genial itself?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">No. Discontinued, unmaintained, unsupported. Migrate to a supported platform.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related comparisons and reading</h2>
+
+            <ul>
+                <li><a href="phenotips-vs-evagene.html">Phenotips vs Evagene</a></li>
+                <li><a href="progeny-vs-evagene.html">Progeny vs Evagene</a></li>
+                <li><a href="famgenix-vs-evagene.html">FamGenix vs Evagene</a></li>
+                <li><a href="trakgene-vs-evagene.html">TrakGene vs Evagene</a></li>
+                <li><a href="gedcom-pedigree-software.html">GEDCOM pedigree software</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tools</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<!-- CTA -->
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

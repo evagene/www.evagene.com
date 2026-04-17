@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSGC Pedigree Notation — 2022 Standards, Symbols & Gender-Inclusive Updates | Evagene</title>
+    <meta name="description" content="A reference guide to NSGC pedigree notation: history from Bennett 1995 through the 2022 update, symbol set for sex, affected status, deceased, proband, pregnancy, carriers, twins, consanguinity, and gender-inclusive recommendations.">
+    <meta name="keywords" content="NSGC pedigree notation, NSGC standards 2022, NSGC pedigree symbols, Bennett pedigree, Pedigree Standardization Work Group, gender inclusive pedigree, pedigree symbol reference">
+
+    <meta property="og:title" content="NSGC Pedigree Notation — 2022 Standards, Symbols & Gender-Inclusive Updates">
+    <meta property="og:description" content="A comprehensive reference to NSGC pedigree notation, including the 2022 update on gender-inclusive drawing.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/nsgc-pedigree-notation">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NSGC Pedigree Notation — 2022 Standards & Symbols">
+    <meta name="twitter:description" content="A reference guide to NSGC pedigree standards.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/nsgc-pedigree-notation">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"NSGC Pedigree Notation: 2022 Standards, Symbols, and Gender-Inclusive Updates",
+        "description":"A reference guide to NSGC pedigree notation with symbol set and gender-inclusive updates.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/nsgc-pedigree-notation"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Pedigree Notation","item":"https://evagene.com/pedigree-drawing-software"},
+            {"@type":"ListItem","position":3,"name":"NSGC Pedigree Notation","item":"https://evagene.com/nsgc-pedigree-notation"}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"What are the NSGC pedigree standards?","acceptedAnswer":{"@type":"Answer","text":"The NSGC (National Society of Genetic Counselors) pedigree standards are a set of recommendations, originally published by Bennett and colleagues in 1995 and updated subsequently (notably in 2008 and 2022), for consistent drawing of clinical pedigrees. They define symbols for sex, affected status, deceased individuals, probands, pregnancies, carriers, twins, and consanguinity, and give guidance on gender-inclusive drawing."}},
+            {"@type":"Question","name":"What did the 2022 NSGC update change?","acceptedAnswer":{"@type":"Answer","text":"The 2022 update revised the guidance to be more gender-inclusive: it recommended distinguishing between sex assigned at birth (clinically relevant for many genetic conditions) and gender identity, and provided updated symbol conventions for transgender, non-binary, and intersex individuals. It also refreshed guidance on assisted reproductive technology, adoption, and pregnancy outcomes."}},
+            {"@type":"Question","name":"What is the difference between NSGC and ISCN notation?","acceptedAnswer":{"@type":"Answer","text":"NSGC standards focus specifically on the drawing of clinical pedigrees. ISCN (International System for Human Cytogenomic Nomenclature) is the broader standard for cytogenomic nomenclature, including karyotype descriptions. They are complementary and most clinical pedigree software aligns with both."}},
+            {"@type":"Question","name":"What symbol represents the proband?","acceptedAnswer":{"@type":"Answer","text":"The proband is indicated by an arrow pointing to the symbol, usually accompanied by the letter P. The proband is the individual through whom the family was ascertained for clinical evaluation."}},
+            {"@type":"Question","name":"How are pregnancy outcomes drawn?","acceptedAnswer":{"@type":"Answer","text":"NSGC defines distinct symbols for ongoing pregnancy (P inside the shape), spontaneous abortion (small triangle), termination of pregnancy (small triangle with a diagonal line), and stillbirth (small filled shape with SB). These symbols allow accurate reproductive history documentation without ambiguity."}},
+            {"@type":"Question","name":"Does Evagene enforce NSGC notation?","acceptedAnswer":{"@type":"Answer","text":"Yes. Evagene uses the current NSGC standard as its default symbol set, including gender-inclusive updates from the 2022 revision. Symbols are applied automatically based on recorded sex, affected status, deceased status, and other clinical annotations, with the standard consistently applied across pedigrees."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="pedigree-drawing-software.html" class="hover:text-brand-600 dark:hover:text-brand-300">Pedigree Notation</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">NSGC Pedigree Notation</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">NSGC pedigree notation: 2022 standards, symbols, and gender-inclusive updates</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A reference guide to the NSGC pedigree standards — from the original 1995 publication through the 2022 gender-inclusive update. Covers the core symbol set, pregnancy outcomes, consanguinity and twins notation, and the discussion around drawing sex vs gender identity.</p>
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">Written for genetic counsellors, clinical geneticists, and anyone producing clinical pedigrees that must be interpretable by other clinicians, teams, and services.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>12 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> The NSGC (National Society of Genetic Counselors) pedigree standards are the widely accepted convention for drawing clinical pedigrees. Originally published by Bennett and colleagues in 1995 and revised subsequently, most notably in 2008 and 2022, they define symbols for sex, affected status, deceased individuals, pregnancies, carriers, twins, consanguinity, and assisted reproduction. The 2022 update introduced more explicit guidance on gender-inclusive drawing — distinguishing sex assigned at birth from gender identity and updating symbol conventions for transgender, non-binary, and intersex individuals. Clinical pedigree software should follow the current standard to ensure pedigrees are unambiguous across teams and institutions.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">A brief history</h2>
+
+            <p>Before the 1990s, pedigree drawing varied considerably across centres and textbooks, leading to ambiguity in clinical records shared between institutions. Robin Bennett and the Pedigree Standardization Work Group, convened under the auspices of the NSGC, produced the first widely adopted formal standard in 1995. That standard defined a consistent symbol set and placed the conventions on a firm footing for clinical use.</p>
+
+            <p>A 2008 update refreshed the symbol set and added clarifications — particularly around assisted reproductive technology, adoption, and pregnancy outcomes, reflecting changes in reproductive medicine. The 2022 update further revised the standard to be explicit about gender-inclusive drawing, recognising that clinical pedigree conventions had historically conflated sex assigned at birth with gender identity in ways that did not serve transgender, non-binary, or intersex patients well.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">The core symbol set</h2>
+
+            <p>The table below summarises the most commonly used NSGC symbols.</p>
+
+            <div class="not-prose my-10 overflow-x-auto">
+                <table class="w-full text-sm border-collapse">
+                    <thead class="bg-brand-50 dark:bg-brand-900/50">
+                        <tr>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Symbol</th>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Meaning</th>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 dark:text-gray-300">
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Square</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Male (assigned at birth)</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Gender identity can be annotated separately.</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Circle</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Female (assigned at birth)</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">As above.</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Diamond</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Unknown, unspecified, or non-binary sex</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Increasingly used for non-binary gender with annotation.</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Filled (shaded)</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Affected</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Use quadrant shading for multiple conditions with a legend.</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Half-filled</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Known carrier (heterozygote)</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Vertical line through symbol for obligate carrier in some conventions.</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Central dot</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Obligate or asymptomatic carrier</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Particularly used in X-linked carrier females.</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Diagonal line through</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Deceased</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Annotate age or cause of death below.</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Arrow + P</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Proband</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">The individual through whom the family was ascertained.</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Small triangle</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Spontaneous abortion</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Annotate gestational age if known.</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Triangle with diagonal line</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Termination of pregnancy</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Annotate reason if clinically relevant.</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">SB</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Stillbirth</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Usually after 20+ weeks.</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Brackets</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Adopted</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Brackets around the symbol indicate adoption in or out.</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Double horizontal line</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Consanguineous union</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Distinguishes related from unrelated partnerships.</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Twin bracket</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Twins</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Horizontal bar for dizygotic, connected triangle for monozygotic.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Proband and ascertainment</h2>
+
+            <p>The <strong>proband</strong> is the individual through whom a family is ascertained for clinical evaluation. They are indicated on the pedigree with an arrow and, by convention, the letter P. For research, the term <em>consultand</em> is sometimes used for the specific individual seeking counselling, who may or may not be the same as the proband.</p>
+
+            <p>Generations are labelled with Roman numerals from the top down (I, II, III), and individuals within a generation are numbered left to right with Arabic numerals. A specific individual can therefore be referenced as, for example, III-2.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Consanguinity and assisted reproduction</h2>
+
+            <p>Consanguineous unions are indicated with a <strong>double horizontal line</strong> between the two partners. Where the consanguinity is documented, the shared ancestors should be drawn if possible so Wright's coefficient and the inbreeding coefficient F can be calculated; see our <a href="consanguinity-calculator.html">consanguinity calculator</a>.</p>
+
+            <p>Assisted reproductive technology has specific conventions in the 2008 and 2022 updates. Notation exists for donor gametes (D for sperm donor, O for egg or ovum donor), surrogacy arrangements, and in vitro fertilisation, allowing an accurate biological-vs-social relationship to be recorded. These details matter for genetic risk calculations, which must be based on biological ancestry.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">The 2022 gender-inclusive update</h2>
+
+            <p>The 2022 NSGC update addressed a long-standing tension in clinical pedigree drawing: the square-and-circle convention maps to sex assigned at birth and is used to track inheritance through the X and Y chromosomes, but it had sometimes been applied (incorrectly) as a statement about gender identity. The updated guidance:</p>
+
+            <ul>
+                <li><strong>Clarifies that square and circle refer to sex assigned at birth</strong>, which is the relevant variable for most genetic inheritance calculations.</li>
+                <li><strong>Provides notation for gender identity</strong> alongside sex assigned at birth, so a transgender man would be recorded with a circle (sex assigned at birth) and an annotation or modifier indicating male gender identity.</li>
+                <li><strong>Recognises non-binary gender identities</strong> with the diamond symbol and a gender-identity annotation.</li>
+                <li><strong>Handles intersex and differences of sex development</strong> explicitly rather than defaulting to a square or circle.</li>
+                <li><strong>Addresses family structure</strong> for same-gender couples, donor families, and blended biological-and-social relationships.</li>
+            </ul>
+
+            <p>The updated conventions do not change the biology of inheritance — a transgender man still transmits autosomes and sex chromosomes according to his chromosomal complement — but they ensure the pedigree represents each individual accurately and respectfully. See our <a href="gender-inclusive-pedigree-drawing.html">gender-inclusive pedigree drawing</a> page for fuller discussion.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Relationship to other standards</h2>
+
+            <p>NSGC notation sits alongside several related standards:</p>
+
+            <ul>
+                <li><strong>ISCN (International System for Human Cytogenomic Nomenclature)</strong>: the broader cytogenomic standard. NSGC pedigree conventions align with but do not duplicate ISCN's karyotype nomenclature; see our <a href="iscn-pedigree-symbols.html">ISCN pedigree symbols</a> page.</li>
+                <li><strong>HGNC</strong>: for gene symbols used in annotations.</li>
+                <li><strong>HPO (Human Phenotype Ontology)</strong>: for standardised phenotype capture, often paired with pedigrees in phenotype-first rare-disease workflows.</li>
+                <li><strong>ICD-10 / OMIM</strong>: for disease annotation on the pedigree.</li>
+            </ul>
+
+            <p>Clinical-grade pedigree software should support the current NSGC symbol set as a default and offer the corresponding annotations in line with ISCN and HGNC.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Common drawing pitfalls</h2>
+
+            <ul>
+                <li><strong>Ambiguous quadrant shading</strong> without an accompanying legend makes multi-condition pedigrees unreadable.</li>
+                <li><strong>Missing proband arrow</strong> leaves readers guessing at ascertainment.</li>
+                <li><strong>Unlabelled pregnancies</strong> (live, lost, terminated) lose valuable clinical information.</li>
+                <li><strong>Omitted consanguinity line</strong> leads to recessive-risk underestimation.</li>
+                <li><strong>Conflating sex and gender</strong> in the symbol choice, instead of using the symbol for sex assigned at birth and an annotation for gender identity.</li>
+                <li><strong>Missing age and year of birth/death</strong> — essential for age-dependent penetrance calculations.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene supports this</h2>
+
+            <p>Evagene uses the current NSGC standard as its default symbol set, applying symbols automatically based on recorded sex at birth, gender identity, affected status, carrier status, deceased status, pregnancy outcome, and relationship type. The 2022 gender-inclusive conventions are built in: clinicians can record gender identity alongside sex assigned at birth without losing the biologically relevant inheritance information.</p>
+
+            <p>Pedigree rendering enforces the notation consistently across individuals, so a pedigree imported from an external GEDCOM or drawn from a live consultation is presented in one uniform style. Consanguinity is drawn with the double-line convention automatically when shared ancestry is detected. Twins bracketing, pregnancy-outcome triangles, adoption brackets, and deceased strike-throughs are all generated from the annotated data rather than requiring manual symbol placement.</p>
+
+            <p>Because the notation is enforced by the software rather than the clinician's hand, pedigrees are visually uniform across a service and remain interpretable when shared between institutions. PDF, PNG, and SVG exports preserve the NSGC notation without reformatting, and the embeddable viewer renders the same symbol set in patient portals or EHR integration layers.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What are the NSGC pedigree standards?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">A set of recommendations for consistent clinical pedigree drawing, first published in 1995 by Bennett and colleagues and updated since.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What did the 2022 update change?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Gender-inclusive conventions, refreshed ART and reproductive-outcome guidance.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How are NSGC and ISCN related?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">ISCN covers broader cytogenomic nomenclature; NSGC focuses on clinical pedigree drawing. They complement each other.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How is the proband indicated?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">An arrow pointing to the symbol, usually with the letter P.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How are pregnancy outcomes drawn?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Distinct symbols for ongoing pregnancy, spontaneous abortion, termination, and stillbirth.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does Evagene follow NSGC?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes, including the 2022 gender-inclusive update.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="iscn-pedigree-symbols.html">ISCN pedigree symbols</a></li>
+                <li><a href="how-to-draw-a-pedigree-chart.html">How to draw a pedigree chart</a></li>
+                <li><a href="gender-inclusive-pedigree-drawing.html">Gender-inclusive pedigree drawing</a></li>
+                <li><a href="three-generation-family-history.html">Three-generation family history</a></li>
+                <li><a href="pedigree-drawing-software.html">Pedigree drawing software</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tools</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

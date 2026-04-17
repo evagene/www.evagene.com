@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRCAPRO Calculator — BRCA1/BRCA2 Carrier Probability from Family History | Evagene</title>
+    <meta name="description" content="A practical guide to the BRCAPRO calculator: what BRCAPRO estimates, the inputs it needs, how Bayesian carrier probability works, its clinical uses, limitations, and how it compares with BOADICEA and Tyrer-Cuzick. Updated 2026.">
+    <meta name="keywords" content="BRCAPRO calculator, BRCAPRO online, BRCA risk calculator from family history, BRCA1 BRCA2 carrier probability calculator, BayesMendel, hereditary breast cancer, hereditary ovarian cancer, Bayesian cancer risk model">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="BRCAPRO Calculator — BRCA1/BRCA2 Carrier Probability from Family History">
+    <meta property="og:description" content="How BRCAPRO estimates BRCA1 and BRCA2 carrier probability from a pedigree, what it needs as input, and how Evagene integrates it directly on the pedigree canvas.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/brcapro-calculator">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BRCAPRO Calculator — BRCA1/BRCA2 Carrier Probability from Family History">
+    <meta name="twitter:description" content="What BRCAPRO is, how it works, and how to use it from a clinical pedigree without data re-entry.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/brcapro-calculator">
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD: Article -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"BRCAPRO Calculator: BRCA1/BRCA2 Carrier Probability from Family History",
+        "description":"A practical guide to the BRCAPRO calculator, its inputs, outputs, clinical uses, and limitations, with a comparison to BOADICEA and Tyrer-Cuzick.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/brcapro-calculator"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Risk Analysis","item":"https://evagene.com/#risk-analysis"},
+            {"@type":"ListItem","position":3,"name":"BRCAPRO Calculator","item":"https://evagene.com/brcapro-calculator"}
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"What is the BRCAPRO calculator?","acceptedAnswer":{"@type":"Answer","text":"BRCAPRO is a Bayesian statistical model that estimates the probability an individual carries a pathogenic variant in BRCA1 or BRCA2, using a family pedigree annotated with breast and ovarian cancer diagnoses, ages of onset, current ages of unaffected relatives, and any prior genetic testing results. It is part of the BayesMendel suite developed at Johns Hopkins and is one of the most extensively validated hereditary breast and ovarian cancer risk tools in clinical use."}},
+            {"@type":"Question","name":"What inputs does BRCAPRO need?","acceptedAnswer":{"@type":"Answer","text":"At minimum, BRCAPRO needs sex, relationship to the counselee, cancer status (breast, ovarian, bilateral, male breast), ages at diagnosis for affected relatives, current age for unaffected relatives, age and cause at death for deceased relatives, ethnicity (to select appropriate allele frequencies, particularly for Ashkenazi Jewish founder variants), and any prior BRCA testing results for any family member."}},
+            {"@type":"Question","name":"What does BRCAPRO output?","acceptedAnswer":{"@type":"Answer","text":"Two categories of output. First, the posterior carrier probability: the probability that the counselee carries a pathogenic variant in BRCA1, in BRCA2, or in either. Second, cumulative cancer risk projections: the probability of developing breast cancer or ovarian cancer by specified future ages, conditional on the estimated carrier status."}},
+            {"@type":"Question","name":"How does BRCAPRO compare with BOADICEA?","acceptedAnswer":{"@type":"Answer","text":"BRCAPRO is narrower and simpler — it models BRCA1 and BRCA2 as a two-gene Bayesian problem. BOADICEA, the model behind Cambridge's CanRisk, additionally incorporates moderate-penetrance genes (PALB2, CHEK2, ATM, BARD1, RAD51C, RAD51D), polygenic risk scores, mammographic density, hormonal and reproductive factors, and lifestyle variables. BOADICEA is endorsed by NICE and NCCN for comprehensive breast cancer risk assessment. Use BRCAPRO when you need a focused BRCA1/BRCA2 carrier probability; use BOADICEA when you need multi-gene plus polygenic plus risk-factor integration."}},
+            {"@type":"Question","name":"How does BRCAPRO compare with Tyrer-Cuzick (IBIS)?","acceptedAnswer":{"@type":"Answer","text":"Tyrer-Cuzick estimates the lifetime risk of developing breast cancer using family history, hormonal and reproductive factors, and optionally mammographic density. It does not return a BRCA1/BRCA2 carrier probability as its primary output. BRCAPRO estimates carrier probability first and derives cancer risk from it. Clinicians frequently use both: BRCAPRO to triage for genetic testing, Tyrer-Cuzick to set screening intensity."}},
+            {"@type":"Question","name":"What are BRCAPRO's limitations?","acceptedAnswer":{"@type":"Answer","text":"BRCAPRO models only BRCA1 and BRCA2. It does not include moderate-penetrance genes, polygenic risk scores, mammographic density, or non-genetic risk factors such as hormonal and reproductive history. It assumes Mendelian transmission and published penetrance functions, and accuracy depends on the quality and completeness of the pedigree. Results should be interpreted by a clinician alongside other clinical information."}},
+            {"@type":"Question","name":"How does Evagene run BRCAPRO?","acceptedAnswer":{"@type":"Answer","text":"Evagene integrates BRCAPRO from the BayesMendel suite directly on the pedigree canvas. The same pedigree data used to draw the family is passed to the model with no re-entry, and the model runs in an R sidecar process that uses the validated BayesMendel package. Results — carrier probabilities and cumulative risk projections — are returned to the web interface alongside the pedigree, and can be included in AI-drafted clinical reports and exported via the REST API."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<!-- Navigation -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="https://evagene.com/#risk-analysis" class="hover:text-brand-600 dark:hover:text-brand-300">Risk Analysis</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">BRCAPRO Calculator</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">BRCAPRO calculator: BRCA1 and BRCA2 carrier probability from a family pedigree</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A practical guide for clinicians, genetic counsellors, and researchers evaluating hereditary breast and ovarian cancer risk from family history — how BRCAPRO works, what it needs, what it outputs, and how it compares with BOADICEA and Tyrer-Cuzick.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>13 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> BRCAPRO is a Bayesian calculator that takes a family pedigree annotated with breast and ovarian cancer diagnoses and returns the probability the counselee carries a pathogenic variant in BRCA1 or BRCA2, plus projected cumulative cancer risk. It is part of the BayesMendel suite developed at Johns Hopkins and is one of the most widely used and best-validated hereditary cancer risk tools in clinical genetics. Its strengths are focus and validation; its limitations are that it models only BRCA1 and BRCA2 and does not incorporate polygenic risk scores, moderate-penetrance genes, or non-genetic risk factors. For comprehensive breast cancer risk that includes those components, clinicians often use BOADICEA (CanRisk) alongside it; for screening-intensity decisions driven by hormonal and density factors, they often use Tyrer-Cuzick. Evagene runs BRCAPRO directly on the pedigree data you have already drawn, with no re-entry, as part of a broader <a href="hereditary-cancer-risk-assessment.html">hereditary cancer risk assessment workflow</a>.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What BRCAPRO is</h2>
+
+            <p>BRCAPRO is a Bayesian statistical model that estimates the probability an individual carries a pathogenic germline variant in BRCA1 or BRCA2 based on the pattern of breast and ovarian cancer in their family. It was developed as part of the <strong>BayesMendel</strong> framework at Johns Hopkins in collaboration with Harvard, and is distributed as an open-source R package. It has been referenced in hundreds of clinical guideline documents and research studies, and is one of the original quantitative carrier-probability models in hereditary cancer genetics.</p>
+
+            <p>The model's core is straightforward. It starts from a prior probability that the counselee carries a BRCA1 or BRCA2 pathogenic variant, derived from population-specific allele frequencies. It then uses the family pedigree — the affected and unaffected relatives, their ages, their cancer types, and any known genetic test results — to update that prior into a posterior probability. The mathematical machinery is the Elston-Stewart peeling algorithm, which propagates genotype likelihoods through the pedigree efficiently without having to enumerate every possible joint genotype. The output is a calibrated probability that the counselee carries a pathogenic variant, together with projections of future cancer risk conditional on that probability.</p>
+
+            <p>BRCAPRO is narrower in scope than more recent multi-gene, polygenic, risk-factor-integrating models. That narrowness is deliberate. Focusing on BRCA1 and BRCA2 with well-characterised penetrance functions gives a statistically clean, reproducible, independently validated tool. When the clinical question is "should this patient be offered BRCA testing, and what does their family history imply about their BRCA1/BRCA2 carrier status?", BRCAPRO is a strong answer.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How BRCAPRO works under the hood</h2>
+
+            <p>The Bayesian update at the heart of BRCAPRO combines three elements. First, a <strong>prior probability</strong> of carrying a pathogenic variant, which depends on population allele frequencies. In most European populations the combined BRCA1 and BRCA2 carrier frequency is in the region of 1 in several hundred. In Ashkenazi Jewish populations it is approximately an order of magnitude higher, driven by three well-characterised founder variants (BRCA1 c.68_69delAG, BRCA1 c.5266dupC, and BRCA2 c.5946delT). BRCAPRO uses ethnicity as an input precisely so it can select appropriate priors.</p>
+
+            <p>Second, a <strong>penetrance function</strong> for each gene: the probability of developing breast cancer or ovarian cancer by each age given the genotype. BRCAPRO uses published penetrance functions derived from large family studies, conditional on sex and cancer type. These functions are the reason an unaffected 72-year-old mother reduces the posterior probability of a BRCA1 pathogenic variant — if she carried one, the likelihood she would have developed cancer by 72 is high, so her unaffected status is evidence against a variant segregating through her line.</p>
+
+            <p>Third, a <strong>likelihood contribution from each relative</strong>. For every individual in the pedigree, BRCAPRO computes the likelihood of observing their cancer status and age given each possible genotype. Affected relatives with early-onset breast or ovarian cancer generate strong likelihood ratios that pull the posterior upward. Unaffected elderly relatives generate likelihood ratios below one that pull the posterior downward. Male breast cancer is a particularly strong signal for BRCA2. Bilateral breast cancer strengthens both signals. Prior BRCA test results from the counselee or any tested relative are incorporated directly, with sensitivity and specificity of the test taken into account.</p>
+
+            <p>The peeling algorithm runs this computation efficiently across the whole pedigree, returning the posterior carrier probability as the final output.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Required inputs</h2>
+
+            <p>To run BRCAPRO, you need a structured pedigree containing, for each individual:</p>
+
+            <ul>
+                <li>Sex and biological relationship to the counselee.</li>
+                <li>Breast cancer status and age at first diagnosis if affected; note bilateral disease and age at contralateral diagnosis.</li>
+                <li>Male breast cancer status and age at diagnosis if affected.</li>
+                <li>Ovarian cancer status and age at diagnosis if affected.</li>
+                <li>Current age if alive and unaffected; age at death and cause of death if deceased.</li>
+                <li>Prior BRCA1 and BRCA2 genetic testing results, including variants of uncertain significance if available.</li>
+                <li>Self-reported ancestry, specifically whether of Ashkenazi Jewish descent on either parental line.</li>
+            </ul>
+
+            <p>A minimum three-generation pedigree on both parental sides is the conventional standard. Cancer predisposition genes can be inherited from either parent, so a family history that appears to cluster on the maternal side still requires paternal-side information. See our guidance on <a href="breast-cancer-family-history-calculator.html">breast cancer family history evaluation</a> for the red-flag patterns that make this especially important.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What BRCAPRO outputs</h2>
+
+            <p>BRCAPRO produces two categories of output. The <strong>posterior carrier probability</strong> is the probability, given all the pedigree evidence, that the counselee carries a pathogenic variant in BRCA1, in BRCA2, or in either. These three probabilities are reported separately because the two genes have overlapping but distinct cancer risk profiles, and decisions such as which variants to prioritise on a clinical report can hinge on which gene is the stronger candidate.</p>
+
+            <p>The <strong>cumulative cancer risk projection</strong> is the probability of developing breast cancer or ovarian cancer by specified future ages — commonly 50, 60, 70, and 80. These projections are conditional on the estimated carrier status. If the posterior carrier probability is low, the projected risk approaches population baseline; if it is high, the projected risk approaches the penetrance curve for the implied genotype.</p>
+
+            <p>Clinical thresholds for action vary by guideline and jurisdiction, but a posterior carrier probability at or above 10 percent is a commonly cited threshold for offering BRCA genetic testing under many national frameworks. The specific threshold depends on local commissioning criteria — NICE in the UK, NCCN in the US, and equivalent bodies elsewhere publish current referral criteria.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Clinical uses</h2>
+
+            <p>BRCAPRO supports three core decisions in hereditary breast and ovarian cancer clinics. The first is <strong>eligibility for genetic testing</strong>. Many commissioning frameworks require a documented carrier probability above a threshold before BRCA panel testing is offered. BRCAPRO provides the quantitative evidence required, grounded in published methodology rather than clinician judgement alone.</p>
+
+            <p>The second is <strong>risk stratification for screening and surveillance</strong>. Cumulative risk projections inform whether to recommend enhanced surveillance such as annual breast MRI, the age at which surveillance should begin, and whether risk-reducing surgery conversations are warranted.</p>
+
+            <p>The third is <strong>cascade testing decisions</strong> within the family. A high carrier probability for the counselee implies that first-degree relatives are at a baseline 50 percent risk of inheriting the same variant. Identifying the probable at-risk branches of the family helps target testing resources.</p>
+
+            <p>Our broader guide to <a href="hereditary-cancer-risk-assessment.html">hereditary cancer risk assessment</a> covers how these decisions fit into the wider genetic counselling workflow, and our <a href="ovarian-cancer-family-history-calculator.html">ovarian cancer family history page</a> discusses the particular weight that ovarian cancer carries in the BRCAPRO signal.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Limitations of BRCAPRO</h2>
+
+            <p>BRCAPRO is a focused tool. Its focus is also its limitation, and an honest account matters.</p>
+
+            <ul>
+                <li><strong>Two-gene scope.</strong> BRCAPRO models BRCA1 and BRCA2. It does not estimate probabilities for moderate-penetrance breast cancer genes such as PALB2, CHEK2, ATM, BARD1, RAD51C, or RAD51D. For those, a multi-gene model such as BOADICEA is required.</li>
+                <li><strong>No polygenic risk scores.</strong> BRCAPRO does not incorporate polygenic risk scores (PRS) based on common variants. PRS can meaningfully shift predicted risk, particularly for women without a strong monogenic family history.</li>
+                <li><strong>No mammographic density or hormonal/reproductive factors.</strong> These are important non-genetic risk modifiers, especially for screening-intensity decisions. Tyrer-Cuzick (IBIS) and BOADICEA incorporate them; BRCAPRO does not.</li>
+                <li><strong>Pedigree quality dependence.</strong> Like any family-history-based model, BRCAPRO is only as accurate as the pedigree. Missing relatives, uncertain ages, and undifferentiated "cancer" without site information all degrade the estimate.</li>
+                <li><strong>Penetrance assumptions.</strong> Published penetrance functions come from specific cohorts and may not generalise perfectly across all populations or variant classes.</li>
+            </ul>
+
+            <p>None of these limitations invalidate BRCAPRO. They define where it sits in a modern risk assessment toolkit: a rigorous, focused BRCA1/BRCA2 carrier probability calculator, used alongside other tools for questions it is not designed to answer.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">BRCAPRO vs BOADICEA vs Tyrer-Cuzick</h2>
+
+            <p>The three models most often compared in hereditary breast cancer clinics are BRCAPRO, BOADICEA, and Tyrer-Cuzick. They answer different questions.</p>
+
+            <div class="not-prose my-10 overflow-x-auto">
+                <table class="w-full text-sm border-collapse">
+                    <thead class="bg-brand-50 dark:bg-brand-900/50">
+                        <tr>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Property</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">BRCAPRO</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">BOADICEA (CanRisk)</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Tyrer-Cuzick (IBIS)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 dark:text-gray-300">
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Primary output</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">BRCA1/2 carrier probability + cancer risk</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">Multi-gene carrier probability + cancer risk</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">Lifetime breast cancer risk</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Genes modelled</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">BRCA1, BRCA2</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">BRCA1, BRCA2, PALB2, CHEK2, ATM, BARD1, RAD51C, RAD51D</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">BRCA1, BRCA2 (limited)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Polygenic risk score</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">Yes</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Mammographic density</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">Optional</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">Optional</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Hormonal/reproductive factors</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">Yes</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">Yes (core)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Typical clinical use</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">Testing eligibility</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">Comprehensive risk + testing</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">Screening intensity</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Guideline endorsement</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">Long-standing</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">NICE, NCCN</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">NICE</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>In practice, a breast cancer genetics service may run BRCAPRO for a clean BRCA1/BRCA2 carrier probability, BOADICEA for a broader multi-gene plus polygenic plus risk-factor picture, and Tyrer-Cuzick for a lifetime risk estimate that drives screening decisions. The three are complementary. See our pages on <a href="boadicea-alternative.html">BOADICEA alternatives</a> and <a href="tyrer-cuzick-alternative.html">Tyrer-Cuzick alternatives</a> for more on how clinicians reason about these tools.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene integrates BRCAPRO</h2>
+
+            <p>Running BRCAPRO traditionally involves extracting structured family history from whatever system holds it, reformatting it for the BayesMendel R package, invoking the model in R, and bringing the results back into the clinical record. That is work. It is also error-prone: every manual re-entry is a chance to drop a relative, mis-code an age, or misattribute a cancer site.</p>
+
+            <p>Evagene runs <strong>BRCAPRO directly on the pedigree</strong> you have already drawn or imported. The same structured data that powers the pedigree canvas — sex, relationship, cancer diagnoses, ages, vital status, prior test results, ethnicity — is the input BRCAPRO needs. There is no re-entry step. The model executes in an R sidecar process that calls the validated BayesMendel package, so the calculation is the same one peer-reviewed research relies on, not a reimplementation.</p>
+
+            <p>Two features extend the basic integration. First, <strong>batch risk screening</strong>: Evagene can run BRCAPRO, MMRpro, and PancPRO across all catalogued diseases for a given pedigree in a single operation, surfacing conditions where the family history crosses a configurable threshold. This inverts the traditional workflow — rather than the clinician deciding which model to run, the software flags the conditions the clinician should consider. Second, <strong>AI interpretation</strong>: BRCAPRO results can be passed to an AI-drafted clinical report via bring-your-own-key large language models (Anthropic or OpenAI), producing structured narrative that a clinician reviews and edits. This is a drafting aid, not a replacement for clinical judgement.</p>
+
+            <p>For programmatic use, BRCAPRO runs are exposed through the Evagene REST API and MCP server, so a downstream system — an EHR integration, a research pipeline, or an AI agent — can submit a pedigree and retrieve carrier probabilities and cumulative risk estimates without a human in the loop. Documentation is at <a href="https://evagene.net/help">evagene.net/help</a>. Evagene is browser-based with zero install, and is free during Alpha via <a href="https://evagene.com/#waitlist">the waiting list</a>.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is the BRCAPRO calculator?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">A Bayesian statistical model from the BayesMendel suite that estimates BRCA1 and BRCA2 carrier probability, plus projected breast and ovarian cancer risk, from a family pedigree. It is one of the longest-established and best-validated hereditary breast and ovarian cancer risk tools in clinical use.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What inputs does BRCAPRO need?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">A structured three-generation pedigree with breast and ovarian cancer diagnoses, ages at onset, current ages of unaffected relatives, age and cause of death for deceased relatives, Ashkenazi Jewish ancestry flag, and any prior BRCA testing results.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What does BRCAPRO output?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Posterior carrier probabilities for BRCA1, BRCA2, and either; plus cumulative cancer risk projections by defined ages (commonly 50, 60, 70, 80).</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How does BRCAPRO compare with BOADICEA?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">BOADICEA is broader: multiple genes, polygenic risk, density, hormonal factors. BRCAPRO is narrower: BRCA1 and BRCA2 only. BOADICEA is NICE- and NCCN-endorsed for comprehensive assessment; BRCAPRO remains a rigorous focused tool for BRCA carrier probability.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How does BRCAPRO compare with Tyrer-Cuzick?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Tyrer-Cuzick estimates lifetime breast cancer risk using hormonal, reproductive, density, and family-history factors. BRCAPRO estimates BRCA carrier probability first and derives cancer risk from it. Many clinics use both.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What are BRCAPRO's main limitations?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Two-gene scope (BRCA1, BRCA2 only); no polygenic risk scores; no density or hormonal factors; sensitivity to pedigree completeness; reliance on published penetrance functions.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How does Evagene run BRCAPRO?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Directly on the pedigree you have drawn or imported, via an R sidecar that invokes the validated BayesMendel package. No re-entry, batch screening across all catalogued diseases, AI-drafted reports with BYOK LLMs, and REST API / MCP access.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="hereditary-cancer-risk-assessment.html">Hereditary cancer risk assessment</a></li>
+                <li><a href="mmrpro-calculator.html">MMRpro calculator for Lynch syndrome</a></li>
+                <li><a href="pancpro-calculator.html">PancPRO calculator for familial pancreatic cancer</a></li>
+                <li><a href="boadicea-alternative.html">BOADICEA alternative and comparison</a></li>
+                <li><a href="tyrer-cuzick-alternative.html">Tyrer-Cuzick alternative and comparison</a></li>
+                <li><a href="breast-cancer-family-history-calculator.html">Breast cancer family history calculator</a></li>
+                <li><a href="ovarian-cancer-family-history-calculator.html">Ovarian cancer family history calculator</a></li>
+                <li><a href="pedigree-drawing-software.html">Pedigree drawing software</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tool</a></li>
+                <li><a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculator</a></li>
+                <li><a href="gedcom-pedigree-software.html">GEDCOM pedigree software</a></li>
+                <li><a href="phenotips-vs-evagene.html">Phenotips vs Evagene comparison</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<!-- CTA -->
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Run BRCAPRO directly from your pedigree</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. Browser-based, zero install, free during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

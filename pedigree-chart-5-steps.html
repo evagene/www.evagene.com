@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Make a Pedigree Chart in 5 Steps (2026) | Evagene</title>
+    <meta name="description" content="A clinical-grade, step-by-step guide to building a pedigree chart: identify the proband, draw the parents, add siblings, extend to three generations, and annotate affected status. With ASCII diagrams and common pitfalls.">
+    <meta name="keywords" content="pedigree chart 5 steps, how to make a pedigree chart step by step, how to draw a pedigree, pedigree construction, pedigree tutorial">
+
+    <meta property="og:title" content="How to Make a Pedigree Chart in 5 Steps">
+    <meta property="og:description" content="Step-by-step guide to constructing a clinical-grade pedigree chart with ASCII diagrams and common pitfalls.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/pedigree-chart-5-steps">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pedigree Chart in 5 Steps">
+    <meta name="twitter:description" content="Step-by-step pedigree construction.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/pedigree-chart-5-steps">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"How to Make a Pedigree Chart in 5 Steps",
+        "description":"Step-by-step guide to constructing a clinical-grade pedigree chart.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/pedigree-chart-5-steps"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Guides","item":"https://evagene.com/guides"},
+            {"@type":"ListItem","position":3,"name":"Pedigree Chart in 5 Steps","item":"https://evagene.com/pedigree-chart-5-steps"}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"What is the first step in drawing a pedigree?","acceptedAnswer":{"@type":"Answer","text":"Identify the proband — the first affected individual to come to medical attention — and mark the proband with an arrow pointing to the lower-left of the shape. Placing the proband near the centre of the expected chart area before adding other relatives avoids having to redraw later."}},
+            {"@type":"Question","name":"How many generations should a clinical pedigree include?","acceptedAnswer":{"@type":"Answer","text":"Three generations minimum: the proband, the proband's parents and their siblings, and the proband's grandparents. Add the proband's children if any. For conditions with variable age of onset or suspected founder variants, extend to four generations where information is available."}},
+            {"@type":"Question","name":"What is the difference between a mating line and a sibship line?","acceptedAnswer":{"@type":"Answer","text":"A mating line is the horizontal line connecting two partners. A sibship line is the horizontal line from which sibling shapes descend. Children of a couple hang from a vertical line descending from the mating line; that vertical meets a sibship line from which each sibling's own shape drops. Drawing these distinctly prevents ambiguity about who is a sibling versus who is a parent."}},
+            {"@type":"Question","name":"How do you record ages on a pedigree?",
+            "acceptedAnswer":{"@type":"Answer","text":"Below the shape: current age for living individuals, or 'd.' with age at death for deceased individuals. Ages are clinically critical for age-dependent penetrance models — an unaffected 30-year-old relative of a BRCA1 carrier carries different Bayesian weight from an unaffected 75-year-old relative. Date of birth and date of death where available are more informative than age alone."}},
+            {"@type":"Question","name":"Should you always draw affected individuals with filled shapes?",
+            "acceptedAnswer":{"@type":"Answer","text":"For the condition being tracked, yes — a fully filled shape indicates affected status. For multiple conditions, use quadrant-filled shapes with a legend. Distinguish 'unaffected' from 'unknown status' — the latter can be annotated with a question mark inside the shape."}},
+            {"@type":"Question","name":"What is the most common mistake when drawing a pedigree?","acceptedAnswer":{"@type":"Answer","text":"Missing the proband arrow. Without it, the reader cannot tell which family member the chart is centred on. The second most common is conflating mating and sibship lines, which produces ambiguous family structure. The third is omitting ages and dates, which breaks age-dependent penetrance analyses."}},
+            {"@type":"Question","name":"Do I need software to draw a clinically valid pedigree?","acceptedAnswer":{"@type":"Answer","text":"No — a clinically valid pedigree can be drawn by hand with standard notation. Software helps with version control, sharing, re-export, risk-model integration, and automatic standardisation of symbols, which matter once the chart is part of a live clinical record."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="guides.html" class="hover:text-brand-600 dark:hover:text-brand-300">Guides</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">Pedigree Chart in 5 Steps</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">How to make a pedigree chart in 5 steps</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A clinical-grade, step-by-step construction: identify the proband, draw the parents, add siblings, extend to three generations, annotate affected status. With ASCII diagrams at each step and the common pitfalls that catch novices out.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>12 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> A clinical pedigree is built in five disciplined steps. (1) Identify the proband and mark with an arrow. (2) Draw the parents on a horizontal mating line above the proband. (3) Add siblings on a horizontal sibship line at the same generation. (4) Extend vertically to grandparents so the chart covers three generations. (5) Annotate affected status, ages, and test results. The result should be readable by another clinician without any verbal explanation — if it isn't, something has been missed.</p>
+
+            <p>The steps below assume NSGC 2022 notation (Bennett et al., Journal of Genetic Counseling). If you are new to the symbol vocabulary, read our <a href="pedigree-symbols-reference.html">pedigree symbols reference</a> first; the rest of this page takes the vocabulary for granted.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Step 1: Identify the proband</h2>
+
+            <p>The proband is the first affected individual who brought the family to clinical attention. Everything that follows is structured around that individual. Mark the proband with an arrow pointing to the lower-left of their shape.</p>
+
+            <pre class="bg-gray-100 dark:bg-brand-900 p-4 rounded-lg text-sm overflow-x-auto"><code>  Start here:
+         ┌───┐
+         │   │   ← proband placeholder (sex known? fill in shape)
+         └───┘
+          ↙
+</code></pre>
+
+            <p>If a different family member is the <em>consultand</em> — the person who asked for genetic counselling, but who is not the first-affected individual — they are marked separately with the letter P. Many family histories, particularly in cancer genetics, come from an unaffected daughter asking about her mother; the mother is the proband, the daughter is the consultand.</p>
+
+            <p><strong>Pitfalls at this step.</strong></p>
+            <ul>
+                <li>Forgetting the arrow. Without it, a chart cannot be clinically interpreted.</li>
+                <li>Confusing proband with consultand. They are frequently the same person but not always.</li>
+                <li>Picking the wrong proband in large families. By convention, the proband is the index case — the person whose diagnosis prompted the referral — not the most severely affected family member.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">Step 2: Add the parents on a horizontal mating line</h2>
+
+            <p>Draw the proband's parents on a horizontal line <em>above</em> the proband's generation. A horizontal mating line connects the two parents. A vertical line descends from the mating line to the proband's sibship line.</p>
+
+            <pre class="bg-gray-100 dark:bg-brand-900 p-4 rounded-lg text-sm overflow-x-auto"><code>      Father    Mother           (generation II)
+       ┌───┐─────○
+       │   │    │
+       └───┘    ╰
+              │
+              │ (descent line)
+              │
+              ●  ← PROBAND        (generation III)
+             (affected)
+</code></pre>
+
+            <p>Place the male partner on the left, the female on the right, by the usual convention — though this is a convention for consistency, not a clinical requirement. Draw each parent's shape with the correct sex symbol (square for male, circle for female, diamond for unknown / non-disclosed sex) and record affected status, age, and any relevant family history below the shape.</p>
+
+            <p><strong>Pitfalls at this step.</strong></p>
+            <ul>
+                <li>Drawing the parents as siblings. Siblings share a sibship line and descend from a mating line above; partners are on a mating line themselves, without an ancestry line descending onto them (their own ancestry is drawn above when you extend to three generations).</li>
+                <li>Missing parent ancestry. When both parents have relevant family history, both need their own ancestry extended upward (both sets of grandparents).</li>
+                <li>Recording "unknown" parents as "unaffected". Unknown status should be noted explicitly — a question mark inside the shape, or an annotation — not silently conflated with unaffected.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">Step 3: Add siblings on a horizontal sibship line</h2>
+
+            <p>The proband's siblings branch from the same sibship line as the proband. Draw siblings in birth order, oldest on the left, each connected by a short vertical line descending from the horizontal sibship line.</p>
+
+            <pre class="bg-gray-100 dark:bg-brand-900 p-4 rounded-lg text-sm overflow-x-auto"><code>              Father      Mother
+               ┌───┐───────○
+               │   │       │
+               └───┘       ╰
+                          │
+               ┌──────────┼──────────┐
+            (oldest)                (youngest)
+               │          │          │
+              ┌───┐      ●         ┌───┐
+              │   │      ← PROBAND  │   │
+              └───┘                  └───┘
+              III-1    III-2       III-3
+             (unaff.) (affected)  (unaff.)
+</code></pre>
+
+            <p>Include all live-born siblings and, where clinically relevant, reproductive losses (spontaneous abortions, stillbirths, terminations) — these are drawn using the triangle and annotated shapes described in the <a href="pedigree-symbols-reference.html">symbols reference</a>. Reproductive losses are often clinically relevant: a family with multiple miscarriages may suggest a balanced translocation in one parent, for example.</p>
+
+            <p><strong>Pitfalls at this step.</strong></p>
+            <ul>
+                <li>Drawing only the live-born children. Reproductive losses carry clinical information and should be recorded if known.</li>
+                <li>Mixing the order. Birth order matters for interpretation and for later reference.</li>
+                <li>Placing half-siblings on the same sibship line as full siblings. Half-siblings from a different partner of one parent require a second mating line from that parent to the other partner, with a separate sibship line below.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">Step 4: Extend upward to three generations</h2>
+
+            <p>A clinical pedigree covers three generations at minimum: the proband's generation (III), the parents' generation (II), and the grandparents' generation (I). Extend each parent upward to their own parents — i.e. the proband's grandparents — plus any aunts and uncles on each side.</p>
+
+            <pre class="bg-gray-100 dark:bg-brand-900 p-4 rounded-lg text-sm overflow-x-auto"><code>   I-1    I-2              I-3     I-4         Generation I
+    ┌───┐──○                ┌───┐───○           (grandparents)
+    │   │                   │   │
+    └───┘                   └───┘
+      │                        │
+  ┌───┴───┐               ┌────┴────┐
+ II-1   II-2            II-3      II-4          Generation II
+  ■      ○                □         ●           (parents and
+ uncle  mother           father    aunt          their siblings)
+        (proband's        (proband's
+         mother)           father)
+              │                │
+              │                │
+              └────────┬───────┘
+                       │
+              ┌────────┼────────┐
+            III-1     III-2    III-3            Generation III
+             ○         ■        □                (proband and
+             sister  PROBAND   brother            siblings)
+</code></pre>
+
+            <p>Collect detailed information on at least the proband's first-degree relatives (parents, siblings, children) and second-degree relatives (grandparents, aunts, uncles, half-siblings). Third-degree relatives (first cousins, great-grandparents) are useful for conditions with variable penetrance or when tracing a founder variant. For hereditary cancer assessment, at least three generations on <em>both</em> sides of the family are clinical practice — cancer clusters on either side matter.</p>
+
+            <p>At this step, the overall chart topology is set. It is worth looking at the chart and asking: does it display the family in a way that makes the clinical question easy to read? Branches can sometimes be rearranged (within the constraints of correct ancestry) to improve clarity.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Step 5: Annotate affected status and ages</h2>
+
+            <p>Fill each shape according to affected status for the condition(s) being tracked. Annotate ages and, for affected individuals, the phenotype and age of onset.</p>
+
+            <pre class="bg-gray-100 dark:bg-brand-900 p-4 rounded-lg text-sm overflow-x-auto"><code>      John                 Mary
+      III-1                III-2
+      ┌───┐                ●
+      │   │                ← PROBAND
+      └───┘                (BrCa, dx 42)
+      42y                  40y
+      unaff.               BRCA1 c.5266dupC (VCF: pathogenic)
+
+  Key: ■/● = affected (breast or ovarian cancer);
+       ┌───┐ = unaffected; ↙ = proband;
+       — = biological relationship; d. = deceased.
+</code></pre>
+
+            <p>A well-annotated pedigree, per line below each shape:</p>
+            <ul>
+                <li><strong>Identifier:</strong> generation-position (e.g. III-2)</li>
+                <li><strong>Name or initials</strong></li>
+                <li><strong>Age:</strong> current age for living, "d. [age]" for deceased</li>
+                <li><strong>Affected status:</strong> condition and age of onset, e.g. "BrCa, dx 42"</li>
+                <li><strong>Test results:</strong> gene, variant in HGVS nomenclature, classification (e.g. "BRCA1 c.5266dupC, pathogenic"). For unaffected tested individuals, record the predictive test result (e.g. "BRCA1 c.5266dupC, not detected").</li>
+            </ul>
+
+            <p>Always add a <strong>legend</strong> on the chart defining what each fill pattern means. Where multiple conditions are tracked, use quadrant fills per the symbol reference and document each quadrant's meaning in the legend.</p>
+
+            <p><strong>Pitfalls at this step.</strong></p>
+            <ul>
+                <li>Omitting ages. Age-dependent penetrance models cannot function without ages.</li>
+                <li>Confusing "unaffected" with "untested". An unaffected relative who has tested negative for a familial variant is different clinically from an unaffected relative who has not been tested. Annotate accordingly.</li>
+                <li>Using inconsistent fill patterns across conditions. If colon cancer is upper-left in one person, it must be upper-left everywhere on the chart.</li>
+                <li>Free-text phenotype labels. Use ICD-10 or OMIM codes where possible so the chart is machine-readable and interoperable.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">Common pitfalls across all five steps</h2>
+
+            <div class="not-prose my-10 overflow-x-auto">
+                <table class="w-full text-sm border-collapse">
+                    <thead class="bg-brand-50 dark:bg-brand-900/50">
+                        <tr>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Pitfall</th>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Why it matters</th>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Fix</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 dark:text-gray-300">
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">No proband arrow</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Chart can't be clinically interpreted</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Always draw the arrow as step 1</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Missing ages</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Breaks age-dependent penetrance models</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Record current age or age at death for every individual</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Unclear affected status</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Misclassifies risk in risk models</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Distinguish "unaffected" from "unknown status" explicitly</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Too few generations</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Inheritance pattern cannot be established</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Cover three generations minimum</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Mixing half-siblings as full siblings</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Misrepresents shared ancestry</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Use a separate mating line and sibship line per partnership</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">No legend</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Fill patterns become ambiguous</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Always add a legend, even for single-condition pedigrees</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Free-text phenotypes</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Not machine-readable, risks ambiguity</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Use ICD-10 or OMIM codes</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene supports this</h2>
+
+            <p>Evagene's gesture drawing mode automates the layout that the five steps produce. A clinician marks the proband — the arrow appears automatically and the proband is placed near the centre of the canvas. Gestures add parents above, siblings to the sides, and children below, with the mating and sibship lines drawn automatically and correctly. The three-generation scaffold expands as more family members are added, and the layout rebalances to keep the chart legible without redrawing.</p>
+
+            <p>Symbol fills, quadrant logic for multiple conditions, consanguinity detection, and reproductive-loss shapes are applied automatically based on what the clinician records in the individual's annotation pane. The legend is generated from the condition list on the chart, so it is always consistent with the fills.</p>
+
+            <p>Because the chart is data-backed, it is exportable as GEDCOM (for archival and cross-institution transfer), PDF (for the patient record), SVG (for embedding in reports or patient portals), and JSON (for programmatic access via our REST API). A chart drawn in Evagene in the first visit is never re-drawn from scratch on the second — it is loaded, extended, and re-exported.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is the first step in drawing a pedigree?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Identify the proband and mark with an arrow pointing to the lower-left of the shape. Place the proband centrally so the chart can expand around them.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How many generations should a clinical pedigree include?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Three minimum: proband, parents, grandparents. Add children if any. Extend to four where information is available and clinically relevant.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is the difference between a mating line and a sibship line?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">A mating line connects partners. A sibship line is the line from which siblings descend. A vertical line joins the two.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How do you record ages on a pedigree?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Below the shape: current age, or "d." with age at death. Ages drive age-dependent penetrance calculations.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Should you always draw affected individuals with filled shapes?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes for single-condition pedigrees. For multiple conditions, use quadrant fills with a legend. Distinguish "unaffected" from "unknown" with a question mark.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is the most common mistake?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Missing the proband arrow, followed by conflating mating and sibship lines, followed by omitting ages.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Do I need software to draw a clinically valid pedigree?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">No — standard notation is software-agnostic. Software helps with version control, re-export, risk-model integration, and automatic standardisation.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="pedigree-symbols-reference.html">Complete pedigree symbols reference</a></li>
+                <li><a href="pedigree-chart-examples.html">Pedigree chart examples with inheritance patterns</a></li>
+                <li><a href="standard-pedigree-nomenclature.html">Standard pedigree nomenclature (NSGC standards)</a></li>
+                <li><a href="pedigree-drawing-software.html">Pedigree drawing software</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tools</a></li>
+                <li><a href="pedigree-chart-biology-class.html">Pedigree charts for biology class</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

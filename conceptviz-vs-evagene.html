@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConceptViz vs Evagene — AI Pedigree Chart Makers Compared (2026) | Evagene</title>
+    <meta name="description" content="An honest comparison of ConceptViz (AI-powered pedigree chart maker for teaching and general use) and Evagene (clinical-grade pedigree with BYOK LLM interpretation): two different meanings of 'AI pedigree software'.">
+    <meta name="keywords" content="conceptviz vs evagene, conceptviz alternative, ai pedigree chart maker, clinical pedigree ai, pedigree software for biology, pedigree software comparison">
+
+    <meta property="og:title" content="ConceptViz vs Evagene — AI Pedigree Chart Makers Compared (2026)">
+    <meta property="og:description" content="Side-by-side comparison of ConceptViz and Evagene: teaching AI pedigree generation vs clinical AI interpretation.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/conceptviz-vs-evagene">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ConceptViz vs Evagene — AI Pedigree Software Compared">
+    <meta name="twitter:description" content="Feature-by-feature comparison of ConceptViz and Evagene.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/conceptviz-vs-evagene">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"ConceptViz vs Evagene: AI Pedigree Chart Makers Compared",
+        "description":"A detailed comparison of ConceptViz and Evagene. Two products that both use the phrase 'AI pedigree' but mean very different things by it.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/conceptviz-vs-evagene"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Compare","item":"https://evagene.com/compare"},
+            {"@type":"ListItem","position":3,"name":"ConceptViz vs Evagene","item":"https://evagene.com/conceptviz-vs-evagene"}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"Is ConceptViz free?","acceptedAnswer":{"@type":"Answer","text":"Yes. ConceptViz is an AI-powered pedigree chart maker marketed as free for biology classes, genetic counselling, and research users. Users describe a family in text and ConceptViz generates a pedigree chart."}},
+            {"@type":"Question","name":"Is ConceptViz clinical-grade?","acceptedAnswer":{"@type":"Answer","text":"ConceptViz is positioned as an accessible AI chart maker for teaching and general use, not as a regulated clinical information system. Clinical workflows that need integrated risk models (BRCAPRO, MMRpro, PancPRO), structured disease annotation against ICD-10 and OMIM, audit-oriented change history, and vendor-backed security controls should evaluate clinical-grade products such as Evagene, Phenotips, Progeny, TrakGene, or FamGenix."}},
+            {"@type":"Question","name":"What does 'AI pedigree' mean in each product?","acceptedAnswer":{"@type":"Answer","text":"In ConceptViz, AI generates the chart from a text description. In Evagene, AI interprets the already-drawn clinical pedigree: it drafts a structured clinical report covering findings, family implications, data gaps, and screening recommendations, using the service's own bring-your-own-key (BYOK) Anthropic Claude or OpenAI GPT credentials. Different AI, different purpose."}},
+            {"@type":"Question","name":"Can I use ConceptViz for a real clinic?","acceptedAnswer":{"@type":"Answer","text":"ConceptViz can produce a presentable pedigree diagram for teaching or a quick visualisation, but a clinical service needs more than a chart: structured disease coding, integrated risk modelling, audit trails, secure data handling, and exports that are appropriate for the medical record. Evagene is designed for those needs; ConceptViz is not."}},
+            {"@type":"Question","name":"Does Evagene have an AI chart generator too?","acceptedAnswer":{"@type":"Answer","text":"Evagene's AI layer focuses on interpretation rather than on chart generation from natural language. However, Evagene's OCR import accepts a pedigree image and reconstructs the structured data, which is conceptually close: you can paste a hand-drawn pedigree and get a clinical pedigree object."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="compare.html" class="hover:text-brand-600 dark:hover:text-brand-300">Compare</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">ConceptViz vs Evagene</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">ConceptViz vs Evagene: two different meanings of "AI pedigree software"</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">Both products use the phrase "AI pedigree". They mean very different things by it. A side-by-side comparison for teachers, students, genetic counsellors, and clinical teams trying to work out which one fits which job.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>12 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> ConceptViz (<code>conceptviz.app</code>) is a free, AI-powered pedigree chart maker marketed as "professional genetics pedigree charts instantly" for biology classes, genetic counselling demonstrations, and research use. You describe a family in text and it draws the chart. Evagene is clinical-grade pedigree management for precision medicine, with gesture drawing, a 180+ disease catalogue, integrated <a href="hereditary-cancer-risk-assessment.html">BayesMendel cancer risk models</a>, <a href="mendelian-inheritance-calculator.html">Mendelian inheritance analysis</a>, AI clinical interpretation via bring-your-own-key (BYOK) LLMs, a REST API, webhooks, and an MCP server for AI agents. These products sound similar on the surface — both use the phrase "AI pedigree" — but they solve different problems. For teaching and quick visualisation, ConceptViz is a good free tool. For clinical use, Evagene is the fit.</p>
+
+            <p>This is an honest, fact-by-fact comparison drawn from the two products' public pages as of April 2026.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How the two products position themselves</h2>
+
+            <p><strong>ConceptViz</strong> is positioned as a friendly, accessible AI chart maker. Its promise is speed: no drawing skills required, free to use, instant output, suitable for biology classes explaining inheritance, for genetic counselling educational materials, and for research papers needing a pedigree diagram without wrestling with specialist drawing software. The "AI" in ConceptViz is <strong>generative</strong>: it takes a description — "proband is a 42-year-old woman with breast cancer, her mother had ovarian cancer, her maternal grandmother had breast cancer" — and produces a pedigree image.</p>
+
+            <p><strong>Evagene</strong> is positioned as clinical-grade pedigree management for precision medicine. Its pedigree canvas is designed for live clinical construction with gesture drawing; its disease annotation is structured against ICD-10 and OMIM across a 180+ disease catalogue; its risk modelling runs BRCAPRO, MMRpro, and PancPRO from the BayesMendel suite directly on the pedigree; and its AI is <strong>interpretive</strong>: Evagene takes an already-drawn clinical pedigree and drafts a structured clinical report covering key findings, family implications, data gaps, and screening recommendations, using the service's own BYOK Anthropic Claude or OpenAI GPT keys (encrypted at rest with Fernet).</p>
+
+            <p>Same phrase, different meaning. ConceptViz's AI makes the chart. Evagene's AI reads the chart and helps the clinician write the report.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Feature-by-feature comparison</h2>
+
+            <p>The matrix below compares features each product publishes. A tick means the feature is publicly advertised; a dash means it is not publicly listed.</p>
+
+            <div class="not-prose my-10 overflow-x-auto">
+                <table class="w-full text-sm border-collapse">
+                    <thead class="bg-brand-50 dark:bg-brand-900/50">
+                        <tr>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Capability</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">ConceptViz</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Evagene</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 dark:text-gray-300">
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Browser-based, zero install</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Free</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003; (Alpha waitlist)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">AI generates chart from text description</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">via OCR/import workflow</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Gesture drawing</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Standard pedigree notation (NSGC/ISCN)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">partial</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Structured disease coding (ICD-10 / OMIM)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003; (180+ catalogue)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Cancer risk models (BRCAPRO, MMRpro, PancPRO)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Mendelian inheritance (AD/AR/XR)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Batch risk screening across disease catalogue</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Karyogram viewer</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Consanguinity detection</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">AI clinical interpretation (structured reports)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Bring your own LLM key (Anthropic, OpenAI)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Analysis Templates (custom prompts)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">MCP server for AI agents</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003; (11 tools)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">REST API</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Webhooks (HMAC-SHA256)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Embeddable pedigree viewer</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">GEDCOM 5.5.1 import/export</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">23andMe import</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Pedigree image OCR import</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">PNG/SVG/PDF export</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">image export</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Positioned as clinical-grade</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-sm text-gray-500 dark:text-gray-400">Matrix compiled from publicly available product pages and marketing material as of April 2026. "&mdash;" indicates the capability is not publicly advertised and does not necessarily mean it is absent.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Two meanings of "AI pedigree"</h2>
+
+            <p>The phrase is load-bearing, so it is worth being precise about it.</p>
+
+            <p>In ConceptViz, <strong>AI generates the chart</strong>. You type or paste a description of a family; the AI interprets the text and produces a pedigree diagram. This is generative AI in the most direct sense: input is natural language, output is a chart. It lowers the threshold for anyone — a biology teacher, a student, a researcher writing a paper — who wants a competent-looking pedigree without learning drawing software. It is a pleasant, useful capability for those settings.</p>
+
+            <p>In Evagene, <strong>AI interprets an existing pedigree</strong>. You (or your clinic) build the pedigree with structured clinical data — affected status, ages, diagnoses coded to ICD-10 and OMIM, consanguinity, carrier status — and then ask Evagene's AI layer to draft a clinical report: "what does this pedigree tell me about autosomal dominant versus recessive? Which family members should be offered screening? What data gaps would change the interpretation?" The AI does not invent the pedigree; it reads the pedigree you built and helps the clinician turn it into written clinical output.</p>
+
+            <p>Both are legitimate uses of AI. They answer different questions. A teacher demonstrating an inheritance pattern to students wants ConceptViz's generative behaviour. A clinical geneticist drafting a consultation letter wants Evagene's interpretive behaviour. If you are buying software because you want the first thing and you buy something that does the second, you will be disappointed. The reverse is also true.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Clinical-grade capabilities that ConceptViz does not claim</h2>
+
+            <p>ConceptViz does not position itself as clinical-grade, and it is honest about that. The capabilities below are what "clinical-grade" actually means in pedigree software, and they are what Evagene provides:</p>
+
+            <ul>
+                <li><strong>Structured disease coding.</strong> Evagene's 180+ disease catalogue is annotated against ICD-10 and OMIM, so a diagnosis on the pedigree is not just a free-text label; it is a coded reference that drives risk models and downstream reporting.</li>
+                <li><strong>Integrated risk modelling.</strong> BRCAPRO, MMRpro, and PancPRO run on the pedigree data without re-entry. Mendelian inheritance calculators cover AD, AR, and XR patterns. <strong>Batch risk screening</strong> sweeps across the entire disease catalogue for a given proband, surfacing conditions where family history crosses a risk or testing-eligibility threshold.</li>
+                <li><strong>Karyogram viewing</strong> for chromosomal abnormality representation alongside pedigree symbols.</li>
+                <li><strong>Consanguinity detection</strong> using Wright's coefficient of inbreeding, for services working with consanguineous families.</li>
+                <li><strong>Secure integration surface.</strong> REST API with scoped, rate-limited keys (format <code>evg_</code> followed by 43 characters, SHA-256 hashed at rest); webhooks with HMAC-SHA256 signatures; LLM keys encrypted at rest with Fernet.</li>
+                <li><strong>Structured clinical reports.</strong> 4 report types across PNG, SVG, and PDF formats.</li>
+            </ul>
+
+            <p>None of this is a criticism of ConceptViz — it is not trying to be a clinical information system. It is a helpful point of clarity for anyone who found ConceptViz while searching for clinical pedigree software and needs to know what the gap actually is.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Where ConceptViz genuinely wins</h2>
+
+            <p>For teaching, demonstration, and quick visualisation, ConceptViz is fast and low-friction. A biology teacher wanting to put together an inheritance worksheet, a science communicator explaining a family history on a blog, a researcher who needs one pedigree diagram for a figure — ConceptViz saves time. It requires no training, no account hygiene, no data structure. The price is zero.</p>
+
+            <p>Evagene is not the right tool for a quick classroom pedigree diagram. Evagene expects you to care about structured data, about disease coding, about audit-friendly representation, about risk models, about integration points. That overhead is useful when you are running a clinic. It is needless when you are explaining autosomal dominant inheritance to a 16-year-old.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Where Evagene fits that ConceptViz does not</h2>
+
+            <p>Any setting where the pedigree becomes part of the medical record, informs real-world testing or management decisions, or needs to be defensible under professional review. In those settings, the questions shift from "does it look right?" to "is the data coded correctly? which risk model ran and on what inputs? who can see this pedigree and when was it changed? can this pedigree be embedded in our patient portal? can our AI agents query it?" Evagene is built for those questions.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">When to choose ConceptViz</h2>
+
+            <ul>
+                <li>You are teaching a biology class and want students to see a pedigree corresponding to a described family.</li>
+                <li>You need a one-off pedigree image for a figure in a paper, a presentation, or a blog post.</li>
+                <li>You are experimenting with generative AI and want to see how natural-language-to-pedigree works.</li>
+                <li>Your use is non-clinical and you do not need risk models, structured disease coding, or an audit trail.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">When to choose Evagene</h2>
+
+            <ul>
+                <li>You are running a clinical service and the pedigree becomes part of the medical record.</li>
+                <li>You need integrated cancer risk modelling (BRCAPRO, MMRpro, PancPRO) and Mendelian inheritance analysis.</li>
+                <li>You want AI-assisted clinical interpretation using your own LLM keys (Anthropic, OpenAI), not a vendor-chosen model.</li>
+                <li>You need REST API, webhooks, MCP, or an embeddable viewer for integration with your clinic's systems.</li>
+                <li>You want structured disease coding, consanguinity detection, karyogram viewing, and batch risk screening.</li>
+                <li>You want broad import coverage (GEDCOM 5.5.1, JSON, 23andMe, XEG, pedigree image OCR).</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">Using both together</h2>
+
+            <p>There is a legitimate hybrid pattern. A genetic counselling student might use ConceptViz in coursework to see example pedigrees quickly and use Evagene when they move into a real clinical placement. A science writer might demonstrate a condition's inheritance pattern with ConceptViz and link out to Evagene for readers who want to understand the underlying clinical software. There is no conflict; the tools live at different altitudes.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is ConceptViz free?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. ConceptViz markets itself as free for teaching, genetic counselling, and research visualisation.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can I use ConceptViz clinically?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">ConceptViz is not positioned as a clinical information system. It can produce a pedigree image, but clinical workflows need structured disease coding, risk modelling, audit history, and vendor-backed security controls that ConceptViz does not claim. Evagene is designed for those clinical needs.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does Evagene have an AI chart generator like ConceptViz?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Not a natural-language-to-pedigree generator, no. Evagene's closest equivalent is OCR import: paste a hand-drawn or scanned pedigree image and Evagene reconstructs the structured pedigree object. From there you can edit, annotate, and run risk analysis.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Which one uses better AI?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">The products use AI for different tasks, so "better" depends on the task. ConceptViz's AI is generative (text to chart). Evagene's AI is interpretive (chart to clinical report), and it uses the service's own Anthropic Claude or OpenAI GPT keys — bring-your-own-key, encrypted at rest with Fernet.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can I move data between them?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">ConceptViz outputs images. You could export an image from ConceptViz and import it into Evagene using the OCR pathway, but the sensible pattern is to decide which tool fits your use case rather than shuttle data between them.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related comparisons and reading</h2>
+
+            <ul>
+                <li><a href="phenotips-vs-evagene.html">Phenotips vs Evagene</a></li>
+                <li><a href="progeny-vs-evagene.html">Progeny vs Evagene</a></li>
+                <li><a href="genodraw-vs-evagene.html">genoDraw vs Evagene</a></li>
+                <li><a href="pedigree-drawing-software.html">Pedigree drawing software: a practical guide</a></li>
+                <li><a href="compare.html">All Evagene comparisons</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tools: a field guide</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

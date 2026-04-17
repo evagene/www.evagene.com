@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedigree Chart Examples — Inheritance Patterns Worked Through (2026) | Evagene</title>
+    <meta name="description" content="Worked pedigree chart examples for autosomal dominant, autosomal recessive, X-linked recessive, X-linked dominant, and mitochondrial inheritance — with decision rationale and a pattern-identification decision tree.">
+    <meta name="keywords" content="pedigree chart example, pedigree examples, example pedigree chart with answers, inheritance pattern examples, how to read a pedigree">
+
+    <meta property="og:title" content="Pedigree Chart Examples — Inheritance Patterns Worked Through">
+    <meta property="og:description" content="Worked examples for each Mendelian inheritance pattern, with decision rationale and a 'how to tell them apart' decision tree.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/pedigree-chart-examples">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pedigree Chart Examples with Inheritance Patterns">
+    <meta name="twitter:description" content="Worked pedigree examples for each inheritance pattern.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/pedigree-chart-examples">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"Pedigree Chart Examples: Inheritance Patterns Worked Through",
+        "description":"Worked pedigree examples for autosomal dominant, autosomal recessive, X-linked, and mitochondrial inheritance.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/pedigree-chart-examples"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Guides","item":"https://evagene.com/guides"},
+            {"@type":"ListItem","position":3,"name":"Pedigree Chart Examples","item":"https://evagene.com/pedigree-chart-examples"}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"How do you tell autosomal dominant from autosomal recessive on a pedigree?","acceptedAnswer":{"@type":"Answer","text":"In autosomal dominant inheritance you expect vertical transmission — affected individuals in every generation, with roughly half of the offspring of an affected parent also affected. In autosomal recessive inheritance you expect horizontal clustering — affected individuals in a single sibship, often with unaffected carrier parents and sometimes a consanguineous union. Male-to-male transmission rules out X-linked inheritance but is compatible with both autosomal patterns."}},
+            {"@type":"Question","name":"What is the pattern of X-linked recessive inheritance?","acceptedAnswer":{"@type":"Answer","text":"Affected individuals are overwhelmingly male. Mothers of affected males are obligate carriers. There is no male-to-male transmission (an affected father cannot pass an X chromosome to his son). Daughters of affected males are all obligate carriers. Haemophilia A and Duchenne muscular dystrophy are classical examples."}},
+            {"@type":"Question","name":"What does mitochondrial inheritance look like on a pedigree?",
+            "acceptedAnswer":{"@type":"Answer","text":"Mitochondrial inheritance is exclusively maternal. An affected mother can pass the condition to all her children, both sons and daughters. An affected father passes it to none of his children. Expression can vary widely because of heteroplasmy — the proportion of mutant mitochondrial genomes in a cell differs between tissues and between siblings."}},
+            {"@type":"Question","name":"Can a pedigree alone give a definitive diagnosis of inheritance pattern?","acceptedAnswer":{"@type":"Answer","text":"Rarely. Small families, reduced penetrance, variable expressivity, new mutations, and mosaicism all confound pattern recognition. A pedigree narrows the differential and informs which molecular tests to order; definitive inheritance is confirmed by identifying the causative variant and tracing its segregation through the family."}},
+            {"@type":"Question","name":"How many generations should a pedigree cover?","acceptedAnswer":{"@type":"Answer","text":"A minimum of three generations is the clinical standard — proband, parents, and grandparents — with siblings and children where applicable. Two generations is insufficient for inheritance pattern analysis. Four or more is useful where a condition has variable age of onset or where ancestry-specific founder variants are possible."}},
+            {"@type":"Question","name":"What role does age of onset play in reading a pedigree?","acceptedAnswer":{"@type":"Answer","text":"A large one. An unaffected 30-year-old relative of a BRCA1 carrier does not carry the same Bayesian weight as an unaffected 75-year-old relative, because penetrance accumulates with age. Always record ages — current age for living individuals and age at death for deceased — as part of routine pedigree documentation."}},
+            {"@type":"Question","name":"How does Evagene help identify inheritance patterns?","acceptedAnswer":{"@type":"Answer","text":"Evagene runs its batch pattern identifier across the pedigree data — screening against autosomal dominant, autosomal recessive, X-linked recessive, X-linked dominant, and mitochondrial patterns and surfacing any that are compatible with the observed phenotype distribution. Where multiple patterns are plausible, the tool shows the supporting and contradicting features for each."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="guides.html" class="hover:text-brand-600 dark:hover:text-brand-300">Guides</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">Pedigree Chart Examples</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Pedigree chart examples: inheritance patterns worked through</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">Five worked examples — autosomal dominant, autosomal recessive, X-linked recessive, X-linked dominant, and mitochondrial — with the decision rationale a clinician uses to identify each pattern, plus a decision tree to tell them apart.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>16 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> Reading a pedigree is a structured exercise: (1) identify the proband; (2) trace affected individuals through the generations; (3) ask whether transmission is vertical (every generation), horizontal (a single sibship), or sex-biased; (4) test each candidate pattern against the observed data; (5) rule out alternatives. The five worked examples below illustrate the hallmark features of each common Mendelian inheritance pattern, with the decision logic spelled out step by step.</p>
+
+            <p>The examples are schematic — real clinical pedigrees routinely show reduced penetrance, variable expressivity, and incomplete information that complicate pattern recognition. Treat these as training aids; in clinic, a pedigree narrows the differential and tells you which tests to order, but a definitive diagnosis usually requires molecular confirmation.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Example 1: Autosomal dominant inheritance</h2>
+
+            <p>A three-generation family with a condition appearing in every generation. The proband's mother, maternal grandfather, and one maternal aunt are also affected. The grandfather has a brother who is also affected and who has two affected daughters.</p>
+
+            <pre class="bg-gray-100 dark:bg-brand-900 p-4 rounded-lg text-sm overflow-x-auto"><code>                 I-1            I-2
+                  ■───────────────○
+                           │
+        ┌───────────┬──────┴──────┬──────────┐
+      II-1         II-2          II-3       II-4
+       ■            ●             □          ○
+       (affected   (affected)    (unaff.)   (unaff.)
+        uncle)        │             │
+                      │             │
+              ┌───────┼───────┐     │
+            III-1   III-2   III-3   (no children shown)
+             ■ ←   ○        ■
+           PROBAND
+</code></pre>
+
+            <p><strong>Decision rationale.</strong></p>
+
+            <ol>
+                <li><strong>Identify the proband.</strong> III-1, marked with the arrow.</li>
+                <li><strong>Trace affected individuals.</strong> Affected in every generation: I-1 (grandfather), II-1 and II-2 (uncle and mother), III-1 and III-3 (proband and brother). Vertical transmission.</li>
+                <li><strong>Assess sex distribution.</strong> Both males and females affected, in roughly equal numbers. Not obviously sex-biased.</li>
+                <li><strong>Check for male-to-male transmission.</strong> I-1 (male, affected) transmits to II-1 (male, affected). <em>This excludes X-linked inheritance</em>, because a father does not pass his X chromosome to his sons.</li>
+                <li><strong>Assess fraction affected.</strong> Roughly half the offspring of each affected parent are affected (II-2's children: 2 of 3 affected; I-1's children: 2 of 4 affected) — consistent with autosomal dominant (50% expected transmission from an affected heterozygote).</li>
+                <li><strong>Conclusion.</strong> Pattern consistent with autosomal dominant. Examples include Huntington disease, neurofibromatosis type 1, Marfan syndrome, familial hypercholesterolaemia, and many hereditary cancer predispositions (BRCA1/2-associated, Lynch syndrome).</li>
+            </ol>
+
+            <h2 class="text-3xl mt-16 mb-6">Example 2: Autosomal recessive inheritance (with consanguinity)</h2>
+
+            <p>A three-generation family in which a sibship in the third generation contains two affected individuals. Their parents are first cousins. No affected individuals appear in any other branch of the family.</p>
+
+            <pre class="bg-gray-100 dark:bg-brand-900 p-4 rounded-lg text-sm overflow-x-auto"><code>      I-1          I-2         I-3          I-4
+       □────────────○           □────────────○
+            │                         │
+     ┌──────┴──────┐            ┌─────┴──────┐
+    II-1          II-2         II-3         II-4
+     □             ●           □─────────────● (1st cousin
+   (unaff.)      carrier      carrier         carriers)
+                   │ ═════════════ │
+                   │ (consanguineous)
+                   │
+             ┌─────┼─────┬─────┐
+           III-1 III-2 III-3 III-4
+            ○     ■     □     ● ←
+          unaff.  aff.  unaff. PROBAND (aff.)
+</code></pre>
+
+            <p><strong>Decision rationale.</strong></p>
+
+            <ol>
+                <li><strong>Identify the proband.</strong> III-4, marked with the arrow.</li>
+                <li><strong>Trace affected individuals.</strong> Affected in one generation only (III-2 and III-4), clustered within a single sibship. Horizontal clustering.</li>
+                <li><strong>Assess parental status.</strong> Both parents are unaffected. Affected children of unaffected parents strongly suggests recessive inheritance (both parents are obligate heterozygous carriers).</li>
+                <li><strong>Note consanguinity.</strong> The double horizontal line between II-2 and II-3 indicates a first-cousin union. Consanguinity raises the prior probability of autosomal recessive disease because it increases the chance that both parents inherited the same variant identical by descent from a common ancestor.</li>
+                <li><strong>Check sex distribution.</strong> One affected male and one affected female in the sibship — no sex bias.</li>
+                <li><strong>Conclusion.</strong> Pattern consistent with autosomal recessive. Examples include cystic fibrosis, sickle cell disease, phenylketonuria, Tay-Sachs disease, and the autosomal recessive ataxias.</li>
+            </ol>
+
+            <p>In Evagene, consanguinity is marked with the double horizontal line and Wright's coefficient of inbreeding (F) is computed automatically — for first-cousin offspring F = 1/16, raising the expected frequency of rare recessive homozygous states appreciably.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Example 3: X-linked recessive inheritance (haemophilia-style)</h2>
+
+            <p>The classical haemophilia pedigree: affected males across generations, inherited through unaffected female carriers. Queen Victoria's descendants are the canonical historical example.</p>
+
+            <pre class="bg-gray-100 dark:bg-brand-900 p-4 rounded-lg text-sm overflow-x-auto"><code>          I-1                I-2
+           □─────────────────●  (carrier)
+                    │
+    ┌────────┬──────┴──────┬─────────┐
+   II-1    II-2          II-3      II-4
+    ■       ●             □         ●
+  (affected) (carrier)   (unaff.)  (carrier)
+             │                        │
+     ┌───────┴────┐              ┌────┴─────┐
+   III-1        III-2          III-3      III-4
+    □            ■ ←             ●          □
+  (unaff.)    PROBAND         (carrier)   (unaff.)
+             (affected)
+</code></pre>
+
+            <p><strong>Decision rationale.</strong></p>
+
+            <ol>
+                <li><strong>Proband.</strong> III-2, affected male.</li>
+                <li><strong>Sex distribution of affected individuals.</strong> Affected individuals are overwhelmingly male (II-1 and III-2). Female relatives are unaffected but many are obligate carriers (I-2, II-2, II-4, III-3).</li>
+                <li><strong>Transmission.</strong> The condition skips generations on the female side but reappears in male descendants through female carriers. Affected males inherit from carrier mothers, never from affected fathers (no male-to-male transmission).</li>
+                <li><strong>Test for male-to-male transmission.</strong> None present. Compatible with X-linked recessive.</li>
+                <li><strong>Carrier inference.</strong> I-2 must be a carrier (she has an affected son and is unaffected herself). II-2 and II-4 (daughters of I-2) each have a 50% carrier probability a priori; II-2 is confirmed because she has an affected son.</li>
+                <li><strong>Conclusion.</strong> Pattern consistent with X-linked recessive. Examples include haemophilia A and B, Duchenne muscular dystrophy, red-green colour blindness, and G6PD deficiency.</li>
+            </ol>
+
+            <h2 class="text-3xl mt-16 mb-6">Example 4: X-linked dominant inheritance (Alport-style)</h2>
+
+            <p>X-linked dominant inheritance is less common than X-linked recessive but has distinctive features. Affected fathers transmit the condition to <em>all</em> their daughters but none of their sons; affected mothers transmit to 50% of each.</p>
+
+            <pre class="bg-gray-100 dark:bg-brand-900 p-4 rounded-lg text-sm overflow-x-auto"><code>          I-1                I-2
+           ■─────────────────○  (affected father × unaff. mother)
+                    │
+   ┌────────┬───────┴───────┬──────────┐
+  II-1    II-2             II-3       II-4
+   □       ●                □          ●
+  (unaff.) (affected,     (unaff.,   (affected,
+   son —    daughter)      son)       daughter)
+   no     (milder in                 (variable
+   trans-  females due                severity)
+   mission) to X-inactiv.)
+</code></pre>
+
+            <p><strong>Decision rationale.</strong></p>
+
+            <ol>
+                <li><strong>Affected father, offspring distribution.</strong> I-1 is an affected male. All his daughters (II-2, II-4) are affected; none of his sons (II-1, II-3) are affected. That specific pattern — <em>100% of daughters, 0% of sons</em> — is nearly pathognomonic of X-linked dominant.</li>
+                <li><strong>Severity in females.</strong> Affected females are often less severely affected than affected males, a consequence of X-inactivation (lyonization) producing mosaic expression. This is characteristic of X-linked dominant.</li>
+                <li><strong>Male lethality check.</strong> Some X-linked dominant conditions are male-lethal (Rett syndrome, incontinentia pigmenti) — affected males are rare or absent, and female-to-female-only transmission is seen. If the pedigree shows only affected females, consider this variant.</li>
+                <li><strong>Conclusion.</strong> X-linked dominant. Examples include Alport syndrome (in its X-linked form, which accounts for roughly 80% of cases and is caused by COL4A5 variants), vitamin-D-resistant rickets (X-linked hypophosphataemia), and Rett syndrome (male-lethal).</li>
+            </ol>
+
+            <h2 class="text-3xl mt-16 mb-6">Example 5: Mitochondrial inheritance</h2>
+
+            <p>Mitochondrial DNA is inherited exclusively from the mother. A mitochondrial pedigree shows a strict maternal transmission pattern, with affected mothers passing the condition to all offspring and affected fathers passing it to none.</p>
+
+            <pre class="bg-gray-100 dark:bg-brand-900 p-4 rounded-lg text-sm overflow-x-auto"><code>          I-1                I-2
+           □─────────────────●  (affected mother)
+                    │
+    ┌────────┬──────┴──────┬─────────┐
+   II-1    II-2          II-3      II-4
+    ■       ●             ■         ●
+  (all offspring of affected mother — both sons and
+   daughters potentially affected, but expression varies
+   due to heteroplasmy)
+
+  II-1 partner (unaffected female):
+   II-1───────○
+            │
+       ┌────┴────┐
+     III-1     III-2
+      □          ○    (NO transmission from affected father)
+     unaff.   unaff.
+
+  II-2 partner (unaffected male):
+   ○───────II-2
+            │
+       ┌────┴────┐
+     III-3     III-4
+      ●          ■    (BOTH affected — from affected mother)
+</code></pre>
+
+            <p><strong>Decision rationale.</strong></p>
+
+            <ol>
+                <li><strong>Transmission through mothers only.</strong> Offspring of affected females (II-2's children III-3, III-4) show transmission. Offspring of affected males (II-1's children III-1, III-2) do not.</li>
+                <li><strong>Sex distribution.</strong> Both males and females affected, because mitochondria pass to all offspring irrespective of sex.</li>
+                <li><strong>Variable expression.</strong> Heteroplasmy means the proportion of mutant mitochondrial genomes differs between cells and tissues. Affected individuals from the same mother can show very different severities, and tissues with high energy demand (muscle, brain) tend to express disease earlier.</li>
+                <li><strong>Conclusion.</strong> Mitochondrial. Examples include Leber hereditary optic neuropathy (LHON), MELAS syndrome, mitochondrial encephalomyopathy, and mitochondrial DNA deletion syndromes.</li>
+            </ol>
+
+            <h2 class="text-3xl mt-16 mb-6">How to tell them apart: a decision tree</h2>
+
+            <p>Faced with an unfamiliar pedigree, a useful sequence of questions is:</p>
+
+            <pre class="bg-gray-100 dark:bg-brand-900 p-4 rounded-lg text-sm overflow-x-auto"><code>START
+  │
+  ├─ Is every affected individual descended from an affected mother,
+  │  and does no affected father transmit to any child?
+  │    YES → MITOCHONDRIAL
+  │    NO  → continue
+  │
+  ├─ Is transmission vertical (affected in every generation)?
+  │    YES → DOMINANT (continue to distinguish AD vs XLD)
+  │    NO  → RECESSIVE (continue to distinguish AR vs XLR)
+  │
+  ├─ [DOMINANT branch] Is there male-to-male transmission?
+  │    YES → AUTOSOMAL DOMINANT
+  │    NO, but affected father → all daughters affected, no sons affected
+  │         → X-LINKED DOMINANT
+  │    NO, ambiguous → both possible
+  │
+  └─ [RECESSIVE branch] Are affected individuals mostly or only male?
+       YES, plus unaffected carrier mothers with affected sons → X-LINKED RECESSIVE
+       NO, both sexes affected in a single sibship, often consanguineous parents
+            → AUTOSOMAL RECESSIVE
+</code></pre>
+
+            <div class="not-prose my-10 overflow-x-auto">
+                <table class="w-full text-sm border-collapse">
+                    <thead class="bg-brand-50 dark:bg-brand-900/50">
+                        <tr>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Pattern</th>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Vertical transmission?</th>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Male-to-male transmission?</th>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Sex bias?</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 dark:text-gray-300">
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Autosomal dominant</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Yes</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Possible (confirms autosomal)</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">No</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Autosomal recessive</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">No (horizontal clustering)</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Possible</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">No</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">X-linked recessive</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Through carrier mothers</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">No</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Males predominantly affected</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">X-linked dominant</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Yes</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">No</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Affected fathers' daughters all affected, sons none</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Mitochondrial</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Through mothers only</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">No</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">None</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Caveats: what can mislead pattern recognition</h2>
+
+            <p>Real pedigrees often resist clean categorisation. Common confounders include:</p>
+
+            <ul>
+                <li><strong>Reduced penetrance.</strong> Not everyone carrying a dominant variant expresses the phenotype. A pedigree with skipped generations does not rule out autosomal dominant — it suggests incomplete penetrance.</li>
+                <li><strong>Variable expressivity.</strong> A condition can be mild in one relative and severe in another. Mild affected relatives may be mis-recorded as unaffected, distorting the pattern.</li>
+                <li><strong>De novo mutations.</strong> An affected individual with two unaffected parents may carry a new variant rather than indicating recessive inheritance.</li>
+                <li><strong>Small families.</strong> Many modern families are too small to show pattern reliably. Two affected out of three siblings is compatible with multiple patterns.</li>
+                <li><strong>Ascertainment bias.</strong> The family came to attention because of the proband — so sampling is not random. Families with more affected individuals are more likely to seek counselling.</li>
+                <li><strong>Mosaicism.</strong> Germline mosaicism in a parent can produce multiple affected children without the parent carrying the variant in blood.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene supports this</h2>
+
+            <p>Evagene's batch pattern-identifier screens a pedigree against autosomal dominant, autosomal recessive, X-linked recessive, X-linked dominant, and mitochondrial patterns simultaneously. For each pattern, the tool reports the features that support it (for example, "male-to-male transmission" for autosomal dominant) and the features that argue against it (for example, "affected father with all affected daughters and no affected sons" for anything other than X-linked dominant). Where multiple patterns remain compatible, Evagene ranks them and explains the ambiguity — useful for teaching, and useful for informing which molecular tests to order.</p>
+
+            <p>Beyond pattern identification, Evagene's <a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculator</a> computes transmission probabilities for specific offspring given a confirmed pattern, and the BayesMendel integration (BRCAPRO, MMRpro, PancPRO) applies age-dependent penetrance models for the specific cancer predispositions those models cover. For conditions outside the BayesMendel remit, the Mendelian module handles autosomal dominant, autosomal recessive, and X-linked recessive transmission with user-supplied penetrance values.</p>
+
+            <p>Evagene's AI interpretation can also narrate the pattern analysis in plain clinical language — a drafting aid for the report's inheritance-pattern section, not a replacement for clinical judgement.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How do you tell autosomal dominant from autosomal recessive on a pedigree?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Autosomal dominant: affected individuals in every generation (vertical transmission), roughly half of an affected parent's offspring also affected, both sexes affected equally. Autosomal recessive: affected individuals usually in one generation only, often in a consanguineous sibship, parents unaffected heterozygous carriers.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is the pattern of X-linked recessive inheritance?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Affected individuals are overwhelmingly male. Mothers of affected males are obligate carriers. No male-to-male transmission. Daughters of affected males are all obligate carriers.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What does mitochondrial inheritance look like on a pedigree?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Strict maternal transmission. Affected mothers transmit to all offspring of both sexes. Affected fathers transmit to none. Variable expression due to heteroplasmy.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can a pedigree alone give a definitive diagnosis?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Rarely. A pedigree narrows the differential and informs which tests to order. Definitive inheritance is confirmed by identifying the causative variant and observing its segregation.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How many generations should a pedigree cover?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">A minimum of three generations — proband, parents, grandparents, with siblings and children as applicable. Two generations is insufficient for pattern analysis.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What role does age of onset play?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">A central one for age-dependent penetrance models. Always record current age for living individuals and age at death for deceased, alongside phenotype.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How does Evagene help identify patterns?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Its batch pattern identifier screens against all five common patterns, surfaces compatible candidates with their supporting and contradicting features, and ranks them where several remain plausible.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="pedigree-symbols-reference.html">Complete pedigree symbols reference</a></li>
+                <li><a href="pedigree-chart-5-steps.html">How to make a pedigree chart in 5 steps</a></li>
+                <li><a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculator</a></li>
+                <li><a href="hereditary-cancer-risk-assessment.html">Hereditary cancer risk assessment</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tools</a></li>
+                <li><a href="pedigree-chart-biology-class.html">Pedigree charts for biology class</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

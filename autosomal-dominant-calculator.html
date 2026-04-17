@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autosomal Dominant Calculator — 50% Transmission, Penetrance & Recurrence Risk | Evagene</title>
+    <meta name="description" content="An educational guide to autosomal dominant inheritance: the 50% transmission rule, reduced penetrance, variable expressivity, new mutations, and how to calculate recurrence risk from a pedigree. Includes Huntington, Marfan, NF1, FH, and HBOC examples.">
+    <meta name="keywords" content="autosomal dominant calculator, autosomal dominant inheritance, 50 percent risk calculator, vertical transmission, reduced penetrance, variable expressivity, Huntington inheritance, Marfan inheritance, NF1 inheritance, familial hypercholesterolaemia inheritance, BRCA dominant">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Autosomal Dominant Calculator — 50% Transmission, Penetrance & Recurrence Risk">
+    <meta property="og:description" content="How autosomal dominant inheritance works, why a flat 50% is rarely the full answer, and how to calculate recurrence risk properly with penetrance and expressivity.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/autosomal-dominant-calculator">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Autosomal Dominant Calculator — 50% Transmission, Penetrance & Recurrence Risk">
+    <meta name="twitter:description" content="A practical guide to autosomal dominant inheritance calculations with clinical examples.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/autosomal-dominant-calculator">
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD: Article -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"Autosomal Dominant Calculator: 50% Transmission, Penetrance and Recurrence Risk",
+        "description":"A clinical guide to autosomal dominant inheritance calculations, pedigree red flags, and recurrence risk in the presence of reduced penetrance and new mutations.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/autosomal-dominant-calculator"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Inheritance Calculators","item":"https://evagene.com/mendelian-inheritance-calculator"},
+            {"@type":"ListItem","position":3,"name":"Autosomal Dominant Calculator","item":"https://evagene.com/autosomal-dominant-calculator"}
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"What is the recurrence risk for an autosomal dominant condition?","acceptedAnswer":{"@type":"Answer","text":"An individual who carries one copy of an autosomal dominant disease allele transmits it to each child with a 50% probability, independently for each pregnancy. The recurrence risk for future offspring is therefore 50% per pregnancy before accounting for penetrance. If the condition shows reduced penetrance, the probability that a transmitted mutation also manifests as disease is lower than 100%."}},
+            {"@type":"Question","name":"What are the pedigree hallmarks of autosomal dominant inheritance?","acceptedAnswer":{"@type":"Answer","text":"Vertical transmission across generations, both sexes affected in roughly equal numbers, male-to-male transmission present (which rules out X-linked inheritance), affected individuals typically have at least one affected parent, and approximately half of the offspring of an affected parent are affected. Reduced penetrance, variable expressivity, and new mutations can obscure these patterns."}},
+            {"@type":"Question","name":"What is the difference between penetrance and expressivity?","acceptedAnswer":{"@type":"Answer","text":"Penetrance is the proportion of people with the disease genotype who manifest any phenotype at all. Expressivity is the range of severity or presentation among those who do manifest. NF1 is often described as near-complete penetrance with high variable expressivity: almost all mutation carriers show some feature, but severity varies widely from mild cafe-au-lait spots to significant tumour burden."}},
+            {"@type":"Question","name":"Can autosomal dominant conditions arise from a new mutation?","acceptedAnswer":{"@type":"Answer","text":"Yes. De novo mutations arise in the egg, sperm, or early embryo of an affected individual and are not inherited from a parent. A proportion of cases of several autosomal dominant conditions are de novo. The recurrence risk for siblings after a confirmed de novo event is low but not zero because of germline mosaicism in one of the parents."}},
+            {"@type":"Question","name":"Is BRCA1/BRCA2 hereditary cancer autosomal dominant?","acceptedAnswer":{"@type":"Answer","text":"Yes. Hereditary breast and ovarian cancer syndrome caused by pathogenic BRCA1 or BRCA2 variants is autosomal dominant with sex-dependent and age-dependent penetrance. Transmission follows the standard 50% rule, but the probability of developing a BRCA-associated cancer depends on sex, age, and the specific variant."}},
+            {"@type":"Question","name":"Does Evagene run autosomal dominant calculations on a pedigree?","acceptedAnswer":{"@type":"Answer","text":"Yes. Evagene's Mendelian inheritance module evaluates autosomal dominant transmission for 180+ catalogued conditions with ICD-10 and OMIM annotation, and flags pedigree features consistent with or against a dominant pattern. For BRCA1/BRCA2 specifically, Evagene additionally runs BRCAPRO from the BayesMendel suite."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<!-- Navigation -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="mendelian-inheritance-calculator.html" class="hover:text-brand-600 dark:hover:text-brand-300">Inheritance Calculators</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">Autosomal Dominant Calculator</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Autosomal dominant calculator: 50% transmission, penetrance, and recurrence risk</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A practical guide to calculating autosomal dominant risk from a pedigree: the 50% transmission rule, why reduced penetrance and variable expressivity change the clinical answer, how to recognise a dominant pattern reliably, and how to handle new mutations.</p>
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">Written for genetic counsellors, clinical geneticists, and trainees. Examples cover Huntington disease, Marfan syndrome, neurofibromatosis type 1, familial hypercholesterolaemia, and hereditary breast and ovarian cancer syndrome.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>12 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> An autosomal dominant condition is caused by a disease allele on an autosome that expresses its phenotype even when present in a single copy. Each child of an affected heterozygous individual has a 50% probability of inheriting the allele. That 50% is the transmission risk, not the disease risk: the disease risk also depends on penetrance (does a carrier manifest?) and expressivity (how severely do they manifest?). A clinically useful autosomal dominant calculator combines the 50% Mendelian transmission with condition-specific penetrance curves, sex-specific and age-specific risks where they apply, and corrections for de novo mutation, germline mosaicism, and the possibility that the apparent dominant pattern is actually pseudodominance or a phenocopy.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What "autosomal dominant" means</h2>
+
+            <p>In autosomal dominant (AD) inheritance, a single mutant allele on one of the 22 autosomes is sufficient to cause the phenotype. Because the gene is autosomal, both sexes are affected in roughly equal numbers. Because the allele is dominant, a heterozygous individual is affected; a homozygote is usually either severely affected or non-viable, depending on the gene.</p>
+
+            <p>At the level of transmission, Mendel's law of segregation gives the simple answer. A heterozygous affected individual produces two kinds of gametes in equal proportion: those carrying the mutant allele and those carrying the wild-type allele. Partnered with an unaffected homozygous individual, each offspring independently has a 50% probability of inheriting the mutation. This does not change with parity: three unaffected children in a row does not reduce the risk for a fourth pregnancy.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Pedigree red flags for a dominant pattern</h2>
+
+            <p>Before reaching for a calculator, look at the pedigree. A pattern that is autosomal dominant has several recognisable features:</p>
+
+            <ul>
+                <li><strong>Vertical transmission</strong>: the condition appears in every generation where it is present, passing from parent to child rather than skipping generations.</li>
+                <li><strong>Both sexes affected</strong>: roughly equal numbers of affected males and females.</li>
+                <li><strong>Male-to-male transmission</strong>: a single confirmed father-to-son transmission effectively rules out X-linked inheritance. This is a powerful discriminator.</li>
+                <li><strong>Affected individuals have at least one affected parent</strong>, unless a de novo mutation or non-paternity is in play, or penetrance is reduced.</li>
+                <li><strong>Approximately half the offspring of an affected parent are affected</strong>, averaged over a reasonable sibship.</li>
+            </ul>
+
+            <p>These features are soft guides rather than diagnostic rules. Small families, chance clustering, and ascertainment bias can all make a truly AD pattern look ambiguous. The calculator's job is to turn the pedigree into numbers that formalise the intuition.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Reduced penetrance versus variable expressivity</h2>
+
+            <p>Two concepts are routinely confused and they behave differently in calculations.</p>
+
+            <p><strong>Penetrance</strong> is the probability that an individual with the disease genotype manifests <em>any</em> recognisable phenotype. Penetrance can be complete (close to 100%), reduced (say, 60-80%), or very low. It can also be age-dependent: Huntington disease has near-zero penetrance in childhood and approaches complete penetrance by about age 70. For an inheritance calculator, reduced penetrance means that a genotype-positive person might be clinically unaffected at the time of assessment, and that transmitted risk can "skip" an apparent generation.</p>
+
+            <p><strong>Variable expressivity</strong> is the range of severity or presentation among those who do manifest. NF1 is the textbook example: almost every mutation carrier shows some feature, but a carrier may have only cafe-au-lait spots or may have significant plexiform neurofibromas. Expressivity does not change transmission probabilities; it changes the interpretation of "affected" vs "unaffected" on a pedigree and therefore the reliability of your phenotype coding.</p>
+
+            <p>For counselling, the practical consequence is this: a 50% transmission probability combined with 80% penetrance gives a 40% risk of manifest disease for each pregnancy. Expressivity does not enter the arithmetic directly but changes how severe the manifest disease is likely to be.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">New mutations and recurrence risk</h2>
+
+            <p>A proportion of cases of several autosomal dominant conditions are not inherited but arise as <strong>de novo mutations</strong> in the parental germline or early embryo. The clinical implications differ depending on whether the proband's mutation is inherited or de novo.</p>
+
+            <p>When the mutation is inherited from an affected parent, recurrence risk for future siblings is 50%. When the mutation is confirmed de novo (the proband is mutation-positive, both parents are mutation-negative on blood testing), recurrence risk for future siblings is low but not zero, because a parent may harbour the variant only in their germline (<strong>germline mosaicism</strong>). Empirical recurrence-risk estimates vary by condition and by how the germline mosaicism was investigated. Recurrence risk for the proband's own future children returns to 50%.</p>
+
+            <p>Conditions with substantial de novo contribution include NF1, achondroplasia, tuberous sclerosis, and Apert syndrome, among others. A Mendelian calculator that ignores the de novo pathway will overestimate sibling recurrence risk for these conditions when the proband appears to be the first affected individual in a family.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Worked examples across the clinical spectrum</h2>
+
+            <p>A few exemplars illustrate why a single "50%" answer is rarely enough.</p>
+
+            <div class="not-prose my-10 overflow-x-auto">
+                <table class="w-full text-sm border-collapse">
+                    <thead class="bg-brand-50 dark:bg-brand-900/50">
+                        <tr>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Condition</th>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Key modifier</th>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Counselling implication</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 dark:text-gray-300">
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Huntington disease</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Age-dependent penetrance; anticipation</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Unaffected at-risk individual's residual risk declines with age; paternal transmission can expand the repeat.</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Marfan syndrome</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Variable expressivity; significant de novo fraction</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Severity varies within a family; negative family history does not rule out inherited disease in a mildly affected relative.</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Neurofibromatosis type 1</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Near-complete penetrance; very variable expressivity; ~50% de novo</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Many probands are first-in-family; mild parental features should be sought clinically.</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Familial hypercholesterolaemia</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">High penetrance for lipid phenotype; variable cardiovascular penetrance</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Cascade testing of first-degree relatives is high-yield; early lipid treatment modifies outcome.</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">HBOC (BRCA1/BRCA2)</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Sex-dependent and age-dependent penetrance</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">50% transmission but disease risk depends on sex, age, and gene; BRCAPRO quantifies carrier and cancer risk.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>HBOC is an instructive special case. The inheritance pattern is autosomal dominant at the gene level — a child of a heterozygous BRCA1 carrier has a 50% probability of inheriting the variant — but the <em>cancer</em> risk for a carrier is sex-dependent (breast and ovarian cancer in females, prostate and breast cancer in males) and strongly age-dependent. For BRCA counselling, the Mendelian 50% is only the first step; empirical models such as BRCAPRO then translate the carrier probability and family history into estimated cancer risks over time. See our <a href="hereditary-cancer-risk-assessment.html">hereditary cancer risk assessment</a> guide for the interplay.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Calculating recurrence risk in practice</h2>
+
+            <p>For a specific pedigree, the calculation typically proceeds in three steps:</p>
+
+            <ol>
+                <li><strong>Establish the likely inheritance pattern.</strong> Check the pedigree features listed above. If male-to-male transmission is present, AD or autosomal recessive (pseudodominance) is in play; X-linked is excluded.</li>
+                <li><strong>Calculate prior transmission probabilities.</strong> For each unaffected at-risk individual, apply the 50% rule along the chain of inheritance. A grandchild of an obligate carrier is 25% a priori; a great-grandchild is 12.5%.</li>
+                <li><strong>Condition on observed phenotypes using Bayesian updating.</strong> An unaffected parent of multiple unaffected children in a highly penetrant dominant pedigree has a reduced residual carrier probability. Observed unaffected offspring "wash out" some of the prior risk; age-dependent penetrance tables give the likelihood terms.</li>
+            </ol>
+
+            <p>Where molecular testing is available, all of this changes. A confirmed pathogenic variant in the proband converts the calculation from pedigree-based to test-based: family members can be tested directly, and the residual Mendelian uncertainty collapses to the sensitivity and specificity of the assay. Cascade testing of first-degree relatives is often the single most clinically impactful downstream step after identification of a dominant variant.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Common pitfalls</h2>
+
+            <p>A few traps recur in real consultations:</p>
+
+            <ul>
+                <li><strong>Pseudodominance</strong>: a pedigree that looks AD may actually be autosomal recessive (AR) if one parent is a carrier and the other is affected. This is most likely with high-frequency AR alleles or in consanguineous families.</li>
+                <li><strong>Phenocopies</strong>: an unrelated sporadic case mimicking the familial condition can inflate apparent penetrance.</li>
+                <li><strong>Ascertainment bias</strong>: families come to attention <em>because</em> multiple members are affected, so the observed transmission fraction is biased upwards.</li>
+                <li><strong>Small sibships</strong>: with three children, observing zero affected still falls within reasonable expectations for a 50% risk; do not over-interpret.</li>
+                <li><strong>Non-paternity and adoption</strong>: both invalidate the biological pedigree on which the calculation depends and should be considered respectfully where results are surprising.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene supports this</h2>
+
+            <p>Evagene's <a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculator</a> runs autosomal dominant analysis directly on the pedigree as it is drawn. When a condition from the 180+ disease catalogue is annotated on one or more individuals with ICD-10 or OMIM codes, the calculator evaluates whether the observed pattern is consistent with AD, AR, X-linked, or mitochondrial transmission, and assigns per-individual carrier and affected probabilities where data are sufficient. The 50% transmission rule is applied along the pedigree; where condition-specific penetrance and age information are available, those are combined into the residual risk for unaffected at-risk individuals.</p>
+
+            <p>For BRCA1 and BRCA2 specifically, Evagene pairs the Mendelian analysis with BRCAPRO, giving both the inheritance-pattern judgement and the BayesMendel carrier and cancer-risk estimates on the same pedigree. Batch risk screening applies the same analysis across the full catalogue for a given proband, surfacing dominant conditions where the family pattern crosses a testing-eligibility threshold even when the clinician has not flagged them explicitly.</p>
+
+            <p>AI-assisted interpretation, using your own Anthropic or OpenAI key, then drafts a structured clinical narrative that references the inheritance-pattern findings, penetrance considerations, and data gaps — as a drafting aid, not a substitute for clinical judgement. The pedigree remains the source of truth; the calculator is transparent about which pedigree features drive which numbers.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is the recurrence risk for an autosomal dominant condition?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">A heterozygous affected parent transmits the allele to each child with a 50% probability, independently for each pregnancy. The disease risk is this 50% multiplied by penetrance for the condition and the age at which the child is being counselled.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What are the hallmarks of AD inheritance?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Vertical transmission across generations, male-to-male transmission, both sexes affected in similar numbers, and approximately half of the offspring of affected parents being affected — in the absence of reduced penetrance.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is the difference between penetrance and expressivity?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Penetrance is the probability of manifesting any phenotype given the genotype; expressivity is how severely the phenotype is expressed among those who manifest.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can AD conditions arise de novo?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. A de novo mutation gives a recurrence risk for future siblings that is low but not zero, because of germline mosaicism. The proband's own future children return to the standard 50% risk.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is BRCA-associated cancer autosomal dominant?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes, at the gene level. The cancer risk is sex-dependent and age-dependent; BRCAPRO translates the 50% transmission risk into carrier probabilities and cancer-risk estimates.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does Evagene do AD calculations?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. The Mendelian module evaluates dominant, recessive, X-linked, and mitochondrial patterns across 180+ catalogued diseases and can be paired with BRCAPRO for HBOC.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculator overview</a></li>
+                <li><a href="autosomal-recessive-calculator.html">Autosomal recessive calculator</a></li>
+                <li><a href="x-linked-recessive-calculator.html">X-linked recessive calculator</a></li>
+                <li><a href="inheritance-pattern-identifier.html">Identifying inheritance patterns from a pedigree</a></li>
+                <li><a href="carrier-probability-calculator.html">Carrier probability calculator</a></li>
+                <li><a href="hereditary-cancer-risk-assessment.html">Hereditary cancer risk assessment</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tools</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<!-- CTA -->
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evagene for Oncologists — Hereditary Cancer Screening in MDT | Evagene</title>
+    <meta name="description" content="Evagene for oncologists: quick family history assessment in MDT, batch hereditary cancer screening, NCCN-style testing thresholds, AI-drafted MDT summaries, and structured referrals to clinical genetics.">
+    <meta name="keywords" content="oncology pedigree software, cancer family history tool, hereditary cancer oncology, BRCAPRO oncologist, Lynch syndrome oncology, MDT hereditary cancer, germline testing referral">
+
+    <meta property="og:title" content="Evagene for Oncologists">
+    <meta property="og:description" content="Rapid hereditary-cancer family history assessment for oncologists in MDT — with batch risk screening and AI-drafted summaries.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/for-oncologists">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Evagene for Oncologists">
+    <meta name="twitter:description" content="Rapid hereditary-cancer family history assessment for oncologists in MDT.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/for-oncologists">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"Evagene for oncologists",
+        "description":"How Evagene supports oncologists in MDT — rapid family history capture, batch hereditary cancer risk screening, AI-drafted MDT summaries, and structured referrals to clinical genetics.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/for-oncologists"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"For Oncologists","item":"https://evagene.com/for-oncologists"}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"How does Evagene help in an oncology MDT meeting?","acceptedAnswer":{"@type":"Answer","text":"Evagene supports rapid capture of the family history you need to decide on germline testing referral during MDT. Enter the proband and first- and second-degree relatives with affected status, run batch risk screening against the catalogue, and produce a one-paragraph AI-drafted MDT summary for the minutes. The entire cycle takes minutes, not a separate appointment."}},
+            {"@type":"Question","name":"Which hereditary cancer risk models does Evagene run?","acceptedAnswer":{"@type":"Answer","text":"Evagene integrates the BayesMendel suite: BRCAPRO for breast and ovarian cancer, MMRpro for Lynch syndrome (colorectal and endometrial cancer primarily), and PancPRO for pancreatic cancer. These run directly on the pedigree data without re-entry. Mendelian inheritance models are also available for monogenic conditions outside the common hereditary cancer syndromes."}},
+            {"@type":"Question","name":"Does Evagene flag when a family crosses NCCN-style testing thresholds?","acceptedAnswer":{"@type":"Answer","text":"Evagene's batch risk screening runs every applicable model against the proband simultaneously and surfaces conditions where the family crosses a configurable threshold. Published guidelines (such as NCCN criteria for hereditary breast/ovarian cancer or Lynch syndrome) inform clinical interpretation; Evagene provides the numerical inputs in a form that makes guideline application straightforward."}},
+            {"@type":"Question","name":"Can I generate a clean MDT summary for the minutes?","acceptedAnswer":{"@type":"Answer","text":"Yes. AI interpretation drafts a one-paragraph clinical summary suitable for MDT minutes, using your own LLM provider (Anthropic Claude or OpenAI GPT) under BYOK. Analysis Templates let the service define the structure of the summary so every MDT entry looks the same."}},
+            {"@type":"Question","name":"How do I refer a patient to clinical genetics from Evagene?","acceptedAnswer":{"@type":"Answer","text":"Export the pedigree as PDF or GEDCOM and the risk report as PDF, and attach both to your referral. If your clinical genetics service also uses Evagene, you can share the pedigree directly, avoiding re-drawing."}},
+            {"@type":"Question","name":"Is the pedigree data suitable for inclusion in the medical record?","acceptedAnswer":{"@type":"Answer","text":"Yes. Exports are available as PNG, SVG, PDF, JSON, and GEDCOM 5.5.1. The AI interpretation and risk reports export as PDF for correspondence. All exports are standards-compliant."}},
+            {"@type":"Question","name":"Does Evagene replace a genetic counselling appointment?","acceptedAnswer":{"@type":"Answer","text":"No. Evagene is a clinical tool that supports triage and decision-making; it does not replace the counselling conversation, informed consent, or the expertise of a clinical geneticist or genetic counsellor. It helps you decide when a referral is warranted and gives the receiving service a structured starting point."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">For Oncologists</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Evagene for oncologists</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">Rapid hereditary-cancer family history assessment for MDT decision-making — batch risk screening, BRCAPRO / MMRpro / PancPRO, and AI-drafted clinical summaries that plug into your existing oncology workflow.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>12 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p>In the oncology clinic, family history is rarely the centre of the conversation. It sits alongside staging, treatment planning, toxicity review, and survivorship. Yet for a significant fraction of your patients — perhaps 5 to 10% in breast, 3 to 5% in colorectal, higher in pancreatic and ovarian — a hereditary cancer syndrome is in play, and the right time to recognise it is often early, while treatment decisions are still being made. The window for acting on a germline finding (PARP inhibitor eligibility, cascade testing of relatives, risk-reducing surgery options for the patient, screening of unaffected carriers) closes as the treatment pathway narrows.</p>
+
+            <p>Evagene is a pedigree tool designed to sit comfortably in the oncology workflow rather than require you to adopt a separate clinical-genetics discipline. In the time you have between seeing a patient's notes and the MDT meeting — or during the meeting itself — you can capture the family history, run batch risk screening, and generate a clean paragraph for the MDT minutes that either closes out the hereditary question or forwards it to clinical genetics with a structured referral.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">The oncologist workflow</h2>
+
+            <p>A new breast patient arrives in your clinic with a referral from the breast surgeon. You have the pathology, the imaging, the performance status, and a free-text line in the referral letter: "mother had breast cancer in her fifties, aunt and grandmother also affected." Before you can decide on neoadjuvant chemotherapy, PARP inhibitor sequencing, or surgical planning, the hereditary question hovers in the background. Does this patient warrant germline BRCA testing? Would a hereditary finding alter the plan?</p>
+
+            <p>You have roughly ten minutes, between clinic patients, to decide whether to send the patient to genetics, order direct-to-patient testing via the oncology team, or mark the family history as insufficient for hereditary referral. The same question repeats in the colorectal clinic (Lynch syndrome), the pancreatic clinic (BRCA / PALB2 / ATM / Lynch), the ovarian clinic (BRCA / Lynch / BRIP1 / RAD51). At MDT, two or three patients per meeting have a family history line worth discussing; half the time the MDT defers the decision because there is not enough structured information to act on.</p>
+
+            <p>The cost of getting this wrong varies. Missing a BRCA carrier in a platinum-sensitive ovarian patient means missing PARP eligibility. Missing Lynch in a colorectal patient means the relatives do not get surveillance. Missing Li-Fraumeni in a young sarcoma patient can affect radiotherapy decisions. At the other end, referring everyone with "some family history" to clinical genetics clogs the genetics service and delays the patients who actually need counselling.</p>
+
+            <p>What you need is a way to turn a free-text family history into a structured pedigree and a set of risk model outputs, quickly, inside your own workflow, without scheduling a separate counselling appointment first.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What oncologists need from pedigree software</h2>
+
+            <ul>
+                <li><strong>Speed</strong> — the ability to capture a three-generation family history in a few minutes, not a full counselling hour.</li>
+                <li><strong>Published risk models</strong> — BRCAPRO, MMRpro, PancPRO, not a proprietary black box.</li>
+                <li><strong>Threshold-aware screening</strong> — something that tells you whether the patient crosses testing criteria (for example, NCCN hereditary breast/ovarian or Lynch criteria) rather than leaving you to cross-check manually.</li>
+                <li><strong>MDT-ready summaries</strong> — a paragraph you can paste into the minutes, not a twenty-page counselling letter.</li>
+                <li><strong>Clean referrals</strong> — an exportable pedigree and risk report that the receiving genetics service can read without redoing the intake.</li>
+                <li><strong>No installation or IT project</strong> — browser-based, accessible from the MDT room or your desk.</li>
+                <li><strong>Data portability</strong> — PDF, PNG, SVG, GEDCOM, so the data moves with the patient.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene supports oncologists</h2>
+
+            <h3 class="text-2xl mt-10 mb-4">Rapid family history capture</h3>
+
+            <p>You do not need to draw a full four-generation pedigree for MDT. Evagene's gesture drawing and keyboard shortcuts let you enter the proband, parents, siblings, children, and where needed the aunts and uncles on each side, in the time it takes to review the referral letter. Affected individuals are annotated with ICD-10 / OMIM codes from the 180+ condition catalogue; ages at diagnosis and deaths are entered inline. For an oncology context, most of what you need lives in that immediate family.</p>
+
+            <h3 class="text-2xl mt-10 mb-4">Batch hereditary cancer risk screening</h3>
+
+            <p>Once the pedigree is built, batch risk screening runs every applicable BayesMendel model simultaneously. BRCAPRO returns the proband's probability of a pathogenic BRCA1/BRCA2 variant and her lifetime breast/ovarian cancer risk; MMRpro returns the equivalent for the mismatch repair genes and Lynch-associated cancers; PancPRO does the equivalent for pancreatic. The screen also highlights conditions where the family's pattern crosses a configurable threshold — so you know whether to flag the case for testing, for genetics referral, or for "not hereditary, carry on."</p>
+
+            <p>A fuller treatment of the clinical logic sits in our <a href="hereditary-cancer-risk-assessment.html">hereditary cancer risk assessment</a> guide; the batch screening feature is unusual in the category — it inverts the normal clinician-suspects-condition-then-runs-model flow into software-surfaces-what-you-should-consider, which is exactly the flow an oncologist benefits from when family history is not the centre of attention.</p>
+
+            <h3 class="text-2xl mt-10 mb-4">AI-drafted MDT summaries</h3>
+
+            <p>For the MDT minutes, you do not need a counselling letter — you need a single paragraph that captures the hereditary question, the model outputs, and the recommendation. Evagene's AI interpretation, running on your own LLM key (Anthropic Claude or OpenAI GPT, BYOK with Fernet encryption), drafts that paragraph automatically. Analysis Templates let your MDT standardise the structure so every hereditary entry in the minutes reads the same: context, family history, model outputs, threshold outcome, recommended next step.</p>
+
+            <h3 class="text-2xl mt-10 mb-4">Structured referral to clinical genetics</h3>
+
+            <p>When the MDT decides to refer, you export the pedigree as PDF (or as GEDCOM if the receiving service also uses Evagene) and the risk report as PDF, and attach both to your referral. The clinical genetics service receives a structured pedigree rather than a free-text family history, which reduces the intake time on their end and avoids asking the patient to retell the family story from scratch. Where both services use Evagene, the pedigree can be shared directly — see our <a href="for-clinical-geneticists.html">clinical geneticists page</a> for the receiving workflow.</p>
+
+            <h3 class="text-2xl mt-10 mb-4">A tool that respects your time</h3>
+
+            <p>Evagene is browser-based. No installation, no local configuration. Log in from your desk, the MDT room, the clinic terminal, or your home setup. Pedigrees are stored server-side and retrievable across sessions. For oncology contexts where a patient is seen multiple times and new family history occasionally surfaces (a sibling diagnosed later in life, an additional cousin), the pedigree is updatable without restarting.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">A typical oncologist session in Evagene</h2>
+
+            <p><strong>Step 1. Open a pedigree for the MDT case.</strong> Create a new pedigree with the patient as proband; enter age, diagnosis, and staging from the oncology record.</p>
+
+            <p><strong>Step 2. Capture first- and second-degree family history.</strong> Add parents, siblings, children, and where relevant maternal and paternal aunts/uncles and grandparents. Annotate each affected relative with a condition and age at diagnosis.</p>
+
+            <p><strong>Step 3. Run batch risk screening.</strong> One click runs BRCAPRO, MMRpro, PancPRO, and the full catalogue screen. The results panel shows carrier probabilities and flags any conditions crossing threshold.</p>
+
+            <p><strong>Step 4. Generate the MDT summary.</strong> Apply your MDT Analysis Template to draft a one-paragraph AI interpretation. Review, edit, and copy into the MDT minutes.</p>
+
+            <p><strong>Step 5. Refer or close out.</strong> If referring, export the pedigree and risk report as PDF, attach to the referral, and the clinical genetics service receives a structured starting point. If not referring, the pedigree and report sit in the oncology record as evidence of the decision.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How does Evagene help in an oncology MDT?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">By turning a free-text family history into a structured pedigree, running batch risk screening, and drafting a one-paragraph MDT summary — all inside the time window between cases.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Which hereditary cancer models does Evagene run?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">BRCAPRO, MMRpro, and PancPRO from the BayesMendel suite, plus Mendelian inheritance models for monogenic conditions.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does Evagene flag NCCN-style testing thresholds?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Batch risk screening surfaces conditions where the family crosses a configurable threshold; guideline interpretation (NCCN, ACMG, local referral criteria) remains a clinical decision.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can I generate a clean MDT summary?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. AI interpretation drafts a one-paragraph summary using your BYOK LLM key, with your MDT's Analysis Template for structure.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How do I refer to clinical genetics from Evagene?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Export pedigree and risk report as PDF (or share directly if the genetics service also uses Evagene).</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does Evagene replace a genetic counselling appointment?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">No. It supports triage and MDT decision-making; it does not replace counselling, consent, or clinical genetics expertise.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is the data suitable for the medical record?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. Exports as PNG, SVG, PDF, JSON, and GEDCOM 5.5.1.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Further reading</h2>
+
+            <ul>
+                <li><a href="hereditary-cancer-risk-assessment.html">Hereditary cancer risk assessment</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tools: a field guide</a></li>
+                <li><a href="for-clinical-geneticists.html">Evagene for clinical geneticists</a></li>
+                <li><a href="for-general-practitioners.html">Evagene for general practitioners</a></li>
+                <li><a href="pedigree-drawing-software.html">Pedigree drawing software</a></li>
+                <li><a href="platform.html">The Evagene platform</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOADICEA vs BRCAPRO — An Honest Comparison of the Two Leading BRCA Risk Models (2026) | Evagene</title>
+    <meta name="description" content="A detailed comparison of BOADICEA (CanRisk) and BRCAPRO (BayesMendel) — what each model does, how they differ, what the validation studies actually show, and which to use when.">
+    <meta name="keywords" content="BOADICEA vs BRCAPRO, BOADICEA or BRCAPRO, BRCAPRO calculator, BOADICEA calculator, BRCA risk model comparison, breast cancer risk model comparison, CanRisk vs BayesMendel, carrier probability model comparison">
+    <meta property="og:title" content="BOADICEA vs BRCAPRO — An Honest Comparison of the Two Leading BRCA Risk Models">
+    <meta property="og:description" content="What the two models do differently, what the validation studies actually show, and which to use when.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/boadicea-vs-brcapro">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/boadicea-vs-brcapro">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config={darkMode:'class',theme:{extend:{colors:{brand:{50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d'},accent:{400:'#e85d6f',500:'#c8102e',600:'#a60d25'},clinical:{50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a'}},fontFamily:{sans:['Inter','system-ui','-apple-system','sans-serif']}}}}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"BOADICEA vs BRCAPRO: an honest comparison of the two leading BRCA risk models","description":"What the two models do differently, what the validation studies actually show, and which to use when.","author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},"publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},"datePublished":"2026-04-17","dateModified":"2026-04-17","mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/boadicea-vs-brcapro"},"image":"https://evagene.com/og-image.png"}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},{"@type":"ListItem","position":2,"name":"Risk Analysis","item":"https://evagene.com/hereditary-cancer-risk-assessment"},{"@type":"ListItem","position":3,"name":"BOADICEA vs BRCAPRO","item":"https://evagene.com/boadicea-vs-brcapro"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+        {"@type":"Question","name":"Which is more accurate, BOADICEA or BRCAPRO?","acceptedAnswer":{"@type":"Answer","text":"In published validation studies BOADICEA is generally the better-calibrated of the two for unselected populations, especially when polygenic scores, mammographic density and moderate-risk genes are included. BRCAPRO tends to underpredict risk in several cohort studies, though at commonly used clinical thresholds (for example 10% BRCA carrier probability) the two models often yield similar decisions. No single model is uniformly superior across all populations, family structures, and clinical uses."}},
+        {"@type":"Question","name":"Is BOADICEA the same as CanRisk?","acceptedAnswer":{"@type":"Answer","text":"BOADICEA is the model; CanRisk is the web interface developed at the University of Cambridge that lets clinicians run BOADICEA (for breast and ovarian cancer risk) and CanRisk-Prostate (for prostate cancer risk). When people say 'CanRisk', they usually mean the BOADICEA model run through the CanRisk tool."}},
+        {"@type":"Question","name":"Is BRCAPRO free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes. BRCAPRO is distributed as part of the BayesMendel R package by Harvard / Johns Hopkins and is freely available for research use. BRCAPRO is also implemented inside several clinical pedigree platforms — including Evagene — so that clinicians can run it directly on a recorded pedigree without installing R."}},
+        {"@type":"Question","name":"Can the two models give different answers on the same family?","acceptedAnswer":{"@type":"Answer","text":"Yes. Because BOADICEA incorporates polygenic risk, moderate-risk genes, lifestyle and hormonal factors, and mammographic density where available, its outputs can differ from BRCAPRO's BRCA-only estimate on the same family — sometimes substantially. Clinicians should understand which factors their chosen model accounts for and interpret outputs accordingly."}},
+        {"@type":"Question","name":"Which does Evagene use?","acceptedAnswer":{"@type":"Answer","text":"Evagene integrates BRCAPRO (alongside MMRpro for Lynch syndrome and PancPRO for familial pancreatic cancer) from the BayesMendel suite, running directly on the pedigree data with no re-entry. Integration with the CanRisk web service for BOADICEA is a common request and a roadmap item, but not implemented today."}},
+        {"@type":"Question","name":"Which is recommended by guidelines?","acceptedAnswer":{"@type":"Answer","text":"Both models appear in major guidelines. CanRisk / BOADICEA has explicit endorsement from NICE, NCCN, ESMO, Cancer Care Ontario, eviQ, and the UK Cancer Genetics Group. BRCAPRO is cited extensively in NCCN guidance and is a widely accepted testing-eligibility model in US and international practice. Where a guideline names a specific tool, follow it for that decision."}}
+    ]}
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5"><img src="logo.png" alt="Evagene logo" class="h-8 w-auto"><span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span></a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="compare.html" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Compare</a>
+            </div>
+            <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2"><li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li><li><span class="text-gray-300 dark:text-gray-600">/</span></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-brand-600 dark:hover:text-brand-300">Risk Analysis</a></li><li><span class="text-gray-300 dark:text-gray-600">/</span></li><li class="text-gray-700 dark:text-gray-300 font-medium">BOADICEA vs BRCAPRO</li></ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">BOADICEA vs BRCAPRO: an honest comparison of the two leading BRCA risk models</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">They are the two most widely used Bayesian models for hereditary breast and ovarian cancer risk assessment. They disagree more often than clinicians realise. Here is what each one actually does, what the validation studies show, and how to choose between them.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400"><time datetime="2026-04-17">17 April 2026</time><span class="text-gray-300 dark:text-gray-600">|</span><span>15 min read</span></div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> BOADICEA and BRCAPRO are both Bayesian models that estimate the probability that an individual carries a pathogenic variant in BRCA1 or BRCA2, and estimate future breast and ovarian cancer risk from that probability plus family history. They differ substantially in what they model: BRCAPRO treats breast and ovarian cancer susceptibility as coming from BRCA1 and BRCA2 alone; BOADICEA models BRCA1 and BRCA2 plus moderate-risk genes (ATM, CHEK2, PALB2, RAD51C, RAD51D, BARD1), a polygenic risk component, lifestyle and hormonal factors, and mammographic density where available. In head-to-head validation studies BOADICEA is generally the better-calibrated model, particularly in populations where polygenic and density information can be captured. BRCAPRO remains widely used, has decades of clinical validation, and gives similar clinical decisions at common decision thresholds. They are best understood as complementary rather than interchangeable.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What each model is</h2>
+
+            <p><strong>BOADICEA</strong> — the Breast and Ovarian Analysis of Disease Incidence and Carrier Estimation Algorithm — was developed by the Centre for Cancer Genetic Epidemiology at the University of Cambridge under Antonis Antoniou and colleagues. The original BOADICEA paper appeared in the British Journal of Cancer in 2004; the model has been extended repeatedly since, notably in the 2019 update (commonly referred to as BOADICEA v5 / v6) that added polygenic risk scores, mammographic density, and moderate-risk genes beyond BRCA1/BRCA2. BOADICEA is now delivered through the <strong>CanRisk</strong> web interface at canrisk.org, which also hosts the CanRisk-Prostate model. CanRisk is free to healthcare professionals after registration and is endorsed by NICE, NCCN, ESMO, Cancer Care Ontario, eviQ, and the UK Cancer Genetics Group.</p>
+
+            <p><strong>BRCAPRO</strong> is part of the <strong>BayesMendel</strong> suite developed at the Johns Hopkins / Harvard BayesMendel Lab (Giovanni Parmigiani and colleagues). It uses Bayesian statistics to compute the probability of carrying a pathogenic BRCA1 or BRCA2 variant given the pattern of breast and ovarian cancers in a family, and to estimate future cancer risk from that probability. It shares its methodological foundation with sibling models: MMRpro for Lynch syndrome and PancPRO for familial pancreatic cancer. BRCAPRO is distributed as open-source R code in the BayesMendel package and is implemented inside multiple clinical pedigree platforms including Evagene.</p>
+
+            <p>Both models are <em>Bayesian</em> in the same sense: they combine prior probabilities of variant carriage (derived from population-level gene frequencies and penetrance estimates) with the likelihood of observing the family's cancer history given that carriage status. The output is a posterior probability — the carrier probability — conditional on the recorded pedigree. The difference is in what the models condition on.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What each model actually models</h2>
+
+            <p>This is the most important section of the article because it determines when the two models will disagree.</p>
+
+            <div class="not-prose my-10 overflow-x-auto">
+                <table class="w-full text-sm border-collapse">
+                    <thead class="bg-brand-50 dark:bg-brand-900/50">
+                        <tr>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Component</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">BRCAPRO</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">BOADICEA</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 dark:text-gray-300">
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">BRCA1 and BRCA2 carrier probability</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Moderate-risk genes (ATM, CHEK2, PALB2, RAD51C, RAD51D, BARD1)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Polygenic risk score (PRS)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Residual polygenic familial clustering</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓ (modelled)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Hormonal &amp; reproductive factors (age at menarche, parity, HRT)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Mammographic density</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Lifestyle factors (BMI, alcohol)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">First- and second-degree relatives</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓ (extended)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Genetic testing results for relatives</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Ovarian cancer risk estimate</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Prostate cancer risk (companion model)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">via CanRisk-Prostate</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Access</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">R package (free); embedded in clinical tools</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">CanRisk web tool (free, registration)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">API / programmatic access</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">via R</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">CanRisk web-services JSON API with auth-token</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>The table tells the story. BOADICEA is the more fully specified model: it accounts for most of the heritable and environmental influences on breast cancer risk that we know about. BRCAPRO is a simpler model focused narrowly on BRCA1 and BRCA2. This makes BRCAPRO easier to use with limited data but also means it will systematically miss signal that BOADICEA captures.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What the validation studies actually show</h2>
+
+            <p>Clinicians often ask "which model is more accurate?" The answer is nuanced and depends on the population, the outcome being predicted, and the data available at the point of prediction.</p>
+
+            <p><strong>Calibration for carrier probability.</strong> Several head-to-head studies have examined how well each model predicts actual BRCA1/BRCA2 carrier status. In the retrospective Italian cancer-genetics-clinic cohort analysed by Fischer and colleagues, BOADICEA and BRCAPRO performed similarly at the common 10% carrier-probability threshold used clinically for eligibility decisions, but the models diverged at other thresholds. BOADICEA has tended to underestimate mutation risk in some populations, while BRCAPRO has tended to underpredict risk in several cohorts — the direction of bias depends on the population, family structure and reference data used.</p>
+
+            <p><strong>Calibration for breast cancer incidence.</strong> In validation studies that compared several 10-year and lifetime breast cancer risk models (BOADICEA, IBIS/Tyrer-Cuzick, BRCAPRO, Gail and Claus) in unselected or population-based cohorts, BOADICEA and IBIS have consistently emerged as the best-calibrated models. BRCAPRO has generally performed less favourably for predicting incidence, which is expected: BRCAPRO is primarily a carrier-probability model, and incidence prediction is a secondary output derived from penetrance tables rather than a first-class target of the model.</p>
+
+            <p><strong>Ethnic and family-structure specificity.</strong> Performance varies across populations. In the Northern California Breast Cancer Family Registry study across racial / ethnic groups, model performance differed meaningfully between groups — BOADICEA and BRCAPRO do not give identical answers across populations, and no single model dominated everywhere. In high-risk French-Canadian families, both models predicted mutation carriers reasonably well, with some differences in penetrance estimation.</p>
+
+            <p><strong>At common clinical thresholds.</strong> The practical question is usually "does this individual meet the threshold for genetic testing?" At the commonly used 10% BRCA carrier probability threshold, BOADICEA and BRCAPRO often agree on eligibility even when their numerical outputs diverge. For a clinician deciding referral versus no-referral, the disagreement rate between the two models is smaller than the difference in their point estimates would suggest.</p>
+
+            <p>The honest summary is that <strong>BOADICEA is the better-calibrated model in most unselected populations when its richer inputs are available</strong>, but BRCAPRO remains clinically useful, especially when polygenic or lifestyle data is not to hand, and especially in settings where a BayesMendel-style family-history-only estimate is what is wanted. Guidelines that cite BRCAPRO specifically still treat it as an acceptable eligibility model.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">When to use which</h2>
+
+            <p><strong>Use BOADICEA / CanRisk when:</strong></p>
+            <ul>
+                <li>You have access to polygenic risk score data or mammographic density and want those signals reflected in the estimate.</li>
+                <li>Your testing panel includes moderate-risk genes beyond BRCA1/BRCA2 and you want a model that accounts for them.</li>
+                <li>You are following UK NICE guidance, NCCN breast/ovarian, ESMO, or other guidelines that recommend BOADICEA explicitly.</li>
+                <li>You want hormonal, reproductive, and lifestyle factors incorporated.</li>
+                <li>You are generating a risk report to communicate to a patient — CanRisk's graphical output is well-designed for patient-facing discussion.</li>
+            </ul>
+
+            <p><strong>Use BRCAPRO when:</strong></p>
+            <ul>
+                <li>Your only input is family history — no PRS, no density, no reliable hormonal data.</li>
+                <li>You want a transparent, open-source model that you or your developers can audit.</li>
+                <li>You want to use the same BayesMendel family of models for breast/ovarian (BRCAPRO), Lynch (MMRpro), and pancreatic (PancPRO) — one methodological foundation, three conditions.</li>
+                <li>You are using a clinical pedigree platform that integrates BRCAPRO directly on the pedigree data with no re-entry.</li>
+                <li>You need programmatic, scriptable access for research or batch analysis via R.</li>
+            </ul>
+
+            <p><strong>Use both when:</strong></p>
+            <ul>
+                <li>You are in a high-stakes decision (for example, risk-reducing mastectomy or salpingo-oophorectomy) and want to triangulate risk across methodologically distinct models.</li>
+                <li>You are building a research cohort and want to compare model outputs.</li>
+                <li>You are uncertain and want to see whether the two models agree at your decision threshold.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">The practical workflow question</h2>
+
+            <p>In many clinical genetics services the real question is not "which model" but "how many tools do I have to flip between". CanRisk is excellent but lives at canrisk.org. BRCAPRO lives inside your clinical pedigree platform (in Evagene's case) or in R. Risk assessment outside the pedigree canvas means re-entering family history — a transcription opportunity. Workflow efficiency often drives model choice more than the statistical literature does. This is worth being honest about: the "best" model is the one your team will actually run on every eligible patient, not the one that scores 2% better on calibration in a retrospective cohort.</p>
+
+            <p>Services running both usually pick a default model (often BOADICEA) and cross-check with the other in complex or borderline cases. Services running one usually pick BRCAPRO via an integrated pedigree platform for workflow reasons, and refer out to CanRisk for specific BOADICEA-required guidance items.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene fits in</h2>
+
+            <p><a href="https://evagene.com">Evagene</a> integrates BRCAPRO directly on pedigree data, alongside MMRpro for Lynch syndrome and PancPRO for familial pancreatic cancer. This means that when a clinician finishes constructing the pedigree, the BayesMendel models run without any re-entry — a workflow benefit that makes BRCAPRO something that actually gets run on every eligible patient, not something that sometimes gets deferred because switching tools costs three minutes. See our <a href="brcapro-calculator.html">BRCAPRO calculator guide</a> for what the model uses as input and how it presents its output inside Evagene.</p>
+
+            <p>Evagene does <strong>not</strong> currently integrate BOADICEA via the CanRisk web service. The CanRisk team documents a JSON web-services API with auth-token authentication, so integration is technically straightforward; we treat it as a roadmap item driven by user demand. For services that need BOADICEA today, the recommended workflow is: build the pedigree in Evagene, export a JSON or GEDCOM summary, and submit it into CanRisk directly. The pedigree structure round-trips cleanly; polygenic scores and density data are entered inside CanRisk, since Evagene does not currently capture them.</p>
+
+            <p>Beyond the models themselves, Evagene's <strong>AI clinical interpretation</strong> can summarise both outputs into a narrative report — drafting the "what this means for the patient" paragraph that sits between the model's numerical output and the clinician's decision. Using bring-your-own-key LLM access (Anthropic Claude or OpenAI GPT), the clinician controls which model and account process the interpretation text, which matters for clinical-governance purposes.</p>
+
+            <p>Evagene's <strong>batch risk screening</strong> runs all integrated BayesMendel models across a pedigree at once with configurable thresholds, surfacing conditions the clinician might otherwise not have checked. It complements rather than replaces the deliberate, single-model workflow of running a specific model (BOADICEA or BRCAPRO) for a specific clinical question.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">A note on Tyrer-Cuzick (IBIS), Gail, and Claus</h2>
+
+            <p>BOADICEA and BRCAPRO are not the only breast cancer risk models. For completeness:</p>
+
+            <ul>
+                <li><strong>Tyrer-Cuzick / IBIS</strong> emphasises hormonal and reproductive factors and is widely used for 10-year and lifetime breast cancer risk in population screening settings, particularly through MagView and similar implementations. In validation studies it is often the second-best calibrated model after BOADICEA.</li>
+                <li><strong>Gail (NCI Breast Cancer Risk Assessment Tool)</strong> is a population-level model that does not incorporate detailed family history; it is useful for general counselling but less appropriate for hereditary-risk assessment.</li>
+                <li><strong>Claus</strong> is an older family-history model focused on first- and second-degree breast cancer, less commonly used today in populations with access to BOADICEA or BRCAPRO.</li>
+            </ul>
+
+            <p>For a broader review of these tools alongside BOADICEA and BRCAPRO, see our <a href="tyrer-cuzick-alternative.html">Tyrer-Cuzick alternative guide</a> and our wider <a href="hereditary-cancer-risk-assessment.html">hereditary cancer risk assessment overview</a>.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Which is more accurate, BOADICEA or BRCAPRO?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">BOADICEA is generally better calibrated in published validation studies, particularly for incidence prediction and when polygenic / density data is available. BRCAPRO performs comparably at common decision thresholds. Neither is uniformly superior; the choice depends on which inputs you have and which guideline you are following.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is BOADICEA the same as CanRisk?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">BOADICEA is the model; CanRisk (at canrisk.org) is the Cambridge-developed web interface that runs BOADICEA plus CanRisk-Prostate. When people say "use CanRisk", they mean running BOADICEA via that interface.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is BRCAPRO free to use?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. BRCAPRO is distributed via the open-source BayesMendel R package (Harvard / Johns Hopkins) and is embedded in several clinical pedigree platforms, including Evagene, which run it directly on pedigree data.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can the two models give different answers on the same family?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. Because BOADICEA incorporates polygenic risk, moderate-risk genes, lifestyle and density, it can produce materially different estimates from BRCAPRO on the same pedigree. At decision thresholds, agreement is higher than the numerical differences suggest.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Which does Evagene use?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">BRCAPRO (plus MMRpro and PancPRO from the BayesMendel suite), integrated directly on pedigree data. BOADICEA integration via the CanRisk web service is a roadmap item.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Which is endorsed by UK guidelines?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">NICE guidance for familial breast cancer risk assessment cites BOADICEA / CanRisk specifically. BRCAPRO is an acceptable alternative in some pathways. Check the current NICE guideline for your specific indication.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+            <ul>
+                <li><a href="brcapro-calculator.html">BRCAPRO calculator — how the model works and when to use it</a></li>
+                <li><a href="canrisk-vs-evagene.html">CanRisk vs Evagene — integrated pedigree management alongside BOADICEA</a></li>
+                <li><a href="boadicea-alternative.html">BOADICEA alternatives for teams wanting integrated pedigree management</a></li>
+                <li><a href="tyrer-cuzick-alternative.html">Tyrer-Cuzick / IBIS — the other widely-used breast cancer risk model</a></li>
+                <li><a href="hereditary-cancer-risk-assessment.html">Hereditary cancer risk assessment — the wider workflow</a></li>
+                <li><a href="breast-cancer-family-history-calculator.html">Breast cancer family history calculator</a></li>
+                <li><a href="ovarian-cancer-family-history-calculator.html">Ovarian cancer family history calculator</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Run BRCAPRO directly on your pedigree data</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Evagene integrates BRCAPRO, MMRpro, and PancPRO on a single browser-based canvas — no re-entry, AI-assisted interpretation, free during Alpha.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2"><div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div><p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white">Compare</a></li><li><a href="alternatives.html" class="hover:text-white">Alternatives</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400">Terms of Service</a></div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

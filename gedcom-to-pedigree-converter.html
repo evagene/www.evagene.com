@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEDCOM to Pedigree Converter — GEDCOM 5.5.1 for Clinical Genetics (2026) | Evagene</title>
+    <meta name="description" content="A technical guide to converting GEDCOM 5.5.1 genealogy files into clinical pedigree data: what GEDCOM represents, what carries over, what gets lost, and how Evagene's import, annotation, and round-trip export workflow handles it.">
+    <meta name="keywords" content="GEDCOM to pedigree, GEDCOM converter clinical, GEDCOM 5.5.1 pedigree, genealogy to clinical, convert GEDCOM, clinical GEDCOM import, GEDCOM clinical genetics, pedigree file converter, GEDCOM export pedigree, family tree to pedigree">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="GEDCOM to Pedigree Converter — GEDCOM 5.5.1 for Clinical Genetics">
+    <meta property="og:description" content="What GEDCOM carries, what gets lost, and how Evagene's import plus annotation workflow turns genealogy data into clinical pedigrees.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/gedcom-to-pedigree-converter">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GEDCOM to Pedigree Converter — Evagene">
+    <meta name="twitter:description" content="GEDCOM 5.5.1 import for clinical pedigree management, round-trip export, and what gets preserved.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/gedcom-to-pedigree-converter">
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'], mono:['JetBrains Mono','Fira Code','monospace'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD: Article -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"GEDCOM to Pedigree Converter: GEDCOM 5.5.1 for Clinical Genetics",
+        "description":"A technical guide to converting GEDCOM 5.5.1 genealogy files into clinical pedigree data, covering what the format represents, what carries over, and what gets lost in conversion.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/gedcom-to-pedigree-converter"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Platform","item":"https://evagene.com/platform"},
+            {"@type":"ListItem","position":3,"name":"GEDCOM to Pedigree Converter","item":"https://evagene.com/gedcom-to-pedigree-converter"}
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"What is GEDCOM?","acceptedAnswer":{"@type":"Answer","text":"GEDCOM (Genealogical Data Communication) is a text-based file format for exchanging genealogical information. GEDCOM 5.5.1 is the most widely supported version and the de facto standard for pedigree-data exchange between family-history and clinical-pedigree applications. It represents individuals (INDI records), families (FAM records), names, sexes, birth and death events, and free-text notes."}},
+            {"@type":"Question","name":"What carries over from GEDCOM to Evagene?","acceptedAnswer":{"@type":"Answer","text":"Individuals, family structures (parents, children, spouses), sex, names, dates of birth and death, deceased status, and existing notes carry over cleanly. Clinical annotations recorded in compatible note formats map onto Evagene's disease catalogue where codes match. Other structured fields Evagene recognises are preserved; unrecognised genealogy-specific fields are either dropped or retained as raw notes for manual review."}},
+            {"@type":"Question","name":"What gets lost in conversion?","acceptedAnswer":{"@type":"Answer","text":"Place names, baptism and burial events, occupation, religious affiliation, residence history, source citations, and other genealogy-specific fields are not clinically relevant and are either discarded on import or preserved as free-text notes depending on policy. Media references (photos, scans) and linked external URLs are not part of the clinical pedigree and are not imported."}},
+            {"@type":"Question","name":"Is round-trip export supported?","acceptedAnswer":{"@type":"Answer","text":"Yes. Evagene exports pedigrees as GEDCOM 5.5.1. Round-trip preserves the structural data (individuals, families, relationships) and Evagene's own annotations that map to GEDCOM fields. Annotations specific to Evagene's clinical model (structured disease codes, risk analysis outputs, AI interpretation) do not have native GEDCOM representations and are either encoded as notes or omitted."}},
+            {"@type":"Question","name":"How do I import a GEDCOM?","acceptedAnswer":{"@type":"Answer","text":"Drag and drop the .ged file into Evagene's import dialog, or POST it to the REST API import endpoint. The importer parses the file, creates a pedigree with the individuals and relationships, and surfaces any issues (duplicate IDs, unsupported tags, malformed dates) for review. For large or bulk imports, the API returns an import_id and emits an import.completed webhook when finished."}},
+            {"@type":"Question","name":"Can GEDCOM carry disease annotations?","acceptedAnswer":{"@type":"Answer","text":"GEDCOM 5.5.1 has no standard clinical disease tag. In practice, clinical annotations are carried either as free-text notes (NOTE records) or under vendor-specific extension tags. Evagene reads common conventions and prompts for manual review where annotations do not map cleanly. After import, use Evagene's structured disease annotation with ICD-10 / OMIM codes to bring the data to clinical quality."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<!-- Navigation -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="platform.html" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Platform</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="platform.html" class="hover:text-brand-600 dark:hover:text-brand-300">Platform</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">GEDCOM to Pedigree Converter</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">GEDCOM to pedigree converter: GEDCOM 5.5.1 for clinical genetics</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A technical guide to converting GEDCOM 5.5.1 genealogy files into clinical pedigree data — what the format carries, what needs re-annotation, what gets lost, and how Evagene's import, annotation, and round-trip export workflow handles the common cases.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>12 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300 prose-code:text-brand-700 dark:prose-code:text-brand-300 prose-pre:bg-gray-900 prose-pre:text-gray-100">
+
+            <p><strong>Short version.</strong> GEDCOM 5.5.1 is the de facto standard for exchanging pedigree structure between genealogy applications and clinical pedigree tools. It carries individuals, families, names, sex, birth and death events, and free-text notes cleanly. It does not carry structured clinical disease annotations, risk model outputs, HPO phenotypes, or AI interpretation — those are added on top after import. Evagene imports GEDCOM 5.5.1 and exports it back out for round-trip compatibility; the structural data is preserved exactly, and Evagene-specific annotations are encoded as notes where sensible or omitted when they have no GEDCOM representation. For an overview of GEDCOM beyond the technical plumbing, see <a href="gedcom-pedigree-software.html">GEDCOM pedigree software</a>.</p>
+
+            <p>This page is for developers and clinicians who want to move pedigree data in and out of Evagene via GEDCOM cleanly, and want to know exactly what survives the round trip.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What GEDCOM is</h2>
+
+            <p>GEDCOM (Genealogical Data Communication) is a text-based, line-oriented format developed by the Church of Jesus Christ of Latter-day Saints for exchanging genealogical data. GEDCOM 5.5.1 is the version most tools produce and consume. Newer 5.5.5 and 7.0 specifications exist; 5.5.1 remains the most interoperable. A GEDCOM file is a sequence of records (INDI for individuals, FAM for families, OBJE for media, etc.) with hierarchical tagged lines:</p>
+
+            <pre><code class="language-text">0 @I1@ INDI
+1 NAME Jane /Smith/
+1 SEX F
+1 BIRT
+2 DATE 14 MAR 1952
+1 DEAT
+2 DATE 22 JUN 2019
+1 FAMC @F1@
+1 FAMS @F2@
+1 NOTE Breast cancer diagnosed age 47.
+
+0 @F2@ FAM
+1 HUSB @I2@
+1 WIFE @I1@
+1 CHIL @I3@
+1 CHIL @I4@
+</code></pre>
+
+            <p>The tree structure is conveyed by FAM records that link a husband (HUSB), wife (WIFE), and children (CHIL). Individuals point back at the families they are a child of (FAMC) and families they are a spouse in (FAMS). This is exactly what a pedigree needs.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What carries over cleanly to a clinical pedigree</h2>
+
+            <p>These GEDCOM elements map directly to Evagene's pedigree data model with no loss:</p>
+
+            <ul>
+                <li><strong>Individuals</strong> — every INDI record becomes an individual in the pedigree, with stable identifiers preserved where possible.</li>
+                <li><strong>Sex</strong> — the SEX tag (M, F, U, or other values depending on the exporter's support for intersex and non-binary coding).</li>
+                <li><strong>Names</strong> — given and family names from NAME records.</li>
+                <li><strong>Birth and death</strong> — BIRT and DEAT events with their DATE subtags.</li>
+                <li><strong>Deceased status</strong> — inferred from presence of DEAT or an explicit DEAT flag.</li>
+                <li><strong>Family structure</strong> — parent-child relationships via FAMC, spouse relationships via FAMS / HUSB / WIFE, siblings by shared FAMC.</li>
+                <li><strong>Free-text notes</strong> — NOTE records attached to individuals, which often contain clinically relevant free text imported from genealogy applications.</li>
+            </ul>
+
+            <p>For many pedigrees, this is already enough to reconstruct the family graph faithfully and start clinical annotation on top.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What needs re-annotation after import</h2>
+
+            <p>GEDCOM 5.5.1 has no standard clinical tags. These items are part of a clinical pedigree but are not reliably carried by GEDCOM:</p>
+
+            <ul>
+                <li><strong>Structured disease annotations.</strong> GEDCOM has no ICD-10 or OMIM tag. Diseases usually arrive as free text in NOTE records ("breast cancer diagnosed age 47"). After import, use Evagene's structured annotation with its 180+ disease catalogue to attach ICD-10 / OMIM codes that risk models and AI interpretation can reason about.</li>
+                <li><strong>Affected status / proband flag.</strong> Which individual is the proband, and which are affected for which condition, is not a GEDCOM concept. Mark these in Evagene after import.</li>
+                <li><strong>Consanguinity loops.</strong> GEDCOM represents consanguinity implicitly through shared ancestors; Evagene's explicit consanguinity loop annotation is created on review.</li>
+                <li><strong>Monozygotic twin status.</strong> Some GEDCOM exporters emit twin flags under vendor-specific tags, but there is no standard. Annotate in Evagene.</li>
+                <li><strong>Risk analysis outputs.</strong> BRCAPRO, MMRpro, PancPRO, Mendelian — these are clinical computations on the pedigree, not pedigree data. Run them after import.</li>
+                <li><strong>AI interpretation.</strong> Generated on demand via Evagene's <a href="llm-pedigree-analysis.html">Analysis Templates</a>.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">What gets dropped</h2>
+
+            <p>A lot of what is in a typical GEDCOM is genealogy-specific and has no place in a clinical record. Evagene's import drops these either entirely or retains them as low-priority notes:</p>
+
+            <ul>
+                <li>Place names (PLAC) for birth, death, and residence.</li>
+                <li>Occupation (OCCU) and education.</li>
+                <li>Religious affiliation and ordinances (BAPM, BURI, etc.).</li>
+                <li>Source citations (SOUR records and cross-references).</li>
+                <li>Media references (OBJE records, photos, external files).</li>
+                <li>Custom vendor tags (tags starting with underscore, e.g. <code>_UID</code>, <code>_FSFTID</code>).</li>
+            </ul>
+
+            <p>A clinical pedigree is not a family tree. It is a smaller, more focused artefact. Dropping genealogy fields is the right default; retaining them as notes is the option when lineage-tracing information needs to travel with the record.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Import workflow in Evagene</h2>
+
+            <p>Evagene supports GEDCOM import both interactively and via the REST API.</p>
+
+            <h3 class="text-2xl mt-8 mb-4">Interactive</h3>
+            <ol>
+                <li>From the dashboard, create a new pedigree.</li>
+                <li>Drop the <code>.ged</code> file into the import dialog, or click to select.</li>
+                <li>The importer parses the file, creates individuals and relationships, and presents a summary: number of individuals, number of families, unrecognised tags, any date-parsing warnings.</li>
+                <li>Review the import, mark the proband, add structured disease annotations, run risk models.</li>
+            </ol>
+
+            <h3 class="text-2xl mt-8 mb-4">Programmatic (via REST API)</h3>
+
+            <pre><code class="language-http">POST /api/pedigrees/import  HTTP/1.1
+X-API-Key: evg_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Content-Type: multipart/form-data; boundary=...
+
+--...
+Content-Disposition: form-data; name="format"
+
+gedcom
+--...
+Content-Disposition: form-data; name="file"; filename="family.ged"
+Content-Type: text/plain
+
+0 HEAD
+1 SOUR FamilyTreeApp
+... rest of GEDCOM ...
+--...--
+</code></pre>
+
+            <p>For large files the API returns an <code>import_id</code> and fires an <code>import.completed</code> webhook when parsing finishes. Batched bulk imports (for research cohort loading) use the same endpoint in a loop, governed by rate limits. See the <a href="pedigree-api.html">pedigree REST API</a> for endpoint detail.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Round-trip export</h2>
+
+            <p>Exporting a pedigree as GEDCOM produces a 5.5.1 file that any GEDCOM-compatible tool can read. Evagene's export preserves:</p>
+
+            <ul>
+                <li>Individuals, sex, names, birth and death dates, deceased status.</li>
+                <li>Family structure (FAM records with HUSB/WIFE/CHIL).</li>
+                <li>Free-text notes on individuals and families.</li>
+                <li>Structured disease annotations, encoded as notes in a documented convention so a round-trip through another GEDCOM tool and back into Evagene preserves them where the other tool does not strip notes.</li>
+            </ul>
+
+            <p>What is <em>not</em> round-tripped:</p>
+
+            <ul>
+                <li>Risk analysis outputs (BRCAPRO, MMRpro, PancPRO, Mendelian) — these are pedigree-derived computations, not pedigree data.</li>
+                <li>AI interpretation output — retained in Evagene, not emitted in GEDCOM.</li>
+                <li>Evagene-specific UI layout metadata.</li>
+            </ul>
+
+            <p>For a lossless round trip between two Evagene instances, use JSON export rather than GEDCOM. JSON preserves the full Evagene data model; GEDCOM preserves what GEDCOM natively supports.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How this works in Evagene</h2>
+
+            <p>The import pipeline is straightforward: parse the file with a GEDCOM 5.5.1 parser that is tolerant of common vendor deviations, normalise dates (GEDCOM permits several date formats), resolve family references into relationship edges, and emit an Evagene pedigree. Unknown tags are collected into a warnings payload the UI or API surfaces for review.</p>
+
+            <p>GEDCOM is one of five import formats Evagene supports. The others are JSON (Evagene's native format), 23andMe raw data (genotype / traits / health history), XEG (legacy), and pedigree images with OCR. Regardless of source, once a pedigree is in Evagene, the same downstream capabilities apply: <a href="hereditary-cancer-risk-assessment.html">BayesMendel risk models</a>, Mendelian inheritance analysis, AI interpretation via Analysis Templates, embeddable viewers, REST API, webhooks, and the MCP server.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is GEDCOM?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">A text-based, line-oriented genealogy file format. 5.5.1 is the most interoperable version and the de facto pedigree-exchange standard.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What carries over?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Individuals, family structure, sex, names, dates of birth and death, deceased status, and free-text notes. Clinical annotations encoded as notes are preserved where possible.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What gets lost?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Place names, occupations, baptisms, source citations, media references — not clinically relevant. Optionally retained as low-priority notes.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is round-trip export supported?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. Structural data and compatible notes round-trip cleanly. Risk outputs and AI interpretation are Evagene-side and do not appear in GEDCOM.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How do I import a GEDCOM?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Drag and drop in the UI, or POST to /api/pedigrees/import. Large imports return an import_id and emit an import.completed webhook.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can GEDCOM carry disease annotations?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Not in a standard tag. They usually come in as free text and get re-annotated structurally in Evagene against ICD-10 / OMIM.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="gedcom-pedigree-software.html">GEDCOM pedigree software: overview</a></li>
+                <li><a href="platform.html">Evagene platform overview</a></li>
+                <li><a href="pedigree-api.html">Pedigree REST API reference</a></li>
+                <li><a href="phenopackets-pedigree.html">GA4GH Phenopackets and pedigree data</a></li>
+                <li><a href="hl7-fhir-pedigree.html">HL7 FHIR and pedigree data</a></li>
+                <li><a href="phenotips-vs-evagene.html">Phenotips vs Evagene</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<!-- CTA -->
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

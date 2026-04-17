@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karyogram Viewer Online — ISCN Karyotype and Pedigree Integration | Evagene</title>
+    <meta name="description" content="An online karyogram viewer for clinical genetics: ISCN nomenclature, numerical and structural abnormalities, integration with the pedigree, and Evagene's interactive karyogram viewer with hover tooltips, click-to-pin info panels, and canvas embedding.">
+    <meta name="keywords" content="karyogram viewer online, karyotype viewer, chromosomal pedigree, ISCN karyotype, translocation pedigree, online karyogram tool">
+
+    <meta property="og:title" content="Karyogram Viewer Online — ISCN and Pedigree Integration | Evagene">
+    <meta property="og:description" content="An online karyogram viewer for clinical genetics with ISCN nomenclature and pedigree integration.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/karyogram-viewer">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Karyogram Viewer Online">
+    <meta name="twitter:description" content="Online karyogram viewer integrated with the clinical pedigree.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/karyogram-viewer">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'], mono:['JetBrains Mono','Fira Code','monospace'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"Karyogram Viewer Online: ISCN Karyotype and Pedigree Integration",
+        "description":"An online karyogram viewer for clinical genetics, with ISCN nomenclature, structural abnormalities, and integration into the clinical pedigree.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/karyogram-viewer"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Resources","item":"https://evagene.com/#resources"},
+            {"@type":"ListItem","position":3,"name":"Karyogram Viewer","item":"https://evagene.com/karyogram-viewer"}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"What is a karyogram?","acceptedAnswer":{"@type":"Answer","text":"A karyogram (also called an idiogram when drawn schematically) is a visual representation of a person's chromosomes arranged in their standard order, typically from chromosome 1 through 22 plus the sex chromosomes, and grouped by banding pattern. Karyograms are used in clinical cytogenetics to display numerical and structural chromosomal abnormalities, such as trisomies, monosomies, translocations, deletions, duplications, and inversions."}},
+            {"@type":"Question","name":"What is ISCN?","acceptedAnswer":{"@type":"Answer","text":"ISCN stands for the International System for Human Cytogenomic Nomenclature, a standardised notation for describing karyotypes, structural variants, and microarray or sequencing-derived cytogenomic results. It is maintained by an international committee and updated periodically. The current version, ISCN 2020, provides the syntax used in clinical cytogenetic reports worldwide, for example '46,XX,t(9;22)(q34;q11.2)' to describe a balanced Philadelphia-like translocation."}},
+            {"@type":"Question","name":"What kinds of chromosomal abnormalities are shown on a karyogram?","acceptedAnswer":{"@type":"Answer","text":"Numerical abnormalities include aneuploidies (trisomies such as trisomy 21, monosomies such as monosomy X), polyploidies, and sex chromosome aneuploidies. Structural abnormalities include reciprocal and Robertsonian translocations, deletions, duplications, inversions, insertions, ring chromosomes, and isochromosomes. Microscopically visible copy number variants and selected submicroscopic changes identified by microarray can also be annotated."}},
+            {"@type":"Question","name":"Why combine pedigree and karyogram?","acceptedAnswer":{"@type":"Answer","text":"Many chromosomal abnormalities have familial implications. A balanced translocation in a parent may produce unbalanced gametes and so carry implications for fertility, miscarriage, and the risk of chromosomal imbalance in offspring. Seeing the karyogram alongside the pedigree — especially when multiple relatives have been tested — helps a clinician reason about segregation, recombination, and reproductive risk in one visual workflow."}},
+            {"@type":"Question","name":"How accurate is a consumer karyotype?","acceptedAnswer":{"@type":"Answer","text":"There is no mainstream consumer karyotype service. Clinical karyotyping is performed by accredited cytogenetic laboratories using G-banded metaphase chromosomes, FISH, chromosomal microarray, and more recently optical genome mapping and sequencing-based cytogenomic approaches. Any clinical interpretation should rely on laboratory-generated results, not on inferred or reconstructed karyotypes."}},
+            {"@type":"Question","name":"Does Evagene show karyograms?","acceptedAnswer":{"@type":"Answer","text":"Yes. Evagene includes an interactive karyogram viewer with hover tooltips for band annotation, click-to-pin info panels for more detail, and a rendering that can be embedded on another canvas within the pedigree workspace. Karyotype data can be attached to individuals in the pedigree, supporting workflows such as viewing a balanced translocation carrier's karyotype alongside their affected and unaffected relatives."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="https://evagene.com/#resources" class="hover:text-brand-600 dark:hover:text-brand-300">Resources</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">Karyogram Viewer</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Karyogram viewer online: ISCN karyotype and pedigree integration</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A practical introduction to karyograms in clinical genetics: what they show, how ISCN describes them, when karyotype and pedigree need to sit alongside each other, and how Evagene's interactive karyogram viewer integrates with the pedigree workspace.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>11 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300 prose-code:text-brand-700 dark:prose-code:text-brand-300 prose-code:bg-gray-100 dark:prose-code:bg-brand-900 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm">
+
+            <p><strong>Short version.</strong> A karyogram is the visual representation of a person's chromosomes arranged in standard order, used in clinical cytogenetics to show numerical and structural abnormalities. ISCN — the International System for Human Cytogenomic Nomenclature — provides the notation for describing karyotypes and structural variants, as in <code>46,XX,t(9;22)(q34;q11.2)</code>. In many clinical contexts the pedigree and the karyogram need to be read together, particularly when a balanced translocation in one generation produces unbalanced offspring in the next. Evagene's built-in karyogram viewer brings both into the same workspace.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What a karyogram shows</h2>
+
+            <p>A karyogram is a systematically arranged display of chromosomes, typically from a metaphase spread in which chromosomes are condensed and individually distinguishable. The classical human karyogram shows 22 autosome pairs plus the sex chromosomes, labelled in order of size and identified by their banding pattern after Giemsa staining (G-banding) or other techniques.</p>
+
+            <p>Clinical karyograms are used to detect two broad classes of abnormality.</p>
+
+            <p><strong>Numerical abnormalities.</strong> The wrong number of chromosomes. Trisomies — an extra copy of a chromosome, as in trisomy 21 (Down syndrome), trisomy 18 (Edwards syndrome), trisomy 13 (Patau syndrome). Monosomies — a missing copy, as in monosomy X (Turner syndrome). Polyploidies — a full extra set, as in triploidy. Sex chromosome variations including Klinefelter syndrome (47,XXY), 47,XYY, 47,XXX.</p>
+
+            <p><strong>Structural abnormalities.</strong> Rearrangements within or between chromosomes. Balanced reciprocal translocations exchange material between two chromosomes without gain or loss; Robertsonian translocations fuse two acrocentric chromosomes at the centromere. Deletions lose a segment of a chromosome; duplications add an extra copy of a segment. Inversions reverse a segment within a chromosome. Rings form when a chromosome's ends join. Isochromosomes have two identical arms.</p>
+
+            <p>Modern clinical cytogenetics extends traditional karyotyping with chromosomal microarray, FISH, optical genome mapping, and sequencing-based approaches that detect submicroscopic changes not visible on G-banded metaphases. ISCN accommodates results from these techniques within the same notational framework.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Reading ISCN notation</h2>
+
+            <p>ISCN notation has a specific grammar that, once learned, is compact and precise. The headline conventions:</p>
+
+            <ul>
+                <li><strong>Chromosome number and sex.</strong> Start with the total chromosome count, followed by the sex chromosomes. <code>46,XX</code> for a typical female, <code>46,XY</code> for a typical male.</li>
+                <li><strong>Abnormality shorthand.</strong> After the chromosome count and sex, any abnormality is listed with standard abbreviations: <code>+</code> for an extra chromosome (<code>47,XY,+21</code> for Down syndrome), <code>-</code> for a missing chromosome (<code>45,X</code> for Turner syndrome), <code>del</code> for deletion, <code>dup</code> for duplication, <code>t</code> for translocation, <code>inv</code> for inversion, <code>i</code> for isochromosome.</li>
+                <li><strong>Band notation.</strong> A band is identified by chromosome, arm (<code>p</code> for short arm, <code>q</code> for long arm), region, and band within region. <code>9q34</code> means the band at the 4th band of the 3rd region of the long arm of chromosome 9. Sub-bands are added with a decimal: <code>11q23.3</code>.</li>
+                <li><strong>Breakpoints.</strong> Structural changes are annotated with the breakpoints involved. <code>t(9;22)(q34;q11.2)</code> means a reciprocal translocation between chromosome 9 at band q34 and chromosome 22 at band q11.2 — the classical Philadelphia translocation seen in chronic myeloid leukaemia.</li>
+                <li><strong>Clone notation.</strong> For cancer cytogenetics, multiple clones and their frequencies are annotated in brackets.</li>
+            </ul>
+
+            <p>A clinical cytogenetic report might read <code>46,XX,t(11;22)(q23.3;q11.2)</code> for a balanced maternal translocation, alongside an affected child's result of <code>46,XX,der(22)t(11;22)(q23.3;q11.2)mat</code> for an unbalanced derivative. The <code>mat</code> indicates the derivative chromosome was inherited from the mother.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">When the karyotype and pedigree need to be read together</h2>
+
+            <p>Several clinical scenarios require the karyogram and the pedigree to be considered as a single unit.</p>
+
+            <p><strong>Balanced translocations across generations.</strong> A balanced reciprocal translocation is usually phenotypically silent in the carrier, because there is no net gain or loss of genetic material. At meiosis, however, the translocation can produce unbalanced gametes, leading to miscarriage, stillbirth, or live-born children with chromosomal imbalance. A pedigree with recurrent miscarriages and an affected child often points to a parental balanced translocation; testing the parents and mapping the result onto the pedigree is the next step.</p>
+
+            <p><strong>Robertsonian translocations.</strong> Fusion of two acrocentric chromosomes (13, 14, 15, 21, 22) produces a derivative chromosome with 45 chromosomes counted but no loss of genetic material. Robertsonian carriers are at elevated risk of trisomy in their offspring — famously, Robertsonian translocation-associated Down syndrome.</p>
+
+            <p><strong>Inversions and their reproductive consequences.</strong> Pericentric and paracentric inversions can produce recombinant unbalanced gametes when large enough. A family history of recurrent miscarriage combined with an inversion in a parent is a common reason for pedigree-karyotype combined review.</p>
+
+            <p><strong>Ring chromosomes and X-autosome translocations.</strong> These have specific segregation patterns and phenotypic consequences that are best understood in the family context.</p>
+
+            <p><strong>Cancer cytogenetics in families.</strong> Some inherited cancer predispositions have characteristic cytogenetic signatures; pedigree-karyotype combined views support the interpretation.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">A short history of cytogenetics in clinical pedigrees</h2>
+
+            <p>Until the mid-twentieth century, the human chromosome count itself was not reliably known. The development of tissue culture, hypotonic swelling, and metaphase spreading in the 1950s allowed Tjio and Levan to establish the correct human count as 46. The first chromosomal disease — trisomy 21 — was identified shortly after. G-banding, developed in the early 1970s, made individual chromosomes and specific bands reliably identifiable, and the first ISCN was published in 1971. Subsequent editions (1978, 1981, 1985, 1991, 1995, 2005, 2009, 2013, 2016, 2020) have expanded the nomenclature to cover FISH, microarray, optical mapping, and sequencing results.</p>
+
+            <p>The integration of karyogram and pedigree into a single clinical record is a relatively recent development. For most of the history of clinical cytogenetics, the pedigree lived in the clinical notes while the karyotype sat in the laboratory report; bringing them onto the same screen is a feature of modern clinical software, not a long-standing convention.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What to look for in a karyogram viewer</h2>
+
+            <p>A clinical karyogram viewer needs to do more than render an attractive image. Practically useful features include:</p>
+
+            <ul>
+                <li><strong>Accurate banding patterns.</strong> The viewer should render chromosomes with realistic G-banding that corresponds to published ideograms, not a stylised cartoon.</li>
+                <li><strong>Hover and click annotations.</strong> Hovering over a band should reveal its identity and approximate coordinates; clicking should pin an information panel for reference while reading another part of the karyogram.</li>
+                <li><strong>Structural abnormality rendering.</strong> Translocations, deletions, duplications, and inversions should be drawn in a way that makes the abnormality visible rather than hidden in a text label.</li>
+                <li><strong>ISCN round-trip.</strong> The viewer should accept ISCN as input and emit ISCN as output, so clinical reports can be generated from the diagram and diagrams can be constructed from report strings.</li>
+                <li><strong>Embedding.</strong> In a clinical pedigree platform, the karyogram should sit inside the pedigree workspace without a context switch — ideally on the same canvas as the pedigree itself.</li>
+                <li><strong>Export.</strong> PNG and SVG export for clinical reports; SVG is preferable for print-quality reports because it scales without aliasing.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">Limitations of karyogram viewers</h2>
+
+            <p>A karyogram viewer is not a cytogenetic laboratory. It renders data derived from laboratory analysis; it does not generate the data itself. Several limits follow.</p>
+
+            <p>A viewer can show what is provided as input, but it cannot infer what is not provided. Submicroscopic changes below the resolution of the underlying technique are not visible. Mosaicism — different cells with different karyotypes — requires specific annotation; a single karyogram does not convey it by default.</p>
+
+            <p>Clinical interpretation rests with the cytogenetic laboratory and the clinical geneticist, not with the viewer. A viewer supports communication and reasoning, but diagnostic classification depends on laboratory-grade analysis and clinical judgement.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene supports karyograms</h2>
+
+            <p>Evagene includes an interactive karyogram viewer designed to sit within the pedigree workspace rather than as a separate application. Karyotype data can be attached to individuals in the pedigree, so a balanced translocation carrier and their affected offspring can be viewed side-by-side without switching contexts. The viewer renders chromosomes with standard G-banding at conventional resolution, supports hover tooltips for band annotation, and supports click-to-pin information panels for sustained reference.</p>
+
+            <p>The karyogram can be embedded on the same canvas as the pedigree, so a clinician can hold the pedigree and the karyotype in one view while drafting a clinical interpretation or a report. PNG and SVG export preserve the karyogram for inclusion in clinical letters and publications. ISCN notation is used throughout the platform for description and for report generation; clinicians can enter an ISCN string and see it rendered, or adjust the rendering and see the ISCN update.</p>
+
+            <p>For integration with broader pedigree workflows, karyotype data flows through the same data model as disease annotations and other individual-level information, so <a href="platform.html">REST API, webhooks, MCP server</a>, and embeddable viewer expose karyotype data alongside the rest of the pedigree.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is a karyogram?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">A visual representation of a person's chromosomes arranged in standard order, used in clinical cytogenetics to display numerical and structural abnormalities.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is ISCN?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">The International System for Human Cytogenomic Nomenclature, a standardised notation for karyotypes and cytogenomic results maintained by an international committee (current version ISCN 2020).</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What abnormalities are shown on a karyogram?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Numerical (trisomies, monosomies, polyploidies, sex chromosome aneuploidies) and structural (translocations, deletions, duplications, inversions, ring chromosomes, isochromosomes).</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Why combine pedigree and karyogram?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Balanced rearrangements in one generation can produce unbalanced offspring in the next. The pedigree-karyogram combined view supports reasoning about segregation and reproductive risk in one workflow.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How accurate is a consumer karyotype?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">There is no mainstream consumer karyotype. Clinical interpretation should rely on accredited laboratory analysis, not on inferred data.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does Evagene show karyograms?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. An interactive viewer with hover tooltips, click-to-pin info panels, and canvas embedding inside the pedigree workspace.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="pedigree-drawing-software.html">Pedigree drawing software: standard notation</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tool</a></li>
+                <li><a href="rare-disease-pedigree-software.html">Rare disease pedigree software</a></li>
+                <li><a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculator</a></li>
+                <li><a href="pedigree-ocr.html">Pedigree OCR: scanning legacy pedigree images</a></li>
+                <li><a href="platform.html">Evagene platform: API and embeddable viewer</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene's karyogram viewer</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. Free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

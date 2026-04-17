@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>f-tree vs Evagene — Pedigree Software Comparison (2026) | Evagene</title>
+    <meta name="description" content="An honest comparison of f-tree (Iwate Medical University / Holonic Systems, published BMC Medical Genetics 2017) and Evagene: desktop vs cloud, questionnaire-driven pedigree generation, risk models, AI, and API.">
+    <meta name="keywords" content="f-tree vs evagene, f-tree pedigree software, f-treeGC, Iwate Medical University pedigree, Holonic Systems, clinical pedigree software comparison, questionnaire pedigree">
+
+    <meta property="og:title" content="f-tree vs Evagene — Pedigree Software Comparison (2026)">
+    <meta property="og:description" content="Side-by-side comparison of f-tree and Evagene for heredity clinics, genome cohort studies, and clinical genetics teams.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/f-tree-vs-evagene">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="f-tree vs Evagene — Pedigree Software Comparison">
+    <meta name="twitter:description" content="Feature-by-feature comparison of f-tree and Evagene.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/f-tree-vs-evagene">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"f-tree vs Evagene: Pedigree Software Comparison",
+        "description":"A detailed, honest side-by-side comparison of f-tree and Evagene for clinical genetics, heredity clinics, and genome cohort studies.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/f-tree-vs-evagene"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Compare","item":"https://evagene.com/compare"},
+            {"@type":"ListItem","position":3,"name":"f-tree vs Evagene","item":"https://evagene.com/f-tree-vs-evagene"}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"What is f-tree?","acceptedAnswer":{"@type":"Answer","text":"f-tree is pedigree charting software developed jointly by Iwate Medical University and Holonic Systems in Japan. A version, f-treeGC, was published in BMC Medical Genetics in 2017. It runs on Windows, macOS, iPad, and iPhone, uses standard international pedigree nomenclature, and is used in heredity clinics, genome cohort studies, and educational settings."}},
+            {"@type":"Question","name":"Is f-tree free?","acceptedAnswer":{"@type":"Answer","text":"f-tree is distributed by Holonic Systems via their website. Licensing details should be confirmed directly with the vendor. It is an academic-origin product with a clear scholarly publication trail."}},
+            {"@type":"Question","name":"How does Evagene compare with f-tree?","acceptedAnswer":{"@type":"Answer","text":"f-tree is a desktop and mobile questionnaire-driven pedigree tool of academic origin, strong in Japan and in multi-language clinical workflows. Evagene is a browser-based cloud pedigree platform with BayesMendel cancer risk models, AI interpretation via bring-your-own-key LLMs, a REST API, webhooks, and an MCP server for AI agents. The products occupy different philosophical positions: f-tree is desktop-deployed and academic; Evagene is cloud-native and platform-oriented."}},
+            {"@type":"Question","name":"Does f-tree run on iPad?","acceptedAnswer":{"@type":"Answer","text":"Yes. f-tree ships for Windows, macOS, iPad, and iPhone. The mobile availability is part of its design. Evagene runs in any modern browser, including mobile browsers, without app installation."}},
+            {"@type":"Question","name":"Can I import f-tree pedigrees into Evagene?","acceptedAnswer":{"@type":"Answer","text":"Evagene imports GEDCOM 5.5.1, JSON, 23andMe, XEG, and pedigree images via OCR. If you can export from f-tree as GEDCOM, JSON, or as a pedigree image, you can bring the pedigree into Evagene. Check f-tree's export options for your deployment."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="compare.html" class="hover:text-brand-600 dark:hover:text-brand-300">Compare</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">f-tree vs Evagene</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">f-tree vs Evagene: a detailed pedigree software comparison</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A side-by-side comparison for heredity clinics, genome cohort studies, and clinical genetics teams weighing a well-cited Japanese desktop tool against a modern browser-based platform.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>13 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> f-tree is a pedigree-charting application developed jointly by Iwate Medical University and Holonic Systems in Japan. Its earlier form, f-treeGC, was published in <em>BMC Medical Genetics</em> in 2017, which gives it a rare thing in pedigree software: a peer-reviewed methodology paper. It is a desktop and mobile product (Windows, macOS, iPad, iPhone), centred on questionnaire-driven automatic pedigree generation, and it has been used in heredity clinics, genome cohort studies, and even secondary-education contexts. Evagene is a cloud-native, browser-based clinical pedigree platform with integrated BayesMendel risk models, AI clinical interpretation via bring-your-own-key (BYOK) LLMs, a REST API, webhooks, an MCP server for AI agents, and an embeddable pedigree viewer. The two products are respectable fits for different deployment philosophies: f-tree for institutions that prefer native desktop and mobile applications with an academic lineage; Evagene for teams that want modern web tooling and programmatic access.</p>
+
+            <p>This is an honest comparison. Where f-tree is stronger, we say so. Where Evagene is stronger, we say that too. f-tree claims are drawn from its Holonic Systems product pages, the 2017 BMC Medical Genetics paper, and public materials as of April 2026.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How the two products position themselves</h2>
+
+            <p><strong>f-tree</strong> is positioned as a serious, academically credible pedigree chart tool. Its headline strengths are its questionnaire-driven workflow — the tool auto-generates a pedigree as the user answers structured questions about family members — and its multi-platform native deployment. The <em>BMC Medical Genetics</em> publication establishes the product's methodology in the scholarly record, which matters for research settings and for clinics that like their tooling cited. Its use cases explicitly include heredity clinics, genome cohort studies, and educational programmes; the mobile versions make it attractive where tablets are the clinical device of choice.</p>
+
+            <p><strong>Evagene</strong> is positioned as clinical-grade pedigree management for precision medicine, delivered as a browser application. Its focus is the pedigree as the central clinical artefact: <a href="pedigree-drawing-software.html">gesture drawing</a> for fast in-room construction, integrated <a href="hereditary-cancer-risk-assessment.html">BayesMendel risk models</a> (BRCAPRO, MMRpro, PancPRO), <a href="mendelian-inheritance-calculator.html">Mendelian inheritance</a> analysis, AI-powered clinical interpretation using the service's own LLM keys, and a platform layer (REST API, webhooks, MCP server, embeddable viewer, Analysis Templates) that makes pedigree data useful outside the application.</p>
+
+            <p>The headline shape difference: f-tree is a desktop and mobile native app grounded in academic work, with a questionnaire as its intake engine. Evagene is a cloud platform whose emphasis is the modern web stack — AI, API, programmable integration — with the pedigree as the data model at the centre.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Feature-by-feature comparison</h2>
+
+            <p>The matrix below compares features each vendor publishes. A tick means the capability is publicly advertised; a dash means it is not publicly listed (which does not necessarily mean it is absent).</p>
+
+            <div class="not-prose my-10 overflow-x-auto">
+                <table class="w-full text-sm border-collapse">
+                    <thead class="bg-brand-50 dark:bg-brand-900/50">
+                        <tr>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Capability</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">f-tree</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Evagene</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 dark:text-gray-300">
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Browser-based, zero install</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Native Windows, macOS app</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Native iPad, iPhone app</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">mobile browser</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Peer-reviewed methodology</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003; (BMC Med Gen 2017)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Standard international pedigree nomenclature</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003; (NSGC/ISCN)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Questionnaire-driven auto-pedigree</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Gesture drawing</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Japanese / English interface</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">English</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">ICD-10 / OMIM disease catalogue</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003; (180+)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">BayesMendel risk models (BRCAPRO, MMRpro, PancPRO)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Mendelian inheritance (AD/AR/XR)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Batch risk screening</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Karyogram viewer</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Consanguinity detection</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">AI clinical interpretation (BYOK)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Analysis Templates</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">MCP server for AI agents</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003; (11 tools)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">REST API</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Webhooks (HMAC-SHA256)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Embeddable pedigree viewer</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">GEDCOM 5.5.1 import/export</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">check vendor</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">23andMe import</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Pedigree image OCR import</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Free / Alpha tier</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">check vendor</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003; (Alpha waitlist)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-sm text-gray-500 dark:text-gray-400">Matrix compiled from publicly available product pages, the BMC Medical Genetics 2017 paper, and marketing material as of April 2026. "&mdash;" indicates the capability is not publicly advertised and does not necessarily mean it is absent.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Deployment philosophy: desktop and mobile vs cloud</h2>
+
+            <p>This is the cleanest axis of difference. f-tree deploys as native applications: Windows, macOS, iPad, iPhone. That gives it offline working, deep integration with the native file system, and a clinical experience that feels predictable on an iPad at the bedside or a desktop at the hospital workstation. It is a design choice with real benefits — no network dependency, no browser tab drift — and real costs: updates are install-managed, mobile and desktop clients must be kept in sync, and multi-user shared state depends on file-based exchange or an explicit server arrangement.</p>
+
+            <p>Evagene is cloud-native and browser-first. It runs in any modern browser on any modern device, including iPads, with zero install. Updates are continuous, the canvas is the same on every platform, and concurrent editing and sharing follow from being server-backed rather than file-based. The trade-off is the obvious one: offline working requires explicit design, and clinics without reliable connectivity may prefer a local client.</p>
+
+            <p>If your clinic is behind a restrictive network proxy, runs in a setting with unreliable internet, or has strong governance preferring locally-installed software, f-tree's deployment model is a genuine fit. If your service is already cloud-first for other clinical tools, Evagene's browser-based deployment removes an install management burden.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Pedigree construction: questionnaire vs gesture</h2>
+
+            <p>f-tree's workflow emphasises questionnaire-driven auto-generation. A user (sometimes the patient, sometimes the clinician) answers structured questions about family members and the product draws the pedigree automatically. This is efficient and reduces clinician drawing time. It is particularly strong in genome cohort studies where a standardised questionnaire is the normal intake instrument.</p>
+
+            <p>Evagene's workflow is built around <strong>gesture drawing</strong> during live consultation: the clinician draws the pedigree while talking to the patient, using keyboard shortcuts and continuous gestures that automatically apply standardised symbols based on recorded sex and affected status. This matches a traditional genetic counselling style where the pedigree emerges in real time as the family story is told. Evagene does not ship a patient-completed intake questionnaire today; services wanting questionnaire-driven intake on Evagene would typically use a separate form tool and import the pedigree (or build the ingestion via the API).</p>
+
+            <p>The fit depends on where pedigree construction lives in your workflow: structured intake prior to consultation (f-tree) or live construction during consultation (Evagene).</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Risk models, clinical analytics, and AI</h2>
+
+            <p>f-tree's public materials focus on pedigree charting rather than integrated Bayesian risk modelling. It is an excellent chart maker, with academic credentials and multi-language support. Services whose workflow is "draw the pedigree, then run risk calculations separately in a different tool" will find f-tree perfectly serviceable for the drawing step.</p>
+
+            <p>Evagene integrates risk calculation directly on the pedigree data. BRCAPRO, MMRpro, and PancPRO run without re-entry; Mendelian inheritance calculators (AD, AR, XR) handle non-cancer monogenic analysis; and <strong>batch risk screening</strong> sweeps all catalogued diseases for a given proband, surfacing conditions whose family history crosses a risk or testing-eligibility threshold. Karyogram viewing and consanguinity detection (Wright's coefficient) are additional clinical analytics.</p>
+
+            <p>On AI, Evagene ships BYOK LLM interpretation: the clinician's service provides its own Anthropic Claude or OpenAI GPT key, which is encrypted at rest with Fernet, and clinical text flows to the model provider the service has already risk-assessed. Analysis Templates codify house style of report writing. The MCP server exposes 11 pedigree tools to Claude Desktop, Claude Code, and any other MCP-compatible AI agent, so a clinician can ask their AI assistant to read, modify, or analyse a pedigree from inside their normal AI workspace. None of this is f-tree's problem to solve — f-tree is explicitly a pedigree chart tool.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Interoperability and platform surface</h2>
+
+            <p>f-tree, as a desktop and mobile native product, tends to exchange data via file export and import rather than network APIs. Whether GEDCOM or image export is available depends on the specific f-tree release; check current vendor documentation. For research use, file-based exchange can be entirely sufficient.</p>
+
+            <p>Evagene is platform-shaped. Its <strong>REST API</strong> uses scoped, rate-limited keys (format <code>evg_</code> followed by 43 characters, SHA-256 hashed at rest). <strong>Webhooks</strong> deliver HMAC-SHA256-signed payloads across eight event types. The <strong>embeddable pedigree viewer</strong> ships as an iframe, SVG, or JavaScript snippet. Imports cover <a href="gedcom-pedigree-software.html">GEDCOM 5.5.1</a>, JSON, 23andMe (SNP, traits, health), XEG, and pedigree images via OCR. Exports cover PNG, SVG, and PDF across 4 report types.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">When to choose f-tree</h2>
+
+            <ul>
+                <li>Your preference is for native desktop and mobile applications, not a browser-based product.</li>
+                <li>Your workflow is questionnaire-driven and auto-pedigree generation from structured intake is central.</li>
+                <li>You need Japanese-language interface support or operate in Japan.</li>
+                <li>You value a peer-reviewed methodology published in <em>BMC Medical Genetics</em> (2017) as part of the product's credentials.</li>
+                <li>You are running a genome cohort study or education programme where f-tree's established use fits.</li>
+                <li>Your network or governance requires installed software rather than cloud.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">When to choose Evagene</h2>
+
+            <ul>
+                <li>You want browser-based deployment, zero install, and device-agnostic access.</li>
+                <li>You draw pedigrees live during consultation and want gesture drawing optimised for that workflow.</li>
+                <li>You need integrated cancer risk modelling (BRCAPRO, MMRpro, PancPRO) and Mendelian inheritance analysis directly on the pedigree.</li>
+                <li>You want AI-assisted clinical interpretation using your own LLM keys (Anthropic, OpenAI), Analysis Templates for report drafting, and MCP tools for AI agents.</li>
+                <li>You are building AI agents, internal tooling, or patient portals that need programmatic access via REST API, webhooks, or embeds.</li>
+                <li>You want broad import coverage: GEDCOM 5.5.1, JSON, 23andMe, XEG, and pedigree image OCR.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">Migrating from f-tree to Evagene</h2>
+
+            <p>The practical path is GEDCOM or image. If your f-tree deployment exports GEDCOM 5.5.1 (check current version), that is the cleanest transfer into Evagene. If not, export the pedigree as an image and use Evagene's OCR import. Disease annotations should be mapped to ICD-10 and OMIM to match Evagene's catalogue. Questionnaire data that f-tree collected — if structured — can be transferred to Evagene's individual records via JSON import or the REST API.</p>
+
+            <p>For services running both tools in parallel during transition, the usual pattern is to continue f-tree for existing cases and start new cases in Evagene, migrating older pedigrees only when needed for clinical review.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is f-tree and who makes it?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">f-tree is pedigree-charting software developed jointly by Iwate Medical University and Holonic Systems in Japan. Its methodology, under the name f-treeGC, was published in BMC Medical Genetics in 2017.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does f-tree do cancer risk modelling?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">f-tree's public materials centre on pedigree charting rather than integrated Bayesian cancer risk modelling. Evagene ships BRCAPRO, MMRpro, and PancPRO as integrated models run directly on the pedigree, plus Mendelian inheritance analysis.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can I use Evagene on an iPad like f-tree?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. Evagene runs in mobile browsers, including iPad Safari, with no installation required. f-tree ships native iPad and iPhone apps, which some clinics prefer; Evagene chooses the browser route.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is Evagene suitable for genome cohort studies?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Evagene's REST API, webhooks, and GEDCOM import make it practical for cohort work. f-tree's questionnaire-driven pedigree generation is a close fit for cohort intake, and some study designs prefer f-tree for exactly that reason. Either can work; the choice depends on whether you want native clients or a programmable cloud platform.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can I move pedigrees from f-tree to Evagene?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes, via GEDCOM 5.5.1 where f-tree supports it, or via pedigree image OCR as a fallback. Evagene also imports JSON, 23andMe, and XEG.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related comparisons and reading</h2>
+
+            <ul>
+                <li><a href="phenotips-vs-evagene.html">Phenotips vs Evagene</a></li>
+                <li><a href="progeny-vs-evagene.html">Progeny vs Evagene</a></li>
+                <li><a href="trakgene-vs-evagene.html">TrakGene vs Evagene</a></li>
+                <li><a href="pedigree-drawing-software.html">Pedigree drawing software: a practical guide</a></li>
+                <li><a href="compare.html">All Evagene comparisons</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tools: a field guide</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

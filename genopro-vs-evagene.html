@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenoPro vs Evagene — Genogram and Clinical Pedigree Software Comparison (2026) | Evagene</title>
+    <meta name="description" content="An honest comparison of GenoPro (Windows desktop genogram software, family-therapy and genealogy focus) and Evagene (browser-based clinical pedigree platform with risk models and AI). Where each fits.">
+    <meta name="keywords" content="genopro vs evagene, genopro alternative, genogram software, family therapy genogram, clinical pedigree software, pedigree software comparison, mac linux pedigree tool">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="GenoPro vs Evagene — Genogram and Clinical Pedigree Software Comparison">
+    <meta property="og:description" content="GenoPro is a mature Windows desktop genogram tool. Evagene is browser-based clinical pedigree management. Where each wins.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/genopro-vs-evagene">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GenoPro vs Evagene — Genogram and Clinical Pedigree Comparison">
+    <meta name="twitter:description" content="Desktop genogram versus browser-based clinical pedigree: how to choose.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/genopro-vs-evagene">
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD: Article -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"GenoPro vs Evagene: Genogram and Clinical Pedigree Comparison",
+        "description":"An honest comparison of GenoPro (Windows desktop genogram) and Evagene (browser-based clinical pedigree platform).",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/genopro-vs-evagene"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Compare","item":"https://evagene.com/compare"},
+            {"@type":"ListItem","position":3,"name":"GenoPro vs Evagene","item":"https://evagene.com/genopro-vs-evagene"}
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"Can GenoPro run on Mac, Linux, or iPad?","acceptedAnswer":{"@type":"Answer","text":"GenoPro is distributed as a Windows desktop installer (InstallGenoPro.exe). Its public site does not advertise native Mac, Linux, iPad, or browser versions. Users on non-Windows platforms have historically used virtualisation or Wine with varying results. Evagene is browser-based and runs on any modern operating system — Windows, macOS, Linux, iPadOS, and ChromeOS — with no installation."}},
+            {"@type":"Question","name":"Does GenoPro have clinical risk models?","acceptedAnswer":{"@type":"Answer","text":"GenoPro includes a Medical History Panel (vitals, images, symptoms, diagnosis) but its public site does not advertise BayesMendel cancer risk models (BRCAPRO, MMRpro, PancPRO), Mendelian inheritance calculators, or AI clinical interpretation. Evagene ships all of these. For family-therapy or social-work genogram use, GenoPro's clinical layer is adequate. For clinical genetics risk assessment, Evagene is purpose-built."}},
+            {"@type":"Question","name":"Is GenoPro suitable for family therapy and social work?","acceptedAnswer":{"@type":"Answer","text":"Yes. GenoPro has a long-standing following among family therapists, social workers, and some medical practitioners precisely because it is easy to draw a genogram with photos, relationship lines, and Medical History entries, and then print or export a report. Its feature set (emotional relationship lines, infection propagation visualisation, Criminal History tracking) reflects that dual-market therapy-and-genealogy design. If your use case is family therapy genograms, GenoPro remains a reasonable choice."}},
+            {"@type":"Question","name":"Can I import a GenoPro file into Evagene?","acceptedAnswer":{"@type":"Answer","text":"GenoPro's native file format (.gno) is proprietary. The practical migration route is via GEDCOM, which GenoPro can export and Evagene imports as GEDCOM 5.5.1. Medical History Panel content that is free-text in GenoPro will need to be re-entered as structured ICD-10 and OMIM annotations in Evagene; that is a clinical-knowledge step, not a data-conversion step. For users who only have PDF or PNG exports from GenoPro, Evagene's pedigree image OCR feature provides an alternative route."}},
+            {"@type":"Question","name":"Does GenoPro have a REST API or cloud collaboration?","acceptedAnswer":{"@type":"Answer","text":"GenoPro is a desktop application without first-party cloud collaboration; genograms are files on a workstation. It mentions an SDK but no public integrations are listed on its homepage. Evagene is cloud-based with a REST API (scoped, rate-limited), webhooks (HMAC-SHA256), an MCP server for AI agents, and an embeddable pedigree viewer — suitable for multi-user services and integration with EHRs and patient portals."}},
+            {"@type":"Question","name":"What does GenoPro cost?","acceptedAnswer":{"@type":"Answer","text":"GenoPro offers a free trial and a paid license. Pricing is not publicly displayed on the homepage as of April 2026; confirm on the GenoPro site. Evagene is free during Alpha via a waiting list at evagene.com."}},
+            {"@type":"Question","name":"Can Evagene replace GenoPro for a clinical genetics service?","acceptedAnswer":{"@type":"Answer","text":"Yes, and for most clinical genetics services Evagene will be the more appropriate tool. Standard pedigree notation, disease ontology coding, validated cancer risk models, Mendelian calculators, AI-drafted interpretation, EHR-ready APIs, and cross-platform browser deployment are all things a clinical genetics service typically needs and Evagene ships. For family-therapy genograms specifically, GenoPro's feature set is more tailored."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<!-- Navigation -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="compare.html" class="hover:text-brand-600 dark:hover:text-brand-300">Compare</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">GenoPro vs Evagene</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">GenoPro vs Evagene: desktop genogram versus browser-based clinical pedigree</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A detailed comparison for therapists, social workers, genealogists, and clinical genetics teams weighing a long-established Windows genogram tool against a modern browser-based clinical pedigree platform.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>13 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> GenoPro is a long-standing Windows desktop genogram application with a dual audience: genealogists and clinical-adjacent users such as family therapists, social workers, and some medical practitioners. Its homepage positions it as "the most intuitive and complete" family-tree/genogram software, and the feature set reflects that breadth — drawing with photos, a Medical History Panel (vitals, images, symptoms, diagnosis), Criminal History tracking, infection propagation visualisation, a Problem Spotter for detecting errors, and a flexible Report Generator producing HTML, PDF, SVG, timelines, and calendars. Multi-language. An SDK is mentioned. Evagene is a browser-based clinical pedigree platform — any OS (Windows, macOS, Linux, iPadOS, ChromeOS), NSGC/ISCN clinical notation, a curated 180+ disease catalogue with ICD-10 and OMIM, BayesMendel risk models, Mendelian calculators, AI-powered clinical interpretation with BYOK LLMs, a REST/webhook/MCP platform surface, and an embeddable viewer. For family-therapy genogram work, GenoPro's tenure and feature depth still make sense. For clinical genetics services, Evagene is the purpose-built fit.</p>
+
+            <p>This article is a careful, honest comparison written from GenoPro's public product pages as of April 2026 and Evagene's own documentation. Pricing and feature details on GenoPro's side should be confirmed on the GenoPro website if in doubt.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How the two products position themselves</h2>
+
+            <p><strong>GenoPro</strong> describes itself as "the most intuitive and complete" family-tree and genogram software. The user base is dual: genealogists building multi-generation family histories, and clinical-adjacent practitioners (family therapists, social workers, psychologists, doctors, researchers) using genograms as a reflective or diagnostic aid. The clinical layer — the Medical History Panel — records vitals, images, symptoms, and diagnoses as structured but open-ended fields rather than as ontology-coded clinical data. Criminal History tracking and infection propagation visualisation speak to the family-therapy and social-work audience. The Problem Spotter flags structural errors in pedigrees; the Report Generator produces varied output formats. An SDK is mentioned on the website; third-party integrations are not prominently listed.</p>
+
+            <p>The deployment model is the thing that dates GenoPro most visibly. It is a Windows desktop installer — <code>InstallGenoPro.exe</code> — with no advertised Mac, Linux, iPad, or browser build. For a service where every workstation runs Windows and the pedigree lives on one clinician's PC, this is manageable. For a modern multi-device service where users move between iPad (bedside), Mac (home working), and Windows (office desktop), it is a friction point. And there is no first-party cloud collaboration story; genograms are files on a workstation, with whatever backup and sharing the institution provides.</p>
+
+            <p><strong>Evagene</strong> positions itself as <a href="clinical-genetics-pedigree-tool.html">clinical-grade pedigree management for precision medicine</a>. It is browser-based and therefore OS-agnostic: it runs anywhere a modern browser runs. It uses standard NSGC/ISCN pedigree notation, annotates diseases from a curated 180+ catalogue with ICD-10 and OMIM codes, runs BayesMendel cancer risk models (BRCAPRO, MMRpro, PancPRO) directly on the pedigree data, and exposes Mendelian inheritance calculators for monogenic conditions. The AI interpretation layer is bring-your-own-key — services use their own Anthropic Claude or OpenAI GPT accounts, Fernet-encrypted at rest, so AI traffic goes where information governance has already approved. A REST API, webhooks, an MCP server for Claude Desktop and Claude Code, and an embeddable viewer let the pedigree flow into other systems.</p>
+
+            <p>The orientation difference is simple. GenoPro is a general-purpose genogram tool with enough clinical hooks to be usable across therapy, social work, and some medical contexts. Evagene is a purpose-built clinical genetics pedigree platform with the validation, notation discipline, and platform surfaces that clinical genetics services demand.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Feature-by-feature comparison</h2>
+
+            <p>The matrix below is arranged by capability. A tick means the feature is publicly documented on the vendor website. A dash means it is not publicly listed; a dash does not necessarily mean the feature is absent. Where GenoPro is stronger, the tick lands on the GenoPro side; where Evagene is stronger, on the Evagene side.</p>
+
+            <div class="not-prose my-10 overflow-x-auto">
+                <table class="w-full text-sm border-collapse">
+                    <thead class="bg-brand-50 dark:bg-brand-900/50">
+                        <tr>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Capability</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">GenoPro</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Evagene</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 dark:text-gray-300">
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Browser-based, zero install</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">macOS / Linux / iPadOS support</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Windows desktop support</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓ (native)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓ (browser)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Genogram drawing with photos</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">partial</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">NSGC / ISCN standard clinical notation</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">partial</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Gender-inclusive symbols</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Gesture drawing for live consultation</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Medical History Panel (free-text / semi-structured)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">via structured annotation</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">ICD-10 + OMIM disease annotation</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Curated disease catalogue</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓ (180+)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Criminal History / social-work tracking</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Infection propagation visualisation</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Emotional relationship lines (therapy genogram)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Problem Spotter (error detection)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">partial (validation)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Report Generator (HTML, PDF, SVG, timelines, calendars)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓ (4 clinical report types)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Multi-language UI</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">BRCAPRO / MMRpro / PancPRO risk models</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Mendelian inheritance calculators</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Batch risk screening</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Karyogram viewer</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Consanguinity detection</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">AI clinical interpretation (BYOK)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">REST API</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">— (SDK only)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Webhooks</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">MCP server for AI agents</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓ (11 tools)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Embeddable pedigree viewer</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Cloud storage / multi-user collaboration</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">GEDCOM import / export</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Pedigree image OCR import</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">—</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Free trial or tier</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓ (trial)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">✓ (Alpha)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-sm text-gray-500 dark:text-gray-400">Matrix compiled from public product pages as of April 2026. A dash indicates the capability is not publicly advertised and does not necessarily mean the feature is absent.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Deployment: where the biggest gap is</h2>
+
+            <p>The single biggest practical difference between GenoPro and Evagene is deployment. GenoPro is a Windows desktop application. Its <code>InstallGenoPro.exe</code> installer is the only advertised route onto a workstation. For a genealogist on a Windows PC, this is entirely acceptable — installing desktop software is part of that world. For a modern clinical genetics service, it is a growing constraint. Clinicians increasingly use Macs and iPads; remote working means data should not be locked to a single workstation; cloud-based backup, audit, and sharing are expected features; and IT departments often prefer browser-based services over desktop installs for security and maintenance reasons.</p>
+
+            <p>Evagene is browser-based. It runs on Windows, macOS, Linux, iPadOS, and ChromeOS with no installation. A clinician can open the same case on a clinic workstation, move to an iPad bedside, and review at home on a Mac, and everything remains the same pedigree on the same account. Multi-user collaboration is built in. For a geographically distributed team — not uncommon in modern genetics services with sub-specialist reviewers across sites — this is difference-of-kind rather than difference-of-degree.</p>
+
+            <p>None of that is to criticise GenoPro. The product has served a market well for a long time, and "Windows desktop installer" is the right shape for some user groups. It is simply a different shape from where a clinical genetics service typically wants to be in 2026.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Clinical depth: risk models, ontologies, and AI</h2>
+
+            <p>GenoPro's Medical History Panel records vitals, images, symptoms, and diagnosis fields. These are useful for a family-therapy genogram or a social-work case file where the clinical layer is contextual rather than central. They are not a substitute for a clinical genetics disease ontology (ICD-10, OMIM), a curated disease catalogue (the 180+ conditions Evagene ships with, with structured risk-model linkage), or validated risk models (BRCAPRO, MMRpro, PancPRO). A cancer genetics service using GenoPro would typically produce the pedigree there, then re-enter the family history into a separate risk-model tool such as <a href="canrisk-vs-evagene.html">CanRisk</a> for the actual risk calculation. That works, but it is data re-entry, with attendant risk of transcription error.</p>
+
+            <p>Evagene runs the risk models directly on the pedigree data. One source of truth. Lynch syndrome risk is flagged via <a href="hereditary-cancer-risk-assessment.html">MMRpro</a>; pancreatic cancer risk via PancPRO; breast and ovarian via BRCAPRO. For BOADICEA specifically, Evagene is not a CanRisk replacement and most services will use CanRisk alongside Evagene — but the BRCAPRO result gives a complementary cross-check and, importantly, runs without re-entry.</p>
+
+            <p>The AI interpretation layer is the other large difference. Evagene's bring-your-own-key design — your own Anthropic Claude or OpenAI GPT account, Fernet-encrypted at rest — means AI-drafted clinical interpretation happens using whichever LLM provider your information-governance process has already approved, rather than through an Evagene-hosted black box. Analysis Templates let services codify their house report style; the MCP server exposes the pedigree to AI agents that run in Claude Desktop or Claude Code. None of this is advertised by GenoPro today.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Where GenoPro is genuinely still a reasonable choice</h2>
+
+            <p>It is worth being clear about this: GenoPro has legitimate strengths. For family therapists, a genogram is a relational and emotional document as much as a medical one. The emotional-relationship lines, the Criminal History tracking, the infection-propagation visualisation, and the flexible Report Generator producing calendars and timelines are tailored to that use case. The product has been maintained for many years and has a long-tenured user base who know it well. If you are a family therapist, a social worker, or a genealogist with some clinical crossover, and the single-workstation Windows model suits your practice, there is no urgent reason to move. GenoPro does its thing well.</p>
+
+            <p>Similarly, if you use GenoPro primarily for multi-generational family history documentation without needing ontology coding or risk models, the deeper clinical-platform capabilities in Evagene are not the main reason you chose your tool. The GEDCOM export means your data can always move later if your requirements change.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">When to choose GenoPro</h2>
+
+            <ul>
+                <li>You are a family therapist, psychologist, or social worker building relational genograms with emotional-relationship lines.</li>
+                <li>You work solo or in a small team on Windows, with no need for cross-device or browser-based access.</li>
+                <li>Your Medical History recording is semi-structured / free-text rather than ontology-coded.</li>
+                <li>You value a long-established product with a mature feature set over platform-level extensibility.</li>
+                <li>You use the Report Generator's flexible output (calendars, timelines, HTML) as part of your workflow.</li>
+                <li>Multi-language UI is important for your practice.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">When to choose Evagene</h2>
+
+            <ul>
+                <li>You run a clinical genetics service and need NSGC/ISCN standard notation, ICD-10/OMIM disease coding, and validated risk models.</li>
+                <li>Your team uses macOS, Linux, iPadOS, or ChromeOS as well as Windows.</li>
+                <li>You need cloud storage and multi-user collaboration, not single-workstation files.</li>
+                <li>AI-assisted clinical interpretation using your own LLM keys is part of how your service wants to work.</li>
+                <li>You need programmatic pedigree access (REST, webhooks, MCP, embeddable viewer) for EHR and patient-portal integration.</li>
+                <li>You need GEDCOM + 23andMe + image-OCR imports to move data between tools freely.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">Migrating from GenoPro to Evagene</h2>
+
+            <p>The practical migration path is GEDCOM. GenoPro exports GEDCOM, and Evagene imports GEDCOM 5.5.1. The structural pedigree — individuals, parents, partnerships, sex, life status, affected status — transfers cleanly. Medical History Panel content that lives as free-text in GenoPro will need to be re-entered as structured ICD-10 and OMIM annotations in Evagene; an Evagene clinician can typically do this in a few minutes per case by reading the GenoPro free-text and selecting the matching entries from the 180+ disease catalogue. Photos and therapy-style relationship lines are not clinical data in the Evagene sense and will not transfer — if you need that material in the new system, it is usually attached as a case note or external file rather than re-built in the pedigree itself.</p>
+
+            <p>For services that only have PDF or PNG exports of GenoPro genograms (because the <code>.gno</code> source files are lost), Evagene's pedigree image OCR feature is the escape hatch. Upload the image; Evagene reconstructs a structural pedigree for you to review and annotate. See the <a href="gedcom-pedigree-software.html">GEDCOM pedigree software guide</a> for how GEDCOM moves between tools in the wider pedigree software landscape.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can GenoPro run on Mac or iPad?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">GenoPro is a Windows desktop application. No native Mac, Linux, iPad, or browser build is advertised. Evagene runs in any modern browser on any OS.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does GenoPro have clinical risk models?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Not publicly. It has a Medical History Panel but not BayesMendel risk models or AI interpretation. Evagene ships BRCAPRO, MMRpro, PancPRO, Mendelian calculators, and BYOK AI interpretation.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is GenoPro good for family therapy?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes — its emotional-relationship lines, Criminal History tracking, and flexible reports suit family-therapy and social-work genogram use.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can I import a GenoPro file into Evagene?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes, via GEDCOM export from GenoPro to Evagene's GEDCOM 5.5.1 import. Free-text clinical notes will need restructuring to ICD-10/OMIM annotations.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does GenoPro have a REST API?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">GenoPro mentions an SDK but no public REST API or cloud integration. Evagene provides a scoped REST API, webhooks, MCP server, and embeddable viewer.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What does GenoPro cost?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Free trial and paid license. Pricing is not publicly displayed on the homepage; confirm on the GenoPro site.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can Evagene replace GenoPro for clinical genetics?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">For most clinical genetics services, yes. For family-therapy genograms specifically, GenoPro's feature set is more tailored.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related comparisons and reading</h2>
+
+            <ul>
+                <li><a href="phenotips-vs-evagene.html">Phenotips vs Evagene</a></li>
+                <li><a href="progeny-vs-evagene.html">Progeny vs Evagene</a></li>
+                <li><a href="trakgene-vs-evagene.html">TrakGene vs Evagene</a></li>
+                <li><a href="famgenix-vs-evagene.html">FamGenix vs Evagene</a></li>
+                <li><a href="pedigree-drawing-software.html">Pedigree drawing software: a field guide</a></li>
+                <li><a href="gedcom-pedigree-software.html">GEDCOM pedigree software</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<!-- CTA -->
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

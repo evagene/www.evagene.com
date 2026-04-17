@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISCN Pedigree Symbols — Reference Guide and Relationship to Clinical Cytogenomics | Evagene</title>
+    <meta name="description" content="An educational reference to ISCN pedigree symbols, their relationship to clinical cytogenomic nomenclature, and how clinical pedigree software should enforce consistent symbol use alongside karyogram reporting.">
+    <meta name="keywords" content="ISCN pedigree symbols, ISCN standards, pedigree symbol reference, ISCN nomenclature, clinical cytogenomics, karyogram pedigree, pedigree-karyogram integration, chromosomal nomenclature">
+
+    <meta property="og:title" content="ISCN Pedigree Symbols — Reference Guide">
+    <meta property="og:description" content="A concise reference to ISCN symbols used in pedigree drawing and their alignment with clinical cytogenomic nomenclature.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/iscn-pedigree-symbols">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ISCN Pedigree Symbols — Reference Guide">
+    <meta name="twitter:description" content="ISCN symbols and pedigree drawing.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/iscn-pedigree-symbols">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"ISCN Pedigree Symbols: Reference Guide and Clinical Cytogenomic Context",
+        "description":"A reference to ISCN symbols used in pedigree drawing, their relationship to cytogenomic nomenclature, and clinical software enforcement.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/iscn-pedigree-symbols"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Pedigree Notation","item":"https://evagene.com/pedigree-drawing-software"},
+            {"@type":"ListItem","position":3,"name":"ISCN Pedigree Symbols","item":"https://evagene.com/iscn-pedigree-symbols"}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"What is ISCN?","acceptedAnswer":{"@type":"Answer","text":"ISCN is the International System for Human Cytogenomic Nomenclature, the standard for describing human chromosomal abnormalities and cytogenomic findings. It covers karyotype descriptions, molecular cytogenetic findings, and related nomenclature. In the clinical pedigree context, the ISCN name is sometimes used informally to refer to the overall set of conventions used in clinical genetics, including pedigree notation that aligns with NSGC recommendations."}},
+            {"@type":"Question","name":"Does ISCN define pedigree symbols directly?","acceptedAnswer":{"@type":"Answer","text":"ISCN itself focuses on cytogenomic nomenclature rather than pedigree drawing conventions per se, but the symbol set used in clinical pedigrees (squares for males, circles for females, etc.) aligns with the ISCN convention and is used alongside ISCN karyotype descriptions in clinical reports. In practice, the NSGC standards are the specific reference for pedigree symbols; ISCN provides the broader cytogenomic language."}},
+            {"@type":"Question","name":"How does a pedigree integrate with a karyogram?","acceptedAnswer":{"@type":"Answer","text":"A clinical pedigree identifies who in the family has had cytogenomic testing and what the findings were. The ISCN karyotype description is recorded against the relevant individual on the pedigree. In clinical software, this allows the pedigree and the karyogram to be viewed together, with ISCN nomenclature applied consistently to both."}},
+            {"@type":"Question","name":"What symbol conventions align with ISCN in pedigrees?","acceptedAnswer":{"@type":"Answer","text":"Squares for males, circles for females, diamonds for unknown or non-binary sex, filled shapes for affected individuals, half-filled for carriers, diagonal lines for deceased, arrows for probands, and double horizontal lines for consanguinity. These are widely used alongside ISCN karyotype descriptions."}},
+            {"@type":"Question","name":"Does Evagene support ISCN-style pedigree symbols?","acceptedAnswer":{"@type":"Answer","text":"Yes. Evagene enforces the pedigree symbol conventions used alongside ISCN reporting and integrates a karyogram viewer that uses ISCN chromosomal nomenclature, so the pedigree and karyotype can be viewed together within a single clinical record."}},
+            {"@type":"Question","name":"Is ISCN updated regularly?","acceptedAnswer":{"@type":"Answer","text":"Yes. ISCN is maintained by an international standing committee and is updated periodically to reflect advances in cytogenomic technology, including array comparative genomic hybridisation, fluorescence in situ hybridisation, and genome-scale sequencing. Always consult the current edition for exact nomenclature."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="pedigree-drawing-software.html" class="hover:text-brand-600 dark:hover:text-brand-300">Pedigree Notation</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">ISCN Pedigree Symbols</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">ISCN pedigree symbols: reference guide and relationship to clinical cytogenomics</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A reference to the pedigree symbols used alongside ISCN clinical cytogenomic nomenclature, how ISCN karyotype descriptions attach to pedigree individuals, and how clinical software keeps the two consistent.</p>
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">Written for clinical genetics trainees, cytogeneticists, and anyone producing pedigrees that accompany ISCN-reported karyotype or molecular cytogenomic findings.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>11 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> ISCN (International System for Human Cytogenomic Nomenclature) is the primary standard for describing human chromosomal and cytogenomic findings — karyotypes, copy-number variants, and molecular cytogenomic results. ISCN itself focuses on cytogenomic language rather than pedigree symbols, but the two are routinely used together: a clinical pedigree drawn in the widely used NSGC symbol set records who in the family has had cytogenomic testing, and ISCN nomenclature describes the result for each tested individual. Because the terms are often used interchangeably in day-to-day practice, "ISCN pedigree symbols" is a common search phrase for the clinical pedigree convention that sits alongside ISCN reporting. This page clarifies the relationship and gives the symbol reference.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">ISCN in one paragraph</h2>
+
+            <p>ISCN is maintained by an international standing committee and periodically updated. It defines the notation for karyotype descriptions (for example, 46,XX or 47,XY,+21 for Down syndrome), structural rearrangements, fluorescence in situ hybridisation (FISH) results, array comparative genomic hybridisation (aCGH) findings, and sequence-level cytogenomic findings. Its purpose is to ensure that a chromosomal finding written in one laboratory is interpretable by any cytogeneticist elsewhere.</p>
+
+            <p>ISCN does not formally define the shapes used in pedigree diagrams; those are the province of NSGC standards. But in routine clinical communication the distinction is often blurred, and "ISCN-style pedigree" is shorthand for a clinical pedigree drawn with standard symbols and annotated with ISCN cytogenomic results.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Symbol reference — the conventions used alongside ISCN</h2>
+
+            <div class="not-prose my-10 overflow-x-auto">
+                <table class="w-full text-sm border-collapse">
+                    <thead class="bg-brand-50 dark:bg-brand-900/50">
+                        <tr>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Symbol</th>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 dark:text-gray-300">
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Square</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Male (sex assigned at birth)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Circle</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Female (sex assigned at birth)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Diamond</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Unknown, unspecified, or non-binary sex</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Filled shape</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Affected (with legend for multi-condition shading)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Half-filled</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Known carrier</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Central dot</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Obligate carrier</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Diagonal strikethrough</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Deceased</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Arrow (P)</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Proband</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Small triangle</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Spontaneous abortion</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Triangle + diagonal</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Termination of pregnancy</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Brackets</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Adoption (in or out)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Double horizontal line</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Consanguineous union</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Twin bracket</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Twins (connected triangle for monozygotic)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>The same symbol set is used whether the pedigree is drawn by hand or rendered by software. For more detail on the specific NSGC recommendations, see our <a href="nsgc-pedigree-notation.html">NSGC pedigree notation</a> reference.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">ISCN annotations on a pedigree</h2>
+
+            <p>When a pedigree individual has been tested cytogenetically, the ISCN result is recorded beside the symbol. Common forms include:</p>
+
+            <ul>
+                <li><strong>Normal karyotype</strong>: 46,XX or 46,XY.</li>
+                <li><strong>Trisomy</strong>: 47,XY,+21 for Down syndrome; 47,XY,+18 for Edwards syndrome; 47,XY,+13 for Patau syndrome.</li>
+                <li><strong>Sex chromosome aneuploidy</strong>: 47,XXY for Klinefelter syndrome; 45,X for Turner syndrome; 47,XYY; 47,XXX.</li>
+                <li><strong>Translocations</strong>: 46,XY,t(11;22)(q23;q11.2) for the familial constitutional Emanuel syndrome translocation.</li>
+                <li><strong>Microdeletions and microduplications</strong>: described via ISCN arr notation for array findings, for example arr[GRCh38] 22q11.21(18912231_21465672)x1 for a 22q11.2 deletion.</li>
+                <li><strong>Mosaic results</strong>: 47,XX,+21[15]/46,XX[10] for a 60/40 trisomy 21 mosaic.</li>
+            </ul>
+
+            <p>These annotations are attached to the individual on the pedigree, not replacing the symbol. A female with Turner syndrome is still represented by a circle (sex assigned at birth) with 45,X and any relevant clinical annotation noted alongside.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Pedigree and karyogram in the same record</h2>
+
+            <p>Clinical genetics services increasingly present the pedigree and the karyogram as complementary views of the same underlying data. The pedigree shows relationships and who was tested; the karyogram visualises the tested individual's chromosomes. In practice:</p>
+
+            <ul>
+                <li><strong>Familial chromosomal rearrangements</strong> (balanced translocations, inversions) are inherited with patterns that look Mendelian on the pedigree. Recording the ISCN description on each carrier individual allows segregation to be traced visually.</li>
+                <li><strong>De novo chromosomal events</strong> in a proband are common in severe developmental conditions; annotating the proband with the ISCN result and the parental results as normal (for example, 46,XY and 46,XX in the parents) makes the de novo nature explicit.</li>
+                <li><strong>Microdeletion syndromes</strong> with variable penetrance may show a mixed pedigree with unaffected carrier parents and affected offspring; ISCN annotation clarifies the finding for each relative.</li>
+                <li><strong>Mosaicism</strong> has particular implications for reproductive counselling and is worth recording precisely on the pedigree.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">Where ISCN ends and other nomenclatures begin</h2>
+
+            <p>ISCN covers chromosomal and some molecular cytogenomic findings. Other nomenclature systems cover related territory:</p>
+
+            <ul>
+                <li><strong>HGVS</strong>: for sequence-level variants (for example, NM_000492.3:c.1521_1523delCTT for the CFTR F508del variant).</li>
+                <li><strong>HGNC</strong>: for gene symbols.</li>
+                <li><strong>HPO</strong>: for standardised phenotype terms.</li>
+                <li><strong>OMIM</strong>: for disease entries.</li>
+                <li><strong>ICD-10</strong>: for clinical coding.</li>
+            </ul>
+
+            <p>A good clinical record carries the right nomenclature for each finding. The pedigree is the hub; the ISCN, HGVS, HPO, OMIM, and ICD-10 annotations attach to the relevant individual.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene supports this</h2>
+
+            <p>Evagene uses the pedigree symbol conventions that sit alongside ISCN reporting, enforcing them consistently across the pedigree. Each individual on the pedigree can carry structured annotations — ICD-10 codes for clinical coding, OMIM identifiers for disease entries, HGVS-compatible variant notation, and ISCN karyotype descriptions where available. The annotations travel with the pedigree through import and export, and are visible on the rendered diagram and in the underlying data model.</p>
+
+            <p>Evagene also includes a karyogram viewer that uses ISCN chromosomal nomenclature. When an individual has ISCN-annotated cytogenomic findings, the karyogram visualises the relevant chromosomes and the identified changes, providing a cytogenetic view alongside the pedigree view. This is particularly useful for familial translocations and microdeletion syndromes where the pedigree and the karyotype together give a fuller clinical picture than either alone.</p>
+
+            <p>Because the notation is software-enforced, pedigrees are presented in a uniform ISCN-consistent style regardless of how or by whom they were drawn. PDF, PNG, and SVG exports preserve the symbol set and annotations, and the REST API exposes the structured data for downstream systems that need both the pedigree and the ISCN descriptions.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is ISCN?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">The International System for Human Cytogenomic Nomenclature, the standard for chromosomal and cytogenomic findings.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does ISCN define pedigree symbols?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Not formally — pedigree symbols follow NSGC conventions — but the two are routinely used together in clinical practice.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How is a karyotype annotated on a pedigree?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">As an ISCN string recorded against the individual, in addition to the symbol for sex and affected status.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What about microdeletions?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Recorded using the ISCN arr notation for array findings, attached to each tested individual.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is ISCN updated regularly?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes, periodically by the international standing committee. Always consult the current edition.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does Evagene integrate ISCN and pedigrees?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes, with structured ISCN annotation on pedigree individuals and a karyogram viewer.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="nsgc-pedigree-notation.html">NSGC pedigree notation</a></li>
+                <li><a href="how-to-draw-a-pedigree-chart.html">How to draw a pedigree chart</a></li>
+                <li><a href="gender-inclusive-pedigree-drawing.html">Gender-inclusive pedigree drawing</a></li>
+                <li><a href="pedigree-drawing-software.html">Pedigree drawing software</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tools</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

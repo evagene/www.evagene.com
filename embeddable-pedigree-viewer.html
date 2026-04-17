@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embeddable Pedigree Viewer — iframe, SVG, JavaScript Snippet (2026) | Evagene</title>
+    <meta name="description" content="A developer guide to Evagene's embeddable pedigree viewer: three embed modes (iframe, raw SVG, JavaScript snippet), when to use each, patient-portal and research-dashboard patterns, and security considerations for CSP and cross-origin use.">
+    <meta name="keywords" content="embeddable pedigree viewer, pedigree iframe, pedigree SVG embed, pedigree JavaScript widget, pedigree viewer integration, patient portal pedigree, research dashboard pedigree, EHR pedigree widget, embed pedigree diagram">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Embeddable Pedigree Viewer — iframe, SVG, JavaScript">
+    <meta property="og:description" content="Three embed modes for the Evagene pedigree viewer and how to use them in patient portals, research dashboards, and EHR contexts.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/embeddable-pedigree-viewer">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Embeddable Pedigree Viewer — Evagene">
+    <meta name="twitter:description" content="iframe, SVG, and JavaScript embed patterns for the Evagene pedigree viewer.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/embeddable-pedigree-viewer">
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'], mono:['JetBrains Mono','Fira Code','monospace'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD: Article -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"Embeddable Pedigree Viewer: iframe, SVG, and JavaScript Snippet",
+        "description":"A developer guide to embedding Evagene's pedigree viewer in patient portals, research dashboards, and EHR contexts using iframe, raw SVG, and JavaScript snippet modes.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/embeddable-pedigree-viewer"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Platform","item":"https://evagene.com/platform"},
+            {"@type":"ListItem","position":3,"name":"Embeddable Pedigree Viewer","item":"https://evagene.com/embeddable-pedigree-viewer"}
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"What are the three embed modes?","acceptedAnswer":{"@type":"Answer","text":"Iframe to a self-contained HTML page (interactive, scriptable), raw SVG endpoint (static, lightweight, pastes into an img or object tag), and JavaScript snippet (auto-discovers data-evagene-pedigree attributes on the page and renders SVG inline). Use the iframe for full interactivity, SVG for simple display, and the JavaScript snippet when you want inline SVG without managing iframes."}},
+            {"@type":"Question","name":"How does authentication work in the viewer?","acceptedAnswer":{"@type":"Answer","text":"The viewer authenticates via API key (query parameter or header) or by marking a specific pedigree as public. For patient portals and EHR embed, use an API key held server-side and rendered into a short-lived signed URL — do not expose the key to the browser. Public-pedigree mode is appropriate for demos, research outreach, and published research figures."}},
+            {"@type":"Question","name":"Is the viewer safe inside a cross-origin iframe?","acceptedAnswer":{"@type":"Answer","text":"The viewer supports Content Security Policy headers and frame-ancestors directives so hosting domains can restrict where the viewer loads. For EHR and patient-portal use, configure frame-ancestors to the explicit host domain and use strict Referrer-Policy. Evagene sets appropriate X-Content-Type-Options and related response headers on its endpoints."}},
+            {"@type":"Question","name":"Can I style the embedded pedigree?","acceptedAnswer":{"@type":"Answer","text":"The SVG and iframe embeds respect a small set of query parameters controlling size, theme (light/dark), and label density. Deep styling of the pedigree itself happens in the Evagene UI; the embed surface is intentionally narrow so the visual output remains clinically consistent."}},
+            {"@type":"Question","name":"What happens when the pedigree updates?","acceptedAnswer":{"@type":"Answer","text":"The viewer fetches the current state when loaded. For live updates, wire the hosting page to Evagene's pedigree.updated webhook via your integration service — when it fires, trigger a re-render (iframe reload or re-fetch of the SVG) client-side. Evagene does not currently push server-sent events directly to the viewer."}},
+            {"@type":"Question","name":"Can I use the viewer without an Evagene account for my users?","acceptedAnswer":{"@type":"Answer","text":"Yes. The viewer needs an API key to fetch a private pedigree, but that key is held by your integration service — your end users never see it or sign into Evagene. This is the standard pattern for patient portals and EHR web-content embeds."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<!-- Navigation -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="platform.html" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Platform</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="platform.html" class="hover:text-brand-600 dark:hover:text-brand-300">Platform</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">Embeddable Pedigree Viewer</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Embeddable pedigree viewer: iframe, SVG, and JavaScript snippet</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A developer's guide to embedding a clinically standard pedigree diagram in patient portals, research dashboards, EHR web-content frames, and published research — in three embed modes, with the security and layout considerations for each.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>11 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300 prose-code:text-brand-700 dark:prose-code:text-brand-300 prose-pre:bg-gray-900 prose-pre:text-gray-100">
+
+            <p><strong>Short version.</strong> Evagene's embeddable pedigree viewer ships in three modes. The iframe mode embeds a self-contained HTML viewer with interactivity (zoom, pan, individual focus). The raw SVG mode exposes the pedigree as a static SVG file usable in any <code>img</code>, <code>object</code>, or inline context. The JavaScript snippet mode discovers <code>data-evagene-pedigree</code> attributes on your page and renders SVG inline so the pedigree is part of your DOM. Authentication is via API key held by your server, or by marking a specific pedigree as public. CSP, frame-ancestors, and Referrer-Policy are under your control. Use the iframe for interactive views in patient portals and EHR embeds, raw SVG for lightweight display and print, and the JavaScript snippet for research dashboards where the pedigree participates in page-level styling.</p>
+
+            <p>This page walks through each mode, the trade-offs, and the security considerations — with honest notes about when to reach for each.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Why three modes?</h2>
+
+            <p>Clinical pedigree diagrams get embedded into very different contexts. A patient portal wants an interactive view with hover labels and zoom; a publishing pipeline wants a static SVG it can drop into a PDF; a research dashboard wants inline SVG it can style with its own CSS and annotate alongside charts. One embed shape does not fit all of these. Evagene therefore ships three:</p>
+
+            <ul>
+                <li><strong>iframe</strong> — an isolated viewer loaded from Evagene's domain with its own JavaScript, rendering logic, and interactive controls.</li>
+                <li><strong>raw SVG</strong> — a plain SVG file served from an Evagene endpoint, usable anywhere SVG is usable.</li>
+                <li><strong>JavaScript snippet</strong> — a small script you include once per page; it scans for <code>data-evagene-pedigree</code> attributes and inlines the corresponding SVG.</li>
+            </ul>
+
+            <p>All three render the same clinical notation (NSGC-style symbols, affected status, deceased markers, proband arrow, consanguinity loops) so the visual output is consistent regardless of the mode your integration uses.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Mode 1: iframe embed</h2>
+
+            <p>The iframe is the most common choice for user-facing embeds. It isolates the viewer's script context from the hosting page, which is desirable both for stability and for defence-in-depth.</p>
+
+            <pre><code class="language-html">&lt;iframe
+  src="https://evagene.com/embed/pedigree/ped_9f2b...?api_key=evg_xxx&amp;theme=light"
+  width="100%"
+  height="560"
+  frameborder="0"
+  loading="lazy"
+  sandbox="allow-scripts allow-same-origin"&gt;
+&lt;/iframe&gt;
+</code></pre>
+
+            <p>Design notes:</p>
+
+            <ul>
+                <li>In production, do not put the API key in the browser. Your server generates a short-lived signed URL or holds the key and proxies the request, so the browser sees only an opaque viewer URL.</li>
+                <li>Set <code>sandbox</code> attributes deliberately. For a read-only viewer in a patient portal, <code>allow-scripts allow-same-origin</code> is typical; omit <code>allow-top-navigation</code> and <code>allow-popups</code> unless you need them.</li>
+                <li>Use <code>loading="lazy"</code> for below-the-fold embeds to reduce initial page weight.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">Mode 2: raw SVG</h2>
+
+            <p>For pipelines that need a static image — PDFs, print reports, research figures, email summaries — the raw SVG endpoint returns the pedigree as an SVG file you can embed directly.</p>
+
+            <pre><code class="language-html">&lt;!-- Inline SVG from a server-rendered HTML page: --&gt;
+&lt;img src="https://evagene.com/embed/pedigree/ped_9f2b.../svg?theme=light"
+     alt="Family pedigree" /&gt;
+
+&lt;!-- Or as an object that preserves SVG scalability: --&gt;
+&lt;object type="image/svg+xml"
+        data="https://evagene.com/embed/pedigree/ped_9f2b.../svg"&gt;&lt;/object&gt;
+</code></pre>
+
+            <p>Design notes:</p>
+
+            <ul>
+                <li>The SVG endpoint authenticates via API key too. For public research figures, mark the pedigree as public and drop the authentication entirely.</li>
+                <li>SVG is vector: it prints cleanly and scales to any size without degradation, which matters for clinical reports.</li>
+                <li>Use <code>object</code> or <code>iframe</code> if you want the SVG's internal CSS to apply fully; use <code>img</code> if you want CSS isolation and a simpler element.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">Mode 3: JavaScript snippet</h2>
+
+            <p>The snippet mode is for pages that want the pedigree to live inside the page's DOM — for example, a research dashboard that overlays annotations, or a page that wants the pedigree to participate in the page's own theme and CSS variables.</p>
+
+            <pre><code class="language-html">&lt;!-- Once per page: --&gt;
+&lt;script src="https://evagene.com/embed.js" async&gt;&lt;/script&gt;
+
+&lt;!-- Anywhere on the page: --&gt;
+&lt;div data-evagene-pedigree="ped_9f2b..."
+     data-evagene-api-key="evg_xxx"
+     data-evagene-theme="light"&gt;&lt;/div&gt;
+</code></pre>
+
+            <p>Design notes:</p>
+
+            <ul>
+                <li>In production the <code>data-evagene-api-key</code> is server-injected after the host page has verified the current user's access to that pedigree — do not hard-code it in static HTML.</li>
+                <li>The snippet inlines SVG, so the pedigree is part of your page's DOM and your CSS can reach it (with the obvious caveat that deep styling changes to clinical notation are rarely a good idea).</li>
+                <li>Initial paint is slightly later than the iframe mode because of the additional script parse step.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">Worked patterns</h2>
+
+            <h3 class="text-2xl mt-8 mb-4">Patient portal family-history tab</h3>
+            <p>A patient portal adds a "Family History" tab showing the pedigree the genetics service has constructed. The portal's backend holds the Evagene API key, generates a signed short-lived iframe URL when the patient opens the tab, and renders it. The patient sees the pedigree but never sees the key or an Evagene login. When the clinician updates the pedigree, Evagene fires <code>pedigree.updated</code>; the portal invalidates the tab's cache so the next load shows the updated state.</p>
+
+            <h3 class="text-2xl mt-8 mb-4">Research dashboard</h3>
+            <p>A research group builds a Streamlit-style dashboard showing pedigree plots next to variant tables. The dashboard uses the JavaScript snippet mode so each pedigree is inline SVG, styled to match the dashboard's dark theme, and can be annotated with the dashboard's own overlays. Pedigrees are batch-loaded via the REST API; the embed is purely for display.</p>
+
+            <h3 class="text-2xl mt-8 mb-4">EHR-lite web-content embed</h3>
+            <p>A clinical service without a full EHR integration budget embeds the iframe viewer inside an Epic hyperspace web-content frame or Oracle Health equivalent. See <a href="ehr-pedigree-integration.html">EHR pedigree integration</a> for the end-to-end pattern and governance considerations.</p>
+
+            <h3 class="text-2xl mt-8 mb-4">Print and PDF reports</h3>
+            <p>A reporting pipeline generates clinical letters in PDF. At generation time, the pipeline fetches the raw SVG for each pedigree and drops it into the PDF using an SVG-aware renderer. The result is a crisp, vector pedigree on the letter rather than a rasterised screenshot.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Security considerations</h2>
+
+            <p>Embedding a clinical diagram on a third-party page is a classic cross-origin problem. Evagene gives you the primitives; your integration owns the policy.</p>
+
+            <ul>
+                <li><strong>Content Security Policy.</strong> Configure <code>frame-src</code> to allow Evagene's embed host only; configure <code>frame-ancestors</code> on Evagene's response headers (via deployment config) to allow only your host domains.</li>
+                <li><strong>Referrer-Policy.</strong> Use <code>strict-origin-when-cross-origin</code> or <code>no-referrer</code> when embedding into patient-facing contexts so pedigree IDs do not leak via referrer headers.</li>
+                <li><strong>API key handling.</strong> Never expose a write- or analyse-scope key to the browser. Use a read-scope key for embed, and hold it server-side. Consider rotating keys regularly and using IP allow-lists on the Evagene side.</li>
+                <li><strong>Sandboxing.</strong> For the iframe mode, use the <code>sandbox</code> attribute with the minimum capabilities needed.</li>
+                <li><strong>Audit.</strong> Evagene logs API-key usage; your integration should log embed serve events on its side so you can correlate and investigate.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">How this works in Evagene</h2>
+
+            <p>The viewer is an API client: it calls the <a href="pedigree-api.html">pedigree REST API</a> with a read-scope key to fetch the pedigree's individuals and relationships, then renders standard clinical notation. Authentication and scope-checking are handled on the API side, so the viewer's behaviour is consistent across modes. Public pedigrees skip auth entirely — useful for demos and published research figures.</p>
+
+            <p>Pedigree data flowing into Evagene (via <a href="gedcom-to-pedigree-converter.html">GEDCOM import</a>, 23andMe, or image OCR), analysis output (BRCAPRO, MMRpro, PancPRO, Mendelian, AI interpretation), and annotation changes all flow back out through the same viewer automatically. If an <a href="pedigree-mcp-server.html">MCP-driven AI agent</a> modifies the pedigree, the next viewer load reflects the change.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What are the three embed modes?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Iframe (interactive, isolated), raw SVG (static, lightweight), JavaScript snippet (inline SVG). Use iframe for patient portals and EHR embed, SVG for print and PDF, snippet for dashboards.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How does authentication work?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">API key held server-side, or mark the pedigree public for demos and published figures. Never expose write/analyse keys to the browser.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is the viewer safe cross-origin?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes, with CSP, frame-ancestors, and Referrer-Policy configured. Use the iframe sandbox attribute and lock scopes down.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can I style the pedigree?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Small set of query parameters (size, theme, label density). Deep styling is intentionally constrained to keep clinical notation consistent.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What about live updates?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Drive re-render from the pedigree.updated webhook via your integration service. No direct server-push to the viewer today.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Do my users need Evagene accounts?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">No. Your integration holds the API key. Your users see only the pedigree.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="platform.html">Evagene platform overview</a></li>
+                <li><a href="pedigree-api.html">Pedigree REST API reference</a></li>
+                <li><a href="ehr-pedigree-integration.html">EHR pedigree integration patterns</a></li>
+                <li><a href="hl7-fhir-pedigree.html">HL7 FHIR and pedigree data</a></li>
+                <li><a href="pedigree-mcp-server.html">Pedigree MCP server for AI agents</a></li>
+                <li><a href="phenotips-vs-evagene.html">Phenotips vs Evagene</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<!-- CTA -->
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrakGene vs Phenotips: an honest comparison (2026) | Evagene</title>
+    <meta name="description" content="A neutral, honest head-to-head comparison of TrakGene and Phenotips: clinician-built FHIR platform with AI copilot vs HPO-driven genomic health record. Features, risk models, deployment, and pricing.">
+    <meta name="keywords" content="trakgene vs phenotips, phenotips vs trakgene, trakgene fhir, clinical pedigree comparison, genomic health record, rare disease pedigree software, hpo phenotype software">
+
+    <meta property="og:title" content="TrakGene vs Phenotips: an honest comparison (2026)">
+    <meta property="og:description" content="A neutral head-to-head comparison of TrakGene and Phenotips for clinical genetics services.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/trakgene-vs-phenotips">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TrakGene vs Phenotips: an honest comparison">
+    <meta name="twitter:description" content="A neutral head-to-head of TrakGene and Phenotips.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/trakgene-vs-phenotips">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"TrakGene vs Phenotips: An Honest Comparison",
+        "description":"A neutral head-to-head comparison of TrakGene and Phenotips, two clinician-focused genomic platforms with different philosophies.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/trakgene-vs-phenotips"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Compare","item":"https://evagene.com/compare"},
+            {"@type":"ListItem","position":3,"name":"TrakGene vs Phenotips","item":"https://evagene.com/trakgene-vs-phenotips"}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"What is the core difference between TrakGene and Phenotips?","acceptedAnswer":{"@type":"Answer","text":"TrakGene is a clinician-built clinical genetics platform with native HL7 FHIR integration, an AI copilot, and a broad integrated service set (50+ clinical services, 800+ users) used by NIH, NHS, and Geisinger among others. It combines CanRisk, GAIL, and ClinVar for risk and variant context. Phenotips is a modern genomic health record platform built around HPO-driven phenotype capture, with 100k+ records across 60+ countries and certifications across GDPR/DSPT/HIPAA/CE+."}},
+            {"@type":"Question","name":"Which is better for FHIR-first integration?","acceptedAnswer":{"@type":"Answer","text":"TrakGene explicitly emphasises HL7 FHIR as a native protocol. Phenotips advertises EHR integration but without the same FHIR-first framing. If your institution's integration strategy is built on FHIR, TrakGene is the more aligned choice."}},
+            {"@type":"Question","name":"Which is better for rare disease?","acceptedAnswer":{"@type":"Answer","text":"Both use HPO phenotyping. Phenotips leads more heavily on HPO-driven phenotype-to-gene suggestion and is publicly anchored around rare disease diagnostic yield. TrakGene supports HPO as part of a broader clinical genetics toolkit. For HPO-first rare disease diagnostics, Phenotips is the purer fit; for a broader clinical genetics service including rare disease and cancer, TrakGene is comprehensive."}},
+            {"@type":"Question","name":"Does either have AI?","acceptedAnswer":{"@type":"Answer","text":"TrakGene advertises an AI copilot as part of its clinical platform. Phenotips's intelligence is its HPO-driven phenotype-to-gene suggestion layer rather than an LLM-based assistant in the modern sense. Neither publishes BYOK LLM key support at the depth Evagene does."}},
+            {"@type":"Question","name":"Is there a third option worth considering?","acceptedAnswer":{"@type":"Answer","text":"Evagene is a browser-based clinical pedigree platform with BayesMendel risk models, bring-your-own-key AI interpretation, a REST API, webhooks, an MCP server for AI agents, and an embeddable pedigree viewer. It is in Alpha and free via waiting list. For services that want modern AI and programmable access at the pedigree layer, it is worth evaluating alongside TrakGene and Phenotips."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="compare.html" class="hover:text-brand-600 dark:hover:text-brand-300">Compare</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">TrakGene vs Phenotips</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">TrakGene vs Phenotips: an honest comparison</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A neutral head-to-head of two modern clinical genetics platforms — with a brief note at the end on a third option worth considering.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>13 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p>This page is a head-to-head comparison of <strong>TrakGene</strong> and <strong>Phenotips</strong>. Teams searching "trakgene vs phenotips" typically want a plain-English summary of which is the better fit for their service. That is what this page provides. Evagene is briefly introduced at the end as a third option for readers whose requirements emphasise modern AI, REST API, and agentic integration — but this article is genuinely about TrakGene and Phenotips first. All product claims are drawn from each vendor's public website and documentation as of April 2026.</p>
+
+            <p><strong>Short version.</strong> Choose <strong>TrakGene</strong> if your institution is FHIR-first, you want a clinician-built platform with an AI copilot and a broad integrated service set, and you value customer references such as NIH, NHS, and Geisinger. Choose <strong>Phenotips</strong> if your service is phenotype-first rare disease diagnostics with HPO at the centre, you need a global genomic health record with advertised GDPR/DSPT/HIPAA/CE+ certifications, and LGBTQIA+-inclusive design is a priority.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">How TrakGene and Phenotips position themselves</h2>
+
+            <p><strong>TrakGene</strong> presents itself as a clinician-built clinical genetics platform. The origin story matters: a product built by clinicians for clinicians usually shows it in the defaults, and TrakGene's are oriented towards real clinical workflow. Its public material highlights 50+ integrated clinical services, 800+ users, native HL7 FHIR support, HPO phenotyping, risk modelling spanning CanRisk (BOADICEA), GAIL, and ClinVar variant context, and an AI copilot for clinical workflow. Its customer references include the NIH, the NHS, and Geisinger, which signal credible large-institution deployment. TrakGene supports both cloud and on-prem deployment. There is no free tier advertised.</p>
+
+            <p><strong>Phenotips</strong> positions itself as "the complete Genomic Health Record" — an EHR-integrated solution for collaborative genomic medicine. Its emphasis is HPO-driven phenotype capture paired with automated gene and disease suggestion, targeted at rare disease diagnostics. It claims 100,000+ patient records, 500+ specialists, and deployment across 60+ countries. It advertises certifications across GDPR, DSPT, HIPAA, and CE+, and its design is LGBTQIA+-inclusive. Ownership sits with Gene42 / Think Research. Phenotips publishes a Research Team plan at $399/month for 5 users plus $25/user additional; clinic and hospital tiers are priced on application.</p>
+
+            <p>Both products are modern and credible. They are not interchangeable. TrakGene's centre of gravity is "integrated clinical genetics platform for institutions using FHIR as the connecting layer". Phenotips's centre of gravity is "modern genomic health record with HPO phenotype capture as the diagnostic engine".</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Feature comparison</h2>
+
+            <p>The matrix below compares features each vendor publishes. A tick means the capability is publicly advertised; a dash means it is not publicly listed. Evagene appears as a third column for readers considering a modern alternative.</p>
+
+            <div class="not-prose my-10 overflow-x-auto">
+                <table class="w-full text-sm border-collapse">
+                    <thead class="bg-brand-50 dark:bg-brand-900/50">
+                        <tr>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Capability</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">TrakGene</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Phenotips</th>
+                            <th class="text-center font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Evagene</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 dark:text-gray-300">
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Clinician-built origin</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">academic / industry</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">clinical-focused</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Installed base</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">800+ users, NIH/NHS/Geisinger</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">100k+ records, 60+ countries</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">Alpha waitlist</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Browser-based / cloud</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">On-premise deployment</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">HL7 FHIR native</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">partial</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">via REST API</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">HPO phenotype capture</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003; (core)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Phenotype-to-gene suggestion</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">via AI interpretation</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">CanRisk / BOADICEA</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">GAIL breast cancer model</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">BayesMendel (BRCAPRO/MMRpro/PancPRO)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">undisclosed set</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">ClinVar variant context</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">via HPO link-out</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">AI copilot / clinical AI</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003; (BYOK)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Certifications (GDPR/DSPT/HIPAA/CE+)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">HIPAA; others on enquiry</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">confirm with vendor</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">LGBTQIA+ inclusive design</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">MCP server for AI agents</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003; (11 tools)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Public REST API</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">via FHIR</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Webhooks (HMAC-SHA256)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Embeddable pedigree viewer</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003;</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Free tier</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&#10003; (Alpha)</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">Published pricing</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">partial ($399/mo research)</td><td class="text-center px-4 py-3 border border-gray-200 dark:border-brand-800">&mdash;</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-sm text-gray-500 dark:text-gray-400">Matrix compiled from publicly available product pages and documentation as of April 2026. "&mdash;" indicates the capability is not publicly advertised and does not necessarily mean it is absent.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">FHIR-first vs HPO-first</h2>
+
+            <p>The clearest axis of difference is integration philosophy. TrakGene's native HL7 FHIR support positions the product to fit into a FHIR-centric institutional IT estate — and for large hospitals and systems that have standardised on FHIR as their interoperability layer, that alignment is a significant advantage. Patient records, observations, and conditions flow between TrakGene and the EHR through FHIR resources, which keeps interfaces maintainable over time and reduces the bespoke glue that tends to accumulate between genetics platforms and hospital IT.</p>
+
+            <p>Phenotips emphasises HPO as its phenotype vocabulary. HPO is itself a gold-standard ontology for rare disease phenotyping; its role in Phenotips is not as an interoperability layer but as the diagnostic scaffolding that makes phenotype-to-gene suggestion possible. The two products are not competing on the same axis here: TrakGene's FHIR is about moving data in and out of other systems; Phenotips's HPO is about what the system knows and how it reasons.</p>
+
+            <p>A FHIR-heavy hospital IT team will nod when TrakGene is mentioned. A rare disease diagnostic service will nod when Phenotips is mentioned. Both reactions are correct.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Risk models and clinical analytics</h2>
+
+            <p>TrakGene's public material advertises a broad risk-model stack: CanRisk (incorporating BOADICEA), GAIL, and ClinVar variant context as part of a genetics-wide workflow. For services whose cancer risk decisions involve comparing results from multiple models — common in NCCN-aligned cancer genetics clinics — TrakGene gives you the models you expect to see.</p>
+
+            <p>Phenotips advertises simultaneous execution of multiple cancer risk models but does not publicly enumerate the exact set. Its intelligence is stronger on phenotype-to-gene suggestion than on publishing a canonical list of risk models.</p>
+
+            <p>Neither product is wrong to frame their analytics as they do. If cancer risk is the critical path for your service and you want specific models named and published, TrakGene's disclosure is more complete. If phenotype-driven rare disease diagnostics is the critical path, Phenotips's HPO-native approach is more aligned.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">AI, deployment, and institutional fit</h2>
+
+            <p>TrakGene advertises an AI copilot — an LLM-era assistant built into the clinical workflow. Specifics of what it does and which models back it should be confirmed with the vendor, but the mere fact of its public advertisement signals that TrakGene is moving into AI-augmented clinical workflow. Phenotips's intelligence is its phenotype-to-gene pipeline; public materials do not advertise an LLM-based clinical assistant at the same level.</p>
+
+            <p>On deployment, TrakGene supports both cloud and on-premise, which matters for institutions with strong data localisation or network egress policies. Phenotips emphasises cloud deployment.</p>
+
+            <p>On institutional fit, TrakGene's NIH/NHS/Geisinger references are exactly the customers a government health system or large US integrated delivery network might ask about. Phenotips's 60+ country footprint is the reference pattern for a globally distributed clinical network, and its advertised GDPR/DSPT/HIPAA/CE+ certification passes institutional procurement reviews in many jurisdictions.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">When to choose TrakGene</h2>
+
+            <ul>
+                <li>Your institution has standardised on HL7 FHIR and wants a genetics platform that speaks FHIR natively.</li>
+                <li>You value a clinician-built product with a customer base including NIH, NHS, and Geisinger.</li>
+                <li>Your workflow needs a published risk-model stack (CanRisk/BOADICEA, GAIL) and ClinVar variant context.</li>
+                <li>You need on-premise deployment, or the option of it, alongside cloud.</li>
+                <li>You want an AI copilot integrated into the clinical workflow today.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">When to choose Phenotips</h2>
+
+            <ul>
+                <li>Your service is phenotype-driven rare disease diagnostics and HPO capture is central.</li>
+                <li>You need a broad genomic health record platform, not just a pedigree or risk tool.</li>
+                <li>Global deployment matters and you want advertised GDPR/DSPT/HIPAA/CE+ certifications.</li>
+                <li>LGBTQIA+-inclusive design is a procurement criterion.</li>
+                <li>You are comfortable with partial public pricing ($399/month for a research tier) and an enterprise quote motion for clinic tiers.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">A third option to consider: Evagene</h2>
+
+            <p>TrakGene and Phenotips are both strong enterprise-class platforms. For services whose priorities include modern AI integration using their own LLM keys, a public REST API for custom integration, and an MCP server for AI agents, <strong>Evagene</strong> is worth evaluating alongside them.</p>
+
+            <p>Evagene is a browser-based clinical pedigree management platform with <a href="pedigree-drawing-software.html">gesture drawing</a>, a 180+ disease catalogue coded to ICD-10 and OMIM, integrated <a href="hereditary-cancer-risk-assessment.html">BayesMendel cancer risk models</a> (BRCAPRO, MMRpro, PancPRO), <a href="mendelian-inheritance-calculator.html">Mendelian inheritance analysis</a> for AD/AR/XR patterns, karyogram viewing, and consanguinity detection via Wright's coefficient.</p>
+
+            <p>Its AI layer is bring-your-own-key: the service provides its own Anthropic Claude or OpenAI GPT credentials, encrypted at rest with Fernet, and clinical text flows directly to the model provider the service has already risk-assessed. Analysis Templates codify house style of report writing. The MCP server exposes 11 pedigree tools to Claude Desktop, Claude Code, and other MCP-compatible agents.</p>
+
+            <p>The integration surface comprises a scoped, rate-limited REST API with keys in the format <code>evg_</code> followed by 43 characters (SHA-256 hashed at rest), HMAC-SHA256-signed webhooks, and an embeddable pedigree viewer (iframe / SVG / JavaScript). Imports cover GEDCOM 5.5.1, JSON, 23andMe, XEG, and pedigree image OCR. Exports cover PNG, SVG, and PDF across 4 report types.</p>
+
+            <p>Evagene is in Alpha and free via waiting list at <a href="https://evagene.com/#waitlist">evagene.com</a>. It does not replace TrakGene's FHIR-first integration or Phenotips's HPO-first rare disease depth for institutions that need those today. It offers a credible modern alternative for services whose priorities are AI and programmatic access.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Which is better for FHIR integration, TrakGene or Phenotips?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">TrakGene advertises native HL7 FHIR as a core part of its platform. Phenotips advertises EHR integration but without the same FHIR-first framing. If your integration strategy is FHIR, TrakGene is the closer fit.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Which has stronger HPO support?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Phenotips's entire diagnostic engine is built around HPO phenotype capture and phenotype-to-gene suggestion. TrakGene supports HPO phenotyping as part of a broader clinical genetics toolkit. For HPO-first rare disease diagnostics, Phenotips is the purer fit.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Which has AI?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">TrakGene advertises an AI copilot as part of its platform. Phenotips's intelligence is its HPO-driven phenotype-to-gene suggestion pipeline rather than an LLM-based assistant.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What about cancer risk models?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">TrakGene publicly lists CanRisk, GAIL, and ClinVar. Phenotips advertises simultaneous cancer risk models but does not publish the full set. Evagene publishes BRCAPRO, MMRpro, and PancPRO explicitly.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does either have a free tier?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">TrakGene does not advertise a free tier. Phenotips's lowest published tier is $399/month for 5 users research. Evagene is free during Alpha via waiting list.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Which is easier to procure?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Both are enterprise products with demo-then-quote procurement motions. Phenotips publishes a partial price that makes initial budgeting easier; TrakGene does not publish pricing. Institutional procurement teams should request a quote from both.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="phenotips-vs-evagene.html">Phenotips vs Evagene</a></li>
+                <li><a href="trakgene-vs-evagene.html">TrakGene vs Evagene</a></li>
+                <li><a href="phenotips-vs-progeny.html">Phenotips vs Progeny</a></li>
+                <li><a href="famgenix-vs-phenotips.html">FamGenix vs Phenotips</a></li>
+                <li><a href="pedigree-drawing-software.html">Pedigree drawing software: a practical guide</a></li>
+                <li><a href="compare.html">All Evagene comparisons</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>

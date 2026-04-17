@@ -1,57 +1,152 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://evagene.com/</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://evagene.com/pedigree-drawing-software.html</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://evagene.com/hereditary-cancer-risk-assessment.html</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://evagene.com/gedcom-pedigree-software.html</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://evagene.com/clinical-genetics-pedigree-tool.html</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://evagene.com/mendelian-inheritance-calculator.html</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://evagene.com/platform.html</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://evagene.com/privacy-policy.html</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://evagene.com/llms.txt</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
+
+  <!-- Homepage -->
+  <url><loc>https://evagene.com/</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+
+  <!-- Pillar landing pages -->
+  <url><loc>https://evagene.com/pedigree-drawing-software.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://evagene.com/hereditary-cancer-risk-assessment.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://evagene.com/gedcom-pedigree-software.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://evagene.com/clinical-genetics-pedigree-tool.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://evagene.com/mendelian-inheritance-calculator.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://evagene.com/platform.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Compare and Alternatives hubs -->
+  <url><loc>https://evagene.com/compare.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://evagene.com/alternatives.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Direct competitor vs Evagene pages -->
+  <url><loc>https://evagene.com/phenotips-vs-evagene.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://evagene.com/progeny-vs-evagene.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://evagene.com/trakgene-vs-evagene.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://evagene.com/famgenix-vs-evagene.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://evagene.com/canrisk-vs-evagene.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/quickped-vs-evagene.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/pedigreetool-vs-evagene.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/genopro-vs-evagene.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/progeny-cloud-vs-evagene.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/f-tree-vs-evagene.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/conceptviz-vs-evagene.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/genodraw-vs-evagene.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/perseus-vs-evagene.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Generic diagram tool vs Evagene pages -->
+  <url><loc>https://evagene.com/smartdraw-pedigree-vs-evagene.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/creately-pedigree-vs-evagene.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/visual-paradigm-pedigree-vs-evagene.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/edraw-pedigree-vs-evagene.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/cloudairy-vs-evagene.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Cross-competitor neutral comparison pages -->
+  <url><loc>https://evagene.com/phenotips-vs-progeny.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/trakgene-vs-phenotips.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/famgenix-vs-phenotips.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/famgenix-vs-progeny.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/boadicea-vs-brcapro.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Migration guide -->
+  <url><loc>https://evagene.com/migrating-from-genial-pedigree-draw.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Alternatives-to pages -->
+  <url><loc>https://evagene.com/alternatives-to-phenotips.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/alternatives-to-progeny.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/alternatives-to-trakgene.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/alternatives-to-famgenix.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/alternatives-to-canrisk.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/alternatives-to-genopro.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/alternatives-to-pedigreetool.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/alternatives-to-quickped.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Cancer risk model calculator hubs -->
+  <url><loc>https://evagene.com/brcapro-calculator.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://evagene.com/mmrpro-calculator.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://evagene.com/pancpro-calculator.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://evagene.com/boadicea-alternative.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/tyrer-cuzick-alternative.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/lynch-syndrome-risk-calculator.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/breast-cancer-family-history-calculator.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/ovarian-cancer-family-history-calculator.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/pancreatic-cancer-family-history.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Mendelian / inheritance calculator hubs -->
+  <url><loc>https://evagene.com/autosomal-dominant-calculator.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/autosomal-recessive-calculator.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/x-linked-recessive-calculator.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/carrier-probability-calculator.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/inheritance-pattern-identifier.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/consanguinity-calculator.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Pedigree drawing / notation / tutorial pages -->
+  <url><loc>https://evagene.com/nsgc-pedigree-notation.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/iscn-pedigree-symbols.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/how-to-draw-a-pedigree-chart.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/three-generation-family-history.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/free-online-pedigree-maker.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/pedigree-chart-template.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/gender-inclusive-pedigree-drawing.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/pedigree-symbols-reference.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/pedigree-chart-examples.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/pedigree-chart-5-steps.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/standard-pedigree-nomenclature.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/pedigree-chart-biology-class.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Platform / integration / technical pages -->
+  <url><loc>https://evagene.com/hl7-fhir-pedigree.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/ehr-pedigree-integration.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/pedigree-api.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/embeddable-pedigree-viewer.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/pedigree-mcp-server.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/llm-pedigree-analysis.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/gedcom-to-pedigree-converter.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/phenopackets-pedigree.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+
+  <!-- Genealogy / consumer crossover -->
+  <url><loc>https://evagene.com/genogram-maker-online.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/medical-family-tree.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/23andme-pedigree-import.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/family-health-history-online.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/genogram-vs-pedigree.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/medical-genogram-software.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/ai-genogram-maker.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Specialised clinical pages -->
+  <url><loc>https://evagene.com/rare-disease-pedigree-software.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/hereditary-cardiac-pedigree.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/karyogram-viewer.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://evagene.com/pedigree-ocr.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://evagene.com/batch-pedigree-risk-screening.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Best-of roundups -->
+  <url><loc>https://evagene.com/best-pedigree-software-2026.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://evagene.com/best-free-pedigree-makers.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://evagene.com/best-pedigree-software-for-genetic-counsellors.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/best-pedigree-software-for-hospitals.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/best-pedigree-software-for-oncology.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/best-pedigree-software-for-research.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/best-clinical-genetics-software.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/best-hereditary-cancer-risk-tools.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Persona pages -->
+  <url><loc>https://evagene.com/for-clinical-geneticists.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/for-genetic-counsellors.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/for-oncologists.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/for-general-practitioners.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/for-research-geneticists.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/for-genetic-nurses.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/for-genealogists.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/for-educators-students.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/for-patients-families.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Country-specific -->
+  <url><loc>https://evagene.com/pedigree-software-nhs.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/pedigree-software-uk-clinicians.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Legal -->
+  <url><loc>https://evagene.com/privacy-policy.html</loc><lastmod>2026-04-17</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://evagene.com/terms.html</loc><lastmod>2026-04-17</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+
+  <!-- LLMs metadata -->
+  <url><loc>https://evagene.com/llms.txt</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.3</priority></url>
+
 </urlset>

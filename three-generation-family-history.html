@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three-Generation Family History — The Clinical Minimum Pedigree | Evagene</title>
+    <meta name="description" content="Why three generations is the minimum for clinically useful pedigree data, what to record at each generation, efficient intake approaches, and how modern software compares to paper-based family-history tools like the NHS HEE template card.">
+    <meta name="keywords" content="three generation family history, 3 generation pedigree, minimum pedigree for clinical genetics, NHS family history template, HEE family history tool, family history intake, pedigree data capture">
+
+    <meta property="og:title" content="Three-Generation Family History — The Clinical Minimum Pedigree">
+    <meta property="og:description" content="What to record at each generation and how digital tools compare with paper-based family-history workflows.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/three-generation-family-history">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Three-Generation Family History — The Clinical Minimum Pedigree">
+    <meta name="twitter:description" content="Clinical minimum three-generation pedigree.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/three-generation-family-history">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d' },
+                        accent: { 400:'#e85d6f',500:'#c8102e',600:'#a60d25' },
+                        clinical: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a' }
+                    },
+                    fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], display:['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"Article",
+        "headline":"Three-Generation Family History: The Clinical Minimum Pedigree",
+        "description":"What to record at each of three generations, efficient intake approaches, and how digital tools compare with paper-based family-history workflows.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/three-generation-family-history"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},
+            {"@type":"ListItem","position":2,"name":"Pedigree Drawing","item":"https://evagene.com/pedigree-drawing-software"},
+            {"@type":"ListItem","position":3,"name":"Three-Generation Family History","item":"https://evagene.com/three-generation-family-history"}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"Why three generations?","acceptedAnswer":{"@type":"Answer","text":"Three generations is the clinical minimum for recognising Mendelian inheritance patterns and for running empirical cancer risk models. With fewer generations, vertical transmission is difficult to establish and cancer risk estimates are less reliable. Three generations also captures enough aunts, uncles, and cousins for segregation of autosomal dominant conditions to be apparent."}},
+            {"@type":"Question","name":"What should I record in the first generation?","acceptedAnswer":{"@type":"Answer","text":"The first generation is the grandparents. Record their sex, year of birth and death (if deceased), cause of death, known medical conditions with age at diagnosis, and ancestry. Include grandparents on both sides of the family."}},
+            {"@type":"Question","name":"What should I record in the second generation?","acceptedAnswer":{"@type":"Answer","text":"The second generation is the parents, aunts, and uncles. Record the parents in full detail, and for aunts and uncles record known conditions with age at diagnosis. Include half-siblings of the parents if relevant."}},
+            {"@type":"Question","name":"What should I record in the third generation?","acceptedAnswer":{"@type":"Answer","text":"The third generation is the proband, siblings, and cousins. Record the proband in full clinical detail, siblings with their key conditions and ages, and cousins to the extent the patient knows them."}},
+            {"@type":"Question","name":"How do paper family-history cards compare with digital tools?","acceptedAnswer":{"@type":"Answer","text":"Paper cards such as the NHS HEE family-history template are useful as an aide-memoire and for pre-visit patient completion. Digital tools add structured data capture, risk calculation, inheritance pattern analysis, and interoperability, which paper cannot provide. Many services use both — paper for intake, digital for analysis and record-keeping."}},
+            {"@type":"Question","name":"Does Evagene support three-generation family history?","acceptedAnswer":{"@type":"Answer","text":"Yes. Evagene's pedigree model supports three generations or more as a default and feeds the captured data directly into inheritance pattern analysis, cancer risk models, and carrier probability calculations."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5 group">
+                <img src="logo.png" alt="Evagene logo" class="h-8 w-auto">
+                <span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="https://evagene.com/#interoperability" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Data Exchange</a>
+                <a href="https://evagene.com/#resources" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Resources</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-brand-900" aria-label="Toggle dark mode">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2">
+                <li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li><a href="pedigree-drawing-software.html" class="hover:text-brand-600 dark:hover:text-brand-300">Pedigree Drawing</a></li>
+                <li><span class="text-gray-300 dark:text-gray-600">/</span></li>
+                <li class="text-gray-700 dark:text-gray-300 font-medium">Three-Generation Family History</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Three-generation family history: the clinical minimum pedigree</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">Three generations is the default standard for clinically useful family history in genetics. This page explains why, what to record at each generation, efficient intake approaches that save clinic time, and how modern pedigree software compares with paper-based family-history cards such as the NHS HEE template.</p>
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">Written for genetic counsellors, clinical geneticists, and primary-care clinicians increasingly asked to collect initial family history as part of cancer-risk and reproductive-risk pathways.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>11 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> The clinical minimum family history in genetics is three generations: the proband's own generation, the parents and aunts/uncles, and the grandparents. Three generations supports recognition of Mendelian inheritance patterns and is the conventional input depth for cancer risk models. Record sex, year of birth, year and cause of death, known conditions with age at diagnosis, ancestry, and reproductive history on each individual. Paper aide-memoires such as the NHS HEE family-history card work well for patient-completed intake; digital pedigree software turns the captured data into structured analysis.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Why three generations</h2>
+
+            <p>Three generations is a threshold rather than a hard rule, but it is the threshold at which the pedigree starts to be informative for genetic analysis.</p>
+
+            <ul>
+                <li><strong>Inheritance pattern recognition</strong>: single-generation or two-generation pedigrees rarely show vertical transmission clearly. Dominant and recessive patterns are usually only distinguishable from three generations up.</li>
+                <li><strong>Cancer risk models</strong>: BRCAPRO, MMRpro, PancPRO, and similar tools use first-, second-, and often third-degree relatives. Two generations misses the grandparents and aunts/uncles, losing a substantial proportion of the signal.</li>
+                <li><strong>Consanguinity loops</strong>: shared ancestors typically sit two or more generations back. Shorter pedigrees miss them.</li>
+                <li><strong>Founder effects and ancestry</strong>: population-specific carrier frequencies matter only if ancestry is recorded, which usually sits at the grandparent generation.</li>
+            </ul>
+
+            <p>Extending beyond three generations improves risk-model accuracy further, particularly for sparse or cascade families. Three is the floor.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What to record at each generation</h2>
+
+            <div class="not-prose my-10 overflow-x-auto">
+                <table class="w-full text-sm border-collapse">
+                    <thead class="bg-brand-50 dark:bg-brand-900/50">
+                        <tr>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Generation</th>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Individuals</th>
+                            <th class="text-left font-semibold text-gray-900 dark:text-white px-4 py-3 border border-gray-200 dark:border-brand-800">Minimum data to capture</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 dark:text-gray-300">
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">I (grandparents)</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">4 grandparents, plus their siblings where significant</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Sex, year of birth, year and cause of death, known conditions with age at diagnosis, ancestry</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">II (parents, aunts, uncles)</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Parents and their siblings (and their partners for the children generation)</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Parents in full detail; aunts/uncles with conditions and ages</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">III (proband, siblings, cousins)</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Proband, full siblings, half-siblings, first cousins</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Full clinical detail for proband; key conditions and ages for siblings; known conditions for cousins</td></tr>
+                        <tr><td class="px-4 py-3 border border-gray-200 dark:border-brand-800 font-medium">IV (children, nieces, nephews)</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Children of proband and siblings, where present</td><td class="px-4 py-3 border border-gray-200 dark:border-brand-800">Full detail if relevant (for example, affected child as the diagnostic anchor)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">What counts as a "known condition"</h2>
+
+            <p>The conditions worth recording depend on the clinical context, but a general minimum includes:</p>
+
+            <ul>
+                <li>Cancers, with site and age at diagnosis (age at diagnosis is a critical input for hereditary cancer risk models).</li>
+                <li>Inherited conditions (any diagnosed genetic disorder).</li>
+                <li>Developmental disorders and intellectual disability.</li>
+                <li>Early-onset cardiovascular disease and sudden unexplained death (relevant for hypertrophic cardiomyopathy, long QT, familial hypercholesterolaemia).</li>
+                <li>Recurrent pregnancy loss and stillbirth.</li>
+                <li>Congenital anomalies.</li>
+                <li>Childhood deaths of unclear cause.</li>
+            </ul>
+
+            <p>Age at diagnosis is more informative than simply noting the condition. A single relative with breast cancer at 70 is a different clinical signal from a single relative with breast cancer at 35.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Ancestry and consanguinity</h2>
+
+            <p>Ancestry is typically recorded at the grandparent level because carrier frequencies and founder variants are population-specific. Specific ancestry matters particularly for Ashkenazi Jewish, Mediterranean, sub-Saharan African, South Asian, and French Canadian populations among others, where specific carrier screening panels have higher yield.</p>
+
+            <p>Consanguinity — known unions between related individuals — should be asked about directly and respectfully. Many patients do not volunteer the information without prompting. Record both known consanguinity in the parents' generation and community endogamy in the grandparents' generation.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Efficient intake approaches</h2>
+
+            <p>Getting a full three-generation family history in a short clinical appointment is challenging. Effective approaches include:</p>
+
+            <ul>
+                <li><strong>Pre-visit patient-completed questionnaires</strong> that capture the core structure and conditions, letting the clinician focus time on clarifying and annotating.</li>
+                <li><strong>Structured intake templates</strong> (paper or digital) that remind the patient to include aunts, uncles, and cousins — often missed when the patient reports only their "close" family.</li>
+                <li><strong>Live gesture drawing during the consultation</strong> for building and correcting the pedigree in real time.</li>
+                <li><strong>Follow-up rounds</strong> for extended family history, particularly for hereditary cancer pathways where the initial pedigree may need additional affected relatives identified through subsequent discussion with the patient's family.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">NHS HEE family-history template and paper tools</h2>
+
+            <p>Paper-based family-history templates have a place in the workflow. The NHS Health Education England (HEE) family-history template card, used widely in UK primary care and genetics, is a pocket-sized aide-memoire for collecting a three-generation history. Similar cards and forms are used internationally. They are useful because:</p>
+
+            <ul>
+                <li>Patients can complete them at home, reducing clinic time.</li>
+                <li>They provide a consistent prompt for the clinician and patient.</li>
+                <li>They are low-friction and universally accessible.</li>
+            </ul>
+
+            <p>Paper templates are inherently limited. They capture unstructured free text; they do not enforce standard notation; they do not run inheritance pattern analysis or risk models; and they cannot be shared between systems without re-entry. The practical workflow combines paper intake with digital structured entry: the paper card is the patient's recall tool, and the pedigree software is the analytical and archival record.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Common gaps in three-generation histories</h2>
+
+            <p>Common omissions worth checking for:</p>
+
+            <ul>
+                <li>Aunts and uncles, particularly on the paternal side where patients often know less.</li>
+                <li>Miscarriages and terminations — frequently unreported unless directly asked.</li>
+                <li>Childhood deaths and stillbirths, sometimes not mentioned because they are "not in the family story."</li>
+                <li>Consanguinity, frequently not volunteered.</li>
+                <li>Adoptions and donor conceptions, with biological vs social ancestry.</li>
+                <li>Cancers in older generations where the primary site was unknown or mis-recalled.</li>
+            </ul>
+
+            <h2 class="text-3xl mt-16 mb-6">How Evagene supports this</h2>
+
+            <p>Evagene's pedigree model supports three generations as a default and handles extensions to four and beyond when clinically relevant. Core data — sex assigned at birth, gender identity, year of birth and death, known conditions with age at diagnosis, ancestry, consanguinity — are captured as structured fields against each individual, rather than as free text. The full three-generation structure feeds directly into:</p>
+
+            <ul>
+                <li><a href="mendelian-inheritance-calculator.html">Mendelian inheritance analysis</a> for AD, AR, XR, and other patterns.</li>
+                <li><a href="hereditary-cancer-risk-assessment.html">BRCAPRO, MMRpro, and PancPRO</a> cancer risk models.</li>
+                <li><a href="carrier-probability-calculator.html">Carrier probability calculation</a> with Bayesian updating.</li>
+                <li><a href="consanguinity-calculator.html">Consanguinity detection</a> with Wright's coefficient.</li>
+                <li>Batch risk screening across the 180+ catalogued conditions.</li>
+            </ul>
+
+            <p>Intake is supported through multiple routes: gesture drawing during consultation, GEDCOM and JSON import from other pedigree systems, 23andMe uploads for genotype-level data, and OCR from pedigree images where only a picture is available. Services that use paper intake cards continue to do so, with the resulting data captured into Evagene for structured analysis and long-term storage.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Why three generations?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">The minimum for pattern recognition and for standard cancer risk models.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What do I capture per individual?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Sex, birth year, death year and cause, conditions with age at diagnosis, ancestry, and reproductive history.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is age at diagnosis important?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes — it is a key input for age-dependent penetrance and for cancer risk models.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is paper intake still useful?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes, as an aide-memoire for patient-completed intake, feeding into digital structured capture.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What about four generations?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Improves accuracy further; capture where practical, especially for hereditary cancer pathways.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does Evagene handle three generations?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes, as the default model, with extension to deeper pedigrees when needed.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="how-to-draw-a-pedigree-chart.html">How to draw a pedigree chart</a></li>
+                <li><a href="nsgc-pedigree-notation.html">NSGC pedigree notation</a></li>
+                <li><a href="pedigree-chart-template.html">Pedigree chart template</a></li>
+                <li><a href="consanguinity-calculator.html">Consanguinity calculator</a></li>
+                <li><a href="hereditary-cancer-risk-assessment.html">Hereditary cancer risk assessment</a></li>
+                <li><a href="clinical-genetics-pedigree-tool.html">Clinical genetics pedigree tools</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Evaluate Evagene for your service</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha waiting list. No credit card, no enterprise sales cycle — free access during Alpha for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div>
+                <p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Universal data exchange. Zero installs.</p>
+            </div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white transition-colors">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white transition-colors">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white transition-colors">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a><a href="https://evagene.com/#waitlist" class="hover:text-gray-400 transition-colors">Contact</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function(){const html=document.documentElement;const t=document.getElementById('theme-toggle');const s=document.getElementById('sun-icon');const m=document.getElementById('moon-icon');function set(d){html.classList.toggle('dark',d);s.classList.toggle('hidden',!d);m.classList.toggle('hidden',d);localStorage.setItem('evagene-theme',d?'dark':'light')}const sv=localStorage.getItem('evagene-theme');if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme: dark)').matches))set(true);t.addEventListener('click',()=>set(!html.classList.contains('dark')))})();
+</script>
+</body>
+</html>
