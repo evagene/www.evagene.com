@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Germline Mosaicism Calculator — Recurrence Risk with Somatic VAF and Joint-Parent Logic (2026) | Evagene</title>
+    <meta name="description" content="Evagene calculates germline mosaicism posterior probability from pedigree structure, somatic VAF (blood/sperm sequencing), and joint-parent logic. Worked examples from Duchenne, achondroplasia, osteogenesis imperfecta, tuberous sclerosis, Dravet and Rett syndromes.">
+    <meta name="keywords" content="germline mosaicism calculator, germline mosaicism recurrence risk, gonadal mosaicism calculator, parental mosaicism posterior, somatic VAF recurrence risk, sperm VAF calculator, de novo vs germline mosaicism, Duchenne mosaicism, osteogenesis imperfecta mosaicism, achondroplasia paternal age mosaicism, tuberous sclerosis mosaicism">
+    <meta property="og:title" content="Germline Mosaicism Calculator — Recurrence Risk with Somatic VAF and Joint-Parent Logic">
+    <meta property="og:description" content="The clinical counselling problem nobody else solves well: parental germline mosaicism posterior from pedigree plus optional blood or sperm VAF.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/germline-mosaicism-calculator">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Germline Mosaicism Calculator — Evagene">
+    <meta name="twitter:description" content="Parental mosaicism posterior from pedigree structure plus optional VAF, with joint-parent logic.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/germline-mosaicism-calculator">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config={darkMode:'class',theme:{extend:{colors:{brand:{50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d'},accent:{400:'#e85d6f',500:'#c8102e',600:'#a60d25'},clinical:{50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a'}},fontFamily:{sans:['Inter','system-ui','-apple-system','sans-serif']}}}}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"Germline Mosaicism Calculator: recurrence risk from pedigree structure, somatic VAF, and joint-parent logic","description":"How Evagene computes parental germline mosaicism posterior probability and recurrence risk from the pedigree plus optional blood or sperm sequencing VAF, with worked clinical scenarios.","author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},"publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},"datePublished":"2026-04-17","dateModified":"2026-04-17","mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/germline-mosaicism-calculator"},"image":"https://evagene.com/og-image.png"}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},{"@type":"ListItem","position":2,"name":"Risk Analysis","item":"https://evagene.com/hereditary-cancer-risk-assessment"},{"@type":"ListItem","position":3,"name":"Germline Mosaicism Calculator","item":"https://evagene.com/germline-mosaicism-calculator"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+        {"@type":"Question","name":"What is germline mosaicism?","acceptedAnswer":{"@type":"Answer","text":"Germline mosaicism (also called gonadal mosaicism) is the presence of a pathogenic variant in some but not all of an individual's germline cells — eggs or sperm — without the variant being present in a clinically detectable proportion of somatic cells. A mosaic parent may be phenotypically unaffected and have a negative blood test, yet pass the variant to a substantial fraction of their children, producing an apparent 'multiple affected children from unaffected parents' pattern that has neither a recessive nor a simple de novo explanation."}},
+        {"@type":"Question","name":"When should clinicians suspect germline mosaicism?","acceptedAnswer":{"@type":"Answer","text":"Classical triggers include: two or more affected children with an autosomal dominant or X-linked dominant condition born to clinically unaffected parents with negative blood testing; a lethal de novo dominant disorder where the family wishes to consider another pregnancy; an isolated affected individual born to a parent with advanced paternal age and an AD disorder of strong paternal bias (such as FGFR3 achondroplasia). Evagene's batch risk screening flags families where the pedigree shape crosses a configurable mosaicism posterior threshold."}},
+        {"@type":"Question","name":"How does somatic VAF change the risk calculation?","acceptedAnswer":{"@type":"Answer","text":"Somatic variant allele fraction (VAF) from blood, sperm, or saliva sequencing is a direct measurement of mosaicism in that tissue. When VAF is available, recurrence risk for future pregnancies is approximately VAF × 0.5 × penetrance for autosomal dominant conditions (the parent transmits the variant in VAF-proportion of gametes, each child has a 50% chance of inheriting it, then penetrance applies). A blood VAF of 8% on a mother with two affected DMD sons yields a recurrence risk far above the de novo population rate and drives concrete prenatal testing decisions."}},
+        {"@type":"Question","name":"What is joint-parent logic?","acceptedAnswer":{"@type":"Answer","text":"When one parent is confirmed or very likely to be the mosaic source — for example by a measured sperm VAF in an achondroplasia father, or a blood VAF in a Duchenne mother — the other parent's posterior mosaicism collapses toward zero. Without joint-parent logic, tools that estimate mosaicism per parent independently tend to carry residual suspicion of both parents into counselling, which distorts recurrence-risk communication. Evagene's risk engine conditions each parent's posterior on the other parent's evidence."}},
+        {"@type":"Question","name":"How is germline mosaicism different from de novo?","acceptedAnswer":{"@type":"Answer","text":"A true de novo event occurs in a single gamete and carries effectively zero recurrence risk for future siblings of the proband. Germline mosaicism arose earlier in gonadal development and affects a measurable fraction of gametes, so recurrence risk is non-zero and can be substantial. In practice, single-proband isolated dominant disorders are overwhelmingly de novo (99%+); the question becomes important when a second affected child appears, at which point the posterior on parental germline mosaicism rises sharply."}},
+        {"@type":"Question","name":"Which disorders benefit most from mosaicism-aware counselling?","acceptedAnswer":{"@type":"Answer","text":"The textbook cases are osteogenesis imperfecta (two lethal OI neonates from unaffected parents), Duchenne muscular dystrophy (multiple affected sons of a blood-negative mother), achondroplasia (advanced-paternal-age recurrence), tuberous sclerosis (multiple affected children with variable expressivity), and the severe epileptic encephalopathies such as Dravet syndrome where SCN1A germline mosaicism has been repeatedly reported. Evagene's disease catalogue stores germline_mosaicism_rate and sex_bias per condition to parameterise each posterior correctly."}},
+        {"@type":"Question","name":"Does Evagene require sequencing data to compute mosaicism?","acceptedAnswer":{"@type":"Answer","text":"No. The posterior runs on pedigree structure alone — number of affected and unaffected children, affected sex ratios for X-linked conditions, and the disease-specific priors. Adding a measured VAF from blood, sperm, or saliva tightens the posterior, but Evagene will still return an informative estimate for the 'no VAF available' case, which is the commoner clinical reality."}}
+    ]}
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5"><img src="logo.png" alt="Evagene logo" class="h-8 w-auto"><span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span></a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="https://evagene.com/#features" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Features</a>
+                <a href="https://evagene.com/#risk-analysis" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Risk Analysis</a>
+                <a href="compare.html" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-300 rounded-lg">Compare</a>
+            </div>
+            <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2"><li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li><li><span class="text-gray-300 dark:text-gray-600">/</span></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-brand-600 dark:hover:text-brand-300">Risk Analysis</a></li><li><span class="text-gray-300 dark:text-gray-600">/</span></li><li class="text-gray-700 dark:text-gray-300 font-medium">Germline Mosaicism Calculator</li></ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header class="mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Germline mosaicism calculator: recurrence risk from pedigree structure, somatic VAF, and joint-parent logic</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">The clinical counselling problem that standard Mendelian risk models do badly: two affected children from unaffected parents. Is it de novo, reduced penetrance, or parental germline mosaicism — and what is the recurrence risk for the next pregnancy?</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400"><time datetime="2026-04-17">17 April 2026</time><span class="text-gray-300 dark:text-gray-600">|</span><span>18 min read</span></div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300">
+
+            <p><strong>Short version.</strong> When an autosomal dominant or X-linked dominant condition appears in two or more children of phenotypically unaffected parents, the recurrence risk for the next pregnancy is neither the textbook "50% if inherited" nor the "zero if de novo" — it is a weighted mixture of hypotheses dominated by the probability that one parent is germline mosaic. Evagene computes this posterior directly from the pedigree structure, accepting optional somatic variant allele fraction (VAF) from blood or sperm sequencing as a sharpening input, and uses joint-parent logic so that confirming mosaicism in one parent properly exonerates the other. This page walks through the maths, the five textbook clinical scenarios (DMD, achondroplasia, osteogenesis imperfecta, tuberous sclerosis, Dravet), and the counselling implications.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Why germline mosaicism matters in clinical counselling</h2>
+
+            <p>Consider a couple referred after the loss of two consecutive pregnancies to perinatal-lethal osteogenesis imperfecta type II. Both parents are clinically unaffected, both have negative blood sequencing for <em>COL1A1</em> and <em>COL1A2</em>. The standard textbook answers fail here. It is not autosomal recessive OI: two de novo events in the same family would be astronomically unlikely. It is not a straightforward de novo dominant either, because the recurrence in a second pregnancy rules that out. What remains is parental germline mosaicism — one parent carrying the variant in a fraction of their gametes but not at detectable levels in their somatic cells.</p>
+
+            <p>This is not a rare edge case. It is the single most important reason a paediatric geneticist ever quotes "higher than de novo but lower than 50%" recurrence. Getting the number right matters because the counselling decision it drives — whether to pursue preimplantation genetic testing, invasive prenatal testing, or attempt another natural pregnancy — is a major life decision for the family. Quoting "zero because it was de novo" will be wrong often enough to cause harm; quoting "50% because someone must be a carrier" will be wrong too, usually in the direction of excessive anxiety and unwarranted invasive testing.</p>
+
+            <p>Traditional Mendelian risk calculators do not solve this problem. BRCAPRO, MMRpro, PancPRO are Bayesian models for specific cancer risk genes; they do not model germline mosaicism. A generic autosomal dominant inheritance calculator assumes heterozygous or homozygous parents, not mosaic parents. The result in practice is that germline mosaicism posterior reasoning is done on the back of the clinician's envelope — sometimes very well, often not. Evagene's contribution is to put the calculation on the same canvas as the pedigree, parameterised by the disease catalogue, and offered automatically whenever the pedigree pattern warrants it.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">The model: what Evagene actually computes</h2>
+
+            <p>Given a pedigree with an affected proband plus zero or more affected and unaffected siblings, two clinically unaffected parents, and a disease catalogue entry specifying <code>inheritance_pattern</code>, <code>penetrance</code>, <code>de_novo_rate</code>, <code>germline_mosaicism_rate</code>, and <code>germline_mosaicism_sex_bias</code>, Evagene computes:</p>
+
+            <ul>
+                <li><strong>Posterior P(mother mosaic)</strong> — probability that the mother's germline carries the variant in some fraction <em>f</em></li>
+                <li><strong>Posterior P(father mosaic)</strong> — likewise</li>
+                <li><strong>Posterior distribution over mosaic fraction <em>f</em></strong> — where a run of affected children pushes the posterior toward higher <em>f</em> values</li>
+                <li><strong>Posterior P(true de novo)</strong> — variant arose in a single gamete, now present in the proband only</li>
+                <li><strong>Posterior P(inherited with reduced penetrance)</strong> — one parent silently heterozygous</li>
+                <li><strong>Recurrence risk for the next pregnancy</strong> — integrated across the above hypotheses</li>
+            </ul>
+
+            <p>Each hypothesis starts from a prior set by the disease-catalogue parameters. For an AD disorder with <code>de_novo_rate = 0.8</code> and <code>germline_mosaicism_rate = 0.002</code>, the priors for an isolated proband with unaffected parents are dominated by de novo. The likelihood of the observed pedigree under each hypothesis is then computed: a second affected child is a very low-likelihood event under the true de novo hypothesis (requires a second independent mutation, probability on the order of the per-gene mutation rate squared), but a plausible event under the germline mosaicism hypothesis (mosaic fraction <em>f</em> squared, times 0.5 squared). The posterior redistributes sharply toward mosaicism after the second affected child, and even more sharply after the third.</p>
+
+            <p>When somatic VAF is available, it enters as a direct likelihood on the mosaic fraction. A measured blood VAF of 8% in the mother of two affected DMD sons pins the mosaic-fraction posterior near 8% and makes the "mother mosaic" posterior numerically indistinguishable from 1.0 — at which point the "father mosaic" and "both mosaic" posteriors collapse to near zero under joint-parent logic.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Scenario 1: Duchenne muscular dystrophy with maternal blood VAF</h2>
+
+            <p>A clinically unaffected mother has two affected sons and one unaffected daughter. Deep-coverage sequencing of maternal blood detects the family's <em>DMD</em> variant at 8% VAF. The pedigree looks like this:</p>
+
+            <img src="images/pedigrees/duchenne_md_germline_mosaicism.png" alt="Pedigree showing Duchenne muscular dystrophy with maternal germline mosaicism — unaffected parents, two affected sons, one unaffected daughter, maternal blood variant allele fraction 8 percent" class="rounded-xl shadow-lg my-8 w-full">
+
+            <p>The maternal blood VAF of 8% anchors the posterior at near-certainty that the mother is germline mosaic with mosaic fraction ~8%. For an X-linked recessive condition, sibling recurrence risk for male offspring is approximately <em>f</em> × 0.5 × 1 (penetrance in hemizygous males) = ~4%, and for female offspring the risk of being a carrier is similarly ~4%. Male recurrence is well above the population <em>DMD</em> de novo rate of approximately 1 in 3,500 boys, but well below the 50% that would apply if the mother were confirmed heterozygous.</p>
+
+            <p>Counselling implications: prenatal testing is reasonable in all future pregnancies; preimplantation genetic testing is a sensible option for families pursuing further children; the unaffected daughter's carrier risk is ~4% and she should be offered testing before her own reproductive decisions. The <a href="duchenne-muscular-dystrophy-pedigree.html">Duchenne muscular dystrophy pedigree guide</a> expands on the full workflow.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Scenario 2: Achondroplasia with measured sperm VAF and advanced paternal age</h2>
+
+            <p>An advanced-paternal-age father has one affected and one unaffected child with achondroplasia. Sperm VAF for the canonical <em>FGFR3</em> c.1138G&gt;A variant is measured at 12%. The clinical question is whether the mother carries any residual risk and what the recurrence risk is for another pregnancy.</p>
+
+            <img src="images/pedigrees/achondroplasia_paternal_mosaicism.png" alt="Pedigree showing achondroplasia from advanced-paternal-age father with measured sperm variant allele fraction of 12 percent — one affected and one unaffected child" class="rounded-xl shadow-lg my-8 w-full">
+
+            <p>The 12% sperm VAF places the paternal mosaic posterior near 0.998. This is the kind of case where joint-parent logic matters most: without it, the maternal posterior would carry a small residual of co-suspicion because "a parent mosaic" was the best explanation of the family pattern even before the VAF test was run. With joint-parent logic, the maternal posterior collapses to near zero once the father's mosaicism is empirically confirmed. Mother is exonerated.</p>
+
+            <p>Recurrence risk for the next pregnancy is approximately sperm VAF × 0.5 × penetrance = 0.12 × 0.5 × 0.99 ≈ 6%. <em>FGFR3</em> achondroplasia is the canonical paternal-age-effect disorder: the variant arises in spermatogonial stem cells that selectively expand, and sperm VAF rises with paternal age. See our <a href="achondroplasia-pedigree.html">achondroplasia pedigree guide</a> for the full clinical picture.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Scenario 3: Osteogenesis imperfecta, two lethal neonates, no VAF</h2>
+
+            <p>Two perinatal-lethal OI neonates from clinically unaffected parents with negative blood sequencing. A current pregnancy is underway. No VAF measurement is available.</p>
+
+            <img src="images/pedigrees/osteogenesis_imperfecta_germline_mosaicism.png" alt="Pedigree showing two lethal osteogenesis imperfecta neonates from unaffected parents, with a current pregnancy — the classic germline mosaicism counselling case" class="rounded-xl shadow-lg my-8 w-full">
+
+            <p>Without VAF data, the calculation runs on pedigree structure alone. The disease-catalogue prior sets <code>de_novo_rate</code> ≈ 0.8 for perinatal-lethal OI type II and <code>germline_mosaicism_rate</code> ≈ 0.002. After two affected neonates, these priors are transformed dramatically: the true-de-novo hypothesis drops to the per-gene mutation-rate-squared order (effectively zero), and both parents' mosaic posteriors rise to approximately 99% each. Which parent is actually mosaic cannot be distinguished without gamete VAF. Recurrence risk for the current pregnancy integrates over both hypotheses and lands at approximately 13% — the classic number quoted in the OI counselling literature.</p>
+
+            <p>This is the single most important case for mosaicism-aware counselling. Without it, a clinician might tell the parents that the first lethal OI was "a de novo tragedy, unlikely to recur" — only for a second lethal pregnancy to reveal that the risk was always ~13%, not ~0%. The counselling failure is avoided by computing the mosaicism posterior at the <em>first</em> affected pregnancy, acknowledging that the number is small then (the prior is dominated by de novo), but logging it and being ready to update sharply at a second pregnancy. See the <a href="osteogenesis-imperfecta-pedigree.html">osteogenesis imperfecta pedigree guide</a>.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Scenario 4: Tuberous sclerosis, three affected children, no VAF</h2>
+
+            <p>Three of three children affected with tuberous sclerosis from clinically unaffected parents. No VAF data.</p>
+
+            <img src="images/pedigrees/tuberous_sclerosis_three_affected.png" alt="Pedigree showing tuberous sclerosis in three of three children of unaffected parents — mosaicism versus inherited reduced-penetrance posterior distribution" class="rounded-xl shadow-lg my-8 w-full">
+
+            <p>Three-of-three is a different arithmetic from two-of-two. Under the true-de-novo hypothesis, three independent events is essentially impossible. Under the mosaicism hypothesis, the likelihood of three affected children given mosaic fraction <em>f</em> is proportional to <em>f</em>³, which concentrates the posterior mosaic fraction on high values (> 30%). Under the inherited-with-reduced-penetrance hypothesis, TSC's known variable expressivity makes a silent heterozygous parent plausible if penetrance can be as low as ~0.5. The posterior splits roughly: mosaic ~48%, inherited reduced penetrance ~52%, with recurrence risk for a fourth pregnancy approximately 35%.</p>
+
+            <p>Note what the model is <em>not</em> doing: it is not collapsing to the mosaicism hypothesis just because the clinician thought of it. The reduced-penetrance hypothesis is a legitimate competitor when the disease catalogue admits it. The counselling message — "recurrence risk around 35%, testing the proband's variant directly in parental tissues is the most informative next step" — is the right message regardless of which of the two hypotheses is dominant. See the <a href="tuberous-sclerosis-pedigree.html">tuberous sclerosis pedigree guide</a>.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Scenario 5: Dravet syndrome, isolated proband, no recurrence</h2>
+
+            <p>An isolated Dravet syndrome proband with a confirmed de novo <em>SCN1A</em> pathogenic variant, two clinically unaffected siblings, unaffected parents. No VAF data. This is the <em>far more common</em> scenario, and the one where mosaicism-aware counselling matters in the other direction.</p>
+
+            <p>The disease catalogue prior for Dravet gives <code>de_novo_rate</code> ≈ 0.9 and <code>germline_mosaicism_rate</code> ≈ 0.07. With only one affected child and two unaffected siblings, the posterior stays dominated by true de novo: the "both siblings could have been unaffected by chance" likelihood is high under de novo (unity) and modest under low-fraction mosaicism (each unaffected sibling is unlikely under mosaic transmission). The calculation lands at approximately 99.9% de novo, residual recurrence risk less than 1%.</p>
+
+            <p>The correct counselling message here is: "This is overwhelmingly likely to be de novo. The residual recurrence risk is under 1%, dominated by the small but non-zero possibility of parental germline mosaicism for which we cannot rule out by negative blood sequencing. For reassurance, sperm VAF testing is available and would reduce the residual further; most families do not pursue it." The <a href="dravet-syndrome-pedigree.html">Dravet syndrome pedigree guide</a> walks the full pattern.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Scenario 6: Rett syndrome — the other isolated-proband case</h2>
+
+            <p>An isolated female proband with a de novo <em>MECP2</em> variant. Unaffected siblings, unaffected parents. Rett syndrome is X-linked dominant with strong female bias (males usually lethal in utero or very severe). Catalogue priors: <code>de_novo_rate</code> ≈ 0.99, <code>germline_mosaicism_rate</code> ≈ 0.005, paternal bias.</p>
+
+            <p>Rett is the inverse of Dravet — higher de novo rate, lower mosaicism rate, and a pronounced paternal origin pattern where the variant arises in the father's sperm. Posterior: ~100% de novo, recurrence ~0 for future pregnancies (mothers can have additional affected children only via the rare maternal germline mosaicism, and fathers do not normally transmit because the paternal new mutation is a one-off). Counselling reassurance is very strong. See the <a href="rett-syndrome-pedigree.html">Rett syndrome pedigree guide</a>.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Somatic VAF as a clinical input</h2>
+
+            <p>Somatic variant allele fraction from blood, saliva, sperm, buccal swab, or solid tissue sequencing is increasingly available as testing depth increases. Evagene accepts VAF annotations on any individual in the pedigree, tagged to the tissue of origin and the specific test. The calculator uses VAF in two ways:</p>
+
+            <ul>
+                <li><strong>As direct evidence of mosaicism.</strong> A positive VAF in a phenotypically unaffected parent is direct confirmation of mosaicism in that tissue. Sperm VAF is the gold standard for paternal germline mosaicism; blood VAF is a lower-bound estimate for maternal germline mosaicism (germline and blood lineages diverge early in embryogenesis, so blood VAF may under-represent germline fraction).</li>
+                <li><strong>As a recurrence-risk anchor.</strong> For AD disorders, recurrence risk ≈ VAF × 0.5 × penetrance once the mosaic parent is identified. For XLR disorders, the maternal-mosaic contribution to male recurrence is similarly VAF × 0.5 × 1.</li>
+            </ul>
+
+            <p>Absence of VAF data does not paralyse the calculation — the prior plus pedigree likelihood produces an informative posterior — but adding VAF meaningfully sharpens it, especially in families where a second affected pregnancy has raised the mosaicism posterior to ambiguous levels.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Joint-parent logic: why it matters</h2>
+
+            <p>Naive implementations estimate each parent's mosaic posterior independently from the same pedigree evidence and present both numbers to the clinician. This is statistically incorrect: the events "mother is mosaic" and "father is mosaic" are mutually exclusive in almost all realistic scenarios, so finding one of them to be very likely should push the other toward zero, not leave both at ~99%.</p>
+
+            <p>Joint-parent logic in Evagene models the hypotheses as a mutually exclusive set: {mother mosaic, father mosaic, inherited with reduced penetrance, true de novo, technical artefact}. The posterior over this set sums to 1. Any evidence that raises one hypothesis (a positive paternal sperm VAF, a maternal blood VAF, a historical family-history clue) properly lowers the others. The clinical benefit is clean counselling: "father confirmed mosaic, mother's risk of being mosaic is now effectively zero, recurrence risk comes solely from paternal gamete VAF."</p>
+
+            <h2 class="text-3xl mt-16 mb-6">Using the calculator in Evagene</h2>
+
+            <p>The mosaicism posterior is not a separate calculator — it is integrated into the pedigree risk engine. Construct the pedigree on the canvas, annotate affected status and age of onset, assign the disease from the catalogue (<code>de_novo_rate</code> and <code>germline_mosaicism_rate</code> are already populated), and optionally add VAF measurements on any individual's sequencing record. Running risk analysis produces the mosaicism posterior alongside carrier probabilities and future-risk estimates, with recurrence risk for the next pregnancy as a headline output. The AI interpretation engine summarises the finding in narrative form for clinical letters.</p>
+
+            <p>Evagene's <a href="batch-pedigree-risk-screening.html">batch risk screening</a> flags families whose pedigree structure crosses a configurable mosaicism posterior threshold — useful in large clinical services that want to surface mosaicism candidates automatically from the cohort rather than catching them case by case. The <a href="pedigree-mcp-server.html">MCP server</a> exposes the mosaicism calculation as a tool so an AI agent can be asked "what is the recurrence risk for the next pregnancy in this family" from inside Claude Desktop or Claude Code.</p>
+
+            <h2 class="text-3xl mt-16 mb-6">What competitors do (and don't)</h2>
+
+            <p>As of April 2026, none of the major clinical pedigree platforms advertises a germline mosaicism posterior calculation on their public marketing pages. Phenotips, Progeny, TrakGene, FamGenix and CanRisk describe cancer risk models and family-history capture; none enumerate mosaicism as a calculated output. This is not a claim that those tools <em>cannot</em> do mosaicism reasoning — enterprise features behind sales may include it — but there is no public feature page for it. <a href="phenotips-vs-evagene.html">Phenotips vs Evagene</a>, <a href="progeny-vs-evagene.html">Progeny vs Evagene</a>, <a href="trakgene-vs-evagene.html">TrakGene vs Evagene</a>, and <a href="famgenix-vs-evagene.html">FamGenix vs Evagene</a> list mosaicism posterior calculation among Evagene's differentiated capabilities.</p>
+
+            <p>The BayesMendel models (BRCAPRO, MMRpro, PancPRO) are carrier-probability models for specific cancer genes and do not model germline mosaicism. CanRisk / BOADICEA is a breast/ovarian/prostate risk model and, similarly, is not a mosaicism calculator. For the dominant and X-linked-dominant non-cancer disorders where mosaicism is clinically dominant — OI, DMD, achondroplasia, TSC, Dravet, Rett — no published web calculator we are aware of currently fills this gap.</p>
+
+            <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-8 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is germline mosaicism?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">The presence of a pathogenic variant in some but not all of an individual's germline cells, without being detectable in clinically routine somatic tissue. A mosaic parent is phenotypically unaffected and blood-negative but can transmit the variant to a substantial fraction of offspring.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">When should germline mosaicism be suspected?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Two or more affected children born to unaffected parents with an AD or X-linked dominant condition; a family considering another pregnancy after a de novo lethal disorder; advanced paternal age with an AD condition of strong paternal mutational bias.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How does somatic VAF change the risk calculation?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">A measured VAF from blood or sperm pins the mosaic fraction posterior and makes recurrence risk approximately VAF × 0.5 × penetrance for AD disorders.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is joint-parent logic?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">When one parent is confirmed mosaic, the other's posterior collapses toward zero. Without this logic, both parents carry residual co-suspicion and counselling is distorted.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How is germline mosaicism different from de novo?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">True de novo affects a single gamete only, carrying near-zero recurrence risk. Germline mosaicism affects a measurable fraction of gametes, carrying non-zero recurrence risk.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Which disorders benefit most from this calculator?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Osteogenesis imperfecta (type II), Duchenne muscular dystrophy, achondroplasia, tuberous sclerosis, Dravet syndrome (SCN1A), Rett syndrome (MECP2), neurofibromatosis type 1, Cornelia de Lange.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does Evagene require VAF data?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">No. Posteriors run on pedigree structure and catalogue priors alone. Adding VAF sharpens the estimate but is not required.</p></div>
+            </div>
+
+            <h2 class="text-3xl mt-16 mb-6">Related reading</h2>
+
+            <ul>
+                <li><a href="duchenne-muscular-dystrophy-pedigree.html">Duchenne muscular dystrophy pedigree guide</a></li>
+                <li><a href="achondroplasia-pedigree.html">Achondroplasia pedigree guide</a></li>
+                <li><a href="osteogenesis-imperfecta-pedigree.html">Osteogenesis imperfecta pedigree guide</a></li>
+                <li><a href="tuberous-sclerosis-pedigree.html">Tuberous sclerosis pedigree guide</a></li>
+                <li><a href="dravet-syndrome-pedigree.html">Dravet syndrome pedigree guide</a></li>
+                <li><a href="rett-syndrome-pedigree.html">Rett syndrome pedigree guide</a></li>
+                <li><a href="autosomal-dominant-calculator.html">Autosomal dominant inheritance calculator</a></li>
+                <li><a href="x-linked-recessive-calculator.html">X-linked recessive calculator</a></li>
+                <li><a href="inheritance-pattern-identifier.html">Inheritance pattern identifier</a></li>
+                <li><a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculator</a></li>
+                <li><a href="rare-disease-pedigree-software.html">Rare disease pedigree software</a></li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Run germline mosaicism posterior on your own pedigree</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Evagene integrates the mosaicism posterior with BayesMendel risk models, AI interpretation, and full pedigree management on a single browser-based canvas. Free during Alpha.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40">Join the Alpha Waiting List
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2"><div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div><p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine. Standard notation. Integrated BayesMendel risk models. Germline mosaicism posterior. Universal data exchange.</p></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white">Data Exchange</a></li><li><a href="https://evagene.com/#resources" class="hover:text-white">Resources</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white">Compare</a></li><li><a href="alternatives.html" class="hover:text-white">Alternatives</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400">Terms of Service</a></div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

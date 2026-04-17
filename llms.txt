@@ -20,7 +20,7 @@ Evagene is a web-based pedigree management system for clinical genetics, oncolog
 - Run Mendelian inheritance risk models: autosomal dominant, autosomal recessive, X-linked recessive
 - AI-powered clinical interpretation: generate structured reports covering key findings, family implications, data gaps, and screening recommendations
 - Auto-generate pedigree description reports in structured English
-- Catalogue of 180+ genetic diseases with ICD-10 codes, OMIM IDs, and inheritance parameters
+- Catalogue of 200+ genetic diseases with ICD-10 codes, OMIM IDs, and inheritance parameters
 - Disease management dashboard with search, taxonomy views, presets, and custom colours
 - 55+ allergies and 50+ traits with genetic marker associations
 - Blood type (ABO, Rh) and secretor status inference from 23andMe SNP markers
@@ -52,7 +52,7 @@ Evagene is a web-based pedigree management system for clinical genetics, oncolog
 Comprehensive documentation is available at https://evagene.net/help covering:
 - Introductory, intermediate, and advanced genetics guides
 - Role-specific workflow guides for 8 professional groups
-- 180+ individual disease guides
+- 200+ individual disease guides
 - Risk model documentation (BRCAPRO, MMRpro, PancPRO, Mendelian models)
 - Disease, allergy, trait, clinical test, and intervention catalogues
 - Keyboard shortcut reference
@@ -107,6 +107,16 @@ Honest side-by-side and alternatives guides for every major clinical pedigree pl
 - [Autosomal dominant](https://evagene.com/autosomal-dominant-calculator.html) · [Autosomal recessive](https://evagene.com/autosomal-recessive-calculator.html) · [X-linked recessive](https://evagene.com/x-linked-recessive-calculator.html)
 - [Carrier probability](https://evagene.com/carrier-probability-calculator.html) · [Consanguinity / Wright's coefficient](https://evagene.com/consanguinity-calculator.html)
 - [Inheritance pattern identifier](https://evagene.com/inheritance-pattern-identifier.html)
+- [Germline mosaicism calculator](https://evagene.com/germline-mosaicism-calculator.html) — parental mosaicism posterior from pedigree structure plus optional somatic VAF, with joint-parent logic
+
+## Condition-Specific Pedigree Guides
+
+- [Duchenne muscular dystrophy pedigree](https://evagene.com/duchenne-muscular-dystrophy-pedigree.html)
+- [Dravet syndrome pedigree](https://evagene.com/dravet-syndrome-pedigree.html)
+- [Rett syndrome pedigree](https://evagene.com/rett-syndrome-pedigree.html)
+- [Osteogenesis imperfecta pedigree](https://evagene.com/osteogenesis-imperfecta-pedigree.html)
+- [Achondroplasia pedigree](https://evagene.com/achondroplasia-pedigree.html)
+- [Tuberous sclerosis pedigree](https://evagene.com/tuberous-sclerosis-pedigree.html)
 
 ## For Specific Users
 

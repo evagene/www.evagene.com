@@ -45,7 +45,7 @@ Clicking any individual, relationship, or offspring opens a floating panel for d
 
 ### Disease Management
 
-Catalogue of 180+ diseases spanning oncology, cardiology, neurology, metabolic disorders, and more. A dedicated disease management dashboard lets users search, browse by taxonomy, apply quick-add presets (heritable cancers, cardiovascular), and assign custom colours. Each disease entry includes:
+Catalogue of 200+ diseases spanning oncology, cardiology, neurology, metabolic disorders, and more. A dedicated disease management dashboard lets users search, browse by taxonomy, apply quick-add presets (heritable cancers, cardiovascular), and assign custom colours. Each disease entry includes:
 - ICD-10 code and OMIM ID
 - Colour coding and categorisation
 - Inheritance pattern (autosomal dominant/recessive, X-linked, mitochondrial, multifactorial)
@@ -163,7 +163,7 @@ Easy gesture-based drawing. Visual clarity with colour-coded disease sectors. 23
 GEDCOM 5.5.1 import/export for Ancestry, FamilySearch, Gramps compatibility. Rich family data capture. Multi-generation support. Twin documentation. Automatic consanguinity detection.
 
 ### Educators & Students
-220+ educational guides from introductory to advanced level. 180+ disease-specific guides. Interactive exploration. Standard notation enforcement. Risk model documentation.
+220+ educational guides from introductory to advanced level. 200+ disease-specific guides. Interactive exploration. Standard notation enforcement. Risk model documentation.
 
 ---
 
@@ -216,14 +216,14 @@ Evagene includes 220+ help guides accessible at https://evagene.net/help:
 ### Reference Documentation
 - Features & Benefits — Complete feature overview
 - Risk Models — BRCAPRO, MMRpro, PancPRO, Mendelian models, linkage analysis
-- Disease Catalogue — 180+ diseases with ICD-10, OMIM, inheritance patterns
+- Disease Catalogue — 200+ diseases with ICD-10, OMIM, inheritance patterns
 - Allergy Catalogue — 55+ allergies across 6 categories
 - Trait Catalogue — 50+ traits across 6 categories
 - Clinical Test Catalogue — Test types and reference ranges
 - Intervention Catalogue — Treatment and medication categories
 - Keyboard Shortcuts — Complete shortcut reference
 
-### Disease-Specific Guides (180+ guides)
+### Disease-Specific Guides (200+ guides)
 Individual guides for each disease in the catalogue, covering genetics, symptoms, testing, prognosis, and how to use Evagene for analysis. Diseases include:
 Achondroplasia, Alagille Syndrome, Alzheimer's Disease (familial), Angelman Syndrome, Breast Cancer (hereditary), Brugada Syndrome, Charcot-Marie-Tooth Disease, Cystic Fibrosis, Down Syndrome, Duchenne Muscular Dystrophy, Ehlers-Danlos Syndrome, Fabry Disease, Familial Adenomatous Polyposis, Familial Hypercholesterolaemia, Fragile X Syndrome, Friedreich's Ataxia, Gaucher Disease, Haemophilia A/B, Hereditary Breast and Ovarian Cancer Syndrome, Huntington's Disease, Hypertrophic Cardiomyopathy, Li-Fraumeni Syndrome, Long QT Syndrome, Lynch Syndrome, Marfan Syndrome, Multiple Endocrine Neoplasia (Type 1 & 2), Myotonic Dystrophy, Neurofibromatosis (Type 1 & 2), Noonan Syndrome, Osteogenesis Imperfecta, Phenylketonuria, Polycystic Kidney Disease, Retinoblastoma, Sickle Cell Disease, Spinal Muscular Atrophy, Tay-Sachs Disease, Thalassaemia, Tuberous Sclerosis, Turner Syndrome, Von Hippel-Lindau Syndrome, Von Willebrand Disease, Williams Syndrome, Wilson's Disease, and 140+ more.
 
@@ -232,7 +232,7 @@ Achondroplasia, Alagille Syndrome, Alzheimer's Disease (familial), Angelman Synd
 ## Frequently Asked Questions
 
 ### What is Evagene?
-Evagene is a web-based pedigree management system for clinical genetics, oncology, research, and family history. It lets users draw, annotate, and analyse family pedigrees with standard genetic notation, integrated BayesMendel risk models (BRCAPRO, MMRpro, PancPRO), Mendelian inheritance calculators, AI-powered clinical interpretation, blood type and trait inference from 23andMe SNP data, a 180+ disease catalogue, and interoperability with GEDCOM, 23andMe, and other formats.
+Evagene is a web-based pedigree management system for clinical genetics, oncology, research, and family history. It lets users draw, annotate, and analyse family pedigrees with standard genetic notation, integrated BayesMendel risk models (BRCAPRO, MMRpro, PancPRO), Mendelian inheritance calculators, AI-powered clinical interpretation, blood type and trait inference from 23andMe SNP data, a 200+ disease catalogue, and interoperability with GEDCOM, 23andMe, and other formats.
 
 ### What is BRCAPRO and how does Evagene use it?
 BRCAPRO is a Bayesian statistical model that estimates the probability of carrying a BRCA1 or BRCA2 mutation and projects future breast and ovarian cancer risk based on family history. Evagene integrates BRCAPRO via the BayesMendel R package. Users draw a family pedigree, mark cancer diagnoses with ages, and run the model directly within the application.
@@ -358,6 +358,18 @@ Evagene is compared honestly against every major clinical pedigree tool. Claims 
 - [Carrier probability calculator](https://evagene.com/carrier-probability-calculator.html)
 - [Inheritance pattern identifier](https://evagene.com/inheritance-pattern-identifier.html)
 - [Consanguinity calculator / Wright's coefficient](https://evagene.com/consanguinity-calculator.html)
+
+### Germline mosaicism and condition-specific pedigree guides
+
+Evagene computes parental germline mosaicism posterior probability from pedigree structure, with optional somatic variant allele fraction (VAF) input from blood or sperm sequencing and joint-parent logic that properly exonerates one parent when the other is confirmed mosaic. The disease catalogue stores per-condition `de_novo_rate`, `germline_mosaicism_rate`, and `germline_mosaicism_sex_bias` (paternal / maternal), which parameterise the posterior correctly for each disorder. None of the major clinical pedigree platforms advertises this calculation publicly as of April 2026.
+
+- [Germline mosaicism calculator](https://evagene.com/germline-mosaicism-calculator.html) — the core methodology page with worked scenarios (DMD, achondroplasia, osteogenesis imperfecta, tuberous sclerosis, Dravet, Rett)
+- [Duchenne muscular dystrophy pedigree](https://evagene.com/duchenne-muscular-dystrophy-pedigree.html) — X-linked recessive, maternal blood VAF paradigm
+- [Dravet syndrome pedigree](https://evagene.com/dravet-syndrome-pedigree.html) — SCN1A, autosomal dominant, 90% de novo, 7% germline mosaicism
+- [Rett syndrome pedigree](https://evagene.com/rett-syndrome-pedigree.html) — MECP2, X-linked dominant with paternal de novo bias, female-specific
+- [Osteogenesis imperfecta pedigree](https://evagene.com/osteogenesis-imperfecta-pedigree.html) — the classic two-lethal-neonates counselling case
+- [Achondroplasia pedigree](https://evagene.com/achondroplasia-pedigree.html) — FGFR3 c.1138G>A, paternal-age effect, measurable sperm VAF
+- [Tuberous sclerosis pedigree](https://evagene.com/tuberous-sclerosis-pedigree.html) — three-affected-children scenario with mosaic vs reduced-penetrance posterior split
 
 ### Pedigree notation and tutorial guides
 
