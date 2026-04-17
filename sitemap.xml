@@ -151,6 +151,9 @@
   <url><loc>https://evagene.com/pedigree-software-nhs.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://evagene.com/pedigree-software-uk-clinicians.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
+  <!-- Authority & trust -->
+  <url><loc>https://evagene.com/research-citations.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
   <!-- Legal -->
   <url><loc>https://evagene.com/privacy-policy.html</loc><lastmod>2026-04-17</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://evagene.com/terms.html</loc><lastmod>2026-04-17</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>

@@ -70,6 +70,10 @@ Evagene includes a platform layer for programmatic access and third-party integr
 
 Full platform documentation: https://evagene.net/help/platform_overview
 
+## Research & Third-Party Record
+
+- [Research & Citations](https://evagene.com/research-citations.html) — Peer-reviewed papers citing Evagene (Marfan syndrome case study, NPHP4 variant report, retinitis pigmentosa docking study, MDPI *Bioengineering* methods review recommending Evagene), with author institutions (Semmelweis University, Birjand/Kerman/Shahid Beheshti/Shahid Sadoughi Universities of Medical Sciences, University of Guilan, and others) and the U.S. Department of Veterans Affairs Technical Reference Model listing.
+
 ## Topic Guides
 
 - [Pedigree Drawing Software](https://evagene.com/pedigree-drawing-software.html) — Complete guide to pedigree drawing, standard notation, and pedigree software comparison
