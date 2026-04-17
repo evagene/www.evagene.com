@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evagene — Clinical-Grade Pedigree Management for Precision Medicine</title>
-    <meta name="description" content="Evagene is a web-based pedigree management system for clinical genetics, oncology, research, and family history. Draw, annotate, and analyse family pedigrees with integrated BRCAPRO, MMRpro, and PancPRO risk models, AI-powered clinical interpretation, blood type and trait inference from 23andMe SNP data, and a 200+ disease catalog. Standard notation. GEDCOM interoperability. Join the Alpha waiting list.">
-    <meta name="keywords" content="pedigree management software, clinical genetics tool, family pedigree analysis, BRCAPRO, genetic risk assessment, MMRpro, PancPRO, hereditary cancer risk, pedigree drawing, GEDCOM, genetic counselling software, family history tool, precision medicine, BayesMendel, linkage analysis, AI clinical interpretation, blood type genetics, trait inference, 23andMe import, karyogram, genetic risk screening, ancestry genetics, SNP analysis, carrier probability, family health history">
+    <meta name="description" content="Evagene is a web-based pedigree management system for clinical genetics, oncology, research, and family history. Draw, annotate, and analyse family pedigrees with four families of risk models: Mendelian (AD/AR/XLR), polygenic / multifactorial (liability-threshold), cancer family-history (BRCAPRO, MMRpro, PancPRO, Claus, Couch, Frank, Manchester, NICE, Amsterdam II, Bethesda, Gail, Tyrer-Cuzick), and a CanRisk / BOADICEA export bridge. AI-powered clinical interpretation, 23andMe SNP import, 220+ disease catalog. Standard notation. GEDCOM interoperability.">
+    <meta name="keywords" content="pedigree management software, clinical genetics tool, family pedigree analysis, BRCAPRO, genetic risk assessment, MMRpro, PancPRO, Claus model, Couch model, Frank model, Manchester scoring, NICE CG164, NICE NG101, Amsterdam II criteria, revised Bethesda, Gail model, Tyrer-Cuzick, CanRisk export, BOADICEA, polygenic risk, multifactorial inheritance, liability-threshold, hereditary cancer risk, pedigree drawing, GEDCOM, genetic counselling software, family history tool, precision medicine, BayesMendel, linkage analysis, AI clinical interpretation, 23andMe import, carrier probability">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Evagene — Clinical-Grade Pedigree Management for Precision Medicine">
-    <meta property="og:description" content="Draw, annotate, and analyse family pedigrees with standard genetic notation, integrated BayesMendel risk models, AI-powered clinical interpretation, and a 200+ disease catalog. Built for clinicians. Loved by families. Trusted by researchers.">
+    <meta property="og:description" content="Four families of risk models on one pedigree: Mendelian (AD/AR/XLR), polygenic / multifactorial liability-threshold, cancer family-history (BRCAPRO, MMRpro, PancPRO, Claus, Couch, Frank, Manchester, NICE, Amsterdam II, Bethesda, Gail, Tyrer-Cuzick), and CanRisk / BOADICEA export. AI interpretation, 220+ disease catalog.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://evagene.com">
     <meta property="og:image" content="https://evagene.com/og-image.png">
@@ -20,7 +20,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Evagene — Clinical-Grade Pedigree Management">
-    <meta name="twitter:description" content="Standard genetic notation, integrated BRCAPRO/MMRpro/PancPRO risk models, AI-powered clinical interpretation, 200+ disease catalog. The pedigree platform precision medicine has been waiting for.">
+    <meta name="twitter:description" content="Four families of risk models on one pedigree: Mendelian, polygenic liability-threshold, cancer family-history (BRCAPRO, MMRpro, PancPRO, Claus, Manchester, NICE, Gail, Tyrer-Cuzick), and CanRisk export. AI interpretation. 220+ diseases.">
     <meta name="twitter:image" content="https://evagene.com/og-image.png">
 
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -126,7 +126,7 @@
         "name": "Evagene",
         "url": "https://evagene.com",
         "applicationSubCategory": "Pedigree Management Software",
-        "description": "Web-based pedigree management system for clinical genetics with integrated BRCAPRO, MMRpro, and PancPRO risk models, AI-powered clinical interpretation, Mendelian inheritance calculators, blood type and trait inference from SNP data, consanguinity detection, and a 200+ disease catalog. Supports GEDCOM import/export and 23andMe data import.",
+        "description": "Web-based pedigree management system for clinical genetics with four families of risk models: Mendelian (autosomal dominant, recessive, X-linked), polygenic / oligogenic / multifactorial liability-threshold (23+ conditions), cancer family-history (BRCAPRO, MMRpro, PancPRO, Claus, Couch, Frank, Manchester, NICE CG164/NG101, Amsterdam II, revised Bethesda, Gail NCI BCRAT, Tyrer-Cuzick IBIS-style approximation), and one-click CanRisk / BOADICEA v4 pedigree export. AI-powered clinical interpretation, blood type and trait inference from SNP data, consanguinity detection, and a 220+ disease catalog. Supports GEDCOM import/export and 23andMe data import.",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Web browser (Chrome, Firefox, Safari, Edge)",
         "datePublished": "2026-04-01",
@@ -142,12 +142,24 @@
             "BRCAPRO breast and ovarian cancer risk model",
             "MMRpro Lynch syndrome risk model",
             "PancPRO pancreatic cancer risk model",
+            "Claus (CASH) lifetime breast-cancer risk",
+            "Couch BRCA1 pre-test probability",
+            "Frank/Myriad empirical BRCA1 + BRCA2 probabilities",
+            "Manchester Scoring System (Evans 2004) with 10% and 20% thresholds",
+            "NICE CG164 / NG101 familial breast cancer categorisation",
+            "Amsterdam II criteria for HNPCC / Lynch syndrome",
+            "Revised Bethesda Guidelines for MSI testing",
+            "Gail model (NCI BCRAT) 5-year and lifetime breast-cancer risk",
+            "Tyrer-Cuzick 10-year and lifetime breast-cancer risk (IBIS-style approximation, not the official IBIS binary)",
+            "CanRisk / BOADICEA v4 pedigree export for canrisk.org",
+            "Polygenic, oligogenic, and multifactorial liability-threshold recurrence-risk engine (Carter 1961, Falconer 1965, Reich/James/Morton 1972)",
+            "Empirical recurrence-risk tables for 23+ complex conditions (Smith, Carter, Harper)",
             "Mendelian inheritance calculators (autosomal dominant, autosomal recessive, X-linked)",
             "AI-powered clinical interpretation with structured reports",
             "Blood type inference from 23andMe SNP markers",
             "Trait inference from 23andMe genotype data",
             "Interactive karyogram viewer",
-            "200+ disease catalog with ICD-10 and OMIM codes",
+            "220+ disease catalog with ICD-10 and OMIM codes (including 23+ multifactorial / polygenic conditions with heritability and empirical recurrence risks)",
             "55+ allergies and 50+ traits with genetic marker associations",
             "Consanguinity detection with Wright's coefficient",
             "GEDCOM 5.5.1 import and export",
@@ -358,7 +370,7 @@
                         <span class="gradient-text">finally in your browser</span>
                     </h1>
                     <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-xl leading-relaxed">
-                        Evagene unifies pedigree drawing, clinical data modelling, Bayesian risk analysis, and AI-powered clinical interpretation in a single platform. Standard ISCN/HGNC notation. Integrated BayesMendel engine (BRCAPRO, MMRpro, PancPRO). A 200+ disease catalog with ICD-10 and OMIM codes. Blood type and trait inference from 23andMe SNP data. Zero installs.
+                        Evagene unifies pedigree drawing, clinical data modelling, four families of risk analysis, and AI-powered clinical interpretation in a single platform. Mendelian inheritance. Polygenic / multifactorial liability-threshold. Cancer family-history (BRCAPRO, MMRpro, PancPRO, plus Claus, Couch, Frank, Manchester, NICE, Amsterdam II, Bethesda, Gail, and a Tyrer-Cuzick IBIS-style approximation). CanRisk / BOADICEA export. 220+ disease catalog. 23andMe SNP import. Zero installs.
                     </p>
                 </div>
 
@@ -534,15 +546,15 @@
                 <div class="w-12 h-12 rounded-xl bg-accent-500/10 dark:bg-accent-500/20 flex items-center justify-center mb-4">
                     <svg class="w-6 h-6 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
                 </div>
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">200+ Disease Catalog</h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">Oncology, cardiology, neurology, metabolic &mdash; each entry carries ICD-10, OMIM, inheritance pattern, penetrance tables, and carrier frequencies by ancestry. Manage your collection from a dedicated dashboard with presets and custom colours.</p>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">220+ Disease Catalog</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Oncology, cardiology, neurology, metabolic, plus 23+ catalogued complex / multifactorial conditions &mdash; each entry carries ICD-10, OMIM, inheritance pattern, penetrance tables, heritability, empirical recurrence risks, and carrier frequencies by ancestry. Manage from a dedicated dashboard with presets and custom colours.</p>
             </div>
             <div class="feature-card bg-white dark:bg-brand-900/40 rounded-xl p-6 border border-gray-100 dark:border-brand-800 reveal">
                 <div class="w-12 h-12 rounded-xl bg-accent-500/10 dark:bg-accent-500/20 flex items-center justify-center mb-4">
                     <svg class="w-6 h-6 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
                 </div>
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Bayesian Risk Models</h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">BRCAPRO, MMRpro, PancPRO via the peer-reviewed BayesMendel engine. Plus autosomal dominant/recessive and X-linked Mendelian models with age-dependent penetrance.</p>
+                <p class="text-sm text-gray-600 dark:text-gray-400">BRCAPRO, MMRpro, PancPRO via BayesMendel. Claus, Couch, Frank, Manchester, NICE, Amsterdam II, Bethesda, Gail, and a Tyrer-Cuzick IBIS-style approximation alongside. Autosomal dominant/recessive and X-linked Mendelian with age-dependent penetrance. Polygenic / multifactorial liability-threshold engine covering 23+ complex conditions. One-click CanRisk export.</p>
             </div>
             <div class="feature-card bg-white dark:bg-brand-900/40 rounded-xl p-6 border border-gray-100 dark:border-brand-800 reveal" style="transition-delay:0.05s">
                 <div class="w-12 h-12 rounded-xl bg-clinical-500/10 dark:bg-clinical-500/20 flex items-center justify-center mb-4">
@@ -813,10 +825,39 @@
     <div class="absolute inset-0 bg-gradient-to-br from-brand-900 via-brand-950 to-brand-900 dark:from-brand-950 dark:via-black dark:to-brand-950"></div>
     <div class="absolute inset-0 opacity-10" aria-hidden="true"><div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-accent-500/20 to-transparent"></div></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+        <div class="text-center max-w-3xl mx-auto mb-12 reveal">
             <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-accent-500/20 text-accent-400 text-sm font-semibold rounded-full mb-4">Major Differentiator</div>
-            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Integrated BayesMendel risk analysis &mdash; no second tool needed</h2>
-            <p class="text-lg text-brand-200">The BayesMendel R engine runs as a sidecar process. Select a proband, choose a model, click <strong>Run Analysis</strong>. Carrier probabilities and age-specific risk tables appear in the same panel &mdash; no copy-paste, no data re-entry.</p>
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">One pedigree, four families of risk models</h2>
+            <p class="text-lg text-brand-200">Evagene covers Mendelian single-gene inheritance, polygenic / multifactorial recurrence risk, cancer family-history scoring, and a CanRisk / BOADICEA export bridge &mdash; all driven directly off the pedigree you just drew, with no re-entry.</p>
+        </div>
+
+        <!-- Four-family category chips -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-14 max-w-5xl mx-auto reveal">
+            <a href="#mendelian-models" class="block bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3 border border-white/10 transition-colors text-center">
+                <div class="text-accent-400 font-mono text-xs font-bold mb-1">MENDELIAN</div>
+                <div class="text-xs text-brand-200">AD &middot; AR &middot; XLR</div>
+            </a>
+            <a href="#polygenic-models" class="block bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3 border border-white/10 transition-colors text-center">
+                <div class="text-accent-400 font-mono text-xs font-bold mb-1">POLYGENIC</div>
+                <div class="text-xs text-brand-200">Liability-threshold (23+ conditions)</div>
+            </a>
+            <a href="#cancer-models" class="block bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3 border border-white/10 transition-colors text-center">
+                <div class="text-accent-400 font-mono text-xs font-bold mb-1">CANCER</div>
+                <div class="text-xs text-brand-200">BRCAPRO, MMRpro, PancPRO, Claus, Gail &hellip;</div>
+            </a>
+            <a href="#external-bridges" class="block bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3 border border-white/10 transition-colors text-center">
+                <div class="text-accent-400 font-mono text-xs font-bold mb-1">EXTERNAL BRIDGES</div>
+                <div class="text-xs text-brand-200">CanRisk / BOADICEA export</div>
+            </a>
+        </div>
+
+        <!-- ========== CANCER FAMILY-HISTORY MODELS ========== -->
+        <div id="cancer-models" class="scroll-mt-20 mb-6">
+            <div class="max-w-3xl mb-8 reveal">
+                <div class="inline-flex items-center gap-2 px-2 py-1 bg-accent-500/20 text-accent-400 text-xs font-bold rounded uppercase tracking-wider mb-3">Cancer family-history</div>
+                <h3 class="text-2xl font-bold text-white mb-3">Three Bayesian cancer models &mdash; BRCAPRO, MMRpro, PancPRO</h3>
+                <p class="text-brand-200">The BayesMendel R engine runs as a sidecar. Select a proband, choose a model, click <strong>Run Analysis</strong>. Carrier probabilities and age-specific risk tables appear in the same panel &mdash; no copy-paste, no data re-entry.</p>
+            </div>
         </div>
         <div class="grid md:grid-cols-3 gap-6 mb-12">
             <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 reveal">
@@ -864,26 +905,165 @@
             </div>
         </div>
 
+        <!-- Cancer family-history scoring models -->
+        <div class="mb-14">
+            <div class="max-w-3xl mb-6 reveal">
+                <h3 class="text-xl font-bold text-white mb-2">Nine family-history scoring models alongside BRCAPRO / MMRpro / PancPRO</h3>
+                <p class="text-brand-200 text-sm">Each answers a specific counselling question. All built in &mdash; no R sidecar required.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 reveal">
+                <div class="bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/10 transition-colors">
+                    <div class="text-accent-400 font-mono text-xs font-bold mb-1">CLAUS</div>
+                    <div class="text-sm font-semibold text-white mb-1">Lifetime breast-cancer risk</div>
+                    <p class="text-xs text-brand-300">CASH-derived lifetime risk from family history alone (Claus, Risch &amp; Thompson 1994).</p>
+                </div>
+                <div class="bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/10 transition-colors">
+                    <div class="text-accent-400 font-mono text-xs font-bold mb-1">COUCH</div>
+                    <div class="text-sm font-semibold text-white mb-1">Pre-test BRCA1 probability</div>
+                    <p class="text-xs text-brand-300">Logistic model from Couch et al. 1997 &mdash; average age at diagnosis &times; ovarian &times; Ashkenazi.</p>
+                </div>
+                <div class="bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/10 transition-colors">
+                    <div class="text-accent-400 font-mono text-xs font-bold mb-1">FRANK</div>
+                    <div class="text-sm font-semibold text-white mb-1">BRCA1 + BRCA2 empirical probability</div>
+                    <p class="text-xs text-brand-300">Myriad Genetics scenario frequencies (Frank et al. 2002).</p>
+                </div>
+                <div class="bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/10 transition-colors">
+                    <div class="text-accent-400 font-mono text-xs font-bold mb-1">MANCHESTER</div>
+                    <div class="text-sm font-semibold text-white mb-1">BRCA1 / BRCA2 test-threshold score</div>
+                    <p class="text-xs text-brand-300">Point-based BRCA1 and BRCA2 scores with 10% / 20% cut-offs (Evans et al. 2004).</p>
+                </div>
+                <div class="bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/10 transition-colors">
+                    <div class="text-accent-400 font-mono text-xs font-bold mb-1">NICE CG164 / NG101</div>
+                    <div class="text-sm font-semibold text-white mb-1">Familial BC referral category</div>
+                    <p class="text-xs text-brand-300">Near-population / moderate / high with explicit triggers and refer flag.</p>
+                </div>
+                <div class="bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/10 transition-colors">
+                    <div class="text-accent-400 font-mono text-xs font-bold mb-1">AMSTERDAM II</div>
+                    <div class="text-sm font-semibold text-white mb-1">HNPCC / Lynch-syndrome criteria</div>
+                    <p class="text-xs text-brand-300">Classical five-point rule (Vasen et al. 1999); flags pedigree-derivable criteria.</p>
+                </div>
+                <div class="bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/10 transition-colors">
+                    <div class="text-accent-400 font-mono text-xs font-bold mb-1">BETHESDA (REVISED)</div>
+                    <div class="text-sm font-semibold text-white mb-1">MSI / IHC testing trigger</div>
+                    <p class="text-xs text-brand-300">Revised Bethesda colorectal triggers (Umar et al. 2004).</p>
+                </div>
+                <div class="bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/10 transition-colors">
+                    <div class="text-accent-400 font-mono text-xs font-bold mb-1">GAIL (NCI BCRAT)</div>
+                    <div class="text-sm font-semibold text-white mb-1">5-year and lifetime BC risk</div>
+                    <p class="text-xs text-brand-300">Reproductive + family history (Gail et al. 1989, updated through 2017).</p>
+                </div>
+                <div class="bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/10 transition-colors">
+                    <div class="text-accent-400 font-mono text-xs font-bold mb-1">TYRER-CUZICK (IBIS)</div>
+                    <div class="text-sm font-semibold text-white mb-1">10-year and lifetime BC risk &mdash; approximation</div>
+                    <p class="text-xs text-brand-300">Published Tyrer/Duffy/Cuzick 2004 algorithm. Clearly labelled in-app: <strong class="text-white">approximation, not the official IBIS binary</strong>.</p>
+                </div>
+            </div>
+        </div>
+
         <!-- Mendelian models -->
-        <div class="bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10 reveal">
+        <div id="mendelian-models" class="scroll-mt-20 bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10 reveal mb-14">
+            <div class="max-w-3xl mb-6">
+                <div class="inline-flex items-center gap-2 px-2 py-1 bg-accent-500/20 text-accent-400 text-xs font-bold rounded uppercase tracking-wider mb-3">Mendelian</div>
+                <h3 class="text-xl font-bold text-white mb-2">Autosomal dominant, autosomal recessive, X-linked recessive</h3>
+                <p class="text-brand-200 text-sm">Built-in Bayesian pedigree-propagation models for every single-gene disease in the catalogue.</p>
+            </div>
             <div class="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                    <h3 class="text-xl font-bold text-white mb-3">Mendelian Inheritance Models</h3>
-                    <p class="text-brand-200 text-sm mb-4">Built-in models for autosomal dominant, autosomal recessive, and X-linked recessive. Advanced parameters:</p>
-                    <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-brand-300">
-                        <span>Age-dependent penetrance</span><span>Germline mosaicism</span><span>De novo mutation rates</span><span>Anticipation (trinucleotide)</span><span>Parent-of-origin bias</span><span>Locus heterogeneity</span><span>Linkage disequilibrium</span><span>LOD scores</span>
-                    </div>
+                <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-brand-300">
+                    <span>Age-dependent penetrance</span><span>Germline mosaicism</span><span>De novo mutation rates</span><span>Anticipation (trinucleotide)</span><span>Parent-of-origin bias</span><span>Locus heterogeneity</span><span>Linkage disequilibrium</span><span>LOD scores</span>
                 </div>
                 <div class="text-center">
                     <div class="inline-block bg-white/10 rounded-xl p-6 border border-white/10">
-                        <div class="text-4xl font-extrabold text-white mb-1">6</div><div class="text-sm text-brand-300 mb-4">Risk models</div>
-                        <div class="text-4xl font-extrabold text-white mb-1">200+</div><div class="text-sm text-brand-300 mb-4">Diseases catalogued</div>
+                        <div class="text-4xl font-extrabold text-white mb-1">15+</div><div class="text-sm text-brand-300 mb-4">Risk models + CanRisk bridge</div>
+                        <div class="text-4xl font-extrabold text-white mb-1">220+</div><div class="text-sm text-brand-300 mb-4">Diseases catalogued</div>
                         <div class="text-4xl font-extrabold text-white mb-1">4</div><div class="text-sm text-brand-300">Report types</div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="text-center mt-10">
+
+        <!-- Polygenic / multifactorial -->
+        <div id="polygenic-models" class="scroll-mt-20 bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10 reveal mb-14">
+            <div class="max-w-3xl mb-6">
+                <div class="inline-flex items-center gap-2 px-2 py-1 bg-accent-500/20 text-accent-400 text-xs font-bold rounded uppercase tracking-wider mb-3">Polygenic &middot; Oligogenic &middot; Multifactorial</div>
+                <h3 class="text-xl font-bold text-white mb-2">Liability-threshold recurrence-risk engine</h3>
+                <p class="text-brand-200 text-sm">For the common complex disorders that cluster in families but are not Mendelian. Engine based on Carter 1961, Falconer 1965, and Reich/James/Morton 1972, with empirical family-study tables (Smith, Carter, Harper) where available and a Falconer fallback from heritability and prevalence when not.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 mb-6">
+                <div>
+                    <h4 class="text-sm font-semibold text-white mb-3">Engine classifies affected relatives by degree</h4>
+                    <ul class="space-y-1.5 text-xs text-brand-300">
+                        <li>&bull; MZ twin &middot; 1st &middot; 2nd &middot; 3rd &middot; 4th degree</li>
+                        <li>&bull; Empirical recurrence-risk tables when available</li>
+                        <li>&bull; Falconer liability-threshold fallback from h&sup2; and K</li>
+                        <li>&bull; Population baseline when no affected relatives</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-white mb-3">Four classical modifiers applied</h4>
+                    <ul class="space-y-1.5 text-xs text-brand-300">
+                        <li>&bull; Severity of proband (mild / moderate / severe)</li>
+                        <li>&bull; Carter-effect sex bias (e.g. pyloric stenosis, DDH)</li>
+                        <li>&bull; Multiple affected close relatives</li>
+                        <li>&bull; Parental consanguinity: (1 + 2F&middot;h&sup2;)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bg-black/20 rounded-lg p-4 border border-white/5">
+                <div class="text-xs text-brand-300 mb-2"><strong class="text-white">23+ conditions catalogued</strong> with heritability + empirical recurrence risks</div>
+                <div class="flex flex-wrap gap-1.5 text-[11px]">
+                    <span class="px-2 py-0.5 bg-white/10 text-brand-200 rounded">Cleft lip &plusmn; palate</span>
+                    <span class="px-2 py-0.5 bg-white/10 text-brand-200 rounded">Cleft palate only</span>
+                    <span class="px-2 py-0.5 bg-white/10 text-brand-200 rounded">Hirschsprung's</span>
+                    <span class="px-2 py-0.5 bg-white/10 text-brand-200 rounded">Type 1 diabetes</span>
+                    <span class="px-2 py-0.5 bg-white/10 text-brand-200 rounded">Type 2 diabetes</span>
+                    <span class="px-2 py-0.5 bg-white/10 text-brand-200 rounded">Late-onset Alzheimer's</span>
+                    <span class="px-2 py-0.5 bg-white/10 text-brand-200 rounded">Parkinson's (idiopathic)</span>
+                    <span class="px-2 py-0.5 bg-white/10 text-brand-200 rounded">Ankylosing spondylitis</span>
+                    <span class="px-2 py-0.5 bg-white/10 text-brand-200 rounded">Schizophrenia</span>
+                    <span class="px-2 py-0.5 bg-white/10 text-brand-200 rounded">Bipolar disorder</span>
+                    <span class="px-2 py-0.5 bg-white/10 text-brand-200 rounded">Major depression</span>
+                    <span class="px-2 py-0.5 bg-white/10 text-brand-200 rounded">Epilepsy</span>
+                    <span class="px-2 py-0.5 bg-white/10 text-brand-200 rounded">Pyloric stenosis</span>
+                    <span class="px-2 py-0.5 bg-white/10 text-brand-200 rounded">Neural tube defects</span>
+                    <span class="px-2 py-0.5 bg-white/10 text-brand-200 rounded">Congenital heart disease</span>
+                    <span class="px-2 py-0.5 bg-white/10 text-brand-200 rounded">Talipes</span>
+                    <span class="px-2 py-0.5 bg-white/10 text-brand-200 rounded">DDH</span>
+                    <span class="px-2 py-0.5 bg-white/10 text-brand-200 rounded">Asthma</span>
+                    <span class="px-2 py-0.5 bg-white/10 text-brand-200 rounded">Atopic dermatitis</span>
+                    <span class="px-2 py-0.5 bg-white/10 text-brand-200 rounded">Coeliac disease</span>
+                    <span class="px-2 py-0.5 bg-white/10 text-brand-200 rounded">Essential hypertension</span>
+                    <span class="px-2 py-0.5 bg-white/10 text-brand-200 rounded">Obesity</span>
+                    <span class="px-2 py-0.5 bg-white/10 text-brand-200 rounded">Allergic rhinitis</span>
+                </div>
+                <div class="mt-3 text-[11px] text-brand-400"><a href="complex-disease-pedigree-software.html" class="underline hover:text-white">See every catalogued complex disease &rarr;</a></div>
+            </div>
+        </div>
+
+        <!-- External-tool bridges: CanRisk / BOADICEA -->
+        <div id="external-bridges" class="scroll-mt-20 bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10 reveal mb-14">
+            <div class="max-w-3xl mb-6">
+                <div class="inline-flex items-center gap-2 px-2 py-1 bg-accent-500/20 text-accent-400 text-xs font-bold rounded uppercase tracking-wider mb-3">External-tool bridge</div>
+                <h3 class="text-xl font-bold text-white mb-2">CanRisk / BOADICEA pedigree export</h3>
+                <p class="text-brand-200 text-sm">One-click download of a <code class="text-xs bg-black/30 px-1.5 py-0.5 rounded">##CanRisk 2.0</code> pedigree file (BOADICEA v4 column set). The clinician uploads it at <a href="https://www.canrisk.org" target="_blank" rel="noopener noreferrer" class="underline hover:text-white">canrisk.org</a> for the NICE-recommended multi-gene + polygenic-risk-score + mammographic-density breast- and ovarian-cancer assessment.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <h4 class="text-sm font-semibold text-white mb-2">What the export populates</h4>
+                    <ul class="space-y-1.5 text-xs text-brand-300">
+                        <li>&bull; Family pedigree with ages at diagnosis</li>
+                        <li>&bull; BRCA1, BRCA2, PALB2, ATM, CHEK2 test statuses</li>
+                        <li>&bull; Ashkenazi ancestry flag</li>
+                        <li>&bull; Reproductive and breast-health factors</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-white mb-2">Why export, not bundle</h4>
+                    <p class="text-xs text-brand-300">BOADICEA is licensed by the University of Cambridge; individual clinical use is free after registration, but third-party web-service integration requires a separate commercial licence. Evagene therefore does <strong class="text-white">not bundle BOADICEA</strong> &mdash; the export is the legally clean path to the gold-standard tool.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
             <a href="#waitlist" class="inline-flex items-center gap-2 px-7 py-3.5 bg-accent-500 hover:bg-accent-600 text-white font-semibold rounded-xl transition-all duration-200 text-base">
                 Get Early Access to Risk Analysis
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>

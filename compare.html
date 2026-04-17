@@ -67,6 +67,17 @@
         </section>
 
         <section class="mb-16">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">What distinguishes Evagene across this comparison set</h2>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">The functional distinction that shows up most often in these comparisons is breadth of risk modelling on a single pedigree. Evagene now covers four families of risk model &mdash; Mendelian single-gene, polygenic / oligogenic / multifactorial liability-threshold, cancer family-history scoring (BRCAPRO, MMRpro, PancPRO, Claus, Couch, Frank, Manchester, NICE CG164/NG101, Amsterdam II, revised Bethesda, Gail NCI BCRAT, and a Tyrer-Cuzick IBIS-style approximation), and a one-click CanRisk / BOADICEA pedigree export &mdash; from the same pedigree document with no re-keying. Among the products compared here, Phenotips, Progeny, and TrakGene focus on the clinical-record layer; FamGenix and CanRisk focus on cancer-risk scoring; QuickPed and GenoPro focus on drawing and relatedness.</p>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">Two boundaries to call out in every comparison:</p>
+            <ul class="list-disc pl-6 text-gray-700 dark:text-gray-300 space-y-1.5">
+                <li><strong>Tyrer-Cuzick</strong> is an approximation of the published 2004 algorithm, not the official IBIS Breast Cancer Risk Evaluator binary. Evagene's UI labels this explicitly.</li>
+                <li><strong>BOADICEA is not bundled</strong>. Evagene exports a <code>##CanRisk 2.0</code> pedigree file the clinician uploads at canrisk.org &mdash; the legally clean path to the University of Cambridge-licensed gold-standard tool.</li>
+            </ul>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-4">For the per-model indications, see the <a href="for-clinical-geneticists.html#decision-matrix" class="text-brand-600 dark:text-brand-400 hover:underline">decision matrix for clinical geneticists</a>. For the polygenic / multifactorial catalogue, see <a href="complex-disease-pedigree-software.html" class="text-brand-600 dark:text-brand-400 hover:underline">complex-disease pedigree software</a>. For the full release notes, see the <a href="release-2026-04-risk-expansion.html" class="text-brand-600 dark:text-brand-400 hover:underline">April 2026 risk-engine expansion</a>.</p>
+        </section>
+
+        <section class="mb-16">
             <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Direct clinical competitors</h2>
             <div class="grid md:grid-cols-2 gap-4">
                 <a href="phenotips-vs-evagene.html" class="block p-5 border border-gray-200 dark:border-brand-800 rounded-xl hover:border-brand-400 dark:hover:border-brand-500 hover:shadow-md transition"><div class="font-semibold text-gray-900 dark:text-white">Phenotips vs Evagene</div><div class="text-sm text-gray-500 dark:text-gray-400 mt-1">Enterprise HPO-driven genomic health record vs browser-first pedigree platform with BYOK AI.</div></a>

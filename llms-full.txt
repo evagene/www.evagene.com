@@ -45,11 +45,12 @@ Clicking any individual, relationship, or offspring opens a floating panel for d
 
 ### Disease Management
 
-Catalogue of 200+ diseases spanning oncology, cardiology, neurology, metabolic disorders, and more. A dedicated disease management dashboard lets users search, browse by taxonomy, apply quick-add presets (heritable cancers, cardiovascular), and assign custom colours. Each disease entry includes:
+Catalogue of 220+ diseases spanning oncology, cardiology, neurology, metabolic disorders, and 23+ multifactorial / polygenic / oligogenic complex conditions. A dedicated disease management dashboard lets users search, browse by taxonomy, apply quick-add presets (heritable cancers, cardiovascular), filter by inheritance class, and assign custom colours. Each disease entry includes:
 - ICD-10 code and OMIM ID
 - Colour coding and categorisation
-- Inheritance pattern (autosomal dominant/recessive, X-linked, mitochondrial, multifactorial)
+- Inheritance pattern (autosomal dominant/recessive, X-linked, mitochondrial, multifactorial, polygenic, oligogenic)
 - Genetic parameters: penetrance, age-dependent penetrance tables, homozygous lethality, anticipation, germline mosaicism rate, de novo rate, carrier frequencies by ancestry, biological fitness
+- For complex conditions: heritability (h²), population prevalence (K), sex-specific prevalence, severity modifiers, multi-affected relative lookup tables, and empirical recurrence-risk tables by degree of relationship
 - Marker associations for linkage analysis
 
 Users assign diseases to individuals with per-disease affection status, laterality, tumour site, tumour properties (ER/PR/HER2 status, grade, stage), and manifestation tracking with date ranges, certainty levels, and clinical test references.
@@ -78,25 +79,57 @@ Users assign diseases to individuals with per-disease affection status, laterali
 
 ### Risk Analysis
 
-Evagene provides Bayesian risk models for hereditary cancer and Mendelian disease:
+Evagene provides four families of risk model on the same pedigree document:
 
-**Cancer Risk Models (via BayesMendel R sidecar):**
+**1. Mendelian single-gene (built-in):**
+- Autosomal dominant (with reduced penetrance, age-dependent penetrance, anticipation, germline mosaicism, parent-of-origin bias, locus heterogeneity, linkage disequilibrium)
+- Autosomal recessive (with Hardy-Weinberg, genetic test adjustment, population-specific carrier frequencies)
+- X-linked recessive (with hemizygosity, mutation rates, biological fitness)
+
+**2. Polygenic / Oligogenic / Multifactorial (built-in):**
+A liability-threshold recurrence-risk engine grounded in Carter (1961), Falconer (1965), and Reich/James/Morton (1972). For each counselee the engine:
+- Classifies affected relatives by degree (MZ twin / 1st / 2nd / 3rd / 4th)
+- Uses empirical recurrence-risk tables (Smith, Carter, Harper) when available
+- Falls back to a Falconer liability-threshold calculation from heritability (h²) and prevalence (K)
+- Applies four classical counselling modifiers: severity of proband, Carter-effect sex bias, multiple affected close relatives, and parental consanguinity as (1 + 2F·h²)
+
+23+ complex conditions catalogued with heritability and empirical recurrence-risk tables: cleft lip ± palate, cleft palate only, Hirschsprung's disease (oligogenic), type 1 and type 2 diabetes, late-onset Alzheimer's, idiopathic Parkinson's, ankylosing spondylitis, schizophrenia, bipolar disorder, major depression, epilepsy, pyloric stenosis (classic Carter-effect), neural tube defects, congenital heart disease, talipes, developmental dysplasia of the hip (Carter-effect), asthma, atopic dermatitis, coeliac disease, essential hypertension, obesity, and allergic rhinitis.
+
+**3. Cancer family-history (built-in, plus BayesMendel R sidecar for BRCAPRO/MMRpro/PancPRO):**
+
+Bayesian cancer models (via BayesMendel R sidecar):
 - BRCAPRO: breast and ovarian cancer risk via BRCA1/BRCA2 carrier probability
 - MMRpro: colorectal and endometrial cancer risk (Lynch syndrome) via MLH1/MSH2/MSH6
 - PancPRO: pancreatic cancer risk
 
-**Mendelian Models (built-in):**
-- Autosomal dominant (with reduced penetrance, age-dependent penetrance, anticipation)
-- Autosomal recessive (with Hardy-Weinberg, genetic test adjustment, population-specific carrier frequencies)
-- X-linked recessive (with hemizygosity, mutation rates, biological fitness)
+Family-history scoring models (built-in, no R sidecar required):
+- Claus (CASH-derived lifetime breast-cancer risk; Claus, Risch & Thompson 1994)
+- Couch (logistic BRCA1 pre-test probability: average age × ovarian × Ashkenazi; Couch 1997)
+- Frank / Myriad (empirical BRCA1 + BRCA2 probabilities by canonical family scenario; Frank 2002)
+- Manchester Scoring System (BRCA1 and BRCA2 point totals against 10% / 20% cut-offs; Evans 2004) — widely used by NHS genetics services
+- NICE CG164 (2013) / NG101 (2018, updated 2023) familial breast cancer categorisation: near-population (<1 in 6 lifetime) / moderate (1 in 6 – 1 in 3) / high (>1 in 3) with refer-to-genetics flag and list of matched triggers
+- Amsterdam II criteria (Vasen 1999): classical five-point Lynch-syndrome family-history rule, with pedigree-derivable conditions evaluated directly
+- Revised Bethesda Guidelines (Umar 2004): MSI / IHC testing triggers for colorectal tumours
+- Gail (NCI BCRAT; Gail 1989, updated 1999 / 2007 / 2011 / 2017): 5-year and lifetime breast-cancer risk using reproductive, benign-biopsy, atypia, first-degree relatives, and race/ethnicity baselines
+- Tyrer-Cuzick (published Tyrer/Duffy/Cuzick 2004 algorithm): 10-year and lifetime breast-cancer risk including family history, menarche, menopause, parity, HRT, BMI, mammographic density (BI-RADS 1–4), atypical hyperplasia, LCIS, Ashkenazi ancestry. **Clearly labelled in-app and in reports as an approximation — not the official IBIS Breast Cancer Risk Evaluator binary, whose full coefficients are not publicly released.**
 
-Advanced features include age-dependent penetrance tables, germline mosaicism, de novo mutation rates, anticipation, parent-of-origin bias, locus heterogeneity, and linkage disequilibrium haplotyping.
+**4. External-tool bridges (pedigree export):**
 
-Results include carrier probabilities, genotype probabilities, future risk by age, per-member risk breakdown, joint outcome probabilities, LOD scores, and flanking marker information. A risk karyogram visualises elevated-risk gene loci across all chromosomes.
+CanRisk / BOADICEA v4 pedigree export: one-click download of a tab-separated file with the `##CanRisk 2.0` header, populated with pedigree structure, ages at diagnosis, BRCA1 / BRCA2 / PALB2 / ATM / CHEK2 test statuses, Ashkenazi flag, and reproductive factors. Endpoint: `GET /api/pedigrees/{id}/risk/canrisk`. **BOADICEA is not bundled — the model is licensed by the University of Cambridge; individual clinical use is free after registration, but third-party web-service integration requires a separate commercial licence. The export path is the legally clean route to the NICE-recommended gold-standard tool.** The clinician uploads the file at canrisk.org.
+
+**Reproductive / breast-health fields on Individual:**
+
+Added to support Gail, Tyrer-Cuzick, and the CanRisk export: age at menarche, age at menopause, age at first live birth, parity, cumulative hormone-therapy years, number of prior benign breast biopsies, atypical hyperplasia flag, LCIS flag, mammographic density (BI-RADS 1–4), and height/weight for BMI.
+
+**Outputs and reports:**
+
+Results include carrier probabilities, genotype probabilities, future risk by age, per-member risk breakdown, joint outcome probabilities, LOD scores, flanking marker information, recurrence risks with "1 in X" denominator, scoring thresholds met, criteria passed, and modifier breakdowns. A risk karyogram visualises elevated-risk gene loci across all chromosomes.
 
 Differential diagnosis mode analyses affected siblings from unaffected parents, generating hypotheses (reduced penetrance, gonadal mosaicism, new mutation, autosomal recessive) with posterior probabilities and weighted recurrence risks.
 
 A batch risk screening mode screens a proband across all diseases simultaneously with configurable risk thresholds and population selection (General, Ashkenazi Jewish, Italian). Four report types are generated: patient-friendly, clinical, carrier probability, and AI-powered clinical interpretation.
+
+**What Evagene does not claim:** Evagene is not FDA-cleared. Tyrer-Cuzick output is an approximation of the published 2004 algorithm, not the official IBIS binary. BOADICEA is accessed via CanRisk export, not bundled. The tools augment, not replace, the clinical geneticist.
 
 ### AI-Powered Clinical Interpretation
 
@@ -163,7 +196,7 @@ Easy gesture-based drawing. Visual clarity with colour-coded disease sectors. 23
 GEDCOM 5.5.1 import/export for Ancestry, FamilySearch, Gramps compatibility. Rich family data capture. Multi-generation support. Twin documentation. Automatic consanguinity detection.
 
 ### Educators & Students
-220+ educational guides from introductory to advanced level. 200+ disease-specific guides. Interactive exploration. Standard notation enforcement. Risk model documentation.
+240+ educational guides from introductory to advanced level. 220+ disease-specific guides (including 23+ multifactorial / polygenic / oligogenic conditions). Interactive exploration. Standard notation enforcement. Risk model documentation with canonical citations (Carter 1961, Falconer 1965, Claus 1994, Couch 1997, Frank 2002, Evans 2004, Vasen 1999, Umar 2004, Gail 1989, Tyrer/Duffy/Cuzick 2004, Antoniou 2004 / Lee 2019).
 
 ---
 

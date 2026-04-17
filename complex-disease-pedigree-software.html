@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex-Disease Pedigree Software — Polygenic, Oligogenic &amp; Multifactorial Inheritance | Evagene</title>
+    <meta name="description" content="Evagene's polygenic / oligogenic / multifactorial liability-threshold recurrence-risk engine, with 23+ catalogued complex conditions including cleft lip ± palate, Hirschsprung's disease, type 1 and 2 diabetes, late-onset Alzheimer's, idiopathic Parkinson's, schizophrenia, bipolar disorder, epilepsy, pyloric stenosis, neural tube defects, congenital heart disease, asthma, coeliac disease, essential hypertension, obesity, and more.">
+    <meta name="keywords" content="complex disease pedigree, multifactorial inheritance software, polygenic risk pedigree, oligogenic, liability-threshold model, Carter 1961, Falconer 1965, Smith Carter Harper tables, cleft lip recurrence risk, Hirschsprung pedigree, pyloric stenosis Carter effect, schizophrenia familial recurrence, type 2 diabetes family history, late-onset Alzheimer, asthma family risk, coeliac disease inheritance, neural tube defects recurrence">
+    <meta property="og:title" content="Complex-Disease Pedigree Software — Multifactorial Liability-Threshold Engine">
+    <meta property="og:description" content="Evagene's liability-threshold recurrence-risk engine with 23+ catalogued complex diseases and classical counselling modifiers (severity, Carter-effect sex bias, multiple affected relatives, parental consanguinity).">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/complex-disease-pedigree-software">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Complex-Disease Pedigree Software — Polygenic &amp; Multifactorial">
+    <meta name="twitter:description" content="Liability-threshold recurrence-risk engine covering cleft lip, Hirschsprung's, T2D, LOAD, schizophrenia, epilepsy, NTDs, asthma, coeliac, and 14+ more.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/complex-disease-pedigree-software">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config={darkMode:'class',theme:{extend:{colors:{brand:{50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d'},accent:{400:'#e85d6f',500:'#c8102e',600:'#a60d25'},clinical:{50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a'}},fontFamily:{sans:['Inter','system-ui','-apple-system','sans-serif']}}}}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"CollectionPage","name":"Complex-Disease Pedigree Software","description":"Evagene's polygenic / oligogenic / multifactorial liability-threshold recurrence-risk engine.","url":"https://evagene.com/complex-disease-pedigree-software"}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},{"@type":"ListItem","position":2,"name":"Complex Diseases","item":"https://evagene.com/complex-disease-pedigree-software"}]}
+    </script>
+    <style>
+        .disease-card[data-class="polygenic"] .class-badge { background-color: rgba(232, 93, 111, 0.12); color: #c8102e; }
+        .dark .disease-card[data-class="polygenic"] .class-badge { background-color: rgba(232, 93, 111, 0.2); color: #e85d6f; }
+        .disease-card[data-class="oligogenic"] .class-badge { background-color: rgba(59, 111, 181, 0.12); color: #264a7a; }
+        .dark .disease-card[data-class="oligogenic"] .class-badge { background-color: rgba(59, 111, 181, 0.25); color: #8aaddf; }
+        .disease-card[data-class="multifactorial"] .class-badge { background-color: rgba(34, 197, 94, 0.12); color: #16a34a; }
+        .dark .disease-card[data-class="multifactorial"] .class-badge { background-color: rgba(34, 197, 94, 0.2); color: #4ade80; }
+        .filter-btn.active { background-color: #2f5a94; color: white; border-color: #2f5a94; }
+        .dark .filter-btn.active { background-color: #3b6fb5; color: white; border-color: #3b6fb5; }
+    </style>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5"><img src="logo.png" alt="Evagene logo" class="h-8 w-auto"><span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span></a>
+            <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2"><li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li><li><span class="text-gray-300 dark:text-gray-600">/</span></li><li class="text-gray-700 dark:text-gray-300 font-medium">Complex Diseases</li></ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-clinical-50 dark:bg-clinical-500/10 text-clinical-600 dark:text-clinical-400 text-xs font-semibold tracking-wider uppercase rounded-full border border-clinical-200 dark:border-clinical-500/20 mb-4">
+                Polygenic &middot; Oligogenic &middot; Multifactorial
+            </div>
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Complex-disease pedigree software &mdash; liability-threshold recurrence risk</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">Common complex disorders cluster in families but do not follow Mendelian inheritance. Evagene ships a liability-threshold recurrence-risk engine (Carter 1961; Falconer 1965; Reich, James &amp; Morton 1972), empirical Smith / Carter / Harper recurrence-risk tables, and 23+ catalogued conditions &mdash; each with heritability, empirical recurrence risks by relationship, and a dedicated in-app help guide.</p>
+        </header>
+
+        <!-- How the engine works -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">How the engine decides the base risk</h2>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="p-5 bg-white dark:bg-brand-900/40 rounded-xl border border-gray-200 dark:border-brand-800">
+                    <div class="text-xs font-bold tracking-wider uppercase text-brand-600 dark:text-brand-300 mb-2">1</div>
+                    <h3 class="font-semibold text-gray-900 dark:text-white mb-1 text-sm">Empirical table</h3>
+                    <p class="text-xs text-gray-600 dark:text-gray-400">Smith / Carter / Harper family-study figures keyed by degree of relationship &mdash; used when available.</p>
+                </div>
+                <div class="p-5 bg-white dark:bg-brand-900/40 rounded-xl border border-gray-200 dark:border-brand-800">
+                    <div class="text-xs font-bold tracking-wider uppercase text-brand-600 dark:text-brand-300 mb-2">2</div>
+                    <h3 class="font-semibold text-gray-900 dark:text-white mb-1 text-sm">Falconer fallback</h3>
+                    <p class="text-xs text-gray-600 dark:text-gray-400">Liability-threshold calculation from heritability (h&sup2;) and prevalence (K) when no empirical table exists.</p>
+                </div>
+                <div class="p-5 bg-white dark:bg-brand-900/40 rounded-xl border border-gray-200 dark:border-brand-800">
+                    <div class="text-xs font-bold tracking-wider uppercase text-brand-600 dark:text-brand-300 mb-2">3</div>
+                    <h3 class="font-semibold text-gray-900 dark:text-white mb-1 text-sm">Population baseline</h3>
+                    <p class="text-xs text-gray-600 dark:text-gray-400">When no affected relatives are present, recurrence risk equals the population prevalence K.</p>
+                </div>
+            </div>
+
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mt-8 mb-3">Four classical modifiers applied on top</h3>
+            <div class="grid sm:grid-cols-2 gap-3 text-sm">
+                <div class="p-3 bg-gray-50 dark:bg-brand-900/30 rounded-lg border border-gray-100 dark:border-brand-800"><strong class="text-gray-900 dark:text-white">Severity of proband</strong> &mdash; bilateral vs unilateral, severity grade on the individual disease record.</div>
+                <div class="p-3 bg-gray-50 dark:bg-brand-900/30 rounded-lg border border-gray-100 dark:border-brand-800"><strong class="text-gray-900 dark:text-white">Carter-effect sex bias</strong> &mdash; e.g. pyloric stenosis M:F 5:1, DDH F:M 6:1.</div>
+                <div class="p-3 bg-gray-50 dark:bg-brand-900/30 rounded-lg border border-gray-100 dark:border-brand-800"><strong class="text-gray-900 dark:text-white">Multiple affected close relatives</strong> &mdash; lookup table or doubling-per-extra-relative, capped at 4&times;.</div>
+                <div class="p-3 bg-gray-50 dark:bg-brand-900/30 rounded-lg border border-gray-100 dark:border-brand-800"><strong class="text-gray-900 dark:text-white">Parental consanguinity</strong> &mdash; multiplier of (1 + 2F&middot;h&sup2;).</div>
+            </div>
+        </section>
+
+        <!-- Filter controls -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">The catalogued conditions</h2>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Every entry links to its in-app help page. Filter by inheritance class:</p>
+            <div id="filter-controls" class="flex flex-wrap gap-2 mb-6" role="tablist" aria-label="Filter by inheritance class">
+                <button class="filter-btn active px-4 py-2 text-sm font-semibold rounded-lg border border-gray-200 dark:border-brand-800 bg-white dark:bg-brand-900/40 text-gray-700 dark:text-gray-300 hover:border-brand-400 transition-colors" data-class="all">All (23)</button>
+                <button class="filter-btn px-4 py-2 text-sm font-semibold rounded-lg border border-gray-200 dark:border-brand-800 bg-white dark:bg-brand-900/40 text-gray-700 dark:text-gray-300 hover:border-brand-400 transition-colors" data-class="multifactorial">Multifactorial</button>
+                <button class="filter-btn px-4 py-2 text-sm font-semibold rounded-lg border border-gray-200 dark:border-brand-800 bg-white dark:bg-brand-900/40 text-gray-700 dark:text-gray-300 hover:border-brand-400 transition-colors" data-class="polygenic">Polygenic</button>
+                <button class="filter-btn px-4 py-2 text-sm font-semibold rounded-lg border border-gray-200 dark:border-brand-800 bg-white dark:bg-brand-900/40 text-gray-700 dark:text-gray-300 hover:border-brand-400 transition-colors" data-class="oligogenic">Oligogenic</button>
+            </div>
+        </section>
+
+        <!-- Disease grid -->
+        <section class="mb-12">
+            <div id="disease-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+
+                <!-- Cleft lip ± palate -->
+                <a href="https://evagene.net/help/diseases/cleft_lip_with_or_without_cleft_palate" target="_blank" rel="noopener" class="disease-card block p-4 bg-white dark:bg-brand-900/40 rounded-lg border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-500 transition" data-class="multifactorial">
+                    <div class="flex items-start justify-between mb-1"><div class="font-semibold text-gray-900 dark:text-white text-sm">Cleft lip &plusmn; palate</div><span class="class-badge text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">M</span></div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">K &asymp; 1/1,000; 1st-degree recurrence &asymp; 4%. Severity-sensitive.</div>
+                </a>
+
+                <!-- Cleft palate only -->
+                <a href="https://evagene.net/help/diseases/cleft_palate_only" target="_blank" rel="noopener" class="disease-card block p-4 bg-white dark:bg-brand-900/40 rounded-lg border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-500 transition" data-class="multifactorial">
+                    <div class="flex items-start justify-between mb-1"><div class="font-semibold text-gray-900 dark:text-white text-sm">Cleft palate only</div><span class="class-badge text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">M</span></div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">Aetiologically distinct from CL&plusmn;P; separate recurrence tables.</div>
+                </a>
+
+                <!-- Hirschsprung's disease -->
+                <a href="https://evagene.net/help/diseases/hirschsprungs_disease" target="_blank" rel="noopener" class="disease-card block p-4 bg-white dark:bg-brand-900/40 rounded-lg border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-500 transition" data-class="oligogenic">
+                    <div class="flex items-start justify-between mb-1"><div class="font-semibold text-gray-900 dark:text-white text-sm">Hirschsprung's disease</div><span class="class-badge text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">O</span></div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">RET + interacting loci; strong Carter-effect sex bias.</div>
+                </a>
+
+                <!-- Type 1 diabetes -->
+                <a href="https://evagene.net/help/diseases/type_1_diabetes_familial" target="_blank" rel="noopener" class="disease-card block p-4 bg-white dark:bg-brand-900/40 rounded-lg border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-500 transition" data-class="multifactorial">
+                    <div class="flex items-start justify-between mb-1"><div class="font-semibold text-gray-900 dark:text-white text-sm">Type 1 diabetes</div><span class="class-badge text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">M</span></div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">HLA-DR3/DR4; sibling recurrence &asymp; 6%, MZ twin &asymp; 30%.</div>
+                </a>
+
+                <!-- Type 2 diabetes -->
+                <a href="https://evagene.net/help/diseases/type_2_diabetes_familial" target="_blank" rel="noopener" class="disease-card block p-4 bg-white dark:bg-brand-900/40 rounded-lg border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-500 transition" data-class="multifactorial">
+                    <div class="flex items-start justify-between mb-1"><div class="font-semibold text-gray-900 dark:text-white text-sm">Type 2 diabetes</div><span class="class-badge text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">M</span></div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">Strong polygenic background + environment; MZ twin &asymp; 90%.</div>
+                </a>
+
+                <!-- Late-onset Alzheimer's -->
+                <a href="https://evagene.net/help/diseases/alzheimers_disease_late_onset" target="_blank" rel="noopener" class="disease-card block p-4 bg-white dark:bg-brand-900/40 rounded-lg border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-500 transition" data-class="multifactorial">
+                    <div class="flex items-start justify-between mb-1"><div class="font-semibold text-gray-900 dark:text-white text-sm">Late-onset Alzheimer's</div><span class="class-badge text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">M</span></div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">APOE &epsilon;4 a major modifier; distinguish from deterministic familial AD.</div>
+                </a>
+
+                <!-- Idiopathic Parkinson's -->
+                <a href="https://evagene.net/help/diseases/parkinsons_disease_idiopathic" target="_blank" rel="noopener" class="disease-card block p-4 bg-white dark:bg-brand-900/40 rounded-lg border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-500 transition" data-class="multifactorial">
+                    <div class="flex items-start justify-between mb-1"><div class="font-semibold text-gray-900 dark:text-white text-sm">Idiopathic Parkinson's</div><span class="class-badge text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">M</span></div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">Age-dependent. Distinguish from monogenic forms (LRRK2, PARK7, PINK1).</div>
+                </a>
+
+                <!-- Ankylosing spondylitis -->
+                <a href="https://evagene.net/help/diseases/ankylosing_spondylitis" target="_blank" rel="noopener" class="disease-card block p-4 bg-white dark:bg-brand-900/40 rounded-lg border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-500 transition" data-class="multifactorial">
+                    <div class="flex items-start justify-between mb-1"><div class="font-semibold text-gray-900 dark:text-white text-sm">Ankylosing spondylitis</div><span class="class-badge text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">M</span></div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">HLA-B27 carries most of the liability; h&sup2; &asymp; 0.9.</div>
+                </a>
+
+                <!-- Schizophrenia -->
+                <a href="https://evagene.net/help/diseases/schizophrenia_familial" target="_blank" rel="noopener" class="disease-card block p-4 bg-white dark:bg-brand-900/40 rounded-lg border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-500 transition" data-class="polygenic">
+                    <div class="flex items-start justify-between mb-1"><div class="font-semibold text-gray-900 dark:text-white text-sm">Schizophrenia</div><span class="class-badge text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">P</span></div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">Sibling &asymp; 10%, offspring of one affected &asymp; 13%; MZ twin &asymp; 50%.</div>
+                </a>
+
+                <!-- Bipolar disorder -->
+                <a href="https://evagene.net/help/diseases/bipolar_disorder_familial" target="_blank" rel="noopener" class="disease-card block p-4 bg-white dark:bg-brand-900/40 rounded-lg border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-500 transition" data-class="polygenic">
+                    <div class="flex items-start justify-between mb-1"><div class="font-semibold text-gray-900 dark:text-white text-sm">Bipolar disorder</div><span class="class-badge text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">P</span></div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">Polygenic; shared liability with schizophrenia and major depression.</div>
+                </a>
+
+                <!-- Major depression -->
+                <div class="disease-card block p-4 bg-gray-50 dark:bg-brand-900/20 rounded-lg border border-dashed border-gray-200 dark:border-brand-800" data-class="polygenic">
+                    <div class="flex items-start justify-between mb-1"><div class="font-semibold text-gray-900 dark:text-white text-sm">Major depression</div><span class="class-badge text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">P</span></div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">Catalogued with liability estimates. In-app guide: coming soon.</div>
+                </div>
+
+                <!-- Epilepsy -->
+                <a href="https://evagene.net/help/diseases/epilepsy_familial" target="_blank" rel="noopener" class="disease-card block p-4 bg-white dark:bg-brand-900/40 rounded-lg border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-500 transition" data-class="oligogenic">
+                    <div class="flex items-start justify-between mb-1"><div class="font-semibold text-gray-900 dark:text-white text-sm">Epilepsy</div><span class="class-badge text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">O</span></div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">Heterogeneous; channelopathy / oligogenic aetiology mixed with common polygenic risk.</div>
+                </a>
+
+                <!-- Pyloric stenosis -->
+                <a href="https://evagene.net/help/diseases/pyloric_stenosis" target="_blank" rel="noopener" class="disease-card block p-4 bg-white dark:bg-brand-900/40 rounded-lg border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-500 transition" data-class="multifactorial">
+                    <div class="flex items-start justify-between mb-1"><div class="font-semibold text-gray-900 dark:text-white text-sm">Pyloric stenosis</div><span class="class-badge text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">M</span></div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">The classical Carter-effect disorder (M:F &asymp; 5:1); mothers of affected girls have higher liability.</div>
+                </a>
+
+                <!-- Neural tube defects -->
+                <a href="https://evagene.net/help/diseases/neural_tube_defects" target="_blank" rel="noopener" class="disease-card block p-4 bg-white dark:bg-brand-900/40 rounded-lg border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-500 transition" data-class="multifactorial">
+                    <div class="flex items-start justify-between mb-1"><div class="font-semibold text-gray-900 dark:text-white text-sm">Neural tube defects</div><span class="class-badge text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">M</span></div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">Folate a major environmental modifier; sibling recurrence &asymp; 2&ndash;5%.</div>
+                </a>
+
+                <!-- Congenital heart disease -->
+                <a href="https://evagene.net/help/diseases/congenital_heart_disease" target="_blank" rel="noopener" class="disease-card block p-4 bg-white dark:bg-brand-900/40 rounded-lg border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-500 transition" data-class="multifactorial">
+                    <div class="flex items-start justify-between mb-1"><div class="font-semibold text-gray-900 dark:text-white text-sm">Congenital heart disease</div><span class="class-badge text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">M</span></div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">Broad umbrella; if syndromic (e.g. cleft + CHD &rarr; 22q11.2), use Mendelian / chromosomal models.</div>
+                </a>
+
+                <!-- Talipes -->
+                <a href="https://evagene.net/help/diseases/talipes_equinovarus" target="_blank" rel="noopener" class="disease-card block p-4 bg-white dark:bg-brand-900/40 rounded-lg border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-500 transition" data-class="multifactorial">
+                    <div class="flex items-start justify-between mb-1"><div class="font-semibold text-gray-900 dark:text-white text-sm">Talipes equinovarus</div><span class="class-badge text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">M</span></div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">Sex-biased (M predominant); classical multifactorial recurrence.</div>
+                </a>
+
+                <!-- DDH -->
+                <a href="https://evagene.net/help/diseases/developmental_dysplasia_of_the_hip" target="_blank" rel="noopener" class="disease-card block p-4 bg-white dark:bg-brand-900/40 rounded-lg border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-500 transition" data-class="multifactorial">
+                    <div class="flex items-start justify-between mb-1"><div class="font-semibold text-gray-900 dark:text-white text-sm">Developmental dysplasia of the hip</div><span class="class-badge text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">M</span></div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">F:M &asymp; 6:1 Carter-effect; breech + family history triggers screening.</div>
+                </a>
+
+                <!-- Asthma -->
+                <a href="https://evagene.net/help/diseases/asthma" target="_blank" rel="noopener" class="disease-card block p-4 bg-white dark:bg-brand-900/40 rounded-lg border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-500 transition" data-class="multifactorial">
+                    <div class="flex items-start justify-between mb-1"><div class="font-semibold text-gray-900 dark:text-white text-sm">Asthma</div><span class="class-badge text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">M</span></div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">Shared atopic liability with eczema, allergic rhinitis; strong environmental component.</div>
+                </a>
+
+                <!-- Atopic dermatitis -->
+                <a href="https://evagene.net/help/diseases/atopic_dermatitis" target="_blank" rel="noopener" class="disease-card block p-4 bg-white dark:bg-brand-900/40 rounded-lg border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-500 transition" data-class="multifactorial">
+                    <div class="flex items-start justify-between mb-1"><div class="font-semibold text-gray-900 dark:text-white text-sm">Atopic dermatitis</div><span class="class-badge text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">M</span></div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">Filaggrin (FLG) loss-of-function a major locus; polygenic atopic background.</div>
+                </a>
+
+                <!-- Coeliac disease -->
+                <a href="https://evagene.net/help/diseases/coeliac_disease" target="_blank" rel="noopener" class="disease-card block p-4 bg-white dark:bg-brand-900/40 rounded-lg border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-500 transition" data-class="multifactorial">
+                    <div class="flex items-start justify-between mb-1"><div class="font-semibold text-gray-900 dark:text-white text-sm">Coeliac disease</div><span class="class-badge text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">M</span></div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">HLA-DQ2 / DQ8 almost required; 1st-degree recurrence &asymp; 10%.</div>
+                </a>
+
+                <!-- Essential hypertension -->
+                <a href="https://evagene.net/help/diseases/essential_hypertension" target="_blank" rel="noopener" class="disease-card block p-4 bg-white dark:bg-brand-900/40 rounded-lg border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-500 transition" data-class="multifactorial">
+                    <div class="flex items-start justify-between mb-1"><div class="font-semibold text-gray-900 dark:text-white text-sm">Essential hypertension</div><span class="class-badge text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">M</span></div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">Highly polygenic; environment (salt, BMI) large modifier.</div>
+                </a>
+
+                <!-- Obesity -->
+                <a href="https://evagene.net/help/diseases/obesity" target="_blank" rel="noopener" class="disease-card block p-4 bg-white dark:bg-brand-900/40 rounded-lg border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-500 transition" data-class="multifactorial">
+                    <div class="flex items-start justify-between mb-1"><div class="font-semibold text-gray-900 dark:text-white text-sm">Obesity</div><span class="class-badge text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">M</span></div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">Polygenic BMI liability + environmental; distinguish from monogenic MC4R.</div>
+                </a>
+
+                <!-- Allergic rhinitis -->
+                <a href="https://evagene.net/help/diseases/allergic_rhinitis" target="_blank" rel="noopener" class="disease-card block p-4 bg-white dark:bg-brand-900/40 rounded-lg border border-gray-200 dark:border-brand-800 hover:border-brand-400 dark:hover:border-brand-500 transition" data-class="multifactorial">
+                    <div class="flex items-start justify-between mb-1"><div class="font-semibold text-gray-900 dark:text-white text-sm">Allergic rhinitis</div><span class="class-badge text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">M</span></div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">Shared atopic liability with asthma and eczema.</div>
+                </a>
+            </div>
+
+            <p id="no-results" class="hidden text-sm text-gray-500 dark:text-gray-400 mt-6 text-center">No conditions in this class yet.</p>
+
+            <p class="text-xs text-gray-500 dark:text-gray-400 mt-6"><strong>Legend:</strong> <span class="inline-block px-1.5 py-0.5 bg-clinical-500/10 text-clinical-600 dark:text-clinical-400 rounded font-bold">M</span> Multifactorial &middot; <span class="inline-block px-1.5 py-0.5 bg-accent-500/10 text-accent-500 rounded font-bold">P</span> Polygenic &middot; <span class="inline-block px-1.5 py-0.5 bg-brand-500/10 text-brand-700 dark:text-brand-300 rounded font-bold">O</span> Oligogenic. Classification follows the dominant aetiological model for each condition; all three share the liability-threshold engine.</p>
+        </section>
+
+        <!-- Caveats -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">When <em>not</em> to use the liability-threshold engine</h2>
+            <div class="p-5 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-900/40 rounded-lg text-sm text-amber-900 dark:text-amber-200 space-y-2">
+                <div><strong>Mendelian disorders</strong> &mdash; use the autosomal dominant / recessive / X-linked calculators instead.</div>
+                <div><strong>Chromosomal or imprinted-region syndromes</strong> &mdash; e.g. 22q11.2 deletion presenting as cleft palate + CHD. Use the karyogram viewer and syndrome-specific guides.</div>
+                <div><strong>Populations with very different K</strong> &mdash; e.g. high-HLA-B27 populations for ankylosing spondylitis. Verify local prevalence figures.</div>
+                <div><strong>Environmental exposures not in the genetic model</strong> &mdash; folate for NTDs, allergen load for asthma, sodium for hypertension. Cover separately in counselling.</div>
+            </div>
+        </section>
+
+        <!-- See also -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">See also</h2>
+            <ul class="space-y-2 text-sm">
+                <li><a href="release-2026-04-risk-expansion.html" class="text-brand-600 dark:text-brand-400 hover:underline">Release notes: polygenic inheritance, nine cancer family-history models, and CanRisk export</a></li>
+                <li><a href="for-clinical-geneticists.html#decision-matrix" class="text-brand-600 dark:text-brand-400 hover:underline">Decision matrix: which risk model for which counselling question?</a></li>
+                <li><a href="mendelian-inheritance-calculator.html" class="text-brand-600 dark:text-brand-400 hover:underline">Mendelian inheritance calculator</a></li>
+                <li><a href="hereditary-cancer-risk-assessment.html" class="text-brand-600 dark:text-brand-400 hover:underline">Hereditary cancer risk assessment</a></li>
+            </ul>
+        </section>
+
+    </div>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Run the liability-threshold engine</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Every catalogued condition is live in the Alpha release. Free access for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25">Join the Alpha Waiting List</a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2"><div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div><p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine.</p></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white">Data Exchange</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="research-citations.html" class="hover:text-white">Research &amp; Citations</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white">Cancer Risk Assessment</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white">Mendelian Inheritance</a></li><li><a href="compare.html" class="hover:text-white">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400">Terms of Service</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+// Filter toggle
+(function(){
+    var btns = document.querySelectorAll('#filter-controls .filter-btn');
+    var cards = document.querySelectorAll('#disease-grid .disease-card');
+    var noResults = document.getElementById('no-results');
+    btns.forEach(function(btn){
+        btn.addEventListener('click', function(){
+            var cls = btn.getAttribute('data-class');
+            btns.forEach(function(b){ b.classList.remove('active'); });
+            btn.classList.add('active');
+            var visibleCount = 0;
+            cards.forEach(function(card){
+                var ok = cls === 'all' || card.getAttribute('data-class') === cls;
+                card.style.display = ok ? '' : 'none';
+                if (ok) visibleCount++;
+            });
+            if (noResults) noResults.classList.toggle('hidden', visibleCount > 0);
+        });
+    });
+})();
+</script>
+
+<!-- Cookie Consent Banner -->
+<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-[100] hidden">
+    <div class="bg-gray-900 dark:bg-black border-t border-gray-700 dark:border-gray-800 shadow-2xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-5">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                <div class="flex-1 text-sm text-gray-300 leading-relaxed">
+                    <p>We use cookies and similar technologies to analyse site traffic and improve your experience. Analytics cookies (Google Analytics, Microsoft Clarity) and marketing tools (EngageBay) are only activated with your consent. See our <a href="privacy-policy.html" class="text-brand-400 hover:text-brand-300 underline">Privacy Policy</a> for details.</p>
+                </div>
+                <div class="flex items-center gap-3 shrink-0">
+                    <button id="cookie-reject" class="px-4 py-2 text-sm font-medium text-gray-400 hover:text-white border border-gray-600 hover:border-gray-400 rounded-lg transition-colors">Reject All</button>
+                    <button id="cookie-accept" class="px-5 py-2 text-sm font-semibold text-white bg-brand-600 hover:bg-brand-700 rounded-lg transition-colors">Accept All</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+(function(){var CONSENT_KEY='evagene-cookie-consent';var banner=document.getElementById('cookie-banner');var consent=localStorage.getItem(CONSENT_KEY);function loadAnalytics(){var gaScript=document.createElement('script');gaScript.async=true;gaScript.src='https://www.googletagmanager.com/gtag/js?id=G-8GQLEPQ47C';document.head.appendChild(gaScript);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8GQLEPQ47C');(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments);};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,'clarity','script','wc26ock5ta');var EhAPI=window.EhAPI||{};EhAPI.after_load=function(){EhAPI.set_account('ro2mo08bbuj75m8i04puevk2su','evagene');EhAPI.execute('rules');};window.EhAPI=EhAPI;var ebScript=document.createElement('script');ebScript.async=true;ebScript.src='//d2p078bqz5urf7.cloudfront.net/jsapi/ehform.js?v'+new Date().getHours();document.head.appendChild(ebScript);}if(consent==='accepted'){loadAnalytics();}else if(consent!=='rejected'){banner.classList.remove('hidden');}document.getElementById('cookie-accept').addEventListener('click',function(){localStorage.setItem(CONSENT_KEY,'accepted');banner.classList.add('hidden');loadAnalytics();});document.getElementById('cookie-reject').addEventListener('click',function(){localStorage.setItem(CONSENT_KEY,'rejected');banner.classList.add('hidden');});})();
+</script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Release: Polygenic Inheritance, Claus, Couch, Frank, Manchester, NICE, Gail, Tyrer-Cuzick, Amsterdam II, Bethesda &amp; CanRisk Export | Evagene</title>
+    <meta name="description" content="Release notes (April 2026): Evagene adds a polygenic / oligogenic / multifactorial liability-threshold recurrence-risk engine and nine cancer family-history models — Claus, Couch, Frank, Manchester, NICE CG164/NG101, Amsterdam II, revised Bethesda, Gail (NCI BCRAT), and a Tyrer-Cuzick IBIS-style approximation — plus one-click CanRisk / BOADICEA pedigree export. With canonical citations for every model.">
+    <meta name="keywords" content="Evagene release, polygenic inheritance, multifactorial liability-threshold, Claus model, Couch model, Frank Myriad, Manchester scoring system, NICE CG164, NICE NG101, Amsterdam II criteria, revised Bethesda, Gail NCI BCRAT, Tyrer-Cuzick IBIS, CanRisk export, BOADICEA v4, Carter 1961, Falconer 1965, pedigree software update">
+    <meta property="og:title" content="Release: Polygenic, Claus, Couch, Frank, Manchester, NICE, Gail, Tyrer-Cuzick, Amsterdam II, Bethesda &amp; CanRisk Export">
+    <meta property="og:description" content="A major expansion of Evagene's risk-analysis engine, with canonical citations for every new model.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/release-2026-04-risk-expansion">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Release: Polygenic, cancer family-history, and CanRisk export in Evagene">
+    <meta name="twitter:description" content="Liability-threshold engine for 23+ complex diseases, nine cancer family-history scoring models, and one-click CanRisk / BOADICEA export.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/release-2026-04-risk-expansion">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config={darkMode:'class',theme:{extend:{colors:{brand:{50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d'},accent:{400:'#e85d6f',500:'#c8102e',600:'#a60d25'},clinical:{50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a'}},fontFamily:{sans:['Inter','system-ui','-apple-system','sans-serif']}}}}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"TechArticle",
+        "headline":"Release: Polygenic Inheritance, Claus, Couch, Frank, Manchester, NICE, Gail, Tyrer-Cuzick, Amsterdam II, Bethesda and CanRisk Export",
+        "description":"April 2026 release notes covering Evagene's polygenic / oligogenic / multifactorial liability-threshold engine, nine new cancer family-history scoring models, and one-click CanRisk pedigree export.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-17","dateModified":"2026-04-17",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/release-2026-04-risk-expansion"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},{"@type":"ListItem","position":2,"name":"Release Notes","item":"https://evagene.com/release-2026-04-risk-expansion"}]}
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5"><img src="logo.png" alt="Evagene logo" class="h-8 w-auto"><span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span></a>
+            <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2"><li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li><li><span class="text-gray-300 dark:text-gray-600">/</span></li><li class="text-gray-700 dark:text-gray-300 font-medium">Release: Risk-engine expansion</li></ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-accent-500/10 text-accent-600 dark:text-accent-400 text-xs font-semibold tracking-wider uppercase rounded-full border border-accent-500/20 mb-4">
+                Release notes &middot; April 2026
+            </div>
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Evagene adds polygenic inheritance, nine cancer family-history models, and CanRisk export</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">A major expansion of Evagene's risk-analysis engine. On the same pedigree a clinician already drew, Evagene now covers Mendelian single-gene inheritance (existing), polygenic / oligogenic / multifactorial recurrence risk (new), cancer family-history scoring across nine additional models (new), and a one-click CanRisk / BOADICEA pedigree export to the NICE-recommended multi-gene workup (new).</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-17">17 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>8 min read</span>
+            </div>
+        </header>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300 prose-code:text-accent-600 dark:prose-code:text-accent-400">
+
+            <h2 id="polygenic" class="text-3xl mt-10 mb-6">1. Polygenic, oligogenic, and multifactorial inheritance</h2>
+
+            <p>Most common diseases cluster in families but do not follow Mendelian patterns. Evagene now ships a full liability-threshold recurrence-risk engine grounded in the classical genetic epidemiology of Carter, Falconer, and Reich/James/Morton <sup><a href="#cite-carter1961">[1]</a></sup><sup><a href="#cite-falconer1965">[2]</a></sup><sup><a href="#cite-reich1972">[3]</a></sup>. For each counselee, the engine:</p>
+
+            <ul>
+                <li>Classifies affected relatives by degree &mdash; MZ twin / 1st / 2nd / 3rd / 4th degree.</li>
+                <li>Uses empirical recurrence-risk tables (Smith, Carter, Harper) when available <sup><a href="#cite-smith1971">[4]</a></sup>.</li>
+                <li>Falls back to a Falconer liability-threshold calculation from heritability (h&sup2;) and prevalence (K) when an empirical table is absent.</li>
+                <li>Applies four classical counselling modifiers: severity of proband, Carter-effect sex bias, multiple affected close relatives, and parental consanguinity as (1 + 2F&middot;h&sup2;).</li>
+            </ul>
+
+            <p>Twenty-three complex conditions are catalogued with heritability and empirical recurrence-risk data: cleft lip &plusmn; palate, cleft palate only, Hirschsprung's disease, type 1 and type 2 diabetes, late-onset Alzheimer's, idiopathic Parkinson's, ankylosing spondylitis, schizophrenia, bipolar disorder, major depression, epilepsy, pyloric stenosis (the classic Carter-effect disorder), neural tube defects, congenital heart disease, talipes, developmental dysplasia of the hip, asthma, atopic dermatitis, coeliac disease, essential hypertension, obesity, and allergic rhinitis. Each carries a dedicated in-app help page covering inheritance, recurrence risks by relationship, susceptibility loci, clinical features, and counselling points.</p>
+
+            <p>Model labels <code>MULTIFACTORIAL</code>, <code>POLYGENIC</code>, and <code>OLIGOGENIC</code> share the same engine and differ only in which aetiological label best fits the disease. Users browsing the <a href="complex-disease-pedigree-software.html">complex-disease catalogue</a> can filter by inheritance class.</p>
+
+            <h2 id="cancer-family-history" class="text-3xl mt-16 mb-6">2. Cancer family-history risk models &mdash; complementing BRCAPRO / MMRpro / PancPRO</h2>
+
+            <p>All models below are implemented in Python and run without an R sidecar. Each answers a specific counselling question; pick the one that matches the need.</p>
+
+            <h3 id="claus" class="text-2xl mt-10 mb-3">Claus model</h3>
+            <p>CASH-derived lifetime breast-cancer risk as a function of the number, degree of relationship, and age at diagnosis of affected relatives, with an ovarian-in-first-degree multiplier <sup><a href="#cite-claus1994">[5]</a></sup>. Best for women who do not meet NICE high-risk criteria but want a numerical lifetime estimate.</p>
+
+            <h3 id="couch" class="text-2xl mt-10 mb-3">Couch model</h3>
+            <p>A logistic-regression pre-test probability of a BRCA1 mutation using three features: average age at breast-cancer diagnosis in the family, ovarian cancer in the family, and Ashkenazi Jewish ancestry <sup><a href="#cite-couch1997">[6]</a></sup>. Output includes a 10% testing-threshold flag.</p>
+
+            <h3 id="frank" class="text-2xl mt-10 mb-3">Frank / Myriad model</h3>
+            <p>Empirical BRCA1 and BRCA2 mutation frequencies in women sent for testing, by canonical family scenario (e.g. proband with breast cancer &lt;40 and family ovarian cancer) <sup><a href="#cite-frank2002">[7]</a></sup>. Useful for the quickest clinic-friendly answer to "how likely is a positive BRCA test?"</p>
+
+            <h3 id="manchester" class="text-2xl mt-10 mb-3">Manchester Scoring System</h3>
+            <p>Point-based scoring assigning points per cancer type and age at diagnosis, separately for BRCA1 and BRCA2, across the proband and first- and second-degree relatives <sup><a href="#cite-evans2004">[8]</a></sup>. BRCA1 score &ge; 16 &asymp; 10% carrier probability; BRCA2 score &ge; 16 &asymp; 10%; combined &ge; 20 &asymp; 20%. Widely used by NHS genetics services in the UK.</p>
+
+            <h3 id="nice" class="text-2xl mt-10 mb-3">NICE CG164 / NG101 familial breast cancer categorisation</h3>
+            <p>Implements the family-history categorisation from NICE CG164 (2013) and its NG101 update (2019 / 2023) <sup><a href="#cite-nice-cg164">[9]</a></sup><sup><a href="#cite-nice-ng101">[10]</a></sup>. Pedigrees are checked against classical high- and moderate-risk triggers and classified as near-population (&lt;1 in 6 lifetime), moderate (1 in 6 to 1 in 3), or high (&gt;1 in 3), with a refer-to-genetics flag and the specific triggers matched.</p>
+
+            <h3 id="amsterdam-ii" class="text-2xl mt-10 mb-3">Amsterdam II criteria</h3>
+            <p>Classical HNPCC / Lynch-syndrome family-history criteria (Vasen et al. 1999) <sup><a href="#cite-vasen1999">[11]</a></sup>. Evagene evaluates the pedigree-derivable conditions directly; the exclusion-of-FAP and histology checks are surfaced as clinical-verification notes.</p>
+
+            <h3 id="bethesda" class="text-2xl mt-10 mb-3">Revised Bethesda Guidelines</h3>
+            <p>Triggers for MSI / IHC testing of a colorectal tumour (Umar et al. 2004) <sup><a href="#cite-umar2004">[12]</a></sup>. Complements Amsterdam II &mdash; families that do not meet classical Amsterdam II may still meet Bethesda.</p>
+
+            <h3 id="gail" class="text-2xl mt-10 mb-3">Gail model (NCI BCRAT)</h3>
+            <p>Mitchell Gail's breast-cancer risk assessment tool, hosted by the US National Cancer Institute (Gail 1989, with updates through 2017) <sup><a href="#cite-gail1989">[13]</a></sup>. Combines age at menarche, age at first live birth (or nulliparity), number of first-degree relatives with breast cancer, number of prior benign breast biopsies, atypical hyperplasia, and race/ethnicity baselines. Produces an individualised 5-year and lifetime breast-cancer risk. Not valid for women with prior invasive BC, DCIS, LCIS, or a known high-penetrance mutation &mdash; use BRCAPRO or the CanRisk export instead.</p>
+
+            <h3 id="tyrer-cuzick" class="text-2xl mt-10 mb-3">Tyrer-Cuzick &mdash; IBIS-style approximation</h3>
+            <p>An implementation of the Tyrer-Cuzick algorithm (Tyrer, Duffy &amp; Cuzick 2004) <sup><a href="#cite-tyrer2004">[14]</a></sup>, covering full family history, menarche, menopause, parity, age at first live birth, hormone-therapy years, BMI, atypical hyperplasia, LCIS, benign biopsies, mammographic density (BI-RADS 1&ndash;4), and Ashkenazi ancestry.</p>
+
+            <div class="not-prose my-6 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-900/50 rounded-lg">
+                <p class="text-sm text-amber-900 dark:text-amber-200 m-0"><strong>Labelled as an approximation.</strong> The official IBIS Breast Cancer Risk Evaluator v8 is free to download but its full coefficients are not publicly released. Evagene's output is therefore a published-algorithm approximation, and is clearly labelled as such in every UI result and report. For definitive numbers, use the official IBIS tool or the CanRisk export below.</p>
+            </div>
+
+            <h2 id="canrisk-export" class="text-3xl mt-16 mb-6">3. CanRisk / BOADICEA pedigree export</h2>
+
+            <p>The NICE-recommended model for moderate- and high-risk women is BOADICEA, hosted at <a href="https://www.canrisk.org" target="_blank" rel="noopener noreferrer">canrisk.org</a>. It integrates multi-gene panel testing (BRCA1, BRCA2, PALB2, CHEK2, ATM, BARD1, RAD51C, RAD51D, BRIP1), polygenic-risk scores, and mammographic density to produce breast- and ovarian-cancer risk curves <sup><a href="#cite-antoniou2004">[15]</a></sup><sup><a href="#cite-lee2019">[16]</a></sup>.</p>
+
+            <p>Evagene now ships a one-click download of a BOADICEA v4 / CanRisk v2 pedigree file (tab-separated, <code>##CanRisk 2.0</code> header) populated with the pedigree structure, ages at diagnosis, BRCA1 / BRCA2 / PALB2 / ATM / CHEK2 test statuses, Ashkenazi flag, and reproductive factors. The clinician uploads the file at canrisk.org and runs the full workup there.</p>
+
+            <div class="not-prose my-6 p-4 bg-brand-50 dark:bg-brand-900/40 border border-brand-200 dark:border-brand-800 rounded-lg">
+                <p class="text-sm text-brand-900 dark:text-brand-100 m-0"><strong>BOADICEA is not bundled.</strong> The model is licensed by the University of Cambridge; individual clinical use is free after registration, but third-party web-service integration requires a separate commercial licence. The export path is the legally-clean route to the gold-standard tool &mdash; Evagene populates the file, the clinician uploads it.</p>
+            </div>
+
+            <h2 id="reproductive-fields" class="text-3xl mt-16 mb-6">4. Reproductive / breast-health fields on Individual</h2>
+
+            <p>To support Gail, Tyrer-Cuzick, and the CanRisk export, the Individual record gains structured reproductive and breast-health fields:</p>
+
+            <ul>
+                <li>Age at menarche, age at menopause, age at first live birth, parity.</li>
+                <li>Cumulative hormone-therapy years.</li>
+                <li>Number of prior benign breast biopsies; atypical hyperplasia flag; LCIS flag.</li>
+                <li>Mammographic density (BI-RADS 1&ndash;4).</li>
+                <li>Height and weight for BMI.</li>
+            </ul>
+
+            <p>These fields are optional; models that require them display a clear warning when a required field is missing and cannot be defaulted.</p>
+
+            <h2 id="safety" class="text-3xl mt-16 mb-6">5. What Evagene does not claim</h2>
+
+            <p>Evagene's risk models are decision-support tools that augment, not replace, the clinical geneticist. The expansion ships with these explicit boundaries:</p>
+            <ul>
+                <li>No regulatory approval. Evagene is not an FDA-cleared medical device and is not equivalent to validated clinical-trial-grade risk tools such as the official IBIS or CanRisk binaries.</li>
+                <li>Tyrer-Cuzick is an approximation of the published algorithm, not the official IBIS v8 binary. Every result is labelled in the UI.</li>
+                <li>BOADICEA is not bundled; Evagene provides a pedigree export that the clinician uploads at canrisk.org.</li>
+                <li>All models assume accurate, complete pedigree data. Missing individuals, unknown ages, and unrecorded diagnoses reduce reliability.</li>
+            </ul>
+
+            <h2 id="see-also" class="text-3xl mt-16 mb-6">Related pages</h2>
+            <ul>
+                <li><a href="hereditary-cancer-risk-assessment.html">Hereditary cancer risk assessment</a> &mdash; clinical logic for BRCAPRO / MMRpro / PancPRO plus the family-history models.</li>
+                <li><a href="for-clinical-geneticists.html#decision-matrix">Decision matrix: which risk model for which counselling question?</a></li>
+                <li><a href="complex-disease-pedigree-software.html">Complex-disease pedigree software</a> &mdash; the 23 catalogued multifactorial conditions with recurrence risks and links to in-app help.</li>
+                <li><a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculator</a> &mdash; AD, AR, and XLR models for single-gene work.</li>
+            </ul>
+
+            <h2 id="citations" class="text-3xl mt-16 mb-6">Citations</h2>
+
+            <ol class="not-prose list-decimal pl-6 space-y-3 text-sm text-gray-700 dark:text-gray-300">
+                <li id="cite-carter1961"><strong>Carter CO.</strong> The inheritance of pyloric stenosis. <em>Br Med Bull.</em> 1961;17:251&ndash;254.</li>
+                <li id="cite-falconer1965"><strong>Falconer DS.</strong> The inheritance of liability to certain diseases, estimated from the incidence among relatives. <em>Ann Hum Genet.</em> 1965;29:51&ndash;76.</li>
+                <li id="cite-reich1972"><strong>Reich T, James JW, Morton CA.</strong> The use of multiple thresholds in determining the mode of transmission of semi-continuous traits. <em>Ann Hum Genet.</em> 1972;36:163&ndash;184.</li>
+                <li id="cite-smith1971"><strong>Smith C.</strong> Recurrence risks for multifactorial inheritance. <em>Am J Hum Genet.</em> 1971;23:578&ndash;588.</li>
+                <li id="cite-claus1994"><strong>Claus EB, Risch N, Thompson WD.</strong> Autosomal dominant inheritance of early-onset breast cancer. Implications for risk prediction. <em>Cancer.</em> 1994;73:643&ndash;651.</li>
+                <li id="cite-couch1997"><strong>Couch FJ, DeShano ML, Blackwood MA, et al.</strong> BRCA1 mutations in women attending clinics that evaluate the risk of breast cancer. <em>N Engl J Med.</em> 1997;336:1409&ndash;1415.</li>
+                <li id="cite-frank2002"><strong>Frank TS, Deffenbaugh AM, Reid JE, et al.</strong> Clinical characteristics of individuals with germline mutations in BRCA1 and BRCA2: analysis of 10,000 individuals. <em>J Clin Oncol.</em> 2002;20:1480&ndash;1490.</li>
+                <li id="cite-evans2004"><strong>Evans DG, Eccles DM, Rahman N, et al.</strong> A new scoring system for the chances of identifying a BRCA1/2 mutation outperforms existing models including BRCAPRO. <em>J Med Genet.</em> 2004;41:474&ndash;480.</li>
+                <li id="cite-nice-cg164"><strong>NICE.</strong> Familial breast cancer: classification, care and managing breast cancer and related risks in people with a family history of breast cancer. <em>NICE Clinical Guideline CG164.</em> 2013.</li>
+                <li id="cite-nice-ng101"><strong>NICE.</strong> Early and locally advanced breast cancer: diagnosis and management. <em>NICE Guideline NG101.</em> 2018; updated 2023.</li>
+                <li id="cite-vasen1999"><strong>Vasen HF, Watson P, Mecklin JP, Lynch HT.</strong> New clinical criteria for hereditary nonpolyposis colorectal cancer (HNPCC, Lynch syndrome) proposed by the International Collaborative Group on HNPCC. <em>Gastroenterology.</em> 1999;116:1453&ndash;1456.</li>
+                <li id="cite-umar2004"><strong>Umar A, Boland CR, Terdiman JP, et al.</strong> Revised Bethesda Guidelines for hereditary nonpolyposis colorectal cancer (Lynch syndrome) and microsatellite instability. <em>J Natl Cancer Inst.</em> 2004;96:261&ndash;268.</li>
+                <li id="cite-gail1989"><strong>Gail MH, Brinton LA, Byar DP, et al.</strong> Projecting individualized probabilities of developing breast cancer for white females who are being examined annually. <em>J Natl Cancer Inst.</em> 1989;81:1879&ndash;1886.</li>
+                <li id="cite-tyrer2004"><strong>Tyrer J, Duffy SW, Cuzick J.</strong> A breast cancer prediction model incorporating familial and personal risk factors. <em>Stat Med.</em> 2004;23:1111&ndash;1130.</li>
+                <li id="cite-antoniou2004"><strong>Antoniou AC, Pharoah PPD, Smith P, Easton DF.</strong> The BOADICEA model of genetic susceptibility to breast and ovarian cancer. <em>Br J Cancer.</em> 2004;91:1580&ndash;1590.</li>
+                <li id="cite-lee2019"><strong>Lee A, Mavaddat N, Wilcox AN, et al.</strong> BOADICEA: a comprehensive breast cancer risk prediction model incorporating genetic and nongenetic risk factors. <em>Genet Med.</em> 2019;21:1708&ndash;1718.</li>
+            </ol>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Try the new risk engine</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">All models are live in the Alpha release. No credit card, no sales cycle &mdash; free access for clinicians and research teams.</p>
+        <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25">Join the Alpha Waiting List</a>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2"><div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div><p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine.</p></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white">Data Exchange</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="research-citations.html" class="hover:text-white">Research &amp; Citations</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white">Cancer Risk Assessment</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white">Mendelian Inheritance</a></li><li><a href="complex-disease-pedigree-software.html" class="hover:text-white">Complex / Multifactorial</a></li><li><a href="compare.html" class="hover:text-white">Compare</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400">Terms of Service</a></div>
+        </div>
+    </div>
+</footer>
+
+<!-- Cookie Consent Banner -->
+<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-[100] hidden">
+    <div class="bg-gray-900 dark:bg-black border-t border-gray-700 dark:border-gray-800 shadow-2xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-5">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                <div class="flex-1 text-sm text-gray-300 leading-relaxed">
+                    <p>We use cookies and similar technologies to analyse site traffic and improve your experience. Analytics cookies (Google Analytics, Microsoft Clarity) and marketing tools (EngageBay) are only activated with your consent. See our <a href="privacy-policy.html" class="text-brand-400 hover:text-brand-300 underline">Privacy Policy</a> for details.</p>
+                </div>
+                <div class="flex items-center gap-3 shrink-0">
+                    <button id="cookie-reject" class="px-4 py-2 text-sm font-medium text-gray-400 hover:text-white border border-gray-600 hover:border-gray-400 rounded-lg transition-colors">Reject All</button>
+                    <button id="cookie-accept" class="px-5 py-2 text-sm font-semibold text-white bg-brand-600 hover:bg-brand-700 rounded-lg transition-colors">Accept All</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+(function(){var CONSENT_KEY='evagene-cookie-consent';var banner=document.getElementById('cookie-banner');var consent=localStorage.getItem(CONSENT_KEY);function loadAnalytics(){var gaScript=document.createElement('script');gaScript.async=true;gaScript.src='https://www.googletagmanager.com/gtag/js?id=G-8GQLEPQ47C';document.head.appendChild(gaScript);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8GQLEPQ47C');(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments);};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,'clarity','script','wc26ock5ta');var EhAPI=window.EhAPI||{};EhAPI.after_load=function(){EhAPI.set_account('ro2mo08bbuj75m8i04puevk2su','evagene');EhAPI.execute('rules');};window.EhAPI=EhAPI;var ebScript=document.createElement('script');ebScript.async=true;ebScript.src='//d2p078bqz5urf7.cloudfront.net/jsapi/ehform.js?v'+new Date().getHours();document.head.appendChild(ebScript);}if(consent==='accepted'){loadAnalytics();}else if(consent!=='rejected'){banner.classList.remove('hidden');}document.getElementById('cookie-accept').addEventListener('click',function(){localStorage.setItem(CONSENT_KEY,'accepted');banner.classList.add('hidden');loadAnalytics();});document.getElementById('cookie-reject').addEventListener('click',function(){localStorage.setItem(CONSENT_KEY,'rejected');banner.classList.add('hidden');});})();
+</script>
+</body>
+</html>
