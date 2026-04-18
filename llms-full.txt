@@ -45,7 +45,7 @@ Clicking any individual, relationship, or offspring opens a floating panel for d
 
 ### Disease Management
 
-Catalogue of 220+ diseases spanning oncology, cardiology, neurology, metabolic disorders, and 23+ multifactorial / polygenic / oligogenic complex conditions. A dedicated disease management dashboard lets users search, browse by taxonomy, apply quick-add presets (heritable cancers, cardiovascular), filter by inheritance class, and assign custom colours. Each disease entry includes:
+Catalogue of 220+ diseases spanning oncology, cardiology, neurology, metabolic disorders, and 20+ multifactorial / polygenic / oligogenic complex conditions. A dedicated disease management dashboard lets users search, browse by taxonomy, apply quick-add presets (heritable cancers, cardiovascular), filter by inheritance class, and assign custom colours. Each disease entry includes:
 - ICD-10 code and OMIM ID
 - Colour coding and categorisation
 - Inheritance pattern (autosomal dominant/recessive, X-linked, mitochondrial, multifactorial, polygenic, oligogenic)
@@ -97,7 +97,7 @@ A liability-threshold recurrence-risk engine grounded in Carter (1961), Falconer
 - Falls back to a Falconer liability-threshold calculation from heritability (h²) and prevalence (K)
 - Applies four classical counselling modifiers: severity of proband, Carter-effect sex bias, multiple affected close relatives, and parental consanguinity as (1 + 2F·h²)
 
-23+ complex conditions catalogued with heritability and empirical recurrence-risk tables: cleft lip ± palate, cleft palate only, Hirschsprung's disease (oligogenic), type 1 and type 2 diabetes, late-onset Alzheimer's, idiopathic Parkinson's, ankylosing spondylitis, schizophrenia, bipolar disorder, major depression, epilepsy, pyloric stenosis (classic Carter-effect), neural tube defects, congenital heart disease, talipes, developmental dysplasia of the hip (Carter-effect), asthma, atopic dermatitis, coeliac disease, essential hypertension, obesity, and allergic rhinitis.
+20+ complex conditions catalogued with heritability and empirical recurrence-risk tables: cleft lip ± palate, cleft palate only, Hirschsprung's disease (oligogenic), type 1 and type 2 diabetes, late-onset Alzheimer's, idiopathic Parkinson's, ankylosing spondylitis, schizophrenia, bipolar disorder, major depression, epilepsy, pyloric stenosis (classic Carter-effect), neural tube defects, congenital heart disease, talipes, developmental dysplasia of the hip (Carter-effect), asthma, atopic dermatitis, coeliac disease, essential hypertension, obesity, and allergic rhinitis.
 
 **3. Cancer family-history (built-in, plus BayesMendel R sidecar for BRCAPRO/MMRpro/PancPRO):**
 
@@ -173,6 +173,7 @@ A query builder allows filtering individuals by sex, disease affection status, d
 | PNG | — | Yes | Configurable scale (1x–4x) |
 | SVG | — | Yes | Vector output |
 | PDF | — | Yes | A4/A3/Letter/Legal, portrait/landscape |
+| CanRisk / BOADICEA v4 | — | Yes | Tab-separated `##CanRisk 2.0` header; upload at canrisk.org (BOADICEA not bundled — licensed by Univ. of Cambridge) |
 
 ---
 
@@ -200,7 +201,7 @@ Easy gesture-based drawing. Visual clarity with colour-coded disease sectors. 23
 GEDCOM 5.5.1 import/export for Ancestry, FamilySearch, Gramps compatibility. Rich family data capture. Multi-generation support. Twin documentation. Automatic consanguinity detection.
 
 ### Educators & Students
-240+ educational guides from introductory to advanced level. 220+ disease-specific guides (including 23+ multifactorial / polygenic / oligogenic conditions). Interactive exploration. Standard notation enforcement. Risk model documentation with canonical citations (Carter 1961, Falconer 1965, Claus 1994, Couch 1997, Frank 2002, Evans 2004, Vasen 1999, Umar 2004, Gail 1989, Tyrer/Duffy/Cuzick 2004, Antoniou 2004 / Lee 2019).
+240+ educational guides from introductory to advanced level. 220+ disease-specific guides (including 20+ multifactorial / polygenic / oligogenic conditions). Interactive exploration. Standard notation enforcement. Risk model documentation with canonical citations (Carter 1961, Falconer 1965, Claus 1994, Couch 1997, Frank 2002, Evans 2004, Vasen 1999, Umar 2004, Gail 1989, Tyrer/Duffy/Cuzick 2004, Antoniou 2004 / Lee 2019).
 
 ---
 

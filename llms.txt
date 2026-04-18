@@ -27,7 +27,7 @@ Evagene is a web-based pedigree management system for clinical genetics, oncolog
 - Export BOADICEA v4 / CanRisk v2 pedigree files for upload at canrisk.org (BOADICEA is not bundled; licensed by the University of Cambridge)
 - AI-powered clinical interpretation: generate structured reports covering key findings, family implications, data gaps, and screening recommendations
 - Auto-generate pedigree description reports in structured English
-- Catalogue of 220+ genetic diseases with ICD-10 codes, OMIM IDs, and inheritance parameters (includes 23+ catalogued multifactorial / polygenic / oligogenic conditions with heritability and empirical recurrence risks)
+- Catalogue of 220+ genetic diseases with ICD-10 codes, OMIM IDs, and inheritance parameters (includes 20+ catalogued multifactorial / polygenic / oligogenic conditions with heritability and empirical recurrence risks)
 - Disease management dashboard with search, taxonomy views, presets, and custom colours
 - 55+ allergies and 50+ traits with genetic marker associations
 - Blood type (ABO, Rh) and secretor status inference from 23andMe SNP markers
@@ -85,7 +85,7 @@ Full platform documentation: https://evagene.net/help/platform_overview
 
 - [17 April 2026 — Polygenic, cancer family-history, and CanRisk export](https://evagene.com/release-2026-04-risk-expansion.html) — Release notes for the liability-threshold engine (Carter 1961, Falconer 1965), nine new cancer family-history scoring models (Claus, Couch, Frank, Manchester, NICE CG164/NG101, Amsterdam II, Bethesda, Gail, Tyrer-Cuzick IBIS-style approximation), and one-click CanRisk / BOADICEA v4 pedigree export. Cites canonical papers for every model. BOADICEA is not bundled (licensed by University of Cambridge); Tyrer-Cuzick output is clearly labelled as an approximation.
 - [18 April 2026 — X-linked dominant, mitochondrial, digenic, imprinting / UPD](https://evagene.com/release-2026-04-18-inheritance-patterns.html) — Four additional inheritance models for clinical geneticists, genetic counsellors, and reproductive medicine. XLD with five sex-differential severity sub-modes (Rett-class, incontinentia pigmenti, CFND, EFMR). Mitochondrial with maternal transmission and heteroplasmy scaling (LHON, MELAS, MERRF, NARP, Leigh, Kearns-Sayre, Pearson). Digenic with classical 25% ratio (Usher type 2, some RP, primary congenital glaucoma). Imprinting / UPD with mechanism-weighted recurrence and parent-of-origin rule (Prader-Willi, Angelman, Beckwith-Wiedemann, Silver-Russell, TNDM).
-- [Complex-disease pedigree software](https://evagene.com/complex-disease-pedigree-software.html) — The 23+ catalogued multifactorial / polygenic / oligogenic conditions with filter and links to per-condition in-app help guides.
+- [Complex-disease pedigree software](https://evagene.com/complex-disease-pedigree-software.html) — The 20+ catalogued multifactorial / polygenic / oligogenic conditions with filter and links to per-condition in-app help guides.
 
 ## Topic Guides
 
