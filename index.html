@@ -1048,6 +1048,40 @@
             </div>
         </div>
 
+        <!-- Population-conditioned carrier risk (ancestry-weighted priors) -->
+        <div id="population-priors" class="scroll-mt-20 bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10 reveal mb-14">
+            <div class="max-w-3xl mb-6">
+                <div class="inline-flex items-center gap-2 px-2 py-1 bg-accent-500/20 text-accent-400 text-xs font-bold rounded uppercase tracking-wider mb-3">Population-conditioned priors</div>
+                <h3 class="text-xl font-bold text-white mb-2">Carrier priors weighted by ancestry &mdash; never a bare "general" number</h3>
+                <p class="text-brand-200 text-sm">For every individual with recorded ancestry, Evagene surfaces prior carrier probabilities across the entire autosomal-recessive and X-linked-recessive catalogue, weighted by that individual's ancestry proportions. Each row is attributed to exactly one of three sources:</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-4 mb-6">
+                <div class="bg-white/5 rounded-lg p-4 border border-white/10">
+                    <div class="text-accent-400 font-mono text-[11px] font-bold mb-2">EXPLICIT POPULATION KEY</div>
+                    <p class="text-xs text-brand-200">Direct published carrier frequency for that ancestry. Cystic fibrosis in Northern European, ~1 in 25. Tay-Sachs in Ashkenazi Jewish, ~1 in 30.</p>
+                </div>
+                <div class="bg-white/5 rounded-lg p-4 border border-white/10">
+                    <div class="text-accent-400 font-mono text-[11px] font-bold mb-2">WEIGHTED MIX</div>
+                    <p class="text-xs text-brand-200">Proportion-weighted combination across relevant populations when ancestry is mixed. Per-population contributions stay visible in the row.</p>
+                </div>
+                <div class="bg-white/5 rounded-lg p-4 border border-white/10">
+                    <div class="text-accent-400 font-mono text-[11px] font-bold mb-2">HARDY-WEINBERG FROM INCIDENCE</div>
+                    <p class="text-xs text-brand-200">Derived as 2pq where no population-specific carrier frequency is published. Flagged as an estimate, not a published figure.</p>
+                </div>
+            </div>
+
+            <div class="bg-accent-500/10 rounded-lg p-4 border border-accent-500/30">
+                <div class="flex items-start gap-3">
+                    <svg class="w-5 h-5 text-accent-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                    <div>
+                        <div class="text-sm font-semibold text-white mb-1">Safety default: ancestry-gated</div>
+                        <p class="text-xs text-brand-100">If an individual has no ancestry recorded, Evagene shows <strong class="text-white">no personalised carrier number</strong> for that individual. This closes a common clinical-tool failure mode &mdash; presenting a single "general population" figure as if it applied to a specific person. No ancestry, no prior &mdash; by design.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Polygenic / multifactorial -->
         <div id="polygenic-models" class="scroll-mt-20 bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10 reveal mb-14">
             <div class="max-w-3xl mb-6">

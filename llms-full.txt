@@ -121,6 +121,16 @@ Family-history scoring models (built-in, no R sidecar required):
 
 CanRisk / BOADICEA v4 pedigree export: one-click download of a tab-separated file with the `##CanRisk 2.0` header, populated with pedigree structure, ages at diagnosis, BRCA1 / BRCA2 / PALB2 / ATM / CHEK2 test statuses, Ashkenazi flag, and reproductive factors. Endpoint: `GET /api/pedigrees/{id}/risk/canrisk`. **BOADICEA is not bundled — the model is licensed by the University of Cambridge; individual clinical use is free after registration, but third-party web-service integration requires a separate commercial licence. The export path is the legally clean route to the NICE-recommended gold-standard tool.** The clinician uploads the file at canrisk.org.
 
+**Population-conditioned carrier priors:**
+
+For every individual with recorded ancestry, Evagene surfaces prior carrier probabilities across the autosomal-recessive and X-linked-recessive catalogue, weighted by the individual's ancestry proportions. Every row is attributed to one of three sources:
+
+1. Explicit population key — direct published carrier frequency (Cystic fibrosis Northern European ~1 in 25; Tay-Sachs Ashkenazi Jewish ~1 in 30).
+2. Weighted mix — proportion-weighted combination across relevant populations when ancestry is mixed; per-population contributions remain visible in the row.
+3. Hardy-Weinberg estimate from incidence — derived as 2pq where no population-specific carrier frequency is published; flagged as estimate rather than published figure.
+
+Safety default — ancestry-gated: if no ancestry is recorded on the individual, Evagene shows no personalised carrier number. This closes the common clinical-tool failure mode of presenting a "general population" figure as if it applied to a specific person. No ancestry, no prior, by design.
+
 **Reproductive / breast-health fields on Individual:**
 
 Added to support Gail, Tyrer-Cuzick, and the CanRisk export: age at menarche, age at menopause, age at first live birth, parity, cumulative hormone-therapy years, number of prior benign breast biopsies, atypical hyperplasia flag, LCIS flag, mammographic density (BI-RADS 1–4), and height/weight for BMI.
