@@ -198,6 +198,38 @@
 
             <p><strong>After the visit.</strong> When new information arrives — death certificate, test result, additional relative — you open the pedigree, update the record, regenerate reports as needed, and the case is ready for the next touchpoint. For cascade testing, you annotate each relative as they are contacted and tested.</p>
 
+            <h2 class="text-3xl mt-16 mb-6" id="reproductive-inheritance">Reproductive counselling and non-classical inheritance</h2>
+
+            <p>A large share of reproductive-medicine referrals sit outside the classical Mendelian three: a woman whose brother had an X-linked dominant disorder that is lethal in males, a family with an affected child through the maternal mitochondrial line, a couple with a previous Angelman-syndrome pregnancy, siblings with Usher type 2 where neither parent is affected. Evagene now models all four of these inheritance patterns directly on the pedigree, with offspring risks tailored to the mechanism. Every model links back to the <a href="https://evagene.net/help/risk_models" target="_blank" rel="noopener">in-app risk models guide</a> for the full derivation.</p>
+
+            <div class="not-prose my-8 grid gap-4 md:grid-cols-2">
+                <div class="p-5 bg-white dark:bg-brand-900/40 rounded-xl border border-gray-200 dark:border-brand-800">
+                    <div class="text-xs font-bold tracking-wider uppercase text-brand-600 dark:text-brand-300 mb-2">X-linked dominant with sex-differential severity</div>
+                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-3">Five sub-modes: equal, males-worse, male-lethal-reproduces (1:1:1 live-born ratio &mdash; incontinentia pigmenti), male-lethal-no-reproduction (<a href="https://evagene.net/help/diseases/rett_syndrome" target="_blank" rel="noopener" class="text-brand-600 dark:text-brand-400 underline">Rett syndrome</a>, CDKL5, MECP2-related), and metabolic-interference where only females are affected (CFND / EFNB1, EFMR / PCDH19).</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Carrier-mother offspring risks are sex-split and mode-aware: for incontinentia pigmenti, the live-born ratio is 1 affected daughter : 1 unaffected daughter : 1 unaffected son; for Rett-class disorders, affected males are absent from observed offspring altogether.</p>
+                </div>
+
+                <div class="p-5 bg-white dark:bg-brand-900/40 rounded-xl border border-gray-200 dark:border-brand-800">
+                    <div class="text-xs font-bold tracking-wider uppercase text-brand-600 dark:text-brand-300 mb-2">Mitochondrial (mtDNA) inheritance</div>
+                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-3">Strict maternal transmission. Sex-differential penetrance (Leber's hereditary optic neuropathy shows male preponderance; MELAS affects both sexes more symmetrically). Heteroplasmy scaling means phenotype severity tracks the mutant-load fraction in the transmitting mother's tissues.</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Canonical disorders: LHON, MELAS, MERRF, NARP, Leigh (mtDNA subset), Kearns-Sayre, Pearson. Affected fathers do not transmit; unaffected daughters of a carrier mother still transmit.</p>
+                </div>
+
+                <div class="p-5 bg-white dark:bg-brand-900/40 rounded-xl border border-gray-200 dark:border-brand-800">
+                    <div class="text-xs font-bold tracking-wider uppercase text-brand-600 dark:text-brand-300 mb-2">Digenic two-locus interaction</div>
+                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-3">The phenotype requires a simultaneous variant at two separate loci. An affected (Aa;Bb) &times; unaffected (aa;bb) partnership yields the classical 25% affected offspring ratio. Mechanisms supported: <code class="text-xs bg-gray-100 dark:bg-brand-900 px-1 py-0.5 rounded">both_het</code>, <code class="text-xs bg-gray-100 dark:bg-brand-900 px-1 py-0.5 rounded">one_het_one_hom</code>, <code class="text-xs bg-gray-100 dark:bg-brand-900 px-1 py-0.5 rounded">both_hom</code>.</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Canonical disorders: <a href="https://evagene.net/help/diseases/usher_syndrome" target="_blank" rel="noopener" class="text-brand-600 dark:text-brand-400 underline">Usher syndrome type 2</a>, some forms of <a href="https://evagene.net/help/diseases/retinitis_pigmentosa" target="_blank" rel="noopener" class="text-brand-600 dark:text-brand-400 underline">retinitis pigmentosa</a>, primary congenital glaucoma.</p>
+                </div>
+
+                <div class="p-5 bg-white dark:bg-brand-900/40 rounded-xl border border-gray-200 dark:border-brand-800">
+                    <div class="text-xs font-bold tracking-wider uppercase text-brand-600 dark:text-brand-300 mb-2">Imprinting / uniparental disomy</div>
+                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-3">Mechanism-weighted recurrence: deletion, uniparental disomy, imprinting-centre defect, and point mutation each carry different recurrence-risk profiles. For IC defects, the parent-of-origin rule determines which phenotype is expressed in offspring &mdash; a paternal IC defect at 15q11-13 presents as <a href="https://evagene.net/help/diseases/prader_willi_syndrome" target="_blank" rel="noopener" class="text-brand-600 dark:text-brand-400 underline">Prader-Willi</a>, a maternal IC defect at the same locus as <a href="https://evagene.net/help/diseases/angelman_syndrome" target="_blank" rel="noopener" class="text-brand-600 dark:text-brand-400 underline">Angelman syndrome</a>.</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Canonical disorders: Prader-Willi, Angelman, Beckwith-Wiedemann, Silver-Russell, transient neonatal diabetes mellitus (TNDM). The engine produces different recurrence-risk numbers depending on the confirmed molecular mechanism in the proband.</p>
+                </div>
+            </div>
+
+            <p class="text-sm text-gray-500 dark:text-gray-400">For the full per-model derivation and counselling scripts, see the <a href="https://evagene.net/help/risk_models" target="_blank" rel="noopener">risk models guide</a> and the individual <a href="https://evagene.net/help/diseases_catalogue" target="_blank" rel="noopener">diseases catalogue</a> entries.</p>
+
             <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
 
             <div class="space-y-8 not-prose">

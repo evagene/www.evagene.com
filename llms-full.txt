@@ -81,10 +81,14 @@ Users assign diseases to individuals with per-disease affection status, laterali
 
 Evagene provides four families of risk model on the same pedigree document:
 
-**1. Mendelian single-gene (built-in):**
+**1. Single-gene and adjacent (built-in):**
 - Autosomal dominant (with reduced penetrance, age-dependent penetrance, anticipation, germline mosaicism, parent-of-origin bias, locus heterogeneity, linkage disequilibrium)
 - Autosomal recessive (with Hardy-Weinberg, genetic test adjustment, population-specific carrier frequencies)
 - X-linked recessive (with hemizygosity, mutation rates, biological fitness)
+- X-linked dominant with five sex-differential severity sub-modes: equal; males-worse; male-lethal-reproduces (1:1:1 live-born ratio — incontinentia pigmenti, focal dermal hypoplasia, OFD1); male-lethal-no-reproduction (Rett syndrome, MECP2, CDKL5); metabolic-interference males-unaffected (CFND / EFNB1, EFMR / PCDH19). Sub-mode stored per disease and prefilled by catalogue lookup.
+- Mitochondrial (mtDNA) with strict maternal transmission, sex-differential penetrance (configurable male_penetrance and female_penetrance per disease), and heteroplasmy scaling (mitochondrial_heteroplasmy_level with runtime override). Canonical disorders: LHON, MELAS, MERRF, NARP, Leigh (mtDNA subset), Kearns-Sayre, Pearson.
+- Digenic two-locus interaction with the classical 25% offspring-affected ratio. Supports both_het, one_het_one_hom, and both_hom configurations via digenic_required_genotype. Canonical disorders: Usher syndrome type 2, certain forms of retinitis pigmentosa, primary congenital glaucoma. Both loci assumed autosomal and unlinked; linked digenic loci require dedicated linkage analysis.
+- Imprinting / uniparental disomy (UPD) with mechanism-weighted recurrence risk. Four mechanisms modelled: deletion, UPD, imprinting-centre defect, point mutation. For IC defects, the parent-of-origin rule determines which syndrome phenotype emerges in offspring (paternal IC defect at 15q11-13 → Prader-Willi; maternal IC defect at the same locus → Angelman). Canonical disorders: Prader-Willi, Angelman, Beckwith-Wiedemann, Silver-Russell, transient neonatal diabetes mellitus (TNDM).
 
 **2. Polygenic / Oligogenic / Multifactorial (built-in):**
 A liability-threshold recurrence-risk engine grounded in Carter (1961), Falconer (1965), and Reich/James/Morton (1972). For each counselee the engine:

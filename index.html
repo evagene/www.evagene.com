@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evagene — Clinical-Grade Pedigree Management for Precision Medicine</title>
-    <meta name="description" content="Evagene is a web-based pedigree management system for clinical genetics, oncology, research, and family history. Draw, annotate, and analyse family pedigrees with four families of risk models: Mendelian (AD/AR/XLR), polygenic / multifactorial (liability-threshold), cancer family-history (BRCAPRO, MMRpro, PancPRO, Claus, Couch, Frank, Manchester, NICE, Amsterdam II, Bethesda, Gail, Tyrer-Cuzick), and a CanRisk / BOADICEA export bridge. AI-powered clinical interpretation, 23andMe SNP import, 220+ disease catalog. Standard notation. GEDCOM interoperability.">
+    <meta name="description" content="Evagene is a web-based pedigree management system for clinical genetics, oncology, research, reproductive medicine, and family history. Draw, annotate, and analyse family pedigrees with four families of risk models: single-gene &amp; adjacent (AD, AR, XLR, X-linked dominant with five sex-differential sub-modes, mitochondrial with heteroplasmy scaling, digenic two-locus, imprinting / UPD), polygenic / multifactorial liability-threshold, cancer family-history (BRCAPRO, MMRpro, PancPRO, Claus, Couch, Frank, Manchester, NICE, Amsterdam II, Bethesda, Gail, Tyrer-Cuzick), and a CanRisk / BOADICEA export bridge. AI clinical interpretation. 220+ disease catalog. Standard notation. GEDCOM interoperability.">
     <meta name="keywords" content="pedigree management software, clinical genetics tool, family pedigree analysis, BRCAPRO, genetic risk assessment, MMRpro, PancPRO, Claus model, Couch model, Frank model, Manchester scoring, NICE CG164, NICE NG101, Amsterdam II criteria, revised Bethesda, Gail model, Tyrer-Cuzick, CanRisk export, BOADICEA, polygenic risk, multifactorial inheritance, liability-threshold, hereditary cancer risk, pedigree drawing, GEDCOM, genetic counselling software, family history tool, precision medicine, BayesMendel, linkage analysis, AI clinical interpretation, 23andMe import, carrier probability">
 
     <!-- Open Graph -->
@@ -154,7 +154,11 @@
             "CanRisk / BOADICEA v4 pedigree export for canrisk.org",
             "Polygenic, oligogenic, and multifactorial liability-threshold recurrence-risk engine (Carter 1961, Falconer 1965, Reich/James/Morton 1972)",
             "Empirical recurrence-risk tables for 23+ complex conditions (Smith, Carter, Harper)",
-            "Mendelian inheritance calculators (autosomal dominant, autosomal recessive, X-linked)",
+            "Mendelian inheritance calculators (autosomal dominant, autosomal recessive, X-linked recessive)",
+            "X-linked dominant with five sex-differential severity sub-modes (equal, males-worse, male-lethal-reproduces, male-lethal-no-reproduction, males-unaffected)",
+            "Mitochondrial (mtDNA) inheritance with strict maternal transmission, sex-differential penetrance, and heteroplasmy scaling (LHON, MELAS, MERRF, NARP, Leigh, Kearns-Sayre, Pearson)",
+            "Digenic two-locus interaction with classical 25% ratio (Usher syndrome type 2, some retinitis pigmentosa, primary congenital glaucoma)",
+            "Imprinting / uniparental disomy with mechanism-weighted recurrence risk and parent-of-origin rule for imprinting-centre defects (Prader-Willi, Angelman, Beckwith-Wiedemann, Silver-Russell, TNDM)",
             "AI-powered clinical interpretation with structured reports",
             "Blood type inference from 23andMe SNP markers",
             "Trait inference from 23andMe genotype data",
@@ -370,7 +374,7 @@
                         <span class="gradient-text">finally in your browser</span>
                     </h1>
                     <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-xl leading-relaxed">
-                        Evagene unifies pedigree drawing, clinical data modelling, four families of risk analysis, and AI-powered clinical interpretation in a single platform. Mendelian inheritance. Polygenic / multifactorial liability-threshold. Cancer family-history (BRCAPRO, MMRpro, PancPRO, plus Claus, Couch, Frank, Manchester, NICE, Amsterdam II, Bethesda, Gail, and a Tyrer-Cuzick IBIS-style approximation). CanRisk / BOADICEA export. 220+ disease catalog. 23andMe SNP import. Zero installs.
+                        Evagene unifies pedigree drawing, clinical data modelling, four families of risk analysis, and AI-powered clinical interpretation in a single platform. Single-gene &amp; adjacent inheritance (AD, AR, XLR, X-linked dominant with sex-differential severity, mitochondrial, digenic, imprinting / UPD). Polygenic / multifactorial liability-threshold. Cancer family-history (BRCAPRO, MMRpro, PancPRO, plus Claus, Couch, Frank, Manchester, NICE, Amsterdam II, Bethesda, Gail, and a Tyrer-Cuzick IBIS-style approximation). CanRisk / BOADICEA export. 220+ disease catalog. 23andMe SNP import. Zero installs.
                     </p>
                 </div>
 
@@ -554,7 +558,7 @@
                     <svg class="w-6 h-6 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
                 </div>
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Bayesian Risk Models</h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">BRCAPRO, MMRpro, PancPRO via BayesMendel. Claus, Couch, Frank, Manchester, NICE, Amsterdam II, Bethesda, Gail, and a Tyrer-Cuzick IBIS-style approximation alongside. Autosomal dominant/recessive and X-linked Mendelian with age-dependent penetrance. Polygenic / multifactorial liability-threshold engine covering 23+ complex conditions. One-click CanRisk export.</p>
+                <p class="text-sm text-gray-600 dark:text-gray-400">BRCAPRO, MMRpro, PancPRO via BayesMendel. Claus, Couch, Frank, Manchester, NICE, Amsterdam II, Bethesda, Gail, and a Tyrer-Cuzick IBIS-style approximation alongside. AD / AR / XLR Mendelian with age-dependent penetrance; X-linked dominant with sex-differential severity; mitochondrial with heteroplasmy scaling; digenic two-locus; imprinting / UPD with parent-of-origin weighting. Polygenic / multifactorial liability-threshold engine covering 23+ complex conditions. One-click CanRisk export.</p>
             </div>
             <div class="feature-card bg-white dark:bg-brand-900/40 rounded-xl p-6 border border-gray-100 dark:border-brand-800 reveal" style="transition-delay:0.05s">
                 <div class="w-12 h-12 rounded-xl bg-clinical-500/10 dark:bg-clinical-500/20 flex items-center justify-center mb-4">
@@ -834,8 +838,8 @@
         <!-- Four-family category chips -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-14 max-w-5xl mx-auto reveal">
             <a href="#mendelian-models" class="block bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3 border border-white/10 transition-colors text-center">
-                <div class="text-accent-400 font-mono text-xs font-bold mb-1">MENDELIAN</div>
-                <div class="text-xs text-brand-200">AD &middot; AR &middot; XLR</div>
+                <div class="text-accent-400 font-mono text-xs font-bold mb-1">SINGLE-GENE &amp; ADJACENT</div>
+                <div class="text-xs text-brand-200">AD &middot; AR &middot; XLR &middot; XLD &middot; Mito &middot; Digenic &middot; Imprinting / UPD</div>
             </a>
             <a href="#polygenic-models" class="block bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3 border border-white/10 transition-colors text-center">
                 <div class="text-accent-400 font-mono text-xs font-bold mb-1">POLYGENIC</div>
@@ -960,23 +964,86 @@
             </div>
         </div>
 
-        <!-- Mendelian models -->
+        <!-- Single-gene & adjacent models -->
         <div id="mendelian-models" class="scroll-mt-20 bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10 reveal mb-14">
             <div class="max-w-3xl mb-6">
-                <div class="inline-flex items-center gap-2 px-2 py-1 bg-accent-500/20 text-accent-400 text-xs font-bold rounded uppercase tracking-wider mb-3">Mendelian</div>
-                <h3 class="text-xl font-bold text-white mb-2">Autosomal dominant, autosomal recessive, X-linked recessive</h3>
-                <p class="text-brand-200 text-sm">Built-in Bayesian pedigree-propagation models for every single-gene disease in the catalogue.</p>
+                <div class="inline-flex items-center gap-2 px-2 py-1 bg-accent-500/20 text-accent-400 text-xs font-bold rounded uppercase tracking-wider mb-3">Single-gene &amp; adjacent</div>
+                <h3 class="text-xl font-bold text-white mb-2">Seven built-in inheritance models</h3>
+                <p class="text-brand-200 text-sm">Bayesian pedigree-propagation models for every single-gene disease in the catalogue, plus the four inheritance patterns that sit adjacent to Mendelian: X-linked dominant with sex-differential severity, mitochondrial maternal transmission, digenic two-locus interaction, and imprinting / UPD with parent-of-origin weighting.</p>
             </div>
-            <div class="grid md:grid-cols-2 gap-8 items-center">
-                <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-brand-300">
+
+            <!-- Classical Mendelian advanced params -->
+            <div class="mb-6 pb-6 border-b border-white/10">
+                <div class="text-xs font-semibold tracking-wider uppercase text-brand-300 mb-3">Autosomal dominant &middot; Autosomal recessive &middot; X-linked recessive</div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-2 text-sm text-brand-300">
                     <span>Age-dependent penetrance</span><span>Germline mosaicism</span><span>De novo mutation rates</span><span>Anticipation (trinucleotide)</span><span>Parent-of-origin bias</span><span>Locus heterogeneity</span><span>Linkage disequilibrium</span><span>LOD scores</span>
                 </div>
-                <div class="text-center">
-                    <div class="inline-block bg-white/10 rounded-xl p-6 border border-white/10">
-                        <div class="text-4xl font-extrabold text-white mb-1">15+</div><div class="text-sm text-brand-300 mb-4">Risk models + CanRisk bridge</div>
-                        <div class="text-4xl font-extrabold text-white mb-1">220+</div><div class="text-sm text-brand-300 mb-4">Diseases catalogued</div>
-                        <div class="text-4xl font-extrabold text-white mb-1">4</div><div class="text-sm text-brand-300">Report types</div>
+            </div>
+
+            <!-- Four new adjacent models -->
+            <div class="grid md:grid-cols-2 gap-4 mb-6">
+                <div class="bg-white/5 rounded-lg p-4 border border-white/10">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-[10px] font-bold px-1.5 py-0.5 bg-accent-500/20 text-accent-400 rounded uppercase tracking-wider">New</span>
+                        <div class="text-accent-400 font-mono text-xs font-bold">X-LINKED DOMINANT</div>
                     </div>
+                    <div class="text-sm font-semibold text-white mb-2">Sex-differential severity &mdash; five sub-modes</div>
+                    <ul class="text-xs text-brand-300 space-y-1">
+                        <li><strong class="text-brand-200">Equal</strong> &mdash; classical XLD with similar severity in both sexes.</li>
+                        <li><strong class="text-brand-200">Males worse</strong> &mdash; males more severely affected than heterozygous females.</li>
+                        <li><strong class="text-brand-200">Male-lethal, reproduces</strong> &mdash; 1:1:1 live-born ratio (affected F : unaffected F : unaffected M). Incontinentia pigmenti, focal dermal hypoplasia, OFD1.</li>
+                        <li><strong class="text-brand-200">Male-lethal, no reproduction</strong> &mdash; affected males not live-born (Rett-class MECP2, CDKL5).</li>
+                        <li><strong class="text-brand-200">Males unaffected</strong> &mdash; metabolic-interference protection in males (CFND / EFNB1, EFMR / PCDH19).</li>
+                    </ul>
+                    <a href="https://evagene.net/help/risk_models#x-linked-dominant-with-sex-differential-severity" target="_blank" rel="noopener" class="inline-block mt-3 text-xs text-brand-300 hover:text-white underline">Risk model guide &rarr;</a>
+                </div>
+
+                <div class="bg-white/5 rounded-lg p-4 border border-white/10">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-[10px] font-bold px-1.5 py-0.5 bg-accent-500/20 text-accent-400 rounded uppercase tracking-wider">New</span>
+                        <div class="text-accent-400 font-mono text-xs font-bold">MITOCHONDRIAL</div>
+                    </div>
+                    <div class="text-sm font-semibold text-white mb-2">Strict maternal transmission + heteroplasmy scaling</div>
+                    <p class="text-xs text-brand-300 mb-2">mtDNA mutations transmitted through the maternal line. Sex-differential penetrance (e.g. LHON male preponderance). Phenotype severity scales with mutant-load (heteroplasmy).</p>
+                    <div class="text-xs text-brand-300">Canonical disorders: <span class="text-brand-200">LHON, MELAS, MERRF, NARP, Leigh (mtDNA subset), Kearns-Sayre, Pearson syndrome</span>.</div>
+                    <a href="https://evagene.net/help/risk_models#mitochondrial-mtdna-inheritance" target="_blank" rel="noopener" class="inline-block mt-3 text-xs text-brand-300 hover:text-white underline">Risk model guide &rarr;</a>
+                </div>
+
+                <div class="bg-white/5 rounded-lg p-4 border border-white/10">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-[10px] font-bold px-1.5 py-0.5 bg-accent-500/20 text-accent-400 rounded uppercase tracking-wider">New</span>
+                        <div class="text-accent-400 font-mono text-xs font-bold">DIGENIC</div>
+                    </div>
+                    <div class="text-sm font-semibold text-white mb-2">Two-locus interaction &mdash; the classical 25% ratio</div>
+                    <p class="text-xs text-brand-300 mb-2">Phenotype requires a simultaneous variant at two separate loci. An affected (Aa;Bb) &times; unaffected (aa;bb) partnership yields 25% affected offspring &mdash; the canonical digenic ratio. Supports <code class="bg-black/30 px-1 rounded">both_het</code>, <code class="bg-black/30 px-1 rounded">one_het_one_hom</code>, <code class="bg-black/30 px-1 rounded">both_hom</code> configurations.</p>
+                    <div class="text-xs text-brand-300">Canonical disorders: <span class="text-brand-200">Usher syndrome type 2, some RP, primary congenital glaucoma</span>.</div>
+                    <a href="https://evagene.net/help/risk_models#digenic-two-locus-inheritance" target="_blank" rel="noopener" class="inline-block mt-3 text-xs text-brand-300 hover:text-white underline">Risk model guide &rarr;</a>
+                </div>
+
+                <div class="bg-white/5 rounded-lg p-4 border border-white/10">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-[10px] font-bold px-1.5 py-0.5 bg-accent-500/20 text-accent-400 rounded uppercase tracking-wider">New</span>
+                        <div class="text-accent-400 font-mono text-xs font-bold">IMPRINTING &middot; UPD</div>
+                    </div>
+                    <div class="text-sm font-semibold text-white mb-2">Mechanism-weighted recurrence + parent-of-origin rule</div>
+                    <p class="text-xs text-brand-300 mb-2">Four molecular mechanisms modelled (deletion, UPD, imprinting-centre defect, point mutation). Recurrence risk is weighted by mechanism; for IC defects, the parent-of-origin rule applies (transmitting parent determines which syndrome phenotype).</p>
+                    <div class="text-xs text-brand-300">Canonical disorders: <span class="text-brand-200">Prader-Willi, Angelman, Beckwith-Wiedemann, Silver-Russell, transient neonatal diabetes mellitus (TNDM)</span>.</div>
+                    <a href="https://evagene.net/help/risk_models#imprinting-and-uniparental-disomy-upd" target="_blank" rel="noopener" class="inline-block mt-3 text-xs text-brand-300 hover:text-white underline">Risk model guide &rarr;</a>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-4 mt-8 pt-6 border-t border-white/10">
+                <div class="text-center">
+                    <div class="text-4xl font-extrabold text-white mb-1">19+</div>
+                    <div class="text-sm text-brand-300">Risk models + CanRisk bridge</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-extrabold text-white mb-1">220+</div>
+                    <div class="text-sm text-brand-300">Diseases catalogued</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-extrabold text-white mb-1">4</div>
+                    <div class="text-sm text-brand-300">Report types</div>
                 </div>
             </div>
         </div>
