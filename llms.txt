@@ -57,13 +57,17 @@ Evagene is a web-based pedigree management system for clinical genetics, oncolog
 
 ## Help & Documentation
 
-Comprehensive documentation is available at https://evagene.net/help covering:
-- Introductory, intermediate, and advanced genetics guides
-- Role-specific workflow guides for 8 professional groups
-- 200+ individual disease guides
-- Risk model documentation (BRCAPRO, MMRpro, PancPRO, Mendelian models)
-- Disease, allergy, trait, clinical test, and intervention catalogues
-- Keyboard shortcut reference
+Comprehensive documentation is available at https://evagene.net/help with 1,900+ individual help guides across six catalogues:
+- Diseases (200+, ICD-10 + OMIM)
+- Traits (heritability, marker associations)
+- Allergies (IgE status, cross-reactivity)
+- Clinical tests (LOINC-linked)
+- Markers / genes (NCBI Gene, OMIM, ClinVar)
+- Treatments (RxNorm, BNF, DrugBank)
+
+Also: introductory / intermediate / advanced genetics guides, role-specific workflow guides for 8 professional groups, risk model documentation (BRCAPRO, MMRpro, PancPRO, Claus, Couch, Frank, Manchester, NICE, Amsterdam II, Bethesda, Gail, Tyrer-Cuzick approximation, CanRisk export, Mendelian + non-classical models, polygenic liability-threshold), and a keyboard shortcut reference.
+
+Browse the catalogue at https://evagene.net/help/#browse &mdash; or jump straight to clinical tests (https://evagene.net/help/#clinical-tests), markers / genes (https://evagene.net/help/#markers), or treatments (https://evagene.net/help/#treatments).
 
 ## Platform & Integrations
 

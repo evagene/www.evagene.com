@@ -211,7 +211,7 @@ Easy gesture-based drawing. Visual clarity with colour-coded disease sectors. 23
 GEDCOM 5.5.1 import/export for Ancestry, FamilySearch, Gramps compatibility. Rich family data capture. Multi-generation support. Twin documentation. Automatic consanguinity detection.
 
 ### Educators & Students
-240+ educational guides from introductory to advanced level. 220+ disease-specific guides (including 20+ multifactorial / polygenic / oligogenic conditions). Interactive exploration. Standard notation enforcement. Risk model documentation with canonical citations (Carter 1961, Falconer 1965, Claus 1994, Couch 1997, Frank 2002, Evans 2004, Vasen 1999, Umar 2004, Gail 1989, Tyrer/Duffy/Cuzick 2004, Antoniou 2004 / Lee 2019).
+1,900+ help guides across six catalogues (diseases, traits, allergies, clinical tests, markers / genes, treatments) with cross-linking and authoritative external references (LOINC, NCBI Gene, OMIM, ClinVar, RxNorm, BNF, DrugBank). Introductory through advanced genetics guides. Interactive exploration. Standard notation enforcement. Risk model documentation with canonical citations (Carter 1961, Falconer 1965, Claus 1994, Couch 1997, Frank 2002, Evans 2004, Vasen 1999, Umar 2004, Gail 1989, Tyrer/Duffy/Cuzick 2004, Antoniou 2004 / Lee 2019). Browse the catalogue at https://evagene.net/help/#browse.
 
 ---
 
@@ -247,7 +247,7 @@ Full platform documentation: https://evagene.net/help/platform_overview
 
 ## Help & Documentation
 
-Evagene includes 220+ help guides accessible at https://evagene.net/help:
+Evagene includes 1,900+ help guides accessible at https://evagene.net/help. Six cross-linked catalogues — diseases, traits, allergies, clinical tests (LOINC-linked), markers / genes (NCBI Gene, OMIM, ClinVar), and treatments (RxNorm, BNF, DrugBank) — plus educational guides, role-specific workflows, and risk-model documentation:
 
 ### Educational Guides
 - Introduction to Genetics — DNA, genes, chromosomes, inheritance patterns, pedigree charts, genetic testing, cancer genetics, consanguinity, twins, ancestry, pharmacogenomics, genomic data
