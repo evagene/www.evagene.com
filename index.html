@@ -191,7 +191,7 @@
         },
         "audience": {
             "@type": "Audience",
-            "audienceType": "Clinical geneticists, oncologists, genetic counsellors, research geneticists, genealogists, patients, educators"
+            "audienceType": "Clinical geneticists, oncologists, genetic counsellors, reproductive medicine specialists, research geneticists, genealogists, patients, educators"
         }
     }
     </script>
@@ -662,6 +662,7 @@
             <button class="tab-btn whitespace-nowrap px-4 py-2.5 text-sm font-medium text-gray-500 dark:text-gray-400 border-b-2 border-transparent transition-colors flex-shrink-0" data-tab="oncologists" role="tab" aria-selected="false">Oncologists</button>
             <button class="tab-btn whitespace-nowrap px-4 py-2.5 text-sm font-medium text-gray-500 dark:text-gray-400 border-b-2 border-transparent transition-colors flex-shrink-0" data-tab="gps" role="tab" aria-selected="false">GPs</button>
             <button class="tab-btn whitespace-nowrap px-4 py-2.5 text-sm font-medium text-gray-500 dark:text-gray-400 border-b-2 border-transparent transition-colors flex-shrink-0" data-tab="nurses" role="tab" aria-selected="false">Genetic Nurses</button>
+            <button class="tab-btn whitespace-nowrap px-4 py-2.5 text-sm font-medium text-gray-500 dark:text-gray-400 border-b-2 border-transparent transition-colors flex-shrink-0" data-tab="reproductive" role="tab" aria-selected="false">Reproductive Medicine</button>
             <button class="tab-btn whitespace-nowrap px-4 py-2.5 text-sm font-medium text-gray-500 dark:text-gray-400 border-b-2 border-transparent transition-colors flex-shrink-0" data-tab="researchers" role="tab" aria-selected="false">Researchers</button>
             <button class="tab-btn whitespace-nowrap px-4 py-2.5 text-sm font-medium text-gray-500 dark:text-gray-400 border-b-2 border-transparent transition-colors flex-shrink-0" data-tab="patients" role="tab" aria-selected="false">Patients &amp; Families</button>
             <button class="tab-btn whitespace-nowrap px-4 py-2.5 text-sm font-medium text-gray-500 dark:text-gray-400 border-b-2 border-transparent transition-colors flex-shrink-0" data-tab="genealogists" role="tab" aria-selected="false">Genealogists</button>
@@ -738,6 +739,25 @@
                     <div class="bg-white dark:bg-brand-900/60 rounded-xl border border-gray-100 dark:border-brand-800 overflow-hidden">
                         <!-- TODO: Replace with clinical-consent.png when available -->
                         <img src="images/pedigrees/clinical-consent.png" alt="Evagene screenshot: properties panel showing consent-to-share flag, contact fields, and proband marking for patient data governance" class="w-full h-auto" loading="lazy">
+                    </div>
+                </div>
+            </div>
+            <!-- Reproductive Medicine — expanded -->
+            <div id="tab-reproductive" class="tab-panel hidden" role="tabpanel">
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <div class="space-y-5">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Pre-conception, carrier, prenatal, and PGD counselling &mdash; on one pedigree</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Ancestry-weighted carrier priors across the AR / XLR catalogue, non-classical inheritance modelling (XLD sex-differential severity, mitochondrial with heteroplasmy scaling, digenic, imprinting / UPD), reproductive-history fields for Gail and Tyrer-Cuzick, and CanRisk export for NICE moderate- and high-risk women.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Ancestry-gated carrier priors &mdash; explicit population key, weighted mix, or Hardy-Weinberg estimate attributed per row; no ancestry, no personalised number</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Non-classical inheritance: X-linked dominant (5 sub-modes), mitochondrial, digenic, imprinting / UPD with parent-of-origin rule (Prader-Willi, Angelman, BWS, SRS, TNDM)</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Reproductive / breast-health fields on Individual drive Gail, Tyrer-Cuzick (IBIS-style approximation), and the CanRisk pedigree export</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-clinical-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-700 dark:text-gray-300">Germline mosaicism posterior with blood/sperm VAF integration and joint-parent logic for two-unaffected-parents cases</span></li>
+                        </ul>
+                        <a href="for-reproductive-medicine.html" class="inline-flex items-center gap-2 text-sm font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300">Full page for reproductive medicine <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
+                    </div>
+                    <div class="bg-white dark:bg-brand-900/60 rounded-xl border border-gray-100 dark:border-brand-800 overflow-hidden">
+                        <img src="images/pedigrees/cystic-fibrosis.png" alt="Evagene screenshot: ancestry-weighted autosomal recessive carrier risk for cystic fibrosis, relevant to pre-conception and reproductive counselling" class="w-full h-auto" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -1476,7 +1496,7 @@ END TESTIMONIALS -->
                 <p class="text-xs text-gray-600">Built with care for precision medicine</p>
             </div>
             <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="#features" class="hover:text-white transition-colors">Features</a></li><li><a href="#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="platform.html" class="hover:text-white transition-colors">Platform</a></li><li><a href="#resources" class="hover:text-white transition-colors">Resources</a></li><li><a href="https://evagene.net/help" class="hover:text-white transition-colors">Help Centre</a></li></ul></div>
-            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="research-citations.html" class="hover:text-white transition-colors">Research &amp; Citations</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="research-citations.html" class="hover:text-white transition-colors">Research &amp; Citations</a></li><li><a href="changelog.html" class="hover:text-white transition-colors">Changelog</a></li></ul></div>
             <div><h4 class="text-sm font-semibold text-white mb-4">For</h4><ul class="space-y-2 text-sm"><li><a href="#who-its-for" class="hover:text-white transition-colors">Clinical Geneticists</a></li><li><a href="#who-its-for" class="hover:text-white transition-colors">Oncologists</a></li><li><a href="#who-its-for" class="hover:text-white transition-colors">Researchers</a></li><li><a href="#who-its-for" class="hover:text-white transition-colors">Patients &amp; Families</a></li><li><a href="#who-its-for" class="hover:text-white transition-colors">Genealogists</a></li></ul></div>
         </div>
         <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -1707,7 +1727,7 @@ END TESTIMONIALS -->
         {
             "@type": "Question",
             "name": "What is the risk screening feature in Evagene?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Risk screening lets you designate a proband and screen them against all diseases in your collection simultaneously. Evagene runs the appropriate risk model for each disease (BRCAPRO, MMRpro, PancPRO, or Mendelian models) and produces a unified report with carrier probabilities, colour-coded risk levels, family member risk tables, a risk karyogram showing elevated-risk gene loci, and optional descendant reports." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Risk screening lets you designate a proband and screen them across all applicable models simultaneously. Evagene picks the right model for each disease from a catalogue of 20 integrated calculators plus a CanRisk / BOADICEA export bridge — BayesMendel cancer (BRCAPRO, MMRpro, PancPRO), cancer family-history scoring (Claus, Couch, Frank, Manchester, NICE CG164/NG101, Amsterdam II, revised Bethesda, Gail, Tyrer-Cuzick IBIS-style approximation), Mendelian and adjacent (AD, AR, XLR, X-linked dominant with five sex-differential sub-modes, mitochondrial, digenic, imprinting / UPD), and polygenic liability-threshold across 20+ complex conditions. Outputs include carrier probabilities, colour-coded risk levels, family-member risk tables, and a risk karyogram showing elevated-risk gene loci." }
         },
         {
             "@type": "Question",
@@ -1727,7 +1747,7 @@ END TESTIMONIALS -->
         {
             "@type": "Question",
             "name": "How do you assess hereditary cancer risk from family history?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Hereditary cancer risk assessment starts with collecting a detailed three-generation family history pedigree, documenting cancer types, ages at diagnosis, and genetic test results. Clinicians then apply validated risk models: BRCAPRO estimates BRCA1/BRCA2 carrier probability for breast and ovarian cancer, MMRpro estimates Lynch syndrome risk for colorectal and endometrial cancer, and PancPRO estimates hereditary pancreatic cancer risk. Evagene integrates all three BayesMendel models directly into the pedigree — clinicians draw the family, mark diagnoses, and run risk models with one click, receiving carrier probabilities and age-specific cumulative risk projections." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Hereditary cancer risk assessment starts with a detailed three-generation family pedigree. Evagene then runs the right model for the clinical question: BayesMendel BRCAPRO, MMRpro, and PancPRO for BRCA1/2, Lynch, and pancreatic-susceptibility carrier probabilities; the Claus, Couch, Frank, and Manchester models for BRCA pre-test probability and testing thresholds; NICE CG164 / NG101 for UK referral categorisation; Amsterdam II and revised Bethesda for Lynch suspicion and MSI triggers; Gail (NCI BCRAT) and Tyrer-Cuzick (IBIS-style approximation, not the official IBIS binary) for individualised 5-, 10-, and lifetime breast-cancer risk. For NICE moderate- and high-risk women needing the full multi-gene + polygenic-risk-score + mammographic-density workup, Evagene exports a CanRisk-compatible pedigree file for upload at canrisk.org (BOADICEA is not bundled — licensed by the University of Cambridge)." }
         },
         {
             "@type": "Question",
@@ -1737,7 +1757,7 @@ END TESTIMONIALS -->
         {
             "@type": "Question",
             "name": "What is a Mendelian inheritance calculator?",
-            "acceptedAnswer": { "@type": "Answer", "text": "A Mendelian inheritance calculator estimates the probability that an individual carries or will manifest a genetic trait based on their family pedigree and the known inheritance pattern of the condition. Evagene includes built-in Mendelian models for autosomal dominant inheritance (with support for reduced penetrance, age-dependent penetrance, and anticipation), autosomal recessive inheritance (with Hardy-Weinberg equilibrium, population-specific carrier frequencies, and genetic test adjustment), and X-linked recessive inheritance (with hemizygosity, mutation rates, and biological fitness parameters)." }
+            "acceptedAnswer": { "@type": "Answer", "text": "A Mendelian inheritance calculator estimates the probability that an individual carries or will manifest a genetic trait based on their family pedigree and the known inheritance pattern. Evagene includes seven built-in single-gene-and-adjacent models: autosomal dominant (with reduced penetrance, age-dependent penetrance, anticipation, germline mosaicism, parent-of-origin bias), autosomal recessive (with Hardy-Weinberg, ancestry-weighted population carrier frequencies, and genetic test adjustment), X-linked recessive (with hemizygosity, mutation rates, and biological fitness), X-linked dominant with five sex-differential severity sub-modes (Rett-class, incontinentia pigmenti, CFND, EFMR), mitochondrial with strict maternal transmission and heteroplasmy scaling, digenic two-locus interaction with the classical 25% offspring ratio, and imprinting / UPD with mechanism-weighted recurrence and the parent-of-origin rule for imprinting-centre defects." }
         },
         {
             "@type": "Question",
@@ -1783,6 +1803,21 @@ END TESTIMONIALS -->
             "@type": "Question",
             "name": "How do I create a pedigree for a genetics class?",
             "acceptedAnswer": { "@type": "Answer", "text": "For genetics education, you can use Evagene to draw pedigrees using standard notation (circles for females, squares for males, filled symbols for affected individuals). Evagene includes 220+ built-in educational guides covering introductory, intermediate, and advanced genetics topics, 200+ disease-specific guides, and interactive tools for exploring Mendelian inheritance, consanguinity, and risk analysis. Educators and students can use gesture drawing to quickly create pedigrees on the HTML5 canvas, then annotate them with diseases and run inheritance models to demonstrate genetic principles." }
+        },
+        {
+            "@type": "Question",
+            "name": "Does Evagene model polygenic and multifactorial inheritance?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Evagene ships a polygenic / oligogenic / multifactorial liability-threshold recurrence-risk engine grounded in Carter (1961), Falconer (1965), and Reich/James/Morton (1972). For each counselee the engine classifies affected relatives by degree (MZ twin, 1st, 2nd, 3rd, 4th), uses empirical Smith / Carter / Harper recurrence-risk tables when available, falls back to a Falconer liability-threshold calculation from heritability (h²) and prevalence (K) when not, and applies four classical counselling modifiers: severity of proband, Carter-effect sex bias, multiple affected close relatives, and parental consanguinity as (1 + 2F·h²). 20+ complex conditions are catalogued with heritability and empirical recurrence risks, including cleft lip ± palate, Hirschsprung's disease, type 1 and type 2 diabetes, late-onset Alzheimer's, schizophrenia, bipolar disorder, epilepsy, pyloric stenosis, neural tube defects, congenital heart disease, asthma, coeliac disease, essential hypertension, and obesity." }
+        },
+        {
+            "@type": "Question",
+            "name": "Does Evagene handle non-classical inheritance — X-linked dominant, mitochondrial, digenic, and imprinting / UPD?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Evagene models four inheritance patterns that sit adjacent to classical Mendelian: X-linked dominant with five sex-differential severity sub-modes (equal, males-worse, male-lethal-reproduces with 1:1:1 live-born ratio for incontinentia pigmenti and OFD1, male-lethal-no-reproduction for Rett-class / MECP2 / CDKL5, and metabolic-interference males-unaffected for CFND and EFMR); mitochondrial (mtDNA) with strict maternal transmission, sex-differential penetrance, and heteroplasmy scaling (LHON, MELAS, MERRF, NARP, Leigh, Kearns-Sayre, Pearson); digenic two-locus interaction with the classical 25% offspring ratio (Usher type 2, some retinitis pigmentosa, primary congenital glaucoma); and imprinting / uniparental disomy with mechanism-weighted recurrence (deletion, UPD, imprinting-centre defect, point mutation) and the parent-of-origin rule that determines whether an IC defect at 15q11-13 presents as Prader-Willi (paternal) or Angelman (maternal). Canonical reproductive-medicine examples: Prader-Willi, Angelman, Beckwith-Wiedemann, Silver-Russell, TNDM." }
+        },
+        {
+            "@type": "Question",
+            "name": "How does Evagene handle population-conditioned carrier priors?",
+            "acceptedAnswer": { "@type": "Answer", "text": "For every individual with recorded ancestry, Evagene surfaces prior carrier probabilities across the autosomal-recessive and X-linked-recessive catalogue, weighted by that individual's ancestry proportions. Every row is attributed to one of three explicit sources: an explicit population key (direct published carrier frequency such as Cystic fibrosis in Northern European ~1 in 25), a weighted mix when ancestry is mixed (proportion-weighted combination with per-population contributions visible in the row), or a Hardy-Weinberg estimate from incidence (2pq, flagged as an estimate rather than a published figure). Safety default: if no ancestry is recorded on an individual, Evagene shows no personalised carrier number — closing the common clinical-tool failure mode of presenting a 'general population' figure as applying to a specific person." }
         },
         {
             "@type": "Question",
@@ -1847,7 +1882,7 @@ END TESTIMONIALS -->
         {
             "@type": "Question",
             "name": "What is the BayesMendel package and how does Evagene integrate it?",
-            "acceptedAnswer": { "@type": "Answer", "text": "BayesMendel is an R statistical package developed at Johns Hopkins and Harvard that implements Bayesian risk prediction models for hereditary cancer syndromes. It includes BRCAPRO (breast and ovarian cancer via BRCA1/BRCA2), MMRpro (colorectal and endometrial cancer via MLH1/MSH2/MSH6 for Lynch syndrome), and PancPRO (pancreatic cancer). Evagene runs BayesMendel as an R sidecar service, automatically translating your pedigree data into the format the models require and returning carrier probabilities and age-specific cumulative risk projections." }
+            "acceptedAnswer": { "@type": "Answer", "text": "BayesMendel is an R statistical package developed at Johns Hopkins and Harvard that implements Bayesian risk prediction models for hereditary cancer syndromes — BRCAPRO (breast and ovarian via BRCA1/BRCA2), MMRpro (colorectal and endometrial via MLH1/MSH2/MSH6 for Lynch syndrome), and PancPRO (pancreatic). Evagene runs BayesMendel as an R sidecar service, translating pedigree data into the format the models require and returning carrier probabilities and age-specific cumulative risk projections. The Bayesian cancer models sit alongside nine family-history scoring models (Claus, Couch, Frank, Manchester, NICE, Amsterdam II, Bethesda, Gail, Tyrer-Cuzick approximation) and a CanRisk / BOADICEA export bridge — all on the same pedigree." }
         },
         {
             "@type": "Question",

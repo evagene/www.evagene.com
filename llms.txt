@@ -140,6 +140,7 @@ Honest side-by-side and alternatives guides for every major clinical pedigree pl
 
 - [For clinical geneticists](https://evagene.com/for-clinical-geneticists.html)
 - [For genetic counsellors](https://evagene.com/for-genetic-counsellors.html)
+- [For reproductive medicine](https://evagene.com/for-reproductive-medicine.html)
 - [For oncologists](https://evagene.com/for-oncologists.html)
 - [For general practitioners](https://evagene.com/for-general-practitioners.html)
 - [For research geneticists](https://evagene.com/for-research-geneticists.html)
@@ -147,6 +148,13 @@ Honest side-by-side and alternatives guides for every major clinical pedigree pl
 - [For genealogists](https://evagene.com/for-genealogists.html)
 - [For educators and students](https://evagene.com/for-educators-students.html)
 - [For patients and families](https://evagene.com/for-patients-families.html)
+
+## Inheritance-Model Landing Pages
+
+- [Mitochondrial inheritance pedigree software](https://evagene.com/mitochondrial-inheritance-pedigree.html) — LHON, MELAS, MERRF, NARP, Leigh (mtDNA subset), Kearns-Sayre, Pearson. Strict maternal transmission, sex-differential penetrance, heteroplasmy scaling.
+- [X-linked dominant pedigree software](https://evagene.com/x-linked-dominant-pedigree.html) — five sex-differential severity sub-modes (equal, males-worse, male-lethal-reproduces for incontinentia pigmenti / OFD1, male-lethal-no-reproduction for Rett-class, metabolic-interference males-unaffected for CFND / EFMR).
+- [Digenic inheritance pedigree software](https://evagene.com/digenic-inheritance-pedigree.html) — two-locus interaction with the classical 25% offspring-affected ratio; Usher syndrome type 2, some retinitis pigmentosa, primary congenital glaucoma.
+- [Imprinting &amp; UPD pedigree software](https://evagene.com/imprinting-upd-pedigree.html) — mechanism-weighted recurrence (deletion / UPD / IC defect / point mutation) and parent-of-origin rule for Prader-Willi, Angelman, Beckwith-Wiedemann, Silver-Russell, TNDM.
 
 ## Platform & Developer Guides
 

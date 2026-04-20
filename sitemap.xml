@@ -146,6 +146,7 @@
   <url><loc>https://evagene.com/for-genealogists.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://evagene.com/for-educators-students.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://evagene.com/for-patients-families.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/for-reproductive-medicine.html</loc><lastmod>2026-04-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- Country-specific -->
   <url><loc>https://evagene.com/pedigree-software-nhs.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -153,11 +154,18 @@
 
   <!-- Authority & trust -->
   <url><loc>https://evagene.com/research-citations.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://evagene.com/changelog.html</loc><lastmod>2026-04-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 
   <!-- Risk-engine expansion (April 2026) -->
   <url><loc>https://evagene.com/release-2026-04-risk-expansion.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://evagene.com/complex-disease-pedigree-software.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://evagene.com/release-2026-04-18-inheritance-patterns.html</loc><lastmod>2026-04-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Inheritance-model landing pages (April 2026) -->
+  <url><loc>https://evagene.com/mitochondrial-inheritance-pedigree.html</loc><lastmod>2026-04-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/imprinting-upd-pedigree.html</loc><lastmod>2026-04-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/x-linked-dominant-pedigree.html</loc><lastmod>2026-04-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/digenic-inheritance-pedigree.html</loc><lastmod>2026-04-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
   <!-- Legal -->
   <url><loc>https://evagene.com/privacy-policy.html</loc><lastmod>2026-04-17</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>

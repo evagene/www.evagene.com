@@ -8,13 +8,13 @@
     <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wc26ock5ta");</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mendelian Inheritance Calculator &mdash; Autosomal &amp; X-Linked Models | Evagene</title>
-    <meta name="description" content="Learn how Mendelian inheritance calculators model autosomal dominant, autosomal recessive, and X-linked inheritance patterns. Understand Punnett squares, Bayesian carrier probabilities, penetrance, and how Evagene integrates clinical-grade inheritance models into pedigree analysis.">
+    <title>Mendelian Inheritance Calculator &mdash; AD, AR, XLR, X-Linked Dominant, Mitochondrial, Digenic &amp; Imprinting / UPD | Evagene</title>
+    <meta name="description" content="Mendelian and near-Mendelian inheritance calculator: autosomal dominant, autosomal recessive, X-linked recessive, X-linked dominant with five sex-differential severity sub-modes (incontinentia pigmenti, Rett-class, CFND, EFMR), mitochondrial (LHON, MELAS, MERRF), digenic two-locus (Usher type 2), and imprinting / UPD (Prader-Willi, Angelman, BWS). Ancestry-gated population-conditioned carrier priors. Punnett squares, Bayesian updating, penetrance, clinical pedigree analysis.">
     <meta name="keywords" content="mendelian inheritance calculator, autosomal dominant calculator, autosomal recessive carrier probability, X-linked inheritance, genetic inheritance patterns, pedigree inheritance analysis, Punnett square calculator, carrier frequency, Hardy-Weinberg, penetrance, genetic risk calculator">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Mendelian Inheritance Calculator — Autosomal & X-Linked Models | Evagene">
-    <meta property="og:description" content="Comprehensive guide to Mendelian inheritance calculations: autosomal dominant, autosomal recessive, and X-linked models. Includes Bayesian updating, penetrance, carrier probabilities, and clinical pedigree analysis.">
+    <meta property="og:description" content="Mendelian and near-Mendelian inheritance calculator covering AD, AR, XLR, X-linked dominant with sex-differential severity, mitochondrial (mtDNA), digenic two-locus, and imprinting / UPD. Plus ancestry-gated population-conditioned carrier priors.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://evagene.com/mendelian-inheritance-calculator">
     <meta property="og:image" content="https://evagene.com/og-image.png">
@@ -24,7 +24,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Mendelian Inheritance Calculator — Autosomal & X-Linked Models">
-    <meta name="twitter:description" content="Comprehensive guide to Mendelian inheritance calculations: autosomal dominant, autosomal recessive, and X-linked models with clinical pedigree analysis.">
+    <meta name="twitter:description" content="Mendelian + near-Mendelian: AD, AR, XLR, XLD with five sub-modes, mitochondrial, digenic, imprinting / UPD — plus ancestry-gated carrier priors.">
     <meta name="twitter:image" content="https://evagene.com/og-image.png">
 
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -354,6 +354,55 @@
             <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">Clinical Examples</h3>
             <p class="mb-4 leading-relaxed">
                 Well-known X-linked recessive conditions include <strong>haemophilia A</strong> (factor VIII deficiency, <em>F8</em> gene) and <strong>haemophilia B</strong> (factor IX deficiency, <em>F9</em> gene), <strong>Duchenne muscular dystrophy</strong> (<em>DMD</em> gene, with approximately one-third of cases arising from de novo mutations), <strong>red-green colour blindness</strong> (<em>OPN1LW/OPN1MW</em> genes), and <strong>glucose-6-phosphate dehydrogenase (G6PD) deficiency</strong>. The high de novo mutation rate in Duchenne muscular dystrophy is particularly important for inheritance calculations: a mother of a single affected son with no other family history has a carrier probability of approximately 2/3 (not 1), because one-third of cases are de novo.
+            </p>
+        </section>
+
+        <!-- Non-Classical Inheritance Patterns -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-5">Non-Classical Inheritance Patterns</h2>
+            <p class="mb-4 leading-relaxed">
+                Four further inheritance patterns sit immediately adjacent to classical Mendelian and arise often enough in a clinical-genetics or reproductive-medicine clinic that a calculator worth running at all must handle them directly. Evagene models all four on the same pedigree &mdash; no re-entry, no second tool.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">X-Linked Dominant with Sex-Differential Severity</h3>
+            <p class="mb-4 leading-relaxed">
+                Classical XLD assumes similar severity in heterozygous females and hemizygous males. The clinically encountered X-linked dominant disorders actually split into five observable live-born patterns, and the correct recurrence-risk number turns on which applies:
+            </p>
+            <ul class="list-disc list-inside mb-4 space-y-1.5 ml-4">
+                <li><strong>Equal</strong> &mdash; similar severity in both sexes.</li>
+                <li><strong>Males worse</strong> &mdash; males substantially more severely affected, both viable.</li>
+                <li><strong>Male-lethal, reproduces</strong> &mdash; affected males not live-born; carrier-mother offspring split 1 affected daughter : 1 unaffected daughter : 1 unaffected son (incontinentia pigmenti, focal dermal hypoplasia, OFD1).</li>
+                <li><strong>Male-lethal, no reproduction</strong> &mdash; affected males not seen in live births (Rett syndrome, MECP2-related, CDKL5-related).</li>
+                <li><strong>Metabolic-interference males-unaffected</strong> &mdash; males phenotypically spared (craniofrontonasal syndrome / EFNB1, EFMR / PCDH19).</li>
+            </ul>
+            <p class="mb-4 leading-relaxed">
+                Evagene stores the sub-mode on the disease record and pre-populates it for canonical disorders through catalogue lookup. Offspring-risk output is sex-split and sub-mode-aware.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">Mitochondrial (mtDNA) Inheritance</h3>
+            <p class="mb-4 leading-relaxed">
+                Mitochondrial DNA mutations transmit exclusively down the maternal line. Three features distinguish clinical mtDNA counselling from Mendelian logic: <strong>strict maternal transmission</strong> (fathers do not transmit; unaffected daughters of a carrier mother still transmit); <strong>sex-differential penetrance</strong> (LHON shows marked male preponderance, MELAS more symmetric); and <strong>heteroplasmy scaling</strong> (phenotype severity tracks the mutant-load fraction, configurable per disease and as a runtime override). Canonical disorders: Leber's hereditary optic neuropathy, MELAS, MERRF, NARP, Leigh syndrome (mtDNA subset), Kearns-Sayre, Pearson.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">Digenic Two-Locus Inheritance</h3>
+            <p class="mb-4 leading-relaxed">
+                For a subset of disorders, the phenotype requires a simultaneous variant at two separate loci. The classical digenic pedigree pattern &mdash; unaffected but related parents, multiple affected offspring, then ~25% transmission onwards &mdash; is straightforward to miss if each locus is analysed under autosomal recessive assumptions. Evagene's digenic engine supports <code class="text-sm bg-gray-100 dark:bg-brand-900 px-1 rounded">both_het</code>, <code class="text-sm bg-gray-100 dark:bg-brand-900 px-1 rounded">one_het_one_hom</code>, and <code class="text-sm bg-gray-100 dark:bg-brand-900 px-1 rounded">both_hom</code> configurations. Canonical disorders: Usher syndrome type 2, certain forms of retinitis pigmentosa, primary congenital glaucoma.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3">Imprinting and Uniparental Disomy (UPD)</h3>
+            <p class="mb-4 leading-relaxed">
+                Imprinting disorders defeat the usual recurrence-risk heuristics because the molecular mechanism determines the number, not the pedigree alone. Evagene's engine weights recurrence by four mechanisms: <strong>deletion</strong> (typically sporadic), <strong>UPD</strong> (typically sporadic), <strong>imprinting-centre defect</strong> (substantially higher recurrence), and <strong>point mutation</strong> (classical Mendelian for the underlying inheritance). For IC defects, the parent-of-origin rule applies: a paternal IC defect at 15q11-13 presents as Prader-Willi; a maternal IC defect at the same locus presents as Angelman. Canonical disorders: Prader-Willi, Angelman, Beckwith-Wiedemann, Silver-Russell, transient neonatal diabetes mellitus (TNDM).
+            </p>
+        </section>
+
+        <!-- Population-Conditioned Carrier Priors -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-5">Population-Conditioned Carrier Priors</h2>
+            <p class="mb-4 leading-relaxed">
+                For every individual with recorded ancestry, Evagene surfaces prior carrier probabilities across the autosomal-recessive and X-linked-recessive catalogue, weighted by that individual's ancestry proportions. Every row is attributed to exactly one of three sources: <strong>explicit population key</strong> (direct published carrier frequency, e.g. Cystic fibrosis in Northern European ~1 in 25; Tay-Sachs in Ashkenazi Jewish ~1 in 30); <strong>weighted mix</strong> (proportion-weighted combination across relevant populations for mixed ancestry, with per-population contributions visible); or <strong>Hardy-Weinberg from incidence</strong> (derived as 2pq where no population-specific frequency is published, flagged as an estimate).
+            </p>
+            <p class="mb-4 leading-relaxed">
+                <strong class="text-gray-900 dark:text-white">Safety default &mdash; ancestry-gated.</strong> If an individual has no ancestry recorded, Evagene shows no personalised carrier number. This closes the common clinical-tool failure mode of presenting a single "general population" figure as if it applied to a specific person. No ancestry, no prior &mdash; by design.
             </p>
         </section>
 

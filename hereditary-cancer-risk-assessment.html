@@ -8,13 +8,13 @@
     <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wc26ock5ta");</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hereditary Cancer Risk Assessment — BRCAPRO, MMRpro &amp; PancPRO | Evagene</title>
-    <meta name="description" content="Learn how hereditary cancer risk assessment works with BRCAPRO, MMRpro, and PancPRO models from the BayesMendel framework. Understand breast, ovarian, colorectal, and pancreatic cancer genetics, family pedigree analysis, and carrier probability estimation.">
-    <meta name="keywords" content="hereditary cancer risk assessment, BRCAPRO calculator, MMRpro Lynch syndrome, PancPRO, cancer genetics risk, BayesMendel, breast cancer risk from family history, BRCA1, BRCA2, MLH1, MSH2, MSH6, genetic counselling, pedigree analysis, carrier probability">
+    <title>Hereditary Cancer Risk Assessment — BRCAPRO, MMRpro, PancPRO, Claus, Manchester, NICE, Gail, Tyrer-Cuzick &amp; CanRisk | Evagene</title>
+    <meta name="description" content="Hereditary cancer risk assessment with BayesMendel BRCAPRO/MMRpro/PancPRO plus nine family-history scoring models (Claus, Couch, Frank, Manchester, NICE CG164/NG101, Amsterdam II, revised Bethesda, Gail NCI BCRAT, Tyrer-Cuzick IBIS-style approximation) and a one-click CanRisk / BOADICEA pedigree export. All on one pedigree.">
+    <meta name="keywords" content="hereditary cancer risk assessment, BRCAPRO, MMRpro, PancPRO, Claus model, Couch, Frank Myriad, Manchester scoring system, NICE CG164 NG101, Amsterdam II criteria, revised Bethesda, Gail NCI BCRAT, Tyrer-Cuzick, CanRisk export, BOADICEA, BayesMendel, breast cancer risk, ovarian cancer, Lynch syndrome, pancreatic cancer, BRCA1, BRCA2, MLH1, MSH2, MSH6, PALB2, carrier probability, family pedigree">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Hereditary Cancer Risk Assessment — BRCAPRO, MMRpro & PancPRO | Evagene">
-    <meta property="og:description" content="Comprehensive guide to hereditary cancer risk assessment using BRCAPRO, MMRpro, and PancPRO Bayesian risk models. Family pedigree analysis for breast, ovarian, colorectal, and pancreatic cancer genetics.">
+    <meta property="og:title" content="Hereditary Cancer Risk Assessment — BRCAPRO + 9 family-history models + CanRisk export | Evagene">
+    <meta property="og:description" content="Bayesian BRCAPRO/MMRpro/PancPRO plus Claus, Couch, Frank, Manchester, NICE, Amsterdam II, Bethesda, Gail, Tyrer-Cuzick (IBIS-style approximation), and one-click CanRisk / BOADICEA pedigree export.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://evagene.com/hereditary-cancer-risk-assessment">
     <meta property="og:image" content="https://evagene.com/og-image.png">
@@ -23,8 +23,8 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Hereditary Cancer Risk Assessment — BRCAPRO, MMRpro & PancPRO">
-    <meta name="twitter:description" content="Comprehensive guide to hereditary cancer risk assessment using BRCAPRO, MMRpro, and PancPRO Bayesian risk models from the BayesMendel framework.">
+    <meta name="twitter:title" content="Hereditary Cancer Risk Assessment — BRCAPRO + Manchester, NICE, Gail, Tyrer-Cuzick, CanRisk">
+    <meta name="twitter:description" content="BayesMendel BRCAPRO/MMRpro/PancPRO plus nine family-history scoring models and one-click CanRisk / BOADICEA pedigree export — all on one pedigree.">
     <meta name="twitter:image" content="https://evagene.com/og-image.png">
 
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -414,19 +414,60 @@
             </p>
         </section>
 
+        <!-- Family-History Scoring Models Alongside BayesMendel -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Family-History Scoring Models Alongside BayesMendel</h2>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                BRCAPRO, MMRpro, and PancPRO answer one specific clinical question: the posterior probability of a pathogenic carrier state given the pedigree. In practice, several other questions arise in the same clinic &mdash; what is this woman's lifetime breast-cancer risk from family history alone? Does this family meet a specific testing threshold? Do we suspect Lynch syndrome by classical criteria? Each of these has a dedicated, widely-used scoring model. Evagene implements them all directly, without an R sidecar, on the same pedigree the clinician has already drawn.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 mt-6">Breast-cancer family-history models</h3>
+            <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2 mb-4 ml-4">
+                <li><strong class="text-gray-900 dark:text-white">Claus (CASH-derived)</strong> &mdash; Lifetime and relative breast-cancer risk as a function of affected relatives, degree, and age at diagnosis, with an ovarian-in-first-degree multiplier (Claus, Risch &amp; Thompson 1994). Best for a woman who does not meet high-risk criteria but wants a numerical lifetime estimate.</li>
+                <li><strong class="text-gray-900 dark:text-white">Couch</strong> &mdash; Logistic pre-test BRCA1 probability using average age at diagnosis, ovarian involvement, and Ashkenazi ancestry (Couch 1997), with a 10% testing-threshold flag.</li>
+                <li><strong class="text-gray-900 dark:text-white">Frank / Myriad</strong> &mdash; Empirical BRCA1 and BRCA2 mutation probabilities by canonical family scenario (Frank 2002).</li>
+                <li><strong class="text-gray-900 dark:text-white">Manchester Scoring System</strong> &mdash; Point-based BRCA1 and BRCA2 scores per cancer type and age at diagnosis across the proband and first- and second-degree relatives (Evans 2004). BRCA1 &ge; 16 &asymp; 10% carrier probability; combined &ge; 20 &asymp; 20%. Used widely by NHS genetics services.</li>
+                <li><strong class="text-gray-900 dark:text-white">NICE CG164 / NG101</strong> &mdash; Familial breast cancer categorisation into near-population, moderate, or high risk, with a refer-to-genetics flag and the list of triggers matched.</li>
+                <li><strong class="text-gray-900 dark:text-white">Gail (NCI BCRAT)</strong> &mdash; 5-year and lifetime breast-cancer risk using reproductive factors, benign biopsies, atypical hyperplasia, family history, and race/ethnicity baselines (Gail 1989, with updates through 2017).</li>
+                <li><strong class="text-gray-900 dark:text-white">Tyrer-Cuzick (IBIS-style approximation)</strong> &mdash; 10-year and lifetime breast-cancer risk incorporating density, BMI, HRT, LCIS, atypia, and full family history (Tyrer, Duffy &amp; Cuzick 2004). Clearly labelled in-app as a published-algorithm approximation, <em>not</em> the official IBIS binary, whose full coefficients are not publicly released.</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 mt-6">Lynch-syndrome family-history criteria</h3>
+            <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2 mb-4 ml-4">
+                <li><strong class="text-gray-900 dark:text-white">Amsterdam II</strong> &mdash; Classical five-point Lynch-syndrome family-history rule (Vasen 1999). Evagene evaluates the pedigree-derivable conditions directly; the exclusion-of-FAP and histology checks are surfaced as clinical-verification notes.</li>
+                <li><strong class="text-gray-900 dark:text-white">Revised Bethesda</strong> &mdash; Triggers for MSI / IHC testing of a colorectal tumour (Umar 2004). Complements Amsterdam II: families that do not meet classical Amsterdam II may still meet Bethesda.</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 mt-6">CanRisk / BOADICEA export bridge</h3>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                The NICE-recommended model for moderate- and high-risk women is BOADICEA, hosted at <a href="https://www.canrisk.org" target="_blank" rel="noopener noreferrer" class="text-brand-600 dark:text-brand-400 hover:underline">canrisk.org</a>. It integrates multi-gene panel testing (BRCA1, BRCA2, PALB2, CHEK2, ATM, BARD1, RAD51C, RAD51D, BRIP1), polygenic-risk scores, and mammographic density. Evagene ships a one-click export of a <code class="bg-gray-100 dark:bg-brand-900 px-1 rounded text-sm">##CanRisk 2.0</code> pedigree file populated with pedigree structure, ages at diagnosis, panel test statuses, Ashkenazi flag, and reproductive factors. The clinician uploads the file at canrisk.org and runs BOADICEA there.
+            </p>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                <strong class="text-gray-900 dark:text-white">BOADICEA is not bundled.</strong> The model is licensed by the University of Cambridge; individual clinical use is free after registration, but third-party web-service integration requires a separate commercial licence. The export path is the legally clean route to the gold-standard tool.
+            </p>
+        </section>
+
         <!-- Beyond Cancer: Mendelian Risk Models -->
         <section class="mb-12">
-            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Beyond Cancer: Mendelian Risk Models</h2>
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Beyond Cancer: Mendelian and Adjacent Risk Models</h2>
             <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
                 While cancer risk assessment is a primary use case for pedigree-based risk modelling, the underlying mathematics of Mendelian transmission apply to any heritable condition. Evagene extends beyond the BayesMendel cancer models to provide general-purpose <a href="mendelian-inheritance-calculator.html" class="text-brand-600 dark:text-brand-400 hover:underline font-medium">Mendelian inheritance calculators</a> for three inheritance patterns:
             </p>
             <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2 mb-4 ml-4">
                 <li><strong class="text-gray-900 dark:text-white">Autosomal dominant</strong> &mdash; Conditions where a single pathogenic allele is sufficient to cause or predispose to disease. Examples include Huntington disease, Marfan syndrome, and most hereditary cancer syndromes.</li>
-                <li><strong class="text-gray-900 dark:text-white">Autosomal recessive</strong> &mdash; Conditions requiring two pathogenic alleles (one from each parent), such as cystic fibrosis, sickle cell disease, and phenylketonuria. Carrier detection is important for reproductive counselling.</li>
+                <li><strong class="text-gray-900 dark:text-white">Autosomal recessive</strong> &mdash; Conditions requiring two pathogenic alleles, such as cystic fibrosis, sickle cell disease, and phenylketonuria. Carrier detection is important for reproductive counselling.</li>
                 <li><strong class="text-gray-900 dark:text-white">X-linked recessive</strong> &mdash; Conditions caused by pathogenic variants on the X chromosome, predominantly affecting males. Examples include haemophilia A, Duchenne muscular dystrophy, and G6PD deficiency.</li>
+                <li><strong class="text-gray-900 dark:text-white">X-linked dominant with sex-differential severity</strong> &mdash; Five sub-modes (equal, males-worse, male-lethal-reproduces, male-lethal-no-reproduction, metabolic-interference males-unaffected) covering Rett-class disorders, incontinentia pigmenti, CFND (EFNB1), and EFMR (PCDH19).</li>
+                <li><strong class="text-gray-900 dark:text-white">Mitochondrial (mtDNA)</strong> &mdash; Strict maternal transmission with sex-differential penetrance and heteroplasmy scaling (LHON, MELAS, MERRF, NARP, Leigh mtDNA subset, Kearns-Sayre, Pearson).</li>
+                <li><strong class="text-gray-900 dark:text-white">Digenic two-locus</strong> &mdash; Classical 25% offspring-affected ratio (Usher type 2, some retinitis pigmentosa, primary congenital glaucoma).</li>
+                <li><strong class="text-gray-900 dark:text-white">Imprinting / uniparental disomy</strong> &mdash; Mechanism-weighted recurrence with the parent-of-origin rule for imprinting-centre defects (Prader-Willi, Angelman, Beckwith-Wiedemann, Silver-Russell, TNDM).</li>
+                <li><strong class="text-gray-900 dark:text-white">Polygenic / multifactorial liability-threshold</strong> &mdash; 20+ common complex diseases (cleft lip &plusmn; palate, T2D, schizophrenia, NTDs, asthma &hellip;) with empirical Smith / Carter / Harper recurrence tables and Falconer fallback (Carter 1961, Falconer 1965).</li>
             </ul>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                These models use the family pedigree to calculate carrier probabilities and recurrence risks, supporting <a href="clinical-genetics-pedigree-tool.html" class="text-brand-600 dark:text-brand-400 hover:underline font-medium">clinical genetics</a> workflows across a broad range of conditions. The same pedigree drawn for cancer risk assessment can be reused for Mendelian, polygenic, or adjacent analysis without additional data entry.
+            </p>
             <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-                These models use the family pedigree to calculate carrier probabilities and recurrence risks for individuals and couples, supporting <a href="clinical-genetics-pedigree-tool.html" class="text-brand-600 dark:text-brand-400 hover:underline font-medium">clinical genetics</a> workflows across a broad range of conditions. The same pedigree drawn for cancer risk assessment can be reused for Mendelian analysis without additional data entry.
+                For the full per-model clinical indications, see the <a href="for-clinical-geneticists.html#decision-matrix" class="text-brand-600 dark:text-brand-400 hover:underline font-medium">decision matrix for clinical geneticists</a>, or the <a href="release-2026-04-risk-expansion.html" class="text-brand-600 dark:text-brand-400 hover:underline font-medium">April 2026 release notes</a> for each model's canonical citation.
             </p>
         </section>
 
