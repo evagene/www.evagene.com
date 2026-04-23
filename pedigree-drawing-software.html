@@ -584,6 +584,11 @@
                     For users who prefer keyboard-driven workflows, Evagene provides extensive keyboard shortcuts for common pedigree operations: adding individuals, setting affected status, navigating between family members, and toggling annotations. This allows experienced users to construct complex pedigrees without lifting their hands from the keyboard.
                 </p>
 
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Plain-English Description via ChatGPT</h3>
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                    A third entry point, alongside gesture drawing and keyboard shortcuts, is the <a href="pedigree-builder-gpt.html" class="text-brand-600 dark:text-brand-300 hover:underline">Evagene Pedigree Builder</a> &mdash; a ChatGPT Custom GPT that converts a natural-language family description into an Evagene-compatible pedigree JSON file. A patient can describe their family at home before an appointment; a clinician can capture a history dictated on a phone; a student can iterate on teaching examples conversationally. The resulting file loads directly into Evagene via <strong class="text-gray-900 dark:text-white">File &rarr; Load pedigree &rarr; Load Evagene file</strong>. The GPT itself is a data-capture aid &mdash; it does not give medical advice or run risk models &mdash; and it requires a paid ChatGPT subscription (Plus, Team, or Enterprise), as OpenAI's policy requires for all Custom GPTs.
+                </p>
+
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Integrated Risk Models and Clinical Data</h3>
                 <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
                     Evagene integrates BayesMendel risk models (BRCAPRO, MMRpro, PancPRO) directly into the pedigree interface. As family history data is entered, carrier probabilities and future cancer risk estimates update in real time. This tight coupling between pedigree data and risk calculation eliminates the error-prone process of manually transferring family history into a separate risk tool.

@@ -180,10 +180,13 @@ A query builder allows filtering individuals by sex, disease affection status, d
 | XEG | Yes | — | Legacy Evagene v1 migration |
 | 23andMe | Yes | — | Genotype, ancestry, traits, health history, conflict resolution |
 | Image | Yes | — | OCR and shape detection from pedigree chart images |
+| ChatGPT Custom GPT | Yes | — | Evagene Pedigree Builder — natural-language family description in, Evagene JSON file out |
 | PNG | — | Yes | Configurable scale (1x–4x) |
 | SVG | — | Yes | Vector output |
 | PDF | — | Yes | A4/A3/Letter/Legal, portrait/landscape |
 | CanRisk / BOADICEA v4 | — | Yes | Tab-separated `##CanRisk 2.0` header; upload at canrisk.org (BOADICEA not bundled — licensed by Univ. of Cambridge) |
+
+**Evagene Pedigree Builder (ChatGPT Custom GPT).** A natural-language entry point alongside gesture drawing, keyboard shortcuts, GEDCOM import, 23andMe import, and OCR. The user describes a family in plain English inside ChatGPT; the GPT asks clarifying questions where the structure is ambiguous, then produces a downloadable Evagene-compatible pedigree JSON file. The file is loaded into Evagene via File → Load pedigree → Load Evagene file, at which point the pedigree renders with standard notation and is available for annotation, risk analysis, and export. This is a Route A integration: the GPT produces a file, a human loads it — no live API call from ChatGPT into Evagene. A Route B variant using OpenAI Actions against the Evagene API is planned but not yet built. OpenAI requires a paid ChatGPT subscription (Plus, Team, or Enterprise) to use any Custom GPT; this is not an Evagene paywall. The GPT is strictly a data-capture aid — it does not give medical advice, diagnose, or run risk models. Live URL: https://chatgpt.com/g/g-69ea28b554b8819191ae0f8fd2406d52-evagene-pedigree-builder. Landing page: https://evagene.com/pedigree-builder-gpt.
 
 ---
 

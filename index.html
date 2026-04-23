@@ -516,6 +516,106 @@
     </div>
 </section>
 
+<!-- ==================== PEDIGREE BUILDER GPT ==================== -->
+<section id="pedigree-builder-gpt" class="py-20 lg:py-28 bg-gray-50 dark:bg-brand-900/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div class="reveal space-y-6">
+                <div class="inline-flex items-center gap-2 text-sm font-semibold text-brand-600 dark:text-brand-400 uppercase tracking-wider">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                    <span>New &middot; Build a pedigree in under a minute</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">Describe your family in plain English. Get back a pedigree.</h2>
+                <div class="space-y-4 text-gray-600 dark:text-gray-400">
+                    <p>Our ChatGPT Custom GPT &mdash; <strong class="text-gray-900 dark:text-white">Evagene Pedigree Builder</strong> &mdash; turns a natural-language family description into a valid Evagene pedigree JSON file. Describe who is in your family, what conditions they have, and any genetic test results you know about. The GPT asks clarifying questions where family structure is ambiguous and returns a downloadable file.</p>
+                    <p>Load the file into Evagene via <strong class="text-gray-900 dark:text-white">File &rarr; Load pedigree &rarr; Load Evagene file</strong> and the pedigree renders in standard notation, ready for risk analysis.</p>
+                </div>
+
+                <!-- Three-step mini diagram -->
+                <div class="grid grid-cols-3 gap-2 sm:gap-3 pt-2">
+                    <div class="bg-white dark:bg-brand-900/60 rounded-lg border border-gray-100 dark:border-brand-800 p-3 sm:p-4">
+                        <div class="flex items-center gap-2 mb-1">
+                            <div class="w-6 h-6 rounded-full bg-brand-600 text-white font-bold text-xs flex items-center justify-center shrink-0">1</div>
+                            <div class="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-brand-600 dark:text-brand-300">Describe</div>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Tell ChatGPT about your family.</p>
+                    </div>
+                    <div class="bg-white dark:bg-brand-900/60 rounded-lg border border-gray-100 dark:border-brand-800 p-3 sm:p-4">
+                        <div class="flex items-center gap-2 mb-1">
+                            <div class="w-6 h-6 rounded-full bg-brand-600 text-white font-bold text-xs flex items-center justify-center shrink-0">2</div>
+                            <div class="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-brand-600 dark:text-brand-300">Download</div>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Get a JSON pedigree file.</p>
+                    </div>
+                    <div class="bg-white dark:bg-brand-900/60 rounded-lg border border-gray-100 dark:border-brand-800 p-3 sm:p-4">
+                        <div class="flex items-center gap-2 mb-1">
+                            <div class="w-6 h-6 rounded-full bg-brand-600 text-white font-bold text-xs flex items-center justify-center shrink-0">3</div>
+                            <div class="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-brand-600 dark:text-brand-300">Load</div>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Open it in Evagene.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-3 pt-2">
+                    <a href="https://chatgpt.com/g/g-69ea28b554b8819191ae0f8fd2406d52-evagene-pedigree-builder" target="_blank" rel="noopener" data-gpt-cta="homepage_primary" class="inline-flex items-center gap-2 px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl transition-all duration-200 cta-glow">
+                        Open the Pedigree Builder GPT
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                    <a href="pedigree-builder-gpt.html" class="inline-flex items-center gap-2 text-sm font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300">
+                        How it works
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                    </a>
+                </div>
+                <p class="text-xs text-gray-500 dark:text-gray-500">Requires a paid ChatGPT subscription (Plus / Team / Enterprise) &mdash; OpenAI's policy for all Custom GPTs, not an Evagene paywall. ChatGPT helps you produce a valid Evagene file; the analysis runs in Evagene after import.</p>
+            </div>
+            <div class="reveal" style="transition-delay: 0.15s;">
+                <div class="bg-white dark:bg-brand-900/60 rounded-2xl shadow-2xl dark:shadow-brand-950/50 border border-gray-100 dark:border-brand-800 overflow-hidden">
+                    <div class="flex items-center gap-2 px-4 py-2.5 bg-gray-50 dark:bg-brand-900 border-b border-gray-100 dark:border-brand-800">
+                        <div class="flex gap-1.5">
+                            <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                        </div>
+                        <div class="flex-1 flex items-center justify-center"><span class="text-xs text-gray-400 dark:text-gray-600 font-mono">chatgpt.com &middot; Evagene Pedigree Builder</span></div>
+                    </div>
+                    <div class="p-5 sm:p-6 space-y-4">
+                        <!-- User bubble -->
+                        <div class="flex justify-end">
+                            <div class="max-w-[85%] bg-brand-600 text-white rounded-2xl rounded-tr-sm px-4 py-2.5 text-sm shadow-sm">My maternal grandmother had breast cancer at 52, my mother at 45, and my aunt has ovarian cancer. Build a pedigree with me as proband.</div>
+                        </div>
+                        <!-- Assistant bubble -->
+                        <div class="flex justify-start">
+                            <div class="max-w-[85%] bg-gray-100 dark:bg-brand-900 text-gray-800 dark:text-gray-200 rounded-2xl rounded-tl-sm px-4 py-2.5 text-sm shadow-sm space-y-2">
+                                <p class="m-0">Quick check &mdash; the aunt with ovarian cancer: is she on the maternal side too, and roughly what age at diagnosis?</p>
+                            </div>
+                        </div>
+                        <!-- User bubble -->
+                        <div class="flex justify-end">
+                            <div class="max-w-[85%] bg-brand-600 text-white rounded-2xl rounded-tr-sm px-4 py-2.5 text-sm shadow-sm">Yes, maternal. Diagnosed at 60.</div>
+                        </div>
+                        <!-- Assistant bubble with file -->
+                        <div class="flex justify-start">
+                            <div class="max-w-[90%] bg-gray-100 dark:bg-brand-900 text-gray-800 dark:text-gray-200 rounded-2xl rounded-tl-sm px-4 py-2.5 text-sm shadow-sm space-y-2">
+                                <p class="m-0">Here's your pedigree. Three generations on the maternal side with three affected relatives and you as proband. The pattern is suggestive of hereditary breast / ovarian cancer &mdash; run BRCAPRO in Evagene for a quantitative read.</p>
+                                <div class="mt-2 flex items-center gap-2 px-3 py-2 bg-white dark:bg-brand-950 border border-gray-200 dark:border-brand-800 rounded-lg">
+                                    <svg class="w-5 h-5 text-brand-600 dark:text-brand-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="text-xs font-mono text-gray-900 dark:text-white truncate">hboc-family.json</div>
+                                        <div class="text-[10px] text-gray-500 dark:text-gray-500">Evagene pedigree &middot; 12 individuals</div>
+                                    </div>
+                                    <svg class="w-4 h-4 text-brand-600 dark:text-brand-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                                </div>
+                                <p class="m-0 text-xs text-gray-500 dark:text-gray-400">Load in Evagene via File &rarr; Load pedigree &rarr; Load Evagene file.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-400 dark:text-gray-500 mt-3 text-center">Illustrative conversation &mdash; the GPT asks clarifying questions, then returns a JSON pedigree file.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- ==================== CORE FEATURES ==================== -->
 <section id="features" class="py-20 lg:py-28">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1210,6 +1310,7 @@
                         <tr><td class="py-3 px-6 font-medium text-gray-900 dark:text-white">XEG</td><td class="py-3 px-6 text-center text-clinical-500 font-bold">&#10003;</td><td class="py-3 px-6 text-center text-gray-300 dark:text-gray-600">&mdash;</td><td class="py-3 px-6">Legacy Evagene v1 XML migration</td></tr>
                         <tr><td class="py-3 px-6 font-medium text-gray-900 dark:text-white">23andMe</td><td class="py-3 px-6 text-center text-clinical-500 font-bold">&#10003;</td><td class="py-3 px-6 text-center text-gray-300 dark:text-gray-600">&mdash;</td><td class="py-3 px-6">Genotype, ancestry, traits, health history, conflict resolution</td></tr>
                         <tr><td class="py-3 px-6 font-medium text-gray-900 dark:text-white">Image</td><td class="py-3 px-6 text-center text-clinical-500 font-bold">&#10003;</td><td class="py-3 px-6 text-center text-gray-300 dark:text-gray-600">&mdash;</td><td class="py-3 px-6">OCR + shape detection from chart photos</td></tr>
+                        <tr><td class="py-3 px-6 font-medium text-gray-900 dark:text-white">ChatGPT Custom GPT</td><td class="py-3 px-6 text-center text-clinical-500 font-bold">&#10003;</td><td class="py-3 px-6 text-center text-gray-300 dark:text-gray-600">&mdash;</td><td class="py-3 px-6">Describe your family to the <a href="pedigree-builder-gpt.html" class="text-brand-600 dark:text-brand-400 underline">Evagene Pedigree Builder</a> &mdash; get back importable JSON (paid ChatGPT tier required)</td></tr>
                         <tr><td class="py-3 px-6 font-medium text-gray-900 dark:text-white">PNG</td><td class="py-3 px-6 text-center text-gray-300 dark:text-gray-600">&mdash;</td><td class="py-3 px-6 text-center text-clinical-500 font-bold">&#10003;</td><td class="py-3 px-6">1x&ndash;4x scale, optional transparency</td></tr>
                         <tr><td class="py-3 px-6 font-medium text-gray-900 dark:text-white">SVG</td><td class="py-3 px-6 text-center text-gray-300 dark:text-gray-600">&mdash;</td><td class="py-3 px-6 text-center text-clinical-500 font-bold">&#10003;</td><td class="py-3 px-6">Vector for publication-quality output</td></tr>
                         <tr><td class="py-3 px-6 font-medium text-gray-900 dark:text-white">PDF</td><td class="py-3 px-6 text-center text-gray-300 dark:text-gray-600">&mdash;</td><td class="py-3 px-6 text-center text-clinical-500 font-bold">&#10003;</td><td class="py-3 px-6">A4/A3/Letter/Legal, portrait/landscape/auto</td></tr>
@@ -1507,7 +1608,7 @@ END TESTIMONIALS -->
                 <p class="text-xs text-gray-600">Built with care for precision medicine</p>
             </div>
             <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="#features" class="hover:text-white transition-colors">Features</a></li><li><a href="#risk-analysis" class="hover:text-white transition-colors">Risk Analysis</a></li><li><a href="#interoperability" class="hover:text-white transition-colors">Data Exchange</a></li><li><a href="platform.html" class="hover:text-white transition-colors">Platform</a></li><li><a href="#resources" class="hover:text-white transition-colors">Resources</a></li><li><a href="https://evagene.net/help" class="hover:text-white transition-colors">Help Centre</a></li></ul></div>
-            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="research-citations.html" class="hover:text-white transition-colors">Research &amp; Citations</a></li><li><a href="changelog.html" class="hover:text-white transition-colors">Changelog</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white transition-colors">Pedigree Drawing</a></li><li><a href="pedigree-builder-gpt.html" class="hover:text-white transition-colors">Pedigree Builder GPT</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white transition-colors">Cancer Risk Assessment</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white transition-colors">GEDCOM &amp; Genealogy</a></li><li><a href="clinical-genetics-pedigree-tool.html" class="hover:text-white transition-colors">Clinical Genetics</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white transition-colors">Mendelian Inheritance</a></li><li><a href="research-citations.html" class="hover:text-white transition-colors">Research &amp; Citations</a></li><li><a href="changelog.html" class="hover:text-white transition-colors">Changelog</a></li></ul></div>
             <div><h4 class="text-sm font-semibold text-white mb-4">For</h4><ul class="space-y-2 text-sm"><li><a href="#who-its-for" class="hover:text-white transition-colors">Clinical Geneticists</a></li><li><a href="#who-its-for" class="hover:text-white transition-colors">Oncologists</a></li><li><a href="#who-its-for" class="hover:text-white transition-colors">Researchers</a></li><li><a href="#who-its-for" class="hover:text-white transition-colors">Patients &amp; Families</a></li><li><a href="#who-its-for" class="hover:text-white transition-colors">Genealogists</a></li></ul></div>
         </div>
         <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -1983,6 +2084,11 @@ END TESTIMONIALS -->
         banner.classList.add('hidden');
     });
 })();
+</script>
+
+<!-- Pedigree Builder GPT click tracking (no-op unless analytics consent granted) -->
+<script>
+(function(){function track(el){var loc=el.getAttribute('data-gpt-cta')||'unknown';if(typeof window.gtag==='function'){try{window.gtag('event','gpt_cta_click',{event_category:'pedigree_builder_gpt',event_label:loc,transport_type:'beacon'});}catch(e){}}if(window.clarity){try{window.clarity('event','gpt_cta_click_'+loc);}catch(e){}}}document.querySelectorAll('a[data-gpt-cta]').forEach(function(a){a.addEventListener('click',function(){track(a);});});})();
 </script>
 </body>
 </html>

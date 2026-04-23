@@ -36,7 +36,7 @@ Evagene is a web-based pedigree management system for clinical genetics, oncolog
 - Consanguinity detection with Wright's coefficient calculation
 - Ancestry management with auto-calculation
 - Advanced search and filtering across pedigree data
-- Import: JSON, GEDCOM 5.5.1, 23andMe (genotype, traits, health history), XEG (legacy), pedigree images (OCR)
+- Import: JSON, GEDCOM 5.5.1, 23andMe (genotype, traits, health history), XEG (legacy), pedigree images (OCR), and the Evagene Pedigree Builder ChatGPT Custom GPT — describe a family in plain English and get back an importable JSON file (Route A; paid ChatGPT tier required)
 - Export: JSON, GEDCOM, PNG, SVG, PDF
 - Batch risk screening: screen a proband across all diseases simultaneously with configurable thresholds
 - Four report types: patient-friendly, clinical, carrier probability, and AI-generated interpretation
@@ -100,6 +100,7 @@ Full platform documentation: https://evagene.net/help/platform_overview
 - [Clinical Genetics Pedigree Tool](https://evagene.com/clinical-genetics-pedigree-tool.html) — Pedigree software for clinical geneticists and genetic counsellors
 - [Mendelian Inheritance Calculator](https://evagene.com/mendelian-inheritance-calculator.html) — Autosomal dominant, autosomal recessive, and X-linked inheritance models
 - [Platform & Integrations](https://evagene.com/platform.html) — API keys, BYOK LLM, webhooks, analysis templates, MCP server, embeddable viewer
+- [Pedigree Builder GPT](https://evagene.com/pedigree-builder-gpt.html) — ChatGPT Custom GPT that converts a plain-English family description into an Evagene-compatible pedigree JSON file. Route A (produces a file the user loads at evagene.net); Route B (live Evagene API Actions) planned but not yet built. Paid ChatGPT subscription required (OpenAI's policy for all Custom GPTs). Live at https://chatgpt.com/g/g-69ea28b554b8819191ae0f8fd2406d52-evagene-pedigree-builder
 
 ## Comparisons & Alternatives
 

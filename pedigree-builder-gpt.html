@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evagene Pedigree Builder GPT &mdash; Describe Your Family in Plain English | Evagene</title>
+    <meta name="description" content="Evagene Pedigree Builder is a ChatGPT Custom GPT that turns a plain-English family description into an Evagene-compatible pedigree JSON file. Describe your family, download the file, load it at evagene.net. Requires a paid ChatGPT subscription.">
+    <meta name="keywords" content="AI pedigree builder, ChatGPT pedigree, Custom GPT pedigree, natural language pedigree, plain English family tree, AI genetic counselling tool, Evagene JSON import, pedigree JSON from text, conversational pedigree, clinical genetics AI assistant">
+    <meta property="og:title" content="Evagene Pedigree Builder GPT &mdash; Describe Your Family in Plain English">
+    <meta property="og:description" content="A ChatGPT Custom GPT that converts a plain-English family description into a valid Evagene pedigree JSON file. Describe, download, load into Evagene, run risk analysis.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://evagene.com/pedigree-builder-gpt">
+    <meta property="og:image" content="https://evagene.com/og-image.png">
+    <meta property="og:site_name" content="Evagene">
+    <meta property="og:locale" content="en_GB">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Evagene Pedigree Builder GPT">
+    <meta name="twitter:description" content="Describe your family to a ChatGPT Custom GPT. Get a downloadable Evagene-compatible pedigree JSON file. Load it at evagene.net and run risk analysis.">
+    <meta name="twitter:image" content="https://evagene.com/og-image.png">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://evagene.com/pedigree-builder-gpt">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config={darkMode:'class',theme:{extend:{colors:{brand:{50:'#eef3fb',100:'#d9e4f5',200:'#b3c9eb',300:'#8aaddf',400:'#5e8fd2',500:'#3b6fb5',600:'#2f5a94',700:'#264a7a',800:'#1e3a5f',900:'#152a45',950:'#0d1a2d'},accent:{400:'#e85d6f',500:'#c8102e',600:'#a60d25'},clinical:{50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',400:'#4ade80',500:'#22c55e',600:'#16a34a'}},fontFamily:{sans:['Inter','system-ui','-apple-system','sans-serif']}}}}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"TechArticle",
+        "headline":"Evagene Pedigree Builder GPT: describe your family in plain English",
+        "description":"How the Evagene Pedigree Builder ChatGPT Custom GPT converts a natural-language family description into a valid Evagene JSON pedigree file that imports cleanly into the Evagene platform.",
+        "author":{"@type":"Organization","name":"Evagene","url":"https://evagene.com"},
+        "publisher":{"@type":"Organization","name":"Evagene","logo":{"@type":"ImageObject","url":"https://evagene.com/logo.png"}},
+        "datePublished":"2026-04-23","dateModified":"2026-04-23",
+        "mainEntityOfPage":{"@type":"WebPage","@id":"https://evagene.com/pedigree-builder-gpt"},
+        "image":"https://evagene.com/og-image.png"
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://evagene.com"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://evagene.com/#resources"},{"@type":"ListItem","position":3,"name":"Pedigree Builder GPT","item":"https://evagene.com/pedigree-builder-gpt"}]}
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org","@type":"FAQPage",
+        "mainEntity":[
+            {"@type":"Question","name":"What is the Evagene Pedigree Builder GPT?","acceptedAnswer":{"@type":"Answer","text":"The Evagene Pedigree Builder is a ChatGPT Custom GPT that converts a plain-English description of a family into a valid Evagene JSON pedigree file. You describe your relatives, their diseases, and any genetic test results. The GPT asks clarifying questions where the family structure is ambiguous, and then produces a downloadable JSON file that you load into Evagene via File → Load pedigree → Load Evagene file. ChatGPT helps you produce a valid Evagene file; the pedigree analysis itself runs in Evagene after you import the file."}},
+            {"@type":"Question","name":"Do I need a paid ChatGPT subscription to use it?","acceptedAnswer":{"@type":"Answer","text":"Yes. OpenAI requires a paid ChatGPT subscription — Plus, Team, or Enterprise — to use any Custom GPT, including the Evagene Pedigree Builder. Free-tier ChatGPT users will be prompted to upgrade when they open the GPT."}},
+            {"@type":"Question","name":"Is this Evagene running inside ChatGPT?","acceptedAnswer":{"@type":"Answer","text":"No. The GPT is a data-capture aid that produces a pedigree JSON file; Evagene itself is not embedded in ChatGPT. The JSON file is loaded into Evagene at evagene.net, where the platform renders the pedigree and runs risk analysis. A future version with live Actions calling the Evagene API is planned but not yet built."}},
+            {"@type":"Question","name":"Does the GPT give medical advice?","acceptedAnswer":{"@type":"Answer","text":"No. The Pedigree Builder is a data-capture aid. It does not diagnose, interpret, or give medical advice. Its only job is to turn what you describe into a structured pedigree file. Clinical interpretation happens in Evagene or with a qualified clinician — it is not something ChatGPT is positioned to provide."}},
+            {"@type":"Question","name":"How do I load the downloaded JSON into Evagene?","acceptedAnswer":{"@type":"Answer","text":"In the Evagene application at evagene.net, open the File menu, choose Load pedigree, then Load Evagene file, and select the JSON file the GPT produced. The pedigree renders immediately with individuals, relationships, disease sectors, proband arrow, and any genetic test results the GPT captured. From there you can annotate further, run risk models, or export."}},
+            {"@type":"Question","name":"What kind of family descriptions work well?","acceptedAnswer":{"@type":"Answer","text":"Anything from a simple three-generation sketch (\"my mother had breast cancer at 45, her mother had ovarian cancer at 62, my sister is healthy\") to a detailed multi-generation family with consanguinity, twins, adoption, genetic test results, ancestry, and reproductive history. If structure is ambiguous — which side of the family, who the proband is, whether a relative is alive — the GPT will ask rather than guess."}},
+            {"@type":"Question","name":"What does the GPT not do?","acceptedAnswer":{"@type":"Answer","text":"It does not sequence anything, run risk models, or access the Evagene database. It does not diagnose or advise. It produces a pedigree file — nothing more. All interpretation, risk calculation, AI clinical analysis, and CanRisk / BOADICEA export happens in Evagene after you load the file."}}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-brand-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-950/90 backdrop-blur-md border-b border-gray-100 dark:border-brand-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="https://evagene.com" class="flex items-center gap-2.5"><img src="logo.png" alt="Evagene logo" class="h-8 w-auto"><span class="text-xl font-bold text-brand-700 dark:text-brand-300 tracking-tight">Evagene</span></a>
+            <a href="https://evagene.com/#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Join Alpha Waiting List</a>
+        </div>
+    </div>
+</nav>
+
+<div class="pt-20 bg-white dark:bg-brand-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
+            <ol class="flex items-center gap-2"><li><a href="https://evagene.com" class="hover:text-brand-600 dark:hover:text-brand-300">Home</a></li><li><span class="text-gray-300 dark:text-gray-600">/</span></li><li><a href="https://evagene.com/#resources" class="hover:text-brand-600 dark:hover:text-brand-300">Resources</a></li><li><span class="text-gray-300 dark:text-gray-600">/</span></li><li class="text-gray-700 dark:text-gray-300 font-medium">Pedigree Builder GPT</li></ol>
+        </nav>
+    </div>
+</div>
+
+<main class="pt-8 pb-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <header class="mb-12">
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-clinical-100 dark:bg-clinical-500/20 text-clinical-600 dark:text-clinical-400 text-xs font-semibold rounded-full uppercase tracking-wider mb-4"><span class="w-1.5 h-1.5 bg-clinical-500 rounded-full"></span>New &middot; 23 April 2026</div>
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">Build a pedigree by describing your family in plain English</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">The Evagene Pedigree Builder is a ChatGPT Custom GPT. You describe your family in natural language, it asks a few clarifying questions, and it returns a downloadable JSON file that imports directly into Evagene. ChatGPT helps you produce a valid Evagene file; the pedigree rendering and risk analysis happen in Evagene itself.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <time datetime="2026-04-23">23 April 2026</time>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <span>8 min read</span>
+            </div>
+            <div class="mt-8 flex flex-wrap gap-3">
+                <a href="https://chatgpt.com/g/g-69ea28b554b8819191ae0f8fd2406d52-evagene-pedigree-builder" target="_blank" rel="noopener" data-gpt-cta="top" class="inline-flex items-center gap-2 px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl shadow-lg shadow-brand-600/25">Open the Pedigree Builder GPT
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+                <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-6 py-3 border-2 border-gray-200 dark:border-brand-700 text-gray-700 dark:text-gray-300 hover:border-brand-400 dark:hover:border-brand-500 font-semibold rounded-xl">Join the Evagene Alpha</a>
+            </div>
+            <p class="mt-3 text-xs text-gray-500 dark:text-gray-500">Requires a paid ChatGPT subscription (Plus, Team, or Enterprise) &mdash; this is an OpenAI requirement for all Custom GPTs, not an Evagene paywall.</p>
+        </header>
+
+        <!-- Three-step diagram -->
+        <section class="not-prose my-12">
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="relative bg-white dark:bg-brand-900/60 rounded-xl border border-gray-100 dark:border-brand-800 p-6">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold text-sm flex items-center justify-center">1</div>
+                        <div class="text-xs font-mono uppercase tracking-wider text-brand-600 dark:text-brand-300">Describe</div>
+                    </div>
+                    <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-2">Describe your family in ChatGPT</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Open the Custom GPT and describe your family in plain English &mdash; names, sexes, diseases, ages, genetic tests, anything you know. The GPT asks clarifying questions where structure is ambiguous.</p>
+                </div>
+                <div class="relative bg-white dark:bg-brand-900/60 rounded-xl border border-gray-100 dark:border-brand-800 p-6">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold text-sm flex items-center justify-center">2</div>
+                        <div class="text-xs font-mono uppercase tracking-wider text-brand-600 dark:text-brand-300">Download</div>
+                    </div>
+                    <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-2">Download the JSON file</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">The GPT composes a complete Evagene-compatible pedigree JSON file &mdash; individuals, relationships, parent-child links, diseases, genetic tests, events &mdash; and offers it as a download.</p>
+                </div>
+                <div class="relative bg-white dark:bg-brand-900/60 rounded-xl border border-gray-100 dark:border-brand-800 p-6">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold text-sm flex items-center justify-center">3</div>
+                        <div class="text-xs font-mono uppercase tracking-wider text-brand-600 dark:text-brand-300">Load</div>
+                    </div>
+                    <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-2">Load into Evagene</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">In <a href="https://evagene.net" class="text-brand-600 dark:text-brand-400 underline" target="_blank" rel="noopener">evagene.net</a> choose File &rarr; Load pedigree &rarr; Load Evagene file. The pedigree renders with standard notation and is ready for annotation, risk analysis, and export.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:underline prose-a:decoration-brand-200 dark:prose-a:decoration-brand-800 hover:prose-a:decoration-brand-500 prose-strong:text-gray-900 dark:prose-strong:text-white prose-li:text-gray-700 dark:prose-li:text-gray-300 prose-code:text-brand-700 dark:prose-code:text-brand-300 prose-code:bg-gray-100 dark:prose-code:bg-brand-900 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm">
+
+            <h2>What the GPT is, and what it is not</h2>
+
+            <p>The Evagene Pedigree Builder is a ChatGPT Custom GPT that takes a natural-language family description and returns a valid Evagene JSON pedigree file. That is its entire job. It does not sequence anything, it does not run risk models, it does not access the Evagene database, and it does not diagnose or advise. The correct framing is <strong>ChatGPT helps you produce a valid Evagene file</strong>, not &ldquo;Evagene is inside ChatGPT&rdquo;.</p>
+
+            <p>The file it produces is an ordinary JSON file with the same structure as a pedigree you drew directly in Evagene. When you import it at <a href="https://evagene.net" target="_blank" rel="noopener">evagene.net</a>, the platform renders the pedigree using standard ISCN / NSGC notation, attaches any diseases the GPT picked up, marks the proband, and opens the pedigree for analysis. All clinical interpretation &mdash; risk models, AI-powered reports, CanRisk / BOADICEA export, inheritance-pattern inference &mdash; runs inside Evagene after the file is loaded, not inside ChatGPT.</p>
+
+            <p>This is the pattern we call <strong>Route A</strong>: the GPT produces a file; a human loads the file. A Route B variant using live Actions against the Evagene API is planned &mdash; the GPT would create the pedigree on evagene.net directly and return a link &mdash; but it is not yet built. Until then, the download-and-load pattern is the whole story.</p>
+
+            <h2>The full walkthrough</h2>
+
+            <h3>1. Open the Custom GPT</h3>
+
+            <p>The live GPT is at <a href="https://chatgpt.com/g/g-69ea28b554b8819191ae0f8fd2406d52-evagene-pedigree-builder" target="_blank" rel="noopener" data-gpt-cta="inline">chatgpt.com/g/g-69ea28b554b8819191ae0f8fd2406d52-evagene-pedigree-builder</a>. Opening the link requires a signed-in ChatGPT account on a paid tier &mdash; Plus, Team, or Enterprise. This is OpenAI's requirement for Custom GPTs, not an Evagene paywall. Free-tier ChatGPT users will be prompted to upgrade when they open the link.</p>
+
+            <p>Once the GPT opens, you will see four suggested conversation starters covering common consultation scenarios. You can click one, or simply start typing your own description.</p>
+
+            <h3>2. Describe the family</h3>
+
+            <p>Tell the GPT about your relatives in whatever order feels natural. What works well:</p>
+
+            <ul>
+                <li>Who the pedigree is about &mdash; name this person explicitly as the proband if you know the term, or simply say something like &ldquo;the pedigree is for me&rdquo; or &ldquo;this is for my patient&rdquo;.</li>
+                <li>Each relative's relationship to the proband &mdash; maternal grandmother, paternal uncle, sister, husband. The GPT is careful to attribute people to the correct side of the family.</li>
+                <li>Sex and approximate age &mdash; or age at death if deceased.</li>
+                <li>Any diseases diagnosed, with approximate ages at onset if known.</li>
+                <li>Any genetic test results &mdash; positive BRCA1, carrier of cystic fibrosis, variant of uncertain significance in MLH1.</li>
+                <li>Ancestry, if relevant &mdash; particularly if there is an Ashkenazi Jewish or other population-specific factor in play.</li>
+                <li>Consanguinity, if any &mdash; &ldquo;my parents are first cousins&rdquo; is enough for the GPT to mark the relationship correctly.</li>
+                <li>Twin status, adoption, pregnancy losses &mdash; the GPT has notation for all of these.</li>
+            </ul>
+
+            <p>You do not need to know clinical terminology. &ldquo;My aunt died of breast cancer at 47&rdquo; is a fine input; the GPT will map it to a diagnosis with an approximate date range and mark the individual as deceased.</p>
+
+            <h3>3. Answer the clarifying questions</h3>
+
+            <p>Where the description is ambiguous, the GPT asks before guessing. Common ambiguities it catches:</p>
+
+            <ul>
+                <li><strong>Which proband.</strong> If you describe a family without naming the index case, the GPT asks who the pedigree is for.</li>
+                <li><strong>Which side of the family.</strong> If you mention &ldquo;my grandmother&rdquo; without specifying maternal or paternal, it asks.</li>
+                <li><strong>Disease status when implied but not stated.</strong> If you mention a condition without saying who has it, the GPT asks who is affected, who is a carrier, and who has been tested and found clear.</li>
+                <li><strong>Biological sex where language is ambiguous.</strong> The GPT will not assume from names alone.</li>
+            </ul>
+
+            <p>The behaviour is deliberate: a silently wrong pedigree is worse than a question. The built-in instructions tell the GPT never to invent a disease or a death you did not state, and never to silently omit a relative you mentioned &mdash; even a brief stub entry is preferable to silent omission.</p>
+
+            <h3>4. Download the JSON file</h3>
+
+            <p>When the family description is complete, the GPT uses its Code Interpreter to generate the full JSON file &mdash; every UUID, every coordinate, every required schema field &mdash; and offers it as a downloadable attachment. The file is plain JSON; you can open it in a text editor to inspect it if you want.</p>
+
+            <p>Alongside the file, the GPT produces a short summary of what it has built &mdash; how many individuals, the generation depth, any notable inheritance patterns it spotted &mdash; and points you to evagene.com to render and analyse it.</p>
+
+            <h3>5. Load the pedigree into Evagene</h3>
+
+            <p>Open Evagene at <a href="https://evagene.net" target="_blank" rel="noopener">evagene.net</a>. From the File menu, choose <strong>Load pedigree &rarr; Load Evagene file</strong>, and select the JSON file you downloaded. The pedigree opens with:</p>
+
+            <ul>
+                <li>Individuals rendered as standard ISCN / NSGC symbols &mdash; squares for males, circles for females, diamonds for unknown sex.</li>
+                <li>Affected relatives filled; carriers with the standard central dot; the proband with a directional arrow.</li>
+                <li>Deceased individuals marked with the diagonal slash; dates and events captured.</li>
+                <li>Consanguineous unions drawn with a double relationship line.</li>
+                <li>Disease sectors colour-coded according to the catalogue entries the GPT created.</li>
+                <li>Any genetic test results attached to the correct individuals.</li>
+            </ul>
+
+            <p>From there the full Evagene workflow is available: add more detail, run <a href="hereditary-cancer-risk-assessment.html">BRCAPRO / MMRpro / PancPRO</a>, run the <a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculators</a>, generate AI-powered clinical interpretation, or export a <a href="boadicea-alternative.html">CanRisk / BOADICEA pedigree file</a> for canrisk.org.</p>
+
+            <h2>What the GPT handles well</h2>
+
+            <p>Because the underlying instructions draw on the full Evagene schema, the GPT has a deliberately broad vocabulary. It copes comfortably with:</p>
+
+            <ul>
+                <li><strong>Multi-generation structure</strong> &mdash; three, four, five generations on either side of the proband.</li>
+                <li><strong>Mendelian and adjacent inheritance patterns</strong> &mdash; autosomal dominant, autosomal recessive, X-linked recessive, X-linked dominant, mitochondrial, and the imprinting / UPD category with its parent-of-origin rule (Prader-Willi on the paternal line, Angelman on the maternal line at the same locus).</li>
+                <li><strong>Consanguinity</strong> &mdash; first cousins, double first cousins, uncle-niece, with the appropriate Wright coefficient captured.</li>
+                <li><strong>Twins</strong> &mdash; monozygotic and dizygotic with the correct egg structure.</li>
+                <li><strong>Adoption and fostering</strong> &mdash; the individual is linked to the biological relationship but flagged as adopted or fostered.</li>
+                <li><strong>Pregnancy losses and stillbirths</strong> &mdash; recorded with the appropriate symbol and event.</li>
+                <li><strong>Genetic test results</strong> &mdash; positive, negative, variant of uncertain significance, untested &mdash; per individual per gene.</li>
+                <li><strong>Approximate dates</strong> &mdash; &ldquo;born around 1970&rdquo; becomes a widened date range rather than a false precise date.</li>
+                <li><strong>Cancer detail</strong> &mdash; primary site, laterality, and basic tumour properties where the description supplies them.</li>
+            </ul>
+
+            <h2>What the GPT does not do</h2>
+
+            <div class="not-prose my-6 p-5 bg-gray-50 dark:bg-brand-900/40 border border-gray-200 dark:border-brand-800 rounded-xl">
+                <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                    <li class="flex items-start gap-3"><svg class="w-5 h-5 text-accent-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg><span>It does not give medical advice, diagnose, or interpret findings. For inheritance-risk and clinical questions the correct route is Evagene's risk models or a qualified clinician.</span></li>
+                    <li class="flex items-start gap-3"><svg class="w-5 h-5 text-accent-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg><span>It does not run BRCAPRO, MMRpro, PancPRO, liability-threshold models, or any Evagene risk model. Those live in Evagene and run after you import the file.</span></li>
+                    <li class="flex items-start gap-3"><svg class="w-5 h-5 text-accent-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg><span>It does not call the Evagene API. This is Route A (JSON-producing) only. Route B (live Actions creating pedigrees on the Evagene server) is planned but not yet built.</span></li>
+                    <li class="flex items-start gap-3"><svg class="w-5 h-5 text-accent-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg><span>It does not invent illnesses, deaths, or genetic test results the user did not describe. If information is missing, the GPT either asks or leaves the field empty.</span></li>
+                    <li class="flex items-start gap-3"><svg class="w-5 h-5 text-accent-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg><span>It does not replace drawing in Evagene for anyone who prefers to draw. Gesture drawing, keyboard shortcuts, GEDCOM import, 23andMe import, and image OCR all continue to work and often better suit specific workflows.</span></li>
+                </ul>
+            </div>
+
+            <h2>When the GPT is the right choice</h2>
+
+            <p>Three scenarios where the GPT shortens the path considerably:</p>
+
+            <p><strong>Patient-led family history capture.</strong> A patient with a complex family can describe it in natural language to the GPT before a genetics appointment. The clinician then loads a structured pedigree and spends the session on interpretation rather than data entry.</p>
+
+            <p><strong>Triage at the GP level.</strong> A general practitioner who wants to capture family history for a referral letter can build a quick pedigree in a few minutes of conversation, export to PDF from Evagene, and attach to the referral &mdash; a structured alternative to free-text family-history notes.</p>
+
+            <p><strong>Learning and teaching.</strong> Students and educators can iterate on example pedigrees conversationally &mdash; build a four-generation Huntington's family, then ask for a variation with reduced penetrance, then a version with adoption &mdash; and load each into Evagene to see the standard notation rendering and run the inheritance model.</p>
+
+            <h2>When drawing directly in Evagene is the right choice</h2>
+
+            <p>Three scenarios where the GPT is not the fastest path:</p>
+
+            <ul>
+                <li><strong>Live clinical consultation.</strong> A genetic counsellor taking a family history from a patient across a desk is usually faster with gesture drawing on an iPad. The GPT adds a round-trip through ChatGPT that does not pay off when the person describing the family is already in the room.</li>
+                <li><strong>GEDCOM or 23andMe imports.</strong> If the starting point is an existing genealogy file or a consumer genomics export, the dedicated <a href="gedcom-pedigree-software.html">GEDCOM</a> and <a href="23andme-pedigree-import.html">23andMe</a> importers carry structure the GPT cannot re-derive from prose.</li>
+                <li><strong>Highly detailed tumour or test data.</strong> For multi-primary cancers, precise receptor-status / grade / stage records, and large gene-panel test results, structured entry in Evagene's properties panel is more reliable than dictation.</li>
+            </ul>
+
+            <h2>Privacy and clinical safety</h2>
+
+            <p>Conversations with ChatGPT are stored on OpenAI's infrastructure under OpenAI's terms. If you are describing patient data, follow your institution's policy on sending identifiable information to third-party LLMs. In practice, we recommend <strong>describing families in de-identified terms</strong> &mdash; roles and relationships rather than full names, approximate years rather than exact dates of birth &mdash; and then filling in identifying detail in Evagene after import, where the data sits under Evagene's data-governance controls.</p>
+
+            <p>Evagene's <a href="privacy-policy.html">privacy policy</a> covers how the imported pedigree is handled on the Evagene side. The GPT itself is covered by OpenAI's terms; Evagene does not receive the conversation text, only the JSON file you subsequently upload.</p>
+
+            <h2>Try a starter prompt</h2>
+
+            <p>If you would like a template to start from, any of these work well:</p>
+
+            <ul>
+                <li>&ldquo;My grandmother had breast cancer at 52, my mother had breast cancer at 45, and my aunt on my mother's side has ovarian cancer at 60. Build a pedigree with me as the proband, 38, female.&rdquo;</li>
+                <li>&ldquo;I need a pedigree for a cystic fibrosis family &mdash; both parents are carriers, two of three children are affected, one is unaffected. The affected children are a boy (6) and a girl (3); the unaffected child is a girl (9).&rdquo;</li>
+                <li>&ldquo;Build a four-generation Huntington's disease family with autosomal dominant inheritance. The proband is presymptomatic, age 28, tested positive. Affected relatives on the paternal side back to the great-grandfather.&rdquo;</li>
+                <li>&ldquo;My parents are first cousins and I want to map our family for genetic counselling. I am female, 30, healthy. My older brother is deaf from childhood. My mother's father and my father's mother are siblings.&rdquo;</li>
+            </ul>
+
+            <div class="not-prose my-8 p-6 bg-brand-50 dark:bg-brand-900/40 border border-brand-200 dark:border-brand-800 rounded-xl">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Ready to try it?</h3>
+                <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">The GPT is live now. Describe a family, download the JSON, load it at evagene.net.</p>
+                <div class="flex flex-wrap gap-3">
+                    <a href="https://chatgpt.com/g/g-69ea28b554b8819191ae0f8fd2406d52-evagene-pedigree-builder" target="_blank" rel="noopener" data-gpt-cta="body" class="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg">Open the Pedigree Builder GPT
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                    <a href="https://evagene.net" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-brand-900 hover:bg-gray-50 dark:hover:bg-brand-800 text-gray-800 dark:text-gray-200 text-sm font-semibold rounded-lg border border-gray-200 dark:border-brand-700">Open Evagene</a>
+                </div>
+                <p class="mt-3 text-xs text-gray-500 dark:text-gray-500">Paid ChatGPT subscription required for the GPT (OpenAI's policy for all Custom GPTs). Evagene is free during Alpha via the waiting list.</p>
+            </div>
+
+            <h2 id="faq">Frequently asked questions</h2>
+
+            <div class="space-y-6 not-prose">
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What is the Evagene Pedigree Builder GPT?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">A ChatGPT Custom GPT that takes a plain-English description of a family and returns a downloadable Evagene-compatible pedigree JSON file. The file imports into Evagene via File &rarr; Load pedigree &rarr; Load Evagene file, ready for annotation, risk analysis, and export. ChatGPT helps you produce a valid Evagene file; the analysis happens in Evagene.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Do I need a paid ChatGPT subscription?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes &mdash; OpenAI requires a paid tier (Plus, Team, or Enterprise) for any Custom GPT. This is an OpenAI requirement, not an Evagene paywall. Free-tier ChatGPT users will be prompted to upgrade on opening the GPT.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Is this Evagene running inside ChatGPT?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">No. The GPT is a data-capture aid that produces a JSON file. Evagene itself is separate &mdash; the file is loaded at evagene.net, where the pedigree renders and the risk models run. A live-integration version (Route B) is planned but not yet built.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Does the GPT give medical advice?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">No. The GPT is a data-capture aid. It does not diagnose, interpret, or advise. Clinical interpretation runs inside Evagene or happens with a qualified clinician &mdash; the GPT's scope is to turn a description into a valid pedigree file.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">How do I load the downloaded JSON into Evagene?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">In Evagene at evagene.net, open the File menu, choose Load pedigree, then Load Evagene file, and pick the JSON file. The pedigree renders immediately with standard notation, disease sectors, and proband arrow.</p></div>
+                <div class="border-b border-gray-200 dark:border-brand-800 pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">What kind of family descriptions does it handle?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Anything from a three-relative sketch to a multi-generation family with consanguinity, twins, adoption, pregnancy loss, genetic test results, ancestry, and reproductive history. Where the description is ambiguous &mdash; which side of the family, who the proband is, whether a relative is alive &mdash; the GPT asks rather than guessing.</p></div>
+                <div class="pb-6"><h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can I share the JSON file with my clinician?</h3><p class="text-gray-700 dark:text-gray-300 leading-relaxed">Yes. The JSON file is portable: any Evagene user can load it. A patient can build a pedigree at home, email the file to their clinician, and the clinician loads it into Evagene for the appointment.</p></div>
+            </div>
+
+            <h2>Related</h2>
+
+            <ul>
+                <li><a href="pedigree-drawing-software.html">Pedigree drawing software</a> &mdash; gesture drawing, keyboard shortcuts, and the full Evagene drawing surface.</li>
+                <li><a href="23andme-pedigree-import.html">23andMe pedigree import</a> &mdash; consumer-genomics data as another path into the pedigree.</li>
+                <li><a href="gedcom-pedigree-software.html">GEDCOM pedigree software</a> &mdash; genealogy-format import and export.</li>
+                <li><a href="pedigree-ocr.html">Pedigree OCR</a> &mdash; importing a hand-drawn or printed pedigree from an image.</li>
+                <li><a href="hereditary-cancer-risk-assessment.html">Hereditary cancer risk assessment</a> &mdash; BRCAPRO, MMRpro, PancPRO, and the cancer family-history scoring models that run on the imported pedigree.</li>
+                <li><a href="mendelian-inheritance-calculator.html">Mendelian inheritance calculator</a> &mdash; the AD / AR / XLR engine plus the non-classical models.</li>
+                <li><a href="platform.html">Evagene platform</a> &mdash; API, webhooks, MCP server, and embeddable viewer for teams who want deeper integration than Route A.</li>
+            </ul>
+
+        </div>
+    </article>
+</main>
+
+<section class="py-20 bg-brand-50 dark:bg-brand-900/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Describe, download, load &mdash; in under a minute</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Join the Alpha to run risk models on whatever pedigree you build.</p>
+        <div class="flex flex-wrap justify-center gap-3">
+            <a href="https://chatgpt.com/g/g-69ea28b554b8819191ae0f8fd2406d52-evagene-pedigree-builder" target="_blank" rel="noopener" data-gpt-cta="footer" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white text-base font-semibold rounded-xl shadow-lg shadow-brand-600/25">Open the Pedigree Builder GPT</a>
+            <a href="https://evagene.com/#waitlist" class="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-brand-900 hover:bg-gray-50 dark:hover:bg-brand-800 text-gray-800 dark:text-gray-200 text-base font-semibold rounded-xl border border-gray-200 dark:border-brand-700">Join the Alpha Waiting List</a>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2"><div class="flex items-center gap-2.5 mb-4"><img src="logo.png" alt="Evagene logo" class="h-7 w-auto brightness-200"><span class="text-lg font-bold text-white tracking-tight">Evagene</span></div><p class="text-sm text-gray-500 max-w-sm mb-4">Clinical-grade pedigree management for precision medicine.</p></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Product</h4><ul class="space-y-2 text-sm"><li><a href="https://evagene.com/#features" class="hover:text-white">Features</a></li><li><a href="https://evagene.com/#risk-analysis" class="hover:text-white">Risk Analysis</a></li><li><a href="https://evagene.com/#interoperability" class="hover:text-white">Data Exchange</a></li><li><a href="platform.html" class="hover:text-white">Platform</a></li></ul></div>
+            <div><h4 class="text-sm font-semibold text-white mb-4">Learn More</h4><ul class="space-y-2 text-sm"><li><a href="pedigree-drawing-software.html" class="hover:text-white">Pedigree Drawing</a></li><li><a href="23andme-pedigree-import.html" class="hover:text-white">23andMe Import</a></li><li><a href="gedcom-pedigree-software.html" class="hover:text-white">GEDCOM &amp; Genealogy</a></li><li><a href="hereditary-cancer-risk-assessment.html" class="hover:text-white">Cancer Risk Assessment</a></li><li><a href="mendelian-inheritance-calculator.html" class="hover:text-white">Mendelian Inheritance</a></li></ul></div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Evagene. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-xs text-gray-600"><a href="https://evagene.com/privacy-policy.html" class="hover:text-gray-400">Privacy Policy</a><a href="https://evagene.com/terms.html" class="hover:text-gray-400">Terms of Service</a></div>
+        </div>
+    </div>
+</footer>
+
+<!-- Cookie Consent Banner -->
+<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-[100] hidden">
+    <div class="bg-gray-900 dark:bg-black border-t border-gray-700 dark:border-gray-800 shadow-2xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-5">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                <div class="flex-1 text-sm text-gray-300 leading-relaxed">
+                    <p>We use cookies and similar technologies to analyse site traffic and improve your experience. Analytics cookies (Google Analytics, Microsoft Clarity) and marketing tools (EngageBay) are only activated with your consent. See our <a href="privacy-policy.html" class="text-brand-400 hover:text-brand-300 underline">Privacy Policy</a> for details.</p>
+                </div>
+                <div class="flex items-center gap-3 shrink-0">
+                    <button id="cookie-reject" class="px-4 py-2 text-sm font-medium text-gray-400 hover:text-white border border-gray-600 hover:border-gray-400 rounded-lg transition-colors">Reject All</button>
+                    <button id="cookie-accept" class="px-5 py-2 text-sm font-semibold text-white bg-brand-600 hover:bg-brand-700 rounded-lg transition-colors">Accept All</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+(function(){var CONSENT_KEY='evagene-cookie-consent';var banner=document.getElementById('cookie-banner');var consent=localStorage.getItem(CONSENT_KEY);function loadAnalytics(){var gaScript=document.createElement('script');gaScript.async=true;gaScript.src='https://www.googletagmanager.com/gtag/js?id=G-8GQLEPQ47C';document.head.appendChild(gaScript);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8GQLEPQ47C');(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments);};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,'clarity','script','wc26ock5ta');var EhAPI=window.EhAPI||{};EhAPI.after_load=function(){EhAPI.set_account('ro2mo08bbuj75m8i04puevk2su','evagene');EhAPI.execute('rules');};window.EhAPI=EhAPI;var ebScript=document.createElement('script');ebScript.async=true;ebScript.src='//d2p078bqz5urf7.cloudfront.net/jsapi/ehform.js?v'+new Date().getHours();document.head.appendChild(ebScript);}if(consent==='accepted'){loadAnalytics();}else if(consent!=='rejected'){banner.classList.remove('hidden');}document.getElementById('cookie-accept').addEventListener('click',function(){localStorage.setItem(CONSENT_KEY,'accepted');banner.classList.add('hidden');loadAnalytics();});document.getElementById('cookie-reject').addEventListener('click',function(){localStorage.setItem(CONSENT_KEY,'rejected');banner.classList.add('hidden');});})();
+</script>
+<!-- GPT click tracking (only fires if analytics consent granted; safe no-op otherwise) -->
+<script>
+(function(){function track(el){var loc=el.getAttribute('data-gpt-cta')||'unknown';if(typeof window.gtag==='function'){try{window.gtag('event','gpt_cta_click',{event_category:'pedigree_builder_gpt',event_label:loc,transport_type:'beacon'});}catch(e){}}if(window.clarity){try{window.clarity('event','gpt_cta_click_'+loc);}catch(e){}}}document.querySelectorAll('a[data-gpt-cta]').forEach(function(a){a.addEventListener('click',function(){track(a);});});})();
+</script>
+</body>
+</html>

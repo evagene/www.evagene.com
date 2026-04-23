@@ -2,10 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- Homepage -->
-  <url><loc>https://evagene.com/</loc><lastmod>2026-04-20</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://evagene.com/</loc><lastmod>2026-04-23</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
 
   <!-- Pillar landing pages -->
-  <url><loc>https://evagene.com/pedigree-drawing-software.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://evagene.com/pedigree-drawing-software.html</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://evagene.com/hereditary-cancer-risk-assessment.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://evagene.com/gedcom-pedigree-software.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://evagene.com/clinical-genetics-pedigree-tool.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
@@ -110,10 +110,13 @@
   <url><loc>https://evagene.com/gedcom-to-pedigree-converter.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://evagene.com/phenopackets-pedigree.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
 
+  <!-- ChatGPT Custom GPT: plain-English pedigree builder -->
+  <url><loc>https://evagene.com/pedigree-builder-gpt.html</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
   <!-- Genealogy / consumer crossover -->
   <url><loc>https://evagene.com/genogram-maker-online.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://evagene.com/medical-family-tree.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://evagene.com/23andme-pedigree-import.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/23andme-pedigree-import.html</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://evagene.com/family-health-history-online.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://evagene.com/genogram-vs-pedigree.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://evagene.com/medical-genogram-software.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -145,7 +148,7 @@
   <url><loc>https://evagene.com/for-genetic-nurses.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://evagene.com/for-genealogists.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://evagene.com/for-educators-students.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://evagene.com/for-patients-families.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://evagene.com/for-patients-families.html</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://evagene.com/for-reproductive-medicine.html</loc><lastmod>2026-04-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- Country-specific -->
@@ -154,7 +157,7 @@
 
   <!-- Authority & trust -->
   <url><loc>https://evagene.com/research-citations.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://evagene.com/changelog.html</loc><lastmod>2026-04-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://evagene.com/changelog.html</loc><lastmod>2026-04-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 
   <!-- Risk-engine expansion (April 2026) -->
   <url><loc>https://evagene.com/release-2026-04-risk-expansion.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -172,6 +175,6 @@
   <url><loc>https://evagene.com/terms.html</loc><lastmod>2026-04-17</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
 
   <!-- LLMs metadata -->
-  <url><loc>https://evagene.com/llms.txt</loc><lastmod>2026-04-20</lastmod><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://evagene.com/llms.txt</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.3</priority></url>
 
 </urlset>
