@@ -6,7 +6,7 @@ This file is loaded into every conversation. Keep it tight; update when the work
 
 ## What this repo is
 
-Static HTML marketing site for **Evagene** — a clinical-grade pedigree management platform. Deployed to `evagene.com` (GitHub Pages via the `CNAME` file). ~125 pages. No build step; Tailwind via CDN.
+Static HTML marketing site for **Evagene** — an academic, research, and educational pedigree modelling platform (see *Regulatory positioning* section below). Deployed to `evagene.com` (GitHub Pages via the `CNAME` file). ~125 pages. No build step; Tailwind via CDN.
 
 Authoritative product docs live in a sibling repo at `../evagene/docs/` — particularly:
 - `docs/guides/risk_models.md` — every risk calculator, parameters, examples, citations
@@ -17,12 +17,86 @@ Authoritative product docs live in a sibling repo at `../evagene/docs/` — part
 
 ---
 
+## Regulatory positioning — not a medical device
+
+**This is the single most important rule in this file. Read it before writing any copy.**
+
+Evagene is positioned as an **academic, research, and educational pedigree modelling platform**. It is **not** a medical device, not clinical decision support software, and not a diagnostic or screening tool. Every page — body copy, meta tags, OG/Twitter cards, JSON-LD, alt text, competitor comparisons, `llms.txt`, `llms-full.txt`, release notes — must be consistent with that positioning.
+
+**Why this matters.** MHRA (UK MDR 2002 as amended) and EU MDCG (MDR 2017/745, Rule 11) assess *intended purpose* holistically across a manufacturer's entire body of promotional material, not just the formal intended-use statement. A footer disclaimer does not cure clinical positioning spread across 125 pages; MDCG 2019-11 is explicit on this. Clinical-positioning copy risks classification as Class IIa medical device software, with enforcement consequences including forced takedown, fines, and director liability under UK MDR s.55. The fix is repositioning, not disclaiming.
+
+**The existing site contains legacy clinical-positioning copy.** Treat it as in-flight repositioning work, not a template to emulate. When copying structure from an existing page (meta tags, JSON-LD, cookie banner, footer), rewrite the body copy to the canonical positioning below.
+
+### Canonical intended-use statement
+
+Use this wording; paraphrases must not weaken the substance:
+
+> Evagene is an academic, research, and educational pedigree modelling platform. It supports structured family-history documentation, teaching, and exploratory use of published risk models. Evagene is not intended to diagnose, prevent, monitor, predict, treat, or manage disease; determine eligibility for screening, testing, referral, or treatment; or replace professional clinical judgement. Outputs are illustrative and for educational / research purposes only.
+
+A short-form version should appear on every page (above or within the footer). The long-form belongs on the homepage, every risk-model page, every disease page, and in the T&Cs.
+
+### Forbidden phrases and their replacements
+
+| Never write | Use instead |
+|---|---|
+| clinical-grade | research- and education-grade / teaching-grade |
+| precision medicine | research and education |
+| AI-powered clinical interpretation | AI-assisted draft summaries for educational / research review |
+| clinical decision support | research and teaching tool |
+| screening recommendation(s) | discussion prompts and literature-linked considerations |
+| clinically actionable | illustrative threshold from published literature; not a recommendation |
+| identify patients who warrant referral / warrants referral | illustrate how published referral criteria may be represented |
+| patient-facing risk report(s) | plain-language educational summaries, not medical advice |
+| no medical degree required | for learners, students, and researchers |
+| warrants testing / warrants screening | example threshold described in published guideline X |
+| recommend (issued by the platform) | illustrate / describe / document |
+| consider IHC/MSI / consider EUS/MRI screening (as platform output) | published guideline X notes that [action] may be considered; this software does not make that recommendation |
+
+Grep for each of these before shipping any page or release.
+
+### Off-limits framings
+
+Never position Evagene as:
+
+- Diagnosing, preventing, monitoring, predicting, treating, or managing disease.
+- Determining eligibility for screening, testing, referral, or treatment.
+- Replacing, augmenting, or supporting professional clinical judgement in a care pathway.
+- Generating outputs for direct delivery to individual patients as medical information.
+- Integrating with EHR / EMR / FHIR / HL7 for patient-care workflows. Static file export that a clinician can *choose* to consume off-platform (e.g. the CanRisk file bridge) is fine; "clinical workflow integration" framing is not.
+- Automating triage, screening logic, or any "flag patients who…" behaviour.
+
+### Risk-model labelling
+
+The existing Tyrer-Cuzick and BOADICEA caveats are preserved and extended to **every** mention of any of the 20 risk models (Claus 1994, Couch 1997, Frank 2002, Evans 2004, Vasen 1999, Umar 2004, Gail 1989, Tyrer/Duffy/Cuzick 2004, BayesMendel BRCAPRO / MMRpro / PancPRO, family-history scoring):
+
+- Frame outputs as **illustrative / for research / for teaching**, not as clinical outputs.
+- Where a clinical-grade computation exists off-platform (BOADICEA at canrisk.org, Tyrer-Cuzick against the official IBIS binary), route there explicitly and emphasise the architectural separation. The CanRisk file-export bridge is *positive evidence* of non-clinical intent — emphasise it, do not minimise it.
+- Never attach risk-model outputs to named individuals in marketing copy, screenshots, worked examples, or demo videos. Use fictional families, pedigree IDs, or anonymised identifiers.
+
+### JSON-LD and schema.org
+
+Never use `MedicalWebPage`, `MedicalCondition`, `MedicalEntity`, `MedicalAudience`, `MedicalTest`, `MedicalProcedure`, `Drug`, `Physician`, or any `schema.org/Medical*` type — these are machine-readable clinical-intent signals. Use `Article`, `TechArticle`, `CollectionPage`, `ScholarlyArticle`, `EducationalOccupationalProgram`, `LearningResource`, or `Course` instead. For disease references in structured data, use `Thing` or `DefinedTerm`, not `MedicalCondition`.
+
+### Competitor and comparison pages
+
+Comparison-matrix rows must not implicitly claim clinical parity with device-positioned competitors. If a competitor markets FDA-cleared clinical decision support or CE-/UKCA-marked diagnostic workflow and we tick the same row, we inherit the classification. Where the competitor claims a clinical capability that Evagene does not replicate, say so plainly — e.g. "Competitor X markets clinical-workflow integration; Evagene is positioned as a research and education tool" — rather than ticking the row.
+
+### Patient-facing pages
+
+Any page addressed to patients or families (`for-patients.html`, `for-families.html`, genealogy / consumer pages) must frame outputs as educational summaries, not medical information. Do not include worked examples that look like clinical reports. Do not suggest actions a patient should take based on the output. Patient-facing individualised risk output is the single highest-risk feature surface — treat with extreme care, and prefer fictional / anonymised examples.
+
+### When in doubt
+
+Escalate to the user. It is always cheaper to ask than to ship a clinical-positioning sentence that later needs purging from 40 pages, `llms-full.txt`, the sitemap, and cached search snippets.
+
+---
+
 ## Tone, style, and brand rules
 
 - **"Evagene"** — capitalised as one word, never "EvAgene" or "EvaGene". Correct everywhere including meta descriptions.
-- **Factual, clinician-facing, not hyperbolic.** No unqualified superlatives ("the best", "revolutionary"). Specific, verifiable claims only.
-- **Never claim** FDA clearance, regulatory approval, or equivalence to validated clinical binaries unless the product actually has that status.
-- **Never claim** Evagene "replaces" the clinical geneticist — the product augments clinicians.
+- **Factual, specialist-facing (clinicians, researchers, educators, students), not hyperbolic.** No unqualified superlatives ("the best", "revolutionary"). Specific, verifiable claims only.
+- **Never claim** regulatory clearance, device registration, CE marking, UKCA marking, FDA clearance, or equivalence to any registered or cleared medical-device software. See *Regulatory positioning* section.
+- **Never position** Evagene as replacing, augmenting, or supporting professional clinical judgement. See *Regulatory positioning* section.
 - **No emojis** in copy or code unless the user explicitly asks.
 - **Exclusions** — these two caveats must appear wherever the feature is mentioned:
   - **Tyrer-Cuzick** is an *IBIS-style approximation* of the published Tyrer / Duffy / Cuzick 2004 algorithm. Not the official IBIS Breast Cancer Risk Evaluator binary (whose full coefficients are not public). Label every mention.
@@ -61,7 +135,7 @@ Copy from an existing recent page (`research-citations.html`, `for-reproductive-
 4. **`<link rel="canonical">`** pointing at the clean URL (no `.html` in the canonical).
 5. **Favicon** reference.
 6. **Tailwind CDN + config** — match existing brand colour palette and Inter font.
-7. **JSON-LD** — at minimum an `Article`/`CollectionPage`/`TechArticle` and a `BreadcrumbList`. FAQ pages also need `FAQPage`.
+7. **JSON-LD** — at minimum an `Article`/`CollectionPage`/`TechArticle` and a `BreadcrumbList`. FAQ pages also need `FAQPage`. **Never use `Medical*` schema types** — see *Regulatory positioning* section.
 8. **Cookie consent banner + opt-in analytics loader** — identical pattern across the site. Google Analytics, Microsoft Clarity, and EngageBay fire only after consent. Copy the `cookie-banner` div and the IIFE at the bottom of `for-reproductive-medicine.html` verbatim.
 9. **Footer** with the standard four columns (logo, Product, Learn More / Inheritance, Legal).
 10. **Breadcrumb `<nav>`** under the fixed top nav.
@@ -195,7 +269,7 @@ Consent state is stored in `localStorage` under the key `evagene-cookie-consent`
 
 ## Content voice — quick reminders
 
-- **Clinicians read the first paragraph; decision-makers read the first sentence.** Lead with the concrete clinical or technical point, not a marketing hook.
+- **Specialists read the first paragraph; decision-makers read the first sentence.** Lead with the concrete technical or research point, not a marketing hook.
 - **Name the models**, cite the papers. Claus 1994, Couch 1997, Frank 2002, Evans 2004, Vasen 1999, Umar 2004, Gail 1989, Tyrer/Duffy/Cuzick 2004, NICE CG164/NG101, Carter 1961, Falconer 1965. These names carry weight; don't paraphrase.
 - **Use "BayesMendel"** for BRCAPRO/MMRpro/PancPRO — the statistical heritage is part of the claim.
 - **British English** throughout (counselling, paediatrics, favour, behaviour, organisation). Exception: direct quotes from sources that use American English.
@@ -208,7 +282,12 @@ Consent state is stored in `localStorage` under the key `evagene-cookie-consent`
 - Don't bulk-update `lastmod` dates without a real change.
 - Don't add new `Disallow:` rules to `robots.txt` without a specific reason.
 - Don't use emojis.
-- Don't claim regulatory approval.
+- Don't claim regulatory clearance, device registration, CE/UKCA marking, or FDA clearance.
+- Don't write "clinical-grade", "precision medicine", "clinical decision support", "AI-powered clinical interpretation", "clinically actionable", "screening recommendation", "warrants referral", "patient-facing risk report", or any similar clinical-intent framing — see *Regulatory positioning* section for replacements.
+- Don't tick competitor-matrix rows that imply clinical parity with device-positioned competitors.
+- Don't use `MedicalWebPage`, `MedicalCondition`, `MedicalEntity`, `MedicalAudience`, `MedicalTest`, `MedicalProcedure`, `Drug`, `Physician`, or any `schema.org/Medical*` type in JSON-LD.
+- Don't frame EHR / FHIR / HL7 / EMR as clinical-workflow integration. The CanRisk off-platform file-export pattern is the template.
+- Don't attach risk-model outputs to named individuals in screenshots, worked examples, or demo videos.
 - Don't invent numbers for competitors.
 - Don't use awkward "X+" figures — round or exact only.
 - Don't commit unless the user has explicitly asked.

@@ -1,10 +1,12 @@
 # Evagene — Full Documentation for AI Systems
 
-> Clinical-grade pedigree management for precision medicine
+> Pedigree drawing, management, and modelling in the browser — standards-compliant notation, twenty published risk-model algorithms, a 1,900-entry catalogue, GEDCOM interoperability, and a CanRisk / BOADICEA export bridge.
 
 ## About Evagene
 
-Evagene is a web-based pedigree management system that lets users draw, annotate, and analyse family pedigrees using standard genetic notation. It combines an intuitive canvas editor with deep clinical data modelling, genetic risk analysis, and interoperability with genealogy and genomics formats.
+Evagene is a browser-based platform for drawing, managing, and modelling family pedigrees. Users can draw and annotate pedigrees using standards-compliant genetic notation on an HTML5 canvas, attach structured clinical and family-history data, explore twenty published risk-model algorithms across four families (Mendelian single-gene and adjacent, polygenic / multifactorial liability-threshold, cancer family-history scoring, and a CanRisk / BOADICEA export bridge), and move data in and out via GEDCOM 5.5.1, JSON, 23andMe, and other common formats.
+
+**Intended use.** Evagene is for teaching, research, and structured family-history documentation. It is not a medical device and is not intended to diagnose, prevent, monitor, predict, treat, or manage disease; determine eligibility for screening, testing, referral, or treatment; or replace professional clinical judgement. Outputs are illustrative and for educational / research purposes only. Evagene is not FDA-cleared, CE-marked, or UKCA-marked.
 
 - Website: https://evagene.com
 - Application: https://evagene.net
@@ -79,7 +81,7 @@ Users assign diseases to individuals with per-disease affection status, laterali
 
 ### Risk Analysis
 
-Evagene provides four families of risk model on the same pedigree document:
+Evagene implements four families of published risk-model algorithms on the same pedigree document, for research, teaching, and exploratory use. Outputs are illustrative educational / research artefacts, not clinical recommendations:
 
 **1. Single-gene and adjacent (built-in):**
 - Autosomal dominant (with reduced penetrance, age-dependent penetrance, anticipation, germline mosaicism, parent-of-origin bias, locus heterogeneity, linkage disequilibrium)
@@ -141,19 +143,19 @@ Results include carrier probabilities, genotype probabilities, future risk by ag
 
 Differential diagnosis mode analyses affected siblings from unaffected parents, generating hypotheses (reduced penetrance, gonadal mosaicism, new mutation, autosomal recessive) with posterior probabilities and weighted recurrence risks.
 
-A batch risk screening mode screens a proband across all diseases simultaneously with configurable risk thresholds and population selection (General, Ashkenazi Jewish, Italian). Four report types are generated: patient-friendly, clinical, carrier probability, and AI-powered clinical interpretation.
+A batch risk-exploration mode screens a proband across all diseases simultaneously with configurable thresholds and population selection (General, Ashkenazi Jewish, Italian). Four educational report types are generated: plain-language summary, structured summary, carrier probability summary, and AI-assisted draft summary. All outputs are illustrative educational / research artefacts &mdash; not clinical recommendations.
 
-**What Evagene does not claim:** Evagene is not FDA-cleared. Tyrer-Cuzick output is an approximation of the published 2004 algorithm, not the official IBIS binary. BOADICEA is accessed via CanRisk export, not bundled. The tools augment, not replace, the clinical geneticist.
+**What Evagene does not claim.** Evagene is not a medical device. It is not FDA-cleared, CE-marked, UKCA-marked, or otherwise registered as clinical software. It is not intended to diagnose, prevent, monitor, predict, treat, or manage disease; determine eligibility for screening, testing, referral, or treatment; or replace, augment, or support professional clinical judgement in a care pathway. Risk-model outputs are illustrative and for educational / research purposes only. Tyrer-Cuzick output is an approximation of the published 2004 algorithm, not the official IBIS binary. BOADICEA is not bundled — the full BOADICEA computation runs off-platform at canrisk.org under University of Cambridge licence, after the user uploads Evagene's CanRisk file export.
 
-### AI-Powered Clinical Interpretation
+### AI-Assisted Draft Summaries for Educational / Research Review
 
-Evagene integrates AI to generate structured clinical interpretations of pedigrees. The AI analyses family structure, genetic findings, inheritance patterns, and identified risks, then produces a report covering:
-- Key clinical findings
-- Family implications and cascade testing recommendations
-- Data gaps that should be addressed
-- Screening and referral considerations
+Evagene integrates AI to generate draft educational summaries of pedigrees. The AI analyses family structure, documented findings, and inheritance-pattern observations, then produces a summary covering:
+- Structural observations about the pedigree
+- Family-structure notes and documentation gaps
+- Data-completeness prompts
+- Discussion prompts linked to published literature
 
-AI reports are placed on the canvas as anchored notes attached to the proband. A quota system tracks usage.
+These draft summaries are for human review only. They are not clinical advice, not diagnostic output, and not intended to inform clinical decisions. Summaries are placed on the canvas as anchored notes attached to the proband. A quota system tracks usage.
 
 ### Pedigree Description Engine
 
@@ -192,23 +194,25 @@ A query builder allows filtering individuals by sex, disease affection status, d
 
 ## Who Evagene Is For
 
-### Clinical Geneticists
-Replaces paper-based and general-purpose diagramming tools with purpose-built pedigree management. Accurate notation, integrated risk models, comprehensive clinical data capture, batch investigation, and linkage analysis.
-
-### Oncologists
-Cancer risk assessment with BRCAPRO, MMRpro, and PancPRO. Tumour characterisation (laterality, ER/PR/HER2, grade, stage). Treatment tracking. Manifestation timelines. Dual-audience reports.
-
-### General Practice Doctors
-Quick three-generation pedigree drawing. Built-in risk screening for referral decisions. Structured family history capture. In-app education on when to refer.
-
-### Genetic Nurses & Counsellors
-Patient-facing reports in plain language. Consent tracking. Contact information management. Proband identification. Role-specific workflow guides.
+Evagene is an educational and research tool. It is used for teaching, training, documentation, and exploratory research — not for clinical decision-making. Professional users are addressed as educators, researchers, and learners, not as operators of a clinical-workflow tool.
 
 ### Research Geneticists
-Mendelian modelling with full parameter control. Linkage analysis with LOD scores, flanking markers, haplotype tables. Marker management. Species flexibility. Genotype-phenotype correlation. GEDCOM export.
+Mendelian modelling with full parameter control. Linkage analysis with LOD scores, flanking markers, haplotype tables. Marker management. Species flexibility. Genotype-phenotype correlation. GEDCOM export. Full research and teaching surface for the implemented algorithm families.
 
-### Patients & Families
-Easy gesture-based drawing. Visual clarity with colour-coded disease sectors. 23andMe data import. Image import from paper pedigrees. PNG/SVG/PDF export for sharing. Plain-language reports.
+### Clinical Geneticists (teaching, research, documentation)
+Structured pedigree documentation with accurate standard notation for teaching trainees and running research projects. Implementations of published risk-model algorithms for educational exploration on anonymised / synthetic pedigrees. Comprehensive family-history data capture, batch investigation, linkage analysis. Not for clinical decision-making — for clinical workflow, use regulated clinical software and route BOADICEA via canrisk.org.
+
+### Genetic Counsellors & Nurses (teaching, training, documentation)
+Plain-language educational summaries. Consent tracking. Contact information management. Proband identification. Role-specific teaching workflow guides. Not for clinical decision-making.
+
+### Oncologists (teaching and research)
+Educational exploration of published BRCAPRO, MMRpro, and PancPRO algorithms on anonymised / synthetic pedigrees. Tumour characterisation for research documentation. Treatment and manifestation timeline capture. Not for clinical decision-making.
+
+### General Practice Doctors (education and documentation)
+Three-generation pedigree documentation for training and reference. Published risk-model algorithm implementations for education. Structured family-history documentation. Not intended for clinical decision-making or referral triage.
+
+### Patients & Families (personal family-history documentation)
+Easy gesture-based drawing. Visual clarity with colour-coded disease sectors. 23andMe data import. Image import from paper pedigrees. PNG/SVG/PDF export for sharing. Plain-language educational summaries — **not medical advice, not a substitute for consultation with a clinician.**
 
 ### Genealogists
 GEDCOM 5.5.1 import/export for Ancestry, FamilySearch, Gramps compatibility. Rich family data capture. Multi-generation support. Twin documentation. Automatic consanguinity detection.
@@ -287,7 +291,7 @@ Achondroplasia, Alagille Syndrome, Alzheimer's Disease (familial), Angelman Synd
 ## Frequently Asked Questions
 
 ### What is Evagene?
-Evagene is a web-based pedigree management system for clinical genetics, oncology, research, and family history. It lets users draw, annotate, and analyse family pedigrees with standard genetic notation, integrated BayesMendel risk models (BRCAPRO, MMRpro, PancPRO), Mendelian inheritance calculators, AI-powered clinical interpretation, blood type and trait inference from 23andMe SNP data, a 200+ disease catalogue, and interoperability with GEDCOM, 23andMe, and other formats.
+Evagene is a web-based academic, research, and educational pedigree modelling platform for teaching, training, research, and family-history documentation. It lets users draw, annotate, and explore family pedigrees with standard genetic notation, implementations of published BayesMendel risk-model algorithms (BRCAPRO, MMRpro, PancPRO), Mendelian inheritance teaching models, AI-assisted draft summaries for educational review, blood type and trait inference from 23andMe SNP data, a 200+ disease catalogue, and interoperability with GEDCOM, 23andMe, and other formats. Not a medical device; not intended for clinical decision-making.
 
 ### What is BRCAPRO and how does Evagene use it?
 BRCAPRO is a Bayesian statistical model that estimates the probability of carrying a BRCA1 or BRCA2 mutation and projects future breast and ovarian cancer risk based on family history. Evagene integrates BRCAPRO via the BayesMendel R package. Users draw a family pedigree, mark cancer diagnoses with ages, and run the model directly within the application.
@@ -304,8 +308,8 @@ Yes. Each individual in a pedigree has a consent-to-share flag that can be set i
 ### Is Evagene free?
 Evagene is currently in alpha and available free of charge via the waiting list at https://evagene.com.
 
-### Does Evagene use AI for clinical interpretation?
-Yes. Evagene integrates AI-powered clinical interpretation that analyses a pedigree and generates structured reports covering key findings, family implications, data gaps, and screening recommendations. AI reports are placed on the canvas as anchored notes attached to the proband.
+### Does Evagene use AI to generate draft pedigree summaries?
+Yes. Evagene integrates AI to generate draft educational summaries of pedigrees for researcher and learner review. The AI analyses family structure, documented findings, and inheritance-pattern observations, then produces a summary covering structural observations, documentation gaps, data-completeness prompts, and discussion prompts linked to published literature. These are drafts for human review — not clinical advice, not diagnostic output, and not intended to inform clinical decisions.
 
 ### Can Evagene infer blood type from genetic data?
 Yes. After importing 23andMe genotype data, Evagene automatically infers ABO blood type, Rh factor, and FUT2 secretor status from SNP markers. Inferred traits are displayed as visual cards in the properties panel and can be overridden manually.

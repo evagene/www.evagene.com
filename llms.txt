@@ -1,8 +1,10 @@
 # Evagene
 
-> Clinical-grade pedigree management for precision medicine
+> Pedigree drawing, management, and modelling in the browser — standards-compliant notation, twenty published risk-model algorithms, a 1,900-entry catalogue, GEDCOM interoperability, and a CanRisk / BOADICEA export bridge.
 
-Evagene is a web-based pedigree management system for clinical genetics, oncology, research, and family history. It combines an intuitive canvas editor with deep clinical data modelling, four families of risk model (Mendelian, polygenic / multifactorial liability-threshold, cancer family-history, and CanRisk / BOADICEA export bridge), and interoperability with genealogy and genomics formats.
+Evagene is a browser-based platform for drawing, managing, and modelling family pedigrees. It combines a canvas editor with structured family-history data, implementations of twenty published risk-model algorithms across four families (Mendelian, polygenic / multifactorial liability-threshold, cancer family-history scoring, and a CanRisk / BOADICEA export bridge), and interoperability with genealogy and genomics formats.
+
+**Intended use.** Evagene is for teaching, research, and structured family-history documentation. It is not a medical device and is not intended to diagnose, prevent, monitor, predict, treat, or manage disease; determine eligibility for screening, testing, referral, or treatment; or replace professional clinical judgement. Outputs are illustrative and for educational / research purposes only.
 
 ## Key Facts
 
@@ -10,7 +12,7 @@ Evagene is a web-based pedigree management system for clinical genetics, oncolog
 - Application: https://evagene.net
 - Status: Alpha (free access via waiting list)
 - Type: Web application (browser-based, no installation required)
-- Category: Health / Clinical Genetics / Precision Medicine
+- Category: Pedigree drawing / management / modelling (teaching, research, and family-history documentation)
 
 ## What Evagene Does
 
@@ -26,7 +28,7 @@ Evagene is a web-based pedigree management system for clinical genetics, oncolog
 - Surface population-conditioned carrier priors across the AR / XLR catalogue, weighted by the individual's recorded ancestry proportions. Each row attributes its number to one of three sources: explicit population key (direct published carrier frequency), weighted mix (proportion-weighted combination for mixed ancestry), or Hardy-Weinberg estimate from incidence (2pq). Ancestry-gated by default: no carrier number is shown for an individual without recorded ancestry — closing the common clinical-tool failure mode of presenting a "general population" figure as applying to a specific person.
 - Run cancer family-history scoring: Claus (CASH), Couch BRCA1 logistic, Frank/Myriad empirical BRCA1+BRCA2, Manchester Scoring System (Evans 2004), NICE CG164/NG101 categorisation, Amsterdam II Lynch-syndrome criteria (Vasen 1999), Revised Bethesda (Umar 2004), Gail NCI BCRAT (Gail 1989), and a Tyrer-Cuzick IBIS-style approximation of the Tyrer/Duffy/Cuzick 2004 algorithm (clearly labelled in-app as an approximation, not the official IBIS binary)
 - Export BOADICEA v4 / CanRisk v2 pedigree files for upload at canrisk.org (BOADICEA is not bundled; licensed by the University of Cambridge)
-- AI-powered clinical interpretation: generate structured reports covering key findings, family implications, data gaps, and screening recommendations
+- AI-assisted draft summaries for educational / research review: structural observations, family-structure notes, documentation gaps, and discussion prompts linked to published literature — not clinical advice, not diagnostic output
 - Auto-generate pedigree description reports in structured English
 - Catalogue of 220+ genetic diseases with ICD-10 codes, OMIM IDs, and inheritance parameters (includes 20+ catalogued multifactorial / polygenic / oligogenic conditions with heritability and empirical recurrence risks)
 - Disease management dashboard with search, taxonomy views, presets, and custom colours
@@ -39,21 +41,22 @@ Evagene is a web-based pedigree management system for clinical genetics, oncolog
 - Import: JSON, GEDCOM 5.5.1, 23andMe (genotype, traits, health history), XEG (legacy), pedigree images (OCR), and the Evagene Pedigree Builder ChatGPT Custom GPT — describe a family in plain English and get back an importable JSON file (Route A; paid ChatGPT tier required)
 - Export: JSON, GEDCOM, PNG, SVG, PDF
 - Batch risk screening: screen a proband across all diseases simultaneously with configurable thresholds
-- Four report types: patient-friendly, clinical, carrier probability, and AI-generated interpretation
+- Four educational report types: plain-language summary, structured summary, carrier probability, and AI-generated draft summary — all for educational / research review, not medical advice
 - Anchored canvas notes that follow individuals when moved
 - Rich text editing with markdown formatting and live preview
 - Pedigree duplication and improved twin/pregnancy management
 
 ## Who It's For
 
-- Clinical geneticists
-- Oncologists
-- General practice doctors
-- Genetic nurses and counsellors
-- Research geneticists
-- Patients and families
-- Genealogists
-- Educators and students
+Evagene is an educational and research tool. It is used for teaching, training, documentation, and exploratory research — not for clinical decision-making. Professional users (clinicians, counsellors) are addressed as educators, researchers, and learners, not as operators of a clinical-workflow tool.
+
+- Researchers in clinical and medical genetics
+- Educators and students (medical, nursing, biology, genetic counselling)
+- Genetic counsellors (for teaching, training, and structured documentation)
+- Clinical geneticists (for teaching, research, and structured family-history documentation)
+- Oncologists, general practice doctors, and genetic nurses (for documentation, teaching, and reference)
+- Genealogists and family-history researchers
+- Patients and families (for personal family-history documentation and self-education — not medical advice)
 
 ## Help & Documentation
 
