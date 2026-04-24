@@ -218,149 +218,61 @@
 
             <p><strong>Step 6. Return of results and cascade.</strong> Six weeks later, the laboratory returns a pathogenic BRCA2 result. You update the proband's carrier status in Evagene. Batch screening now runs against the family tree identifying first-degree relatives for predictive testing. As each relative is tested, you update their record; Evagene emits a webhook so the laboratory order management system records the cascade in parallel.</p>
 
-            <h2 class="text-3xl mt-16 mb-6" id="decision-matrix">Which risk model for which counselling question?</h2>
+            <h2 class="text-3xl mt-16 mb-6" id="algorithm-catalogue">Algorithm catalogue</h2>
 
-            <p>Evagene now supports four families of risk models on the same pedigree. The table below maps each common counselling question to the model that answers it. All models run directly from the pedigree data you have already entered &mdash; no re-keying, no second tool.</p>
+            <p>Evagene reproduces twenty peer-reviewed pedigree risk-model algorithms plus a CanRisk / BOADICEA export bridge. Each is an algorithm reproduction for teaching, research, and structured documentation &mdash; not a clinical output, not a decision tool, not a recommendation about any individual. What any output <em>means</em> for a specific person is a matter for the published literature and qualified professionals, and is not something this software claims to answer.</p>
+
+            <p>The catalogue below lists which published algorithms are implemented and where to read about each. Evagene deliberately makes no statement about when to run which algorithm, or what to do with the output.</p>
 
             <div class="not-prose my-8 overflow-x-auto">
                 <table class="w-full text-sm border border-gray-200 dark:border-brand-800 rounded-lg overflow-hidden">
                     <thead class="bg-gray-50 dark:bg-brand-900 text-left">
                         <tr>
-                            <th class="px-4 py-3 font-semibold text-gray-700 dark:text-gray-300">Counselling question</th>
-                            <th class="px-4 py-3 font-semibold text-gray-700 dark:text-gray-300">Model</th>
-                            <th class="px-4 py-3 font-semibold text-gray-700 dark:text-gray-300">Output</th>
+                            <th class="px-4 py-3 font-semibold text-gray-700 dark:text-gray-300">Algorithm family</th>
+                            <th class="px-4 py-3 font-semibold text-gray-700 dark:text-gray-300">Implementation</th>
+                            <th class="px-4 py-3 font-semibold text-gray-700 dark:text-gray-300">Published reference</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100 dark:divide-brand-800">
                         <tr class="bg-brand-50/40 dark:bg-brand-900/30">
-                            <td colspan="3" class="px-4 py-2 text-xs font-bold tracking-wider uppercase text-brand-700 dark:text-brand-300">Mendelian single-gene</td>
+                            <td colspan="3" class="px-4 py-2 text-xs font-bold tracking-wider uppercase text-brand-700 dark:text-brand-300">Mendelian single-gene &amp; adjacent</td>
                         </tr>
-                        <tr>
-                            <td class="px-4 py-3 text-gray-700 dark:text-gray-300">Autosomal-dominant disorder with reduced penetrance &mdash; is this clinically-unaffected parent a non-penetrant carrier?</td>
-                            <td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">AD Mendelian</td>
-                            <td class="px-4 py-3 text-gray-600 dark:text-gray-400">Per-individual carrier (Aa) and affected probabilities; obligate carriers flagged; differential diagnosis for affected sibs from unaffected parents</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 text-gray-700 dark:text-gray-300">Autosomal-recessive carrier counselling &mdash; what is the offspring risk for this couple?</td>
-                            <td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">AR Mendelian</td>
-                            <td class="px-4 py-3 text-gray-600 dark:text-gray-400">Carrier probability with the 2/3 rule applied; offspring risk with population-carrier-frequency partner; residual risk after negative panel testing</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 text-gray-700 dark:text-gray-300">X-linked recessive &mdash; is this mother of an affected boy a carrier or a new-mutation case?</td>
-                            <td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">XLR Mendelian</td>
-                            <td class="px-4 py-3 text-gray-600 dark:text-gray-400">Female carrier / male affected probability accounting for mutation rate and biological fitness; obligate carriers flagged</td>
-                        </tr>
-
-                        <tr class="bg-brand-50/40 dark:bg-brand-900/30">
-                            <td colspan="3" class="px-4 py-2 text-xs font-bold tracking-wider uppercase text-brand-700 dark:text-brand-300">Single-gene adjacent</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 text-gray-700 dark:text-gray-300">X-linked dominant with sex-differential severity &mdash; e.g. incontinentia pigmenti (male-lethal but reproduces, 1:1:1 live-born ratio); <a href="https://evagene.net/help/diseases/rett_syndrome" target="_blank" rel="noopener" class="text-brand-600 dark:text-brand-400 underline">Rett syndrome</a> (male-lethal, no reproduction); craniofrontonasal &amp; EFMR (metabolic-interference, males unaffected)</td>
-                            <td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">XLD with sub-modes</td>
-                            <td class="px-4 py-3 text-gray-600 dark:text-gray-400">Sex-specific offspring risks under each of five severity sub-modes (equal, males-worse, male-lethal-reproduces, male-lethal-no-reproduction, males-unaffected); <a href="https://evagene.net/help/risk_models#x-linked-dominant-with-sex-differential-severity" target="_blank" rel="noopener" class="text-brand-600 dark:text-brand-400 underline">guide</a></td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 text-gray-700 dark:text-gray-300">Mitochondrial (mtDNA) disease &mdash; maternal transmission, sex-differential penetrance, heteroplasmy. LHON, MELAS, MERRF, NARP, Leigh, Kearns-Sayre, Pearson.</td>
-                            <td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">Mitochondrial</td>
-                            <td class="px-4 py-3 text-gray-600 dark:text-gray-400">Offspring risk via maternal line only; sex-differential penetrance (e.g. LHON male preponderance); heteroplasmy scaling; <a href="https://evagene.net/help/risk_models#mitochondrial-mtdna-inheritance" target="_blank" rel="noopener" class="text-brand-600 dark:text-brand-400 underline">guide</a></td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 text-gray-700 dark:text-gray-300">Digenic two-locus interaction &mdash; <a href="https://evagene.net/help/diseases/usher_syndrome" target="_blank" rel="noopener" class="text-brand-600 dark:text-brand-400 underline">Usher syndrome type 2</a>, some <a href="https://evagene.net/help/diseases/retinitis_pigmentosa" target="_blank" rel="noopener" class="text-brand-600 dark:text-brand-400 underline">retinitis pigmentosa</a>, primary congenital glaucoma</td>
-                            <td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">Digenic</td>
-                            <td class="px-4 py-3 text-gray-600 dark:text-gray-400">Joint two-locus genotype analysis with classical 25% offspring ratio; supports <code class="text-xs bg-gray-100 dark:bg-brand-900 px-1 py-0.5 rounded">both_het</code> / <code class="text-xs bg-gray-100 dark:bg-brand-900 px-1 py-0.5 rounded">one_het_one_hom</code> / <code class="text-xs bg-gray-100 dark:bg-brand-900 px-1 py-0.5 rounded">both_hom</code> configurations; <a href="https://evagene.net/help/risk_models#digenic-two-locus-inheritance" target="_blank" rel="noopener" class="text-brand-600 dark:text-brand-400 underline">guide</a></td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 text-gray-700 dark:text-gray-300">Imprinting / uniparental disomy &mdash; <a href="https://evagene.net/help/diseases/prader_willi_syndrome" target="_blank" rel="noopener" class="text-brand-600 dark:text-brand-400 underline">Prader-Willi</a>, <a href="https://evagene.net/help/diseases/angelman_syndrome" target="_blank" rel="noopener" class="text-brand-600 dark:text-brand-400 underline">Angelman</a>, Beckwith-Wiedemann, Silver-Russell, TNDM</td>
-                            <td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">Imprinting / UPD</td>
-                            <td class="px-4 py-3 text-gray-600 dark:text-gray-400">Mechanism-weighted recurrence (deletion / UPD / IC defect / point mutation); parent-of-origin rule for IC defects determines the phenotype expressed in offspring; <a href="https://evagene.net/help/risk_models#imprinting-and-uniparental-disomy-upd" target="_blank" rel="noopener" class="text-brand-600 dark:text-brand-400 underline">guide</a></td>
-                        </tr>
+                        <tr><td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">AD / AR / XLR</td><td class="px-4 py-3 text-gray-700 dark:text-gray-300">Three classical Mendelian algorithms with age-dependent penetrance, mosaicism, de novo, anticipation, parent-of-origin, locus heterogeneity, LOD scores</td><td class="px-4 py-3 text-gray-600 dark:text-gray-400">Peer-reviewed Bayesian pedigree-propagation (published literature)</td></tr>
+                        <tr><td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">X-linked dominant</td><td class="px-4 py-3 text-gray-700 dark:text-gray-300">Sex-differential-severity algorithm with five sub-modes</td><td class="px-4 py-3 text-gray-600 dark:text-gray-400">Published pedigree-genetics literature; examples include incontinentia pigmenti, <a href="https://evagene.net/help/diseases/rett_syndrome" target="_blank" rel="noopener" class="text-brand-600 dark:text-brand-400 underline">Rett</a>, CFND, EFMR</td></tr>
+                        <tr><td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">Mitochondrial (mtDNA)</td><td class="px-4 py-3 text-gray-700 dark:text-gray-300">Maternal-line algorithm with configurable sex-differential penetrance and heteroplasmy scaling</td><td class="px-4 py-3 text-gray-600 dark:text-gray-400">Published mtDNA-inheritance literature; LHON, MELAS, MERRF, NARP, Leigh, Kearns-Sayre, Pearson</td></tr>
+                        <tr><td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">Digenic</td><td class="px-4 py-3 text-gray-700 dark:text-gray-300">Two-locus joint genotype algorithm with <code class="text-xs bg-gray-100 dark:bg-brand-900 px-1 rounded">both_het</code> / <code class="text-xs bg-gray-100 dark:bg-brand-900 px-1 rounded">one_het_one_hom</code> / <code class="text-xs bg-gray-100 dark:bg-brand-900 px-1 rounded">both_hom</code> configurations</td><td class="px-4 py-3 text-gray-600 dark:text-gray-400">Published digenic-inheritance literature; <a href="https://evagene.net/help/diseases/usher_syndrome" target="_blank" rel="noopener" class="text-brand-600 dark:text-brand-400 underline">Usher type 2</a></td></tr>
+                        <tr><td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">Imprinting / UPD</td><td class="px-4 py-3 text-gray-700 dark:text-gray-300">Mechanism-weighted algorithm (deletion / UPD / IC defect / point mutation) with parent-of-origin</td><td class="px-4 py-3 text-gray-600 dark:text-gray-400">Published imprinting-disorder literature; <a href="https://evagene.net/help/diseases/prader_willi_syndrome" target="_blank" rel="noopener" class="text-brand-600 dark:text-brand-400 underline">Prader-Willi</a>, <a href="https://evagene.net/help/diseases/angelman_syndrome" target="_blank" rel="noopener" class="text-brand-600 dark:text-brand-400 underline">Angelman</a>, BWS, SRS, TNDM</td></tr>
 
                         <tr class="bg-brand-50/40 dark:bg-brand-900/30">
                             <td colspan="3" class="px-4 py-2 text-xs font-bold tracking-wider uppercase text-brand-700 dark:text-brand-300">Polygenic / multifactorial</td>
                         </tr>
-                        <tr>
-                            <td class="px-4 py-3 text-gray-700 dark:text-gray-300">Recurrence risk for a common complex disorder (cleft lip, NTDs, schizophrenia, Hirschsprung, T2D, LOAD, asthma &hellip;)</td>
-                            <td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">Multifactorial / Polygenic / Oligogenic</td>
-                            <td class="px-4 py-3 text-gray-600 dark:text-gray-400">Final recurrence risk with "1 in X" denominator; source (empirical table vs Falconer fallback); modifier breakdown &mdash; severity, Carter-effect sex bias, multiple affected relatives, parental consanguinity (1 + 2F&middot;h&sup2;)</td>
-                        </tr>
+                        <tr><td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">Liability-threshold</td><td class="px-4 py-3 text-gray-700 dark:text-gray-300">Algorithm across common complex disorders; empirical Smith / Carter / Harper tables where published, Falconer fallback from h&sup2; and K</td><td class="px-4 py-3 text-gray-600 dark:text-gray-400">Carter 1961; Falconer 1965; Reich / James / Morton 1972</td></tr>
 
                         <tr class="bg-brand-50/40 dark:bg-brand-900/30">
                             <td colspan="3" class="px-4 py-2 text-xs font-bold tracking-wider uppercase text-brand-700 dark:text-brand-300">Cancer family-history</td>
                         </tr>
-                        <tr>
-                            <td class="px-4 py-3 text-gray-700 dark:text-gray-300">Suspected HBOC &mdash; carrier probability + age-specific future risk</td>
-                            <td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">BRCAPRO</td>
-                            <td class="px-4 py-3 text-gray-600 dark:text-gray-400">BRCA1 and BRCA2 carrier probability; cumulative BC/OC risk at ages 40, 50, 60, 70, 80</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 text-gray-700 dark:text-gray-300">Suspected Lynch syndrome &mdash; carrier probability</td>
-                            <td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">MMRpro</td>
-                            <td class="px-4 py-3 text-gray-600 dark:text-gray-400">MLH1, MSH2, MSH6 carrier probabilities; cumulative CRC + endometrial risk by age</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 text-gray-700 dark:text-gray-300">Familial pancreatic cancer</td>
-                            <td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">PancPRO</td>
-                            <td class="px-4 py-3 text-gray-600 dark:text-gray-400">Susceptibility gene carrier probability; pancreatic lifetime risk projections</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 text-gray-700 dark:text-gray-300">Lifetime breast-cancer risk from family history alone (woman not meeting NICE high-risk criteria but wanting a number)</td>
-                            <td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">Claus</td>
-                            <td class="px-4 py-3 text-gray-600 dark:text-gray-400">Lifetime and relative BC risk from the CASH study (Claus, Risch &amp; Thompson 1994)</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 text-gray-700 dark:text-gray-300">Pre-test probability of BRCA1 specifically</td>
-                            <td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">Couch</td>
-                            <td class="px-4 py-3 text-gray-600 dark:text-gray-400">BRCA1 carrier probability from average age at diagnosis, ovarian, and Ashkenazi ancestry (Couch 1997); 10% testing-threshold flag</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 text-gray-700 dark:text-gray-300">Empirical BRCA1 + BRCA2 probability &mdash; clinic-friendly "how likely is a positive test?"</td>
-                            <td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">Frank / Myriad</td>
-                            <td class="px-4 py-3 text-gray-600 dark:text-gray-400">BRCA1, BRCA2, and combined mutation probabilities by family scenario (Frank 2002)</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 text-gray-700 dark:text-gray-300">Does this family meet Manchester thresholds for BRCA testing?</td>
-                            <td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">Manchester Scoring System</td>
-                            <td class="px-4 py-3 text-gray-600 dark:text-gray-400">BRCA1 and BRCA2 point scores against the 10% / 20% cut-offs (Evans 2004); itemised per-relative contributions</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 text-gray-700 dark:text-gray-300">Does this family meet NICE triggers for genetics referral?</td>
-                            <td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">NICE CG164 / NG101</td>
-                            <td class="px-4 py-3 text-gray-600 dark:text-gray-400">Category (near-population / moderate / high); refer-to-genetics flag; list of matched triggers</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 text-gray-700 dark:text-gray-300">Do we suspect Lynch syndrome in this family?</td>
-                            <td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">Amsterdam II</td>
-                            <td class="px-4 py-3 text-gray-600 dark:text-gray-400">Pass/fail against each of the five Amsterdam II criteria (Vasen 1999); notes for exclusion-of-FAP and histology verification</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 text-gray-700 dark:text-gray-300">Should we send this colorectal tumour for MSI / IHC?</td>
-                            <td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">Revised Bethesda</td>
-                            <td class="px-4 py-3 text-gray-600 dark:text-gray-400">Trigger-met flag with list of matched Bethesda criteria (Umar 2004)</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 text-gray-700 dark:text-gray-300">Individualised 5-year + lifetime BC risk using reproductive and modest family history</td>
-                            <td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">Gail (NCI BCRAT)</td>
-                            <td class="px-4 py-3 text-gray-600 dark:text-gray-400">5-year and lifetime BC risk with per-factor relative risks (Gail 1989, updated 1999 / 2007 / 2011 / 2017)</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 text-gray-700 dark:text-gray-300">10-year + lifetime BC risk including density, BMI, HRT, LCIS, atypia, family history</td>
-                            <td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">Tyrer-Cuzick (IBIS-style approximation)</td>
-                            <td class="px-4 py-3 text-gray-600 dark:text-gray-400">10-year and lifetime BC risk, per-factor breakdown. <strong>Not the official IBIS binary</strong> &mdash; a published-algorithm approximation (Tyrer, Duffy &amp; Cuzick 2004); the UI flags this in every result.</td>
-                        </tr>
+                        <tr><td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">BRCAPRO</td><td class="px-4 py-3 text-gray-700 dark:text-gray-300">BayesMendel Bayesian algorithm for BRCA1 / BRCA2 modelling</td><td class="px-4 py-3 text-gray-600 dark:text-gray-400">Parmigiani et al., BayesMendel R package (published)</td></tr>
+                        <tr><td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">MMRpro</td><td class="px-4 py-3 text-gray-700 dark:text-gray-300">BayesMendel Bayesian algorithm for MLH1 / MSH2 / MSH6 modelling</td><td class="px-4 py-3 text-gray-600 dark:text-gray-400">Parmigiani et al., BayesMendel R package (published)</td></tr>
+                        <tr><td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">PancPRO</td><td class="px-4 py-3 text-gray-700 dark:text-gray-300">BayesMendel Bayesian algorithm for pancreatic susceptibility gene modelling</td><td class="px-4 py-3 text-gray-600 dark:text-gray-400">Parmigiani et al., BayesMendel R package (published)</td></tr>
+                        <tr><td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">Claus</td><td class="px-4 py-3 text-gray-700 dark:text-gray-300">CASH-derived family-history algorithm</td><td class="px-4 py-3 text-gray-600 dark:text-gray-400">Claus, Risch &amp; Thompson 1994</td></tr>
+                        <tr><td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">Couch</td><td class="px-4 py-3 text-gray-700 dark:text-gray-300">Published logistic-regression algorithm (average age, ovarian, Ashkenazi)</td><td class="px-4 py-3 text-gray-600 dark:text-gray-400">Couch et al. 1997</td></tr>
+                        <tr><td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">Frank / Myriad</td><td class="px-4 py-3 text-gray-700 dark:text-gray-300">Empirical scenario-based frequency tables</td><td class="px-4 py-3 text-gray-600 dark:text-gray-400">Frank et al. 2002</td></tr>
+                        <tr><td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">Manchester Scoring System</td><td class="px-4 py-3 text-gray-700 dark:text-gray-300">Point-based scoring algorithm</td><td class="px-4 py-3 text-gray-600 dark:text-gray-400">Evans et al. 2004</td></tr>
+                        <tr><td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">NICE CG164 / NG101</td><td class="px-4 py-3 text-gray-700 dark:text-gray-300">Reproduction of the published NICE categorisation logic for educational reference</td><td class="px-4 py-3 text-gray-600 dark:text-gray-400">NICE CG164 (2013); NG101 (updated)</td></tr>
+                        <tr><td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">Amsterdam II</td><td class="px-4 py-3 text-gray-700 dark:text-gray-300">Five-point criteria evaluation algorithm</td><td class="px-4 py-3 text-gray-600 dark:text-gray-400">Vasen et al. 1999</td></tr>
+                        <tr><td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">Revised Bethesda</td><td class="px-4 py-3 text-gray-700 dark:text-gray-300">Criteria-evaluation algorithm</td><td class="px-4 py-3 text-gray-600 dark:text-gray-400">Umar et al. 2004</td></tr>
+                        <tr><td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">Gail (NCI BCRAT)</td><td class="px-4 py-3 text-gray-700 dark:text-gray-300">Reproduction of the NCI BCRAT computation</td><td class="px-4 py-3 text-gray-600 dark:text-gray-400">Gail 1989, updates through 2017</td></tr>
+                        <tr><td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">Tyrer-Cuzick &mdash; approximation</td><td class="px-4 py-3 text-gray-700 dark:text-gray-300"><strong>Approximation</strong> of the published Tyrer-Cuzick algorithm. Not the official IBIS binary (full coefficients are not publicly released)</td><td class="px-4 py-3 text-gray-600 dark:text-gray-400">Tyrer, Duffy &amp; Cuzick 2004</td></tr>
 
                         <tr class="bg-brand-50/40 dark:bg-brand-900/30">
-                            <td colspan="3" class="px-4 py-2 text-xs font-bold tracking-wider uppercase text-brand-700 dark:text-brand-300">External-tool bridge</td>
+                            <td colspan="3" class="px-4 py-2 text-xs font-bold tracking-wider uppercase text-brand-700 dark:text-brand-300">External-tool bridge &mdash; file export only</td>
                         </tr>
-                        <tr>
-                            <td class="px-4 py-3 text-gray-700 dark:text-gray-300">NICE moderate- or high-risk woman needing full BOADICEA / CanRisk workup (multi-gene panel + PRS + density)</td>
-                            <td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">CanRisk / BOADICEA export</td>
-                            <td class="px-4 py-3 text-gray-600 dark:text-gray-400">One-click download of a <code class="text-xs bg-gray-100 dark:bg-brand-900 px-1 py-0.5 rounded">##CanRisk 2.0</code> pedigree file; clinician uploads at <a href="https://www.canrisk.org" target="_blank" rel="noopener noreferrer">canrisk.org</a>. BOADICEA is not bundled &mdash; licensed by the University of Cambridge.</td>
-                        </tr>
+                        <tr><td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">CanRisk / BOADICEA v4 export</td><td class="px-4 py-3 text-gray-700 dark:text-gray-300">Writes a <code class="text-xs bg-gray-100 dark:bg-brand-900 px-1 py-0.5 rounded">##CanRisk 2.0</code> pedigree file. Computation happens off-platform at <a href="https://www.canrisk.org" target="_blank" rel="noopener">canrisk.org</a>.</td><td class="px-4 py-3 text-gray-600 dark:text-gray-400">BOADICEA licensed by University of Cambridge; not bundled.</td></tr>
                     </tbody>
                 </table>
             </div>
 
-            <p class="text-sm text-gray-500 dark:text-gray-400"><strong>A note on thresholds.</strong> Evagene highlights results above 10% (amber) and above 25% (red). These are general thresholds &mdash; align them with your service's local testing criteria and referral guidelines. For UK services, NICE CG164 / NG101 is implemented directly. For multi-gene panel assessment, the CanRisk export is the legally-clean path to the NICE-recommended BOADICEA.</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400"><strong>No clinical recommendations are made by this software.</strong> Each algorithm is an implementation of published literature. What any output means, when to consult it, and what action if any to take, are matters for the published primary literature and qualified professionals &mdash; not for this software.</p>
 
             <h2 class="text-3xl mt-16 mb-6" id="faq">Frequently asked questions</h2>
 
