@@ -20436,9 +20436,54 @@
         "large-carnivore-ecology",
         "preprint"
       ]
+    },
+    {
+      "audiences": [
+        "researchers",
+        "educators",
+        "students",
+        "genetic-counsellors"
+      ],
+      "for_patients": "In ordinary cell division, each copy of a chromosome has an equal chance — roughly 25% — of being passed into an egg. Researchers studying fruit flies have described a situation where this equal chance breaks down: chromosomes that have swapped pieces of DNA with their partner (a normal process called 'crossing over') appear to be more likely to end up in the egg than those that have not. The scientists, writing in a preprint paper posted online, say they have found evidence of this pattern in several animals, including humans, though the work is still being reviewed by other experts.\n\nThis is a finding about a basic biological process, not about any disease or inherited condition. It may help scientists better understand how genetic variation is passed from parents to children at a population level.\n\nThis is an educational summary, not medical advice. If anything here raises questions for you, please speak with your GP or a clinical professional.",
+      "headline": "Crossover chromatids gain transmission advantage in female meiosis, Drosophila study finds",
+      "is_preprint": true,
+      "run_date": "2026-09-06",
+      "run_iso": "2026-09-06T11:29:41Z",
+      "scores": {
+        "audience_breadth": 4,
+        "importance": 6,
+        "newest_iso": "2026-09-05T00:00:00Z",
+        "novelty": 8
+      },
+      "slug": "recombinant-drive-meiotic-cheating-female-meiosis",
+      "sources": [
+        {
+          "image_alt": null,
+          "image_licence_class": "cc_by",
+          "image_url": null,
+          "is_preprint": true,
+          "is_primary": true,
+          "published_iso": "2026-09-05T00:00:00Z",
+          "publisher": "bioRxiv (Cold Spring Harbor Laboratory)",
+          "title": "Conditions and properties of non-Mendelian transmission of recombinants in female meiosis",
+          "url": "https://www.biorxiv.org/content/10.64898/2026.09.01.748656v1?rss=1"
+        }
+      ],
+      "standfirst": "A preprint from Cold Spring Harbor Laboratory characterises 'recombinant drive', a form of meiotic cheating in which chromatids carrying crossovers are preferentially transmitted through the egg in Drosophila and other animals including humans.",
+      "summary": "Researchers working with Drosophila ovarian physiology have characterised a phenomenon they term 'recombinant drive': a departure from Mendel's second law in which chromatids that have undergone crossovers (recombination events) during female meiosis are transmitted to offspring at rates above the expected 25% Mendelian frequency. The work, posted to bioRxiv by authors at Cold Spring Harbor Laboratory, uses the tractable physiology of Drosophila ovaries to dissect the conditions under which this bias arises on autosomes.\n\nUnlike classical meiotic drive — where one allele at a locus outcompetes another — recombinant drive is described by the authors as 'cheating but unselfish': the chromatid gains a transmission advantage not through competition with a specific alternative allele but by virtue of having experienced a crossover event. The authors document cases of this behaviour across diverse animal taxa, including humans and flies, suggesting the phenomenon may be broadly relevant to understanding recombination rate evolution and the distribution of crossovers in populations.\n\nThe study builds on an established body of work showing that the four chromatids within a meiotic tetrad are not always treated equivalently at the point of polar-body extrusion or pronuclear selection in female meiosis. Understanding the conditions that permit or suppress recombinant drive has implications for how population geneticists model recombination landscapes and interpret linkage disequilibrium data.\n\nThe preprint has not yet undergone peer review. Results and interpretations should be treated as preliminary until independently evaluated.",
+      "tags": [
+        "meiosis",
+        "recombinant-drive",
+        "meiotic-drive",
+        "crossover",
+        "drosophila",
+        "reproductive-genetics",
+        "chromosome-segregation",
+        "preprint"
+      ]
     }
   ],
-  "last_run": "2026-09-05T11:08:34.649960+00:00",
+  "last_run": "2026-09-06T11:30:09.847455+00:00",
   "seen_urls": {
     "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012266": "2026-08-28T19:15:20.841426+00:00",
     "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012275": "2026-08-28T19:15:20.841426+00:00",
@@ -20462,9 +20507,7 @@
     "https://news.cancerresearchuk.org/2026/08/27/lets-talk-about-hpv-7-common-questions-answered/": "2026-08-27T18:05:44.267320+00:00",
     "https://news.cancerresearchuk.org/2026/09/02/getting-back-into-the-lab-its-not-out-of-reach/": "2026-09-02T11:58:02.206145+00:00",
     "https://news.cancerresearchuk.org/2026/09/03/balancing-tried-and-tested-against-future-innovation-a-strategy-for-boosting-earlier-cancer-diagnosis/": "2026-09-03T11:56:07.043021+00:00",
-    "https://www.biorxiv.org/content/10.64898/2026.08.18.745450v1?rss=1": "2026-08-23T07:30:09.450988+00:00",
     "https://www.biorxiv.org/content/10.64898/2026.08.18.745509v1?rss=1": "2026-08-24T07:55:34.522025+00:00",
-    "https://www.biorxiv.org/content/10.64898/2026.08.18.745540v1?rss=1": "2026-08-23T07:30:09.450988+00:00",
     "https://www.biorxiv.org/content/10.64898/2026.08.18.745563v1?rss=1": "2026-08-25T07:42:28.726686+00:00",
     "https://www.biorxiv.org/content/10.64898/2026.08.19.745295v1?rss=1": "2026-08-24T07:55:34.522025+00:00",
     "https://www.biorxiv.org/content/10.64898/2026.08.19.745786v1?rss=1": "2026-08-24T07:55:34.522025+00:00",
@@ -20472,7 +20515,6 @@
     "https://www.biorxiv.org/content/10.64898/2026.08.19.745862v1?rss=1": "2026-08-25T07:42:28.726686+00:00",
     "https://www.biorxiv.org/content/10.64898/2026.08.20.745718v1?rss=1": "2026-08-25T07:42:28.726686+00:00",
     "https://www.biorxiv.org/content/10.64898/2026.08.20.745929v1?rss=1": "2026-08-25T07:42:28.726686+00:00",
-    "https://www.biorxiv.org/content/10.64898/2026.08.20.746013v1?rss=1": "2026-08-23T07:30:09.450988+00:00",
     "https://www.biorxiv.org/content/10.64898/2026.08.20.746067v1?rss=1": "2026-08-25T07:42:28.726686+00:00",
     "https://www.biorxiv.org/content/10.64898/2026.08.20.746068v1?rss=1": "2026-08-26T07:42:59.995912+00:00",
     "https://www.biorxiv.org/content/10.64898/2026.08.22.746371v1?rss=1": "2026-08-27T18:05:44.267320+00:00",
@@ -20506,6 +20548,7 @@
     "https://www.biorxiv.org/content/10.64898/2026.08.31.748372v1?rss=1": "2026-09-02T11:58:02.206145+00:00",
     "https://www.biorxiv.org/content/10.64898/2026.08.31.748413v1?rss=1": "2026-09-05T11:08:34.649960+00:00",
     "https://www.biorxiv.org/content/10.64898/2026.09.01.748529v1?rss=1": "2026-09-05T11:08:34.649960+00:00",
+    "https://www.biorxiv.org/content/10.64898/2026.09.01.748656v1?rss=1": "2026-09-06T11:30:09.847455+00:00",
     "https://www.biorxiv.org/content/10.64898/2026.09.02.748779v1?rss=1": "2026-09-05T11:08:34.649960+00:00",
     "https://www.biorxiv.org/content/10.64898/2026.09.02.748885v1?rss=1": "2026-09-05T11:08:34.649960+00:00",
     "https://www.england.nhs.uk/2026/08/high-street-pharmacies-to-launch-seven-minute-cholesterol-checks/": "2026-08-31T14:49:39.453780+00:00",
@@ -20532,6 +20575,7 @@
     "https://www.sciencedaily.com/releases/2026/09/260901070526.htm": "2026-09-05T11:08:34.649960+00:00",
     "https://www.sciencedaily.com/releases/2026/09/260902234508.htm": "2026-09-05T11:08:34.649960+00:00",
     "https://www.sciencedaily.com/releases/2026/09/260902234512.htm": "2026-09-05T11:08:34.649960+00:00",
+    "https://www.sciencedaily.com/releases/2026/09/260903064219.htm": "2026-09-06T11:30:09.847455+00:00",
     "https://www.sciencedaily.com/releases/2026/09/260904000310.htm": "2026-09-05T11:08:34.649960+00:00",
     "https://www.statnews.com/2026/08/24/biotech-news-lady-gaga-and-her-fiance-launch-biotech-startup/?utm_campaign=rss": "2026-08-25T07:42:28.726686+00:00",
     "https://www.statnews.com/2026/08/24/doctors-hand-shakes-patients-research/?utm_campaign=rss": "2026-08-25T07:42:28.726686+00:00",
