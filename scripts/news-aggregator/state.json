@@ -20481,9 +20481,141 @@
         "chromosome-segregation",
         "preprint"
       ]
+    },
+    {
+      "audiences": [
+        "researchers",
+        "oncologists",
+        "educators",
+        "students",
+        "patients"
+      ],
+      "for_patients": "Scientists have created detailed maps of breast cancer tumours and found hidden clusters of cancer cells that appear to be in a kind of sleep — they are not growing quickly like most cancer cells, which means the medicines usually used to treat cancer may not reach or destroy them. These resting cells are often surrounded by other types of cells, including immune cells, that may help protect them.\n\nResearchers think this sleeping state could explain why breast cancer sometimes comes back years after treatment has ended. Understanding how these cells survive, and what wakes them up, may help scientists develop better ways to treat breast cancer in future.\n\nThis research was reported by ScienceDaily; the original journal and research institution were not specified in the available summary. This is an educational summary, not medical advice. If anything here raises questions for you, please speak with your GP or a clinical professional.",
+      "headline": "Spatial mapping reveals dormant breast cancer cells sheltered by immune and stromal barriers",
+      "is_preprint": false,
+      "run_date": "2026-09-07",
+      "run_iso": "2026-09-07T13:14:47Z",
+      "scores": {
+        "audience_breadth": 5,
+        "importance": 7,
+        "newest_iso": "2026-09-06T20:43:10Z",
+        "novelty": 7
+      },
+      "slug": "breast-cancer-dormant-cells-immune-shield-mapping",
+      "sources": [
+        {
+          "image_alt": null,
+          "image_licence_class": "press_release",
+          "image_url": null,
+          "is_preprint": false,
+          "is_primary": true,
+          "published_iso": "2026-09-06T20:43:10Z",
+          "publisher": "ScienceDaily",
+          "title": "Scientists find breast cancer cells hiding behind protective \"shields\"",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260904000326.htm"
+        }
+      ],
+      "standfirst": "High-resolution tumour mapping has identified pockets of quiescent breast cancer cells surrounded by immune and connective tissue cells, offering a potential explanation for late cancer recurrence after treatment.",
+      "summary": "Researchers have produced detailed spatial maps of breast tumour architecture and identified distinct niches harbouring dormant cancer cells that divide slowly or not at all. Unlike rapidly proliferating cells, which are the primary target of most chemotherapy regimens, these quiescent cells appear to enter a hibernation-like state that allows them to evade cytotoxic treatment and potentially reactivate at a later point — a mechanism long hypothesised to underlie late recurrence in breast cancer.\n\nThe team found that dormant cell populations were frequently located adjacent to immune cells and cancer-associated fibroblasts, suggesting that the surrounding microenvironment may actively support their persistence rather than acting as a passive bystander. The specific signals governing entry into and exit from this dormant state were not fully characterised in the reporting to date.\n\nThe ScienceDaily summary does not name the publishing institution, lead authors, or journal, and does not specify whether the findings derive from primary human tissue, patient-derived models, or both. Full assessment of methodology and significance will depend on the primary publication. Researchers in tumour biology, oncology, and cancer genomics are likely to find the spatial mapping approach of interest, particularly in the context of understanding minimal residual disease and the biology of treatment-resistant cell populations.",
+      "tags": [
+        "breast-cancer",
+        "tumour-dormancy",
+        "cancer-microenvironment",
+        "spatial-genomics",
+        "cancer-recurrence",
+        "cancer-biology"
+      ]
+    },
+    {
+      "audiences": [
+        "researchers",
+        "gps",
+        "educators",
+        "students",
+        "patients"
+      ],
+      "for_patients": "A large study involving more than 270,000 people found that men with higher levels of a naturally occurring amino acid called tyrosine in their blood tended to have shorter lifespans. Women in the same study showed no similar pattern. The researchers used a method called Mendelian randomisation, which uses genetic information to test whether a factor is likely to be genuinely linked to an outcome, rather than just appearing alongside it by chance.\n\nTyrosine is found naturally in protein-rich foods like meat, fish, eggs, and cheese. It is also sold as a supplement. This study does not tell us whether taking or avoiding tyrosine supplements would change lifespan — it describes a statistical association found in a large population dataset, not a tested intervention.\n\nThe original research journal and institution were not named in the available report. This is an educational summary, not medical advice. If anything here raises questions for you, please speak with your GP or a clinical professional.",
+      "headline": "Mendelian randomisation study links elevated blood tyrosine to shorter male lifespan",
+      "is_preprint": false,
+      "run_date": "2026-09-07",
+      "run_iso": "2026-09-07T13:14:47Z",
+      "scores": {
+        "audience_breadth": 5,
+        "importance": 6,
+        "newest_iso": "2026-09-06T21:21:25Z",
+        "novelty": 7
+      },
+      "slug": "tyrosine-lifespan-mendelian-randomisation-sex-dimorphism",
+      "sources": [
+        {
+          "image_alt": null,
+          "image_licence_class": "press_release",
+          "image_url": null,
+          "is_preprint": false,
+          "is_primary": true,
+          "published_iso": "2026-09-06T21:21:25Z",
+          "publisher": "ScienceDaily",
+          "title": "Popular brain supplement linked to shorter lifespan in men",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260904000330.htm"
+        }
+      ],
+      "standfirst": "A large observational and genetic analysis of more than 270,000 individuals associates higher circulating tyrosine with reduced life expectancy in men, with no equivalent signal detected in women.",
+      "summary": "A study drawing on data from more than 270,000 individuals has found an association between higher blood concentrations of the amino acid tyrosine and a shorter lifespan specifically in men. The analysis combined conventional observational data with Mendelian randomisation — a technique that uses naturally occurring genetic variants as instrumental variables to test for causal relationships — to strengthen the inference beyond simple correlation. Elevated tyrosine was associated with a reduction in male life expectancy of approximately one year in the modelled estimates; no statistically significant effect was observed in women.\n\nTyrosine is a non-essential amino acid present in protein-rich foods including meat, fish, eggs, and dairy, and is widely marketed as a dietary supplement promoted for cognitive performance and mental alertness. The finding raises questions about sex-specific metabolic handling of tyrosine and whether the amino acid, or a downstream metabolite, mediates the observed effect on longevity.\n\nThe ScienceDaily report does not identify the publishing institution, lead research group, or journal. It is not possible from the available lede to assess sample composition, the specific genetic instruments used, or how potential confounders were handled. Researchers in nutritional genomics, epidemiology, and the genetics of ageing are likely to want to examine the primary publication. The sex-specific pattern is a finding of particular interest for those studying sexual dimorphism in complex traits.\n\nThe study does not constitute a basis for recommendations about tyrosine intake; its findings are an illustrative result from a published epidemiological model.",
+      "tags": [
+        "tyrosine",
+        "mendelian-randomisation",
+        "longevity",
+        "nutritional-genomics",
+        "sexual-dimorphism",
+        "epidemiology",
+        "ageing"
+      ]
+    },
+    {
+      "audiences": [
+        "researchers",
+        "educators"
+      ],
+      "for_patients": null,
+      "headline": "Preprint: RAVEL framework suggests assortative mating drives most apparent genetic nurture effects on child cognition",
+      "is_preprint": true,
+      "run_date": "2026-09-07",
+      "run_iso": "2026-09-07T13:14:47Z",
+      "scores": {
+        "audience_breadth": 2,
+        "importance": 7,
+        "newest_iso": "2026-09-06T00:00:00Z",
+        "novelty": 8
+      },
+      "slug": "genetic-nurture-assortative-mating-ravel-preprint",
+      "sources": [
+        {
+          "image_alt": null,
+          "image_licence_class": "cc_by",
+          "image_url": null,
+          "is_preprint": true,
+          "is_primary": true,
+          "published_iso": "2026-09-06T00:00:00Z",
+          "publisher": "bioRxiv (Cold Spring Harbor Laboratory)",
+          "title": "Phantom genetic nurture: assortative mating accounts for most of the apparent association between parental genotypes and childhood cognitive performance",
+          "url": "https://www.biorxiv.org/content/10.64898/2026.09.01.748516v1?rss=1"
+        }
+      ],
+      "standfirst": "A new structural equation modelling approach applied to parent-offspring trios indicates that previously reported associations between parental genotypes and children's cognitive performance are largely attributable to assortative mating rather than genuine environmental mediation.",
+      "summary": "Researchers have introduced RAVEL, a structural equation modelling framework designed to separate genuine genetic nurture effects — whereby parental genotypes shape the environments they provide to offspring — from statistical artefacts introduced by assortative mating, measurement error, and unobserved genetic variation. The preprint, posted to bioRxiv from Cold Spring Harbor Laboratory, applies the method to parent-offspring trio data using childhood cognitive performance as the outcome trait.\n\nThe central finding is that the majority of the apparent association between non-transmitted parental polygenic scores and offspring cognitive outcomes — a signal that has been interpreted in recent literature as evidence of genetic nurture — can instead be accounted for by assortative mating. Partners who mate non-randomly on cognitive ability share correlated genomes, which inflates the apparent influence of parental genotype on offspring environments when standard polygenic score methods are used.\n\nRAVEL addresses this by using two independently constructed polygenic scores for the same trait as cross-validators, allowing the framework to estimate latent genetic liability associations while correcting for the biases identified. The authors report analytic derivations alongside simulation results.\n\nThis work is directly relevant to statistical geneticists, quantitative geneticists, and behavioural geneticists who work with polygenic scores in family-based study designs. It has implications for interpreting the broader genetic nurture literature, including studies of educational attainment, cognitive ability, and developmental outcomes. The preprint has not yet undergone peer review.",
+      "tags": [
+        "genetic-nurture",
+        "assortative-mating",
+        "polygenic-scores",
+        "statistical-genetics",
+        "family-based-studies",
+        "cognitive-traits",
+        "quantitative-genetics",
+        "preprint"
+      ]
     }
   ],
-  "last_run": "2026-09-06T11:30:09.847455+00:00",
+  "last_run": "2026-09-07T13:15:46.420318+00:00",
   "seen_urls": {
     "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012266": "2026-08-28T19:15:20.841426+00:00",
     "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012275": "2026-08-28T19:15:20.841426+00:00",
@@ -20500,18 +20632,13 @@
     "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012295": "2026-09-04T11:59:07.339510+00:00",
     "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012298": "2026-09-02T11:58:02.206145+00:00",
     "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012300": "2026-09-02T11:58:02.206145+00:00",
-    "https://news.cancerresearchuk.org/2026/08/24/new-treatment-helps-patients-with-rectal-cancer-avoid-major-surgery-and-side-effects/": "2026-08-24T07:55:34.522025+00:00",
     "https://news.cancerresearchuk.org/2026/08/25/latest-winner-in-our-research-is-beautiful-competition-6/": "2026-08-26T07:42:59.995912+00:00",
     "https://news.cancerresearchuk.org/2026/08/25/nhs-england-offering-hpv-self-testing-kits-cervical-screening/": "2026-08-25T07:42:28.726686+00:00",
     "https://news.cancerresearchuk.org/2026/08/27/breaking-down-barriers-to-cervical-screening-the-evidence-for-hpv-self-sampling/": "2026-08-27T18:05:44.267320+00:00",
     "https://news.cancerresearchuk.org/2026/08/27/lets-talk-about-hpv-7-common-questions-answered/": "2026-08-27T18:05:44.267320+00:00",
     "https://news.cancerresearchuk.org/2026/09/02/getting-back-into-the-lab-its-not-out-of-reach/": "2026-09-02T11:58:02.206145+00:00",
     "https://news.cancerresearchuk.org/2026/09/03/balancing-tried-and-tested-against-future-innovation-a-strategy-for-boosting-earlier-cancer-diagnosis/": "2026-09-03T11:56:07.043021+00:00",
-    "https://www.biorxiv.org/content/10.64898/2026.08.18.745509v1?rss=1": "2026-08-24T07:55:34.522025+00:00",
     "https://www.biorxiv.org/content/10.64898/2026.08.18.745563v1?rss=1": "2026-08-25T07:42:28.726686+00:00",
-    "https://www.biorxiv.org/content/10.64898/2026.08.19.745295v1?rss=1": "2026-08-24T07:55:34.522025+00:00",
-    "https://www.biorxiv.org/content/10.64898/2026.08.19.745786v1?rss=1": "2026-08-24T07:55:34.522025+00:00",
-    "https://www.biorxiv.org/content/10.64898/2026.08.19.745843v1?rss=1": "2026-08-24T07:55:34.522025+00:00",
     "https://www.biorxiv.org/content/10.64898/2026.08.19.745862v1?rss=1": "2026-08-25T07:42:28.726686+00:00",
     "https://www.biorxiv.org/content/10.64898/2026.08.20.745718v1?rss=1": "2026-08-25T07:42:28.726686+00:00",
     "https://www.biorxiv.org/content/10.64898/2026.08.20.745929v1?rss=1": "2026-08-25T07:42:28.726686+00:00",
@@ -20547,17 +20674,17 @@
     "https://www.biorxiv.org/content/10.64898/2026.08.31.748265v1?rss=1": "2026-09-04T11:59:07.339510+00:00",
     "https://www.biorxiv.org/content/10.64898/2026.08.31.748372v1?rss=1": "2026-09-02T11:58:02.206145+00:00",
     "https://www.biorxiv.org/content/10.64898/2026.08.31.748413v1?rss=1": "2026-09-05T11:08:34.649960+00:00",
+    "https://www.biorxiv.org/content/10.64898/2026.09.01.748516v1?rss=1": "2026-09-07T13:15:46.420318+00:00",
     "https://www.biorxiv.org/content/10.64898/2026.09.01.748529v1?rss=1": "2026-09-05T11:08:34.649960+00:00",
     "https://www.biorxiv.org/content/10.64898/2026.09.01.748656v1?rss=1": "2026-09-06T11:30:09.847455+00:00",
     "https://www.biorxiv.org/content/10.64898/2026.09.02.748779v1?rss=1": "2026-09-05T11:08:34.649960+00:00",
     "https://www.biorxiv.org/content/10.64898/2026.09.02.748885v1?rss=1": "2026-09-05T11:08:34.649960+00:00",
+    "https://www.biorxiv.org/content/10.64898/2026.09.03.748596v1?rss=1": "2026-09-07T13:15:46.420318+00:00",
     "https://www.england.nhs.uk/2026/08/high-street-pharmacies-to-launch-seven-minute-cholesterol-checks/": "2026-08-31T14:49:39.453780+00:00",
     "https://www.england.nhs.uk/2026/08/nhs-rolls-out-discreet-home-testing-kits-against-cervical-cancer-for-millions-of-women/": "2026-08-25T07:42:28.726686+00:00",
     "https://www.england.nhs.uk/2026/09/nhs-delivers-almost-a-quarter-of-a-million-menb-jabs-to-young-people-ahead-of-university-year/": "2026-09-04T11:59:07.339510+00:00",
     "https://www.england.nhs.uk/2026/09/nhs-kicks-off-flu-jabs-for-children-and-pregnant-women-ahead-of-winter/": "2026-09-01T12:20:41.665653+00:00",
     "https://www.phgfoundation.org/blog/risk-prediction-tools-in-primary-care-its-not-just-about-the-model/": "2026-09-02T11:58:02.206145+00:00",
-    "https://www.sciencedaily.com/releases/2026/08/260822015217.htm": "2026-08-24T07:55:34.522025+00:00",
-    "https://www.sciencedaily.com/releases/2026/08/260823014943.htm": "2026-08-24T07:55:34.522025+00:00",
     "https://www.sciencedaily.com/releases/2026/08/260823094135.htm": "2026-08-26T07:42:59.995912+00:00",
     "https://www.sciencedaily.com/releases/2026/08/260823094151.htm": "2026-08-27T18:05:44.267320+00:00",
     "https://www.sciencedaily.com/releases/2026/08/260824065514.htm": "2026-08-26T07:42:59.995912+00:00",
@@ -20577,6 +20704,8 @@
     "https://www.sciencedaily.com/releases/2026/09/260902234512.htm": "2026-09-05T11:08:34.649960+00:00",
     "https://www.sciencedaily.com/releases/2026/09/260903064219.htm": "2026-09-06T11:30:09.847455+00:00",
     "https://www.sciencedaily.com/releases/2026/09/260904000310.htm": "2026-09-05T11:08:34.649960+00:00",
+    "https://www.sciencedaily.com/releases/2026/09/260904000326.htm": "2026-09-07T13:15:46.420318+00:00",
+    "https://www.sciencedaily.com/releases/2026/09/260904000330.htm": "2026-09-07T13:15:46.420318+00:00",
     "https://www.statnews.com/2026/08/24/biotech-news-lady-gaga-and-her-fiance-launch-biotech-startup/?utm_campaign=rss": "2026-08-25T07:42:28.726686+00:00",
     "https://www.statnews.com/2026/08/24/doctors-hand-shakes-patients-research/?utm_campaign=rss": "2026-08-25T07:42:28.726686+00:00",
     "https://www.statnews.com/2026/08/24/fda-pauses-regenxbio-gene-therapy-trial-hunter-syndrome-safety-concerns/?utm_campaign=rss": "2026-08-25T07:42:28.726686+00:00",
@@ -20586,7 +20715,6 @@
     "https://www.statnews.com/2026/08/24/nurse-practitioner-preceptor-shortage-clinical-placement-challenges/?utm_campaign=rss": "2026-08-25T07:42:28.726686+00:00",
     "https://www.statnews.com/2026/08/24/public-sector-workers-health-insurance-costs-hospital-union-battle/?utm_campaign=rss": "2026-08-25T07:42:28.726686+00:00",
     "https://www.statnews.com/2026/08/24/retired-doctor-community-clinic-volunteering-education/?utm_campaign=rss": "2026-08-25T07:42:28.726686+00:00",
-    "https://www.statnews.com/2026/08/24/snap-restrictions-12-percent-drop-soda-purchases/?utm_campaign=rss": "2026-08-24T07:55:34.522025+00:00",
     "https://www.statnews.com/2026/08/24/transgender-care-ban-precedent-could-be-broadly-applied-medicaid-states/?utm_campaign=rss": "2026-08-25T07:42:28.726686+00:00",
     "https://www.statnews.com/2026/08/25/ai-drug-diversion-software-human-oversight-controlcheck-sentri7/?utm_campaign=rss": "2026-08-26T07:42:59.995912+00:00",
     "https://www.statnews.com/2026/08/25/cancer-screening-guidelines-long-term-care-facilities/?utm_campaign=rss": "2026-08-26T07:42:59.995912+00:00",
@@ -20707,6 +20835,8 @@
     "https://www.statnews.com/2026/09/04/pennsylvania-measles-deaths-data-cdc-director-rfk-jr/": "2026-09-04T11:59:07.339510+00:00",
     "https://www.statnews.com/2026/09/04/pennsylvania-measles-deaths-data-cdc-director-rfk-jr/?utm_campaign=rss": "2026-09-05T11:08:34.649960+00:00",
     "https://www.statnews.com/2026/09/05/md-vs-do-surrogacy-ai-medicine-stat-letters-to-editor/?utm_campaign=rss": "2026-09-05T11:08:34.649960+00:00",
+    "https://www.statnews.com/2026/09/06/ada-diabetes-association-ejection-conference-review-not-final/?utm_campaign=rss": "2026-09-07T13:15:46.420318+00:00",
+    "https://www.statnews.com/2026/09/07/novo-nordisk-heart-studies-inflammation-ziltivekimab/?utm_campaign=rss": "2026-09-07T13:15:46.420318+00:00",
     "https://www.statnews.com/pharmalot/2026/08/24/state-medicaid-obesity-drugs-regenxbio-gene-therapy/?utm_campaign=rss": "2026-08-25T07:42:28.726686+00:00",
     "https://www.statnews.com/pharmalot/2026/08/25/rfk-vaccine-disclosure-merck-court-loss-over-medicare/?utm_campaign=rss": "2026-08-26T07:42:59.995912+00:00",
     "https://www.statnews.com/pharmalot/2026/08/25/turkish-authorities-probe-teva-gaming-patent-system-disparaging-rivals/?utm_campaign=rss": "2026-08-26T07:42:59.995912+00:00",
