@@ -20659,31 +20659,432 @@
         "novartis",
         "neuromuscular"
       ]
+    },
+    {
+      "audiences": [
+        "researchers",
+        "genetic-counsellors",
+        "educators",
+        "students",
+        "patients"
+      ],
+      "for_patients": "UniQure, a biotechnology company, is expected to share four years' worth of results from a clinical trial of its experimental gene therapy for Huntington's disease before the end of September 2026. The therapy, called AMT-130, is designed to reduce the amount of a harmful protein produced by the faulty gene that causes Huntington's disease. It is delivered once, directly into the brain, using a modified virus. Four-year follow-up data are considered important because they can show whether any early benefit is maintained over time and whether there are longer-term safety concerns. UniQure has already applied to the US Food and Drug Administration for permission to market the therapy — these new results may form part of that assessment. No results have been published yet; this article reports that they are expected soon. This is an educational summary, not medical advice. If anything here raises questions for you, please speak with your GP or a clinical professional.",
+      "headline": "UniQure's Huntington's gene therapy trial four-year results expected before end of September",
+      "is_preprint": false,
+      "run_date": "2026-09-10",
+      "run_iso": "2026-09-10T12:01:41+00:00",
+      "scores": {
+        "audience_breadth": 6,
+        "importance": 8,
+        "newest_iso": "2026-09-10T10:30:00+00:00",
+        "novelty": 7
+      },
+      "slug": "uniqure-huntingtons-gene-therapy-four-year-readout",
+      "sources": [
+        {
+          "image_alt": null,
+          "image_licence_class": "all_rights",
+          "image_url": "https://www.statnews.com/wp-content/uploads/2020/12/AP_464867626358-1024x576.jpg",
+          "is_preprint": false,
+          "is_primary": true,
+          "published_iso": "2026-09-10T10:30:00+00:00",
+          "publisher": "STAT News",
+          "title": "STAT+: What to expect from UniQure's upcoming Huntington's gene therapy readout",
+          "url": "https://www.statnews.com/2026/09/10/uniqure-huntingtons-gene-therapy-trial-readout/"
+        }
+      ],
+      "standfirst": "STAT News reports that UniQure is expected to release four-year efficacy and safety data from its AMT-130 gene therapy trial for Huntington's disease before the end of September 2026.",
+      "summary": "UniQure is expected to publish four-year follow-up results from its closely tracked phase 1/2 clinical trial of AMT-130, an AAV-delivered gene therapy for Huntington's disease, before the end of September 2026, according to STAT News reporting.\n\nAMT-130 uses an RNA interference mechanism delivered via adeno-associated virus to reduce expression of mutant huntingtin (HTT) protein in the striatum. The trial has been a focus of the rare-disease gene therapy field given the limited treatment options for Huntington's disease and the precedent that a positive readout would set for allele-selective neurological gene therapies.\n\nThis item is significant in the context of an existing recent cluster: Genetic Current reported on 3 September 2026 that UniQure submitted AMT-130 to the FDA for regulatory review. The upcoming four-year clinical data readout is therefore distinct from, and materially relevant to, that regulatory submission — the data package will bear directly on how the FDA evaluates the filing. Researchers, neurologists, genetic counsellors, and the rare-disease patient community are likely to follow this readout closely.\n\nNote: the STAT News article is behind a paywall; this summary is based on the publicly accessible lede and the editorial team's knowledge of the publicly reported trial context. The full data have not yet been released.",
+      "tags": [
+        "huntingtons-disease",
+        "htt",
+        "gene-therapy",
+        "aav",
+        "clinical-trial-news",
+        "rare-disease",
+        "neurodegeneration"
+      ]
+    },
+    {
+      "audiences": [
+        "researchers",
+        "educators",
+        "students",
+        "patients"
+      ],
+      "for_patients": "The APOE gene comes in several versions, or alleles, that affect a person's risk of developing Alzheimer's disease. It has long been assumed that the version of APOE a person has in their DNA is the version their body uses. A new scientific report — not yet checked by independent experts — suggests this may not always be the case. The researchers found that some people's brain cells appear to produce a slightly different form of the APOE protein than their DNA would predict, possibly because of a process called RNA editing, which can alter the molecular messages cells use to make proteins. If this finding holds up after further checking, it could change how researchers think about APOE and Alzheimer's risk. This work is at an early stage and has not yet been peer-reviewed. It does not change current guidance about genetic testing or Alzheimer's prevention. This is an educational summary, not medical advice. If anything here raises questions for you, please speak with your GP or a clinical professional.",
+      "headline": "Preprint reports mRNA editing may alter APOE isoform expression in the human brain",
+      "is_preprint": true,
+      "run_date": "2026-09-10",
+      "run_iso": "2026-09-10T12:01:41+00:00",
+      "scores": {
+        "audience_breadth": 5,
+        "importance": 8,
+        "newest_iso": "2026-09-09T00:00:00+00:00",
+        "novelty": 9
+      },
+      "slug": "apoe-mrna-editing-alzheimer-risk-brain",
+      "sources": [
+        {
+          "image_alt": null,
+          "image_licence_class": "cc_by",
+          "image_url": null,
+          "is_preprint": true,
+          "is_primary": true,
+          "published_iso": "2026-09-09T00:00:00+00:00",
+          "publisher": "bioRxiv (Cold Spring Harbor Laboratory)",
+          "title": "mRNA editing of the Alzheimer's risk gene APOE",
+          "url": "https://www.biorxiv.org/content/10.64898/2026.09.03.749262v1?rss=1"
+        }
+      ],
+      "standfirst": "A bioRxiv preprint presents evidence that some individuals express brain APOE transcripts that differ from their genomically encoded allele, raising questions about how APOE risk variants are expressed.",
+      "summary": "A preprint posted to bioRxiv reports that the risk status assigned to individuals by their genomic APOE allele may not fully capture the APOE protein isoforms present in the brain. The authors show that a subset of individuals express APOE transcripts carrying C-to-T variants at one or both of the two sites that distinguish the three major APOE alleles (ε2, ε3, and ε4) — and that in some cases these transcript-level variants differ from what is encoded in the individual's genomic DNA.\n\nThe authors propose that mRNA editing — post-transcriptional modification of RNA bases — could be responsible, a mechanism that has previously been documented at other loci in the human brain. If confirmed, this would mean that some individuals classified as APOE ε3/ε3 by genomic sequencing could be producing a proportion of APOE ε4-like or APOE ε2-like protein in neural tissue, and vice versa.\n\nAPOE ε4 is the most strongly established common genetic risk factor for late-onset Alzheimer's disease. The question of whether mRNA editing modulates effective APOE isoform status in the brain has significant implications for research into disease mechanisms and for interpretation of APOE genotyping results in research contexts.\n\nThis is a preprint and has not been peer-reviewed. Findings should be regarded as preliminary pending independent replication and formal review. The work intersects with a separate cluster in this batch (item [33], PLOS Genetics) examining APOE isoform biology across environmental contexts; the two items are kept separate as they address distinct questions.",
+      "tags": [
+        "apoe",
+        "mrna-editing",
+        "alzheimers-disease",
+        "neurodegeneration",
+        "rna-biology",
+        "preprint"
+      ]
+    },
+    {
+      "audiences": [
+        "researchers",
+        "educators",
+        "students",
+        "genealogists",
+        "patients"
+      ],
+      "for_patients": "The APOE gene has several versions, or alleles. The ε4 version has long been known to increase a person's risk of Alzheimer's disease and heart-related conditions, based on studies mainly conducted in Europe and North America. A new study published in a peer-reviewed genetics journal looked at whether this pattern holds in people living in very different environments — including rural communities in Africa and Southeast Asia. The researchers found that the effects of APOE ε4 on cholesterol and the immune system appear to differ depending on where a person lives and what their lifestyle is like. This suggests that risk estimates from studies of one type of population may not apply straightforwardly to everyone. The research does not change current medical guidance, but it adds to scientific understanding of how genes and environment work together. This is an educational summary, not medical advice. If anything here raises questions for you, please speak with your GP or a clinical professional.",
+      "headline": "PLOS Genetics study finds APOE ε4 biological consequences vary between industrialised and non-industrial populations",
+      "is_preprint": false,
+      "run_date": "2026-09-10",
+      "run_iso": "2026-09-10T12:01:41+00:00",
+      "scores": {
+        "audience_breadth": 6,
+        "importance": 7,
+        "newest_iso": "2026-09-08T14:00:00+00:00",
+        "novelty": 8
+      },
+      "slug": "apoe-isoforms-industrialised-non-industrial-environments",
+      "sources": [
+        {
+          "image_alt": null,
+          "image_licence_class": "mixed",
+          "image_url": null,
+          "is_preprint": false,
+          "is_primary": true,
+          "published_iso": "2026-09-08T14:00:00+00:00",
+          "publisher": "Public Library of Science",
+          "title": "Divergent biological consequences of APOE isoforms across industrialized and non-industrial environments",
+          "url": "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012285"
+        }
+      ],
+      "standfirst": "Researchers examining APOE isoform effects across diverse human populations report that the ε4 allele's associations with cholesterol biology and disease risk differ markedly depending on environmental context.",
+      "summary": "A study published in PLOS Genetics presents evidence that the biological and health consequences of the APOE ε4 allele — the most significant common genetic risk factor for late-onset Alzheimer's disease — are not uniform across human populations and environmental contexts.\n\nThe research team, including investigators from institutions in Malaysia, Kenya, and the United States, compared APOE isoform effects on cholesterol metabolism and immune biology across groups living under contrasting industrialised and non-industrial conditions. Their findings suggest that the ε4 allele's associations with elevated disease risk documented predominantly in high-income, industrialised populations may be attenuated or modified in populations with different pathogen environments, diets, and lifestyles.\n\nThe authors note that APOE ε4 directly alters both lipid and immune biology, and that many of these effects are likely to be context-dependent — shaped by the local environment rather than by genomic sequence alone. The study contributes to a growing body of literature questioning the universality of allele-risk estimates derived from predominantly European, industrialised study cohorts.\n\nThe findings are published in PLOS Genetics. They carry implications for how population-specific disease risk associated with APOE genotypes should be interpreted in research and for how polygenic risk frameworks generalise across ancestrally and environmentally diverse populations. This study is distinct from the bioRxiv preprint in this batch that describes mRNA editing of APOE transcripts, though both address APOE isoform biology.",
+      "tags": [
+        "apoe",
+        "alzheimers-disease",
+        "population-genetics",
+        "ancestry-diversity",
+        "gene-environment-interaction",
+        "cholesterol",
+        "plos-genetics"
+      ]
+    },
+    {
+      "audiences": [
+        "researchers",
+        "educators",
+        "students",
+        "genealogists"
+      ],
+      "for_patients": null,
+      "headline": "Preprint proposes STING HAQ allele was positively selected during human Out of Africa migration and may have worsened smallpox mortality in Native Americans",
+      "is_preprint": true,
+      "run_date": "2026-09-10",
+      "run_iso": "2026-09-10T12:01:41+00:00",
+      "scores": {
+        "audience_breadth": 5,
+        "importance": 7,
+        "newest_iso": "2026-09-10T00:00:00+00:00",
+        "novelty": 9
+      },
+      "slug": "sting-haq-allele-positive-selection-out-of-africa",
+      "sources": [
+        {
+          "image_alt": null,
+          "image_licence_class": "cc_by",
+          "image_url": null,
+          "is_preprint": true,
+          "is_primary": true,
+          "published_iso": "2026-09-10T00:00:00+00:00",
+          "publisher": "bioRxiv (Cold Spring Harbor Laboratory)",
+          "title": "Natural Selection of the Common STING Allele HAQ in Anatomically Modern Humans",
+          "url": "https://www.biorxiv.org/content/10.64898/2026.09.04.749500v1?rss=1"
+        }
+      ],
+      "standfirst": "A bioRxiv preprint presents population-genetic evidence that a common STING allele impairing innate antiviral immunity was selected outside Africa and may have contributed to catastrophic post-Columbian smallpox mortality.",
+      "summary": "A preprint posted to bioRxiv investigates the evolutionary history and functional consequences of the STING allele designated HAQ (carrying the amino-acid substitutions R71H, G230A, and R293Q). The authors report that HAQ was positively selected in anatomically modern humans during the Out of Africa migration and is now present at high frequency outside sub-Saharan Africa.\n\nUsing population-level genotyping data, the team finds that approximately 82% of sampled Native Americans carry at least one copy of HAQ, with around 52% being homozygous (HAQ/HAQ), compared with 0% HAQ/HAQ homozygotes identified in twelve sub-Saharan African sub-groups studied. HAQ individuals show impaired DNA-induced type I interferon responses, including reduced IFN-α production following smallpox-relevant stimuli.\n\nSTING (Stimulator of Interferon Genes) is a central component of the innate immune pathway that detects cytosolic DNA and triggers antiviral interferon responses. The authors argue that the high frequency of the immune-attenuating HAQ allele in Native American populations may help explain, in part, the extraordinarily high mortality associated with smallpox epidemics following European contact in the Americas after 1492.\n\nThis is a preprint and has not been peer-reviewed. The proposed mechanism linking HAQ frequency to historical smallpox mortality is a population-genetic hypothesis; causal attribution of historical demographic events involves many interacting factors. The study is likely to attract significant scrutiny regarding its sampling strategies, statistical framework, and historical claims.",
+      "tags": [
+        "sting",
+        "innate-immunity",
+        "positive-selection",
+        "out-of-africa",
+        "population-genetics",
+        "native-american-genomics",
+        "smallpox",
+        "interferon",
+        "preprint"
+      ]
+    },
+    {
+      "audiences": [
+        "researchers",
+        "educators",
+        "students"
+      ],
+      "for_patients": null,
+      "headline": "Large GWAS identifies more than 1,200 variants linked to the Big Five personality traits and life outcomes",
+      "is_preprint": false,
+      "run_date": "2026-09-10",
+      "run_iso": "2026-09-10T12:01:41+00:00",
+      "scores": {
+        "audience_breadth": 4,
+        "importance": 6,
+        "newest_iso": "2026-09-08T13:40:34+00:00",
+        "novelty": 7
+      },
+      "slug": "personality-genetics-big-five-gwas-health-outcomes",
+      "sources": [
+        {
+          "image_alt": null,
+          "image_licence_class": "press_release",
+          "image_url": null,
+          "is_preprint": false,
+          "is_primary": true,
+          "published_iso": "2026-09-08T13:40:34+00:00",
+          "publisher": "ScienceDaily",
+          "title": "Your personality may be more genetic than scientists realized",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260907201554.htm"
+        }
+      ],
+      "standfirst": "Researchers report that personality traits have a broader genetic basis than previously recognised, with many associated variants also linked to health, longevity, and socioeconomic outcomes — while underlining the continued importance of environment.",
+      "summary": "A genome-wide association study (GWAS) reported via ScienceDaily has identified more than 1,200 genetic variants associated with the Big Five personality traits — openness, conscientiousness, extraversion, agreeableness, and neuroticism. The study, which the press release credits to a large international team, also finds that many of the same variants are associated with health outcomes, longevity, career trajectories, income, and everyday behavioural habits.\n\nThe findings extend earlier work on the genetic architecture of personality, which had identified far fewer robustly associated loci. The authors highlight that the genetic signal overlaps substantially with traits traditionally considered environmental or biographical, consistent with the broad pleiotropy increasingly observed across polygenic trait studies.\n\nImportantly, the researchers emphasise that environment continues to play a substantial role: the genetic variants identified collectively account for a minority of variance in personality, and non-genetic influences remain central. This is consistent with established models of gene–environment interplay in complex behavioural traits.\n\nFull methodological details, the journal of publication, and the specific institutions involved are not available in the public lede from ScienceDaily. Readers should consult the primary publication for study design, population composition, and effect sizes before drawing further conclusions.",
+      "tags": [
+        "personality-genetics",
+        "gwas",
+        "big-five",
+        "complex-traits",
+        "behavioural-genetics",
+        "pleiotropy",
+        "polygenic"
+      ]
+    },
+    {
+      "audiences": [
+        "researchers",
+        "educators",
+        "students"
+      ],
+      "for_patients": null,
+      "headline": "Preprint maps how PRDM9 allelic diversity shapes meiotic recombination landscapes in Atlantic salmon",
+      "is_preprint": true,
+      "run_date": "2026-09-10",
+      "run_iso": "2026-09-10T12:01:41+00:00",
+      "scores": {
+        "audience_breadth": 3,
+        "importance": 5,
+        "newest_iso": "2026-09-09T00:00:00+00:00",
+        "novelty": 8
+      },
+      "slug": "prdm9-alleles-recombination-atlantic-salmon",
+      "sources": [
+        {
+          "image_alt": null,
+          "image_licence_class": "cc_by",
+          "image_url": null,
+          "is_preprint": true,
+          "is_primary": true,
+          "published_iso": "2026-09-09T00:00:00+00:00",
+          "publisher": "bioRxiv (Cold Spring Harbor Laboratory)",
+          "title": "PRDM9 Alleles Guide Distinct Patterns of Recombination Localization in Atlantic Salmon",
+          "url": "https://www.biorxiv.org/content/10.64898/2026.09.03.749262v1?rss=1"
+        }
+      ],
+      "standfirst": "Large-scale PRDM9 genotyping in an aquaculture salmon population reveals that allelic variation in the zinc-finger DNA-binding domain produces distinct genome-wide recombination patterns, extending PRDM9 biology beyond mammals.",
+      "summary": "A preprint posted to bioRxiv reports the first large-scale characterisation of how natural variation in the PRDM9 gene shapes meiotic recombination across the genome in Atlantic salmon (Salmo salar). The work, conducted using data from an aquaculture population, provides a detailed picture of how different PRDM9 alleles — distinguished by variation in the zinc-finger array that determines where the protein binds — direct crossovers to distinct genomic locations.\n\nPRDM9 is the primary determinant of recombination hotspot locations in many vertebrate lineages, including humans and other mammals. Its role in salmonids was only recently established, making the Atlantic salmon an important model for understanding how PRDM9-directed recombination evolved outside the mammalian lineage.\n\nThe authors genotyped PRDM9 across a large number of individuals and integrated this with crossover data to demonstrate that allele-specific binding preferences translate into markedly different recombination landscapes — with implications for how genetic diversity is generated and maintained in salmonid populations. The extent of PRDM9 allelic diversity within the aquaculture cohort was found to be substantial.\n\nThe findings are relevant to population geneticists studying recombination biology, to researchers working on salmonid evolution and conservation, and to the aquaculture genetics community. This is a preprint and has not yet been peer-reviewed.",
+      "tags": [
+        "prdm9",
+        "meiotic-recombination",
+        "salmonid-genomics",
+        "recombination-hotspots",
+        "zinc-finger",
+        "population-genetics",
+        "preprint"
+      ]
+    },
+    {
+      "audiences": [
+        "researchers",
+        "educators"
+      ],
+      "for_patients": null,
+      "headline": "PLOS Genetics study introduces FM-GPT, a Bayesian fine-mapping method for large-scale transcriptome-wide association studies",
+      "is_preprint": false,
+      "run_date": "2026-09-10",
+      "run_iso": "2026-09-10T12:01:41+00:00",
+      "scores": {
+        "audience_breadth": 2,
+        "importance": 6,
+        "newest_iso": "2026-09-08T14:00:00+00:00",
+        "novelty": 7
+      },
+      "slug": "fm-gpt-bayesian-fine-mapping-twas-pheWAS",
+      "sources": [
+        {
+          "image_alt": null,
+          "image_licence_class": "mixed",
+          "image_url": null,
+          "is_preprint": false,
+          "is_primary": true,
+          "published_iso": "2026-09-08T14:00:00+00:00",
+          "publisher": "Public Library of Science",
+          "title": "FM-GPT: Bayesian fine mapping for phenome-wide transcriptome-wide association studies",
+          "url": "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012126"
+        }
+      ],
+      "standfirst": "Researchers describe a new statistical framework that prioritises putatively causal genes in transcriptome-wide association studies by applying Bayesian fine mapping across phenome-wide datasets including electronic health records.",
+      "summary": "A study published in PLOS Genetics introduces FM-GPT, a Bayesian fine-mapping method designed to address a persistent challenge in transcriptome-wide association studies (TWAS): that linkage disequilibrium and correlated gene expression produce spurious signals that are difficult to distinguish from genuine gene–trait associations.\n\nTWAS integrates genome-wide association study (GWAS) data with expression quantitative trait locus (eQTL) reference panels to identify genes associated with traits or diseases. However, as multiple genes in a region tend to have correlated expression patterns driven by shared regulatory variants, the approach frequently implicates more genes than are truly causal. Fine mapping — narrowing down which signals within a locus are most likely to be driving an association — is therefore essential for translating TWAS results into testable biological hypotheses.\n\nFM-GPT extends fine-mapping to phenome-wide settings, enabling simultaneous analysis across the large trait collections now available in electronic health record (EHR) biobanks. The authors, based at institutions including the University of Maryland and the University of Central Florida, demonstrate the method on publicly available phenomic resources, showing improved prioritisation of putatively causal genes relative to existing approaches.\n\nThe method is likely to be of interest to statistical geneticists working with large EHR-linked biobanks and to translational researchers using TWAS to nominate drug targets.",
+      "tags": [
+        "twas",
+        "fine-mapping",
+        "bayesian-methods",
+        "statistical-genetics",
+        "eqtl",
+        "gwas",
+        "electronic-health-records",
+        "plos-genetics"
+      ]
+    },
+    {
+      "audiences": [
+        "researchers",
+        "educators",
+        "students"
+      ],
+      "for_patients": null,
+      "headline": "PLOS Genetics study develops low-coverage whole-genome sequencing screen for apomixis in apple relatives",
+      "is_preprint": false,
+      "run_date": "2026-09-10",
+      "run_iso": "2026-09-10T12:01:41+00:00",
+      "scores": {
+        "audience_breadth": 3,
+        "importance": 5,
+        "newest_iso": "2026-09-08T14:00:00+00:00",
+        "novelty": 7
+      },
+      "slug": "apomixis-low-coverage-wgs-screen-malus-germplasm",
+      "sources": [
+        {
+          "image_alt": null,
+          "image_licence_class": "mixed",
+          "image_url": null,
+          "is_preprint": false,
+          "is_primary": true,
+          "published_iso": "2026-09-08T14:00:00+00:00",
+          "publisher": "Public Library of Science",
+          "title": "Development of a low-coverage whole genome sequencing screen for apomixis using a diverse set of Malus germplasm",
+          "url": "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012289"
+        }
+      ],
+      "standfirst": "Plant biologists describe a genome sequencing approach for identifying apomixis — clonal seed reproduction — across diverse Malus germplasm, with implications for crop breeding in eudicot species.",
+      "summary": "A study published in PLOS Genetics reports the development of a low-coverage whole-genome sequencing screen designed to detect apomixis across a diverse collection of Malus germplasm. Apomixis — the ability of plants to reproduce clonally through seeds without fertilisation — is of considerable interest in plant breeding because it would allow high-value hybrid genotypes to be propagated indefinitely without the genetic reshuffling that normally accompanies sexual reproduction.\n\nThe research team, based at institutions including the University of Georgia and Czech institutions, builds on a decade of discoveries identifying the genetic basis of apomixis in model species and natural apomicts such as Boechera and Pennisetum. Progress in eudicots — the broader group that includes most broadleaf crops — has been slower, partly because apomixis in these lineages involves more complex, pleiotropic genetic architecture.\n\nThe authors describe a sequencing strategy that uses reduced-depth whole-genome data to screen many accessions cost-effectively, and validate it against a diverse set of Malus — the genus including cultivated apple and its wild relatives. The method is intended to facilitate identification of novel apomictic lineages in eudicots that could serve as new systems for studying and eventually engineering apomixis in crop plants.\n\nThe study is published in PLOS Genetics and is of primary relevance to plant geneticists and crop scientists working on reproductive biology and agricultural genomics.",
+      "tags": [
+        "apomixis",
+        "plant-genetics",
+        "malus",
+        "whole-genome-sequencing",
+        "crop-breeding",
+        "reproductive-biology",
+        "plos-genetics"
+      ]
+    },
+    {
+      "audiences": [
+        "researchers",
+        "educators",
+        "students"
+      ],
+      "for_patients": null,
+      "headline": "PLOS Genetics study shows RPA–TERT–Tpz1 complex is required for productive telomerase engagement in fission yeast",
+      "is_preprint": false,
+      "run_date": "2026-09-10",
+      "run_iso": "2026-09-10T12:01:41+00:00",
+      "scores": {
+        "audience_breadth": 3,
+        "importance": 5,
+        "newest_iso": "2026-09-08T14:00:00+00:00",
+        "novelty": 7
+      },
+      "slug": "telomerase-rpa-tert-tpz1-fission-yeast",
+      "sources": [
+        {
+          "image_alt": null,
+          "image_licence_class": "mixed",
+          "image_url": null,
+          "is_preprint": false,
+          "is_primary": true,
+          "published_iso": "2026-09-08T14:00:00+00:00",
+          "publisher": "Public Library of Science",
+          "title": "Fission yeast RPA–TERT–Tpz1TPP1 complex promotes telomere extension and suppresses telomere recombination",
+          "url": "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012297"
+        }
+      ],
+      "standfirst": "Researchers provide genetic and structural modelling evidence that Replication Protein A bridges TERT and the telomere-capping protein Tpz1 to activate telomerase and suppress recombination at chromosome ends in fission yeast.",
+      "summary": "A study published in PLOS Genetics presents genetic and structural modelling evidence for a tripartite complex involving Replication Protein A (RPA), the catalytic subunit of telomerase (TERT, encoded by Trt1 in fission yeast), and the telomere-capping protein Tpz1 — the fission yeast orthologue of human TPP1 — in the activation of telomere extension.\n\nTelomerase maintains chromosome ends by adding repetitive DNA sequences to telomeres, counteracting the shortening that occurs with each cell division. A fundamental unresolved question has been how telomerase, once recruited to the telomere, transitions from a recruited to an actively elongating state. Recent work in human cells showed that RPA contributes to telomerase stimulation via interaction with TERT, and work in budding yeast implicated RPA in interactions with the TPP1 orthologue Est3.\n\nThe work by Moser, Points, and colleagues at the University of Illinois Chicago now provides evidence in fission yeast that RPA acts at the intersection of both these interactions — forming a complex with both TERT and Tpz1 to promote productive telomerase engagement. Loss of this complex results in impaired telomere extension and a switch towards recombination-based telomere maintenance.\n\nThe findings extend understanding of how telomerase activation is regulated across eukaryotes and may inform future research into telomere biology in human cells, including in the context of cancer-related telomere maintenance mechanisms.",
+      "tags": [
+        "telomerase",
+        "telomere-biology",
+        "rpa",
+        "tert",
+        "fission-yeast",
+        "chromosome-ends",
+        "molecular-genetics",
+        "plos-genetics"
+      ]
     }
   ],
-  "last_run": "2026-09-08T11:58:32.729719+00:00",
+  "last_run": "2026-09-10T12:04:38.007932+00:00",
   "seen_urls": {
+    "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012126": "2026-09-10T12:04:38.007932+00:00",
     "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012266": "2026-08-28T19:15:20.841426+00:00",
     "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012275": "2026-08-28T19:15:20.841426+00:00",
-    "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012277": "2026-08-26T07:42:59.995912+00:00",
     "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012278": "2026-09-02T11:58:02.206145+00:00",
     "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012279": "2026-09-03T11:56:07.043021+00:00",
-    "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012281": "2026-08-26T07:42:59.995912+00:00",
+    "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012285": "2026-09-10T12:04:38.007932+00:00",
     "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012286": "2026-09-03T11:56:07.043021+00:00",
     "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012287": "2026-09-01T12:20:41.665653+00:00",
     "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012288": "2026-08-28T19:15:20.841426+00:00",
+    "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012289": "2026-09-10T12:04:38.007932+00:00",
     "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012292": "2026-09-01T12:20:41.665653+00:00",
+    "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012293": "2026-09-10T12:04:38.007932+00:00",
     "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012294": "2026-09-01T12:20:41.665653+00:00",
     "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012295": "2026-09-04T11:59:07.339510+00:00",
+    "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012297": "2026-09-10T12:04:38.007932+00:00",
     "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012298": "2026-09-02T11:58:02.206145+00:00",
     "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012300": "2026-09-02T11:58:02.206145+00:00",
-    "https://news.cancerresearchuk.org/2026/08/25/latest-winner-in-our-research-is-beautiful-competition-6/": "2026-08-26T07:42:59.995912+00:00",
+    "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012301": "2026-09-10T12:04:38.007932+00:00",
+    "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012303": "2026-09-10T12:04:38.007932+00:00",
     "https://news.cancerresearchuk.org/2026/08/27/breaking-down-barriers-to-cervical-screening-the-evidence-for-hpv-self-sampling/": "2026-08-27T18:05:44.267320+00:00",
     "https://news.cancerresearchuk.org/2026/08/27/lets-talk-about-hpv-7-common-questions-answered/": "2026-08-27T18:05:44.267320+00:00",
     "https://news.cancerresearchuk.org/2026/09/02/getting-back-into-the-lab-its-not-out-of-reach/": "2026-09-02T11:58:02.206145+00:00",
     "https://news.cancerresearchuk.org/2026/09/03/balancing-tried-and-tested-against-future-innovation-a-strategy-for-boosting-earlier-cancer-diagnosis/": "2026-09-03T11:56:07.043021+00:00",
     "https://news.cancerresearchuk.org/2026/09/08/2025-26-in-review-cancer-research-uk-drives-major-progress-against-cancer/": "2026-09-08T11:58:32.729719+00:00",
-    "https://www.biorxiv.org/content/10.64898/2026.08.20.746068v1?rss=1": "2026-08-26T07:42:59.995912+00:00",
+    "https://news.cancerresearchuk.org/2026/09/08/how-northern-ireland-can-save-almost-6000-lives-from-cancer/": "2026-09-10T12:04:38.007932+00:00",
+    "https://news.cancerresearchuk.org/2026/09/09/from-ai-to-the-death-of-the-default-what-cancer-science-will-look-like-in-2036/": "2026-09-10T12:04:38.007932+00:00",
+    "https://news.cancerresearchuk.org/2026/09/09/link-between-hot-drinks-and-type-of-oesophageal-cancer-in-the-uk/": "2026-09-10T12:04:38.007932+00:00",
     "https://www.biorxiv.org/content/10.64898/2026.08.22.746371v1?rss=1": "2026-08-27T18:05:44.267320+00:00",
     "https://www.biorxiv.org/content/10.64898/2026.08.22.746446v1?rss=1": "2026-08-27T18:05:44.267320+00:00",
     "https://www.biorxiv.org/content/10.64898/2026.08.23.746539v1?rss=1": "2026-08-27T18:05:44.267320+00:00",
@@ -20720,14 +21121,16 @@
     "https://www.biorxiv.org/content/10.64898/2026.09.02.748779v1?rss=1": "2026-09-05T11:08:34.649960+00:00",
     "https://www.biorxiv.org/content/10.64898/2026.09.02.748885v1?rss=1": "2026-09-05T11:08:34.649960+00:00",
     "https://www.biorxiv.org/content/10.64898/2026.09.03.748596v1?rss=1": "2026-09-07T13:15:46.420318+00:00",
+    "https://www.biorxiv.org/content/10.64898/2026.09.03.749262v1?rss=1": "2026-09-10T12:04:38.007932+00:00",
+    "https://www.biorxiv.org/content/10.64898/2026.09.04.749444v1?rss=1": "2026-09-10T12:04:38.007932+00:00",
+    "https://www.biorxiv.org/content/10.64898/2026.09.04.749500v1?rss=1": "2026-09-10T12:04:38.007932+00:00",
     "https://www.england.nhs.uk/2026/08/high-street-pharmacies-to-launch-seven-minute-cholesterol-checks/": "2026-08-31T14:49:39.453780+00:00",
+    "https://www.england.nhs.uk/2026/09/busiest-summer-ever-for-nhs-but-aes-see-record-numbers-within-four-hours/": "2026-09-10T12:04:38.007932+00:00",
     "https://www.england.nhs.uk/2026/09/nhs-delivers-almost-a-quarter-of-a-million-menb-jabs-to-young-people-ahead-of-university-year/": "2026-09-04T11:59:07.339510+00:00",
     "https://www.england.nhs.uk/2026/09/nhs-kicks-off-flu-jabs-for-children-and-pregnant-women-ahead-of-winter/": "2026-09-01T12:20:41.665653+00:00",
+    "https://www.england.nhs.uk/2026/09/patients-to-get-quicker-treatment-for-migraines-acne-and-3-other-everyday-conditions-at-pharmacies/": "2026-09-10T12:04:38.007932+00:00",
     "https://www.phgfoundation.org/blog/risk-prediction-tools-in-primary-care-its-not-just-about-the-model/": "2026-09-02T11:58:02.206145+00:00",
-    "https://www.sciencedaily.com/releases/2026/08/260823094135.htm": "2026-08-26T07:42:59.995912+00:00",
     "https://www.sciencedaily.com/releases/2026/08/260823094151.htm": "2026-08-27T18:05:44.267320+00:00",
-    "https://www.sciencedaily.com/releases/2026/08/260824065514.htm": "2026-08-26T07:42:59.995912+00:00",
-    "https://www.sciencedaily.com/releases/2026/08/260824065546.htm": "2026-08-26T07:42:59.995912+00:00",
     "https://www.sciencedaily.com/releases/2026/08/260827010455.htm": "2026-08-27T18:05:44.267320+00:00",
     "https://www.sciencedaily.com/releases/2026/08/260827010516.htm": "2026-08-27T18:05:44.267320+00:00",
     "https://www.sciencedaily.com/releases/2026/08/260828005216.htm": "2026-08-28T19:15:20.841426+00:00",
@@ -20745,17 +21148,8 @@
     "https://www.sciencedaily.com/releases/2026/09/260904000310.htm": "2026-09-05T11:08:34.649960+00:00",
     "https://www.sciencedaily.com/releases/2026/09/260904000326.htm": "2026-09-07T13:15:46.420318+00:00",
     "https://www.sciencedaily.com/releases/2026/09/260904000330.htm": "2026-09-07T13:15:46.420318+00:00",
-    "https://www.statnews.com/2026/08/25/ai-drug-diversion-software-human-oversight-controlcheck-sentri7/?utm_campaign=rss": "2026-08-26T07:42:59.995912+00:00",
-    "https://www.statnews.com/2026/08/25/cancer-screening-guidelines-long-term-care-facilities/?utm_campaign=rss": "2026-08-26T07:42:59.995912+00:00",
-    "https://www.statnews.com/2026/08/25/fda-promises-new-ai-guidance-and-epic-ugm-updates/?utm_campaign=rss": "2026-08-26T07:42:59.995912+00:00",
-    "https://www.statnews.com/2026/08/25/health-news-cdc-releases-latest-life-expectancy-data/?utm_campaign=rss": "2026-08-26T07:42:59.995912+00:00",
-    "https://www.statnews.com/2026/08/25/how-trumps-funding-cuts-are-reshaping-the-health-system/?utm_campaign=rss": "2026-08-26T07:42:59.995912+00:00",
-    "https://www.statnews.com/2026/08/25/human-whale-songs-of-grief-essay-dr-caroline-cherston/?utm_campaign=rss": "2026-08-26T07:42:59.995912+00:00",
-    "https://www.statnews.com/2026/08/25/massachusetts-biotech-slump-then-turnaround/?utm_campaign=rss": "2026-08-26T07:42:59.995912+00:00",
-    "https://www.statnews.com/2026/08/25/rural-hospitals-response-medicaid-cuts-part-1-unraveled-series/?utm_campaign=rss": "2026-08-26T07:42:59.995912+00:00",
-    "https://www.statnews.com/2026/08/25/russell-vought-omb-funding-comments-daughter-benefited-nih-research/?utm_campaign=rss": "2026-08-26T07:42:59.995912+00:00",
-    "https://www.statnews.com/2026/08/25/sword-health-to-acquire-headspace-per-regulatory-filing/?utm_campaign=rss": "2026-08-26T07:42:59.995912+00:00",
-    "https://www.statnews.com/2026/08/25/two-measles-deaths-reported-pennsylvania-residents-not-vaccinated/?utm_campaign=rss": "2026-08-26T07:42:59.995912+00:00",
+    "https://www.sciencedaily.com/releases/2026/09/260907201554.htm": "2026-09-10T12:04:38.007932+00:00",
+    "https://www.sciencedaily.com/releases/2026/09/260907201609.htm": "2026-09-10T12:04:38.007932+00:00",
     "https://www.statnews.com/2026/08/26/biotech-insitro-ceo-daphne-koller-speeding-up-clinical-trials-ai-prognosis/": "2026-08-27T18:05:44.267320+00:00",
     "https://www.statnews.com/2026/08/26/biotech-news-key-data-on-new-class-of-cardio-drugs-coming/": "2026-08-27T18:05:44.267320+00:00",
     "https://www.statnews.com/2026/08/26/cac-scans-statin-use-prevent-calculator-heart-disease-risk/": "2026-08-27T18:05:44.267320+00:00",
@@ -20869,6 +21263,7 @@
     "https://www.statnews.com/2026/09/08/astrazeneca-tozorakimab-copd-exacerbations-titania-oberon/?utm_campaign=rss": "2026-09-08T11:58:32.729719+00:00",
     "https://www.statnews.com/2026/09/08/fat-medical-student-inclusivity-advocacy-health-at-any-size-physician/?utm_campaign=rss": "2026-09-08T11:58:32.729719+00:00",
     "https://www.statnews.com/2026/09/08/fda-guidance-reynolds-selling-fruity-new-vapes-unauthorized/?utm_campaign=rss": "2026-09-08T11:58:32.729719+00:00",
+    "https://www.statnews.com/2026/09/08/fda-names-leaders-cder-cber-michael-davis-karim-mikhail/": "2026-09-10T12:04:38.007932+00:00",
     "https://www.statnews.com/2026/09/08/flu-vaccination-season-gloves-waste-climate-changes/?utm_campaign=rss": "2026-09-08T11:58:32.729719+00:00",
     "https://www.statnews.com/2026/09/08/health-news-administrative-gap-delays-access-to-revmed-pancreatic-cancer-drug/?utm_campaign=rss": "2026-09-08T11:58:32.729719+00:00",
     "https://www.statnews.com/2026/09/08/inhibrx-inbrx-106-ox40-immunotherapy-head-and-neck-cancer-hpv-positive/?utm_campaign=rss": "2026-09-08T11:58:32.729719+00:00",
@@ -20877,8 +21272,23 @@
     "https://www.statnews.com/2026/09/08/roivant-mosliciguat-pulmonary-hypertension-interstitial-lung-disease-results/?utm_campaign=rss": "2026-09-08T11:58:32.729719+00:00",
     "https://www.statnews.com/2026/09/08/rural-hospital-mergers-medicaid-cuts-part-3-unraveled-series/?utm_campaign=rss": "2026-09-08T11:58:32.729719+00:00",
     "https://www.statnews.com/2026/09/08/uhg-political-donations-katherine-clark-democratic-whip-medicare-for-all/?utm_campaign=rss": "2026-09-08T11:58:32.729719+00:00",
-    "https://www.statnews.com/pharmalot/2026/08/25/rfk-vaccine-disclosure-merck-court-loss-over-medicare/?utm_campaign=rss": "2026-08-26T07:42:59.995912+00:00",
-    "https://www.statnews.com/pharmalot/2026/08/25/turkish-authorities-probe-teva-gaming-patent-system-disparaging-rivals/?utm_campaign=rss": "2026-08-26T07:42:59.995912+00:00",
+    "https://www.statnews.com/2026/09/08/unitedhealth-campaign-donations-katherine-clark-no-surprises-act-debate/": "2026-09-10T12:04:38.007932+00:00",
+    "https://www.statnews.com/2026/09/09/ai-healthcare-limitations-emergency-room-study-medical-scribe-impact/": "2026-09-10T12:04:38.007932+00:00",
+    "https://www.statnews.com/2026/09/09/ai-medicine-assisted-physicians-research-autonomy/": "2026-09-10T12:04:38.007932+00:00",
+    "https://www.statnews.com/2026/09/09/ai-medicine-doctors-replacement-debate-ama-ceo/": "2026-09-10T12:04:38.007932+00:00",
+    "https://www.statnews.com/2026/09/09/arpa-h-advocate-program-autonomous-ai-bots-for-heart-failure/": "2026-09-10T12:04:38.007932+00:00",
+    "https://www.statnews.com/2026/09/09/biotech-news-orexin-discovers-awawrded-prestigious-lasker-award/": "2026-09-10T12:04:38.007932+00:00",
+    "https://www.statnews.com/2026/09/09/coroner-details-infant-deaths-pennsylvania-measles-outbreak/": "2026-09-10T12:04:38.007932+00:00",
+    "https://www.statnews.com/2026/09/09/health-news-telemedicine-company-offers-glp-1s-for-addiction/": "2026-09-10T12:04:38.007932+00:00",
+    "https://www.statnews.com/2026/09/09/kura-oncology-spins-off-diabetes-focused-caspian-therapeutics/": "2026-09-10T12:04:38.007932+00:00",
+    "https://www.statnews.com/2026/09/09/scribe-emergency-room-fix-health-care-ai-prognosis/": "2026-09-10T12:04:38.007932+00:00",
+    "https://www.statnews.com/2026/09/09/uk-unveils-recommendations-ai-regulation-medicine/": "2026-09-10T12:04:38.007932+00:00",
+    "https://www.statnews.com/2026/09/10/2026-midterms-health-care-issues-analyzed-vaccine-policy/": "2026-09-10T12:04:38.007932+00:00",
+    "https://www.statnews.com/2026/09/10/health-news-oz-says-ai-based-avatars-can-help-rural-communities-despite-skepticism/": "2026-09-10T12:04:38.007932+00:00",
+    "https://www.statnews.com/2026/09/10/john-fetterman-post-stroke-behavior-experts-see-neurological-changes/": "2026-09-10T12:04:38.007932+00:00",
+    "https://www.statnews.com/2026/09/10/roivant-biotech-dealmaking-mosliciguat-origins/": "2026-09-10T12:04:38.007932+00:00",
+    "https://www.statnews.com/2026/09/10/rural-health-care-ai-adoption-challenges-part-4-unraveled-series/": "2026-09-10T12:04:38.007932+00:00",
+    "https://www.statnews.com/2026/09/10/uniqure-huntingtons-gene-therapy-trial-readout/": "2026-09-10T12:04:38.007932+00:00",
     "https://www.statnews.com/pharmalot/2026/08/27/pancreatic-cancer-drug-approved-trump-deal-with-biotechs/": "2026-08-28T19:15:20.841426+00:00",
     "https://www.statnews.com/pharmalot/2026/08/27/pancreatic-cancer-drug-approved-trump-deal-with-biotechs/?utm_campaign=rss": "2026-08-29T12:58:15.867374+00:00",
     "https://www.statnews.com/pharmalot/2026/08/28/astrazeneca-trial-failure-monstrous-conflict-of-interest/": "2026-08-28T19:15:20.841426+00:00",
@@ -20891,7 +21301,9 @@
     "https://www.statnews.com/pharmalot/2026/09/02/uniqure-huntingtons-fda-novo-nordisk-investors-pharmalittle-newsletter/": "2026-09-03T11:56:07.043021+00:00",
     "https://www.statnews.com/pharmalot/2026/09/03/pharmalittle-ultrangenyx-gene-therapy-failure-rev-med-lung-cancer/": "2026-09-04T11:59:07.339510+00:00",
     "https://www.statnews.com/pharmalot/2026/09/03/pharmalittle-ultrangenyx-gene-therapy-failure-rev-med-lung-cancer/?utm_campaign=rss": "2026-09-05T11:08:34.649960+00:00",
-    "https://www.statnews.com/pharmalot/2026/09/04/pharmalittle-bristol-car-t-trial-pause-pfizer-offloads-shelved-candidate/?utm_campaign=rss": "2026-09-05T11:08:34.649960+00:00"
+    "https://www.statnews.com/pharmalot/2026/09/04/pharmalittle-bristol-car-t-trial-pause-pfizer-offloads-shelved-candidate/?utm_campaign=rss": "2026-09-05T11:08:34.649960+00:00",
+    "https://www.statnews.com/pharmalot/2026/09/08/fda-warns-api-supplier-residue-corroded-production-line-sandals/": "2026-09-10T12:04:38.007932+00:00",
+    "https://www.statnews.com/pharmalot/2026/09/09/astrazeneca-copd-win-fda-filling-key-jobs/": "2026-09-10T12:04:38.007932+00:00"
   },
   "takedowns": []
 }
